@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  flex: none;
+  position: relative;
+  width: var(--emr-color-picker-saturation-width);
+  height: var(--emr-color-picker-saturation-height);
+  border-radius: var(--emr-color-picker-border-radius) var(--emr-color-picker-border-radius) 0 0;
+}
+
+:host:before {
+  content: '';
+  background: linear-gradient(to right,#fff,rgba(255,255,255,0));
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+:host:after {
+  content: '';
+  background: linear-gradient(to top,#000,rgba(0,0,0,0));
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+:host .pointer {
+  z-index: 2;
+  flex: none;
+  position: absolute;
+  cursor: pointer;
+  border: var(--emr-color-picker-saturation-pointer-border);
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: var(--emr-color-picker-saturation-pointer-size);
+  height: var(--emr-color-picker-saturation-pointer-size);
+  transform: translate(-50%, -50%);
+  box-shadow: var(--emr-color-picker-saturation-pointer-shadow);
+  border: var(--emr-color-picker-saturation-pointer-border);
+}

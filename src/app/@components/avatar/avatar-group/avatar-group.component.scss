@@ -1,0 +1,17 @@
+:host {
+  flex: none;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+:host ::ng-deep * + * {
+  margin-left: calc(var(--emr-avatar-group-item-offset) * -1);
+}
+
+:host ::ng-deep .emr-avatar,
+:host ::ng-deep .emr-avatar-total {
+  border: var(--emr-avatar-group-item-border);
+  z-index: 0;
+}
+

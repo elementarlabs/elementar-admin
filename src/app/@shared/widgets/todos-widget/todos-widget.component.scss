@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  height: 480px;
+
+  .row {
+    &.is-selected {
+      text-decoration: line-through;
+    }
+  }
+}

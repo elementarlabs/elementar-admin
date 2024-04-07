@@ -1,0 +1,20 @@
+:root {
+  --emr-number-input-gap: theme('gap.2');
+  --emr-number-input-control-bg: none;
+  --emr-number-input-control-color: theme('colors.neutral.500');
+  --emr-number-input-control-hover-color: theme('colors.neutral.600');
+  --emr-number-input-control-active-color: theme('colors.neutral.700');
+  --emr-number-input-control-hover-bg: theme('colors.neutral.50');
+  --emr-number-input-control-active-bg: theme('colors.neutral.100');
+  --emr-number-input-control-font-size: theme('fontSize.2xl');
+  --emr-number-input-control-border-radius: theme('borderRadius.md');
+  --emr-number-input-suffix-gap: theme('gap.3');
+  --emr-number-input-control-size: theme('width.7');
+  --emr-number-input-control-border: none;
+}
+
+html.dark {
+  --emr-number-input-control-color: theme('colors.neutral.300');
+  --emr-number-input-control-hover-color: theme('colors.neutral.200');
+  --emr-number-input-control-hover-bg: theme('colors.neutral.500');
+}

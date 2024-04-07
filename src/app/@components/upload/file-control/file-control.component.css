@@ -1,0 +1,10 @@
+:host {
+  display: inline-flex;
+  color: var(--emr-control-color);
+  font-size: var(--emr-control-font-size);
+  cursor: pointer;
+}
+
+:host(:hover) {
+  color: var(--emr-control-hover-color);
+}

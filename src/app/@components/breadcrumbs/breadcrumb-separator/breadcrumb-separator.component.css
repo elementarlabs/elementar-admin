@@ -1,0 +1,7 @@
+:host {
+  position: relative;
+  color: var(--emr-breadcrumbs-separator-color);
+  font-size: var(--emr-breadcrumbs-separator-font-size);
+  top: var(--emr-breadcrumbs-separator-position-top);
+  line-height: 0;
+}

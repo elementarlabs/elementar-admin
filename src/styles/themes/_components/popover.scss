@@ -1,0 +1,12 @@
+:root {
+  --emr-popover-border: theme('width.px') solid theme('colors.neutral.200');
+  --emr-popover-shadow: theme('boxShadow.lg');
+  --emr-popover-border-radius: theme('borderRadius.lg');
+  --emr-popover-bg: theme('colors.white');
+  --emr-popover-margin-offset: theme('spacing[2.5]');
+}
+
+html.dark {
+  --emr-popover-border: theme('width.px') solid theme('colors.neutral.700');
+  --emr-popover-bg: theme('colors.neutral.500');
+}

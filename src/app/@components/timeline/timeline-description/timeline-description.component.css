@@ -1,0 +1,5 @@
+:host {
+  display: block;
+  font-size: var(--emr-timeline-item-description-font-size);
+  color: var(--emr-timeline-item-description-color);
+}

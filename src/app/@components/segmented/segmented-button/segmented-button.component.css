@@ -1,0 +1,43 @@
+:host {
+  height: var(--emr-segmented-button-height);
+  padding: var(--emr-segmented-button-padding);
+  font-size: var(--emr-segmented-button-font-size);
+  border-radius: var(--emr-segmented-button-border-radius);
+  gap: var(--emr-segmented-button-gap);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--emr-segmented-button-color);
+}
+
+:host(:hover) {
+  background: var(--emr-segmented-button-hover-bg);
+  color: var(--emr-segmented-button-hover-color);
+}
+
+:host(.is-selected) {
+  background: var(--emr-segmented-button-selected-bg);
+  box-shadow: var(--emr-segmented-button-selected-shadow);
+  color: var(--emr-segmented-button-selected-color);
+}
+
+:host .icon {
+  line-height: 0;
+  margin-left: var(--emr-segmented-button-icon-offset-margin);
+}
+
+:host .icon ::ng-deep .mat-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+:host .icon:empty {
+  display: none;
+}
+
+:host:disabled,
+:host.is-disabled {
+  pointer-events: none;
+  opacity: .65;
+}

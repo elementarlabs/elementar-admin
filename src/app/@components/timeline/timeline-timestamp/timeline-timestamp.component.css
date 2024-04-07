@@ -1,0 +1,10 @@
+:host {
+  font-size: var(--emr-timeline-timestamp-font-size);
+  color: var(--emr-timeline-timestamp-color);
+  padding: var(--emr-timeline-timestamp-padding);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  white-space: nowrap;
+  vertical-align: top;
+}

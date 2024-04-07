@@ -1,0 +1,35 @@
+:host {
+  width: 100%;
+  height: var(--emr-incidents-bar-height);
+  background: var(--emr-incidents-bar-bg);
+  color: var(--emr-incidents-bar-color);
+  box-shadow: var(--emr-incidents-bar-box-shadow);
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  cursor: pointer;
+  display: flex;
+  grid-gap: 25px;
+  user-select: none;
+  padding: var(--emr-incidents-bar-padding);
+}
+
+:host(:hover) {
+  box-shadow: var(--emr-incidents-bar-hover-box-shadow);
+}
+
+:host .container {
+  display: flex;
+  height: 100%;
+  grid-area: content;
+  align-items: center;
+}
+
+:host .toggle-icon {
+  line-height: 0;
+  transition: transform .2s ease;
+}
+
+:host-context(.emr-incidents.is-visible) .toggle-icon {
+  transform: rotate(-180deg);
+}

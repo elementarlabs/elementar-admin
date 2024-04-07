@@ -1,0 +1,6 @@
+:host {
+  display: block;
+  height: var(--emr-navigation-divider-height);
+  background-color: var(--emr-navigation-divider-bg);
+  margin: var(--emr-navigation-divider-margin);
+}

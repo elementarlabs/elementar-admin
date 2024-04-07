@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  gap: var(--emr-number-input-gap);
+  /*opacity: 0;*/
+  /*transition: opacity 200ms;*/
+}
+
+/*:host.floating span {*/
+/*  opacity: 1;*/
+/*}*/
+
+:host .input {
+  width: auto;
+  max-width: none;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+:host .input {
+  background: none;
+  outline: none;
+  color: currentColor;
+  font: inherit;
+  border: none;
+}
+
+:host .input::-webkit-outer-spin-button,
+:host .input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+:host .controls {
+  display: flex;
+  height: 100%;
+  gap: 0.375rem;
+  user-select: none;
+}
+
+:host .control {
+  cursor: pointer;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--emr-number-input-control-size);
+  height: var(--emr-number-input-control-size);
+  background: var(--emr-number-input-control-bg);
+  color: var(--emr-number-input-control-color);
+  font-size: var(--emr-number-input-control-font-size);
+  line-height: var(--emr-number-input-control-font-size);
+  border-radius: var(--emr-number-input-control-border-radius);
+  position: relative;
+  border: var(--emr-number-input-control-border);
+  top: 1px;
+
+  ::ng-deep .mat-icon {
+    line-height: 24px;
+  }
+}
+
+:host .control span {
+  position: relative;
+  top: -1px;
+}
+
+:host .control:hover {
+  background: var(--emr-number-input-control-hover-bg);
+  color: var(--emr-number-input-control-hover-color);
+}
+
+:host .control[disabled] {
+  pointer-events: none;
+  opacity: 0.65;
+}

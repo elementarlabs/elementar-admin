@@ -1,0 +1,7 @@
+<button emr-color-picker-thumbnail [color]="color" [emrColorPickerTriggerFor]="colorPicker"></button>
+<ng-template #colorPicker>
+  <emr-color-picker [(color)]="color"></emr-color-picker>
+</ng-template>
+<p>
+  Selected color: <strong>{{ color }}</strong>
+</p>

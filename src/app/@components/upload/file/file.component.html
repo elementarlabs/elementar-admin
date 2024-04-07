@@ -1,0 +1,28 @@
+<div class="content">
+  <div class="flex items-center min-w-0">
+    <div class="overflow-hidden overflow-ellipsis whitespace-nowrap grow name">{{ name }}</div>
+    <div class="controls">
+      <ng-content select="emr-file-control,[emr-file-control]"></ng-content>
+    </div>
+  </div>
+  <ng-container>
+    @if (size || (state === 'uploading' && progress)) {
+      <div class="info">
+        <span class="uppercase" *ngIf="size">{{ size }}</span>
+        <ng-container *ngIf="size && progress">, </ng-container>
+        <ng-container *ngIf="progress">{{ progress }}%</ng-container>
+        <ng-container *ngIf="remainingTime"> {{ remainingTime }}</ng-container>
+      </div>
+    }
+    @if (progress) {
+      <div class="progress">
+        <div class="progress-bar" [style.width.%]="progress"></div>
+      </div>
+    }
+  </ng-container>
+  @if (state === 'error' && errorMessage) {
+    <div class="error">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

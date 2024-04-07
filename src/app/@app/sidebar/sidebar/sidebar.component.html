@@ -1,0 +1,51 @@
+<div class="inner">
+  <div class="header h-16">
+    <div class="font-bold text-lg px-7 logo">ELEMENTAR</div>
+    <!--  <div class="p-4">-->
+    <!--    <img src="assets/logo.svg" alt="" class="h-10">-->
+    <!--  </div>-->
+  </div>
+  <div class="body">
+    <emr-navigation #navigation [activeKey]="activeLinkId" class="navigation">
+      @for (navItem of navItems; track navItem) {
+        @switch (navItem.type) {
+          @case ('heading') {
+            <emr-navigation-heading>{{ navItem.name }}</emr-navigation-heading>
+          }
+          @case ('group') {
+            <emr-navigation-group>
+              <emr-navigation-group-toggle matRipple [for]="navItem.id">
+                @if (navItem.icon) {
+                  <mat-icon emrNavigationItemIcon class="material-symbols-outlined">{{ navItem.icon }}</mat-icon>
+                }
+                {{ navItem.name }}
+                <mat-icon emrNavigationGroupToggleIcon class="material-symbols-outlined">arrow_drop_down</mat-icon>
+              </emr-navigation-group-toggle>
+              <emr-navigation-group-menu [key]="navItem.id">
+                @for (childItem of navItem.children | orderBy:'name'; track childItem) {
+                  <a emr-navigation-item matRipple [routerLink]="childItem.link" [key]="childItem.link">
+                    {{ childItem.name }}
+                  </a>
+                }
+              </emr-navigation-group-menu>
+            </emr-navigation-group>
+          }
+          @default {
+            <a emr-navigation-item matRipple [routerLink]="navItem.link" [key]="navItem.link">
+              @if (navItem.icon) {
+                <mat-icon emrNavigationItemIcon class="material-symbols-outlined">{{ navItem.icon }}</mat-icon>
+              }
+              {{ navItem.name }}
+            </a>
+          }
+        }
+      }
+    </emr-navigation>
+  </div>
+  <div class="footer p-7">
+    <!--  <app-sidebar-go-to-premium></app-sidebar-go-to-premium>-->
+    <!--  <app-sidebar-upgrade-to-pro></app-sidebar-upgrade-to-pro>-->
+    <!--  <app-sidebar-upgrade-now></app-sidebar-upgrade-now>-->
+    <app-sidebar-toolbar></app-sidebar-toolbar>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+:host {
+  display: inline-grid;
+  user-select: none;
+  position: relative;
+  flex: none;
+  gap: var(--emr-color-picker-gap);
+  background: var(--emr-color-picker-bg);
+  border-radius: var(--emr-color-picker-border-radius);
+  border: var(--emr-color-picker-border);
+  padding: var(--emr-color-picker-padding);
+}
+
+:host-context(.emr-color-picker-overlay-panel) {
+  animation: .15s emr-color-picker-animation;
+}
+
+:host(.is-disabled) {
+  pointer-events: none;
+}
+
+:host-context(.emr-color-picker-above) {
+  margin-bottom: var(--emr-color-picker-margin-offset);
+  transform-origin: bottom;
+}
+
+:host-context(.emr-color-picker-below) {
+  margin-top: var(--emr-color-picker-margin-offset);
+  transform-origin: top;
+}
+
+:host-context(.emr-color-picker-before) {
+  margin-inline-end: var(--emr-color-picker-margin-offset);
+  transform-origin: right;
+}
+
+:host-context(.emr-color-picker-after) {
+  margin-inline-start: var(--emr-color-picker-margin-offset);
+  transform-origin: left;
+}
+
+@keyframes emr-color-picker-animation {
+  0% {
+    transform: scale(.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  white-space: nowrap;
+  position: relative;
+  flex: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--emr-navigation-item-bg);
+  min-height: var(--emr-navigation-item-height);
+  padding: var(--emr-navigation-item-padding);
+  font-size: var(--emr-navigation-item-font-size);
+  border-radius: var(--emr-navigation-item-border-radius);
+  font-weight: var(--emr-navigation-item-font-weight);
+  color: var(--emr-navigation-item-color);
+  gap: var(--emr-navigation-item-gap);
+}
+
+:host(:hover) {
+  background-color: var(--emr-navigation-item-hover-bg);
+  color: var(--emr-navigation-item-hover-color);
+}
+
+:host(.is-active),
+:host(.is-active:hover) {
+  background-color: var(--emr-navigation-item-active-bg);
+  color: var(--emr-navigation-item-active-color);
+}
+
+/*:host(:focus-visible) {*/
+/*  outline: var(--emr-outline-size) solid var(--emr-outline-color);*/
+/*  outline-offset: var(--emr-outline-offset);*/
+/*}*/
+
+:host .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--emr-navigation-item-icon-width);
+  color: var(--emr-navigation-item-icon-color);
+  margin-right: 0.75rem;
+  margin-inline-start: -0.0625rem;
+}
+
+:host:not(.is-active):hover .icon {
+  color: var(--emr-navigation-item-hover-icon-color);
+}
+
+:host(.is-active) .icon {
+  color: var(--emr-navigation-item-active-icon-color);
+}
+
+:host .icon:empty {
+  display: none;
+}
+
+:host .toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--emr-transition-transform);
+}
+
+:host(.is-active) .toggle {
+  transform: rotate(-180deg);
+}
+
+:host .toggle:empty {
+  display: none;
+}
+
+:host:has(.toggle:not(:empty)) {
+  padding-inline-end: var(--emr-navigation-group-toggle-has-icon-padding-end);
+}

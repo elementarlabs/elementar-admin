@@ -1,0 +1,10 @@
+<emr-upload-area #uploadArea="emrUploadArea" (selected)="selected($event)">
+  @if (!uploadArea.api.isDropActive) {
+    Drag & drop files here
+  } @else {
+    <div class="font-medium">Drop files here</div>
+  }
+</emr-upload-area>
+<p>
+  Selected files: {{ files | json }}
+</p>

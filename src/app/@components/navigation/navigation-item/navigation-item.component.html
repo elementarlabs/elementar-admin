@@ -1,0 +1,5 @@
+<div class="icon">
+  <ng-content select="[emrNavigationItemIcon]"></ng-content>
+  <ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
+</div>
+<ng-content></ng-content>

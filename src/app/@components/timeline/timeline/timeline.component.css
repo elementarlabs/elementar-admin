@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: max-content;
+  column-gap: 16px;
+}
+
+:host:has(.emr-timeline-timestamp) {
+  grid-template-columns: auto auto 1fr;
+}

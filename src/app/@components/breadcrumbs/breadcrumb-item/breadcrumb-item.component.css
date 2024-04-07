@@ -1,0 +1,13 @@
+:host {
+  font-size: var(--emr-breadcrumbs-item-font-size);
+  font-weight: var(--emr-breadcrumbs-item-font-weight);
+  color: var(--emr-breadcrumbs-item-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+:host(:hover) {
+  color: var(--emr-breadcrumbs-item-hover-color);
+  text-decoration: underline;
+  text-underline-offset: 0.1875rem;
+}

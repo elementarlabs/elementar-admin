@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <mat-form-field class="w-1/2">
+    <mat-label>Phone</mat-label>
+    <emr-phone-input formControlName="phone"></emr-phone-input>
+    @if (form.get('phone')?.hasError('invalidPhone')) {
+      <mat-error>Invalid phone</mat-error>
+    }
+  </mat-form-field>
+</form>

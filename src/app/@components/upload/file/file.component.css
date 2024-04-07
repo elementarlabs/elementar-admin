@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: var(--emr-file-padding);
+}
+
+:host .name {
+  font-size: var(--emr-file-name-font-size);
+}
+
+:host .info {
+  font-size: var(--emr-file-info-font-size);
+  color: var(--emr-file-info-color);
+}
+
+:host .content {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+:host .controls {
+  display: flex;
+  align-items: center;
+  gap: var(--emr-file-controls-gap);
+}
+
+:host .progress {
+  background: var(--emr-file-progress-bg);
+  height: var(--emr-file-progress-height);
+  flex: none;
+  border-radius: var(--emr-file-progress-border-radius);
+  margin: var(--emr-file-progress-margin);
+}
+
+:host .progress-bar {
+  background: var(--emr-file-progress-bar-bg);
+  border-radius: var(--emr-file-progress-border-radius);
+  height: 100%;
+}
+
+:host .error {
+  font-size: var(--emr-file-error-font-size);
+  color: var(--emr-file-error-color);
+}

@@ -1,0 +1,15 @@
+:host {
+  @apply block relative;
+
+  .content {
+    @apply overflow-hidden flex gap-8;
+  }
+
+  .controls {
+    @apply mt-4 flex gap-3;
+
+    &:empty {
+      @apply hidden;
+    }
+  }
+}

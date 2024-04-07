@@ -1,0 +1,23 @@
+:root {
+  --emr-tab-panel-width: 5rem;
+  --emr-tab-panel-item-width: 3.75rem;
+  --emr-tab-panel-item-height: 3.75rem;
+  --emr-tab-panel-item-padding: theme('padding.2');
+  --emr-tab-panel-item-color: theme('colors.neutral.500');
+  --emr-tab-panel-item-gap: theme('gap.1');
+  --emr-tab-panel-item-hover-bg: theme('colors.neutral.200');
+  --emr-tab-panel-item-hover-color: theme('colors.neutral.700');
+  --emr-tab-panel-item-active-bg: theme('colors.neutral.300');
+  --emr-tab-panel-item-active-color: theme('colors.neutral.800');
+  --emr-tab-panel-item-border-radius: theme('borderRadius.lg');
+  --emr-tab-panel-aside-width: 18.75rem;
+  --emr-tab-panel-border-end: 1px solid theme('borderColor.DEFAULT');
+  --emr-tab-panel-nav-padding: theme('padding[2.5]');
+  --emr-tab-panel-nav-gap: theme('gap.3');
+  --emr-tab-panel-item-text-font-size: theme('fontSize.xs');
+  --emr-tab-panel-item-icon-font-size: theme('fontSize.2xl');
+}
+
+html.dark {
+  --emr-tab-panel-border-end: 1px solid theme('colors.neutral.600');
+}

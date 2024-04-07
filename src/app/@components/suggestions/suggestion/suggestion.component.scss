@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: theme('gap[2.5]');
+  height: var(--emr-suggestion-height);
+  padding: var(--emr-suggestion-padding);
+  margin: var(--emr-suggestion-margin);
+  border-radius: var(--emr-suggestion-border-radius);
+
+  &:hover {
+    background: var(--emr-suggestion-hover-bg);
+    cursor: pointer;
+  }
+
+  .figure {
+    line-height: 0;
+  }
+
+  .icon,
+  .thumb {
+    line-height: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    --emr-avatar-size: theme('size.8');
+  }
+
+  .icon:empty,
+  .thumb:empty {
+    display: none;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: theme('gap[2.5]');
+    font-size: theme('fontSize.sm');
+  }
+}

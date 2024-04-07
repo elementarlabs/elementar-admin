@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+:host:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--emr-content-fade-width);
+  background: linear-gradient(to left, transparent, var(--emr-content-fade-color));
+}
+
+:host:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: var(--emr-content-fade-width);
+  background: linear-gradient(to right, transparent, var(--emr-content-fade-color));
+}

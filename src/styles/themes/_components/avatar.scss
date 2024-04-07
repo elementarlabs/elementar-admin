@@ -1,0 +1,25 @@
+:root {
+  --emr-avatar-font-weight: theme('fontWeight.medium');
+  --emr-avatar-size: theme('width.10');
+  --emr-avatar-border-radius: theme('borderRadius.full');
+  --emr-avatar-bg: theme('colors.emerald.500');
+  --emr-avatar-color: theme('colors.white');
+  --emr-avatar-presence-indicator-size: 20%;
+  --emr-avatar-presence-indicator-position-top: 5%;
+  --emr-avatar-presence-indicator-position-end: 5%;
+  --emr-avatar-presence-indicator-online-bg: theme('colors.green.500');
+  --emr-avatar-presence-indicator-offline-bg: theme('colors.neutral.300');
+  --emr-avatar-presence-indicator-outline: theme('colors.white') solid 2px;
+  --emr-avatar-total-font-size: theme('fontSize.xs');
+  --emr-avatar-total-font-weight: theme('fontWeight.medium');
+  --emr-avatar-total-color: theme('colors.white');
+  --emr-avatar-total-bg: theme('colors.neutral.700');
+  --emr-avatar-total-hover-bg: theme('colors.neutral.600');
+  --emr-avatar-group-item-offset: theme('spacing[2.5]');
+  --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
+}
+
+html.dark {
+  --emr-avatar-group-item-border: 0.125rem solid theme('colors.dark');
+  --emr-avatar-presence-indicator-outline: theme('colors.dark') solid 2px;
+}

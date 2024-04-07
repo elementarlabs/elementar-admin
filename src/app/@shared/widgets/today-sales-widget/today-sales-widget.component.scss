@@ -1,0 +1,8 @@
+:host {
+  display: block;
+
+  .export {
+    --mdc-outlined-button-outline-color: theme('borderColor.DEFAULT');
+    --mdc-outlined-button-container-height: theme('height.9');
+  }
+}

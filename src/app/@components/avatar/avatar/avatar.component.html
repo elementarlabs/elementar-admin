@@ -1,0 +1,28 @@
+@if (src) {
+  <img class="image" loading="lazy" [src]="src" [alt]="alt">
+}
+
+@if (presenceIndicator) {
+  <div class="presence-indicator"
+       [class.is-online]="presenceIndicator === 'online'"
+       [class.is-offline]="presenceIndicator === 'offline'"></div>
+}
+
+@if (text) {
+  <svg
+    width="100%"
+    height="100%"
+    viewBox="0 0 250 250"
+    xmlns="http://www.w3.org/2000/svg" class="relative z-[0]">
+    <text
+      x="50%"
+      y="50%"
+      alignment-baseline="central"
+      text-anchor="middle"
+      font-weight="inherit"
+      font-size="90"
+      fill="currentColor">{{ text }}</text>
+  </svg>
+}
+
+<ng-content select="mat-icon"></ng-content>

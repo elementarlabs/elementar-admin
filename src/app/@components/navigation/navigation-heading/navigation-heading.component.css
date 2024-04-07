@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  text-transform: var(--emr-navigation-heading-text-transform);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--emr-navigation-heading-color);
+  font-size: var(--emr-navigation-heading-font-size);
+  font-weight: var(--emr-navigation-heading-font-weight);
+  padding: var(--emr-navigation-heading-padding);
+  margin-bottom: var(--emr-navigation-heading-margin-bottom);
+}

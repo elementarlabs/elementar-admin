@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  background: var(--emr-segmented-bg);
+  padding: var(--emr-segmented-padding);
+  border-radius: var(--emr-segmented-border-radius);
+  gap: var(--emr-segmented-gap);
+  user-select: none;
+}

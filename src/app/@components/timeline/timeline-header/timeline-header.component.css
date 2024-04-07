@@ -1,0 +1,13 @@
+:host {
+  text-transform: var(--emr-timeline-header-text-transform);
+  font-size: var(--emr-timeline-header-font-size);
+  background: var(--emr-timeline-header-bg);
+  color: var(--emr-timeline-header-color);
+  padding: var(--emr-timeline-header-padding);
+  font-weight: var(--emr-timeline-header-font-weight);
+  align-items: center;
+  display: flex;
+  flex: none;
+  white-space: nowrap;
+  grid-column: 1 / -1;
+}

@@ -1,0 +1,8 @@
+:host {
+  display: contents;
+}
+
+:host .list-container {
+  display: none;
+  height: calc(100vh - var(--emr-layout-top-header-top) + var(--emr-layout-top-header-height));
+}

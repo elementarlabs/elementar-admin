@@ -1,0 +1,44 @@
+<emr-filter-builder [fields]="fields">
+  <ng-template emrFilterBuilderAdd>
+    <mat-icon>add</mat-icon>
+  </ng-template>
+  <ng-template emrFilterBuilderRemove>
+    <mat-icon>close</mat-icon>
+  </ng-template>
+  <ng-container emrFilterBuilderOperationDef="equals">
+    <ng-template emrFilterBuilderOperationName>Equals</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      =-->
+<!--    </ng-template>-->
+  </ng-container>
+  <ng-container emrFilterBuilderOperationDef="notEquals">
+    <ng-template emrFilterBuilderOperationName>Not Equals</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      !=-->
+<!--    </ng-template>-->
+  </ng-container>
+  <ng-container emrFilterBuilderOperationDef="isLessThen">
+    <ng-template emrFilterBuilderOperationName>Is Less Then</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      &lt;-->
+<!--    </ng-template>-->
+  </ng-container>
+  <ng-container emrFilterBuilderOperationDef="isGreaterThen">
+    <ng-template emrFilterBuilderOperationName>Is Greater Then</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      &gt;-->
+<!--    </ng-template>-->
+  </ng-container>
+  <ng-container emrFilterBuilderOperationDef="isBlank">
+    <ng-template emrFilterBuilderOperationName>Is Blank</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      <mat-icon class="material-icons-outlined">circle</mat-icon>-->
+<!--    </ng-template>-->
+  </ng-container>
+  <ng-container emrFilterBuilderOperationDef="isNotBlank">
+    <ng-template emrFilterBuilderOperationName>Is Not Blank</ng-template>
+<!--    <ng-template emrFilterBuilderOperationIcon>-->
+<!--      <mat-icon>circle</mat-icon>-->
+<!--    </ng-template>-->
+  </ng-container>
+</emr-filter-builder>

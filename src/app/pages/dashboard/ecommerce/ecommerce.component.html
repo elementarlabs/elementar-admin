@@ -1,0 +1,42 @@
+<div class="p-8 space-y-8">
+  <div class="flex items-center justify-between">
+    <h1 class="text-lg font-bold">Ecommerce</h1>
+    <div>
+      <mat-form-field class="date-range-input">
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-3">
+      <app-total-revenue-widget></app-total-revenue-widget>
+    </div>
+    <div class="col-span-3">
+      <app-site-visitors-widget></app-site-visitors-widget>
+    </div>
+    <div class="col-span-3">
+      <app-visit-duration-widget></app-visit-duration-widget>
+    </div>
+    <div class="col-span-6">
+      <app-purchases-by-channels-widget></app-purchases-by-channels-widget>
+    </div>
+    <div class="col-span-6">
+      <app-visitor-insights-widget></app-visitor-insights-widget>
+    </div>
+    <div class="col-span-8">
+      <app-today-sales-widget></app-today-sales-widget>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-3">
+      <app-exchange-widget></app-exchange-widget>
+    </div>
+  </div>
+</div>
+<mat-date-range-picker #picker></mat-date-range-picker>

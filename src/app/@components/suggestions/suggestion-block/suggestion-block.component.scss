@@ -1,0 +1,18 @@
+:host {
+  display: block;
+
+  .heading {
+    color: var(--emr-suggestion-block-heading-color);
+    font-size: var(--emr-suggestion-block-font-size);
+    font-weight: var(--emr-suggestion-block-font-weight);
+  }
+
+  .content {
+    padding: var(--emr-suggestion-block-content-padding);
+
+    &.is-inline {
+      display: flex;
+      gap: theme('gap.3');
+    }
+  }
+}

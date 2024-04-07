@@ -1,0 +1,23 @@
+:host {
+  @apply block h-full p-0;
+
+  .inner {
+    @apply h-full flex flex-col w-[300px] rounded-e-xl bg-neutral-100 overflow-y-auto overflow-x-hidden;
+  }
+
+  .header {
+    @apply flex-none flex items-center;
+  }
+
+  .body {
+    @apply grow relative overflow-y-auto overflow-x-hidden px-3;
+  }
+
+  .footer {
+    @apply flex-none;
+  }
+}
+
+:host-context(html.dark) .inner {
+  @apply bg-neutral-900;
+}

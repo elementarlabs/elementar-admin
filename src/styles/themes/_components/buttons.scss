@@ -1,0 +1,9 @@
+.stroked-alt {
+  --mdc-outlined-button-outline-color: theme('colors.neutral.300');
+}
+
+html.dark {
+  .stroked-alt {
+    --mdc-outlined-button-outline-color: theme('colors.neutral.500');
+  }
+}

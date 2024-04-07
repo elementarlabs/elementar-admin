@@ -1,0 +1,14 @@
+:host {
+  animation: var(--emr-skeleton-item-animation);
+  display: inline-block;
+  flex: none;
+  border-radius: 50%;
+}
+
+:host:not([class*="w-"]) {
+  width: var(--emr-skeleton-circle-size);
+}
+
+:host:not([class*="h-"]) {
+  height: var(--emr-skeleton-circle-size);
+}

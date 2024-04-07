@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: var(--emr-upload-area-bg);
+  padding: var(--emr-upload-area-padding);
+  border: var(--emr-upload-area-border);
+  border-radius: var(--emr-upload-area-border-radius);
+  color: var(--emr-upload-area-color);
+  font-size: var(--emr-upload-area-font-size);
+}
+
+:host(.is-drop-active) {
+  border: var(--emr-upload-area-drop-active-border);
+  color: var(--emr-upload-area-drop-active-color);
+}

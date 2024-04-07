@@ -1,0 +1,26 @@
+.mat-mdc-row {
+  &.cdk-drag-preview {
+    @apply bg-primary-50 w-full;
+
+    td {
+      vertical-align: middle;
+      height: inherit;
+    }
+  }
+}
+
+.table-row-drag-placeholder {
+  @apply bg-primary-200 h-[var(--mat-table-row-item-container-height)];
+}
+
+html.dark {
+  .mat-mdc-row {
+    &.cdk-drag-preview {
+      @apply bg-neutral-700;
+    }
+  }
+
+  .table-row-drag-placeholder {
+    @apply bg-neutral-600;
+  }
+}

@@ -1,0 +1,71 @@
+:host {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: var(--emr-alert-border-radius);
+  padding: var(--emr-alert-padding);
+  background-color: var(--emr-alert-bg-color);
+  color: var(--emr-alert-color);
+  gap: var(--emr-alert-gap);
+  font-size: var(--emr-alert-font-size);
+  border: var(--emr-alert-border-width) solid transparent;
+}
+
+:host(:has(.emr-alert-title)) {
+  align-items: stretch;
+}
+
+:host(.is-bordered) {
+  border-color: var(--emr-alert-border-color);
+}
+
+:host .thumbnail {
+  background-color: var(--emr-alert-thumbnail-bg);
+  color: var(--emr-alert-icon-color);
+  width: var(--emr-alert-thumbnail-size);
+  height: var(--emr-alert-thumbnail-size);
+  border-radius: var(--emr-alert-thumbnail-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+:host .thumbnail:empty {
+  display: none;
+}
+
+:host .title {
+  display: block;
+  font-weight: var(--emr-alert-title-font-weight);
+  margin-bottom: 0.25rem;
+  font-size: var(--emr-alert-title-font-size);
+}
+
+:host .actions {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--emr-alert-actions-gap);
+  line-height: 0;
+}
+
+:host ::ng-deep .emr-alert-action {
+  height: var(--emr-alert-action-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--emr-alert-action-padding);
+  border-radius: var(--emr-alert-action-border-radius);
+  text-transform: uppercase;
+  font-weight: var(--emr-alert-action-font-weight);
+}
+
+:host ::ng-deep .emr-alert-action:hover {
+  background: var(--emr-alert-action-hover-bg);
+}
+
+:host ::ng-deep .emr-alert-action:has(.mat-icon) {
+  padding: var(--emr-alert-action-with-icon-padding);
+}

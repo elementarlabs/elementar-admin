@@ -1,0 +1,31 @@
+:root {
+  --emr-incidents-bar-height: theme('height.24');
+  --emr-incidents-bar-bg: theme('colors.orange.400');
+  --emr-incidents-bar-padding: 0 theme('padding.8');
+  --emr-incidents-bar-color: theme('colors.neutral.800');
+  --emr-incidents-bar-box-shadow: theme('boxShadow.lg');
+  --emr-incidents-bar-hover-box-shadow: theme('boxShadow.xl');
+  --emr-incidents-list-bg: rgba(0, 0, 0, .32);
+  --emr-incidents-list-gap: theme('gap.5');
+  --emr-incidents-list-padding: theme('padding.7') 0;
+  --emr-incident-bg: theme('colors.white');
+  --emr-incident-color: theme('colors.neutral.700');
+  --emr-incident-border-radius: theme('borderRadius.md');
+  --emr-incident-padding: theme('padding.4') theme('padding.6');
+  --emr-incident-gap: theme('gap.6');
+  --emr-incident-border-start: theme('width.1') solid theme('colors.neutral.900');
+  --emr-incident-close-color: theme('colors.neutral.500');
+  --emr-incident-close-hover-color: theme('colors.neutral.900');
+  --emr-incident-title-font-size: theme('fontSize.sm');
+  --emr-incident-title-font-weight: theme('fontWeight.medium');
+  --emr-incident-details-font-size: theme('fontSize.sm');
+  --emr-incident-details-color: theme('colors.neutral.500');
+  --emr-incidents-title-font-size: theme('fontSize.base');
+  --emr-incidents-title-font-weight: theme('fontWeight.medium');
+  --emr-incidents-description-font-size: theme('fontSize.sm');
+  --emr-incidents-description-opacity: theme('opacity.80');
+}
+
+html.dark {
+  --emr-incidents-list-bg: rgba(255, 255, 255, .32);
+}

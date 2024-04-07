@@ -1,0 +1,5 @@
+:host {
+  display: block;
+  font-size: var(--emr-incident-title-font-size);
+  font-weight: var(--emr-incident-title-font-weight);
+}

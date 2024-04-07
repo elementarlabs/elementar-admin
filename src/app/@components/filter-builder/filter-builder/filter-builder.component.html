@@ -1,0 +1,63 @@
+@if (_isServer) {
+  <ng-content/>
+}
+
+<div class="flex items-center group-operations">
+  <button [matMenuTriggerFor]="groupOperationsMenu" class="group-operation" i18n>
+    {{ selectedGroupOperation.name }}
+  </button>
+  <div [matMenuTriggerFor]="addMenu" class="add">
+    <ng-template [ngTemplateOutlet]="_addRef.templateRef"></ng-template>
+  </div>
+</div>
+<div class="group">
+  @for (condition of _value; track condition; let index = $index) {
+    <div class="condition">
+      <div class="remove" (click)="removeCondition(index)">
+        <ng-template [ngTemplateOutlet]="_removeRef.templateRef"></ng-template>
+      </div>
+      <button class="condition-field"
+              [matMenuTriggerFor]="fieldsMenu">{{ getConditionField(condition[0]).name }}</button>
+      <button class="condition-operation"
+              [matMenuTriggerFor]="operationsMenu">
+        <ng-template [ngTemplateOutlet]="getConditionOperation(condition[1]).name"></ng-template>
+      </button>
+      <button class="condition-value">
+        <span i18n>&lt;enter a value&gt;</span>
+      </button>
+    </div>
+    <mat-menu #fieldsMenu>
+      <div emrMenuOptionGroup [(ngModel)]="condition[0]">
+        @for (field of fields; track field) {
+          <mat-option [value]="field.id" (click)="selectConditionField(condition, field)">{{ field.name }}</mat-option>
+        }
+      </div>
+    </mat-menu>
+    <mat-menu #operationsMenu>
+      <div emrMenuOptionGroup [(ngModel)]="condition[1]">
+        @for (operation of _operationDefs; track operation) {
+          <mat-option [value]="operation.id" (click)="selectConditionOperation(condition, operation)">
+            <div class="flex items-center">
+              @if (operation.operationIcon) {
+                <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
+              }
+
+              <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+            </div>
+          </mat-option>
+        }
+      </div>
+    </mat-menu>
+  }
+</div>
+
+<mat-menu #groupOperationsMenu>
+  @for (groupOperation of groupOperations; track groupOperation.id) {
+    <button mat-menu-item (click)="selectGroupOperation(groupOperation)">{{ groupOperation.name }}</button>
+  }
+</mat-menu>
+
+<mat-menu #addMenu>
+  <button mat-menu-item (click)="addCondition()">Add Condition</button>
+  <button mat-menu-item (click)="addGroup()">Add Group</button>
+</mat-menu>

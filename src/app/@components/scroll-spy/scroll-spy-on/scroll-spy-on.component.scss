@@ -1,0 +1,19 @@
+:host {
+  @apply block w-max rounded-full py-2 px-4 text-neutral-800 text-sm mt-0.5 border border-transparent;
+
+  &:hover {
+    @apply bg-neutral-200 text-neutral-900;
+  }
+
+  &.is-active {
+    @apply border-outline;
+  }
+}
+
+:host-context(html.dark) {
+  @apply text-neutral-300;
+
+  &:hover {
+    @apply bg-neutral-600;
+  }
+}

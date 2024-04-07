@@ -1,0 +1,86 @@
+<div class="emr-phone-input-container">
+  <button
+    type="button"
+    matRipple
+    [matMenuTriggerFor]="menu"
+    class="country-selector"
+    [disabled]="disabled"
+    (menuOpened)="menuSearchInput?.nativeElement?.focus()">
+    <span class="country-selector-flag flag" [ngClass]="selectedCountry.flagClass"></span>
+    <span class="country-selector-code" *ngIf="selectedCountry?.dialCode">+{{ selectedCountry.dialCode }}</span>
+    <mat-icon class="text-lg text-neutral-500 relative -top-px">expand_more</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="w-[320px]">
+    @if (enableSearch) {
+      <input
+        #menuSearchInput
+        class="country-search"
+        [(ngModel)]="searchCriteria"
+        type="text"
+        [placeholder]="searchPlaceholder"
+        (click)="$event.stopPropagation()">
+    }
+
+    @for (country of preferredCountriesInDropDown; track country) {
+      <button
+        type="button"
+        mat-menu-item
+        class="country-list-button"
+        (click)="onCountrySelect(country, focusable)">
+        <div class="icon-wrapper">
+          <div class="flag" [ngClass]="country.flagClass"></div>
+        </div>
+        <div class="label-wrapper">
+          {{ country.name }}
+          @if (country?.dialCode) {
+            <span [class.whitespace-nowrap]="!searchCriteria" class="text-neutral-500">+{{ country.dialCode }}
+              @if (country.areaCodes) {
+                {{ country.areaCodes.join(', ') }}
+              }
+            </span>
+          }
+        </div>
+      </button>
+    }
+
+    @if (preferredCountriesInDropDown.length) {
+      <mat-divider></mat-divider>
+    }
+
+    @for (country of allCountries | search : searchCriteria; track country) {
+      <button
+        type="button"
+        mat-menu-item
+        class="country-list-button"
+        (click)="onCountrySelect(country, focusable)">
+        <div class="icon-wrapper">
+          <div class="flag" [ngClass]="country.flagClass"></div>
+        </div>
+        <div>
+          {{ country.name }}
+          @if (country?.dialCode) {
+            <span [class.whitespace-nowrap]="!searchCriteria" class="text-neutral-500">+{{ country.dialCode }}
+              @if (country.areaCodes) {
+                {{ country.areaCodes.join(', ') }}
+              }
+            </span>
+          }
+        </div>
+      </button>
+    }
+  </mat-menu>
+  <input
+    matInput
+    type="tel"
+    inputmode="tel"
+    [autocomplete]="autocomplete"
+    [ngClass]="cssClass"
+    (blur)="onTouched()"
+    (keypress)="onInputKeyPress($event)"
+    [(ngModel)]="phoneNumber"
+    (ngModelChange)="onPhoneNumberChange()"
+    [errorStateMatcher]="errorStateMatcher"
+    [placeholder]="inputPlaceholder"
+    [disabled]="disabled"
+    #focusable>
+</div>

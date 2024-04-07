@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: theme('gap.4');
+  padding-inline-start: theme('padding.3');
+  height: theme('height.11');
+  width: 600px;
+  position: relative;
+
+  mat-icon {
+    z-index: 1;
+    position: relative;
+    color: theme('colors.neutral.500');
+  }
+
+  input {
+    position: absolute;
+    inset: 0;
+    border-radius: theme('borderRadius.md');
+    padding-left: theme('padding.12');
+    background: theme('colors.neutral.200');
+    z-index: 0;
+    outline: none;
+    @apply text-md;
+
+    &::placeholder {
+      @apply text-neutral-500;
+    }
+  }
+
+  &.has-dropdown {
+    z-index: 1001;
+
+    input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background: theme('colors.white');
+    }
+  }
+}
+
+:host-context(html.dark) {
+  mat-icon {
+    @apply text-neutral-400;
+  }
+
+  input {
+    @apply text-neutral-200 bg-neutral-700;
+
+    &::placeholder {
+      @apply text-neutral-400;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+:host .group-operations {
+  gap: var(--emr-filter-builder-group-operations-gap)
+}
+
+:host .group {
+  margin: var(--emr-filter-builder-group-margin);
+  padding: var(--emr-filter-builder-group-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--emr-filter-builder-group-gap);
+}
+
+:host .group-operation {
+  display: flex;
+  width: max-content;
+  user-select: none;
+  cursor: pointer;
+  font-size: var(--emr-filter-builder-group-operation-font-size);
+  font-weight: var(--emr-filter-builder-group-operation-font-weight);
+  color: var(--emr-filter-builder-group-operation-color);
+  background: var(--emr-filter-builder-group-operation-bg);
+  border-radius: var(--emr-filter-builder-group-operation-border-radius);
+  padding: var(--emr-filter-builder-group-operation-bpadding);
+}
+
+:host .group-operation:hover {
+  color: var(--emr-filter-builder-group-operation-hover-color);
+  background: var(--emr-filter-builder-group-operation-hover-bg);
+}
+
+:host .group-operation:active,
+:host .group-operation.active {
+  color: var(--emr-filter-builder-group-operation-active-color);
+  background: var(--emr-filter-builder-group-operation-active-bg);
+}
+
+:host .condition {
+  display: flex;
+  align-items: center;
+  gap: var(--emr-filter-builder-condition-gap);
+}
+
+:host .condition-field {
+  display: flex;
+  width: max-content;
+  user-select: none;
+  cursor: pointer;
+  font-size: var(--emr-filter-builder-condition-field-font-size);
+  font-weight: var(--emr-filter-builder-condition-field-font-weight);
+  color: var(--emr-filter-builder-condition-field-color);
+  background: var(--emr-filter-builder-condition-field-bg);
+  border-radius: var(--emr-filter-builder-condition-field-border-radius);
+  padding: var(--emr-filter-builder-condition-field-bpadding);
+}
+
+:host .condition-field:hover {
+  color: var(--emr-filter-builder-condition-field-hover-color);
+  background: var(--emr-filter-builder-condition-field-hover-bg);
+}
+
+:host .add {
+  line-height: 0;
+  color: var(--emr-filter-builder-group-add-color);
+  cursor: pointer;
+}
+
+:host .add:hover {
+  color: var(--emr-filter-builder-group-add-hover-color);
+}
+
+:host .remove {
+  line-height: 0;
+  color: var(--emr-filter-builder-condition-remove-color);
+  cursor: pointer;
+}
+
+:host .remove:hover {
+  color: var(--emr-filter-builder-condition-remove-hover-color);
+}
+
+:host .condition-field:active,
+:host .condition-field.active {
+  color: var(--emr-filter-builder-condition-field-active-color);
+  background: var(--emr-filter-builder-condition-field-active-bg);
+}
+
+:host .condition-operation {
+  display: flex;
+  width: max-content;
+  user-select: none;
+  cursor: pointer;
+  font-size: var(--emr-filter-builder-condition-operation-font-size);
+  font-weight: var(--emr-filter-builder-condition-operation-font-weight);
+  color: var(--emr-filter-builder-condition-operation-color);
+  background: var(--emr-filter-builder-condition-operation-bg);
+  border-radius: var(--emr-filter-builder-condition-operation-border-radius);
+  padding: var(--emr-filter-builder-condition-operation-bpadding);
+}
+
+:host .condition-operation:hover {
+  color: var(--emr-filter-builder-condition-operation-hover-color);
+  background: var(--emr-filter-builder-condition-operation-hover-bg);
+}
+
+:host .condition-operation:active,
+:host .condition-operation.active {
+  color: var(--emr-filter-builder-condition-operation-active-color);
+  background: var(--emr-filter-builder-condition-operation-active-bg);
+}
+
+:host .condition-value {
+  display: flex;
+  width: max-content;
+  user-select: none;
+  cursor: pointer;
+  font-size: var(--emr-filter-builder-condition-value-font-size);
+  font-weight: var(--emr-filter-builder-condition-value-font-weight);
+  color: var(--emr-filter-builder-condition-value-color);
+  background: var(--emr-filter-builder-condition-value-bg);
+  border-radius: var(--emr-filter-builder-condition-value-border-radius);
+  padding: var(--emr-filter-builder-condition-value-bpadding);
+}
+
+:host .condition-value:hover {
+  color: var(--emr-filter-builder-condition-value-hover-color);
+  background: var(--emr-filter-builder-condition-value-hover-bg);
+}

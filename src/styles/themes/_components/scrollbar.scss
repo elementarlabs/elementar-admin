@@ -1,0 +1,27 @@
+@tailwind components;
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar {
+  @apply bg-none w-[8px] h-[8px];
+}
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar-track {
+  @apply bg-neutral-200 rounded-sm;
+}
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar-thumb {
+  @apply rounded-sm bg-neutral-300 hover:bg-neutral-400;
+}
+
+html.dark {
+  body *:not(.emr-native-scroll)::-webkit-scrollbar-track {
+    @apply bg-neutral-500;
+  }
+
+  body *:not(.emr-native-scroll)::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-neutral-200 hover:bg-neutral-300;
+  }
+}
+
+body .emr-scroll-lg::-webkit-scrollbar {
+  @apply w-[11px] h-[11px]
+}

@@ -1,0 +1,12 @@
+<ng-container *ngFor="let $implicit of dataSource; let last = last">
+  <ng-container *ngIf="!last">
+    <ng-container *ngTemplateOutlet="itemRef; context: { $implicit }"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="!last">
+    <ng-container *ngTemplateOutlet="separatorRef"></ng-container>
+  </ng-container>
+  <ng-container *ngIf="last">
+    <ng-container *ngTemplateOutlet="activeItemRef; context: { $implicit }"></ng-container>
+  </ng-container>
+</ng-container>
+<ng-content></ng-content>

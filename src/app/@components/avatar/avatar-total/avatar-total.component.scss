@@ -1,0 +1,23 @@
+:host {
+  background: var(--emr-avatar-total-bg);
+  font-size: var(--emr-avatar-total-font-size);
+  font-weight: var(--emr-avatar-total-font-weight);
+  color: var(--emr-avatar-total-color);
+  border-radius: var(--emr-avatar-border-radius);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: var(--emr-avatar-total-hover-bg);
+  }
+}
+
+:host:not([class*="w-"]):not([class*="size-"]) {
+  width: var(--emr-avatar-size);
+}
+
+:host:not([class*="h-"]):not([class*="size-"]) {
+  height: var(--emr-avatar-size);
+}

@@ -1,0 +1,31 @@
+<div class="border hover:border-primary dark:hover:border-primary min-w-[240px] cursor-pointer dark:border-inverse gap-4 p-3
+            rounded-lg flex items-center justify-between">
+  <div class="flex items-center gap-2.5">
+    <mat-icon class="material-icons-outlined text-neutral-500">description</mat-icon>
+    <div>
+      <div class="text-sm overflow-hidden text-ellipsis whitespace-nowrap max-w-[220px]">{{ name }}</div>
+      <div class="text-xs text-neutral-500 overflow-hidden text-ellipsis whitespace-nowrap max-w-[220px]">{{ size }}</div>
+    </div>
+  </div>
+  <div>
+    @switch (state) {
+      @case ('uploading') {
+        <emr-gauge class="size-10" [value]="progress">
+          <emr-gauge-value class="text-xs">{{ progress }}%</emr-gauge-value>
+        </emr-gauge>
+      }
+
+      @case ('uploaded') {
+        <button mat-icon-button (click)="delete()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+
+      @case ('error') {
+        <button mat-icon-button (click)="delete()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    }
+  </div>
+</div>

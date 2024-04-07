@@ -1,0 +1,37 @@
+:host {
+  background: var(--emr-incidents-list-bg);
+  top: calc(var(--emr-layout-top-header-top) + var(--emr-layout-top-header-height));
+  transition: transform .15s, opacity .15s;
+  display: grid;
+  height: 0;
+  opacity: 0;
+  grid-gap: 25px;
+  grid-template-columns: auto minmax(1px, 1440px) auto;
+  grid-template-areas: ". content .";
+  transform-origin: top;
+  padding: var(--emr-incidents-list-padding);
+  overflow: hidden;
+  transform: scaleY(0);
+}
+
+:host(.is-fixed) {
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  right: 0;
+}
+
+:host-context(.emr-incidents.is-visible) {
+  height: 100%;
+  transform: scaleY(1);
+  opacity: 1;
+  overflow-y: auto;
+}
+
+:host .container {
+  display: grid;
+  height: min-content;
+  grid-area: content;
+  grid-row-gap: var(--emr-incidents-list-gap);
+  grid-auto-flow: row;
+}

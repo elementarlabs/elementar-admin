@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  white-space: nowrap;
+  position: relative;
+  flex: none;
+  cursor: pointer;
+  user-select: none;
+  width: var(--emr-navigation-item-width);
+  background-color: var(--emr-navigation-item-bg);
+  min-height: var(--emr-navigation-item-height);
+  padding: var(--emr-navigation-item-padding);
+  font-size: var(--emr-navigation-item-font-size);
+  border-radius: var(--emr-navigation-item-border-radius);
+  font-weight: var(--emr-navigation-item-font-weight);
+  color: var(--emr-navigation-item-color);
+  gap: var(--emr-navigation-item-gap);
+  border: var(--emr-navigation-item-border-width) solid var(--emr-navigation-item-border-color);
+}
+
+:host(:hover) {
+  background-color: var(--emr-navigation-item-hover-bg);
+  color: var(--emr-navigation-item-hover-color);
+}
+
+:host(.is-active),
+:host(.is-active:hover) {
+  background-color: var(--emr-navigation-item-active-bg);
+  color: var(--emr-navigation-item-active-color);
+}
+
+:host .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--emr-navigation-item-icon-width);
+  color: var(--emr-navigation-item-icon-color);
+}
+
+:host:not(.is-active):hover .icon {
+  color: var(--emr-navigation-item-hover-icon-color);
+}
+
+:host(.is-active) .icon {
+  color: var(--emr-navigation-item-active-icon-color);
+}
+
+:host .icon:empty {
+  display: none;
+}
+
+:host:has(.icon:not(:empty)) {
+  padding-inline-start: var(--emr-navigation-item-has-icon-padding-start);
+}

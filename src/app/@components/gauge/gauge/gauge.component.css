@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: none;
+  user-select: none;
+}
+
+:host:not([class*="w-"]):not([class*="size-"]) {
+  width: var(--emr-gauge-size);
+}
+
+:host:not([class*="h-"]):not([class*="size-"]) {
+  height: var(--emr-gauge-size);
+}
+
+:host .bg {
+  color: var(--emr-gauge-bg);
+}
+
+:host .fill {
+  transition: stroke-dasharray 1s ease 0s, stroke 1s ease 0s;
+  animation: emr-gauge-fill 1s ease forwards;
+  color: var(--emr-gauge-fill);
+}

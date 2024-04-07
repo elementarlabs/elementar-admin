@@ -1,0 +1,6 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--emr-skeleton-gap);
+}

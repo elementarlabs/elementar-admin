@@ -1,0 +1,35 @@
+:host {
+  display: grid;
+  align-items: center;
+  border-radius: var(--emr-incident-border-radius);
+  background: var(--emr-incident-bg);
+  grid-template-areas: "icon content close";
+  padding: var(--emr-incident-padding);
+  gap: var(--emr-incident-gap);
+  border-inline-start: var(--emr-incident-border-start);
+  grid-template-columns: [icon] var(--emr-incident-gap) [content] 1fr [action] var(--emr-incident-gap);
+  color: var(--emr-incident-color);
+}
+
+:host .content {
+  grid-area: content;
+  display: grid;
+  gap: var(--emr-incident-gap);
+  grid-template-areas: "data button";
+  grid-template-columns: [data] 1fr [button] var(--emr-incident-gap);
+}
+
+:host .data {
+  grid-area: data;
+}
+
+:host .icon,
+:host .close {
+  line-height: 0;
+  display: inline-block;
+  max-width: max-content;
+}
+
+:host .close {
+  cursor: pointer;
+}

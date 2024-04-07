@@ -1,0 +1,15 @@
+:root {
+  --emr-expand-fade-color: theme('colors.white');
+  --emr-expand-button-bg: theme('colors.neutral.950');
+  --emr-expand-button-color: theme('colors.white');
+  --emr-expand-button-font-size: theme('fontSize.xs');
+  --emr-expand-button-box-shadow: theme('boxShadow.md');
+  --emr-expand-button-border-radius: theme('borderRadius.full');
+  --emr-expand-button-padding: theme('padding[1.5]') theme('padding.4');
+  --emr-expand-button-hover-opacity: theme('opacity.90');
+  --emr-expand-expanded-button-boottom-position: 10px;
+}
+
+html.dark {
+  --emr-expand-fade-color: theme('colors.dark');
+}

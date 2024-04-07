@@ -1,0 +1,28 @@
+<a routerLink="/notifications/view" matRipple
+   class="flex py-4 px-4 border-b hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse">
+  <div class="flex-shrink-0">
+    <div class="relative mt-1">
+      <emr-avatar text="PS" [src]="notification.actor.avatarUrl" size="40"></emr-avatar>
+      <div class="flex absolute justify-center z-10 text-white items-center -right-0
+                  -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-white dark:border-inverse">
+        <mat-icon class="text-2xs !w-[11px] !h-[11px]">folder</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="pl-3 w-full space-y-3">
+    <div class="text-neutral-500 font-normal text-sm mb-1.5 dark:text-neutral-400">
+      <span class="font-semibold text-neutral-900 dark:text-white">{{ notification.actor.name }}</span>
+      invited you to edit files in the folder
+      <span class="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-200 dark:hover:text-blue-300">
+        {{ notification.entity.content['folderName'] }}
+      </span>
+    </div>
+    <div>
+      <div class="border rounded-lg px-3 py-2 flex items-center gap-2 w-max dark:border-neutral-500">
+        <mat-icon class="text-blue-200">folder</mat-icon>
+        <span class="text-xs">{{ notification.entity.content['folderName'] }}</span>
+      </div>
+    </div>
+    <div class="text-xs font-medium text-primary-700 dark:text-primary-400">{{ notification.createdAt }}</div>
+  </div>
+</a>

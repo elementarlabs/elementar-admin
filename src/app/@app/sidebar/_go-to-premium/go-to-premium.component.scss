@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  width: max-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: theme('padding.6') theme('padding.8');
+  border-radius: theme('borderRadius.xl');
+  overflow: hidden;
+  background: linear-gradient(to right, rgb(241, 142, 156), rgb(253, 186, 116));
+  text-align: center;
+  box-shadow: theme('boxShadow.lg');
+  margin: 0 auto;
+}
+
+:host:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: theme('colors.amber.500');
+  opacity: 0.2;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, theme('colors.amber.200') 10px),
+                    repeating-linear-gradient(theme('colors.amber.400'), theme('colors.amber.500'));
+}

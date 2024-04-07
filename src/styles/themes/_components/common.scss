@@ -1,0 +1,57 @@
+html {
+  @apply antialiased leading-tight min-h-screen;
+}
+
+body {
+  @apply min-h-screen;
+}
+
+.mdc-icon-button {
+  line-height: 0;
+}
+
+.logo {
+  background: linear-gradient(theme('colors.rose.500'), theme('colors.purple.500'));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0;
+}
+
+.mat-mdc-menu-panel {
+  max-width: none !important;
+}
+
+.emr-button-loading {
+  .mat-button-wrapper {
+    visibility: hidden;
+  }
+
+  .mat-mdc-progress-spinner {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+  }
+}
+
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input.emr-number-input-no-spinners::-webkit-outer-spin-button,
+input.emr-number-input-no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number].emr-number-input-no-spinners {
+  -moz-appearance: textfield;
+}
