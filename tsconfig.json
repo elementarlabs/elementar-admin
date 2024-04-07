@@ -16,6 +16,9 @@
       ],
       "@state/*": [
         "./src/app/@state/*"
+      ],
+      "@meta/*": [
+        "./src/app/@meta/*"
       ]
     },
     "outDir": "./dist/out-tsc",
