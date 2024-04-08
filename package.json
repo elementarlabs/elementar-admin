@@ -1,5 +1,5 @@
 {
-  "name": "elementar-ui-admin",
+  "name": "elementar-admin",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:elementar-ui-admin": "node dist/elementar-ui-admin/server/server.mjs"
+    "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs"
   },
   "private": true,
   "dependencies": {
