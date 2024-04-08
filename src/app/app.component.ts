@@ -7,13 +7,15 @@ import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
 import { AnalyticsService } from '@services/analytics.service';
 import { SeoService } from '@services/seo.service';
+import { PageLoadingBarComponent } from '@components/page-loading-bar/page-loading-bar/page-loading-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    ScreenLoaderComponent
+    ScreenLoaderComponent,
+    PageLoadingBarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

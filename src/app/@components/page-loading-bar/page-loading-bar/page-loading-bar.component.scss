@@ -1,0 +1,35 @@
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -99999;
+  display: none;
+
+  .emr-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--emr-loading-bar-height);
+
+    &__progress {
+      background: var(--emr-loading-bar-bg);
+      border-radius: 0;
+    }
+
+    &__value {
+      border-radius: 0;
+    }
+  }
+
+  &.is-fixed {
+    width: 100vw;
+    position: fixed;
+  }
+
+  &.is-visible {
+    z-index: 999;
+    display: block;
+  }
+}
