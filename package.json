@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "demo:build": "ng build --base-href='./'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs"
