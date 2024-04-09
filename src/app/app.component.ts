@@ -1,5 +1,5 @@
 import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
-import { NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { ThemeManagerService } from '@services/theme-manager.service';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
 import { ScreenLoaderService } from '@services/screen-loader.service';
@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
   constructor() {
     afterNextRender(() => {
       this._analyticsService.trackPageViews();
-      setTimeout(() => this._screenLoader.hide(), 3000);
       // Scroll a page to top if url changed
       this._router.events
         .pipe(
@@ -44,6 +43,14 @@ export class AppComponent implements OnInit {
             top: 0,
             left: 0
           });
+        })
+      ;
+      this._router.events
+        .pipe(
+          filter(event=> event instanceof NavigationEnd)
+        )
+        .subscribe(() => {
+          setTimeout(() => this._screenLoader.hide(), 3000);
         })
       ;
     });
