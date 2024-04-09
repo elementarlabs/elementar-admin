@@ -1,5 +1,5 @@
 import {
-  Component,
+  Component, input,
   Input,
   numberAttribute,
   OnInit
@@ -15,19 +15,23 @@ import {
   }
 })
 export class GaugeComponent implements OnInit {
-  @Input({ transform: numberAttribute })
-  value = 0;
+  value = input(0, {
+    transform: numberAttribute
+  });
+  strokeWidth = input(10, {
+    transform: numberAttribute
+  });
+  radius = input(50, {
+    transform: numberAttribute
+  });
 
-  @Input({ transform: numberAttribute })
-  strokeWidth = 10;
-
-  strokeDasharray: string;
-  initialOffset: number;
-  strokeDashoffset: number;
+  protected strokeDasharray: string;
+  protected initialOffset: number;
+  protected strokeDashoffset: number;
 
   ngOnInit() {
-    const circumference = 332; //2 * Math.PI * 53; // 2 * pi * radius
-    const valueInCircumference = (this.value / 100) * circumference;
+    const circumference = 2 * Math.PI * this.radius();
+    const valueInCircumference = (this.value() / 100) * circumference;
     this.strokeDasharray = `${circumference} ${circumference}`;
     this.initialOffset = circumference;
     this.strokeDashoffset = this.initialOffset - valueInCircumference;

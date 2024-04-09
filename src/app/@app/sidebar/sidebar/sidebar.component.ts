@@ -9,6 +9,7 @@ import { OrderByPipe } from '@components/order-by.pipe';
 import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
 import { UpgradeToProComponent } from '@app/sidebar/_upgrade-to-pro/upgrade-to-pro.component';
 import { UpgradeNowComponent } from '@app/sidebar/_upgrade-now/upgrade-now.component';
+import { UsedSpaceComponent } from '@app/sidebar/_used-space/used-space.component';
 
 export interface NavItem {
   type: string;
@@ -30,7 +31,8 @@ export interface NavItem {
     ToolbarComponent,
     OrderByPipe,
     UpgradeToProComponent,
-    UpgradeNowComponent
+    UpgradeNowComponent,
+    UsedSpaceComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

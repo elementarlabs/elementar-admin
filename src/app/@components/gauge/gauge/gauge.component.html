@@ -4,30 +4,31 @@
   height="100%"
   width="100%"
   viewBox="0 0 120 120"
-  stroke-width="2"
+  stroke-width="0"
   class="transform -rotate-90">
   <circle
     class="bg"
-    [attr.stroke-width]="strokeWidth"
+    [attr.stroke-width]="strokeWidth()"
     stroke="currentColor"
     fill="transparent"
     shape-rendering="geometricPrecision"
-    r="53"
+    [attr.r]="radius()"
     cx="60"
     cy="60"/>
-  <circle
-    *ngIf="value > 0"
-    class="fill"
-    [attr.stroke-width]="strokeWidth"
-    shape-rendering="geometricPrecision"
-    stroke-linecap="round"
-    stroke="currentColor"
-    fill="transparent"
-    r="53"
-    cx="60"
-    cy="60"
-    [attr.stroke-dasharray]="strokeDasharray"
-    [attr.stroke-dashoffset]="strokeDashoffset"
-    [style.stroke-dashoffset]="strokeDashoffset"/>
+  @if (value() > 0) {
+    <circle
+      class="fill"
+      [attr.stroke-width]="strokeWidth()"
+      shape-rendering="geometricPrecision"
+      stroke-linecap="round"
+      stroke="currentColor"
+      fill="transparent"
+      [attr.r]="radius()"
+      cx="60"
+      cy="60"
+      [attr.stroke-dasharray]="strokeDasharray"
+      [attr.stroke-dashoffset]="strokeDashoffset"
+      [style.stroke-dashoffset]="strokeDashoffset"/>
+  }
 </svg>
 <ng-content select="emr-gauge-value"></ng-content>
