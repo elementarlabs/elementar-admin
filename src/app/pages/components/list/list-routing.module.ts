@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    title: 'List',
     loadComponent: () => import('./overview/overview.component').then(c => c.OverviewComponent)
   }
 ];

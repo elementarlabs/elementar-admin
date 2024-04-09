@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    title: 'Color Picker',
     loadComponent: () => import('./overview/overview.component').then(c => c.OverviewComponent)
   }
 ];
