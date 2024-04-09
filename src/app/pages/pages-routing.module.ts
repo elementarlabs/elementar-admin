@@ -75,6 +75,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/badge/badge.module').then(m => m.BadgeModule)
       },
       {
+        path: 'components/sidebar-widgets',
+        loadChildren: () => import('./components/sidebar-widgets/sidebar-widgets.module').then(m => m.SidebarWidgetsModule)
+      },
+      {
         path: 'components/bottom-sheet',
         loadChildren: () => import('./components/bottom-sheet/bottom-sheet.module').then(m => m.BottomSheetModule)
       },

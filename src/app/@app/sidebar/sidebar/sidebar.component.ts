@@ -406,6 +406,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Micro Chart',
           link: '/pages/components/micro-chart'
+        },
+        {
+          type: 'link',
+          name: 'Sidebar Widgets',
+          link: '/pages/components/sidebar-widgets'
         }
       ]
     },
