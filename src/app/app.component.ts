@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
 
   constructor() {
     afterNextRender(() => {
+      this._analyticsService.trackPageViews();
       setTimeout(() => this._screenLoader.hide(), 3000);
-
       // Scroll a page to top if url changed
       this._router.events
         .pipe(
@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
       }, 1500);
     }
 
-    this._analyticsService.trackPageViews();
     this._seoService.trackCanonicalChanges();
   }
 }
