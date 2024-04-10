@@ -1,3 +1,5 @@
-<emr-page-loading-bar fixed></emr-page-loading-bar>
+@if (pageLoaded()) {
+  <emr-page-loading-bar fixed></emr-page-loading-bar>
+}
 <app-screen-loader [loadingText]="loadingText()"></app-screen-loader>
 <router-outlet/>

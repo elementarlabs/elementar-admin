@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   private _router = inject(Router);
 
   loadingText = signal('Application Loading');
+  pageLoaded = signal(false);
 
   constructor() {
     afterNextRender(() => {
@@ -36,21 +37,17 @@ export class AppComponent implements OnInit {
       // Scroll a page to top if url changed
       this._router.events
         .pipe(
-          filter(event=> event instanceof NavigationStart)
+          filter(event=> event instanceof NavigationEnd)
         )
         .subscribe(() => {
           window.scrollTo({
             top: 0,
             left: 0
           });
-        })
-      ;
-      this._router.events
-        .pipe(
-          filter(event=> event instanceof NavigationEnd)
-        )
-        .subscribe(() => {
-          setTimeout(() => this._screenLoader.hide(), 3000);
+          setTimeout(() => {
+            this._screenLoader.hide();
+            this.pageLoaded.set(true);
+          }, 3000);
         })
       ;
     });
