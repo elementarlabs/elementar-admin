@@ -5,10 +5,10 @@
   border-radius: var(--emr-skeleton-item-border-radius);
 }
 
-:host:not([class*="w-"]) {
+:host:not([class*="w-"]):not([class*="size-"]) {
   width: var(--emr-skeleton-block-width);
 }
 
-:host:not([class*="h-"]) {
+:host:not([class*="h-"]):not([class*="size-"]) {
   height: var(--emr-skeleton-block-height);
 }

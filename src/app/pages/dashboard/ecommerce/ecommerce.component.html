@@ -12,31 +12,58 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="grid grid-cols-12 gap-6">
-    <div class="col-span-3">
-      <app-total-revenue-widget></app-total-revenue-widget>
+  @defer {
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-3">
+        <app-total-revenue-widget></app-total-revenue-widget>
+      </div>
+      <div class="col-span-3">
+        <app-site-visitors-widget></app-site-visitors-widget>
+      </div>
+      <div class="col-span-3">
+        <app-visit-duration-widget></app-visit-duration-widget>
+      </div>
+      <div class="col-span-6">
+        <app-purchases-by-channels-widget></app-purchases-by-channels-widget>
+      </div>
+      <div class="col-span-6">
+        <app-visitor-insights-widget></app-visitor-insights-widget>
+      </div>
+      <div class="col-span-8">
+        <app-today-sales-widget></app-today-sales-widget>
+      </div>
     </div>
-    <div class="col-span-3">
-      <app-site-visitors-widget></app-site-visitors-widget>
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-3">
+        <app-exchange-widget></app-exchange-widget>
+      </div>
     </div>
-    <div class="col-span-3">
-      <app-visit-duration-widget></app-visit-duration-widget>
+  } @placeholder (minimum 1s) {
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-3">
+        <app-dashboard-skeleton-widget></app-dashboard-skeleton-widget>
+      </div>
+      <div class="col-span-3">
+        <app-dashboard-skeleton-widget></app-dashboard-skeleton-widget>
+      </div>
+      <div class="col-span-3">
+        <app-dashboard-skeleton-widget></app-dashboard-skeleton-widget>
+      </div>
+      <div class="col-span-6">
+        <app-dashboard-chart-skeleton-widget></app-dashboard-chart-skeleton-widget>
+      </div>
+      <div class="col-span-6">
+        <app-dashboard-chart-skeleton-widget></app-dashboard-chart-skeleton-widget>
+      </div>
+      <div class="col-span-8">
+        <app-dashboard-cards-skeleton-widget></app-dashboard-cards-skeleton-widget>
+      </div>
     </div>
-    <div class="col-span-6">
-      <app-purchases-by-channels-widget></app-purchases-by-channels-widget>
-    </div>
-    <div class="col-span-6">
-      <app-visitor-insights-widget></app-visitor-insights-widget>
-    </div>
-    <div class="col-span-8">
-      <app-today-sales-widget></app-today-sales-widget>
-    </div>
-  </div>
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-3">
 
-  <div class="grid grid-cols-12 gap-6">
-    <div class="col-span-3">
-      <app-exchange-widget></app-exchange-widget>
+      </div>
     </div>
-  </div>
+  }
 </div>
 <mat-date-range-picker #picker></mat-date-range-picker>

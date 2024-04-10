@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'emr-skeleton',
@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './skeleton.component.html',
   styleUrls: ['./skeleton.component.css'],
   host: {
-    'class': 'emr-skeleton'
+    'class': 'emr-skeleton',
+    '[class.is-direction-row]': 'direction() === "row"',
+    '[class.is-direction-col]': 'direction() === "col"',
   }
 })
 export class SkeletonComponent {
+  direction = input<'row' | 'col'>('row');
 }

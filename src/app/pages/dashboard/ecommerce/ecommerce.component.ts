@@ -25,6 +25,15 @@ import {
 } from '@shared/widgets/visitor-insights-widget/visitor-insights-widget.component';
 import { TodaySalesWidgetComponent } from '@shared/widgets/today-sales-widget/today-sales-widget.component';
 import { ExchangeWidgetComponent } from '@shared/widgets/exchange-widget/exchange-widget.component';
+import {
+  DashboardSkeletonWidgetComponent
+} from '@shared/skeleton/dashboard-skeleton-widget/dashboard-skeleton-widget.component';
+import {
+  DashboardChartSkeletonWidgetComponent
+} from '@shared/skeleton/dashboard-chart-skeleton-widget/dashboard-chart-skeleton-widget.component';
+import {
+  DashboardCardsSkeletonWidgetComponent
+} from '@shared/skeleton/dashboard-cards-skeleton-widget/dashboard-cards-skeleton-widget.component';
 
 @Component({
   selector: 'app-ecommerce',
@@ -50,7 +59,10 @@ import { ExchangeWidgetComponent } from '@shared/widgets/exchange-widget/exchang
     PurchasesByChannelsWidgetComponent,
     VisitorInsightsWidgetComponent,
     TodaySalesWidgetComponent,
-    ExchangeWidgetComponent
+    ExchangeWidgetComponent,
+    DashboardSkeletonWidgetComponent,
+    DashboardChartSkeletonWidgetComponent,
+    DashboardCardsSkeletonWidgetComponent
   ],
   templateUrl: './ecommerce.component.html',
   styleUrl: './ecommerce.component.scss'

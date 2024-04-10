@@ -2,13 +2,16 @@
   animation: var(--emr-skeleton-item-animation);
   display: block;
   flex: none;
-  border-radius: var(--emr-skeleton-line-border-radius);
 }
 
-:host:not([class*="w-"]) {
+:host:not([class*="w-"]):not([class*="size-"]) {
   width: var(--emr-skeleton-line-width);
 }
 
-:host:not([class*="h-"]) {
+:host:not([class*="h-"]):not([class*="size-"]) {
   height: var(--emr-skeleton-line-height);
+}
+
+:host:not([class*="rounded-"]) {
+  border-radius: var(--emr-skeleton-line-border-radius);
 }

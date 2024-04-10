@@ -1,6 +1,11 @@
 :host {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: var(--emr-skeleton-gap);
+  @apply flex flex-wrap w-full gap-[var(--emr-skeleton-gap)];
+}
+
+:host(.is-direction-col) {
+  @apply flex-col;
+}
+
+:host(.is-direction-row) {
+  @apply flex-row;
 }
