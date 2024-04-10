@@ -9,7 +9,9 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
   imports: [
     RouterLink,
     MatAnchor,
-    MatSlideToggle
+    MatSlideToggle,
+    MatAnchor,
+    RouterLink
   ],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss'

@@ -20,6 +20,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
+    title: 'Page Not Found',
     loadComponent: () => import('./error/not-found/not-found.component').then(c => c.NotFoundComponent)
   }
 ];

@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
 
   constructor() {
     afterNextRender(() => {
-      this._analyticsService.trackPageViews();
       // Scroll a page to top if url changed
       this._router.events
         .pipe(
@@ -50,6 +49,7 @@ export class AppComponent implements OnInit {
           }, 3000);
         })
       ;
+      this._analyticsService.trackPageViews();
     });
   }
 

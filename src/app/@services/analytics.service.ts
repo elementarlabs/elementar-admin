@@ -1,39 +1,30 @@
 import { inject, Injectable } from '@angular/core';
 import { filter } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 
-declare const ga: any;
+declare const gtag: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService {
   private _router = inject(Router);
-  private _location = inject(Location);
+  private _document = inject(DOCUMENT);
   private readonly _enabled: boolean;
 
-  constructor() {
-    this._enabled = typeof ga !== 'undefined';
-  }
-
   trackPageViews(): void {
-    if (this._enabled) {
+    if (typeof gtag !== 'undefined') {
       this._router.events.pipe(
         filter((event) => event instanceof NavigationEnd),
       )
-      .subscribe(() => {
-        ga('send', {
-          hitType: 'pageview',
-          page: this._location.path()
+        .subscribe((event: any) => {
+          gtag('event', 'page_view', {
+            page_title: this._document.head.title,
+            page_path: event.urlAfterRedirects,
+            page_location: this._document.location.href
+          });
         });
-      });
-    }
-  }
-
-  trackEvent(eventName: string): void {
-    if (this._enabled) {
-      ga('send', 'event', eventName);
     }
   }
 }
