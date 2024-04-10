@@ -1,6 +1,10 @@
-<div class="border bg-white dark:bg-dark dark:border-inverse rounded-lg">
+<div class="border bg-white dark:bg-dark dark:border-inverse rounded-lg relative">
   <div class="p-7">
-    <ng-content></ng-content>
+    @defer {
+      <ng-content></ng-content>
+    } @placeholder (minimum 1s) {
+      Loading...
+    }
   </div>
   @if (hasScr) {
     <div class="border-t dark:border-t-neutral-600" [class.hidden]="!showSource">

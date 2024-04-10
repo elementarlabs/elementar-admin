@@ -3,6 +3,9 @@ import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  AlertVariantsExampleComponent
+} from '../../pages/components/alert/_examples/alert-variants-example/alert-variants-example.component';
 
 @Component({
   selector: 'emr-playground',
@@ -13,7 +16,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   imports: [
     MatIconButton,
     MatIcon,
-    MarkdownComponent
+    MarkdownComponent,
+    AlertVariantsExampleComponent
   ],
   templateUrl: './playground.component.html',
   styleUrl: 'playground.component.scss'
