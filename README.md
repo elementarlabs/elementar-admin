@@ -1,6 +1,6 @@
 # Elementar Admin
 
-[Overview](https://elementarui.com) | [Live Demo](https://elementarui.com/demo) | [Documentation](https://elementarui.com/documentation)
+[Overview](https://elementarui.com) | [Live Demo](https://demo.elementarui.com) | [Documentation](https://elementarui.com/documentation)
 
 # Modern Angular admin panel based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
