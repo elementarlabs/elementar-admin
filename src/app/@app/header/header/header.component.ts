@@ -9,7 +9,7 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule, IconComponent } from '@elementar/components';
 import { NotificationListComponent } from '@app/header/_notifications/notification-list/notification-list.component';
 import { EmrPopoverModule } from '@elementar/components';
 import { AssistantSearchComponent } from '@app/header/_assistant-search/assistant-search.component';
@@ -37,7 +37,8 @@ import { LayoutApiService } from '@elementar/components';
     NotificationListComponent,
     EmrPopoverModule,
     RouterLink,
-    AssistantSearchComponent
+    AssistantSearchComponent,
+    IconComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

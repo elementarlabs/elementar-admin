@@ -36,3 +36,4 @@ export * from './lib/menu-option-group.directive';
 export * from './lib/order-by.pipe';
 export * from './lib/safe-html.pipe';
 export * from './lib/safe-resource-url.pipe';
+export * from './lib/icon/public-api';

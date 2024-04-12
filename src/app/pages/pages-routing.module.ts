@@ -99,6 +99,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/datepicker/datepicker.module').then(m => m.DatepickerModule)
       },
       {
+        path: 'components/icon',
+        loadChildren: () => import('./components/icon/icon.module').then(m => m.IconModule)
+      },
+      {
         path: 'components/dialog',
         loadChildren: () => import('./components/dialog/dialog.module').then(m => m.DialogModule)
       },

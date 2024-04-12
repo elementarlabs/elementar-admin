@@ -1,0 +1,13 @@
+:host {
+  min-width: var(--emr-icon-min-size);
+  min-height: var(--emr-icon-min-size);
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+:host svg {
+  flex: none;
+}

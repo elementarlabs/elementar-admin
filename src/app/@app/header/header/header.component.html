@@ -17,9 +17,9 @@
       </button>
       <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme">
         @if (isDark | async) {
-          <mat-icon class="material-icons-outlined">light_mode</mat-icon>
+          <emr-icon name="material-symbols:light-mode-outline-rounded"/>
         } @else {
-          <mat-icon class="material-icons-outlined">dark_mode</mat-icon>
+          <emr-icon name="material-symbols:dark-mode-outline"/>
         }
       </button>
       <emr-avatar text="PS" [clickable]="true" [matMenuTriggerFor]="accountMenu"
