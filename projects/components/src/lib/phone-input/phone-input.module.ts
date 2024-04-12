@@ -9,6 +9,7 @@ import { MatButton } from '@angular/material/button';
 import { PhoneInputComponent } from './phone-input/phone-input.component';
 import { MatIcon } from '@angular/material/icon';
 import { SearchPipe } from './search.pipe';
+import { IconComponent } from '../icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchPipe } from './search.pipe';
     MatMenuTrigger,
     MatButton,
     MatFormField,
-    MatIcon
+    MatIcon,
+    IconComponent
   ],
   exports: [
     PhoneInputComponent
