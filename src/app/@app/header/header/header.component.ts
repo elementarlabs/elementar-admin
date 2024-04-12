@@ -9,12 +9,12 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { EmrAvatarModule } from '@components/avatar';
+import { EmrAvatarModule } from '@elementar/components';
 import { NotificationListComponent } from '@app/header/_notifications/notification-list/notification-list.component';
-import { EmrPopoverModule } from '@components/popover';
+import { EmrPopoverModule } from '@elementar/components';
 import { AssistantSearchComponent } from '@app/header/_assistant-search/assistant-search.component';
 import { ThemeManagerService } from '@services/theme-manager.service';
-import { LayoutApiService } from '@components/layout/layout-api.service';
+import { LayoutApiService } from '@elementar/components';
 
 @Component({
   selector: 'app-header',

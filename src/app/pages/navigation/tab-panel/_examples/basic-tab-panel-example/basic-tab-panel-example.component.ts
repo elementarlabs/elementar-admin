@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrTabPanelModule } from '@components/tab-panel';
+import { EmrTabPanelModule } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

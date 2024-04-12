@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@components/avatar';
+import { EmrAvatarModule } from '@elementar/components';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { VDividerComponent } from '@components/divider/v-divider/v-divider.component';
+import { VDividerComponent } from '@elementar/components';
 
 @Component({
   standalone: true,

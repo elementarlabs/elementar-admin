@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@components/avatar';
+import { EmrAvatarModule } from '@elementar/components';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { SuggestionBlockComponent } from '@components/suggestions/suggestion-block/suggestion-block.component';
-import { SuggestionComponent } from '@components/suggestions/suggestion/suggestion.component';
-import { SuggestionIconDirective } from '@components/suggestions/suggestion-icon.directive';
-import { SuggestionThumbDirective } from '@components/suggestions/suggestion-thumb.directive';
-import { SuggestionsComponent } from '@components/suggestions/suggestions/suggestions.component';
+import { SuggestionBlockComponent } from '@elementar/components';
+import { SuggestionComponent } from '@elementar/components';
+import { SuggestionIconDirective } from '@elementar/components';
+import { SuggestionThumbDirective } from '@elementar/components';
+import { SuggestionsComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-suggestions-example',

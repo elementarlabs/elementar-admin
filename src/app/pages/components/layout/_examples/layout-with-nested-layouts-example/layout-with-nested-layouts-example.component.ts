@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@components/layout/layout-body/layout-body.component';
-import { LayoutComponent } from '@components/layout/layout/layout.component';
-import { LayoutHeaderComponent } from '@components/layout/layout-header/layout-header.component';
-import { LayoutSidebarComponent } from '@components/layout/layout-sidebar/layout-sidebar.component';
-import { LayoutFooterComponent } from '@components/layout/layout-footer/layout-footer.component';
-import { LayoutTopbarComponent } from '@components/layout/layout-topbar/layout-topbar.component';
+import { LayoutBodyComponent } from '@elementar/components';
+import { LayoutComponent } from '@elementar/components';
+import { LayoutHeaderComponent } from '@elementar/components';
+import { LayoutSidebarComponent } from '@elementar/components';
+import { LayoutFooterComponent } from '@elementar/components';
+import { LayoutTopbarComponent } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
-import { EmrAnnouncementModule } from '@components/announcement/announcement.module';
+import { EmrAnnouncementModule } from '@elementar/components';
 
 @Component({
   selector: 'app-layout-with-nested-layouts-example',

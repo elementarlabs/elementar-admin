@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrUploadModule, UploadSelectedEvent } from '@components/upload';
+import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components';
 import { JsonPipe } from '@angular/common';
 
 @Component({

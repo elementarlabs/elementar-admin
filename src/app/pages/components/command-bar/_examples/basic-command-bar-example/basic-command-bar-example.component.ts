@@ -1,11 +1,11 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EmrCommandBarModule } from '@components/command-bar/command-bar.module';
+import { EmrCommandBarModule } from '@elementar/components';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption } from '@angular/material/autocomplete';
 import { MatSelect } from '@angular/material/select';
-import { CommandBarPosition } from '@components/command-bar/types';
+import { CommandBarPosition } from '@elementar/components';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

@@ -4,10 +4,10 @@ import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { PasswordStrengthModule } from '@components/password-strength/password-strength.module';
-import { EmrDividerModule } from '@components/divider/divider.module';
-import { EmrPhoneInputModule } from '@components/phone-input/phone-input.module';
-import { phoneValidator } from '@components/phone-input/phone.validator';
+import { PasswordStrengthModule } from '@elementar/components';
+import { EmrDividerModule } from '@elementar/components';
+import { EmrPhoneInputModule } from '@elementar/components';
+import { phoneValidator } from '@elementar/components';
 
 @Component({
   selector: 'app-create-account',

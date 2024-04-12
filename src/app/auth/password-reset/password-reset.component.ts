@@ -4,7 +4,7 @@ import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
-import { EmrPinInputModule } from '@components/pin-input/pin-input.module';
+import { EmrPinInputModule } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

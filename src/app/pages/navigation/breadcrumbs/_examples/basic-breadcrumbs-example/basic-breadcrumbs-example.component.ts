@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrBreadcrumbsModule } from '@components/breadcrumbs';
+import { EmrBreadcrumbsModule } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-breadcrumbs-example',

@@ -4,7 +4,7 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
-import { EmrDividerModule } from '@components/divider/divider.module';
+import { EmrDividerModule } from '@elementar/components';
 
 @Component({
   selector: 'app-signin',

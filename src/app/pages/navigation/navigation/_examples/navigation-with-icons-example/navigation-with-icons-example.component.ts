@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { EmrNavigationModule } from '@components/navigation';
+import { EmrNavigationModule } from '@elementar/components';
 
 @Component({
   selector: 'app-navigation-with-icons-example',

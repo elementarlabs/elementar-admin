@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrColorPickerModule } from '@components/color-picker';
+import { EmrColorPickerModule } from '@elementar/components';
 import { FormsModule } from '@angular/forms';
 
 @Component({

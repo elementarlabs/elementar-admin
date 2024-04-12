@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrPinInputModule } from '@components/pin-input/pin-input.module';
+import { EmrPinInputModule } from '@elementar/components';
 import { FormsModule } from '@angular/forms';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';

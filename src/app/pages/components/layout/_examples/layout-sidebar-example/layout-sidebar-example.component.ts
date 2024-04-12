@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@components/layout/layout-body/layout-body.component';
-import { LayoutComponent } from '@components/layout/layout/layout.component';
-import { LayoutHeaderComponent } from '@components/layout/layout-header/layout-header.component';
-import { LayoutSidebarComponent } from '@components/layout/layout-sidebar/layout-sidebar.component';
+import { LayoutBodyComponent } from '@elementar/components';
+import { LayoutComponent } from '@elementar/components';
+import { LayoutHeaderComponent } from '@elementar/components';
+import { LayoutSidebarComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-layout-sidebar-example',

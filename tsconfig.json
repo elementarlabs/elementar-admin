@@ -19,6 +19,9 @@
       ],
       "@meta/*": [
         "./src/app/@meta/*"
+      ],
+      "@elementar/components": [
+        "./projects/components/src"
       ]
     },
     "outDir": "./dist/out-tsc",

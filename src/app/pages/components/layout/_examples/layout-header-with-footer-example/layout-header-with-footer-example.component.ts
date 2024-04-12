@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@components/layout/layout-body/layout-body.component';
-import { LayoutComponent } from '@components/layout/layout/layout.component';
-import { LayoutFooterComponent } from '@components/layout/layout-footer/layout-footer.component';
-import { LayoutHeaderComponent } from '@components/layout/layout-header/layout-header.component';
+import { LayoutBodyComponent } from '@elementar/components';
+import { LayoutComponent } from '@elementar/components';
+import { LayoutFooterComponent } from '@elementar/components';
+import { LayoutHeaderComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-layout-header-with-footer-example',

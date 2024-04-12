@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrDividerModule } from '@components/divider/divider.module';
+import { EmrDividerModule } from '@elementar/components';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';

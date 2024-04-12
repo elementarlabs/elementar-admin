@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrPanelModule } from '@components/panel';
+import { EmrPanelModule } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-panel-example',

@@ -8,7 +8,7 @@ import {
   MatCardTitle
 } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
-import { EmrAvatarModule } from '@components/avatar';
+import { EmrAvatarModule } from '@elementar/components';
 
 @Component({
   selector: 'app-card-multiple-sections-example',

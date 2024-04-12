@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrResizableContainerModule } from '@components/resizable-container';
+import { EmrResizableContainerModule } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-resizable-container-example',

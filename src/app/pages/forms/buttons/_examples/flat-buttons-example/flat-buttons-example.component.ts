@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatAnchor, MatButton } from '@angular/material/button';
-import { ButtonDirective } from '@components/button.directive';
+import { ButtonDirective } from '@elementar/components';
 
 @Component({
   selector: 'app-flat-buttons-example',

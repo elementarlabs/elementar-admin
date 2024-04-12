@@ -1,0 +1,30 @@
+{
+  "name": "@elementar/components",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elementarlabs/elementar-admin.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elementarlabs/elementar-admin/issues"
+  },
+  "homepage": "https://elementarui.com",
+  "keywords": [
+    "elementar admin",
+    "angular admin",
+    "admin panel",
+    "angular dashboard",
+    "angular admin panel",
+    "angular material components",
+    "angular admin template"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

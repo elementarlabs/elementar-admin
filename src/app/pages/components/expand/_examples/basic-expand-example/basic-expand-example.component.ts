@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrExpandModule } from '@components/expand';
+import { EmrExpandModule } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-expand-example',

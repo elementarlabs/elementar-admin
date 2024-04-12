@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@components/layout/layout-body/layout-body.component';
-import { LayoutComponent } from '@components/layout/layout/layout.component';
-import { LayoutSidebarComponent } from '@components/layout/layout-sidebar/layout-sidebar.component';
-import { LayoutAsideComponent } from '@components/layout/layout-aside/layout-aside.component';
+import { LayoutBodyComponent } from '@elementar/components';
+import { LayoutComponent } from '@elementar/components';
+import { LayoutSidebarComponent } from '@elementar/components';
+import { LayoutAsideComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-layout-aside-example',

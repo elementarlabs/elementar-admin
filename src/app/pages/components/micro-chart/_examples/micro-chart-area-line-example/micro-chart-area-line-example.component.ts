@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AreaLineChartComponent } from '@components/micro-chart/area-line-chart/area-line-chart.component';
+import { AreaLineChartComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-micro-chart-area-line-example',

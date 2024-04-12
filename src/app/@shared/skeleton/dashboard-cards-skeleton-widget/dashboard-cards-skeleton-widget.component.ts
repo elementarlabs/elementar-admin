@@ -1,5 +1,5 @@
 import { Component, input, numberAttribute } from '@angular/core';
-import { EmrSkeletonModule } from '@components/skeleton';
+import { EmrSkeletonModule } from '@elementar/components';
 
 @Component({
   selector: 'app-dashboard-cards-skeleton-widget',

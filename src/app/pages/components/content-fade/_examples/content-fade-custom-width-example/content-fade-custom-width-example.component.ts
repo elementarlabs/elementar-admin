@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrContentFadeModule } from '@components/content-fade/content-fade.module';
+import { EmrContentFadeModule } from '@elementar/components';
 
 @Component({
   selector: 'app-content-fade-custom-width-example',

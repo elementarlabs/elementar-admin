@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { EmrTabPanelModule } from '@components/tab-panel';
+import { EmrTabPanelModule } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
-import { EmrPanelModule } from '@components/panel';
+import { EmrPanelModule } from '@elementar/components';
 
 @Component({
   selector: 'app-tab-panel-with-panels-inside-example',

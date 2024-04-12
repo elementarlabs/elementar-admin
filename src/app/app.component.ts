@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
 import { AnalyticsService } from '@services/analytics.service';
 import { SeoService } from '@services/seo.service';
-import { PageLoadingBarComponent } from '@components/page-loading-bar/page-loading-bar/page-loading-bar.component';
+import { PageLoadingBarComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-root',
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._themeManager.setColorScheme(this._themeManager.getPreferredColorScheme());
 
     if (isPlatformBrowser(this._platformId)) {

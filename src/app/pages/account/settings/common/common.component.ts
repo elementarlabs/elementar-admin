@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { EmrNavigationModule } from '@components/navigation';
-import { LayoutBodyComponent } from '@components/layout/layout-body/layout-body.component';
-import { LayoutComponent } from '@components/layout/layout/layout.component';
-import { LayoutSidebarComponent } from '@components/layout/layout-sidebar/layout-sidebar.component';
+import { EmrNavigationModule } from '@elementar/components';
+import { LayoutBodyComponent } from '@elementar/components';
+import { LayoutComponent } from '@elementar/components';
+import { LayoutSidebarComponent } from '@elementar/components';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';

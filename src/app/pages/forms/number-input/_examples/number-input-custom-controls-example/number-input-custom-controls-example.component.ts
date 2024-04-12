@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { EmrNumberInputModule } from '@components/number-input/number-input.module';
+import { EmrNumberInputModule } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrSegmentedModule } from '@components/segmented/segmented.module';
+import { EmrSegmentedModule } from '@elementar/components';
 
 @Component({
   selector: 'app-segmented-disabled-example',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { EmrUploadModule, UploadSelectedEvent } from '@components/upload';
+import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components';
 import { JsonPipe } from '@angular/common';
 
 @Component({

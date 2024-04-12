@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrAnnouncementModule } from '@components/announcement/announcement.module';
+import { EmrAnnouncementModule } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-announcement-example',

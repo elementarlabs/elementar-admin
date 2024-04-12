@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CarouselComponent } from '@components/carousel/carousel/carousel.component';
-import { CarouselCardComponent } from '@components/carousel/carousel-card/carousel-card.component';
+import { CarouselComponent } from '@elementar/components';
+import { CarouselCardComponent } from '@elementar/components';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { CarouselPreviousDirective } from '@components/carousel/carousel-previous.directive';
-import { CarouselNextDirective } from '@components/carousel/carousel-next.directive';
+import { CarouselPreviousDirective } from '@elementar/components';
+import { CarouselNextDirective } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-carousel-example',

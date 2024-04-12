@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrDividerModule } from '@components/divider/divider.module';
+import { EmrDividerModule } from '@elementar/components';
 
 @Component({
   selector: 'app-divider-with-text-example',
