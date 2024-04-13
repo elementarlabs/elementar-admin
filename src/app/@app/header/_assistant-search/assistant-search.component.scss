@@ -7,7 +7,7 @@
   width: 600px;
   position: relative;
 
-  mat-icon {
+  .search-icon {
     z-index: 1;
     position: relative;
     color: theme('colors.neutral.500');
@@ -21,11 +21,7 @@
     background: theme('colors.neutral.200');
     z-index: 0;
     outline: none;
-    @apply text-md;
-
-    &::placeholder {
-      @apply text-neutral-500;
-    }
+    @apply text-md placeholder-neutral-500;
   }
 
   &.has-dropdown {
@@ -40,15 +36,11 @@
 }
 
 :host-context(html.dark) {
-  mat-icon {
+  .search-icon {
     @apply text-neutral-400;
   }
 
   input {
-    @apply text-neutral-200 bg-neutral-700;
-
-    &::placeholder {
-      @apply text-neutral-400;
-    }
+    @apply text-neutral-200 bg-neutral-700 placeholder-neutral-400;
   }
 }

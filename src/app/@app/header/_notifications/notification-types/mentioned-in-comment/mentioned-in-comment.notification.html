@@ -5,7 +5,7 @@
       <emr-avatar text="PS" [src]="notification.actor.avatarUrl" size="40"></emr-avatar>
       <div class="flex absolute justify-center z-10 text-white items-center -right-0
                   -bottom-0 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-inverse">
-        <mat-icon class="text-2xs !w-[11px] !h-[11px]">comment</mat-icon>
+        <emr-icon name="material-symbols:comment" class="!size-[11px]"/>
       </div>
     </div>
   </div>
@@ -13,8 +13,10 @@
     <div class="text-neutral-500 font-normal text-sm mb-1.5 dark:text-neutral-400">
       <span class="font-semibold text-neutral-900 dark:text-white">{{ notification.actor.name }}</span>
       mentioned you in a comment:
-      <span class="font-medium text-blue-500 hover:text-blue-600 dark:text-blue-200 dark:hover:text-blue-300">&#64;{{ notification.notifier.username }}</span>
+      <span class="font-medium text-primary-500 hover:text-primary-600 dark:text-tertiary-300 dark:hover:text-tertiary-400">
+        &#64;{{ notification.notifier.username }}
+      </span>
       {{ notification.entity.content }}</div>
-    <div class="text-xs font-medium text-primary-700 dark:text-primary-400">{{ notification.createdAt }}</div>
+    <div class="text-xs font-medium text-secondary-700 dark:text-primary-400">{{ notification.createdAt }}</div>
   </div>
 </a>

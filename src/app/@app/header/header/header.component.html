@@ -2,24 +2,24 @@
   <div class="h-full flex items-center border-b dark:border-b-neutral-600 gap-7">
     <div class="flex items-center gap-3 -ms-3">
       <button mat-icon-button (click)="toggleSidebar()">
-        <mat-icon>menu</mat-icon>
+        <mat-icon class="material-symbols-outlined">menu</mat-icon>
       </button>
       <app-assistant-search></app-assistant-search>
     </div>
     <div class="ms-auto flex items-center gap-3">
       <button mat-icon-button [matMenuTriggerFor]="appsMenu" matTooltip="Applications">
-        <mat-icon>apps</mat-icon>
+        <mat-icon class="material-symbols-outlined">apps</mat-icon>
       </button>
       <button mat-icon-button matTooltip="Notifications"
               [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
-        <mat-icon class="material-icons-outlined"
+        <mat-icon class="material-symbols-outlined"
                   matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
       </button>
       <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme">
         @if (isDark | async) {
-          <emr-icon name="material-symbols:light-mode-outline-rounded"/>
+          <mat-icon class="material-symbols-outlined">light_mode</mat-icon>
         } @else {
-          <emr-icon name="material-symbols:dark-mode-outline"/>
+          <mat-icon class="material-symbols-outlined">dark_mode</mat-icon>
         }
       </button>
       <emr-avatar text="PS" [clickable]="true" [matMenuTriggerFor]="accountMenu"
@@ -98,7 +98,7 @@
     <a routerLink="/" mat-menu-item>
       <div class="flex items-center gap-3 my-3">
         <div class="w-14 h-14 border border-neutral-400 dark:border-inverse rounded-lg flex-none flex items-center justify-center">
-          <mat-icon class="!text-2xl !w-5 !h-8 relative -right-1">arrow_forward</mat-icon>
+          <mat-icon class="material-symbols-outlined !text-2xl !w-5 !h-8 relative -right-1">arrow_forward</mat-icon>
         </div>
         <div class="-mt-0.5">
           <div>App Center</div>
@@ -137,29 +137,29 @@
   </div>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">tune</mat-icon>
+    <mat-icon class="material-symbols-outlined">tune</mat-icon>
     <span>Settings</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">contrast</mat-icon>
+    <mat-icon class="material-symbols-outlined">contrast</mat-icon>
     <span>Appearance</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">question_mark</mat-icon>
+    <mat-icon class="material-symbols-outlined">question_mark</mat-icon>
     <span>Help Center</span>
   </a>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">translate</mat-icon>
+    <mat-icon class="material-symbols-outlined">translate</mat-icon>
     <span>Language</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">add</mat-icon>
+    <mat-icon class="material-symbols-outlined">add</mat-icon>
     <span>Add Account</span>
   </a>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="material-icons-outlined">logout</mat-icon>
+    <mat-icon class="material-symbols-outlined">logout</mat-icon>
     <span>Logout</span>
   </a>
 </mat-menu>

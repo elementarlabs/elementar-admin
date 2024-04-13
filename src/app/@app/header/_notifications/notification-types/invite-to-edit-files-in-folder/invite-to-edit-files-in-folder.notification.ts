@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Notification } from '@app/header/_notifications/types';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule, IconComponent } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
@@ -14,7 +14,8 @@ import { MatButton } from '@angular/material/button';
     MatIcon,
     MatRipple,
     RouterLink,
-    MatButton
+    MatButton,
+    IconComponent
   ],
   templateUrl: './invite-to-edit-files-in-folder.notification.html',
   styleUrl: './invite-to-edit-files-in-folder.notification.scss'

@@ -1,16 +1,17 @@
 import {
-  booleanAttribute,
-  Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef,
-  inject, input,
-  Input,
-  numberAttribute,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+  input,
   OnChanges,
-  OnInit, PLATFORM_ID,
+  OnInit,
   SimpleChanges
 } from '@angular/core';
 import { loadIcon } from 'iconify-icon';
-import { isPlatformServer } from '@angular/common';
 import { SafeHtmlPipe } from '../../safe-html.pipe';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'emr-icon',
@@ -18,6 +19,7 @@ import { SafeHtmlPipe } from '../../safe-html.pipe';
   standalone: true,
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
@@ -25,26 +27,30 @@ import { SafeHtmlPipe } from '../../safe-html.pipe';
     SafeHtmlPipe
   ],
   host: {
-    'class': 'emr-icon'
+    'class': 'emr-icon mat-icon'
   }
 })
-export class IconComponent implements OnInit, OnChanges {
+export class IconComponent extends MatIcon implements OnInit, OnChanges {
+  private _cdr = inject(ChangeDetectorRef);
+
   name = input('');
 
   protected path = '';
   private _width = 0;
   private _height = 0;
 
-  async ngOnInit() {
+  override async ngOnInit() {
+    super.ngOnInit();
     await this._loadIcon();
   }
 
-  get viewBox() {
+  get viewBox(): string {
     return `0 0 ${this._width} ${this._height}`
   }
 
   async ngOnChanges(changes: SimpleChanges) {
     if (changes['name'] && !changes['name'].isFirstChange()) {
+      console.log(333);
       await this._loadIcon();
     }
   }
@@ -54,5 +60,6 @@ export class IconComponent implements OnInit, OnChanges {
     this.path = data.body;
     this._width = data.width;
     this._height = data.height;
+    this._cdr.markForCheck();
   }
 }

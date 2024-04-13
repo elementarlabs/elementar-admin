@@ -3,13 +3,13 @@
     <emr-incidents-bar>
       <emr-incidents-title>Maintenance work on the DNS</emr-incidents-title>
       <emr-incidents-description>Description</emr-incidents-description>
-      <mat-icon emrIncidentsToggleIcon>expand_more</mat-icon>
+      <mat-icon emrIncidentsToggleIcon class="material-icons-outlined">expand_more</mat-icon>
     </emr-incidents-bar>
     <emr-incidents-list>
       @for (incident of incidents; track incident) {
         <emr-incident>
-          <mat-icon emrIncidentIcon>info</mat-icon>
-          <mat-icon emrIncidentClose>close</mat-icon>
+          <mat-icon emrIncidentIcon class="material-icons-outlined">info</mat-icon>
+          <mat-icon emrIncidentClose class="material-icons-outlined">close</mat-icon>
           <emr-incident-title>{{ incident.title }}</emr-incident-title>
           <emr-incident-details>{{ incident.details }}</emr-incident-details>
         </emr-incident>

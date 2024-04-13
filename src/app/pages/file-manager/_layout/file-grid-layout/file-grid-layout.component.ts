@@ -7,7 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { MenuOptionGroupDirective } from '@elementar/components';
+import { IconComponent, MenuOptionGroupDirective } from '@elementar/components';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRipple } from '@angular/material/core';
 import { MatMenuBarItem } from '@angular/material-experimental/menubar';
@@ -33,7 +33,8 @@ import { FormatFileSizePipe } from '@elementar/components';
     MatMenuItem,
     MatMenu,
     MatTooltip,
-    FormatFileSizePipe
+    FormatFileSizePipe,
+    IconComponent
   ],
   templateUrl: './file-grid-layout.component.html',
   styleUrl: './file-grid-layout.component.scss'

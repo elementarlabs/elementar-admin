@@ -2,7 +2,7 @@
   <div mat-subheader>Folders</div>
   @for (folder of folders; track folder) {
     <mat-list-item>
-      <mat-icon matListItemIcon>folder</mat-icon>
+      <mat-icon matListItemIcon class="material-icons-outlined">folder</mat-icon>
       <div matListItemTitle>{{ folder.name }}</div>
       <div matListItemLine>{{ folder.updated | date }}</div>
     </mat-list-item>
@@ -11,7 +11,7 @@
   <div mat-subheader>Notes</div>
   @for (note of notes; track note) {
     <mat-list-item>
-      <mat-icon matListItemIcon>note</mat-icon>
+      <mat-icon matListItemIcon class="material-icons-outlined">note</mat-icon>
       <div matListItemTitle>{{ note.name }}</div>
       <div matListItemLine>{{ note.updated | date }}</div>
     </mat-list-item>

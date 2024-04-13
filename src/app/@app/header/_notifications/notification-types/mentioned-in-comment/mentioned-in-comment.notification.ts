@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule, IconComponent } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
@@ -12,7 +12,8 @@ import { Notification } from '@app/header/_notifications/types';
     EmrAvatarModule,
     MatIcon,
     MatRipple,
-    RouterLink
+    RouterLink,
+    IconComponent
   ],
   templateUrl: './mentioned-in-comment.notification.html',
   styleUrl: './mentioned-in-comment.notification.scss'
