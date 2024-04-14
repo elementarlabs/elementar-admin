@@ -2,10 +2,10 @@
    class="flex py-4 px-4 border-b hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse">
   <div class="flex-shrink-0">
     <div class="relative mt-1">
-      <emr-avatar text="PS" [src]="notification.actor.avatarUrl" size="40"></emr-avatar>
+      <emr-avatar text="PS" [src]="notification.actor.avatarUrl" class="size-10"></emr-avatar>
       <div class="flex absolute justify-center z-10 text-white items-center -right-0
                   -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-white dark:border-inverse">
-        <emr-icon name="material-symbols:folder" class="!size-[11px]"/>
+        <mat-icon class="material-symbols-outlined filled text-xs !h-[16px] !w-[11px]">folder</mat-icon>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
     </div>
     <div>
       <div class="border rounded-lg px-3 py-2 flex items-center gap-2 w-max dark:border-neutral-500">
-        <emr-icon name="material-symbols:folder" class="text-tertiary-500 dark:text-tertiary-300"/>
+        <mat-icon class="material-symbols-outlined filled text-tertiary-500 dark:text-tertiary-300">folder</mat-icon>
         <span class="text-xs">{{ notification.entity.content['folderName'] }}</span>
       </div>
     </div>

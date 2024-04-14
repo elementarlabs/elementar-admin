@@ -11,7 +11,6 @@ import {
 } from '@angular/core';
 import { loadIcon } from 'iconify-icon';
 import { SafeHtmlPipe } from '../../safe-html.pipe';
-import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'emr-icon',
@@ -27,10 +26,10 @@ import { MatIcon } from '@angular/material/icon';
     SafeHtmlPipe
   ],
   host: {
-    'class': 'emr-icon mat-icon'
+    'class': 'emr-icon'
   }
 })
-export class IconComponent extends MatIcon implements OnInit, OnChanges {
+export class IconComponent implements OnInit, OnChanges {
   private _cdr = inject(ChangeDetectorRef);
 
   name = input('');
@@ -39,8 +38,7 @@ export class IconComponent extends MatIcon implements OnInit, OnChanges {
   private _width = 0;
   private _height = 0;
 
-  override async ngOnInit() {
-    super.ngOnInit();
+  async ngOnInit() {
     await this._loadIcon();
   }
 
@@ -50,7 +48,6 @@ export class IconComponent extends MatIcon implements OnInit, OnChanges {
 
   async ngOnChanges(changes: SimpleChanges) {
     if (changes['name'] && !changes['name'].isFirstChange()) {
-      console.log(333);
       await this._loadIcon();
     }
   }
