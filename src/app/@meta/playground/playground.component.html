@@ -8,7 +8,7 @@
   </div>
   @if (showSource) {
     @if (exampleLoading) {
-      Loading...
+      <div class="border-t dark:border-t-neutral-600 text-sm p-4">Loading...</div>
     } @else {
       <div class="border-t dark:border-t-neutral-600">
         <markdown #markdownRef [data]="src" class="playground-markdown"
