@@ -1,37 +1,32 @@
-import { Component, inject, Input, ViewChild } from '@angular/core';
+import { Component, inject, input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  AlertVariantsExampleComponent
-} from '../../pages/components/alert/_examples/alert-variants-example/alert-variants-example.component';
 
 @Component({
   selector: 'emr-playground',
   standalone: true,
-  providers: [
-    provideMarkdown()
-  ],
   imports: [
     MatIconButton,
     MatIcon,
-    MarkdownComponent,
-    AlertVariantsExampleComponent
+    MarkdownComponent
   ],
+  providers: [
+    provideMarkdown()
+  ],
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './playground.component.html',
   styleUrl: 'playground.component.scss'
 })
 export class PlaygroundComponent {
   private _snackBar = inject(MatSnackBar);
 
-  @Input()
+  exampleUrl = input<string>();
+  exampleName = input<string>();
+
   htmlSrc: string;
-
-  @Input()
   tsSrc: string;
-
-  @Input()
   cssSrc: string;
 
   @ViewChild('markdownRef')
@@ -39,6 +34,7 @@ export class PlaygroundComponent {
 
   showSource = false;
   currentTab = 'html';
+  exampleLoading = false;
 
   get hasScr(): boolean {
     return !!this.htmlSrc || !!this.tsSrc || !!this.cssSrc;
@@ -46,15 +42,18 @@ export class PlaygroundComponent {
 
   get src(): string | null {
     if (this.isCurrentTab('html')) {
-      return this.htmlSrc;
+      return "```html\n" +
+        "" + this.htmlSrc + "```";
     }
 
     if (this.isCurrentTab('ts')) {
-      return this.tsSrc;
+      return "```typescript\n" +
+        "" + this.tsSrc + "```";
     }
 
     if (this.isCurrentTab('css')) {
-      return this.cssSrc;
+      return "```css\n" +
+        "" + this.cssSrc + "```";
     }
 
     return null;
@@ -68,8 +67,26 @@ export class PlaygroundComponent {
     });
   }
 
-  toggleSource(): void {
+  async toggleSource() {
     this.showSource = !this.showSource;
+
+    if (this.showSource) {
+      this.exampleLoading = true;
+      const r = await Promise.all([
+        fetch(`${this.exampleUrl()}/${this.exampleName()}/${this.exampleName()}.component.ts`),
+        fetch(`${this.exampleUrl()}/${this.exampleName()}/${this.exampleName()}.component.scss`),
+        fetch(`${this.exampleUrl()}/${this.exampleName()}/${this.exampleName()}.component.html`),
+      ]).then(r => r.map(f => f.text()));
+      this.tsSrc = await r[0];
+      this.cssSrc = await r[1];
+      this.htmlSrc = await r[2];
+      this.exampleLoading = false;
+    } else {
+      this.exampleLoading = false;
+      this.tsSrc = '';
+      this.cssSrc = '';
+      this.htmlSrc = '';
+    }
   }
 
   isCurrentTab(tabId: string): boolean {

@@ -11,6 +11,4 @@ import { EmrAlertModule } from '@elementar/components';
   styleUrl: './basic-alert-example.component.scss'
 })
 export class BasicAlertExampleComponent {
-  variant = 'default';
-  bordered = false;
 }

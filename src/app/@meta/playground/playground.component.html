@@ -6,33 +6,40 @@
       Loading...
     }
   </div>
-  @if (hasScr) {
-    <div class="border-t dark:border-t-neutral-600" [class.hidden]="!showSource">
-      <markdown #markdownRef [src]="src"
-                [clipboardButtonTemplate]="clipboardButtonTemplate"></markdown>
-    </div>
+  @if (showSource) {
+    @if (exampleLoading) {
+      Loading...
+    } @else {
+      <div class="border-t dark:border-t-neutral-600">
+        <markdown #markdownRef [data]="src" class="playground-markdown"
+                  [clipboardButtonTemplate]="clipboardButtonTemplate"></markdown>
+      </div>
+    }
   }
 
-  <div class="border-t dark:border-t-neutral-600 relative py-1 px-2 text-center bg-neutral-50 rounded-b-lg dark:bg-neutral-700">
+  <div class="border-t dark:border-t-neutral-600 relative space-x-1 py-1 px-2 text-center bg-neutral-50 rounded-b-lg dark:bg-neutral-700">
     @if (showSource) {
       <div class="flex items-center gap-2 absolute start-3 top-3">
         @if (htmlSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer [&.active]:bg-white
-                      [&.active]:dark:bg-neutral-400 dark:hover:bg-neutral-400 dark:hover:border-neutral-400
+          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
+                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
+                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
                       dark:border-neutral-400 dark:text-white"
                [class.active]="isCurrentTab('html')" (click)="selectTab('html')">HTML</div>
         }
 
         @if (tsSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer [&.active]:bg-white
-                      [&.active]:dark:bg-neutral-400 dark:hover:bg-neutral-400 dark:hover:border-neutral-400
+          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
+                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
+                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
                       dark:border-neutral-400 dark:text-white"
                [class.active]="isCurrentTab('ts')" (click)="selectTab('ts')">TS</div>
         }
 
         @if (cssSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer [&.active]:bg-white
-                      [&.active]:dark:bg-neutral-400 dark:hover:bg-neutral-400 dark:hover:border-neutral-400
+          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
+                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
+                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
                       dark:border-neutral-400 dark:text-white"
                [class.active]="isCurrentTab('css')" (click)="selectTab('css')">CSS</div>
         }
@@ -43,7 +50,7 @@
       <mat-icon class="material-symbols-outlined">code</mat-icon>
     </button>
 
-    @if (hasScr) {
+    @if (hasScr && showSource) {
       <button mat-icon-button (click)="contentCopy()">
         <mat-icon class="material-symbols-outlined">content_copy</mat-icon>
       </button>

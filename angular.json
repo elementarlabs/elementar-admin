@@ -29,17 +29,21 @@
               "src/favicon.ico",
               "src/assets",
               {
-                "glob": "**/_examples/*",
+                "glob": "**/_examples/**",
                 "input": "src/app/pages",
-                "output": "_examples"
+                "output": "_docs"
               },
               "src/robots.txt",
               "src/sitemap.xml"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/prism-themes/themes/prism-atom-dark.min.css"
             ],
             "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,

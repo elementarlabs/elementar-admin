@@ -1,5 +1,7 @@
-:host ::ng-deep pre[class*=language-] {
-  margin: theme('margin.0');
-  font-size: theme('fontSize.sm');
-  border-radius: 0;
+.playground-markdown {
+  pre {
+    margin: theme('margin.0');
+    font-size: theme('fontSize.sm');
+    border-radius: 0;
+  }
 }
