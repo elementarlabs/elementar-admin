@@ -12,7 +12,7 @@
   --emr-alert-thumbnail-border-radius: theme('borderRadius.lg');
   --emr-alert-thumbnail-size: theme('spacing.10');
   --emr-alert-title-font-weight: theme('fontWeight.semibold');
-  --emr-alert-title-font-size: theme('fontSize.base');
+  --emr-alert-title-font-size: theme('fontSize.xs');
   --emr-alert-actions-gap: theme('gap.1');
   --emr-alert-action-height: theme('height.10');
   --emr-alert-action-padding: theme('padding.0') theme('padding[3.5]');
@@ -23,10 +23,17 @@
 }
 
 [emr-alert-variant="default"] {
-  --emr-alert-bg-color: theme('colors.neutral.100');
+  --emr-alert-bg-color: theme('colors.neutral.200');
   --emr-alert-color: theme('colors.neutral.800');
   --emr-alert-thumbnail-bg: theme('colors.neutral.400');
   --emr-alert-border-color: theme('colors.neutral.400');
+}
+
+[emr-alert-variant="secondary"] {
+  --emr-alert-bg-color: theme('colors.secondary.200');
+  --emr-alert-color: theme('colors.secondary.800');
+  --emr-alert-thumbnail-bg: theme('colors.secondary.400');
+  --emr-alert-border-color: theme('colors.secondary.400');
 }
 
 [emr-alert-variant="informative"] {

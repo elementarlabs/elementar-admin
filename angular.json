@@ -29,9 +29,9 @@
               "src/favicon.ico",
               "src/assets",
               {
-                "glob": "**/*.md",
+                "glob": "**/_examples/*",
                 "input": "src/app/pages",
-                "output": "_docs"
+                "output": "_examples"
               },
               "src/robots.txt",
               "src/sitemap.xml"
