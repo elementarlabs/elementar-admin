@@ -17,9 +17,9 @@
     }
   }
 
-  <div class="border-t dark:border-t-neutral-600 relative space-x-1 py-1 px-2 text-center bg-neutral-50 rounded-b-lg dark:bg-neutral-700">
+  <div class="border-t h-12 dark:border-t-neutral-600 relative flex items-center justify-center gap-1 px-2 text-center bg-neutral-50 rounded-b-lg dark:bg-neutral-700">
     @if (showSource) {
-      <div class="flex items-center gap-2 absolute start-3 top-3">
+      <div class="flex items-center gap-2 absolute start-3 top-1/2 -translate-y-1/2">
         @if (htmlSrc) {
           <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
                       [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary

@@ -28,6 +28,7 @@ export class PlaygroundComponent {
   htmlSrc: string;
   tsSrc: string;
   cssSrc: string;
+  alreadyLoaded = false;
 
   @ViewChild('markdownRef')
   private _markdownRef: any;
@@ -71,6 +72,10 @@ export class PlaygroundComponent {
     this.showSource = !this.showSource;
 
     if (this.showSource) {
+      if (this.alreadyLoaded) {
+        return;
+      }
+
       this.exampleLoading = true;
       const r = await Promise.all([
         fetch(`${this.exampleUrl()}/${this.exampleName()}/${this.exampleName()}.component.ts`),
@@ -81,11 +86,9 @@ export class PlaygroundComponent {
       this.cssSrc = await r[1];
       this.htmlSrc = await r[2];
       this.exampleLoading = false;
+      this.alreadyLoaded = true;
     } else {
       this.exampleLoading = false;
-      this.tsSrc = '';
-      this.cssSrc = '';
-      this.htmlSrc = '';
     }
   }
 
