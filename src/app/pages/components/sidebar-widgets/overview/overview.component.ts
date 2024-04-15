@@ -4,6 +4,18 @@ import { GoToPremiumComponent } from '@app/sidebar/_go-to-premium/go-to-premium.
 import { UpgradeToProComponent } from '@app/sidebar/_upgrade-to-pro/upgrade-to-pro.component';
 import { UpgradeNowComponent } from '@app/sidebar/_upgrade-now/upgrade-now.component';
 import { UsedSpaceComponent } from '@app/sidebar/_used-space/used-space.component';
+import {
+  SidebarUsedSpaceExampleComponent
+} from '../_examples/sidebar-used-space-example/sidebar-used-space-example.component';
+import {
+  SidebarUpgradeNowExampleComponent
+} from '../_examples/sidebar-upgrade-now-example/sidebar-upgrade-now-example.component';
+import {
+  SidebarUpgradeToProExampleComponent
+} from '../_examples/sidebar-upgrade-to-pro-example/sidebar-upgrade-to-pro-example.component';
+import {
+  SidebarGoToPremiumExampleComponent
+} from '../_examples/sidebar-go-to-premium-example/sidebar-go-to-premium-example.component';
 
 @Component({
   standalone: true,
@@ -12,7 +24,11 @@ import { UsedSpaceComponent } from '@app/sidebar/_used-space/used-space.componen
     GoToPremiumComponent,
     UpgradeToProComponent,
     UpgradeNowComponent,
-    UsedSpaceComponent
+    UsedSpaceComponent,
+    SidebarUsedSpaceExampleComponent,
+    SidebarUpgradeNowExampleComponent,
+    SidebarUpgradeToProExampleComponent,
+    SidebarGoToPremiumExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
