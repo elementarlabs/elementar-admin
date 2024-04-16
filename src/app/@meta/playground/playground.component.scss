@@ -1,7 +1,10 @@
 .playground-markdown {
+  display: block;
+
   pre {
     margin: theme('margin.0');
     font-size: theme('fontSize.sm');
     border-radius: 0;
+    max-height: 500px !important;
   }
 }
