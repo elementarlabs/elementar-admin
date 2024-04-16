@@ -7,23 +7,21 @@
 $m3-light-theme: matx.define-theme((
   color: (
     theme-type: light,
-    primary: matx.$m3-cyan-palette,
-    tertiary: matx.$m3-orange-palette
+    primary: matx.$m3-violet-palette,
+    tertiary: matx.$m3-magenta-palette
   )
 ));
 
 $m3-dark-theme: matx.define-theme((
   color: (
     theme-type: dark,
-    primary: matx.$m3-cyan-palette,
-    tertiary: matx.$m3-orange-palette,
+    primary: matx.$m3-violet-palette,
+    tertiary: matx.$m3-magenta-palette,
   )
 ));
 
-
-@import "_css-vars";
+@import "_common";
 @import "_components";
-@import "_fonts";
 
 @tailwind base;
 @tailwind components;

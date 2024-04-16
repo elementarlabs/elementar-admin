@@ -20,9 +20,8 @@ $m3-dark-theme: matx.define-theme((
   )
 ));
 
-@import "_css-vars";
+@import "_common";
 @import "_components";
-@import "_fonts";
 
 @tailwind base;
 @tailwind components;

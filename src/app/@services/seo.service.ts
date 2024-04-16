@@ -48,8 +48,6 @@ export class SeoService {
       this._document.head.appendChild(this._linkCanonical);
     }
 
-    console.log(this.getCanonicalUrl());
-
     this._linkCanonical.setAttribute('href', this.getCanonicalUrl());
   }
 }
