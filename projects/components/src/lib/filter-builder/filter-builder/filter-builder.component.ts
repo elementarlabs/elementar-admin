@@ -5,7 +5,7 @@ import {
   ContentChildren,
   inject,
   Input,
-  OnInit,
+  OnInit, output,
   PLATFORM_ID,
   QueryList
 } from '@angular/core';
@@ -13,7 +13,7 @@ import { FilterBuilderAddDirective } from '../filter-builder-add.directive';
 import { FilterBuilderRemoveDirective } from '../filter-builder-remove.directive';
 import { isPlatformServer } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
-import { IField } from '../types';
+import { FilterBuilderItemType, FilterBuilderField, FilterBuilderGroup, FilterBuilderItem } from '../types';
 
 @Component({
   selector: 'emr-filter-builder',
@@ -29,10 +29,10 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
   protected _isServer = isPlatformServer(this._platformId);
 
   @Input()
-  value: any[] = [];
+  value: FilterBuilderItemType[] = [];
 
   @Input()
-  fields: IField[] = [];
+  fields: FilterBuilderField[] = [];
 
   @Input()
   categories = [];
@@ -48,7 +48,7 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
       name: 'Or'
     }
   ];
-  selectedGroupOperation = this.groupOperations[0];
+  private _logicalOperator = this.groupOperations[0].id;
 
   @ContentChild(FilterBuilderAddDirective)
   protected _addRef: FilterBuilderAddDirective;
@@ -62,12 +62,12 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
   @Input()
   customOperations = [];
 
-  protected _value: any[] = [...this.value];
+  readonly valueChanged = output();
+
+  protected _value: any[] = [];
   protected _operations: any[] = [];
 
   ngOnInit() {
-    // console.log(this.fields);
-    // console.log(this._value);
   }
 
   ngAfterContentInit() {
@@ -79,49 +79,66 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
     });
   }
 
-  selectGroupOperation(groupOperation: any, targetGroup = null) {
-    if (!targetGroup) {
-      this.selectedGroupOperation = groupOperation;
-      this._value.forEach((condition, index) => {
-        if (typeof condition === 'string') {
-          this._value[index] = this.selectedGroupOperation.id;
-        }
-      });
-      this.value = this._value;
+  selectGroupOperation(groupOperation: any, targetGroup?: FilterBuilderGroup) {
+    if (targetGroup) {
+      targetGroup.logicalOperator = groupOperation.id;
+    } else {
+      this._logicalOperator = groupOperation.id;
     }
   }
 
-  addCondition(targetGroup = null) {
-    if (!targetGroup) {
-      this._value.push(
-        [this.fields[0].id, this._operations[0].id, '']
-      );
-    }
+  addCondition(targetGroup?: FilterBuilderGroup) {
+    const value = !targetGroup ? this._value : targetGroup.value;
+    value.push(
+      {
+        type: FilterBuilderItem.CONDITION,
+        value: [this.fields[0].id, this._operations[0].id, '']
+      }
+    );
   }
 
-  addGroup(targetGroup = null) {
-
+  addGroup(targetGroup?: FilterBuilderGroup) {
+    const value = !targetGroup ? this._value : targetGroup.value;
+    value.push(
+      {
+        type: FilterBuilderItem.GROUP,
+        logicalOperator: this.groupOperations[0].id,
+        value: []
+      }
+    );
   }
 
-  getConditionField(id: any): IField {
-    return this.fields.find(field => field.id === id) as IField;
+  getConditionField(id: any): FilterBuilderField {
+    return this.fields.find(field => field.id === id) as FilterBuilderField;
   }
 
   getConditionOperation(id: any) {
     return this._operations.find(operation => operation.id === id);
   }
 
-  selectConditionField(condition: any, field: any) {
+  getSelectedGroupOperationName(targetGroup?: FilterBuilderGroup): string {
+    const groupLogicalOperatorId = targetGroup ? targetGroup.logicalOperator : this._logicalOperator
+
+    return this.groupOperations.find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
+  }
+
+  selectConditionField(condition: any, field: any): void {
     condition[0] = field.id;
   }
 
-  selectConditionOperation(condition: any, operation: any) {
+  selectConditionOperation(condition: any, operation: any): void {
     condition[1] = operation.id;
   }
 
-  removeCondition(index: number, targetGroup = null) {
-    if (!targetGroup) {
-      this._value.splice(index, 1);
-    }
+  removeCondition(index: number, items: FilterBuilderItemType[]): void {
+    items.splice(index, 1);
+  }
+
+  protected _isGroup(item: FilterBuilderItemType): boolean {
+    return item.type === FilterBuilderItem.GROUP;
+  }
+
+  protected _isCondition(item: FilterBuilderItemType): boolean {
+    return item.type === FilterBuilderItem.CONDITION;
   }
 }
