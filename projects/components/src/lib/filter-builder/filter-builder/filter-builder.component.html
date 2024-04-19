@@ -8,14 +8,13 @@
       @if (_isGroup(item)) {
         <div class="flex items-center group-operations">
           <div class="remove" (click)="removeCondition(index, items)">
-            <ng-template [ngTemplateOutlet]="_removeRef.templateRef"></ng-template>
+            <mat-icon class="material-symbols-outlined">close</mat-icon>
           </div>
           <button [matMenuTriggerFor]="nestedGroupOperationsMenu" class="group-operation">
             {{ getSelectedGroupOperationName(item) }}
           </button>
           <div [matMenuTriggerFor]="addGroupMenu" class="add">
-            <ng-template [ngTemplateOutlet]="_addRef.templateRef"
-                         [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+            <mat-icon class="material-symbols-outlined">add</mat-icon>
           </div>
           <mat-menu #nestedGroupOperationsMenu>
             @for (groupOperation of groupOperations; track groupOperation.id) {
@@ -33,7 +32,7 @@
       } @else if (_isCondition(item)) {
         <div class="condition">
           <div class="remove" (click)="removeCondition(index, items)">
-            <ng-template [ngTemplateOutlet]="_removeRef.templateRef"></ng-template>
+            <mat-icon class="material-symbols-outlined">close</mat-icon>
           </div>
           <button class="condition-field"
                   [matMenuTriggerFor]="fieldsMenu">{{ getConditionField(item['value'][0]).name }}</button>
@@ -46,22 +45,25 @@
           </button>
         </div>
         <mat-menu #fieldsMenu>
-          <div emrMenuOptionGroup [(ngModel)]="item[0]">
-            @for (field of fields; track field) {
-              <mat-option [value]="field.id" (click)="selectConditionField(item['value'], field)">{{ field.name }}</mat-option>
+          <div emrMenuOptionGroup [(ngModel)]="item['value'][0]">
+            @for (fieldDef of fieldDefs; track fieldDef) {
+              <mat-option [value]="fieldDef.dataField"
+                          (click)="selectConditionField(item, fieldDef)">{{ fieldDef.name }}</mat-option>
             }
           </div>
         </mat-menu>
         <mat-menu #operationsMenu>
-          <div emrMenuOptionGroup [(ngModel)]="item[1]">
+          <div emrMenuOptionGroup [(ngModel)]="item['value'][1]">
             @for (operation of _operationDefs; track operation) {
-              <mat-option [value]="operation.id" (click)="selectConditionOperation(item['value'], operation)">
-                <div class="flex items-center">
+              <mat-option [value]="operation.id">
+                <div class="flex items-center gap-3">
                   @if (operation.operationIcon) {
                     <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
                   }
 
-                  <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+                  <div>
+                    <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+                  </div>
                 </div>
               </mat-option>
             }
@@ -78,7 +80,7 @@
       {{ getSelectedGroupOperationName() }}
     </button>
     <div [matMenuTriggerFor]="addMenu" class="add">
-      <ng-template [ngTemplateOutlet]="_addRef.templateRef"></ng-template>
+      <mat-icon class="material-symbols-outlined">add</mat-icon>
     </div>
   </div>
   <ng-container [ngTemplateOutlet]="itemsTpl" [ngTemplateOutletContext]="{ $implicit: _value }"></ng-container>

@@ -18,6 +18,10 @@
   margin-left: theme('margin.4');
 }
 
+:host .icon:empty {
+  display: none;
+}
+
 :host .group-operation {
   display: flex;
   width: max-content;

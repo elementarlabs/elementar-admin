@@ -1,7 +1,6 @@
 import {
   AfterContentInit,
   Component,
-  ContentChild,
   ContentChildren,
   inject,
   Input,
@@ -9,11 +8,15 @@ import {
   PLATFORM_ID,
   QueryList
 } from '@angular/core';
-import { FilterBuilderAddDirective } from '../filter-builder-add.directive';
-import { FilterBuilderRemoveDirective } from '../filter-builder-remove.directive';
 import { isPlatformServer } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
-import { FilterBuilderItemType, FilterBuilderField, FilterBuilderGroup, FilterBuilderItem } from '../types';
+import {
+  FilterBuilderItemType,
+  FilterBuilderGroup,
+  FilterBuilderItem,
+  FilterBuilderFieldDef,
+  FilterBuilderCondition
+} from '../types';
 
 @Component({
   selector: 'emr-filter-builder',
@@ -32,7 +35,7 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
   value: FilterBuilderItemType[] = [];
 
   @Input()
-  fields: FilterBuilderField[] = [];
+  fieldDefs: FilterBuilderFieldDef[] = [];
 
   @Input()
   categories = [];
@@ -49,12 +52,6 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
     }
   ];
   private _logicalOperator = this.groupOperations[0].id;
-
-  @ContentChild(FilterBuilderAddDirective)
-  protected _addRef: FilterBuilderAddDirective;
-
-  @ContentChild(FilterBuilderRemoveDirective)
-  protected _removeRef: FilterBuilderRemoveDirective;
 
   @ContentChildren(FilterBuilderOperationDefDirective)
   protected _operationDefs: QueryList<FilterBuilderOperationDefDirective>;
@@ -92,7 +89,7 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
     value.push(
       {
         type: FilterBuilderItem.CONDITION,
-        value: [this.fields[0].id, this._operations[0].id, '']
+        value: [this.fieldDefs[0].dataField, this._operations[0].id, '']
       }
     );
   }
@@ -108,8 +105,8 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
     );
   }
 
-  getConditionField(id: any): FilterBuilderField {
-    return this.fields.find(field => field.id === id) as FilterBuilderField;
+  getConditionField(dataField: string): FilterBuilderFieldDef {
+    return this.fieldDefs.find(field => field.dataField === dataField) as FilterBuilderFieldDef;
   }
 
   getConditionOperation(id: any) {
@@ -122,12 +119,8 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
     return this.groupOperations.find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
   }
 
-  selectConditionField(condition: any, field: any): void {
-    condition[0] = field.id;
-  }
-
-  selectConditionOperation(condition: any, operation: any): void {
-    condition[1] = operation.id;
+  selectConditionField(condition: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
+    condition['value'][0] = field.dataField;
   }
 
   removeCondition(index: number, items: FilterBuilderItemType[]): void {

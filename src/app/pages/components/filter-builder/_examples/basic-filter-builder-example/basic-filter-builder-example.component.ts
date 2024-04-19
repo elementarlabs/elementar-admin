@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { EmrFilterBuilderModule } from '@elementar/components';
+import { EmrFilterBuilderModule, FilterBuilderFieldDef, IconComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-basic-filter-builder-example',
   standalone: true,
   imports: [
     MatIcon,
-    EmrFilterBuilderModule
+    EmrFilterBuilderModule,
+    IconComponent
   ],
   templateUrl: './basic-filter-builder-example.component.html',
   styleUrl: './basic-filter-builder-example.component.scss'
@@ -17,27 +18,27 @@ export class BasicFilterBuilderExampleComponent {
     ['category', 'anyof', ['automation', 'monitors']],
     'or',
     [
-      ['category', '=', 'televisions'],
+      ['category', 'equals', 'televisions'],
       'and',
       ['price', 'between', [2000, 4000]],
     ]
   ];
-  fields = [
+  fieldDefs: FilterBuilderFieldDef[] = [
     {
-      id: 'name',
       name: 'Name',
-      type: 'text'
+      dataType: 'text',
+      dataField: 'name'
     },
     {
-      id: 'price',
       name: 'Price',
-      type: 'number',
       format: 'currency',
+      dataType: 'number',
+      dataField: 'currency'
     },
     {
-      id: 'category',
+      dataType: 'array',
+      dataField: 'category',
       name: 'Category',
-      type: 'array',
       filterOperations: ['equals', 'anyof'],
       lookup: {
         dataSource: [

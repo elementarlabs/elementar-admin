@@ -3,11 +3,18 @@ export enum FilterBuilderItem {
   GROUP = 'group'
 }
 
-export interface FilterBuilderField {
-  id: string | number;
+export interface FilterBuilderFieldDef {
   name: string;
-  type: string;
+  dataType: string;
+  dataField: string;
   format?: string;
+  filterOperations?: string[];
+  lookup?: {
+    dataSource: {
+      id: string;
+      name: string;
+    }[]
+  }
 }
 
 export interface FilterBuilderCondition {
