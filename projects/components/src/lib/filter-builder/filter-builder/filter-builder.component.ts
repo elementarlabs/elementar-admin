@@ -1,12 +1,12 @@
 import {
-  AfterContentInit,
+  AfterContentInit, AfterViewInit,
   Component,
   ContentChildren,
   inject,
   Input,
   OnInit, output,
   PLATFORM_ID,
-  QueryList
+  QueryList, ViewChildren
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
@@ -27,9 +27,10 @@ import {
     'class': 'emr-filter-builder'
   }
 })
-export class FilterBuilderComponent implements OnInit, AfterContentInit {
+export class FilterBuilderComponent implements OnInit, AfterViewInit {
   protected _platformId = inject(PLATFORM_ID);
   protected _isServer = isPlatformServer(this._platformId);
+  protected _operationAllowedTypesMap: Map<string, string[]> = new Map();
 
   @Input()
   value: FilterBuilderItemType[] = [];
@@ -53,8 +54,13 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
   ];
   private _logicalOperator = this.groupOperations[0].id;
 
+  @ViewChildren(FilterBuilderOperationDefDirective)
+  protected _prebuiltOperationDefs: QueryList<FilterBuilderOperationDefDirective>;
+
   @ContentChildren(FilterBuilderOperationDefDirective)
-  protected _operationDefs: QueryList<FilterBuilderOperationDefDirective>;
+  protected _customOperationDefs: QueryList<FilterBuilderOperationDefDirective>;
+
+  protected _operationDefs: FilterBuilderOperationDefDirective[] = [];
 
   @Input()
   customOperations = [];
@@ -67,12 +73,22 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
   ngOnInit() {
   }
 
-  ngAfterContentInit() {
-    this._operations = this._operationDefs.map(operationDef => {
-      return {
+  ngAfterViewInit(): void {
+    this._operationDefs = [...this._prebuiltOperationDefs, ...this._customOperationDefs];
+    this._operationDefs.forEach(operationDef => {
+      this._operations.push({
         id: operationDef.id,
         name: operationDef.operationName.templateRef
-      };
+      });
+      operationDef.allowedDataTypes.forEach((allowedType: string) => {
+        if (!this._operationAllowedTypesMap.has(allowedType)) {
+          this._operationAllowedTypesMap.set(allowedType, []);
+        }
+
+        const allowedTypeValue = this._operationAllowedTypesMap.get(allowedType) as string[];
+        allowedTypeValue.push(operationDef.id);
+        this._operationAllowedTypesMap.set(allowedType, allowedTypeValue);
+      });
     });
   }
 
@@ -115,16 +131,31 @@ export class FilterBuilderComponent implements OnInit, AfterContentInit {
 
   getSelectedGroupOperationName(targetGroup?: FilterBuilderGroup): string {
     const groupLogicalOperatorId = targetGroup ? targetGroup.logicalOperator : this._logicalOperator
-
     return this.groupOperations.find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
   }
 
   selectConditionField(condition: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
     condition['value'][0] = field.dataField;
+    let allowedTypes = this._operationAllowedTypesMap.get(field.dataType) as string[];
+    condition['value'][1] = allowedTypes[0];
   }
 
   removeCondition(index: number, items: FilterBuilderItemType[]): void {
     items.splice(index, 1);
+  }
+
+  isOperationAllowedForCondition(dataField: string, operationId: string): boolean {
+    const fieldDef = this.fieldDefs.find(f =>
+      f.dataField === dataField
+    ) as FilterBuilderFieldDef;
+
+    let allowedTypes = this._operationAllowedTypesMap.get(fieldDef.dataType);
+
+    if (!allowedTypes) {
+      throw new Error('There are not operations for the datatype: ' + fieldDef.dataType);
+    }
+
+    return allowedTypes.includes(operationId);
   }
 
   protected _isGroup(item: FilterBuilderItemType): boolean {

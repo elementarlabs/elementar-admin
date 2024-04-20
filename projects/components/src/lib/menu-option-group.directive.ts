@@ -108,6 +108,8 @@ export class MenuOptionGroupDirective implements MatOptionParentComponent, OnIni
 
     this.options.forEach(option => option.setInactiveStyles());
     this.options.forEach(option => {
+      option.deselect(false);
+
       if (option.value === this._value) {
         option.select(false);
         this._changeDetectorRef.markForCheck();

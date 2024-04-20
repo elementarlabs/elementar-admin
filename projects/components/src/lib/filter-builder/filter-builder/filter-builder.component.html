@@ -55,17 +55,18 @@
         <mat-menu #operationsMenu>
           <div emrMenuOptionGroup [(ngModel)]="item['value'][1]">
             @for (operation of _operationDefs; track operation) {
-              <mat-option [value]="operation.id">
-                <div class="flex items-center gap-3">
-                  @if (operation.operationIcon) {
-                    <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
-                  }
-
-                  <div>
-                    <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+              @if (isOperationAllowedForCondition(item['value'][0], operation.id)) {
+                <mat-option [value]="operation.id" [class.hidden]="isOperationAllowedForCondition(item['value'][0], operation.id)">
+                  <div class="flex items-center gap-3">
+                    @if (operation.operationIcon) {
+                      <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
+                    }
+                    <div>
+                      <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+                    </div>
                   </div>
-                </div>
-              </mat-option>
+                </mat-option>
+              }
             }
           </div>
         </mat-menu>
@@ -94,3 +95,46 @@
   <button mat-menu-item (click)="addCondition()">Add Condition</button>
   <button mat-menu-item (click)="addGroup()">Add Group</button>
 </mat-menu>
+
+<ng-container emrFilterBuilderOperationDef="contains" [allowedDataTypes]="['string']">
+  <ng-template emrFilterBuilderOperationName>Contains</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="doesNotContain" [allowedDataTypes]="['string']">
+  <ng-template emrFilterBuilderOperationName>Does not contain</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="startsWith" [allowedDataTypes]="['string']">
+  <ng-template emrFilterBuilderOperationName>Starts with</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="endsWith" [allowedDataTypes]="['string']">
+  <ng-template emrFilterBuilderOperationName>Ends with</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="equals" [allowedDataTypes]="['string', 'number', 'array', 'boolean']">
+  <ng-template emrFilterBuilderOperationName>Equals</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="notEquals" [allowedDataTypes]="['string', 'number', 'boolean']">
+  <ng-template emrFilterBuilderOperationName>Not equals</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isLessThen" [allowedDataTypes]="['number']">
+  <ng-template emrFilterBuilderOperationName>Is less then</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isLessThenOrEqual" [allowedDataTypes]="['number']">
+  <ng-template emrFilterBuilderOperationName>Is less then or equal to</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isGreaterThen" [allowedDataTypes]="['number']">
+  <ng-template emrFilterBuilderOperationName>Is greater then</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isGreaterThenOrEqual" [allowedDataTypes]="['number']">
+  <ng-template emrFilterBuilderOperationName>Is greater then or equal to</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isBlank" [allowedDataTypes]="['string', 'number']">
+  <ng-template emrFilterBuilderOperationName>Is blank</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isNotBlank" [allowedDataTypes]="['string', 'number']">
+  <ng-template emrFilterBuilderOperationName>Is not blank</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="between" [allowedDataTypes]="['number']">
+  <ng-template emrFilterBuilderOperationName>Is between</ng-template>
+</ng-container>
+<ng-container emrFilterBuilderOperationDef="isAnyOf" [allowedDataTypes]="['array']">
+  <ng-template emrFilterBuilderOperationName>Is any of</ng-template>
+</ng-container>

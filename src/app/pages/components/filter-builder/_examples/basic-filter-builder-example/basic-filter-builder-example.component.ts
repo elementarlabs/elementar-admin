@@ -26,7 +26,7 @@ export class BasicFilterBuilderExampleComponent {
   fieldDefs: FilterBuilderFieldDef[] = [
     {
       name: 'Name',
-      dataType: 'text',
+      dataType: 'string',
       dataField: 'name'
     },
     {
@@ -39,7 +39,6 @@ export class BasicFilterBuilderExampleComponent {
       dataType: 'array',
       dataField: 'category',
       name: 'Category',
-      filterOperations: ['equals', 'anyof'],
       lookup: {
         dataSource: [
           {

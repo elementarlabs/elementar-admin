@@ -9,6 +9,9 @@ export class FilterBuilderOperationDefDirective {
   @Input('emrFilterBuilderOperationDef')
   id: string;
 
+  @Input()
+  allowedDataTypes: string[] = [];
+
   @ContentChild(FilterBuilderOperationNameDirective)
   readonly operationName: FilterBuilderOperationNameDirective;
 
