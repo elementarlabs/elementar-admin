@@ -17,9 +17,11 @@
             <mat-icon class="material-symbols-outlined">add</mat-icon>
           </div>
           <mat-menu #nestedGroupOperationsMenu>
-            @for (groupOperation of groupOperations; track groupOperation.id) {
-              <button mat-menu-item (click)="selectGroupOperation(groupOperation, item)">{{ groupOperation.name }}</button>
-            }
+            <div emrMenuOptionGroup [(ngModel)]="item['logicalOperator']">
+              @for (groupOperation of groupOperations; track groupOperation.id) {
+                <mat-option [value]="groupOperation.id">{{ groupOperation.name }}</mat-option>
+              }
+            </div>
           </mat-menu>
           <mat-menu #addGroupMenu>
             <button mat-menu-item (click)="addCondition(item)">Add Condition</button>
@@ -86,10 +88,13 @@
   </div>
   <ng-container [ngTemplateOutlet]="itemsTpl" [ngTemplateOutletContext]="{ $implicit: _value }"></ng-container>
 </div>
+
 <mat-menu #groupOperationsMenu>
-  @for (groupOperation of groupOperations; track groupOperation.id) {
-    <button mat-menu-item (click)="selectGroupOperation(groupOperation)">{{ groupOperation.name }}</button>
-  }
+  <div emrMenuOptionGroup [(ngModel)]="_logicalOperator">
+    @for (groupOperation of groupOperations; track groupOperation.id) {
+      <mat-option [value]="groupOperation.id">{{ groupOperation.name }}</mat-option>
+    }
+  </div>
 </mat-menu>
 <mat-menu #addMenu>
   <button mat-menu-item (click)="addCondition()">Add Condition</button>

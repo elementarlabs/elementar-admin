@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, AfterViewInit,
+  AfterViewInit,
   Component,
   ContentChildren,
   inject,
@@ -13,7 +13,6 @@ import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-
 import {
   FilterBuilderItemType,
   FilterBuilderGroup,
-  FilterBuilderItem,
   FilterBuilderFieldDef,
   FilterBuilderCondition
 } from '../types';
@@ -39,7 +38,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   };
 
   @Input()
-  value: FilterBuilderItemType[] = [];
+  value: FilterBuilderGroup[] = [];
 
   @Input()
   fieldDefs: FilterBuilderFieldDef[] = [];
@@ -58,7 +57,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
       name: 'Or'
     }
   ];
-  private _logicalOperator = this.groupOperations[0].id;
+  protected _logicalOperator = this.groupOperations[0].id;
 
   @ViewChildren(FilterBuilderOperationDefDirective)
   protected _prebuiltOperationDefs: QueryList<FilterBuilderOperationDefDirective>;
@@ -73,10 +72,18 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   readonly valueChanged = output();
 
-  protected _value: any[] = [];
+  protected _value: FilterBuilderGroup[] = [];
   protected _operations: any[] = [];
 
   ngOnInit() {
+    if (this.value.length) {
+      if (!this._isGroup(this.value[0])) {
+        throw new Error('Invalid filter value, first element should be a filter group');
+      }
+
+      this._logicalOperator = this.value[0]['logicalOperator'] as string;
+      this._value = this.value[0]['value'];
+    }
   }
 
   ngAfterViewInit(): void {
@@ -98,19 +105,10 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     });
   }
 
-  selectGroupOperation(groupOperation: any, targetGroup?: FilterBuilderGroup) {
-    if (targetGroup) {
-      targetGroup.logicalOperator = groupOperation.id;
-    } else {
-      this._logicalOperator = groupOperation.id;
-    }
-  }
-
   addCondition(targetGroup?: FilterBuilderGroup) {
     const value = !targetGroup ? this._value : targetGroup.value;
     value.push(
       {
-        type: FilterBuilderItem.CONDITION,
         value: [this.fieldDefs[0].dataField, this._operations[0].id, '']
       }
     );
@@ -120,7 +118,6 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     const value = !targetGroup ? this._value : targetGroup.value;
     value.push(
       {
-        type: FilterBuilderItem.GROUP,
         logicalOperator: this.groupOperations[0].id,
         value: []
       }
@@ -166,11 +163,11 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   protected _isGroup(item: FilterBuilderItemType): boolean {
-    return item.type === FilterBuilderItem.GROUP;
+    return 'logicalOperator' in item;
   }
 
   protected _isCondition(item: FilterBuilderItemType): boolean {
-    return item.type === FilterBuilderItem.CONDITION;
+    return !('logicalOperator' in item);
   }
 
   private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { EmrFilterBuilderModule, FilterBuilderFieldDef, IconComponent } from '@elementar/components';
+import {
+  EmrFilterBuilderModule,
+  FilterBuilderFieldDef, FilterBuilderGroup,
+  FilterBuilderItemType,
+  IconComponent
+} from '@elementar/components';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-basic-filter-builder-example',
@@ -8,20 +14,27 @@ import { EmrFilterBuilderModule, FilterBuilderFieldDef, IconComponent } from '@e
   imports: [
     MatIcon,
     EmrFilterBuilderModule,
-    IconComponent
+    IconComponent,
+    JsonPipe
   ],
   templateUrl: './basic-filter-builder-example.component.html',
   styleUrl: './basic-filter-builder-example.component.scss'
 })
 export class BasicFilterBuilderExampleComponent {
-  filter = [
-    ['category', 'anyof', ['automation', 'monitors']],
-    'or',
-    [
-      ['category', 'equals', 'televisions'],
-      'and',
-      ['price', 'between', [2000, 4000]],
-    ]
+  value: FilterBuilderGroup[] = [
+    // ['category', 'anyof', ['automation', 'monitors']],
+    // 'or',
+    // [
+    //   ['category', 'equals', 'televisions'],
+    //   'and',
+    //   ['price', 'between', [2000, 4000]],
+    // ]
+    {
+      logicalOperator: 'or',
+      value: [
+
+      ]
+    }
   ];
   fieldDefs: FilterBuilderFieldDef[] = [
     {
