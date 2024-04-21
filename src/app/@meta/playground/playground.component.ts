@@ -63,7 +63,7 @@ export class PlaygroundComponent {
   contentCopy(): void {
     const text = this._markdownRef.element.nativeElement.querySelector('pre code').innerText;
     navigator.clipboard.writeText(text);
-    this._snackBar.open('The source code has been copied to your clipboard', '', {
+    this._snackBar.open('Source code has been copied to your clipboard', '', {
       duration: 3000
     });
   }

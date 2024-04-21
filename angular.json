@@ -37,8 +37,7 @@
               "src/sitemap.xml"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/prism-themes/themes/prism-atom-dark.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",
