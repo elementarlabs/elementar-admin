@@ -60,7 +60,6 @@
               ],
               "styles": [
                 "src/styles.scss",
-                "node_modules/prism-themes/themes/prism-atom-dark.min.css",
                 {
                   "input": "projects/components/styles/cyan-orange.scss",
                   "inject": false,
