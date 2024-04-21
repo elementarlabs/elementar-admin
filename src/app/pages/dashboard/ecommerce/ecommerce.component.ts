@@ -34,6 +34,9 @@ import {
 import {
   DashboardCardsSkeletonWidgetComponent
 } from '@shared/skeleton/dashboard-cards-skeleton-widget/dashboard-cards-skeleton-widget.component';
+import {
+  CustomerSatisfactionWidgetComponent
+} from '@shared/widgets/customer-satisfaction-widget/customer-satisfaction-widget.component';
 
 @Component({
   selector: 'app-ecommerce',
@@ -62,7 +65,8 @@ import {
     ExchangeWidgetComponent,
     DashboardSkeletonWidgetComponent,
     DashboardChartSkeletonWidgetComponent,
-    DashboardCardsSkeletonWidgetComponent
+    DashboardCardsSkeletonWidgetComponent,
+    CustomerSatisfactionWidgetComponent
   ],
   templateUrl: './ecommerce.component.html',
   styleUrl: './ecommerce.component.scss'
