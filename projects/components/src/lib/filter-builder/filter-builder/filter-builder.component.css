@@ -24,13 +24,16 @@
 
 :host .group-operation {
   display: flex;
+  align-items: center;
   width: max-content;
   user-select: none;
   cursor: pointer;
+  height: var(--emr-filter-builder-group-operation-height);
   font-size: var(--emr-filter-builder-group-operation-font-size);
   font-weight: var(--emr-filter-builder-group-operation-font-weight);
   color: var(--emr-filter-builder-group-operation-color);
   background: var(--emr-filter-builder-group-operation-bg);
+  border: var(--emr-filter-builder-group-operation-border);
   border-radius: var(--emr-filter-builder-group-operation-border-radius);
   padding: var(--emr-filter-builder-group-operation-bpadding);
 }
@@ -54,9 +57,11 @@
 
 :host .condition-field {
   display: flex;
+  align-items: center;
   width: max-content;
   user-select: none;
   cursor: pointer;
+  height: var(--emr-filter-builder-condition-field-height);
   font-size: var(--emr-filter-builder-condition-field-font-size);
   font-weight: var(--emr-filter-builder-condition-field-font-weight);
   color: var(--emr-filter-builder-condition-field-color);
@@ -98,9 +103,11 @@
 
 :host .condition-operation {
   display: flex;
+  align-items: center;
   width: max-content;
   user-select: none;
   cursor: pointer;
+  height: var(--emr-filter-builder-condition-operation-height);
   font-size: var(--emr-filter-builder-condition-operation-font-size);
   font-weight: var(--emr-filter-builder-condition-operation-font-weight);
   color: var(--emr-filter-builder-condition-operation-color);
@@ -122,9 +129,11 @@
 
 :host .condition-value {
   display: flex;
+  align-items: center;
   width: max-content;
   user-select: none;
   cursor: pointer;
+  height: var(--emr-filter-builder-condition-value-height);
   font-size: var(--emr-filter-builder-condition-value-font-size);
   font-weight: var(--emr-filter-builder-condition-value-font-weight);
   color: var(--emr-filter-builder-condition-value-color);

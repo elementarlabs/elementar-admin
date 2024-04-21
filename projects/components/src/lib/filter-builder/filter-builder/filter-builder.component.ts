@@ -31,6 +31,12 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   protected _platformId = inject(PLATFORM_ID);
   protected _isServer = isPlatformServer(this._platformId);
   protected _operationAllowedTypesMap: Map<string, string[]> = new Map();
+  private _resetMethodMap: { [prop: string]: (condition: FilterBuilderCondition) => void } = {
+      '_resetStringValue': this._resetStringValue,
+      '_resetBooleanValue': this._resetBooleanValue,
+      '_resetArrayValue': this._resetArrayValue,
+      '_resetNumberValue': this._resetNumberValue,
+  };
 
   @Input()
   value: FilterBuilderItemType[] = [];
@@ -138,6 +144,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     condition['value'][0] = field.dataField;
     let allowedTypes = this._operationAllowedTypesMap.get(field.dataType) as string[];
     condition['value'][1] = allowedTypes[0];
+    this._resetValue(field, condition);
   }
 
   removeCondition(index: number, items: FilterBuilderItemType[]): void {
@@ -164,5 +171,33 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   protected _isCondition(item: FilterBuilderItemType): boolean {
     return item.type === FilterBuilderItem.CONDITION;
+  }
+
+  private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {
+    const fieldDef = this.fieldDefs.find(f =>
+      f.dataField === field.dataField
+    ) as FilterBuilderFieldDef;
+    const resetMethod = '_reset' + this._capitalizeFirstLetter(fieldDef.dataType) + 'Value';
+    this._resetMethodMap[resetMethod](condition);
+  }
+
+  private _resetStringValue(condition: FilterBuilderCondition): void {
+    condition['value'][2] = '';
+  }
+
+  private _resetNumberValue(condition: FilterBuilderCondition): void {
+    condition['value'][2] = null;
+  }
+
+  private _resetArrayValue(condition: FilterBuilderCondition): void {
+    condition['value'][2] = [];
+  }
+
+  private _resetBooleanValue(condition: FilterBuilderCondition): void {
+    condition['value'][2] = false;
+  }
+
+  private _capitalizeFirstLetter(value: string) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
   }
 }
