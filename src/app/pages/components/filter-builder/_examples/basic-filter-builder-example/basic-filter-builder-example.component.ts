@@ -22,17 +22,20 @@ import { JsonPipe } from '@angular/common';
 })
 export class BasicFilterBuilderExampleComponent {
   value: FilterBuilderGroup[] = [
-    // ['category', 'anyof', ['automation', 'monitors']],
-    // 'or',
-    // [
-    //   ['category', 'equals', 'televisions'],
-    //   'and',
-    //   ['price', 'between', [2000, 4000]],
-    // ]
     {
       logicalOperator: 'or',
       value: [
-
+        {
+          logicalOperator: 'and',
+          value: [
+            // {
+            //   value: ['category', 'equals', 'televisions']
+            // },
+            {
+              value: ['price', 'isBetween', [2000, 4000]]
+            }
+          ]
+        }
       ]
     }
   ];
@@ -46,7 +49,7 @@ export class BasicFilterBuilderExampleComponent {
       name: 'Price',
       format: 'currency',
       dataType: 'number',
-      dataField: 'currency'
+      dataField: 'price'
     },
     {
       dataType: 'array',

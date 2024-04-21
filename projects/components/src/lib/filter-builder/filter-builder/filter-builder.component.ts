@@ -1,32 +1,32 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   ContentChildren,
   inject,
   Input,
-  OnInit, output,
+  OnInit,
+  output,
   PLATFORM_ID,
-  QueryList, ViewChildren
+  QueryList,
+  ViewChildren
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
-import {
-  FilterBuilderItemType,
-  FilterBuilderGroup,
-  FilterBuilderFieldDef,
-  FilterBuilderCondition
-} from '../types';
+import { FilterBuilderCondition, FilterBuilderFieldDef, FilterBuilderGroup, FilterBuilderItemType } from '../types';
 
 @Component({
   selector: 'emr-filter-builder',
   exportAs: 'emrFilterBuilder',
   templateUrl: './filter-builder.component.html',
   styleUrl: './filter-builder.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-filter-builder'
   }
 })
 export class FilterBuilderComponent implements OnInit, AfterViewInit {
+  protected _cdr = inject(ChangeDetectorRef);
   protected _platformId = inject(PLATFORM_ID);
   protected _isServer = isPlatformServer(this._platformId);
   protected _operationAllowedTypesMap: Map<string, string[]> = new Map();
@@ -103,6 +103,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
         this._operationAllowedTypesMap.set(allowedType, allowedTypeValue);
       });
     });
+    this._cdr.detectChanges();
   }
 
   addCondition(targetGroup?: FilterBuilderGroup) {
@@ -124,11 +125,11 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     );
   }
 
-  getConditionField(dataField: string): FilterBuilderFieldDef {
-    return this.fieldDefs.find(field => field.dataField === dataField) as FilterBuilderFieldDef;
+  getConditionField(dataField: string): FilterBuilderFieldDef | undefined {
+    return this.fieldDefs.find(field => field.dataField === dataField);
   }
 
-  getConditionOperation(id: any) {
+  getConditionOperation(id: string) {
     return this._operations.find(operation => operation.id === id);
   }
 
@@ -138,7 +139,6 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   selectConditionField(condition: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
-    condition['value'][0] = field.dataField;
     let allowedTypes = this._operationAllowedTypesMap.get(field.dataType) as string[];
     condition['value'][1] = allowedTypes[0];
     this._resetValue(field, condition);

@@ -37,10 +37,10 @@
             <mat-icon class="material-symbols-outlined">close</mat-icon>
           </div>
           <button class="condition-field"
-                  [matMenuTriggerFor]="fieldsMenu">{{ getConditionField(item['value'][0]).name }}</button>
+                  [matMenuTriggerFor]="fieldsMenu">{{ getConditionField(item['value'][0])?.name }}</button>
           <button class="condition-operation"
                   [matMenuTriggerFor]="operationsMenu">
-            <ng-template [ngTemplateOutlet]="getConditionOperation(item['value'][1]).name"></ng-template>
+            <ng-template [ngTemplateOutlet]="getConditionOperation(item['value'][1])?.name"></ng-template>
           </button>
           <button class="condition-value">
             <span i18n>&lt;enter a value&gt;</span>
@@ -56,9 +56,9 @@
         </mat-menu>
         <mat-menu #operationsMenu>
           <div emrMenuOptionGroup [(ngModel)]="item['value'][1]">
-            @for (operation of _operationDefs; track operation) {
-              @if (isOperationAllowedForCondition(item['value'][0], operation.id)) {
-                <mat-option [value]="operation.id" [class.hidden]="isOperationAllowedForCondition(item['value'][0], operation.id)">
+            @for (operation of _operationDefs; track operation.id) {
+              <div [hidden]="!isOperationAllowedForCondition(item['value'][0], operation.id)">
+                <mat-option [value]="operation.id">
                   <div class="flex items-center gap-3">
                     @if (operation.operationIcon) {
                       <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
@@ -68,7 +68,7 @@
                     </div>
                   </div>
                 </mat-option>
-              }
+              </div>
             }
           </div>
         </mat-menu>
@@ -131,13 +131,13 @@
 <ng-container emrFilterBuilderOperationDef="isGreaterThenOrEqual" [allowedDataTypes]="['number']">
   <ng-template emrFilterBuilderOperationName>Is greater then or equal to</ng-template>
 </ng-container>
-<ng-container emrFilterBuilderOperationDef="isBlank" [allowedDataTypes]="['string', 'number']">
+<ng-container emrFilterBuilderOperationDef="isBlank" [allowedDataTypes]="['string']">
   <ng-template emrFilterBuilderOperationName>Is blank</ng-template>
 </ng-container>
-<ng-container emrFilterBuilderOperationDef="isNotBlank" [allowedDataTypes]="['string', 'number']">
+<ng-container emrFilterBuilderOperationDef="isNotBlank" [allowedDataTypes]="['string']">
   <ng-template emrFilterBuilderOperationName>Is not blank</ng-template>
 </ng-container>
-<ng-container emrFilterBuilderOperationDef="between" [allowedDataTypes]="['number']">
+<ng-container emrFilterBuilderOperationDef="isBetween" [allowedDataTypes]="['number']">
   <ng-template emrFilterBuilderOperationName>Is between</ng-template>
 </ng-container>
 <ng-container emrFilterBuilderOperationDef="isAnyOf" [allowedDataTypes]="['array']">
