@@ -1,7 +1,7 @@
 :root {
   --emr-filter-builder-group-operations-gap: theme('gap.2');
   --emr-filter-builder-group-operation-font-size: theme('fontSize.tiny');
-  --emr-filter-builder-group-operation-color: theme('colors.gray.800');
+  --emr-filter-builder-group-operation-color: theme('colors.neutral.800');
   --emr-filter-builder-group-operation-bg: theme('colors.transparent');
   --emr-filter-builder-group-operation-font-weight: theme('fontWeight.normal');
   --emr-filter-builder-group-operation-border-radius: theme('borderRadius.DEFAULT');
@@ -51,4 +51,12 @@
   --emr-filter-builder-condition-value-hover-bg: theme('colors.gray.300');
   --emr-filter-builder-condition-remove-color: theme('colors.red.500');
   --emr-filter-builder-condition-remove-hover-color: theme('colors.red.600');
+}
+
+html.dark {
+  --emr-filter-builder-group-operation-color: theme('colors.neutral.200');
+  --emr-filter-builder-group-operation-hover-bg: theme('colors.neutral.600');
+  --emr-filter-builder-group-operation-active-bg: theme('colors.neutral.650');
+  --emr-filter-builder-group-operation-hover-color: theme('colors.neutral.100');
+  --emr-filter-builder-group-operation-active-color: theme('colors.neutral.50');
 }
