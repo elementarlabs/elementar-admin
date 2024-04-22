@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {
   EmrFilterBuilderModule,
-  FilterBuilderFieldDef, FilterBuilderGroup,
-  FilterBuilderItemType,
+  FilterBuilderFieldDef,
+  FilterBuilderGroup,
   IconComponent
 } from '@elementar/components';
 import { JsonPipe } from '@angular/common';
