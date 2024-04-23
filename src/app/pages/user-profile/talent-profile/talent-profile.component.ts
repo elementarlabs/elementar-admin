@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-user-profile',
+  selector: 'app-talent-profile',
   standalone: true,
   imports: [
-    MatIcon,
     MatButton,
+    MatIcon,
     MatIconButton,
     MatTooltip
   ],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss'
+  templateUrl: './talent-profile.component.html',
+  styleUrl: './talent-profile.component.scss'
 })
-export class UserProfileComponent {
+export class TalentProfileComponent {
 
 }

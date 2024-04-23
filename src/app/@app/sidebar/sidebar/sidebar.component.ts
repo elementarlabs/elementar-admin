@@ -460,13 +460,13 @@ export class SidebarComponent {
     {
       id: 'profile',
       type: 'group',
-      name: 'Profile',
+      name: 'User Profile',
       icon: 'person',
       children: [
         {
           type: 'link',
-          name: 'User Profile',
-          link: '/pages/profile/user-profile'
+          name: 'Talent Profile',
+          link: '/pages/user-profile/talent-profile'
         }
       ]
     },

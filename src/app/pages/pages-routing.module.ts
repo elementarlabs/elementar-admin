@@ -251,8 +251,8 @@ const routes: Routes = [
         loadChildren: () => import('./navigation/navigation/navigation.module').then(m => m.NavigationModule)
       },
       {
-        path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+        path: 'user-profile',
+        loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
       },
       {
         path: 'account/settings',

@@ -3,9 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'user-profile',
-    title: 'User Profile',
-    loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
+    path: 'talent-profile',
+    loadComponent: () => import('./talent-profile/talent-profile.component').then(c => c.TalentProfileComponent)
   }
 ];
 
@@ -13,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProfileRoutingModule { }
+export class UserProfileRoutingModule { }
