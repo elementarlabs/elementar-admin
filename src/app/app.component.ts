@@ -1,4 +1,4 @@
-import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { afterNextRender, Component, DestroyRef, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { ThemeManagerService } from '@services/theme-manager.service';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
@@ -8,6 +8,8 @@ import { filter } from 'rxjs';
 import { AnalyticsService } from '@services/analytics.service';
 import { SeoService } from '@services/seo.service';
 import { PageLoadingBarComponent } from '@elementar/components';
+import { InactivityTrackerService } from '@services/inactivity-tracker.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +23,11 @@ import { PageLoadingBarComponent } from '@elementar/components';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  private _destroyRef = inject(DestroyRef);
   private _themeManager = inject(ThemeManagerService);
   private _screenLoader = inject(ScreenLoaderService);
   private _analyticsService = inject(AnalyticsService);
+  private _inactivityTracker = inject(InactivityTrackerService);
   private _seoService = inject(SeoService);
   private _platformId = inject(PLATFORM_ID);
   private _router = inject(Router);
@@ -50,6 +54,12 @@ export class AppComponent implements OnInit {
         })
       ;
       this._analyticsService.trackPageViews();
+      this._inactivityTracker.setupInactivityTimer()
+        .subscribe(() => {
+          console.log('Inactive mode has been activated!');
+          this._inactivityTracker.reset();
+        })
+      ;
     });
   }
 
