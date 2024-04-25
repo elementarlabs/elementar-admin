@@ -1,20 +1,21 @@
 import {
-  AfterContentChecked, booleanAttribute,
+  AfterContentChecked,
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
   forwardRef,
-  Input, numberAttribute,
+  Input,
+  numberAttribute,
   OnChanges,
   OnInit,
   Output,
   SimpleChanges
 } from '@angular/core';
-import { ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, ValidatorFn, Validators} from '@angular/forms';
-import { Colors, Criteria } from '../enum';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, UntypedFormControl, ValidatorFn, Validators } from '@angular/forms';
+import { Criteria } from '../enum';
 import { PasswordStrengthValidator } from '../validator';
 import { RegExpValidator } from '../validator/regexp.class';
-import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'emr-password-strength',
@@ -28,10 +29,16 @@ import { ThemePalette } from '@angular/material/core';
       useExisting: forwardRef(() => PasswordStrengthComponent),
       multi: true
     }
-  ]
+  ],
+  host: {
+    '[class.low]': 'isLow',
+    '[class.weak]': 'isWeak',
+    '[class.medium]': 'isMedium',
+    '[class.strong]': 'isStrong',
+    '[class.very-strong]': 'isVeryStrong',
+  }
 })
 export class PasswordStrengthComponent implements OnInit, OnChanges, AfterContentChecked, ControlValueAccessor {
-
   @Input()
   password: string;
 
@@ -93,16 +100,24 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     return this._strength ? this._strength : 0;
   }
 
-  private _color: ThemePalette;
+  get isLow(): boolean {
+    return this.strength === 20;
+  }
 
-  get color(): ThemePalette {
-    if (this._strength < this.warnThreshold) {
-      return Colors.warn;
-    } else if (this._strength < this.accentThreshold) {
-      return Colors.accent;
-    } else {
-      return Colors.primary;
-    }
+  get isWeak(): boolean {
+    return this.strength === 40;
+  }
+
+  get isMedium(): boolean {
+    return this.strength === 60;
+  }
+
+  get isStrong(): boolean {
+    return this.strength === 80;
+  }
+
+  get isVeryStrong(): boolean {
+    return this.strength === 100;
   }
 
   propagateChange = (_: any) => {
@@ -116,7 +131,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     if ((changes['externalError'] && changes['externalError'].firstChange) || (changes['password'] && changes['password'].firstChange)) {
       return;
     } else if (changes['externalError'] && changes['externalError'].currentValue) {
-      this._color = Colors.warn;
+      // this._color = 'weak';
       return;
     } else if (changes['password'] && changes['password'].previousValue === changes['password'].currentValue && !changes['password'].firstChange) {
       this.calculatePasswordStrength();
@@ -192,6 +207,9 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
       this.customValidator ? this._containCustomChars() : false
     );
     this._strength = requirements.filter(v => v).length * unit;
+
+    console.log(this._strength);
+
     this.propagateChange(this.strength);
     this.onStrengthChanged.emit(this.strength);
     this.setRulesAndValidators();
@@ -199,12 +217,12 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
 
   reset() {
     this._strength = 0;
-    this.containAtLeastMinChars =
-      this.containAtLeastOneLowerCaseLetter =
-        this.containAtLeastOneUpperCaseLetter =
-          this.containAtLeastOneDigit =
-            this.containAtCustomChars =
-              this.containAtLeastOneSpecialChar = false;
+    this.containAtLeastMinChars = false;
+    this.containAtLeastOneLowerCaseLetter = false;
+    this.containAtLeastOneUpperCaseLetter = false;
+    this.containAtLeastOneDigit = false;
+    this.containAtCustomChars = false;
+    this.containAtLeastOneSpecialChar = false;
   }
 
   writeValue(obj: any): void {
@@ -231,47 +249,47 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
   }
 
   private _containAtLeastOneLowerCaseLetter(): boolean {
-    this.containAtLeastOneLowerCaseLetter =
-      // @ts-ignore
-      this.criteriaMap
-        .get(Criteria.at_least_one_lower_case_char)
-        .test(this.password);
+    // @ts-ignore
+    this.containAtLeastOneLowerCaseLetter = this.criteriaMap
+      .get(Criteria.at_least_one_lower_case_char)
+      .test(this.password)
+    ;
     return this.containAtLeastOneLowerCaseLetter;
   }
 
   private _containAtLeastOneUpperCaseLetter(): boolean {
-    this.containAtLeastOneUpperCaseLetter =
-      // @ts-ignore
-      this.criteriaMap
-        .get(Criteria.at_least_one_upper_case_char)
-        .test(this.password);
+    // @ts-ignore
+    this.containAtLeastOneUpperCaseLetter = this.criteriaMap
+      .get(Criteria.at_least_one_upper_case_char)
+      .test(this.password)
+    ;
     return this.containAtLeastOneUpperCaseLetter;
   }
 
   private _containAtLeastOneDigit(): boolean {
-    this.containAtLeastOneDigit =
-      // @ts-ignore
-      this.criteriaMap
-        .get(Criteria.at_least_one_digit_char)
-        .test(this.password);
+    // @ts-ignore
+    this.containAtLeastOneDigit = this.criteriaMap
+      .get(Criteria.at_least_one_digit_char)
+      .test(this.password)
+    ;
     return this.containAtLeastOneDigit;
   }
 
   private _containAtLeastOneSpecialChar(): boolean {
-    this.containAtLeastOneSpecialChar =
-      // @ts-ignore
-      this.criteriaMap
-        .get(Criteria.at_least_one_special_char)
-        .test(this.password);
+    // @ts-ignore
+    this.containAtLeastOneSpecialChar = this.criteriaMap
+      .get(Criteria.at_least_one_special_char)
+      .test(this.password)
+    ;
     return this.containAtLeastOneSpecialChar;
   }
 
   private _containCustomChars(): boolean {
-    this.containAtCustomChars =
-      // @ts-ignore
-      this.criteriaMap
-        .get(Criteria.at_custom_chars)
-        .test(this.password);
+    // @ts-ignore
+    this.containAtCustomChars = this.criteriaMap
+      .get(Criteria.at_custom_chars)
+      .test(this.password)
+    ;
     return this.containAtCustomChars;
   }
 

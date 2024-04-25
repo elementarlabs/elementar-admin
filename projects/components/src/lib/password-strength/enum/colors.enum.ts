@@ -1,5 +1,6 @@
 export enum Colors {
   primary = 'primary',
   accent = 'accent',
-  warn = 'warn'
+  warn = 'warn',
+  success = 'green'
 }
