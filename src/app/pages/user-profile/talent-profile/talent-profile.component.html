@@ -1,27 +1,32 @@
 <div class="px-8 py-10">
   <div class="max-w-[1000px] mx-auto">
     <section class="border dark:border-inverse rounded-2xl">
-      <div class="bg-neutral-100 h-48 rounded-t-2xl relative">
-        <div class="absolute start-10 size-44 border-4 border-background
-                -bottom-2 translate-y-1/2 bg-tertiary-200 rounded-full">
+      <div class="bg-neutral-100 dark:bg-neutral-700 h-48 rounded-t-2xl relative">
+        <div class="absolute start-10 size-44 border-4 border-background overflow-hidden
+                -bottom-2 translate-y-1/2 bg-tertiary-200 dark:bg-tertiary-400 rounded-full">
+          <img src="https://avatar.iran.liara.run/public" alt="" class="bg-cover">
         </div>
       </div>
       <div class="pb-12 ps-12 pe-12 pt-7">
         <div class="flex h-full justify-between gap-10">
           <div>
             <div class="ms-48 flex gap-4">
-              <div class="bg-neutral-200 rounded-full size-max">
+              <div class="bg-neutral-200 dark:bg-neutral-700 rounded-full size-max">
                 <button mat-icon-button matTooltip="Send a message">
                   <mat-icon class="material-symbols-outlined filled">mail</mat-icon>
                 </button>
               </div>
-              <button mat-flat-button>Follow</button>
+              @if (!followed) {
+                <button mat-flat-button (click)="follow()">Follow</button>
+              } @else {
+                <button mat-stroked-button (click)="unfollow()">Unfollow</button>
+              }
             </div>
             <div class="mt-14">
               <div class="flex items-center gap-4">
                 <div class="text-2xl font-bold">Pavel Salauyou</div>
                 <div class="flex items-center">
-                  <mat-icon class="material-symbols-outlined text-neutral-600
+                  <mat-icon class="material-symbols-outlined text-neutral-600 dark:text-neutral-500
                                !text-lg !w-6 !h-7 flex items-center justify-center">location_on</mat-icon>
                   <div class="text-xs text-neutral-650">London, United Kingdom</div>
                 </div>
@@ -31,44 +36,52 @@
           </div>
           <div class="max-w-96">
             <div>
-              <div class="text-sm text-neutral-500">Languages</div>
+              <div class="text-sm text-neutral-500 dark:text-neutral-400">Languages</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>English:</span>
-                  <span class="text-neutral-600">Native</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Native</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex
+                            items-center gap-1 dark:bg-tertiary-400 dark:text-tertiary-650">
                   <span>German:</span>
-                  <span class="text-neutral-600">Fluent</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Fluent</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>Spanish:</span>
-                  <span class="text-neutral-600">Basic</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Basic</span>
                 </div>
               </div>
             </div>
             <div class="mt-7">
-              <div class="text-sm text-neutral-500">Skills (13)</div>
+              <div class="text-sm text-neutral-500 dark:text-neutral-400">Skills (13)</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>Typescript:</span>
-                  <span class="text-neutral-600">Good</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Good</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>Angular:</span>
                   <span class="text-neutral-600">Good</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>CSS:</span>
-                  <span class="text-neutral-600">Medium</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Medium</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>Rest API:</span>
                   <span class="text-neutral-600">Good</span>
                 </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex items-center gap-1">
+                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-tertiary-400
+                            dark:text-tertiary-650 px-2 h-6 flex items-center gap-1">
                   <span>NestJS:</span>
-                  <span class="text-neutral-600">Medium</span>
+                  <span class="text-neutral-600 dark:text-neutral-700">Medium</span>
                 </div>
                 <div class="w-max text-xs px-2 h-6 flex items-center text-primary-500 cursor-pointer">+8 more</div>
               </div>
@@ -77,10 +90,10 @@
         </div>
       </div>
     </section>
-    <div class="space-y-20 mt-10 grid grid-cols-12 gap-12">
+    <div class="mt-10 grid grid-cols-12 gap-20">
       <section class="col-span-7">
         <div class="font-bold">About me</div>
-        <div class="text-md mt-3 leading-relaxed">
+        <div class="text-md mt-4 leading-relaxed">
           <ul>
             <li>• 12+ years of software development experience</li>
             <li>• Web-applications development (PHP 8+, Symfony 5, Angular 16+, Nest.js)</li>
@@ -92,8 +105,97 @@
         </div>
       </section>
       <section class="col-span-5">
-        asfaf
+        <div class="font-bold">Contact Details</div>
+        <div class="space-y-5 mt-4">
+          <div>
+            <div class="text-tiny text-neutral-500">Email address</div>
+            <div class="text-md mt-0.5">pavel.salauyou&#64;example.com</div>
+          </div>
+          <div>
+            <div class="text-tiny text-neutral-500">Mobile Phone</div>
+            <div class="text-md mt-0.5">+1 (234) 456-789</div>
+          </div>
+          <div>
+            <div class="text-tiny text-neutral-500">Social media</div>
+            <div class="flex items-center gap-3 mt-1">
+              <a href="https://x.com" target="_blank" class="hover:text-primary">
+                <emr-icon name="ph:x-logo"></emr-icon>
+              </a>
+              <a href="https://facebook.com" target="_blank" class="hover:text-primary">
+                <emr-icon name="ph:facebook-logo"></emr-icon>
+              </a>
+              <a href="https://instagram.com" target="_blank" class="hover:text-primary">
+                <emr-icon name="ph:instagram-logo"></emr-icon>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
+    </div>
+    <div class="mt-14">
+      <div class="font-bold">Experience</div>
+      <div class="text-md mt-4">
+        <table class="w-1/2">
+          <tbody>
+            <tr>
+              <td class="w-1 whitespace-nowrap text-tiny align-top">
+                <div class="text-neutral-650 dark:text-neutral-600">2020 &ndash; Present</div>
+                <div class="text-neutral-500 mt-2">Elementar Labs</div>
+              </td>
+              <td class="ps-10 align-top">
+                <div class="font-semibold text-sm">Senior Angular Developer</div>
+                <div class="text-sm text-neutral-500 mt-2 pb-7">
+                  I develop efficient Angular web applications,
+                  focusing on user interface design and API integration to
+                  enhance performance and meet business goals.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-1 whitespace-nowrap text-tiny align-top">
+                <div class="text-neutral-650 dark:text-neutral-600">2017 &ndash; 2020</div>
+                <div class="text-neutral-500 mt-2">Elementar Labs</div>
+              </td>
+              <td class="ps-10 align-top">
+                <div class="font-semibold text-sm">Senior Angular Developer</div>
+                <div class="text-sm text-neutral-500 mt-2 pb-7">
+                  I develop efficient Angular web applications,
+                  focusing on user interface design and API integration to
+                  enhance performance and meet business goals.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-1 whitespace-nowrap text-tiny align-top">
+                <div class="text-neutral-650 dark:text-neutral-600">2015 &ndash; 2017</div>
+                <div class="text-neutral-500 mt-2">Elementar Labs</div>
+              </td>
+              <td class="ps-10 align-top">
+                <div class="font-semibold text-sm">Senior Angular Developer</div>
+                <div class="text-sm text-neutral-500 mt-2 pb-7">
+                  I develop efficient Angular web applications,
+                  focusing on user interface design and API integration to
+                  enhance performance and meet business goals.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="w-1 whitespace-nowrap text-tiny align-top">
+                <div class="text-neutral-650 dark:text-neutral-600">2010 &ndash; 2015</div>
+                <div class="text-neutral-500 mt-2">Elementar Labs</div>
+              </td>
+              <td class="ps-10 align-top">
+                <div class="font-semibold text-sm">Senior Angular Developer</div>
+                <div class="text-sm text-neutral-500 mt-2">
+                  I develop efficient Angular web applications,
+                  focusing on user interface design and API integration to
+                  enhance performance and meet business goals.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

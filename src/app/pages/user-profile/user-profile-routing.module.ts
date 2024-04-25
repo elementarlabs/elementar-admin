@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'talent-profile',
+    title: 'Talent Profile',
     loadComponent: () => import('./talent-profile/talent-profile.component').then(c => c.TalentProfileComponent)
   }
 ];
