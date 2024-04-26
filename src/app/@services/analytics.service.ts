@@ -15,6 +15,10 @@ export class AnalyticsService {
 
   trackPageViews(): void {
     if (typeof gtag !== 'undefined') {
+      if (this._document.location.hostname === 'localhost') {
+        return;
+      }
+
       this._router.events.pipe(
         filter((event) => event instanceof NavigationEnd),
       )
