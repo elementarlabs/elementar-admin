@@ -496,6 +496,19 @@ export class SidebarComponent {
         }
       ]
     },
+    {
+      id: 'pricing',
+      type: 'group',
+      icon: 'attach_money',
+      name: 'Pricing',
+      children: [
+        {
+          type: 'link',
+          name: 'Basic',
+          link: '/pages/pricing/basic'
+        }
+      ]
+    },
   ];
   navItemLinks: NavItem[] = [];
   activeLinkId: any = '/';

@@ -263,6 +263,10 @@ const routes: Routes = [
         loadChildren: () => import('./file-manager/file-manager.module').then(m => m.FileManagerModule)
       },
       {
+        path: 'pricing',
+        loadChildren: () => import('./pricing/pricing.module').then(m => m.PricingModule)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard'
