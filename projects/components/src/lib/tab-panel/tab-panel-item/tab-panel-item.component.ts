@@ -8,7 +8,7 @@ import { MatRipple } from '@angular/material/core';
   selector: 'emr-tab-panel-item',
   exportAs: 'emrTabPanelItem',
   templateUrl: './tab-panel-item.component.html',
-  styleUrls: ['tab-panel-item.component.css'],
+  styleUrls: ['tab-panel-item.component.scss'],
   hostDirectives: [
     MatRipple
   ],

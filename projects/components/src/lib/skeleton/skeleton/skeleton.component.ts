@@ -4,7 +4,7 @@ import { Component, input } from '@angular/core';
   selector: 'emr-skeleton',
   exportAs: 'emrSkeleton',
   templateUrl: './skeleton.component.html',
-  styleUrls: ['./skeleton.component.css'],
+  styleUrls: ['./skeleton.component.scss'],
   host: {
     'class': 'emr-skeleton',
     '[class.is-direction-row]': 'direction() === "row"',

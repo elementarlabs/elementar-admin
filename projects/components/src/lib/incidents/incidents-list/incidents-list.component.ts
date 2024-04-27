@@ -6,7 +6,7 @@ import { INCIDENTS } from '../properties';
   selector: 'emr-incidents-list',
   exportAs: 'emr-incidents-list',
   templateUrl: './incidents-list.component.html',
-  styleUrls: ['./incidents-list.component.css'],
+  styleUrls: ['./incidents-list.component.scss'],
   host: {
     'class': 'emr-incidents-list'
   }

@@ -4,7 +4,7 @@ import { booleanAttribute, Component, ElementRef, EventEmitter, inject, Input, O
   selector: 'emr-expand',
   exportAs: 'emrExpand',
   templateUrl: './expand.component.html',
-  styleUrl: './expand.component.css',
+  styleUrl: './expand.component.scss',
   host: {
     'class': 'emr-expand',
     '[class.is-expanded]': 'expanded'

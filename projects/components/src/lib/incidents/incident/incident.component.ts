@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-incident,[emr-incident]',
   exportAs: 'emrIncident',
   templateUrl: './incident.component.html',
-  styleUrls: ['./incident.component.css'],
+  styleUrls: ['./incident.component.scss'],
   host: {
     'class': 'emr-incident'
   }

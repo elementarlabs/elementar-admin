@@ -8,7 +8,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'emr-upload-trigger,[emr-upload-trigger]',
   exportAs: 'emrUploadTrigger',
   templateUrl: './upload-trigger.component.html',
-  styleUrls: ['./upload-trigger.component.css'],
+  styleUrls: ['./upload-trigger.component.scss'],
   host: {
     'class': 'emr-upload-trigger'
   }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { INCIDENTS } from '../properties';
 import { IncidentsComponent } from '../incidents/incidents.component';
 
@@ -6,7 +6,7 @@ import { IncidentsComponent } from '../incidents/incidents.component';
   selector: 'emr-incidents-bar',
   exportAs: 'emrIncidentsBar',
   templateUrl: './incidents-bar.component.html',
-  styleUrls: ['./incidents-bar.component.css'],
+  styleUrls: ['./incidents-bar.component.scss'],
   host: {
     'class': 'emr-incidents-bar'
   }

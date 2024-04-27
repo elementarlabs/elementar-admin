@@ -18,7 +18,7 @@ import { AlertIconDirective } from '../alert-icon.directive';
   selector: 'emr-alert',
   exportAs: 'emrAlert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css'],
+  styleUrls: ['./alert.component.scss'],
   providers: [
     {
       provide: ALERT,

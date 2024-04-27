@@ -12,7 +12,7 @@ import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
   selector: 'emr-navigation-item,[emr-navigation-item]',
   exportAs: 'emrNavigationItem',
   templateUrl: './navigation-item.component.html',
-  styleUrls: ['./navigation-item.component.css'],
+  styleUrls: ['./navigation-item.component.scss'],
   host: {
     'class': 'emr-navigation-item',
     '[class.is-active]': 'forceActive || active'

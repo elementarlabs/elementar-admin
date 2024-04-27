@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-gauge-value',
   exportAs: 'emrGaugeValue',
   templateUrl: './gauge-value.component.html',
-  styleUrls: ['./gauge-value.component.css'],
+  styleUrls: ['./gauge-value.component.scss'],
   host: {
     'class': 'emr-gauge-value'
   }

@@ -4,7 +4,7 @@ import { Component, ElementRef, inject, Input, SimpleChanges } from '@angular/co
   selector: 'emr-color-picker-thumbnail,[emr-color-picker-thumbnail]',
   exportAs: 'emrColorPickerThumbnail',
   templateUrl: './color-picker-thumbnail.component.html',
-  styleUrls: ['./color-picker-thumbnail.component.css'],
+  styleUrls: ['./color-picker-thumbnail.component.scss'],
   host: {
     'class': 'emr-color-picker-thumbnail'
   }

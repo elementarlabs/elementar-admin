@@ -9,7 +9,7 @@ import {
   selector: 'emr-gauge',
   exportAs: 'emrGauge',
   templateUrl: './gauge.component.html',
-  styleUrls: ['./gauge.component.css'],
+  styleUrls: ['./gauge.component.scss'],
   host: {
     'class': 'emr-gauge'
   }

@@ -4,7 +4,7 @@ import { Component, ElementRef, inject, Input, OnDestroy } from '@angular/core';
   selector: 'emr-panel-header',
   exportAs: 'emrPanelHeader',
   templateUrl: './panel-header.component.html',
-  styleUrls: ['./panel-header.component.css'],
+  styleUrls: ['./panel-header.component.scss'],
   host: {
     'class': 'emr-panel-header'
   }

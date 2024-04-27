@@ -4,7 +4,7 @@ import { booleanAttribute, Component, Input } from '@angular/core';
   selector: 'emr-panel',
   exportAs: 'emrPanel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css'],
+  styleUrls: ['./panel.component.scss'],
   host: {
     'class': 'emr-panel',
     '[class.is-absolute]': 'absolute'

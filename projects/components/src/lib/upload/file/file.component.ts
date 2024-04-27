@@ -5,7 +5,7 @@ import { UploadFileState } from '../properties';
   selector: 'emr-file',
   exportAs: 'emrFile',
   templateUrl: './file.component.html',
-  styleUrls: ['./file.component.css'],
+  styleUrls: ['./file.component.scss'],
   host: {
     'class': 'emr-file'
   }
@@ -31,6 +31,4 @@ export class FileComponent {
 
   @Input()
   state: UploadFileState = 'uploading';
-
-
 }

@@ -30,7 +30,7 @@ import { Subject } from 'rxjs';
   selector: 'emr-number-input',
   exportAs: 'emrNumberInput',
   templateUrl: './number-input.component.html',
-  styleUrl: './number-input.component.css',
+  styleUrl: './number-input.component.scss',
   providers: [
     {
       provide: MatFormFieldControl,

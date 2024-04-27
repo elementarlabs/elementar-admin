@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-skeleton-circle',
   exportAs: 'emrSkeletonCircle',
   template: '',
-  styleUrls: ['./skeleton-circle.component.css'],
+  styleUrls: ['./skeleton-circle.component.scss'],
   host: {
     'class': 'emr-skeleton-item emr-skeleton-circle'
   }

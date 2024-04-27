@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-command-bar-value',
   exportAs: 'emrCommandBarValue',
   templateUrl: './command-bar-value.component.html',
-  styleUrl: './command-bar-value.component.css',
+  styleUrl: './command-bar-value.component.scss',
   host: {
     'class': 'emr-command-bar-value'
   }

@@ -15,7 +15,7 @@ import { Color } from '../helpers/color';
   selector: 'emr-alpha',
   exportAs: 'emrAlpha',
   templateUrl: './alpha.component.html',
-  styleUrls: ['./alpha.component.css'],
+  styleUrls: ['./alpha.component.scss'],
   host: {
     'class': 'emr-alpha'
   }

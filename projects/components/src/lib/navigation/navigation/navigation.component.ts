@@ -10,7 +10,7 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
   selector: 'emr-navigation',
   exportAs: 'emrNavigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css'],
+  styleUrls: ['./navigation.component.scss'],
   providers: [NavigationApiService],
   host: {
     class: 'emr-navigation'

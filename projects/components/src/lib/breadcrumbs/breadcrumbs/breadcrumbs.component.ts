@@ -7,7 +7,7 @@ import { BreadcrumbActiveItemDefDirective } from '../breadcrumb-active-item-def.
   selector: 'emr-breadcrumbs',
   exportAs: 'emrBreadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.css'],
+  styleUrls: ['./breadcrumbs.component.scss'],
   host: {
     class: 'emr-breadcrumbs'
   }

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-navigation-divider',
   exportAs: 'emrNavigationDivider',
   template: '',
-  styleUrls: ['./navigation-divider.component.css'],
+  styleUrls: ['./navigation-divider.component.scss'],
   host: {
     class: 'emr-navigation-divider'
   }

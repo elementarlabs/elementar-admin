@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-skeleton-block',
   exportAs: 'emrSkeletonBlock',
   template: '',
-  styleUrls: ['./skeleton-block.component.css'],
+  styleUrls: ['./skeleton-block.component.scss'],
   host: {
     'class': 'emr-skeleton-item emr-skeleton-block'
   }

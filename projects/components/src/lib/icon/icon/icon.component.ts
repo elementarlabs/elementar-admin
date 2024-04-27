@@ -16,7 +16,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   exportAs: 'emrIcon',
   standalone: true,
   template: '',
-  styleUrls: ['./icon.component.css'],
+  styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-icon',

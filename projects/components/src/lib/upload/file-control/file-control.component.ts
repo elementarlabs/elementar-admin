@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-file-control,[emr-file-control]',
   exportAs: 'emrFileControl',
   templateUrl: './file-control.component.html',
-  styleUrls: ['./file-control.component.css'],
+  styleUrls: ['./file-control.component.scss'],
   host: {
     'class': 'emr-file-control'
   }

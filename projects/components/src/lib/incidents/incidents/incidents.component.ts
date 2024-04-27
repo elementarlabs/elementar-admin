@@ -7,7 +7,7 @@ import { INCIDENTS } from '../properties';
   selector: 'emr-incidents',
   exportAs: 'emrIncidents',
   templateUrl: './incidents.component.html',
-  styleUrls: ['./incidents.component.css'],
+  styleUrls: ['./incidents.component.scss'],
   providers: [
     {
       provide: INCIDENTS,

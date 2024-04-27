@@ -15,7 +15,7 @@ import { Color } from '../helpers/color';
   selector: 'emr-hue',
   exportAs: 'emrHue',
   templateUrl: './hue.component.html',
-  styleUrls: ['./hue.component.css'],
+  styleUrls: ['./hue.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HueComponent extends BaseComponent implements OnChanges {

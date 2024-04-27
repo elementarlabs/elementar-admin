@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DestroyRef, ElementRef,
+  ElementRef,
   EventEmitter,
   HostListener,
   inject,
@@ -16,7 +16,7 @@ import { UploadSelectedEvent } from '../properties';
   selector: 'emr-upload-area',
   exportAs: 'emrUploadArea',
   templateUrl: './upload-area.component.html',
-  styleUrls: ['./upload-area.component.css'],
+  styleUrls: ['./upload-area.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-upload-area',

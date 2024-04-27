@@ -18,7 +18,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   selector: 'emr-segmented',
   exportAs: 'emrSegmented',
   templateUrl: './segmented.component.html',
-  styleUrl: './segmented.component.css',
+  styleUrl: './segmented.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

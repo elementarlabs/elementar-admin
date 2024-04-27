@@ -5,7 +5,7 @@ import { CommandBarPosition } from '../types';
   selector: 'emr-command-bar',
   exportAs: 'emrCommandBar',
   templateUrl: './command-bar.component.html',
-  styleUrl: './command-bar.component.css',
+  styleUrl: './command-bar.component.scss',
   host: {
     'class': 'emr-command-bar',
     '[class.is-open]': 'open',

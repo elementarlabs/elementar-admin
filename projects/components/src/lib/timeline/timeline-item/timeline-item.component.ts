@@ -5,7 +5,7 @@ import { TimelineItemIndicatorDirective } from '../timeline-item-indicator.direc
   selector: 'emr-timeline-item',
   exportAs: 'emrTimelineItem',
   templateUrl: './timeline-item.component.html',
-  styleUrl: './timeline-item.component.css',
+  styleUrl: './timeline-item.component.scss',
   host: {
     'class': 'emr-timeline-item'
   }

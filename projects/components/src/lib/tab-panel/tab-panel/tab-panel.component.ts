@@ -5,7 +5,7 @@ import { TabPanelApiService } from '../tab-panel-api.service';
   selector: 'emr-tab-panel',
   exportAs: 'emrTabPanel',
   templateUrl: './tab-panel.component.html',
-  styleUrls: ['tab-panel.component.css'],
+  styleUrls: ['tab-panel.component.scss'],
   providers: [
     TabPanelApiService
   ],

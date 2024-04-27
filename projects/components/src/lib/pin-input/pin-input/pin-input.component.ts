@@ -19,13 +19,12 @@ import {
 } from '@angular/forms';
 import { PinInputDirective } from '../pin-input.directive';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-// import { DELETE, BACKSPACE, TAB } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'emr-pin-input',
   exportAs: 'emrPinInput',
   templateUrl: './pin-input.component.html',
-  styleUrl: './pin-input.component.css',
+  styleUrl: './pin-input.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-timeline',
   exportAs: 'emrTimeline',
   templateUrl: './timeline.component.html',
-  styleUrl: './timeline.component.css',
+  styleUrl: './timeline.component.scss',
   host: {
     'class': 'emr-timeline'
   }

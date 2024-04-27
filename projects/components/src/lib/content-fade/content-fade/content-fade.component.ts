@@ -4,7 +4,7 @@ import { Component, ElementRef, inject, Input } from '@angular/core';
   selector: 'emr-content-fade',
   exportAs: 'emrContentFade',
   templateUrl: './content-fade.component.html',
-  styleUrl: './content-fade.component.css',
+  styleUrl: './content-fade.component.scss',
   host: {
     'class': 'emr-content-fade'
   }

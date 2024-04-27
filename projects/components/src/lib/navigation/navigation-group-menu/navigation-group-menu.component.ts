@@ -15,7 +15,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'emr-navigation-group-menu',
   exportAs: 'emrNavigationGroupMenu',
   templateUrl: './navigation-group-menu.component.html',
-  styleUrls: ['./navigation-group-menu.component.css'],
+  styleUrls: ['./navigation-group-menu.component.scss'],
   host: {
     'class': 'emr-navigation-group-menu',
     '[class.is-active]': 'active'

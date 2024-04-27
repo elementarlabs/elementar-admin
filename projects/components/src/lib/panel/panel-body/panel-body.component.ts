@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'emr-panel-body',
   exportAs: 'emrPanelBody',
   templateUrl: './panel-body.component.html',
-  styleUrls: ['./panel-body.component.css'],
+  styleUrls: ['./panel-body.component.scss'],
   host: {
     'class': 'emr-panel-body'
   }

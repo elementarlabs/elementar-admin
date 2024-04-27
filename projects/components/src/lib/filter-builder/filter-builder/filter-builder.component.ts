@@ -19,7 +19,7 @@ import { FilterBuilderCondition, FilterBuilderFieldDef, FilterBuilderGroup, Filt
   selector: 'emr-filter-builder',
   exportAs: 'emrFilterBuilder',
   templateUrl: './filter-builder.component.html',
-  styleUrl: './filter-builder.component.css',
+  styleUrl: './filter-builder.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-filter-builder'

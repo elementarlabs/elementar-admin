@@ -6,7 +6,7 @@ import { NavigationGroupToggleIconDirective } from '../navigation-group-toggle-i
   selector: 'emr-navigation-group-toggle',
   exportAs: 'emrNavigationGroupToggle',
   templateUrl: './navigation-group-toggle.component.html',
-  styleUrls: ['./navigation-group-toggle.component.css'],
+  styleUrls: ['./navigation-group-toggle.component.scss'],
   host: {
     class: 'emr-navigation-group-toggle',
     '[class.is-active]': 'active'

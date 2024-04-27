@@ -20,7 +20,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'emr-color-picker',
   exportAs: 'emrColorPicker',
   templateUrl: './color-picker.component.html',
-  styleUrls: ['color-picker.component.css'],
+  styleUrls: ['color-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

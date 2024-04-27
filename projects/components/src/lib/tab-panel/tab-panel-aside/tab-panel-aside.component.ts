@@ -5,7 +5,7 @@ import { TAB_PANEL_ASIDE } from '../types';
   selector: 'emr-tab-panel-aside',
   exportAs: 'emrTabPanelAside',
   templateUrl: './tab-panel-aside.component.html',
-  styleUrls: ['./tab-panel-aside.component.css'],
+  styleUrls: ['./tab-panel-aside.component.scss'],
   providers: [
     {
       provide: TAB_PANEL_ASIDE,
