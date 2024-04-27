@@ -4,10 +4,41 @@
   color: var(--emr-breadcrumbs-item-color);
   cursor: pointer;
   text-decoration: none;
-}
+  display: flex;
+  gap: theme('gap[1.5]');
 
-:host(:hover) {
-  color: var(--emr-breadcrumbs-item-hover-color);
-  text-decoration: underline;
-  text-underline-offset: 0.1875rem;
+  .icon {
+    line-height: 11px;
+
+    ::ng-deep .emr-breadcrumb-item-icon {
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+    }
+  }
+
+  .icon:empty {
+    display: none;
+  }
+
+  .content:has(.name:empty) {
+    display: none;
+  }
+
+  &:not(:last-child):hover {
+    .icon {
+      color: var(--emr-breadcrumbs-item-hover-color);
+    }
+
+    .name {
+      color: var(--emr-breadcrumbs-item-hover-color);
+      text-decoration: underline;
+      text-underline-offset: 0.1875rem;
+    }
+  }
+
+  &:last-child {
+    cursor: auto;
+    color: var(--emr-breadcrumbs-active-item-color);
+  }
 }

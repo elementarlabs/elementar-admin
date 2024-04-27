@@ -1,1 +1,9 @@
-<ng-content></ng-content>
+<div class="icon">
+  <ng-content select="[emrBreadcrumbItemIcon]"></ng-content>
+</div>
+<div class="content">
+  <ng-content select="emr-breadcrumb-title"></ng-content>
+  <div class="name">
+    <ng-content></ng-content>
+  </div>
+</div>

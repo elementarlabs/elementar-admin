@@ -1,17 +1,19 @@
 :root {
-  --emr-breadcrumbs-gap: theme('gap.2');
+  --emr-breadcrumbs-gap: theme('gap[2.5]');
   --emr-breadcrumbs-item-font-size: theme('fontSize.sm');
   --emr-breadcrumbs-item-color: theme('colors.neutral.500');
   --emr-breadcrumbs-item-hover-color: theme('colors.primary.DEFAULT');
-  --emr-breadcrumbs-active-item-color: theme('colors.neutral.800');
+  --emr-breadcrumbs-active-item-color: theme('colors.primary.DEFAULT');
   --emr-breadcrumbs-item-font-weight: theme('fontWeight.normal');
   --emr-breadcrumbs-separator-color: theme('colors.neutral.400');
   --emr-breadcrumbs-separator-font-size: theme('fontSize.xs');
   --emr-breadcrumbs-separator-position-top: 1px;
+  --emr-breadcrumbs-title-color: theme('colors.neutral.800');
+  --emr-breadcrumbs-title-font-size: theme('fontSize.xs');
 }
 
 html.dark {
   --emr-breadcrumbs-item-color: theme('colors.neutral.400');
-  --emr-breadcrumbs-active-item-color: theme('colors.neutral.100');
   --emr-breadcrumbs-separator-color: theme('colors.neutral.400');
+  --emr-breadcrumbs-title-color: theme('colors.neutral.100');
 }

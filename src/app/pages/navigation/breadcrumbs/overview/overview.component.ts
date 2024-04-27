@@ -6,13 +6,21 @@ import {
 import {
   BreadcrumbsWithDatasourceExampleComponent
 } from '../_examples/breadcrumbs-with-datasource-example/breadcrumbs-with-datasource-example.component';
+import {
+  BreadcrumbsWithIconsExampleComponent
+} from '../_examples/breadcrumbs-with-icons-example/breadcrumbs-with-icons-example.component';
+import {
+  BreadcrumbsWithTitlesExampleComponent
+} from '../_examples/breadcrumbs-with-titles-example/breadcrumbs-with-titles-example.component';
 
 @Component({
   standalone: true,
   imports: [
     PlaygroundComponent,
     BasicBreadcrumbsExampleComponent,
-    BreadcrumbsWithDatasourceExampleComponent
+    BreadcrumbsWithDatasourceExampleComponent,
+    BreadcrumbsWithIconsExampleComponent,
+    BreadcrumbsWithTitlesExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

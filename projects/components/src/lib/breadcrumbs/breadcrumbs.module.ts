@@ -5,7 +5,6 @@ import { BreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.compo
 import { BreadcrumbSeparatorComponent } from './breadcrumb-separator/breadcrumb-separator.component';
 import { BreadcrumbItemDefDirective } from './breadcrumb-item-def.directive';
 import { BreadcrumbSeparatorDefDirective } from './breadcrumb-separator-def.directive';
-import { BreadcrumbActiveItemComponent } from './breadcrumb-active-item/breadcrumb-active-item.component';
 import { BreadcrumbActiveItemDefDirective } from './breadcrumb-active-item-def.directive';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { BreadcrumbActiveItemDefDirective } from './breadcrumb-active-item-def.d
     BreadcrumbSeparatorComponent,
     BreadcrumbSeparatorDefDirective,
     BreadcrumbItemDefDirective,
-    BreadcrumbActiveItemComponent,
     BreadcrumbActiveItemDefDirective
   ],
   imports: [
@@ -27,7 +25,6 @@ import { BreadcrumbActiveItemDefDirective } from './breadcrumb-active-item-def.d
     BreadcrumbSeparatorComponent,
     BreadcrumbSeparatorDefDirective,
     BreadcrumbItemDefDirective,
-    BreadcrumbActiveItemComponent,
     BreadcrumbActiveItemDefDirective
   ]
 })
