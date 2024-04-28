@@ -1,9 +1,8 @@
 import { DestroyRef, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { DOCUMENT, isPlatformServer } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,8 @@ export class SeoService {
   private readonly _platformId = inject(PLATFORM_ID);
   private _linkCanonical: HTMLLinkElement | null;
 
-  trackCanonicalChanges(): void {
-    this._createCanonicalTag();
+  trackCanonicalChanges(siteUrl: string): void {
+    this._createCanonicalTag(siteUrl);
 
     if (isPlatformServer(this._platformId)) {
       return;
@@ -27,19 +26,19 @@ export class SeoService {
       takeUntilDestroyed(this._destroyRef),
     )
       .subscribe(() => {
-        this._linkCanonical?.setAttribute('href', this.getCanonicalUrl());
+        this._linkCanonical?.setAttribute('href', this.getCanonicalUrl(siteUrl));
       });
   }
 
-  private getCanonicalUrl(): string {
+  private getCanonicalUrl(siteUrl: string): string {
     if (this._document.URL.startsWith('http')) {
       return this._document.URL;
     }
 
-    return environment.siteUrl + this._document.URL;
+    return siteUrl + this._document.URL;
   }
 
-  private _createCanonicalTag(): void {
+  private _createCanonicalTag(siteUrl: string): void {
     this._linkCanonical = this._document.querySelector('link[rel="canonical"]');
 
     if (!this._linkCanonical) {
@@ -48,6 +47,6 @@ export class SeoService {
       this._document.head.appendChild(this._linkCanonical);
     }
 
-    this._linkCanonical.setAttribute('href', this.getCanonicalUrl());
+    this._linkCanonical.setAttribute('href', this.getCanonicalUrl(siteUrl));
   }
 }

@@ -13,7 +13,7 @@ import {
 
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
-import { ThemeManagerService } from '@services/theme-manager.service';
+import { ThemeManagerService } from '@elementar/components';
 
 echarts.use([
   BarChart,

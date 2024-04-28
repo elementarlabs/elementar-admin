@@ -1,15 +1,15 @@
 import { afterNextRender, Component, DestroyRef, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
-import { ThemeManagerService } from '@services/theme-manager.service';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ThemeManagerService } from '@elementar/components';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
-import { ScreenLoaderService } from '@services/screen-loader.service';
+import { ScreenLoaderService } from '@elementar/components';
 import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
-import { AnalyticsService } from '@services/analytics.service';
-import { SeoService } from '@services/seo.service';
+import { AnalyticsService } from '@elementar/components';
+import { SeoService } from '@elementar/components';
 import { PageLoadingBarComponent } from '@elementar/components';
-import { InactivityTrackerService } from '@services/inactivity-tracker.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { InactivityTrackerService } from '@elementar/components';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -72,6 +72,6 @@ export class AppComponent implements OnInit {
       }, 1500);
     }
 
-    this._seoService.trackCanonicalChanges();
+    this._seoService.trackCanonicalChanges(environment.siteUrl);
   }
 }

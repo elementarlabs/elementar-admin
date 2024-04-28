@@ -13,7 +13,7 @@ import { EmrAvatarModule, IconComponent } from '@elementar/components';
 import { NotificationListComponent } from '@app/header/_notifications/notification-list/notification-list.component';
 import { EmrPopoverModule } from '@elementar/components';
 import { AssistantSearchComponent } from '@app/header/_assistant-search/assistant-search.component';
-import { ThemeManagerService } from '@services/theme-manager.service';
+import { ThemeManagerService } from '@elementar/components';
 import { LayoutApiService } from '@elementar/components';
 
 @Component({

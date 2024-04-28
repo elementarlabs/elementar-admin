@@ -8,7 +8,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { PageTitleStrategyService } from '@services/page-title-strategy.service';
+import { PageTitleStrategyService } from '@elementar/components';
 
 export const appConfig: ApplicationConfig = {
   providers: [

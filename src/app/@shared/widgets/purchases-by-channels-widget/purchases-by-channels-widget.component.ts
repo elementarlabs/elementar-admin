@@ -1,9 +1,9 @@
-import { afterNextRender, Component, ElementRef, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { afterNextRender, Component, ElementRef, inject, OnDestroy, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import * as echarts from 'echarts/core';
-import { ThemeManagerService } from '@services/theme-manager.service';
+import { ThemeManagerService } from '@elementar/components';
 import { LineChart } from 'echarts/charts';
 import {
   DatasetComponent,
