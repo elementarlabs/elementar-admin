@@ -42,9 +42,72 @@
                   [matMenuTriggerFor]="operationsMenu">
             <ng-template [ngTemplateOutlet]="getConditionOperation(item['value'][1])?.name"></ng-template>
           </button>
-          <button class="condition-value">
-            <span i18n>&lt;enter a value&gt;</span>
-          </button>
+          <div class="relative">
+            @if (editItem && editItem === item) {
+              <div class="absolute start-0 top-0 -translate-y-1/2">
+                @switch (getFieldType(editItem)) {
+                  @case ('array') {
+                    array
+                  }
+
+                  @case ('number') {
+                    @switch (editItem['value'][1]) {
+                      @case ('isBetween') {
+                        <div class="flex gap-2 items-center">
+                          <mat-form-field class="form-field-number">
+                            <input type="number" matInput emrAutoFocus
+                                   [(ngModel)]="item['value'][2][0]"
+                                   (ngModelChange)="_emitChangeEvent()">
+                          </mat-form-field>
+                          <div class="text-neutral-500">&ndash;</div>
+                          <mat-form-field class="form-field-number">
+                            <input type="number" matInput
+                                   [(ngModel)]="item['value'][2][1]"
+                                   (ngModelChange)="_emitChangeEvent()">
+                          </mat-form-field>
+                        </div>
+                      }
+                      @default {
+                        <mat-form-field class="form-field-number">
+                          <input type="number" matInput emrAutoFocus
+                                 [(ngModel)]="item['value'][2]"
+                                 (ngModelChange)="_emitChangeEvent()">
+                        </mat-form-field>
+                      }
+                    }
+                  }
+
+                  @default {
+                    <mat-form-field class="form-field">
+                      <input type="text" matInput emrAutoFocus
+                             [(ngModel)]="item['value'][2]"
+                             (ngModelChange)="_emitChangeEvent()">
+                    </mat-form-field>
+                  }
+                }
+              </div>
+            } @else {
+              @if (item['value'][1] !== 'isBlank' && item['value'][1] !== 'isNotBlank') {
+                @if (isValueNotEmpty(item)) {
+                  @if (item['value'][1] === 'isBetween') {
+                    <button class="condition-value flex items-center gap-2" (click)="modifyValue(item)">
+                      <span>{{ item['value'][2][0] }}</span>
+                      <span class="text-neutral-500">&ndash;</span>
+                      <span>{{ item['value'][2][1] }}</span>
+                    </button>
+                  } @else {
+                    <button class="condition-value" (click)="modifyValue(item)">
+                      <span>{{ item['value'][2] }}</span>
+                    </button>
+                  }
+                } @else {
+                  <button class="condition-value" (click)="modifyValue(item)">
+                    <span i18n>&lt;enter a value&gt;</span>
+                  </button>
+                }
+              }
+            }
+          </div>
         </div>
         <mat-menu #fieldsMenu>
           <div emrMenuOptionGroup [(ngModel)]="item['value'][0]">
@@ -55,7 +118,7 @@
           </div>
         </mat-menu>
         <mat-menu #operationsMenu>
-          <div emrMenuOptionGroup [(ngModel)]="item['value'][1]">
+          <div emrMenuOptionGroup [ngModel]="item['value'][1]" (ngModelChange)="operationChanged(item, $event)">
             @for (operation of _operationDefs; track operation.id) {
               <div [hidden]="!isOperationAllowedForCondition(item['value'][0], operation.id)">
                 <mat-option [value]="operation.id">
@@ -90,7 +153,7 @@
 </div>
 
 <mat-menu #groupOperationsMenu>
-  <div emrMenuOptionGroup [(ngModel)]="_logicalOperator">
+  <div emrMenuOptionGroup [(ngModel)]="_logicalOperator" (ngModelChange)="_emitChangeEvent()">
     @for (groupOperation of groupOperations; track groupOperation.id) {
       <mat-option [value]="groupOperation.id">{{ groupOperation.name }}</mat-option>
     }

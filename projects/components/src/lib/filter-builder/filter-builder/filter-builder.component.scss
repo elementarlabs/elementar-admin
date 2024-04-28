@@ -1,5 +1,24 @@
 :host {
   display: block;
+
+  ::ng-deep {
+    .mat-mdc-form-field-infix {
+      --mat-form-field-container-height: 46px !important;
+      --mat-form-field-container-vertical-padding: 12px !important;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+
+  .form-field {
+    width: 200px;
+  }
+
+  .form-field-number {
+    width: 140px;
+  }
 }
 
 :host .group-operations {

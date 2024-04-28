@@ -42,4 +42,5 @@ export * from './lib/_services/page-title-strategy.service';
 export * from './lib/_services/screen-loader.service';
 export * from './lib/_services/seo.service';
 export * from './lib/_services/theme-manager.service';
+export * from './lib/_directives/public-api';
 export * from './lib/icon/public-api';

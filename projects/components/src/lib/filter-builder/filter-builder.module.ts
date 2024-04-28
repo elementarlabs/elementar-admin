@@ -9,6 +9,8 @@ import { MatOption } from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { MenuOptionGroupDirective } from '../menu-option-group.directive';
 import { MatIcon } from '@angular/material/icon';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { AutoFocusDirective } from '../_directives/auto-focus.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { MatIcon } from '@angular/material/icon';
     MatMenuItem,
     MenuOptionGroupDirective,
     FormsModule,
-    MatIcon
+    MatIcon,
+    MatInput,
+    MatFormField,
+    AutoFocusDirective
   ],
   exports: [
     FilterBuilderComponent,

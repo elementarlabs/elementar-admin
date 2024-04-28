@@ -70,10 +70,11 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   @Input()
   customOperations = [];
 
-  readonly valueChanged = output();
+  readonly valueChanged = output<FilterBuilderGroup[]>();
 
   protected _value: FilterBuilderGroup[] = [];
   protected _operations: any[] = [];
+  protected editItem: FilterBuilderCondition | undefined;
 
   ngOnInit() {
     if (this.value.length) {
@@ -82,7 +83,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
       }
 
       this._logicalOperator = this.value[0]['logicalOperator'] as string;
-      this._value = this.value[0]['value'];
+      this._value = JSON.parse(JSON.stringify(this.value[0]['value']));
     }
   }
 
@@ -138,14 +139,35 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     return this.groupOperations.find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
   }
 
-  selectConditionField(condition: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
+  selectConditionField(item: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
+    this.editItem = undefined;
     let allowedTypes = this._operationAllowedTypesMap.get(field.dataType) as string[];
-    condition['value'][1] = allowedTypes[0];
-    this._resetValue(field, condition);
+    item['value'][1] = allowedTypes[0];
+    this._resetValue(field, item);
+    this._emitChangeEvent();
+  }
+
+  operationChanged(item: FilterBuilderCondition, operation: string): void {
+    this.editItem = undefined;
+    const oldOperation = item['value'][1];
+
+    if (oldOperation === 'isBetween' && operation !== 'isBetween') {
+      item['value'][2] = '';
+    } else if (oldOperation !== 'isBetween' && operation === 'isBetween') {
+      item['value'][2] = [];
+    }
+
+    if (['isNotBlank', 'isBlank'].includes(operation)) {
+      item['value'][2] = '';
+    }
+
+    item['value'][1] = operation;
+    this._emitChangeEvent();
   }
 
   removeCondition(index: number, items: FilterBuilderItemType[]): void {
     items.splice(index, 1);
+    this._emitChangeEvent();
   }
 
   isOperationAllowedForCondition(dataField: string, operationId: string): boolean {
@@ -162,12 +184,41 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     return allowedTypes.includes(operationId);
   }
 
+  modifyValue(item: FilterBuilderCondition): void {
+    this.editItem = item;
+  }
+
+  getFieldType(item: FilterBuilderCondition): string {
+    return (this.fieldDefs.find(f =>
+      f.dataField === item['value'][0]
+    ) as FilterBuilderFieldDef).dataType;
+  }
+
+  isValueNotEmpty(item: FilterBuilderCondition): boolean {
+    if (item['value'][1] === 'isBetween') {
+      return item['value'][2].length > 0;
+    }
+
+    return item['value'][2] !== '';
+  }
+
   protected _isGroup(item: FilterBuilderItemType): boolean {
     return 'logicalOperator' in item;
   }
 
   protected _isCondition(item: FilterBuilderItemType): boolean {
     return !('logicalOperator' in item);
+  }
+
+  protected _emitChangeEvent(): void {
+    this.valueChanged.emit(
+      [
+        {
+          logicalOperator: this._logicalOperator,
+          value: this._value
+        }
+      ]
+    );
   }
 
   private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {
