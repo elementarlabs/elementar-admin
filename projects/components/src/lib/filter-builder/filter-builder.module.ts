@@ -11,6 +11,7 @@ import { MenuOptionGroupDirective } from '../menu-option-group.directive';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatInput } from '@angular/material/input';
 import { AutoFocusDirective } from '../_directives/auto-focus.directive';
+import { FocusElementDirective } from '../_directives/focus-element.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AutoFocusDirective } from '../_directives/auto-focus.directive';
     MatIcon,
     MatInput,
     MatFormField,
-    AutoFocusDirective
+    AutoFocusDirective,
+    FocusElementDirective
   ],
   exports: [
     FilterBuilderComponent,

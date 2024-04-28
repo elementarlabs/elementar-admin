@@ -53,7 +53,8 @@
                   @case ('number') {
                     @switch (editItem['value'][1]) {
                       @case ('isBetween') {
-                        <div class="flex gap-2 items-center">
+                        <div class="flex gap-2 items-center"
+                             emrFocusElement (elementBlurred)="cancelEdit()">
                           <mat-form-field class="form-field-number">
                             <input type="number" matInput emrAutoFocus
                                    [(ngModel)]="item['value'][2][0]"
@@ -70,6 +71,7 @@
                       @default {
                         <mat-form-field class="form-field-number">
                           <input type="number" matInput emrAutoFocus
+                                 (blur)="cancelEdit()"
                                  [(ngModel)]="item['value'][2]"
                                  (ngModelChange)="_emitChangeEvent()">
                         </mat-form-field>
@@ -80,6 +82,7 @@
                   @default {
                     <mat-form-field class="form-field">
                       <input type="text" matInput emrAutoFocus
+                             (blur)="cancelEdit()"
                              [(ngModel)]="item['value'][2]"
                              (ngModelChange)="_emitChangeEvent()">
                     </mat-form-field>

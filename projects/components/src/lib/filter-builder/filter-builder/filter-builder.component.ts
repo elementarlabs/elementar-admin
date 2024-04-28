@@ -152,13 +152,13 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     const oldOperation = item['value'][1];
 
     if (oldOperation === 'isBetween' && operation !== 'isBetween') {
-      item['value'][2] = '';
+      item['value'][2] = null;
     } else if (oldOperation !== 'isBetween' && operation === 'isBetween') {
       item['value'][2] = [];
     }
 
     if (['isNotBlank', 'isBlank'].includes(operation)) {
-      item['value'][2] = '';
+      item['value'][2] = null;
     }
 
     item['value'][1] = operation;
@@ -196,29 +196,36 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   isValueNotEmpty(item: FilterBuilderCondition): boolean {
     if (item['value'][1] === 'isBetween') {
-      return item['value'][2].length > 0;
+      return item['value'][2].length === 2 && item['value'][2][0] !== null && item['value'][2][1] !== null;
     }
 
-    return item['value'][2] !== '';
+    return item['value'][2] !== null && item['value'][2] !== '';
   }
 
-  protected _isGroup(item: FilterBuilderItemType): boolean {
+  cancelEdit(): void {
+    this.editItem = undefined;
+  }
+
+  protected _isGroup(item: FilterBuilderItemType): item is FilterBuilderGroup {
     return 'logicalOperator' in item;
   }
 
-  protected _isCondition(item: FilterBuilderItemType): boolean {
+  protected _isCondition(item: FilterBuilderItemType): item is FilterBuilderCondition {
     return !('logicalOperator' in item);
   }
 
   protected _emitChangeEvent(): void {
-    this.valueChanged.emit(
-      [
+    const value = this._normalizeValue(this._value);
+    if (value.length > 0) {
+      this.valueChanged.emit([
         {
           logicalOperator: this._logicalOperator,
-          value: this._value
+          value: value
         }
-      ]
-    );
+      ]);
+    } else {
+      this.valueChanged.emit([]);
+    }
   }
 
   private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {
@@ -247,5 +254,27 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   private _capitalizeFirstLetter(value: string) {
     return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  private _normalizeValue(value: FilterBuilderItemType[]): FilterBuilderItemType[] {
+    let result: FilterBuilderItemType[] = [];
+    value.forEach(item => {
+      if (this._isGroup(item)) {
+        const groupValue = this._normalizeValue(item.value);
+
+        if (groupValue.length > 0) {
+          result = [...result, {
+            logicalOperator: item.logicalOperator,
+            value: groupValue
+          }];
+        }
+      } else {
+        if (this.isValueNotEmpty(item)) {
+          result.push(item);
+        }
+      }
+    });
+
+    return result;
   }
 }
