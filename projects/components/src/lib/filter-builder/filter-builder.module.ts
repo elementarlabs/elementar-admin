@@ -5,13 +5,14 @@ import { FilterBuilderOperationDefDirective } from './filter-builder-operation-d
 import { FilterBuilderOperationNameDirective } from './filter-builder-operation-name.directive';
 import { FilterBuilderOperationIconDirective } from './filter-builder-operation-icon.directive';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { MatOption } from '@angular/material/autocomplete';
+import { MatAutocomplete, MatAutocompleteTrigger, MatOption } from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { MenuOptionGroupDirective } from '../menu-option-group.directive';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatInput } from '@angular/material/input';
 import { AutoFocusDirective } from '../_directives/auto-focus.directive';
 import { FocusElementDirective } from '../_directives/focus-element.directive';
+import { MatSelect } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { FocusElementDirective } from '../_directives/focus-element.directive';
     MatInput,
     MatFormField,
     AutoFocusDirective,
-    FocusElementDirective
+    FocusElementDirective,
+    MatSelect,
+    MatAutocompleteTrigger,
+    MatAutocomplete
   ],
   exports: [
     FilterBuilderComponent,

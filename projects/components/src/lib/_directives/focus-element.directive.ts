@@ -1,9 +1,9 @@
 import {
-  AfterViewInit,
+  AfterViewInit, booleanAttribute,
   ChangeDetectorRef,
   Directive,
   ElementRef,
-  inject,
+  inject, input,
   NgZone,
   OnDestroy,
   output
@@ -19,12 +19,16 @@ export class FocusElementDirective implements AfterViewInit, OnDestroy {
   private _elementRef = inject(ElementRef);
   private _focusMonitor = inject(FocusMonitor);
 
+  checkChildren = input(true, {
+    transform: booleanAttribute
+  });
+
   readonly elementFocused = output<void>();
   readonly elementBlurred = output<void>();
 
   ngAfterViewInit() {
     this._focusMonitor
-      .monitor(this._elementRef.nativeElement, true)
+      .monitor(this._elementRef.nativeElement, this.checkChildren())
       .subscribe(origin => {
         this._emitFocusEvent(origin);
       })

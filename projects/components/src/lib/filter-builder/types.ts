@@ -1,3 +1,8 @@
+export interface FilterBuilderFieldDataSourceItem {
+  id: string;
+  name: string;
+}
+
 export interface FilterBuilderFieldDef {
   name: string;
   dataType: string;
@@ -5,10 +10,7 @@ export interface FilterBuilderFieldDef {
   format?: string;
   filterOperations?: string[];
   lookup?: {
-    dataSource: {
-      id: string;
-      name: string;
-    }[]
+    dataSource: FilterBuilderFieldDataSourceItem[]
   }
 }
 

@@ -47,7 +47,35 @@
               <div class="absolute start-0 top-0 -translate-y-1/2">
                 @switch (getFieldType(editItem)) {
                   @case ('array') {
-                    array
+                    @switch (editItem['value'][1]) {
+                      @case ('equals') {
+                        <mat-form-field class="form-field">
+                          <mat-select placeholder="Select..."
+                                      emrAutoFocus
+                                      (blur)="selectBlur($event)"
+                                      [(ngModel)]="item['value'][2]"
+                                      (ngModelChange)="_emitChangeEvent()">
+                            @for (option of getOptions(editItem); track option.id) {
+                              <mat-option [value]="option.id">{{ option.name }}</mat-option>
+                            }
+                          </mat-select>
+                        </mat-form-field>
+                      }
+
+                      @case ('isAnyOf') {
+                        <mat-form-field class="form-field">
+                          <mat-select placeholder="Select..." multiple
+                                      emrAutoFocus
+                                      (blur)="selectBlur($event)"
+                                      [(ngModel)]="item['value'][2]"
+                                      (closed)="selectClosed()">
+                            @for (option of getOptions(editItem); track option.id) {
+                              <mat-option [value]="option.id">{{ option.name }}</mat-option>
+                            }
+                          </mat-select>
+                        </mat-form-field>
+                      }
+                    }
                   }
 
                   @case ('number') {
@@ -92,16 +120,33 @@
             } @else {
               @if (item['value'][1] !== 'isBlank' && item['value'][1] !== 'isNotBlank') {
                 @if (isValueNotEmpty(item)) {
-                  @if (item['value'][1] === 'isBetween') {
+                  @if (getFieldType(item) === 'array') {
+                    @if (item['value'][1] === 'equals') {
+                      <button class="condition-value" (click)="modifyValue(item)">
+                        {{ getDataSourceItemNameById(item, item['value'][2]) }}
+                      </button>
+                    } @else {
                     <button class="condition-value flex items-center gap-2" (click)="modifyValue(item)">
-                      <span>{{ item['value'][2][0] }}</span>
-                      <span class="text-neutral-500">&ndash;</span>
-                      <span>{{ item['value'][2][1] }}</span>
+                      @for (dataSourceItemId of item['value'][2]; track dataSourceItemId; let last = $last) {
+                        <span>{{ getDataSourceItemNameById(item, dataSourceItemId) }}</span>
+                        @if (!last) {
+                          <span class="text-neutral-500">|</span>
+                        }
+                      }
                     </button>
+                    }
                   } @else {
-                    <button class="condition-value" (click)="modifyValue(item)">
-                      <span>{{ item['value'][2] }}</span>
-                    </button>
+                    @if (item['value'][1] === 'isBetween') {
+                      <button class="condition-value flex items-center gap-2" (click)="modifyValue(item)">
+                        <span>{{ item['value'][2][0] }}</span>
+                        <span class="text-neutral-500">&ndash;</span>
+                        <span>{{ item['value'][2][1] }}</span>
+                      </button>
+                    } @else {
+                      <button class="condition-value" (click)="modifyValue(item)">
+                        <span>{{ item['value'][2] }}</span>
+                      </button>
+                    }
                   }
                 } @else {
                   <button class="condition-value" (click)="modifyValue(item)">

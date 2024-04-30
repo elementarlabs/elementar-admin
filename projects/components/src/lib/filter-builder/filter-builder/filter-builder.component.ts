@@ -13,7 +13,13 @@ import {
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
-import { FilterBuilderCondition, FilterBuilderFieldDef, FilterBuilderGroup, FilterBuilderItemType } from '../types';
+import {
+  FilterBuilderCondition,
+  FilterBuilderFieldDataSourceItem,
+  FilterBuilderFieldDef,
+  FilterBuilderGroup,
+  FilterBuilderItemType
+} from '../types';
 
 @Component({
   selector: 'emr-filter-builder',
@@ -151,6 +157,12 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     this.editItem = undefined;
     const oldOperation = item['value'][1];
 
+    if (oldOperation === 'equals' && operation === 'isAnyOf') {
+      item['value'][2] = [];
+    } else if (oldOperation === 'isAnyOf' && operation === 'equals') {
+      item['value'][2] = null;
+    }
+
     if (oldOperation === 'isBetween' && operation !== 'isBetween') {
       item['value'][2] = null;
     } else if (oldOperation !== 'isBetween' && operation === 'isBetween') {
@@ -195,6 +207,14 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   isValueNotEmpty(item: FilterBuilderCondition): boolean {
+    if (this.getFieldType(item) === 'array') {
+      if (item['value'][1] === 'equals') {
+        return item['value'][2] !== null && item['value'][2] !== '';
+      } else {
+        return item['value'][2].length > 0;
+      }
+    }
+
     if (item['value'][1] === 'isBetween') {
       return item['value'][2].length === 2 && item['value'][2][0] !== null && item['value'][2][1] !== null;
     }
@@ -202,8 +222,44 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     return item['value'][2] !== null && item['value'][2] !== '';
   }
 
-  cancelEdit(): void {
-    this.editItem = undefined;
+  cancelEdit(delay = 0): void {
+    setTimeout(() => {
+      this.editItem = undefined;
+      this._cdr.detectChanges();
+    }, delay);
+  }
+
+  getOptions(item: FilterBuilderCondition): FilterBuilderFieldDataSourceItem[] {
+    const fieldDef = this._getFieldDef(item);
+    return fieldDef.lookup?.dataSource as FilterBuilderFieldDataSourceItem[];
+  }
+
+  getDataSourceItemNameById(item: FilterBuilderCondition, dataSourceItemId: string): string {
+    const fieldDef = this._getFieldDef(item);
+    return (fieldDef.lookup?.dataSource as FilterBuilderFieldDataSourceItem[]).find(
+      item => item.id === dataSourceItemId
+    )?.name || '';
+  }
+
+  selectBlur(event: FocusEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    const select = event.target as HTMLElement;
+
+    setTimeout(() => {
+      const formField = select.closest('.mat-mdc-form-field');
+
+      if (formField) {
+        if (!formField.classList.contains('mat-focused')) {
+          this.cancelEdit();
+        }
+      }
+    }, 25);
+  }
+
+  selectClosed(): void {
+    this.cancelEdit();
+    this._emitChangeEvent();
   }
 
   protected _isGroup(item: FilterBuilderItemType): item is FilterBuilderGroup {
@@ -216,6 +272,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   protected _emitChangeEvent(): void {
     const value = this._normalizeValue(this._value);
+
     if (value.length > 0) {
       this.valueChanged.emit([
         {
@@ -226,6 +283,12 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     } else {
       this.valueChanged.emit([]);
     }
+  }
+
+  private _getFieldDef(condition: FilterBuilderCondition): FilterBuilderFieldDef {
+    return  this.fieldDefs.find(f =>
+      f.dataField === condition['value'][0]
+    ) as FilterBuilderFieldDef;
   }
 
   private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {
@@ -245,7 +308,11 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   private _resetArrayValue(condition: FilterBuilderCondition): void {
-    condition['value'][2] = [];
+    if (condition['value'][1] === 'equals') {
+      condition['value'][2] = null;
+    } else {
+      condition['value'][2] = [];
+    }
   }
 
   private _resetBooleanValue(condition: FilterBuilderCondition): void {
