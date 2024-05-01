@@ -1,3 +1,4 @@
 export const environment = {
-  siteUrl: 'https://demo.elementarui.com'
+  siteUrl: 'http://localhost:4200',
+  googleAnalyticsId: ''
 };

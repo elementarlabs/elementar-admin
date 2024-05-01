@@ -1,4 +1,4 @@
-import { afterNextRender, Component, DestroyRef, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { ThemeManagerService } from '@elementar/components';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
@@ -23,7 +23,6 @@ import { environment } from '../environments/environment';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  private _destroyRef = inject(DestroyRef);
   private _themeManager = inject(ThemeManagerService);
   private _screenLoader = inject(ScreenLoaderService);
   private _analyticsService = inject(AnalyticsService);
@@ -53,11 +52,12 @@ export class AppComponent implements OnInit {
           }, 3000);
         })
       ;
+
       this._analyticsService.trackPageViews();
       this._inactivityTracker.setupInactivityTimer()
         .subscribe(() => {
           console.log('Inactive mode has been activated!');
-          this._inactivityTracker.reset();
+          // this._inactivityTracker.reset();
         })
       ;
     });

@@ -1,3 +1,4 @@
 export const environment = {
-  siteUrl: 'http://localhost:4200'
+  siteUrl: 'http://localhost:4200',
+  googleAnalyticsId: ''
 };
