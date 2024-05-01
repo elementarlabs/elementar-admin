@@ -39,6 +39,7 @@ export class AnalyticsService {
         filter((event) => event instanceof NavigationEnd),
       )
         .subscribe((event: any) => {
+          console.log('page view');
           gtag('event', 'page_view', {
             page_title: this._document.head.title,
             page_path: event.urlAfterRedirects,
