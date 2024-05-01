@@ -14,6 +14,8 @@ import {
   MultipleSelectionExampleComponent
 } from '../_examples/multiple-selection-example/multiple-selection-example.component';
 import { CustomTriggerExampleComponent } from '../_examples/custom-trigger-example/custom-trigger-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -27,7 +29,9 @@ import { CustomTriggerExampleComponent } from '../_examples/custom-trigger-examp
     ResettingValueExampleComponent,
     GroupsOfOptionsExampleComponent,
     MultipleSelectionExampleComponent,
-    CustomTriggerExampleComponent
+    CustomTriggerExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

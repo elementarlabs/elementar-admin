@@ -8,6 +8,8 @@ import {
 import {
   CardFooterLoadingExampleComponent
 } from '../_examples/card-footer-loading-example/card-footer-loading-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +19,9 @@ import {
     BasicCardExampleComponent,
     CardActionsExampleComponent,
     CardMultipleSectionsExampleComponent,
-    CardFooterLoadingExampleComponent
+    CardFooterLoadingExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

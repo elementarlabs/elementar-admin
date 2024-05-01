@@ -18,6 +18,8 @@ import {
   NeutralVariantColorsExampleComponent
 } from '../_examples/neutral-variant-colors-example/neutral-variant-colors-example.component';
 import { OtherColorsExampleComponent } from '../_examples/other-colors-example/other-colors-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -35,7 +37,9 @@ import { OtherColorsExampleComponent } from '../_examples/other-colors-example/o
     InverseColorsExampleComponent,
     NeutralColorsExampleComponent,
     NeutralVariantColorsExampleComponent,
-    OtherColorsExampleComponent
+    OtherColorsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

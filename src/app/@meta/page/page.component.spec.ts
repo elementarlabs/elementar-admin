@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EchartBarChart } from './echart-bar.chart';
+import { PageComponent } from './page.component';
 
-describe('EchartBarChart', () => {
-  let component: EchartBarChart;
-  let fixture: ComponentFixture<EchartBarChart>;
+describe('PageComponent', () => {
+  let component: PageComponent;
+  let fixture: ComponentFixture<PageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EchartBarChart]
+      imports: [PageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(EchartBarChart);
+    fixture = TestBed.createComponent(PageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

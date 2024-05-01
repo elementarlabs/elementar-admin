@@ -11,6 +11,8 @@ import { RangeSliderExampleComponent } from '../_examples/range-slider-example/r
 import {
   ConfigurableSliderExampleComponent
 } from '../_examples/configurable-slider-example/configurable-slider-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -21,7 +23,9 @@ import {
     BasicSliderExampleComponent,
     CustomThumbLabelFormattingExampleComponent,
     RangeSliderExampleComponent,
-    ConfigurableSliderExampleComponent
+    ConfigurableSliderExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -4,6 +4,8 @@ import { BasicTooltipExampleComponent } from '../_examples/basic-tooltip-example
 import {
   TooltipWithACustomPositionExampleComponent
 } from '../_examples/tooltip-with-a-custom-position-example/tooltip-with-a-custom-position-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,9 @@ import {
   imports: [
     PlaygroundComponent,
     BasicTooltipExampleComponent,
-    TooltipWithACustomPositionExampleComponent
+    TooltipWithACustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

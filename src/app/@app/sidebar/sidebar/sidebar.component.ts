@@ -85,14 +85,9 @@ export class SidebarComponent {
         },
         {
           type: 'link',
-          name: 'Banking',
-          link: '/pages/dashboard/banking'
-        },
-        {
-          type: 'link',
-          name: 'Echarts',
-          link: '/pages/dashboard/echarts'
-        },
+          name: 'Finance',
+          link: '/pages/dashboard/finance'
+        }
       ]
     },
     {

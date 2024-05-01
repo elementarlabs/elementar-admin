@@ -13,14 +13,9 @@ const routes: Routes = [
     loadComponent: () => import('./ecommerce/ecommerce.component').then(c => c.EcommerceComponent)
   },
   {
-    path: 'banking',
-    title: 'Banking Dashboard',
-    loadComponent: () => import('./banking/banking.component').then(c => c.BankingComponent)
-  },
-  {
-    path: 'echarts',
-    title: 'Echarts Dashboard',
-    loadChildren: () => import('./echarts/echarts.module').then(m => m.EchartsModule)
+    path: 'finance',
+    title: 'Finance Dashboard',
+    loadComponent: () => import('./finance/finance.component').then(c => c.FinanceComponent)
   }
 ];
 

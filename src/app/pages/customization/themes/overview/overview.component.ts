@@ -1,9 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
   imports: [
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

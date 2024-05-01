@@ -12,6 +12,8 @@ import {
 import {
   BreadcrumbsWithTitlesExampleComponent
 } from '../_examples/breadcrumbs-with-titles-example/breadcrumbs-with-titles-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -20,7 +22,9 @@ import {
     BasicBreadcrumbsExampleComponent,
     BreadcrumbsWithDatasourceExampleComponent,
     BreadcrumbsWithIconsExampleComponent,
-    BreadcrumbsWithTitlesExampleComponent
+    BreadcrumbsWithTitlesExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

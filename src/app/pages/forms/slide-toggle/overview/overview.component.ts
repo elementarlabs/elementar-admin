@@ -6,13 +6,17 @@ import {
 import {
   SlideToggleWithFormsExampleComponent
 } from '../_examples/slide-toggle-with-forms-example/slide-toggle-with-forms-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
   imports: [
     PlaygroundComponent,
     BasicSlideToggleExampleComponent,
-    SlideToggleWithFormsExampleComponent
+    SlideToggleWithFormsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

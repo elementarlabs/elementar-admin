@@ -4,13 +4,17 @@ import { BasicDividerExampleComponent } from '../_examples/basic-divider-example
 import {
   DividerWithTextExampleComponent
 } from '../_examples/divider-with-text-example/divider-with-text-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
   imports: [
     PlaygroundComponent,
     BasicDividerExampleComponent,
-    DividerWithTextExampleComponent
+    DividerWithTextExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

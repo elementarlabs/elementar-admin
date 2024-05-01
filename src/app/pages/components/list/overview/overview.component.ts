@@ -11,6 +11,8 @@ import {
   ListWithSingleSelectionExampleComponent
 } from '../_examples/list-with-single-selection-example/list-with-single-selection-example.component';
 import { ListVariantsExampleComponent } from '../_examples/list-variants-example/list-variants-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -21,7 +23,9 @@ import { ListVariantsExampleComponent } from '../_examples/list-variants-example
     ListWithSectionsExampleComponent,
     ListWithSelectionExampleComponent,
     ListWithSingleSelectionExampleComponent,
-    ListVariantsExampleComponent
+    ListVariantsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

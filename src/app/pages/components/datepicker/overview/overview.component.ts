@@ -28,6 +28,8 @@ import {
 import {
   BasicDateRangePickerExampleComponent
 } from '../_examples/basic-date-range-picker-example/basic-date-range-picker-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -43,7 +45,9 @@ import {
     DatepickerCustomIconExampleComponent,
     DatepickerWithCustomHeaderExampleComponent,
     DatepickerActionsButtonExampleComponent,
-    BasicDateRangePickerExampleComponent
+    BasicDateRangePickerExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -10,6 +10,8 @@ import {
 import {
   TimelineWithCutsomIndicatorExampleComponent
 } from '../_examples/timeline-with-cutsom-indicator-example/timeline-with-cutsom-indicator-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -19,7 +21,9 @@ import {
     PlaygroundComponent,
     BasicTimelineExampleComponent,
     TimelineTimestampExampleComponent,
-    TimelineWithCutsomIndicatorExampleComponent
+    TimelineWithCutsomIndicatorExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

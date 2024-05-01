@@ -4,6 +4,8 @@ import { PlaygroundComponent } from '@meta/playground/playground.component';
 import {
   BasicBottomSheetExampleComponent
 } from '../_examples/basic-bottom-sheet-example/basic-bottom-sheet-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,9 @@ import {
   imports: [
     BasicBadgesExampleComponent,
     PlaygroundComponent,
-    BasicBottomSheetExampleComponent
+    BasicBottomSheetExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

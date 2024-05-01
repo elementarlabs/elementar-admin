@@ -4,6 +4,8 @@ import { BasicPaginatorExampleComponent } from '../_examples/basic-paginator-exa
 import {
   ConfigurablePaginatorExampleComponent
 } from '../_examples/configurable-paginator-example/configurable-paginator-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,9 @@ import {
   imports: [
     PlaygroundComponent,
     BasicPaginatorExampleComponent,
-    ConfigurablePaginatorExampleComponent
+    ConfigurablePaginatorExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

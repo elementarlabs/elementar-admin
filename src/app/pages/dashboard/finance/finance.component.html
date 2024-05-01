@@ -1,0 +1,17 @@
+<div class="p-10 space-y-8">
+  <div class="flex items-center justify-between">
+    <h1 class="text-lg font-bold">Finance Dashboard</h1>
+  </div>
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-12">
+      <div>
+        <div class="text-md text-neutral">
+          Total balance
+        </div>
+        <div class="font-bold text-3xl mt-1 uppercase">
+          {{ totalBalance | number }} {{ currencyCode }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

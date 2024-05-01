@@ -4,6 +4,8 @@ import {
 } from '../../divider/_examples/basic-divider-example/basic-divider-example.component';
 import { PlaygroundComponent } from '@meta/playground/playground.component';
 import { BasicToolbarExampleComponent } from '../_examples/basic-toolbar-example/basic-toolbar-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,9 @@ import { BasicToolbarExampleComponent } from '../_examples/basic-toolbar-example
   imports: [
     BasicDividerExampleComponent,
     PlaygroundComponent,
-    BasicToolbarExampleComponent
+    BasicToolbarExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

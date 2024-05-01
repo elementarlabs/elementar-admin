@@ -10,6 +10,8 @@ import {
   AlertWithTitleExampleComponent
 } from '../_examples/alert-with-title-example/alert-with-title-example.component';
 import { AlertActionsExampleComponent } from '../_examples/alert-actions-example/alert-actions-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -20,7 +22,9 @@ import { AlertActionsExampleComponent } from '../_examples/alert-actions-example
     AlertWithBorderExampleComponent,
     AlertWithIconExampleComponent,
     AlertWithTitleExampleComponent,
-    AlertActionsExampleComponent
+    AlertActionsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

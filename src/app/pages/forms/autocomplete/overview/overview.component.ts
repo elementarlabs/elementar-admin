@@ -19,6 +19,8 @@ import {
   AutoHighlightFirstPersonExampleComponent
 } from '../_examples/auto-highlight-first-person-example/auto-highlight-first-person-example.component';
 import { OptionGroupsExampleComponent } from '../_examples/option-groups-example/option-groups-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -36,7 +38,9 @@ import { OptionGroupsExampleComponent } from '../_examples/option-groups-example
     SimpleAutocompleteExampleComponent,
     SeparateControlsAndDisplayValuesExampleComponent,
     AutoHighlightFirstPersonExampleComponent,
-    OptionGroupsExampleComponent
+    OptionGroupsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -16,6 +16,8 @@ import {
 import {
   StepperLabelBottomPositionExampleComponent
 } from '../_examples/stepper-label-bottom-position-example/stepper-label-bottom-position-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -27,7 +29,9 @@ import {
     StepperHeaderPositionExampleComponent,
     StepperWithErrorsStateExampleComponent,
     StepperResponsiveExampleComponent,
-    StepperLabelBottomPositionExampleComponent
+    StepperLabelBottomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -5,6 +5,8 @@ import { PopoverHoverExampleComponent } from '../_examples/popover-hover-example
 import {
   PopoverWithCustomPositionExampleComponent
 } from '../_examples/popover-with-custom-position-example/popover-with-custom-position-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -13,7 +15,9 @@ import {
     PlaygroundComponent,
     BasicPopoverExampleComponent,
     PopoverHoverExampleComponent,
-    PopoverWithCustomPositionExampleComponent
+    PopoverWithCustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

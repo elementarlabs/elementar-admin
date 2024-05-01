@@ -10,6 +10,8 @@ import {
 import {
   PinInputAcceptCustomSymbolsExampleComponent
 } from '../_examples/pin-input-accept-custom-symbols-example/pin-input-accept-custom-symbols-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -18,7 +20,9 @@ import {
     BasicPinInputExampleComponent,
     PinInputWithPlaceholderExampleComponent,
     PinInputLengthExampleComponent,
-    PinInputAcceptCustomSymbolsExampleComponent
+    PinInputAcceptCustomSymbolsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -8,6 +8,8 @@ import {
 import {
   SegmentedWithIconsExampleComponent
 } from '../_examples/segmented-with-icons-example/segmented-with-icons-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +19,9 @@ import {
     BasicSegmentedExampleComponent,
     SegmentedSizesExampleComponent,
     SegmentedDisabledExampleComponent,
-    SegmentedWithIconsExampleComponent
+    SegmentedWithIconsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

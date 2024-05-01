@@ -9,6 +9,8 @@ import {
 import {
   ExpansionPanelAsAccordionExampleComponent
 } from '../_examples/expansion-panel-as-accordion-example/expansion-panel-as-accordion-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +19,9 @@ import {
     PlaygroundComponent,
     BasicExpansionPanelExampleComponent,
     ExpansionPanelExpandCollapseTogglesExampleComponent,
-    ExpansionPanelAsAccordionExampleComponent
+    ExpansionPanelAsAccordionExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

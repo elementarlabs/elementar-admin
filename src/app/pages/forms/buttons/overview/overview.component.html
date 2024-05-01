@@ -1,61 +1,59 @@
-<div class="flex gap-10 px-5 py-10">
-  <div class="grow">
-    <div class="container w-[900px] mx-auto prose dark:prose-invert max-w-none">
-      <div>
-        <emr-breadcrumbs class="mb-1">
-          <a emr-breadcrumb-item routerLink="/pages/forms">Forms</a>
-          <emr-breadcrumb-separator>/</emr-breadcrumb-separator>
-          <emr-breadcrumb-item>Button</emr-breadcrumb-item>
-        </emr-breadcrumbs>
-        <h1>Button</h1>
-      </div>
-      <p>
-        Buttons allow users to take actions, and make choices, with a single tap.
-      </p>
-
-      <h3 id="basic-button">Basic Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="basic-buttons-example">
-        <app-basic-buttons-example></app-basic-buttons-example>
-      </emr-playground>
-
-      <h3 id="raised-button">Raised Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="raised-buttons-example">
-        <app-raised-buttons-example></app-raised-buttons-example>
-      </emr-playground>
-
-      <h3 id="stroked-button">Stroked Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="stroked-buttons-example">
-        <app-stroked-buttons-example></app-stroked-buttons-example>
-      </emr-playground>
-
-      <h3 id="flat-button">Flat Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="flat-buttons-example">
-        <app-flat-buttons-example></app-flat-buttons-example>
-      </emr-playground>
-
-      <h3 id="icon-button">Icon Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="icon-buttons-example">
-        <app-icon-buttons-example></app-icon-buttons-example>
-      </emr-playground>
-
-      <h3 id="fab-button">Fab Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="fab-buttons-example">
-        <app-fab-buttons-example></app-fab-buttons-example>
-      </emr-playground>
-
-      <h3 id="mini-fab-button">Mini Fab Button</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="mini-fab-buttons-example">
-        <app-mini-fab-buttons-example></app-mini-fab-buttons-example>
-      </emr-playground>
-
-      <h3 id="button-loading">Button Loading</h3>
-      <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="button-loading-example">
-        <app-button-loading-example></app-button-loading-example>
-      </emr-playground>
+<app-page>
+  <div appPageContent>
+    <div>
+      <emr-breadcrumbs class="mb-1">
+        <a emr-breadcrumb-item routerLink="/pages/forms">Forms</a>
+        <emr-breadcrumb-separator>/</emr-breadcrumb-separator>
+        <emr-breadcrumb-item>Button</emr-breadcrumb-item>
+      </emr-breadcrumbs>
+      <h1>Button</h1>
     </div>
+    <p>
+      Buttons allow users to take actions, and make choices, with a single tap.
+    </p>
+
+    <h3 id="basic-button">Basic Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="basic-buttons-example">
+      <app-basic-buttons-example></app-basic-buttons-example>
+    </emr-playground>
+
+    <h3 id="raised-button">Raised Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="raised-buttons-example">
+      <app-raised-buttons-example></app-raised-buttons-example>
+    </emr-playground>
+
+    <h3 id="stroked-button">Stroked Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="stroked-buttons-example">
+      <app-stroked-buttons-example></app-stroked-buttons-example>
+    </emr-playground>
+
+    <h3 id="flat-button">Flat Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="flat-buttons-example">
+      <app-flat-buttons-example></app-flat-buttons-example>
+    </emr-playground>
+
+    <h3 id="icon-button">Icon Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="icon-buttons-example">
+      <app-icon-buttons-example></app-icon-buttons-example>
+    </emr-playground>
+
+    <h3 id="fab-button">Fab Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="fab-buttons-example">
+      <app-fab-buttons-example></app-fab-buttons-example>
+    </emr-playground>
+
+    <h3 id="mini-fab-button">Mini Fab Button</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="mini-fab-buttons-example">
+      <app-mini-fab-buttons-example></app-mini-fab-buttons-example>
+    </emr-playground>
+
+    <h3 id="button-loading">Button Loading</h3>
+    <emr-playground exampleUrl="_docs/forms/buttons/_examples" exampleName="button-loading-example">
+      <app-button-loading-example></app-button-loading-example>
+    </emr-playground>
   </div>
-  <div>
-    <nav emr-scroll-spy-nav class="sticky top-20">
+  <div appPageAside class="sticky top-20">
+    <nav emr-scroll-spy-nav>
       <emr-scroll-spy-title>On this page</emr-scroll-spy-title>
       <a emr-scroll-spy-on targetId="basic-button">Basic Button</a>
       <a emr-scroll-spy-on targetId="raised-button">Raised Button</a>
@@ -67,4 +65,4 @@
       <a emr-scroll-spy-on targetId="button-loading">Button Loading</a>
     </nav>
   </div>
-</div>
+</app-page>

@@ -13,6 +13,8 @@ import {
 import {
   GaugeCustomStrokeWidthExampleComponent
 } from '../_examples/gauge-custom-stroke-width-example/gauge-custom-stroke-width-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -23,7 +25,9 @@ import {
     BasicGaugeExampleComponent,
     GaugeWithValueExampleComponent,
     GaugeCustomSizeExampleComponent,
-    GaugeCustomStrokeWidthExampleComponent
+    GaugeCustomStrokeWidthExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

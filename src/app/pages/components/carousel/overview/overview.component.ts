@@ -5,6 +5,8 @@ import { BasicCarouselExampleComponent } from '../_examples/basic-carousel-examp
 import {
   CarouselControlsCustomPositionExampleComponent
 } from '../_examples/carousel-controls-custom-position-example/carousel-controls-custom-position-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -13,7 +15,9 @@ import {
     BasicBadgesExampleComponent,
     PlaygroundComponent,
     BasicCarouselExampleComponent,
-    CarouselControlsCustomPositionExampleComponent
+    CarouselControlsCustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

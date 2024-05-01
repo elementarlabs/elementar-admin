@@ -5,6 +5,8 @@ import {
   MaterialSymbolsIconsExampleComponent
 } from '../_examples/material-symbols-icons-example/material-symbols-icons-example.component';
 import { PhosphorIconsExampleComponent } from '../_examples/phosphor-icons-example/phosphor-icons-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -12,7 +14,9 @@ import { PhosphorIconsExampleComponent } from '../_examples/phosphor-icons-examp
     PlaygroundComponent,
     CircleFlagsExampleComponent,
     MaterialSymbolsIconsExampleComponent,
-    PhosphorIconsExampleComponent
+    PhosphorIconsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

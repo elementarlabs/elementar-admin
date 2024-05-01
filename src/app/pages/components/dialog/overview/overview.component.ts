@@ -4,6 +4,8 @@ import { BasicDialogExampleComponent } from '../_examples/basic-dialog-example/b
 import {
   DialogScrollableContentExampleComponent
 } from '../_examples/dialog-scrollable-content-example/dialog-scrollable-content-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,9 @@ import {
   imports: [
     PlaygroundComponent,
     BasicDialogExampleComponent,
-    DialogScrollableContentExampleComponent
+    DialogScrollableContentExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

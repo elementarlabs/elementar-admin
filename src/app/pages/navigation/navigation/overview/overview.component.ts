@@ -18,6 +18,8 @@ import {
 import {
   NavigationSecondaryThemeExampleComponent
 } from '../_examples/navigation-secondary-theme-example/navigation-secondary-theme-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -29,7 +31,9 @@ import {
     NavigationWithDividerExampleComponent,
     NavigationWithIconsExampleComponent,
     NavigationWithNestedMenuExampleComponent,
-    NavigationSecondaryThemeExampleComponent
+    NavigationSecondaryThemeExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

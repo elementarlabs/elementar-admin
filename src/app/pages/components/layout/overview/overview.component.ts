@@ -16,6 +16,8 @@ import {
   LayoutWithNestedLayoutsExampleComponent
 } from '../_examples/layout-with-nested-layouts-example/layout-with-nested-layouts-example.component';
 import { LayoutAsideExampleComponent } from '../_examples/layout-aside-example/layout-aside-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -28,7 +30,9 @@ import { LayoutAsideExampleComponent } from '../_examples/layout-aside-example/l
     LayoutFooterExampleComponent,
     LayoutHeaderWithFooterExampleComponent,
     LayoutWithNestedLayoutsExampleComponent,
-    LayoutAsideExampleComponent
+    LayoutAsideExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

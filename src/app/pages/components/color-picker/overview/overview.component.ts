@@ -9,6 +9,8 @@ import {
 import {
   InputWithColorPickerExampleComponent
 } from '../_examples/input-with-color-picker-example/input-with-color-picker-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -16,7 +18,9 @@ import {
     PlaygroundComponent,
     BasicColorPickerExampleComponent,
     ColorPickerWithPopoverExampleComponent,
-    InputWithColorPickerExampleComponent
+    InputWithColorPickerExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -19,6 +19,8 @@ import {
 import {
   ContentFadeCustomWidthExampleComponent
 } from '../_examples/content-fade-custom-width-example/content-fade-custom-width-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -31,7 +33,9 @@ import {
     ChipsWithInputExampleComponent,
     PlaygroundComponent,
     BasicContentFadeExampleComponent,
-    ContentFadeCustomWidthExampleComponent
+    ContentFadeCustomWidthExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

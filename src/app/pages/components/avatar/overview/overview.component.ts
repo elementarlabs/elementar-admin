@@ -15,6 +15,8 @@ import {
 import {
   AvatarPresenceIndicatorExampleComponent
 } from '../_examples/avatar-presence-indicator-example/avatar-presence-indicator-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -27,7 +29,9 @@ import {
     AvatarWithIconsExampleComponent,
     GroupedAvatarsExampleComponent,
     GroupedAndTotalAvatarsExampleComponent,
-    AvatarPresenceIndicatorExampleComponent
+    AvatarPresenceIndicatorExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -13,6 +13,8 @@ import {
 import {
   PrefixesAndSuffixesExampleComponent
 } from '../_examples/prefixes-and-suffixes-example/prefixes-and-suffixes-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
@@ -24,7 +26,9 @@ import {
     DisabledExampleComponent,
     ErrorMessagesExampleComponent,
     InputWithHintsExampleComponent,
-    PrefixesAndSuffixesExampleComponent
+    PrefixesAndSuffixesExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

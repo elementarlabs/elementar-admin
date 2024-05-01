@@ -6,13 +6,17 @@ import {
 import {
   ConfigurableSpinnerExampleComponent
 } from '../_examples/configurable-spinner-example/configurable-spinner-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   standalone: true,
   imports: [
     PlaygroundComponent,
     BasicProgressSpinnerExampleComponent,
-    ConfigurableSpinnerExampleComponent
+    ConfigurableSpinnerExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

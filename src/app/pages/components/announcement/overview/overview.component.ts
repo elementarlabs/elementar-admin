@@ -6,6 +6,8 @@ import {
 import {
   AnnouncementWithIconsExampleComponent
 } from '../_examples/announcement-with-icons-example/announcement-with-icons-example.component';
+import { PageComponent } from '@meta/page/page.component';
+import { PageContentDirective } from '@meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
@@ -13,7 +15,9 @@ import {
   imports: [
     PlaygroundComponent,
     BasicAnnouncementExampleComponent,
-    AnnouncementWithIconsExampleComponent
+    AnnouncementWithIconsExampleComponent,
+    PageComponent,
+    PageContentDirective
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
