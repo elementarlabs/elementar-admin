@@ -37,10 +37,8 @@ export class AnalyticsService {
       this._document.head.appendChild(dataLayerScript);
       this._router.events.pipe(
         filter((event) => event instanceof NavigationEnd),
-      )
-        .subscribe((event: any) => {
-          console.log('page view');
-          gtag('event', 'page_view', {
+      ).subscribe((event: any) => {
+        gtag('event', 'page_view', {
             page_title: this._document.head.title,
             page_path: event.urlAfterRedirects,
             page_location: this._document.location.href
@@ -48,7 +46,6 @@ export class AnalyticsService {
         })
       ;
     } catch (e) {
-      console.error('Error adding Google Analytics', e);
     }
   }
 }
