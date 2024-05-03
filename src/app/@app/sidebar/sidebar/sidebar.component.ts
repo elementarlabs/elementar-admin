@@ -289,6 +289,11 @@ export class SidebarComponent {
         },
         {
           type: 'link',
+          name: 'Data View',
+          link: '/pages/components/dataview'
+        },
+        {
+          type: 'link',
           name: 'Timeline',
           link: '/pages/components/timeline'
         },

@@ -39,3 +39,4 @@ export * from './lib/safe-resource-url.pipe';
 export * from './lib/_services/public-api';
 export * from './lib/_directives/public-api';
 export * from './lib/icon/public-api';
+export * from './lib/data-view/public-api';

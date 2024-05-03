@@ -1,0 +1,21 @@
+:host {
+  --mat-table-row-item-outline-width: 0;
+
+  .mdc-data-table__cell:has(.mat-checkbox):first-child,
+  .mdc-data-table__header-cell:has(.mat-checkbox):first-child {
+    @apply max-w-10 p-0 justify-center;
+  }
+
+  .mat-mdc-header-cell {
+    @apply uppercase text-xs;
+  }
+
+  .mat-mdc-row.mdc-data-table__row {
+    border: theme('width.px') solid theme('borderColor.DEFAULT') !important;
+    @apply rounded-xl overflow-hidden h-16;
+
+    & + .mdc-data-table__row {
+      @apply mt-4;
+    }
+  }
+}

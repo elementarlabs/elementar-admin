@@ -1,0 +1,30 @@
+<mat-table [dataSource]="data()" class="table">
+<!--  <ng-container matColumnDef="select">-->
+<!--    <mat-header-cell *matHeaderCellDef>-->
+<!--      <mat-checkbox (change)="$event ? toggleAllRows() : null"-->
+<!--                    [checked]="selection.hasValue() && isAllSelected()"-->
+<!--                    [indeterminate]="selection.hasValue() && !isAllSelected()"-->
+<!--                    [aria-label]="checkboxLabel()">-->
+<!--      </mat-checkbox>-->
+<!--    </mat-header-cell>-->
+<!--    <mat-cell *matCellDef="let row">-->
+<!--      <mat-checkbox (click)="$event.stopPropagation()"-->
+<!--                    (change)="$event ? selection.toggle(row) : null"-->
+<!--                    [checked]="selection.isSelected(row)"-->
+<!--                    [aria-label]="checkboxLabel(row)">-->
+<!--      </mat-checkbox>-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
+
+  @for (columnDef of columnDefs(); track columnDef) {
+    @if (columnDef.visible) {
+      <ng-container [matColumnDef]="columnDef.dataField">
+        <mat-header-cell *matHeaderCellDef class="text-neutral-500 dark:text-neutral-400">{{ columnDef.name }}</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element[columnDef.dataField] }} </mat-cell>
+      </ng-container>
+    }
+  }
+
+  <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns()"></mat-row>
+</mat-table>

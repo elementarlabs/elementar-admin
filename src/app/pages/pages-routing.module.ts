@@ -163,6 +163,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/table/table.module').then(m => m.TableModule)
       },
       {
+        path: 'components/dataview',
+        loadChildren: () => import('./components/dataview/dataview.module').then(m => m.DataviewModule)
+      },
+      {
         path: 'components/stepper',
         loadChildren: () => import('./components/stepper/stepper.module').then(m => m.StepperModule)
       },
