@@ -12,6 +12,9 @@ import { BasicDataviewExampleComponent } from '../_examples/basic-dataview-examp
 import {
   DataviewWithSelectionExampleComponent
 } from '../_examples/dataview-with-selection-example/dataview-with-selection-example.component';
+import {
+  DataViewWithPaginationExampleComponent
+} from '../_examples/data-view-with-pagination-example/data-view-with-pagination-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -23,7 +26,8 @@ import {
     ContentFadeCustomWidthExampleComponent,
     PlaygroundComponent,
     BasicDataviewExampleComponent,
-    DataviewWithSelectionExampleComponent
+    DataviewWithSelectionExampleComponent,
+    DataViewWithPaginationExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

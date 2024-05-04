@@ -1,4 +1,4 @@
-<mat-table [dataSource]="data()" class="table">
+<mat-table [dataSource]="dataSource()" class="table">
   @if (withSelection()) {
     <ng-container matColumnDef="selection">
       <mat-header-cell *matHeaderCellDef>
@@ -26,5 +26,6 @@
   }
 
   <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns()"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns()"
+           [class.is-selected]="selection.isSelected(row)"></mat-row>
 </mat-table>

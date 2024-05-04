@@ -5,11 +5,15 @@ import {
   MatColumnDef,
   MatHeaderCell, MatHeaderCellDef,
   MatHeaderRow,
-  MatHeaderRowDef, MatRow, MatRowDef, MatTable
+  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { DataViewColumnDef, DataViewRowSelectionEvent } from '../types';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatPaginator } from '@angular/material/paginator';
+import {
+  PeriodicElement
+} from '../../../../../../src/app/pages/components/table/_examples/table-with-pagination-example/table-with-pagination-example.component';
 
 @Component({
   selector: 'emr-data-view',
@@ -32,6 +36,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrl: './data-view.component.scss'
 })
 export class DataViewComponent<T> {
+  paginator = input<MatPaginator>();
   columnDefs = input<DataViewColumnDef[]>([]);
   data = input<T[]>([]);
   withSelection = input(false, {
@@ -49,6 +54,15 @@ export class DataViewComponent<T> {
     }
 
     return displayedColumns;
+  });
+  dataSource = computed((): MatTableDataSource<T> => {
+    const dataSource = new MatTableDataSource<T>(this.data());
+
+    if (this.paginator()) {
+      dataSource.paginator = this.paginator() as MatPaginator;
+    }
+
+    return dataSource;
   });
 
   protected selection = new SelectionModel<T>(true, []);

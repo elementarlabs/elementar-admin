@@ -18,4 +18,16 @@
       @apply mt-4;
     }
   }
+
+  .mdc-data-table__row {
+    &.is-selected {
+      border-color: theme('colors.primary.DEFAULT') !important;
+    }
+  }
+}
+
+:host-context(html.dark) {
+  .mat-mdc-row.mdc-data-table__row:not(.is-selected) {
+    border-color: theme('borderColor.inverse') !important;
+  }
 }
