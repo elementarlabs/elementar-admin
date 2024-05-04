@@ -1,0 +1,11 @@
+<emr-data-view [columnDefs]="columnDefs"
+               [data]="data"
+               withSelection
+               (rowSelectionChanged)="rowSelectionChanged($event)"
+               (selectionChanged)="selectionChanged($event)"
+               (allRowsSelectionChanged)="allRowsSelectionChanged($event)"></emr-data-view>
+
+<div class="mt-8">
+  <div class="text-sm">Selected rows:</div>
+  <pre class="mt-2">{{ selectedRows | json }}</pre>
+</div>

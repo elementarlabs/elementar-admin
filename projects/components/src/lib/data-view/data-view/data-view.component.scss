@@ -1,9 +1,9 @@
 :host {
   --mat-table-row-item-outline-width: 0;
 
-  .mdc-data-table__cell:has(.mat-checkbox):first-child,
-  .mdc-data-table__header-cell:has(.mat-checkbox):first-child {
-    @apply max-w-10 p-0 justify-center;
+  .mdc-data-table__cell:has(.mat-mdc-checkbox):first-child,
+  .mdc-data-table__header-cell:has(.mat-mdc-checkbox):first-child {
+    @apply max-w-16 p-0 justify-center;
   }
 
   .mat-mdc-header-cell {

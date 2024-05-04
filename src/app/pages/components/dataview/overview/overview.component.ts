@@ -9,6 +9,9 @@ import {
 } from '../../content-fade/_examples/content-fade-custom-width-example/content-fade-custom-width-example.component';
 import { PlaygroundComponent } from '@meta/playground/playground.component';
 import { BasicDataviewExampleComponent } from '../_examples/basic-dataview-example/basic-dataview-example.component';
+import {
+  DataviewWithSelectionExampleComponent
+} from '../_examples/dataview-with-selection-example/dataview-with-selection-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -19,7 +22,8 @@ import { BasicDataviewExampleComponent } from '../_examples/basic-dataview-examp
     BasicContentFadeExampleComponent,
     ContentFadeCustomWidthExampleComponent,
     PlaygroundComponent,
-    BasicDataviewExampleComponent
+    BasicDataviewExampleComponent,
+    DataviewWithSelectionExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

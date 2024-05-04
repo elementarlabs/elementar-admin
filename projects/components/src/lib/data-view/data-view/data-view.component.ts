@@ -1,4 +1,4 @@
-import { Component, computed, effect, input } from '@angular/core';
+import { booleanAttribute, Component, computed, effect, input, output } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -7,8 +7,8 @@ import {
   MatHeaderRow,
   MatHeaderRowDef, MatRow, MatRowDef, MatTable
 } from '@angular/material/table';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { DataViewColumnDef } from '../types';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
+import { DataViewColumnDef, DataViewRowSelectionEvent } from '../types';
 import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
@@ -34,44 +34,68 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class DataViewComponent<T> {
   columnDefs = input<DataViewColumnDef[]>([]);
   data = input<T[]>([]);
+  withSelection = input(false, {
+    transform: booleanAttribute
+  });
   displayedColumns = computed((): string[] => {
-    return this
+    const displayedColumns = this
       .columnDefs()
       .filter(colDef => colDef.visible)
       .map(colDef => colDef.dataField)
     ;
+
+    if (this.withSelection()) {
+      displayedColumns.unshift('selection');
+    }
+
+    return displayedColumns;
   });
 
-  private _selection = new SelectionModel<T>(true, []);
+  protected selection = new SelectionModel<T>(true, []);
+
+  readonly rowSelectionChanged = output<DataViewRowSelectionEvent<T>>();
+  readonly selectionChanged = output<T[]>();
+  readonly allRowsSelectionChanged = output<boolean>();
 
   /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this._selection.selected.length;
+  isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length;
     const numRows = this.data().length;
     return numSelected === numRows;
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
-  toggleAllRows() {
+  toggleAllRows(): void {
     if (this.isAllSelected()) {
-      this._selection.clear();
+      this.selection.clear();
+      this.selectionChanged.emit([]);
+      this.allRowsSelectionChanged.emit(false);
       return;
     }
 
-    this._selection.select(...this.data());
+    this.selection.select(...this.data());
+    this.selectionChanged.emit(this.data());
+    this.allRowsSelectionChanged.emit(true);
   }
 
-  // /** The label for the checkbox on the passed row */
-  // checkboxLabel(row?: T): string {
-  //   if (!row) {
-  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-  //   }
-  //   return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
-  // }
+  rowSelectionToggle(event: MatCheckboxChange, row: T): void {
+    if (event.checked) {
+      this.selection.select(row);
+    } else {
+      this.selection.deselect(row);
+    }
+
+    this.rowSelectionChanged.emit({
+      matCheckboxChange: event,
+      row,
+      checked: event.checked
+    });
+    this.selectionChanged.emit(this.selection.selected);
+  }
 
   constructor() {
     effect(() => {
-      console.log(333);
+      // console.log(333);
     });
   }
 }
