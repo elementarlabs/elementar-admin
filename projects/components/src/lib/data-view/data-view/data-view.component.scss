@@ -24,6 +24,22 @@
       border-color: theme('colors.primary.DEFAULT') !important;
     }
   }
+
+  ::ng-deep {
+    .mat-sort-header-stem {
+      width: 1px;
+    }
+
+    .mat-sort-header-pointer-left,
+    .mat-sort-header-pointer-right {
+      height: 1px;
+    }
+
+    .mat-sort-header-pointer-middle {
+      width: 1px;
+      height: 1px;
+    }
+  }
 }
 
 :host-context(html.dark) {

@@ -15,6 +15,9 @@ import {
 import {
   DataViewWithPaginationExampleComponent
 } from '../_examples/data-view-with-pagination-example/data-view-with-pagination-example.component';
+import {
+  DataViewWithSortingExampleComponent
+} from '../_examples/data-view-with-sorting-example/data-view-with-sorting-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -27,7 +30,8 @@ import {
     PlaygroundComponent,
     BasicDataviewExampleComponent,
     DataviewWithSelectionExampleComponent,
-    DataViewWithPaginationExampleComponent
+    DataViewWithPaginationExampleComponent,
+    DataViewWithSortingExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

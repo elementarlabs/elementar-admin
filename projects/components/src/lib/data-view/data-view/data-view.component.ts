@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, computed, effect, input, output } from '@angular/core';
+import { booleanAttribute, Component, computed, effect, input, output, viewChild } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -14,6 +14,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import {
   PeriodicElement
 } from '../../../../../../src/app/pages/components/table/_examples/table-with-pagination-example/table-with-pagination-example.component';
+import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'emr-data-view',
@@ -30,16 +31,24 @@ import {
     MatRow,
     MatRowDef,
     MatTable,
-    MatHeaderCellDef
+    MatHeaderCellDef,
+    MatSort,
+    MatSortHeader
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss'
 })
 export class DataViewComponent<T> {
+  private _matTable = viewChild<MatTable<T>>('table');
+  private _matSort = viewChild<MatSort>(MatSort);
+
   paginator = input<MatPaginator>();
   columnDefs = input<DataViewColumnDef[]>([]);
   data = input<T[]>([]);
   withSelection = input(false, {
+    transform: booleanAttribute
+  });
+  withSorting = input(false, {
     transform: booleanAttribute
   });
   displayedColumns = computed((): string[] => {
@@ -62,6 +71,10 @@ export class DataViewComponent<T> {
       dataSource.paginator = this.paginator() as MatPaginator;
     }
 
+    if (this.withSorting()) {
+      dataSource.sort = this._matSort() as MatSort;
+    }
+
     return dataSource;
   });
 
@@ -70,6 +83,15 @@ export class DataViewComponent<T> {
   readonly rowSelectionChanged = output<DataViewRowSelectionEvent<T>>();
   readonly selectionChanged = output<T[]>();
   readonly allRowsSelectionChanged = output<boolean>();
+  readonly sortChanged = output<Sort>();
+
+  get matTable(): MatTable<T> {
+    return this._matTable() as MatTable<T>;
+  }
+
+  get matSort(): MatSort {
+    return this._matSort() as MatSort;
+  }
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected(): boolean {
@@ -107,9 +129,7 @@ export class DataViewComponent<T> {
     this.selectionChanged.emit(this.selection.selected);
   }
 
-  constructor() {
-    effect(() => {
-      // console.log(333);
-    });
+  protected sortChange(event: Sort) {
+    this.sortChanged.emit(event);
   }
 }
