@@ -11,5 +11,5 @@ import { AreaLineChartComponent } from '@elementar/components';
   styleUrl: './micro-chart-area-line-example.component.scss'
 })
 export class MicroChartAreaLineExampleComponent {
-  data: number[] = [5, 20, 15, 50, 25, 50];
+  data: number[] = [20, 30, 60, 50, 25, 180];
 }
