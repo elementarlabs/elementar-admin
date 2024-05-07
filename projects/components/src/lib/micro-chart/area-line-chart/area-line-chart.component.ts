@@ -19,7 +19,7 @@ import * as d3 from 'd3';
   templateUrl: './area-line-chart.component.html',
   styleUrl: './area-line-chart.component.scss'
 })
-export class AreaLineChartComponent {
+export class AreaLineChartComponent implements AfterViewChecked {
   data = input.required<number[]>();
   strokeWidth = input(3, {
     transform: numberAttribute
@@ -30,16 +30,34 @@ export class AreaLineChartComponent {
   protected _initialized = false;
   private _host: any;
 
+  colWidth = 20;
+  padding = 5;
+
   constructor() {
     this._host = d3.select(this._elementRef.nativeElement);
-    console.log(this._host);
+  }
+
+  ngAfterViewChecked() {
+    const element = this._elementRef.nativeElement as HTMLElement;
+
+    if (!this._initialized && element.getBoundingClientRect().width > 0) {
+      this._initialized = true;
+      this._render();
+    }
   }
 
   private _render(): void {
-    const element = this.svg()?.nativeElement as HTMLElement;
-
-    if (!this._initialized) {
-      this.svg = this._host.select('svg');
-    }
+    this.svg = this._host.select('svg');
+    this.svg
+      .selectAll('rect')
+      .data([10, 20, 30])
+      .enter()
+      .append('rect')
+      .attr('x', (d: any, i: number) => {
+        return i * (this.colWidth + this.padding);
+      })
+      .attr('width', this.colWidth)
+      .attr('height', (d: any) => d)
+    ;
   }
 }

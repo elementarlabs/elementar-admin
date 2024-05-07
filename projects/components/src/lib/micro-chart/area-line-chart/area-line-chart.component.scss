@@ -4,4 +4,10 @@
   svg {
     @apply w-full h-full bg-neutral-100;
   }
+
+  ::ng-deep {
+    rect {
+      fill: blue;
+    }
+  }
 }
