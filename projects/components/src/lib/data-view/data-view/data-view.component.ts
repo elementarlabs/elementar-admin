@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, computed, effect, input, output, viewChild } from '@angular/core';
+import { booleanAttribute, Component, computed, input, output, viewChild } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -11,9 +11,6 @@ import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { DataViewColumnDef, DataViewRowSelectionEvent } from '../types';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
-import {
-  PeriodicElement
-} from '../../../../../../src/app/pages/components/table/_examples/table-with-pagination-example/table-with-pagination-example.component';
 import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 
 @Component({
