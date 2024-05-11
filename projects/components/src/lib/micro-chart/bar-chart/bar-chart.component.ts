@@ -10,6 +10,10 @@ import {
 import * as d3 from 'd3';
 import { isPlatformServer } from '@angular/common';
 
+export interface AxisTickFormatFn {
+  (d: any): any;
+}
+
 @Component({
   selector: 'emr-bar-chart',
   exportAs: 'emrBarChart',
@@ -74,6 +78,7 @@ export class BarChartComponent implements AfterViewChecked {
   showXAxis = input(false, {
     transform: booleanAttribute
   });
+  yAxisTickFormat = input<string | AxisTickFormatFn>('');
 
   constructor() {
     effect(() => {
@@ -188,6 +193,16 @@ export class BarChartComponent implements AfterViewChecked {
         .tickSizeOuter(0)
         .tickPadding(this.tickPadding())
       ;
+
+      if (this.yAxisTickFormat()) {
+        if (typeof this.yAxisTickFormat() === 'function') {
+          const tickFormat = this.yAxisTickFormat() as AxisTickFormatFn;
+          this._yAxis = this._yAxis.tickFormat((d: any) => tickFormat(d)(d));
+        } else if (typeof this.yAxisTickFormat() === 'string') {
+          const tickFormat = d3.format(this.yAxisTickFormat() as string);
+          this._yAxis = this._yAxis.tickFormat((d: any) => tickFormat(d));
+        }
+      }
 
       this._yAxisContainer.call(this._yAxis);
       this._yAxisContainer
