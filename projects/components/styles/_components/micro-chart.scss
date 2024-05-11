@@ -1,3 +1,13 @@
-.emr-area-line-chart {
-  transform: scale(1, -1);
+:root {
+  --emt-bar-chart-col-bg: theme('colors.primary.500');
+  --emt-bar-chart-col-border-radius: theme('borderRadius.lg');
+  --emt-bar-chart-tick-line-color: theme('colors.neutral.600');
+  --emt-bar-chart-tick-text-color: theme('colors.neutral.700');
+  --emt-bar-chart-domain-color: theme('colors.neutral.600');
+}
+
+html.dark {
+  --emt-bar-chart-tick-line-color: theme('colors.neutral.500');
+  --emt-bar-chart-tick-text-color: theme('colors.neutral.300');
+  --emt-bar-chart-domain-color: theme('colors.neutral.500');
 }
