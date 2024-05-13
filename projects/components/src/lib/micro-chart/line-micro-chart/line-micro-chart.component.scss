@@ -22,10 +22,13 @@
     .line {
       stroke: theme('colors.primary.DEFAULT');
       fill: none;
+      stroke-linejoin: round;
+      stroke-width: 2;
     }
 
     .area {
       fill: theme('colors.primary.200');
+      stroke-width: 0;
     }
   }
 }

@@ -28,8 +28,8 @@ export class LineMicroChartComponent {
   private _dimensions: DOMRect;
   private _innerWidth = 0;
   private _innerHeight = 0;
-  private _y: any;
-  private _x: any;
+  private _yScale: any;
+  private _xScale: any;
   private _platformId = inject(PLATFORM_ID);
 
   private _canvas = viewChild<ElementRef>('canvas');
@@ -38,7 +38,7 @@ export class LineMicroChartComponent {
 
   private _curveMap = {
     'linear': d3.curveLinear,
-    'natural': d3.curveCatmullRom
+    'catmullRom': d3.curveCatmullRom
   }
 
   data = input<number[]>([]);
@@ -51,9 +51,15 @@ export class LineMicroChartComponent {
   showAnglePoints = input(false, {
     transform: booleanAttribute
   });
-  curve = input<'linear' | 'natural'>('linear');
+  curve = input<'linear' | 'catmullRom'>('linear');
   padding = input(0, {
     transform: numberAttribute
+  });
+  xScaleType = input<'category'|'time'>('category');
+  xAccessor = input((d: any, i: number) => i);
+  yAccessor = input((d: any) => d);
+  yCompact = input(false, {
+    transform: booleanAttribute
   });
 
   constructor() {
@@ -88,8 +94,13 @@ export class LineMicroChartComponent {
   }
 
   private _setupContainers(): void {
-    this._y = d3.scaleLinear();
-    this._x = d3.scaleBand().padding(this.padding());
+    if (this.xScaleType() === 'category') {
+      this._xScale = d3.scaleBand();
+    } else if (this.xScaleType() === 'time') {
+      this._xScale = d3.scaleTime();
+    }
+
+    this._yScale = d3.scaleLinear();
     this._innerWidth = this._dimensions.width;
     this._innerHeight = this._dimensions.height;
     this._host = d3.select(this._elementRef.nativeElement);
@@ -101,70 +112,78 @@ export class LineMicroChartComponent {
   }
 
   private _setupData(): void {
-    const xStep = Math.ceil(this._innerWidth / this.data().length);
-    this._x
-      .domain(d3.range(0, this.data().length))
-      .range([0, this._innerWidth + xStep + this.strokeWidth()])
-    ;
-    const minMax = d3.extent(this.data()) as any;
-    this._y
-      .domain(minMax)
-      .range([this._innerHeight, 0])
-    ;
-    const line = d3
-      .line()
-      .x((d: any, index: number) => this._x(d[0]))
-      .y(d => this._y(d[1]))
-    ;
-    const datum = this.data().map((d: number, index: number) => {
-      return [index, d];
-    });
+    const xAccessor = this.xAccessor();
+    const yAccessor = this.yAccessor();
 
-    const areaGroup = this._svg
-      .append('g')
-      .attr('transform', `translate(0,0)`)
+    if (this.xScaleType() === 'category') {
+      const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i));
+      this._xScale = this._xScale
+        .domain(xDomain)
+        .range([0, this._innerWidth])
+      ;
+    } else if (this.xScaleType() === 'time') {
+      const xDomain = d3.extent(this.data(), xAccessor) as any;
+      this._xScale = this._xScale
+        .domain(xDomain)
+        .range([0, this._innerWidth])
+      ;
+    }
+
+    const yDomain = [
+      this.yCompact() ? d3.min(this.data().map(d => yAccessor(d))) : 0,
+      d3.max(this.data().map(d => yAccessor(d)))
+    ];
+    this._yScale = this._yScale
+      .domain(yDomain)
+      .range([this._innerHeight, 0])
     ;
 
     if (this.showArea()) {
-      const area = d3
-        .area()
-        .x((d: any) => this._x(d[0]))
+      const areaGenerator = d3.area()
+        .x((d, i) => this._xScale(xAccessor(d, i)))
+        .y1((d) => this._yScale(yAccessor(d)))
         .y0(this._innerHeight)
-        .y1((d: any) => this._y(d[1]))
         .curve(this._curveMap[this.curve()])
       ;
-      areaGroup
+      const area = this._svg
         .append('path')
-        .datum(datum)
-        .attr('d', area)
+        .datum(this.data())
+        .attr('d', areaGenerator)
         .attr('class', 'area')
       ;
     }
 
-    this._dataContainer
-      .append('path')
-      .datum(datum)
-      .attr('d', line.curve(this._curveMap[this.curve()]))
-      .attr('stroke-width', this.strokeWidth())
-      .attr('class', 'line')
+    const lineGenerator = d3.line()
+      .x((d, i) => this._xScale(xAccessor(d, i)))
+      .y((d) => this._yScale(yAccessor(d)) - this.strokeWidth() / 2)
     ;
 
-    if (this.showAnglePoints()) {
-      const symbols = d3.symbol()
-        .type(d => d3.symbolCircle)
-        .size(((d, i) => i === 0 || i === (this.data().length - 1) ? 0 : 32))
-      ;
-      areaGroup
-        .selectAll('path')
-        .data(datum)
-        .enter()
-        .append('path')
-        .attr('d', symbols)
-        .attr('stroke', 'blue')
-        .attr('stroke-width', this.strokeWidth())
-        .attr('fill', 'white')
-        .attr('transform', (d: any) => `translate(${this._x(d[0])},${this._y(d[1])})`)
-      ;
-    }
+    const line = this._svg
+      .append('path')
+      .datum(this.data())
+      .attr('d', lineGenerator.curve(this._curveMap[this.curve()]))
+      .attr('class', 'line')
+      .attr('stroke-width', this.strokeWidth())
+    ;
+
+
+    //
+    // if (this.showAnglePoints()) {
+    //   const symbols = d3.symbol()
+    //     .type(d => d3.symbolCircle)
+    //     .size(((d, i) => i === 0 || i === (this.data().length - 1) ? 0 : 32))
+    //   ;
+    //   areaGroup
+    //     .selectAll('path')
+    //     .data(datum)
+    //     .enter()
+    //     .append('path')
+    //     .attr('d', symbols)
+    //     .attr('stroke', 'blue')
+    //     .attr('stroke-width', this.strokeWidth())
+    //     .attr('fill', 'white')
+    //     .attr('transform', (d: any) => `translate(${this._x(d[0])},${this._y(d[1])})`)
+    //   ;
+    // }
   }
 }
