@@ -9,10 +9,7 @@ import {
 } from '@angular/core';
 import * as d3 from 'd3';
 import { isPlatformServer } from '@angular/common';
-
-export interface AxisTickFormatFn {
-  (d: any): any;
-}
+import { AxisTickFormatFn } from '../types';
 
 @Component({
   selector: 'emr-bar-chart',
@@ -49,7 +46,7 @@ export class BarChartComponent implements AfterViewChecked {
   columnsPaddingOuter = input(0, {
     transform: numberAttribute
   });
-  colBorderRadius = input(10, {
+  colBorderRadius = input(0, {
     transform: numberAttribute
   });
   yAxisTicksCount = input(0, {
@@ -78,7 +75,7 @@ export class BarChartComponent implements AfterViewChecked {
   showXAxis = input(false, {
     transform: booleanAttribute
   });
-  yAxisTickFormat = input<string | AxisTickFormatFn>('');
+  valueFormat = input<string | AxisTickFormatFn>('');
 
   constructor() {
     effect(() => {
@@ -122,6 +119,7 @@ export class BarChartComponent implements AfterViewChecked {
     this._innerHeight = this._dimensions.height - this.marginTop() - this.marginBottom();
     this._host = d3.select(this._elementRef.nativeElement);
     this._svg = this._host.select('svg');
+    // this._svg.attr('viewBox', [0, 0, this._dimensions.width, this._dimensions.height]);
     this._xAxisContainer = this._svg.append('g')
       .attr('class', 'x-axis-container')
       .attr('transform', `translate(${this.marginStart()},${this.marginTop() + this._innerHeight})`)
@@ -194,12 +192,12 @@ export class BarChartComponent implements AfterViewChecked {
         .tickPadding(this.tickPadding())
       ;
 
-      if (this.yAxisTickFormat()) {
-        if (typeof this.yAxisTickFormat() === 'function') {
-          const tickFormat = this.yAxisTickFormat() as AxisTickFormatFn;
+      if (this.valueFormat()) {
+        if (typeof this.valueFormat() === 'function') {
+          const tickFormat = this.valueFormat() as AxisTickFormatFn;
           this._yAxis = this._yAxis.tickFormat((d: any) => tickFormat(d)(d));
-        } else if (typeof this.yAxisTickFormat() === 'string') {
-          const tickFormat = d3.format(this.yAxisTickFormat() as string);
+        } else if (typeof this.valueFormat() === 'string') {
+          const tickFormat = d3.format(this.valueFormat() as string);
           this._yAxis = this._yAxis.tickFormat((d: any) => tickFormat(d));
         }
       }
@@ -225,6 +223,10 @@ export class BarChartComponent implements AfterViewChecked {
       .attr('x', (d: any, i: number) => this._x(i.toString()))
       .attr('y', (d: any) => this._y(d))
       .attr('width', this._x.bandwidth())
+      .attr('height', 0)
+      .transition()
+      .delay((d: any, i: number) => i * 20)
+      .duration(200)
       .attr('height', (d: any) => this._innerHeight - this._y(d))
     ;
   }

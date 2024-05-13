@@ -7,11 +7,6 @@
   }
 
   ::ng-deep {
-    rect {
-      fill: var(--emt-bar-chart-col-bg);
-      transition: all .5s;
-    }
-
     .domain {
       color: var(--emt-bar-chart-domain-color);
     }
@@ -22,6 +17,15 @@
 
     .tick-text {
       color: var(--emt-bar-chart-tick-text-color);
+    }
+
+    .line {
+      stroke: theme('colors.primary.DEFAULT');
+      fill: none;
+    }
+
+    .area {
+      fill: theme('colors.primary.200');
     }
   }
 }

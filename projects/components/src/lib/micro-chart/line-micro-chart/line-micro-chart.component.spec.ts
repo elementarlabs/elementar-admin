@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AreaLineChartComponent } from './area-line-chart.component';
+import { LineMicroChartComponent } from './line-micro-chart.component';
 
-describe('AreaLineChartComponent', () => {
-  let component: AreaLineChartComponent;
-  let fixture: ComponentFixture<AreaLineChartComponent>;
+describe('LineMicroChartComponent', () => {
+  let component: LineMicroChartComponent;
+  let fixture: ComponentFixture<LineMicroChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AreaLineChartComponent]
+      imports: [LineMicroChartComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AreaLineChartComponent);
+    fixture = TestBed.createComponent(LineMicroChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
