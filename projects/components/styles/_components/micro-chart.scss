@@ -4,10 +4,19 @@
   --emt-bar-chart-tick-line-color: theme('colors.neutral.600');
   --emt-bar-chart-tick-text-color: theme('colors.neutral.700');
   --emt-bar-chart-domain-color: theme('colors.neutral.600');
+
+  // line chart
+  --emr-line-chart-line-bg: theme('colors.primary.DEFAULT');
+  --emr-line-chart-area-bg: theme('colors.primary.200');
+  --emr-line-chart-marker-line-bg: theme('colors.neutral.DEFAULT');
+  --emr-line-chart-marker-dot-bg: theme('colors.primary.DEFAULT');
 }
 
 html.dark {
   --emt-bar-chart-tick-line-color: theme('colors.neutral.500');
   --emt-bar-chart-tick-text-color: theme('colors.neutral.300');
   --emt-bar-chart-domain-color: theme('colors.neutral.500');
+
+  // line chart
+  --emr-line-chart-area-bg: theme('colors.neutral.800');
 }

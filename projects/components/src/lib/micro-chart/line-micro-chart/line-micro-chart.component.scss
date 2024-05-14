@@ -1,42 +1,27 @@
 :host {
   display: block;
 
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-
   ::ng-deep {
-    .domain {
-      color: var(--emt-bar-chart-domain-color);
-    }
-
-    .tick-line {
-      color: var(--emt-bar-chart-tick-line-color);
-    }
-
-    .tick-text {
-      color: var(--emt-bar-chart-tick-text-color);
-    }
-
     .line {
-      stroke: theme('colors.primary.DEFAULT');
+      stroke: var(--emr-line-chart-line-bg);
       fill: none;
       stroke-linejoin: round;
       stroke-linecap: round;
     }
 
     .area {
-      fill: theme('colors.primary.200');
+      fill: var(--emr-line-chart-area-bg);
       stroke-width: 0;
     }
 
     .marker-line {
-      stroke: theme('colors.tertiary.DEFAULT');
+      stroke: var(--emr-line-chart-marker-line-bg);
+      stroke-width: 1;
+      stroke-dasharray: 3;
     }
 
     .marker-dot {
-      fill: theme('colors.tertiary.DEFAULT');
+      fill: var(--emr-line-chart-marker-dot-bg);
     }
   }
 }

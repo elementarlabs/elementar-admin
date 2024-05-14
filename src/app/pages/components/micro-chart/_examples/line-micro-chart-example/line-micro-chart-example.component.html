@@ -1,19 +1,23 @@
 <div class="space-y-10">
   <emr-line-micro-chart [data]="[2, 1, 3]"
+                        showMarkers
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 
   <emr-line-micro-chart [data]="[2, 1, 3]"
-                        yCompact
+                        compact
+                        showMarkers
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 
   <emr-line-micro-chart [data]="[2, 1, 3]"
                         showArea
+                        showMarkers
                         curve="catmullRom"
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 
-  <emr-line-micro-chart [data]="[2, 1, 3]"
-                        yCompact
+  <emr-line-micro-chart [data]="[2, 1, 3, 6, 2, 4, 3, 5, 1]"
+                        compact
                         showArea
+                        showMarkers
                         curve="curveBumpX"
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 </div>

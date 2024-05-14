@@ -6,11 +6,10 @@ import {
   inject,
   input,
   numberAttribute,
-  PLATFORM_ID, Signal, viewChild
+  PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import * as d3 from 'd3';
-import { AxisTickFormatFn } from '../types';
 
 @Component({
   selector: 'emr-line-micro-chart',
@@ -31,11 +30,6 @@ export class LineMicroChartComponent {
   private _yScale: any;
   private _xScale: any;
   private _platformId = inject(PLATFORM_ID);
-
-  private _canvas = viewChild<ElementRef>('canvas');
-
-  maxCoefficient = 1;
-
   private _curveMap = {
     'linear': d3.curveLinear,
     'catmullRom': d3.curveCatmullRom,
@@ -59,7 +53,7 @@ export class LineMicroChartComponent {
   xScaleType = input<'category'|'time'>('category');
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
-  yCompact = input(false, {
+  compact = input(false, {
     transform: booleanAttribute
   });
   markerDotSize = input(5, {
@@ -117,34 +111,37 @@ export class LineMicroChartComponent {
   }
 
   private _setupData(): void {
+    let markerDotSize = this.markerDotSize();
+
+    if (!this.showMarkers()) {
+      markerDotSize = this.strokeWidth();
+    }
+
     const xAccessor = this.xAccessor();
     const yAccessor = this.yAccessor();
-    const dataValue = this.data().map((d) => yAccessor(d));
-    const dataMinValue = Math.min(...dataValue);
-    const dataMaxValue = Math.max(...dataValue);
 
     if (this.xScaleType() === 'category') {
       const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i)) as any;
-      this._xScale = d3.scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - this.markerDotSize()]);
+      this._xScale = d3.scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
     } else if (this.xScaleType() === 'time') {
       const xDomain = d3.extent(this.data(), xAccessor) as any;
-      this._xScale = d3.scaleTime(xDomain, [this.markerDotSize(), this._innerWidth - this.markerDotSize()]);
+      this._xScale = d3.scaleTime(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
     }
 
     const yDomain = [
-      this.yCompact() ? d3.min(this.data().map(d => yAccessor(d))) : 0,
+      this.compact() ? d3.min(this.data().map(d => yAccessor(d))) : 0,
       d3.max(this.data().map(d => yAccessor(d)))
     ];
     this._yScale = this._yScale
       .domain(yDomain)
-      .range([this._innerHeight - this.markerDotSize(), this.markerDotSize()])
+      .range([this._innerHeight - markerDotSize, markerDotSize])
     ;
 
     if (this.showArea()) {
       const areaGenerator = d3.area()
         .x((d, i) => this._xScale(xAccessor(d, i)))
         .y1((d) => this._yScale(yAccessor(d)))
-        .y0(this._innerHeight)
+        .y0(this._innerHeight - markerDotSize)
         .curve(this._curveMap[this.curve()])
       ;
       const area = this._svg
@@ -157,17 +154,7 @@ export class LineMicroChartComponent {
 
     const lineGenerator = d3.line()
       .x((d, i) => this._xScale(xAccessor(d, i)))
-      .y((d) => {
-        const value = yAccessor(d);
-
-        if (value === dataMinValue) {
-          return this._yScale(yAccessor(d)) - this.strokeWidth() / 2;
-        } else if (value === dataMaxValue) {
-          return this._yScale(yAccessor(d)) + this.strokeWidth() / 2;
-        }
-
-        return this._yScale(yAccessor(d));
-      })
+      .y((d) => this._yScale(yAccessor(d)))
     ;
 
     const line = this._svg
@@ -178,55 +165,58 @@ export class LineMicroChartComponent {
       .attr('stroke-width', this.strokeWidth())
     ;
 
-    const markerLine = this._svg
-      .append('line')
-      .attr('x1', 0)
-      .attr('x2', 0)
-      .attr('y1', 0)
-      .attr('y2', this._innerHeight)
-      .attr('stroke-width', this.markerLineWidth())
-      .attr('opacity', 0)
-      .attr('class', 'marker-line')
-    ;
-
-    const markerDot = this._svg
-      .append('circle')
-      .attr('cx', 0)
-      .attr('cy', 0)
-      .attr('r', this.markerDotSize())
-      .attr('opacity', 0)
-      .attr('class', 'marker-dot')
-    ;
-
-    let x = 0;
-    let y = 0;
-
-    this._svg.on('mousemove', (e: any) => {
-      const pointerCoords = d3.pointer(e);
-      const [posX, posY] = pointerCoords;
-
-      if (this.xScaleType() === 'category') {
-        const eachBand = this._xScale.step();
-        const index = Math.round((posX / eachBand));
-        const dataValue = this.data()[index];
-        x = this._xScale(xAccessor(index, index));
-        y = this._yScale(yAccessor(dataValue));
-      } else if (this.xScaleType() === 'time') {
-        // const bisect = d3.bisector(xAccessor);
-        // const index = bisect.center(this.data(), this._xScale.invert(posX));
-        // const val = this.data()[index];
-      }
-
-      markerLine
-        .attr('x1', x)
-        .attr('x2', x)
-        .attr('opacity', 1)
+    if (this.showMarkers()) {
+      const markerLine = this._svg
+        .append('line')
+        .attr('x1', 0)
+        .attr('x2', 0)
+        .attr('y1', 0)
+        .attr('y2', this._innerHeight - markerDotSize)
+        .attr('opacity', 0)
+        .attr('class', 'marker-line')
       ;
-      markerDot
-        .attr('cx', x)
-        .attr('cy', y)
-        .attr('opacity', 1)
+      const markerDot = this._svg
+        .append('circle')
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .attr('r', markerDotSize)
+        .attr('opacity', 0)
+        .attr('class', 'marker-dot')
       ;
-    });
+      let x = 0;
+      let y = 0;
+
+      this._svg.on('mousemove', (e: any) => {
+        const pointerCoords = d3.pointer(e);
+        const [posX, posY] = pointerCoords;
+
+        if (this.xScaleType() === 'category') {
+          const eachBand = this._xScale.step();
+          const index = Math.round((posX / eachBand));
+          const dataValue = this.data()[index];
+          x = this._xScale(xAccessor(index, index));
+          y = this._yScale(yAccessor(dataValue));
+        } else if (this.xScaleType() === 'time') {
+          // const bisect = d3.bisector(xAccessor);
+          // const index = bisect.center(this.data(), this._xScale.invert(posX));
+          // const val = this.data()[index];
+        }
+
+        markerLine
+          .attr('x1', x)
+          .attr('x2', x)
+          .attr('opacity', 1)
+        ;
+        markerDot
+          .attr('cx', x)
+          .attr('cy', y)
+          .attr('opacity', 1)
+        ;
+      });
+      this._svg.on('mouseleave', () => {
+        markerLine.attr('opacity', 0)
+        markerDot.attr('opacity', 0)
+      });
+    }
   }
 }
