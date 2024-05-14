@@ -23,12 +23,20 @@
       stroke: theme('colors.primary.DEFAULT');
       fill: none;
       stroke-linejoin: round;
-      stroke-width: 2;
+      stroke-linecap: round;
     }
 
     .area {
       fill: theme('colors.primary.200');
       stroke-width: 0;
+    }
+
+    .marker-line {
+      stroke: theme('colors.tertiary.DEFAULT');
+    }
+
+    .marker-dot {
+      fill: theme('colors.tertiary.DEFAULT');
     }
   }
 }
