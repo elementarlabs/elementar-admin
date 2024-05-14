@@ -177,7 +177,8 @@ export class PopoverTriggerForDirective implements  OnDestroy {
       .flexibleConnectedTo(this.origin ? this.origin : this._elementRef)
       .withLockedPosition()
       .withGrowAfterOpen()
-      .withPositions(this._getOverlayPositions());
+      .withPositions(this._getOverlayPositions())
+    ;
   }
 
   private _getOverlayPositions(): ConnectedPosition[] {

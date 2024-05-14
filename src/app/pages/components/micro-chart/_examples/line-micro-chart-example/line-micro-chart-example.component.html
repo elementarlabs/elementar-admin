@@ -1,23 +1,31 @@
 <div class="space-y-10">
-  <emr-line-micro-chart [data]="[2, 1, 3]"
-                        showMarkers
-                        class="w-[200px] h-[120px]"></emr-line-micro-chart>
+<!--  <emr-line-micro-chart [data]="[2, 1, 3]"-->
+<!--                        showMarkers-->
+<!--                        class="w-[200px] h-[120px]"></emr-line-micro-chart>-->
 
-  <emr-line-micro-chart [data]="[2, 1, 3]"
-                        compact
-                        showMarkers
-                        class="w-[200px] h-[120px]"></emr-line-micro-chart>
+<!--  <emr-line-micro-chart [data]="[2, 1, 3]"-->
+<!--                        compact-->
+<!--                        showMarkers-->
+<!--                        class="w-[200px] h-[120px]"></emr-line-micro-chart>-->
 
-  <emr-line-micro-chart [data]="[2, 1, 3]"
-                        showArea
-                        showMarkers
-                        curve="catmullRom"
-                        class="w-[200px] h-[120px]"></emr-line-micro-chart>
+<!--  <emr-line-micro-chart [data]="[2, 1, 3]"-->
+<!--                        showArea-->
+<!--                        showMarkers-->
+<!--                        curve="catmullRom"-->
+<!--                        class="w-[200px] h-[120px]"></emr-line-micro-chart>-->
 
   <emr-line-micro-chart [data]="[2, 1, 3, 6, 2, 4, 3, 5, 1]"
                         compact
                         showArea
                         showMarkers
+                        showTooltip
                         curve="curveBumpX"
+                        [tooltipTemplateRef]="tooltip"
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 </div>
+
+<ng-template #tooltip>
+  <emr-micro-chart-tooltip>
+    Tooltip
+  </emr-micro-chart-tooltip>
+</ng-template>

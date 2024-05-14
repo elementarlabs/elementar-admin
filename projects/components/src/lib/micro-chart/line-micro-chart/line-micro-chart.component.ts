@@ -1,24 +1,42 @@
 import {
   booleanAttribute,
+  ChangeDetectionStrategy,
   Component,
   effect,
   ElementRef,
   inject,
+  Injector,
   input,
   numberAttribute,
   PLATFORM_ID,
+  TemplateRef,
+  ViewContainerRef,
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import * as d3 from 'd3';
+import { Selection } from 'd3';
+import {
+  ConnectedPosition,
+  FlexibleConnectedPositionStrategy,
+  Overlay,
+  OverlayConfig,
+  OverlayRef
+} from '@angular/cdk/overlay';
+import { PositionManager } from '../../popover/position-manager';
+import { PopoverPosition } from '../../popover';
+import { TemplatePortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'emr-line-micro-chart',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './line-micro-chart.component.html',
   styleUrl: './line-micro-chart.component.scss'
 })
 export class LineMicroChartComponent {
+  private _overlay = inject(Overlay);
+  private _viewContainerRef = inject(ViewContainerRef);
   private _elementRef = inject(ElementRef);
   private _initialized = false;
   private _host: any;
@@ -34,8 +52,14 @@ export class LineMicroChartComponent {
     'linear': d3.curveLinear,
     'catmullRom': d3.curveCatmullRom,
     'curveBumpX': d3.curveBumpX
-  }
+  };
+  position: PopoverPosition = 'above-center';
+  origin: HTMLElement;
+  private _overlayRef: OverlayRef | null = null;
+  private _tooltipPortal!: TemplatePortal;
+  private _injector = inject(Injector);
 
+  tooltipTemplateRef = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
   strokeWidth = input(2, {
     transform: numberAttribute
@@ -44,6 +68,9 @@ export class LineMicroChartComponent {
     transform: booleanAttribute
   });
   showMarkers = input(false, {
+    transform: booleanAttribute
+  });
+  showTooltip = input(false, {
     transform: booleanAttribute
   });
   curve = input<'linear' | 'catmullRom' | 'curveBumpX'>('linear');
@@ -57,9 +84,6 @@ export class LineMicroChartComponent {
     transform: booleanAttribute
   });
   markerDotSize = input(5, {
-    transform: numberAttribute
-  });
-  markerLineWidth = input(1, {
     transform: numberAttribute
   });
 
@@ -165,6 +189,10 @@ export class LineMicroChartComponent {
       .attr('stroke-width', this.strokeWidth())
     ;
 
+    if (this.showTooltip()) {
+
+    }
+
     if (this.showMarkers()) {
       const markerLine = this._svg
         .append('line')
@@ -175,7 +203,7 @@ export class LineMicroChartComponent {
         .attr('opacity', 0)
         .attr('class', 'marker-line')
       ;
-      const markerDot = this._svg
+      const markerDot: Selection<any, any, any, any> = this._svg
         .append('circle')
         .attr('cx', 0)
         .attr('cy', 0)
@@ -183,10 +211,12 @@ export class LineMicroChartComponent {
         .attr('opacity', 0)
         .attr('class', 'marker-dot')
       ;
+
       let x = 0;
       let y = 0;
 
       this._svg.on('mousemove', (e: any) => {
+        const oldXPosition = +markerDot.attr('cx');
         const pointerCoords = d3.pointer(e);
         const [posX, posY] = pointerCoords;
 
@@ -212,11 +242,57 @@ export class LineMicroChartComponent {
           .attr('cy', y)
           .attr('opacity', 1)
         ;
+
+        if (this.showTooltip()) {
+          if (oldXPosition !== x) {
+            this.origin = markerDot.node();
+            this._show();
+          }
+        }
       });
       this._svg.on('mouseleave', () => {
+        this._overlayRef?.detach();
         markerLine.attr('opacity', 0)
         markerDot.attr('opacity', 0)
       });
     }
+  }
+
+  private _show(): void {
+    this._overlayRef?.detach();
+    this._overlayRef = this._overlay.create(this._getOverlayConfig());
+    this._overlayRef.attach(this._getPopoverContentPortal());
+  }
+
+  private _getPopoverContentPortal() {
+    this._tooltipPortal = new TemplatePortal(
+      this.tooltipTemplateRef() as TemplateRef<any>,
+      this._viewContainerRef,
+      null,
+      this._injector
+    );
+
+    return this._tooltipPortal;
+  }
+
+  private _getOverlayConfig() {
+    return new OverlayConfig({
+      positionStrategy: this._getOverlayPositionStrategy(),
+      scrollStrategy: this._overlay.scrollStrategies.reposition()
+    });
+  }
+
+  private _getOverlayPositionStrategy(): FlexibleConnectedPositionStrategy {
+    return this._overlay
+      .position()
+      .flexibleConnectedTo(this.origin)
+      .withLockedPosition()
+      .withGrowAfterOpen()
+      .withPositions(this._getOverlayPositions())
+    ;
+  }
+
+  private _getOverlayPositions(): ConnectedPosition[] {
+    return (new PositionManager()).build(this.position);
   }
 }
