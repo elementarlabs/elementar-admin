@@ -7,5 +7,11 @@
     </div>
     <div class="font-bold text-sm">136 Tasks</div>
   </div>
-  <div id="total-tasks-widget" #chartEl class="mt-2 h-[146px]"></div>
+  <emr-line-micro-chart [data]="data"
+                        showArea
+                        showMarkers
+                        curve="catmullRom"
+                        strokeWidth="3"
+                        markerDotSize="6"
+                        class="h-[146px] mt-3 -mx-1"></emr-line-micro-chart>
 </div>
