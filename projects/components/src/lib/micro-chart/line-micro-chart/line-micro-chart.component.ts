@@ -224,6 +224,8 @@ export class LineMicroChartComponent {
 
       let x = 0;
       let y = 0;
+      let xValue: any;
+      let yValue: any;
 
       if (this.showTooltip()) {
         this.origin = this.tooltipDot().nativeElement;
@@ -257,8 +259,10 @@ export class LineMicroChartComponent {
             const eachBand = this._xScale.step();
             const index = Math.round((posX / eachBand));
             const dataValue = this.data()[index];
-            x = this._xScale(xAccessor(index, index));
-            y = this._yScale(yAccessor(dataValue));
+            xValue = xAccessor(index, index);
+            yValue = yAccessor(dataValue);
+            x = this._xScale(xValue);
+            y = this._yScale(yValue);
           } else if (this.xScaleType() === 'time') {
             // const bisect = d3.bisector(xAccessor);
             // const index = bisect.center(this.data(), this._xScale.invert(posX));
@@ -275,52 +279,49 @@ export class LineMicroChartComponent {
           ;
 
           if (this.showTooltip()) {
+            this._renderer.setStyle(this.tooltipDot().nativeElement, 'left', (e.clientX - 4) + 'px');
+            this._renderer.setStyle(this.tooltipDot().nativeElement, 'top', (e.clientY - 4) + 'px');
+
             if (visible) {
               this._renderer.addClass(this.tooltipDot().nativeElement, 'is-visible');
+
+              if (!this._overlayRef?.hasAttached()) {
+                this._show({
+                  xValue,
+                  yValue
+                });
+              } else {
+                if (oldXPosition !== x) {
+                  this._show({
+                    xValue,
+                    yValue
+                  });
+                } else {
+                  this._overlayRef.updatePosition();
+                }
+              }
             } else {
               this._renderer.removeClass(this.tooltipDot().nativeElement, 'is-visible');
-            }
-
-            this._renderer.setStyle(this.tooltipDot().nativeElement, 'left', (e.clientX - 5) + 'px');
-            this._renderer.setStyle(this.tooltipDot().nativeElement, 'top', (e.clientY - 5) + 'px');
-
-            if (visible) {
-              if (!this._overlayRef?.hasAttached()) {
-                this._show();
-              } else {
-                this._overlayRef.updatePosition();
-              }
             }
           }
         })
       ;
-
-      // this._svg.on('mouseleave', (e: MouseEvent) => {
-      //   const relatedTarget = e.relatedTarget as HTMLElement;
-      //   const hasTooltip = relatedTarget?.contains(
-      //     relatedTarget.querySelector('.emr-micro-chart-tooltip')
-      //   );
-      //
-      //   if (!hasTooltip) {
-      //     this._overlayRef?.detach();
-      //     markerLine.attr('opacity', 0);
-      //     markerDot.attr('opacity', 0);
-      //   }
-      // });
     }
   }
 
-  private _show(): void {
+  private _show(data: any): void {
     this._overlayRef?.detach();
     this._overlayRef = this._overlay.create(this._getOverlayConfig());
-    this._overlayRef.attach(this._getPopoverContentPortal());
+    this._overlayRef.attach(this._getContentPortal(data));
   }
 
-  private _getPopoverContentPortal() {
+  private _getContentPortal(data: any) {
     this._tooltipPortal = new TemplatePortal(
       this.tooltipTemplateRef() as TemplateRef<any>,
       this._viewContainerRef,
-      null,
+      {
+        '$implicit': data
+      },
       this._injector
     );
 

@@ -24,8 +24,8 @@
                         class="w-[200px] h-[120px]"></emr-line-micro-chart>
 </div>
 
-<ng-template #tooltip>
+<ng-template #tooltip let-data>
   <emr-micro-chart-tooltip>
-    Tooltip
+    Value: <span class="font-medium">{{ data.yValue }}</span>
   </emr-micro-chart-tooltip>
 </ng-template>
