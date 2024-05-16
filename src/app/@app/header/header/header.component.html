@@ -16,7 +16,8 @@
         <mat-icon class="material-symbols-outlined"
                   matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
       </button>
-      <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme">
+      <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
+              emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
         @if (isDark | async) {
           <mat-icon class="material-symbols-outlined">light_mode</mat-icon>
         } @else {

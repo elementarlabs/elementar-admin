@@ -23,5 +23,18 @@
     .marker-dot {
       fill: var(--emr-line-chart-marker-dot-bg);
     }
+
+    .tooltip-dot {
+      position: fixed;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+      z-index: -1;
+
+      &.is-visible {
+        z-index: 99;
+      }
+    }
   }
 }
