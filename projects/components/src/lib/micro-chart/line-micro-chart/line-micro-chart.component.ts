@@ -90,7 +90,6 @@ export class LineMicroChartComponent {
   padding = input(0, {
     transform: numberAttribute
   });
-  xScaleType = input<'category'|'time'>('category');
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
   compact = input(false, {
@@ -158,14 +157,8 @@ export class LineMicroChartComponent {
 
     const xAccessor = this.xAccessor();
     const yAccessor = this.yAccessor();
-
-    if (this.xScaleType() === 'category') {
-      const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i)) as any;
-      this._xScale = d3.scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
-    } else if (this.xScaleType() === 'time') {
-      const xDomain = d3.extent(this.data(), xAccessor) as any;
-      this._xScale = d3.scaleTime(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
-    }
+    const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i)) as any;
+    this._xScale = d3.scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
 
     const yDomain = [
       this.compact() ? d3.min(this.data().map(d => yAccessor(d))) : 0,
@@ -243,33 +236,32 @@ export class LineMicroChartComponent {
           const [posX, posY] = pointerCoords;
           let visible = true;
 
-          if (
-            posX < this.markerDotSize() || posY < this.markerDotSize() ||
-            posX > this._hostWidth || posY > this._hostHeight || !target.closest('.emr-line-micro-chart')
-          ) {
+          if (posX < this.markerDotSize() || posY < this.markerDotSize() || posX > this._hostWidth || posY > this._hostHeight) {
             visible = false;
             this._overlayRef?.detach();
             markerLine.attr('opacity', 0);
             markerDot.attr('opacity', 0);
           } else {
-            markerLine.attr('opacity', 1);
-            markerDot.attr('opacity', 1);
+            if (target.closest('.emr-line-micro-chart') ||
+              target.classList.contains('emr-line-micro-chart-tooltip-overlay') ||
+              target.closest('.emr-line-micro-chart-tooltip-overlay')
+            ) {
+              markerLine.attr('opacity', 1);
+              markerDot.attr('opacity', 1);
+            } else {
+              console.log(target);
+              visible = false;
+              this._overlayRef?.detach();
+            }
           }
 
-          if (this.xScaleType() === 'category') {
-            const eachBand = this._xScale.step();
-            const index = Math.round((posX / eachBand));
-            const dataValue = this.data()[index];
-            category = this.category()[index] ? this.category()[index] : xAccessor(index, index);
-            value = yAccessor(dataValue);
-            x = this._xScale(xAccessor(index, index));
-            y = this._yScale(yAccessor(dataValue));
-          } else if (this.xScaleType() === 'time') {
-            // const bisect = d3.bisector(xAccessor);
-            // const index = bisect.center(this.data(), this._xScale.invert(posX));
-            // const val = this.data()[index];
-          }
-
+          const eachBand = this._xScale.step();
+          const index = Math.round((posX / eachBand));
+          const dataValue = this.data()[index];
+          category = this.category()[index] ? this.category()[index] : xAccessor(index, index);
+          value = yAccessor(dataValue);
+          x = this._xScale(xAccessor(index, index));
+          y = this._yScale(yAccessor(dataValue));
           markerLine
             .attr('x1', x)
             .attr('x2', x)
@@ -333,6 +325,7 @@ export class LineMicroChartComponent {
 
   private _getOverlayConfig() {
     return new OverlayConfig({
+      panelClass: 'emr-line-micro-chart-tooltip-overlay',
       positionStrategy: this._getOverlayPositionStrategy(),
       scrollStrategy: this._overlay.scrollStrategies.reposition()
     });
