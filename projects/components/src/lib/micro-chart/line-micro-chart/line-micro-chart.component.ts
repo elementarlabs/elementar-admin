@@ -73,6 +73,7 @@ export class LineMicroChartComponent {
 
   tooltipTemplateRef = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
+  category = input<any[]>([]);
   strokeWidth = input(2, {
     transform: numberAttribute
   });
@@ -224,8 +225,8 @@ export class LineMicroChartComponent {
 
       let x = 0;
       let y = 0;
-      let xValue: any;
-      let yValue: any;
+      let category: any;
+      let value: any;
 
       if (this.showTooltip()) {
         this.origin = this.tooltipDot().nativeElement;
@@ -259,10 +260,10 @@ export class LineMicroChartComponent {
             const eachBand = this._xScale.step();
             const index = Math.round((posX / eachBand));
             const dataValue = this.data()[index];
-            xValue = xAccessor(index, index);
-            yValue = yAccessor(dataValue);
-            x = this._xScale(xValue);
-            y = this._yScale(yValue);
+            category = this.category()[index] ? this.category()[index] : xAccessor(index, index);
+            value = yAccessor(dataValue);
+            x = this._xScale(xAccessor(index, index));
+            y = this._yScale(yAccessor(dataValue));
           } else if (this.xScaleType() === 'time') {
             // const bisect = d3.bisector(xAccessor);
             // const index = bisect.center(this.data(), this._xScale.invert(posX));
@@ -287,14 +288,14 @@ export class LineMicroChartComponent {
 
               if (!this._overlayRef?.hasAttached()) {
                 this._show({
-                  xValue,
-                  yValue
+                  category,
+                  value
                 });
               } else {
                 if (oldXPosition !== x) {
                   this._show({
-                    xValue,
-                    yValue
+                    category,
+                    value
                   });
                 } else {
                   this._overlayRef.updatePosition();
@@ -309,18 +310,20 @@ export class LineMicroChartComponent {
     }
   }
 
-  private _show(data: any): void {
+  private _show(data: object): void {
     this._overlayRef?.detach();
     this._overlayRef = this._overlay.create(this._getOverlayConfig());
     this._overlayRef.attach(this._getContentPortal(data));
   }
 
-  private _getContentPortal(data: any) {
+  private _getContentPortal(data: object) {
     this._tooltipPortal = new TemplatePortal(
       this.tooltipTemplateRef() as TemplateRef<any>,
       this._viewContainerRef,
       {
-        '$implicit': data
+        '$implicit': {
+          ...data
+        }
       },
       this._injector
     );
