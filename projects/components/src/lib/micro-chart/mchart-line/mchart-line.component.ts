@@ -23,7 +23,7 @@ import {
   scalePoint,
   min, max,
   pointer,
-  line, area
+  line, area, curveCardinal, curveBasis, curveBundle, curveMonotoneX, curveNatural, curveStep
 } from 'd3';
 import {
   ConnectedPosition,
@@ -69,7 +69,8 @@ export class MchartLineComponent {
   private _curveMap = {
     'linear': curveLinear,
     'catmullRom': curveCatmullRom,
-    'curveBumpX': curveBumpX
+    'curveBumpX': curveBumpX,
+    'curveStep': curveStep
   };
   origin: HTMLElement;
   private _overlayRef: OverlayRef | null = null;
@@ -90,10 +91,7 @@ export class MchartLineComponent {
   showMarkers = input(false, {
     transform: booleanAttribute
   });
-  curve = input<'linear' | 'catmullRom' | 'curveBumpX'>('linear');
-  padding = input(0, {
-    transform: numberAttribute
-  });
+  curve = input<'linear' | 'catmullRom' | 'curveBumpX' | 'curveStep'>('linear');
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
   compact = input(false, {
@@ -123,7 +121,7 @@ export class MchartLineComponent {
       const element = this._elementRef.nativeElement as HTMLElement;
       this._dimensions = element.getBoundingClientRect();
 
-      if (this._dimensions.width !== 0 && this._dimensions.height !==0) {
+      if (this._dimensions.width !== 0 && this._dimensions.height !== 0) {
         this._initialized = true;
         this._render();
       }
@@ -204,7 +202,7 @@ export class MchartLineComponent {
       .attr('stroke-width', this.strokeWidth())
     ;
 
-    if (this.showMarkers()) {
+    if (this.showMarkers() || this.tooltipTemplateRef()) {
       const markerLine = this._svg
         .append('line')
         .attr('x1', 0)
@@ -253,8 +251,10 @@ export class MchartLineComponent {
               target.classList.contains('emr-mchart-tooltip-overlay') ||
               target.closest('.emr-mchart-tooltip-overlay')
             ) {
-              markerLine.attr('opacity', 1);
-              markerDot.attr('opacity', 1);
+              if (this.showMarkers()) {
+                markerLine.attr('opacity', 1);
+                markerDot.attr('opacity', 1);
+              }
             } else {
               visible = false;
               this._overlayRef?.detach();
@@ -344,7 +344,7 @@ export class MchartLineComponent {
       .withFlexibleDimensions()
       .withGrowAfterOpen()
       .withPositions(this._getOverlayPositions())
-      ;
+    ;
   }
 
   private _getOverlayPositions(): ConnectedPosition[] {

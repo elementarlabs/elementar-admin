@@ -239,10 +239,6 @@ const routes: Routes = [
         loadChildren: () => import('./components/announcement/announcement.module').then(m => m.AnnouncementModule)
       },
       {
-        path: 'components/micro-chart',
-        loadChildren: () => import('./components/micro-chart/micro-chart.module').then(m => m.MicroChartModule)
-      },
-      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },
@@ -269,6 +265,10 @@ const routes: Routes = [
       {
         path: 'pricing',
         loadChildren: () => import('./pricing/pricing.module').then(m => m.PricingModule)
+      },
+      {
+        path: 'micro-charts',
+        loadChildren: () => import('./micro-charts/micro-charts.module').then(m => m.MicroChartsModule)
       },
       {
         path: '',

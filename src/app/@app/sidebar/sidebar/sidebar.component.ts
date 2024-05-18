@@ -404,13 +404,21 @@ export class SidebarComponent {
         },
         {
           type: 'link',
-          name: 'Micro Chart',
-          link: '/pages/components/micro-chart'
-        },
-        {
-          type: 'link',
           name: 'Sidebar Widgets',
           link: '/pages/components/sidebar-widgets'
+        }
+      ]
+    },
+    {
+      id: 'micro-charts',
+      type: 'group',
+      icon: 'leaderboard',
+      name: 'Micro Charts',
+      children: [
+        {
+          type: 'link',
+          name: 'Line Chart',
+          link: '/pages/micro-charts/line-chart'
         }
       ]
     },

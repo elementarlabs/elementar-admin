@@ -11,3 +11,7 @@
   --emr-line-chart-marker-line-bg: theme('colors.neutral.DEFAULT');
   --emr-line-chart-marker-dot-bg: theme('colors.primary.DEFAULT');
 }
+
+html.dark {
+  --emr-line-chart-area-bg: theme('colors.neutral.700');
+}

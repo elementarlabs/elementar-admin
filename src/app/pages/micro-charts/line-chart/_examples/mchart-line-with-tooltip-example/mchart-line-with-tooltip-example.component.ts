@@ -7,17 +7,17 @@ import {
 } from '@elementar/components';
 
 @Component({
-  selector: 'app-mchart-line-example',
+  selector: 'app-mchart-line-with-tooltip-example',
   standalone: true,
   imports: [
     MchartLineComponent,
-    MchartTooltipComponent,
+    MchartTooltipTitleComponent,
     MchartTooltipBodyComponent,
-    MchartTooltipTitleComponent
+    MchartTooltipComponent
   ],
-  templateUrl: './mchart-line-example.component.html',
-  styleUrl: './mchart-line-example.component.scss'
+  templateUrl: './mchart-line-with-tooltip-example.component.html',
+  styleUrl: './mchart-line-with-tooltip-example.component.scss'
 })
-export class MchartLineExampleComponent {
+export class MchartLineWithTooltipExampleComponent {
 
 }

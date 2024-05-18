@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MicroChartRoutingModule } from './micro-chart-routing.module';
+import { MicroChartsRoutingModule } from './micro-charts-routing.module';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MicroChartRoutingModule
+    MicroChartsRoutingModule
   ]
 })
-export class MicroChartModule { }
+export class MicroChartsModule { }
