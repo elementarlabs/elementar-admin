@@ -40,3 +40,4 @@ export * from './lib/_services/public-api';
 export * from './lib/_directives/public-api';
 export * from './lib/icon/public-api';
 export * from './lib/data-view/public-api';
+export * from './lib/overlay/public-api';

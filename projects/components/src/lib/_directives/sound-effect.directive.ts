@@ -20,7 +20,7 @@ export class SoundEffectDirective {
 
   private _init() {
     const audio = new Audio(this.soundSrc());
-    audio.volume = 0.5;
+    audio.volume = 0.15;
     fromEvent(this._elementRef.nativeElement, 'click')
       .pipe(
         takeUntilDestroyed(this._destroyRef)

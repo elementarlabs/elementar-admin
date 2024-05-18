@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { MicroChartRoutingModule } from './micro-chart-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

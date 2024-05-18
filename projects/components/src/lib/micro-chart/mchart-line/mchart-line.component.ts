@@ -13,8 +13,18 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
-import * as d3 from 'd3';
-import { Selection } from 'd3';
+import {
+  Selection,
+  curveLinear,
+  curveCatmullRom,
+  curveBumpX,
+  scaleLinear,
+  select,
+  scalePoint,
+  min, max,
+  pointer,
+  line, area
+} from 'd3';
 import {
   ConnectedPosition,
   FlexibleConnectedPositionStrategy,
@@ -22,24 +32,22 @@ import {
   OverlayConfig,
   OverlayRef
 } from '@angular/cdk/overlay';
-import { PositionManager } from '../../popover/position-manager';
-import { PopoverPosition } from '../../popover';
+import { PositionManager, OverlayPosition } from '../../overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
 @Component({
-  selector: 'emr-line-micro-chart',
+  selector: 'emr-mchart-line',
   standalone: true,
   imports: [],
+  templateUrl: './mchart-line.component.html',
+  styleUrl: './mchart-line.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './line-micro-chart.component.html',
-  styleUrl: './line-micro-chart.component.scss',
   host: {
-    'class': 'emr-line-micro-chart'
+    'class': 'emr-mchart-line'
   }
 })
-export class LineMicroChartComponent {
+export class MchartLineComponent {
   private _renderer = inject(Renderer2);
   private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
@@ -59,11 +67,10 @@ export class LineMicroChartComponent {
   private _xScale: any;
   private _platformId = inject(PLATFORM_ID);
   private _curveMap = {
-    'linear': d3.curveLinear,
-    'catmullRom': d3.curveCatmullRom,
-    'curveBumpX': d3.curveBumpX
+    'linear': curveLinear,
+    'catmullRom': curveCatmullRom,
+    'curveBumpX': curveBumpX
   };
-  position: PopoverPosition = 'after-center';
   origin: HTMLElement;
   private _overlayRef: OverlayRef | null = null;
   private _tooltipPortal!: TemplatePortal;
@@ -83,9 +90,6 @@ export class LineMicroChartComponent {
   showMarkers = input(false, {
     transform: booleanAttribute
   });
-  showTooltip = input(false, {
-    transform: booleanAttribute
-  });
   curve = input<'linear' | 'catmullRom' | 'curveBumpX'>('linear');
   padding = input(0, {
     transform: numberAttribute
@@ -98,6 +102,7 @@ export class LineMicroChartComponent {
   markerDotSize = input(5, {
     transform: numberAttribute
   });
+  tooltipPosition = input<OverlayPosition>('after-center');
 
   constructor() {
     effect(() => {
@@ -131,12 +136,12 @@ export class LineMicroChartComponent {
   }
 
   private _setupContainers(): void {
-    this._yScale = d3.scaleLinear();
+    this._yScale = scaleLinear();
     this._hostWidth = this._dimensions.width;
     this._hostHeight = this._dimensions.height;
     this._innerWidth = this._dimensions.width;
     this._innerHeight = this._dimensions.height;
-    this._host = d3.select(this._elementRef.nativeElement);
+    this._host = select(this._elementRef.nativeElement);
     this._svg = this._host.select('svg')
       .attr('width', this._dimensions.width)
       .attr('height', this._dimensions.height)
@@ -158,11 +163,11 @@ export class LineMicroChartComponent {
     const xAccessor = this.xAccessor();
     const yAccessor = this.yAccessor();
     const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i)) as any;
-    this._xScale = d3.scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
+    this._xScale = scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
 
     const yDomain = [
-      this.compact() ? d3.min(this.data().map(d => yAccessor(d))) : 0,
-      d3.max(this.data().map(d => yAccessor(d)))
+      this.compact() ? min(this.data().map(d => yAccessor(d))) : 0,
+      max(this.data().map(d => yAccessor(d)))
     ];
     this._yScale = this._yScale
       .domain(yDomain)
@@ -170,13 +175,14 @@ export class LineMicroChartComponent {
     ;
 
     if (this.showArea()) {
-      const areaGenerator = d3.area()
+      const areaGenerator = area()
         .x((d, i) => this._xScale(xAccessor(d, i)))
         .y1((d) => this._yScale(yAccessor(d)))
         .y0(this._innerHeight - markerDotSize)
         .curve(this._curveMap[this.curve()])
       ;
-      const area = this._svg
+      // add area
+      this._svg
         .append('path')
         .datum(this.data())
         .attr('d', areaGenerator)
@@ -184,12 +190,13 @@ export class LineMicroChartComponent {
       ;
     }
 
-    const lineGenerator = d3.line()
+    const lineGenerator = line()
       .x((d, i) => this._xScale(xAccessor(d, i)))
       .y((d) => this._yScale(yAccessor(d)))
     ;
 
-    const line = this._svg
+    // add line
+    this._svg
       .append('path')
       .datum(this.data())
       .attr('d', lineGenerator.curve(this._curveMap[this.curve()]))
@@ -221,7 +228,7 @@ export class LineMicroChartComponent {
       let category: any;
       let value: any;
 
-      if (this.showTooltip()) {
+      if (this.tooltipTemplateRef()) {
         this.origin = this.tooltipDot().nativeElement;
       }
 
@@ -232,7 +239,7 @@ export class LineMicroChartComponent {
         .subscribe((e: MouseEvent) => {
           const target = e.target as HTMLElement;
           const oldXPosition = +markerDot.attr('cx');
-          const pointerCoords = d3.pointer(e, this._svg.node());
+          const pointerCoords = pointer(e, this._svg.node());
           const [posX, posY] = pointerCoords;
           let visible = true;
 
@@ -242,14 +249,13 @@ export class LineMicroChartComponent {
             markerLine.attr('opacity', 0);
             markerDot.attr('opacity', 0);
           } else {
-            if (target.closest('.emr-line-micro-chart') ||
-              target.classList.contains('emr-line-micro-chart-tooltip-overlay') ||
-              target.closest('.emr-line-micro-chart-tooltip-overlay')
+            if (target.closest('.emr-mchart-line') ||
+              target.classList.contains('emr-mchart-tooltip-overlay') ||
+              target.closest('.emr-mchart-tooltip-overlay')
             ) {
               markerLine.attr('opacity', 1);
               markerDot.attr('opacity', 1);
             } else {
-              console.log(target);
               visible = false;
               this._overlayRef?.detach();
             }
@@ -271,7 +277,7 @@ export class LineMicroChartComponent {
             .attr('cy', y)
           ;
 
-          if (this.showTooltip()) {
+          if (this.tooltipTemplateRef()) {
             this._renderer.setStyle(this.tooltipDot().nativeElement, 'left', (e.clientX - 4) + 'px');
             this._renderer.setStyle(this.tooltipDot().nativeElement, 'top', (e.clientY - 4) + 'px');
 
@@ -325,7 +331,7 @@ export class LineMicroChartComponent {
 
   private _getOverlayConfig() {
     return new OverlayConfig({
-      panelClass: 'emr-line-micro-chart-tooltip-overlay',
+      panelClass: 'emr-mchart-tooltip-overlay',
       positionStrategy: this._getOverlayPositionStrategy(),
       scrollStrategy: this._overlay.scrollStrategies.reposition()
     });
@@ -338,10 +344,10 @@ export class LineMicroChartComponent {
       .withFlexibleDimensions()
       .withGrowAfterOpen()
       .withPositions(this._getOverlayPositions())
-    ;
+      ;
   }
 
   private _getOverlayPositions(): ConnectedPosition[] {
-    return (new PositionManager()).build(this.position);
+    return (new PositionManager()).build(this.tooltipPosition());
   }
 }

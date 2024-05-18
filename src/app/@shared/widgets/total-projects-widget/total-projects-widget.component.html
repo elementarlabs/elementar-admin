@@ -2,16 +2,27 @@
   <div class="font-semibold pb-2.5 border-b-2 border-b-amber-300">Total Projects</div>
   <div class="mt-4 flex items-center justify-between">
     <div class="flex items-center gap-1.5">
-      <div class="text-sm">Feb-Jun</div>
+      <div class="text-sm">Mar-Aug</div>
       <div class="text-2xs text-neutral-450">2024</div>
     </div>
     <div class="font-bold text-sm">8 Projects</div>
   </div>
-  <emr-line-micro-chart [data]="data"
+  <emr-mchart-line [data]="data"
+                        [category]="category"
+                        [tooltipTemplateRef]="tooltipRef"
                         showArea
                         showMarkers
                         curve="catmullRom"
                         strokeWidth="3"
                         markerDotSize="6"
-                        class="h-[146px] mt-3 chart -mx-1"></emr-line-micro-chart>
+                        class="h-[146px] mt-3 chart -mx-1">
+    <ng-template #tooltipRef let-data>
+      <emr-mchart-tooltip>
+        <emr-mchart-tooltip-title>{{ data.category }}</emr-mchart-tooltip-title>
+        <emr-mchart-tooltip-body>
+          Value: <span class="font-medium">{{ data.value }}</span>
+        </emr-mchart-tooltip-body>
+      </emr-mchart-tooltip>
+    </ng-template>
+  </emr-mchart-line>
 </div>

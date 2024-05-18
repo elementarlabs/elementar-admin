@@ -1,0 +1,7 @@
+:host {
+  @apply block bg-neutral-200 py-1.5 px-2 font-medium;
+}
+
+:host-context(html.dark) {
+  @apply bg-neutral-300 text-neutral-900;
+}

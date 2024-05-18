@@ -1,0 +1,19 @@
+:host {
+  @apply block w-max m-1 shadow rounded-lg bg-white text-xs overflow-hidden;
+
+  .title {
+    &:empty {
+      display: none;
+    }
+  }
+
+  .body {
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+:host-context(html.dark) {
+  @apply bg-tertiary-200 text-neutral-800;
+}
