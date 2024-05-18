@@ -7,7 +7,7 @@ import {
   inject,
   Injector,
   input,
-  numberAttribute,
+  numberAttribute, OnDestroy,
   PLATFORM_ID, Renderer2,
   TemplateRef, viewChild,
   ViewContainerRef,
@@ -47,7 +47,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     'class': 'emr-mchart-line'
   }
 })
-export class MchartLineComponent {
+export class MchartLineComponent implements OnDestroy {
   private _renderer = inject(Renderer2);
   private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
@@ -76,8 +76,10 @@ export class MchartLineComponent {
   private _overlayRef: OverlayRef | null = null;
   private _tooltipPortal!: TemplatePortal;
   private _injector = inject(Injector);
+  private _resizeObserver: ResizeObserver;
+  private _tooltipDot: HTMLElement;
 
-  readonly tooltipDot = viewChild.required<ElementRef>('tooltipDot');
+  // readonly tooltipDot = viewChild.required<ElementRef>('tooltipDot');
 
   tooltipTemplateRef = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
@@ -89,6 +91,9 @@ export class MchartLineComponent {
     transform: booleanAttribute
   });
   showMarkers = input(false, {
+    transform: booleanAttribute
+  });
+  responsive = input(false, {
     transform: booleanAttribute
   });
   curve = input<'linear' | 'catmullRom' | 'curveBumpX' | 'curveStep'>('linear');
@@ -124,8 +129,13 @@ export class MchartLineComponent {
       if (this._dimensions.width !== 0 && this._dimensions.height !== 0) {
         this._initialized = true;
         this._render();
+        this._setupResizeObserver();
       }
     }
+  }
+
+  ngOnDestroy() {
+    this._resizeObserver?.disconnect();
   }
 
   private _render(): void {
@@ -141,14 +151,22 @@ export class MchartLineComponent {
     this._innerHeight = this._dimensions.height;
     this._host = select(this._elementRef.nativeElement);
     this._svg = this._host.select('svg')
-      .attr('width', this._dimensions.width)
-      .attr('height', this._dimensions.height)
       .attr("viewBox", `0 0 ${this._dimensions.width} ${this._dimensions.height}`)
     ;
     this._dataContainer = this._svg.append('g')
       .attr('class', 'data-container')
       .attr('transform', `translate(0,0)`)
     ;
+
+    if (this.tooltipTemplateRef()) {
+      this._tooltipDot = this._renderer.createElement('div');
+      this._renderer.setStyle(this._tooltipDot, 'width', '10px');
+      this._renderer.setStyle(this._tooltipDot, 'height', '10px');
+      this._renderer.setStyle(this._tooltipDot, 'z-index', '-1');
+      this._renderer.setStyle(this._tooltipDot, 'position', 'fixed');
+      this._renderer.setStyle(this._tooltipDot, 'opacity', '0');
+      this._renderer.appendChild(this._document.body, this._tooltipDot);
+    }
   }
 
   private _setupData(): void {
@@ -227,7 +245,7 @@ export class MchartLineComponent {
       let value: any;
 
       if (this.tooltipTemplateRef()) {
-        this.origin = this.tooltipDot().nativeElement;
+        this.origin = this._tooltipDot;
       }
 
       fromEvent<MouseEvent>(this._document, 'mousemove')
@@ -278,11 +296,11 @@ export class MchartLineComponent {
           ;
 
           if (this.tooltipTemplateRef()) {
-            this._renderer.setStyle(this.tooltipDot().nativeElement, 'left', (e.clientX - 4) + 'px');
-            this._renderer.setStyle(this.tooltipDot().nativeElement, 'top', (e.clientY - 4) + 'px');
+            this._renderer.setStyle(this.origin, 'left', (e.clientX + 10) + 'px');
+            this._renderer.setStyle(this.origin, 'top', (e.clientY - 4) + 'px');
 
             if (visible) {
-              this._renderer.addClass(this.tooltipDot().nativeElement, 'is-visible');
+              this._renderer.addClass(this.origin, 'is-visible');
 
               if (!this._overlayRef?.hasAttached()) {
                 this._show({
@@ -300,7 +318,7 @@ export class MchartLineComponent {
                 }
               }
             } else {
-              this._renderer.removeClass(this.tooltipDot().nativeElement, 'is-visible');
+              this._renderer.removeClass(this.origin, 'is-visible');
             }
           }
         })
@@ -349,5 +367,16 @@ export class MchartLineComponent {
 
   private _getOverlayPositions(): ConnectedPosition[] {
     return (new PositionManager()).build(this.tooltipPosition());
+  }
+
+  private _setupResizeObserver(): void {
+    if (!this.responsive()) {
+      return;
+    }
+
+    this._resizeObserver = new ResizeObserver((entries) => {
+      // console.log(entries[0]);
+    });
+    this._resizeObserver.observe(this._elementRef.nativeElement);
   }
 }

@@ -1,0 +1,20 @@
+<emr-resizable-container minWidth="200" class="border rounded-lg @container">
+  <emr-mchart-line  [data]="[2, 1, 3, 6, 2, 4, 3, 5, 1]"
+                    [category]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Aug']"
+                    [tooltipTemplateRef]="tooltipRef1"
+                    compact
+                    showArea
+                    showMarkers
+                    responsive
+                    curve="curveBumpX"
+                    class="w-full h-[200px]">
+    <ng-template #tooltipRef1 let-data>
+      <emr-mchart-tooltip>
+        <emr-mchart-tooltip-title>{{ data.category }}</emr-mchart-tooltip-title>
+        <emr-mchart-tooltip-body>
+          Value: {{ data.value }}
+        </emr-mchart-tooltip-body>
+      </emr-mchart-tooltip>
+    </ng-template>
+  </emr-mchart-line>
+</emr-resizable-container>

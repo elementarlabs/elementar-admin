@@ -20,6 +20,9 @@ import {
 import {
   MchartLineWithMarkersExampleComponent
 } from '../_examples/mchart-line-with-markers-example/mchart-line-with-markers-example.component';
+import {
+  MchartLineResponsiveExampleComponent
+} from '../_examples/mchart-line-responsive-example/mchart-line-responsive-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -33,7 +36,8 @@ import {
     MchartLineCustomCurveExampleComponent,
     MchartLineWithAreaExampleComponent,
     MchartLineCompactExampleComponent,
-    MchartLineWithMarkersExampleComponent
+    MchartLineWithMarkersExampleComponent,
+    MchartLineResponsiveExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
