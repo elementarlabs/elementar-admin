@@ -29,7 +29,6 @@
     "@ngrx/signals": "^17.1.1",
     "@ngrx/store": "^17.1.1",
     "@tailwindcss/container-queries": "^0.1.1",
-    "apexcharts": "^3.47.0",
     "awesome-phonenumber": "^6.4.0",
     "d3": "^7.9.0",
     "echarts": "^5.5.0",

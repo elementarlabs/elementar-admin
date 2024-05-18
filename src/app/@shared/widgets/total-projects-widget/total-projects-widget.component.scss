@@ -1,9 +1,11 @@
 :host {
   @apply block h-full;
 
-  .chart {
-    --emr-line-chart-line-bg: theme('colors.amber.500');
-    --emr-line-chart-area-bg: theme('colors.amber.100');
-    --emr-line-chart-marker-dot-bg: theme('colors.amber.500');
-  }
+  --emr-line-chart-line-bg: theme('colors.amber.500');
+  --emr-line-chart-area-bg: theme('colors.amber.100');
+  --emr-line-chart-marker-dot-bg: theme('colors.amber.500');
+}
+
+:host-context(html.dark) {
+  --emr-line-chart-area-bg: theme('colors.amber.100/0.2');
 }
