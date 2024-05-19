@@ -1,5 +1,5 @@
 <emr-resizable-container minWidth="200" class="border rounded-lg @container">
-  <emr-mchart-line  [data]="[2, 1, 3, 6, 2, 4, 3, 5, 1]"
+  <emr-mchart-line  [data]="[2, 1, 3, 6, 2, 4, 3, 5, 1] | shuffleArray"
                     [labels]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Aug']"
                     [tooltip]="tooltipRef"
                     compact

@@ -14,7 +14,6 @@ import {
     MchartTooltipComponent,
     MchartTooltipTitleComponent,
     MchartTooltipBodyComponent
-
   ],
   templateUrl: './total-projects-widget.component.html',
   styleUrl: './total-projects-widget.component.scss'

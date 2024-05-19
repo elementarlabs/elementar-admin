@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { MchartLineComponent } from '@elementar/components';
+import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
 
 @Component({
   selector: 'app-mchart-line-with-markers-example',
   standalone: true,
   imports: [
-    MchartLineComponent
+    MchartLineComponent,
+    ShuffleArrayPipe
   ],
   templateUrl: './mchart-line-with-markers-example.component.html',
   styleUrl: './mchart-line-with-markers-example.component.scss'

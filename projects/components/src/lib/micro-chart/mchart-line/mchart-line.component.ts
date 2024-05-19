@@ -9,7 +9,7 @@ import {
   input,
   numberAttribute, OnDestroy,
   PLATFORM_ID, Renderer2,
-  TemplateRef, viewChild,
+  TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
@@ -23,7 +23,8 @@ import {
   scalePoint,
   min, max,
   pointer,
-  line, area, curveCardinal, curveBasis, curveBundle, curveMonotoneX, curveNatural, curveStep
+  line, area,
+  curveStep
 } from 'd3';
 import {
   ConnectedPosition,
@@ -36,6 +37,8 @@ import { PositionManager, OverlayPosition } from '../../overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MchartLineCurveType } from '../types';
+
 @Component({
   selector: 'emr-mchart-line',
   exportAs: 'emrMchartLine',
@@ -80,9 +83,6 @@ export class MchartLineComponent implements OnDestroy {
   private _tooltipDot: HTMLElement;
   private _area: any;
   private _line: any;
-  private _areaGenerator: any;
-
-  // readonly tooltipDot = viewChild.required<ElementRef>('tooltipDot');
 
   tooltip = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
@@ -99,7 +99,7 @@ export class MchartLineComponent implements OnDestroy {
   responsive = input(false, {
     transform: booleanAttribute
   });
-  curve = input<'linear' | 'catmullRom' | 'curveBumpX' | 'curveStep'>('linear');
+  curve = input<MchartLineCurveType>('linear');
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
   compact = input(false, {
