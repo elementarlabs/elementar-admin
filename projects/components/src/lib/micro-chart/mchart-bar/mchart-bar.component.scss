@@ -1,0 +1,9 @@
+:host {
+  @apply block;
+
+  ::ng-deep {
+    .bar {
+      fill: var(--emt-bar-chart-bar-bg);
+    }
+  }
+}

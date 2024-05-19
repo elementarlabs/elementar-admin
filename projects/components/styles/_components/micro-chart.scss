@@ -1,9 +1,6 @@
 :root {
-  --emt-bar-chart-col-bg: theme('colors.primary.500');
-  --emt-bar-chart-col-border-radius: theme('borderRadius.lg');
-  --emt-bar-chart-tick-line-color: theme('colors.neutral.600');
-  --emt-bar-chart-tick-text-color: theme('colors.neutral.700');
-  --emt-bar-chart-domain-color: theme('colors.neutral.600');
+  // bar chart
+  --emt-bar-chart-bar-bg: theme('colors.primary.DEFAULT');
 
   // line chart
   --emr-line-chart-line-bg: theme('colors.primary.DEFAULT');
