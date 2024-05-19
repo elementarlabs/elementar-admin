@@ -1,7 +1,15 @@
 :host {
-  @apply block;
+  @apply block overflow-hidden;
+
+  svg {
+    @apply w-full h-full;
+  }
 
   ::ng-deep {
+    .highlight {
+      fill: var(--emt-bar-chart-highlight-bg);
+    }
+
     .bar {
       fill: var(--emt-bar-chart-bar-bg);
     }

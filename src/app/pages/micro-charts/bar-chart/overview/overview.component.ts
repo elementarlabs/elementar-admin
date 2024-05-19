@@ -8,6 +8,12 @@ import {
 import {
   MchartBarCustomRadiusExampleComponent
 } from '../_examples/mchart-bar-custom-radius-example/mchart-bar-custom-radius-example.component';
+import {
+  MchartBarWithBarHighlightExampleComponent
+} from '../_examples/mchart-bar-with-bar-highlight-example/mchart-bar-with-bar-highlight-example.component';
+import {
+  MchartBarResponsiveExampleComponent
+} from '../_examples/mchart-bar-responsive-example/mchart-bar-responsive-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +23,9 @@ import {
     PageContentDirective,
     PlaygroundComponent,
     MchartBarBasicExampleComponent,
-    MchartBarCustomRadiusExampleComponent
+    MchartBarCustomRadiusExampleComponent,
+    MchartBarWithBarHighlightExampleComponent,
+    MchartBarResponsiveExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

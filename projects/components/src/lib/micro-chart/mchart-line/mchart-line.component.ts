@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   booleanAttribute,
   ChangeDetectionStrategy,
   Component, DestroyRef,
@@ -51,7 +52,7 @@ import { MchartLineCurveType } from '../types';
     'class': 'emr-mchart-line'
   }
 })
-export class MchartLineComponent implements OnDestroy {
+export class MchartLineComponent implements OnDestroy, AfterViewChecked {
   private _renderer = inject(Renderer2);
   private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
@@ -152,9 +153,9 @@ export class MchartLineComponent implements OnDestroy {
     this._innerWidth = this._dimensions.width;
     this._innerHeight = this._dimensions.height;
     this._host = select(this._elementRef.nativeElement);
-    this._svg = this._host.select('svg')
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", `0 0 ${this._hostWidth} ${this._hostHeight}`)
+    this._svg = this._host
+      .select('svg')
+      .attr('viewBox', `0 0 ${this._hostWidth} ${this._hostHeight}`)
     ;
 
     if (this.tooltip()) {

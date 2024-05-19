@@ -1,6 +1,7 @@
 :root {
   // bar chart
   --emt-bar-chart-bar-bg: theme('colors.primary.DEFAULT');
+  --emt-bar-chart-highlight-bg: theme('colors.neutral.200');
 
   // line chart
   --emr-line-chart-line-bg: theme('colors.primary.DEFAULT');
@@ -10,5 +11,6 @@
 }
 
 html.dark {
+  --emt-bar-chart-highlight-bg: theme('colors.neutral.700');
   --emr-line-chart-area-bg: theme('colors.neutral.700');
 }
