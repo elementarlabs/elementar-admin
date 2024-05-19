@@ -14,4 +14,20 @@
       fill: var(--emt-bar-chart-bar-bg);
     }
   }
+
+  &.fill-gradient {
+    .lg-start-color {
+      stop-color: var(--emt-bar-chart-bar-gradient-start-color);
+    }
+
+    .lg-end-color {
+      stop-color: var(--emt-bar-chart-bar-gradient-end-color);
+    }
+
+    ::ng-deep {
+      .bar {
+        fill: url(#barGradient);
+      }
+    }
+  }
 }

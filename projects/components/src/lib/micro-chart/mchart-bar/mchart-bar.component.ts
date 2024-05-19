@@ -20,7 +20,8 @@ import { scaleBand, scaleLinear, select } from 'd3';
   templateUrl: './mchart-bar.component.html',
   styleUrl: './mchart-bar.component.scss',
   host: {
-    'class': 'emr-mchart-bar'
+    'class': 'emr-mchart-bar',
+    '[class.fill-gradient]': 'fillGradient()'
   }
 })
 export class MchartBarComponent implements OnDestroy, AfterViewChecked {
@@ -52,6 +53,9 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
     transform: booleanAttribute
   });
   responsive = input(false, {
+    transform: booleanAttribute
+  });
+  fillGradient = input(false, {
     transform: booleanAttribute
   });
 

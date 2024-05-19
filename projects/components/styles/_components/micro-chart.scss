@@ -1,6 +1,8 @@
 :root {
   // bar chart
   --emt-bar-chart-bar-bg: theme('colors.primary.DEFAULT');
+  --emt-bar-chart-bar-gradient-start-color: theme('colors.primary.500');
+  --emt-bar-chart-bar-gradient-end-color: theme('colors.primary.DEFAULT');
   --emt-bar-chart-highlight-bg: theme('colors.neutral.200');
 
   // line chart
