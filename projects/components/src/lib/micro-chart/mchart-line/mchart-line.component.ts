@@ -38,6 +38,7 @@ import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'emr-mchart-line',
+  exportAs: 'emrMchartLine',
   standalone: true,
   imports: [],
   templateUrl: './mchart-line.component.html',
@@ -57,7 +58,6 @@ export class MchartLineComponent implements OnDestroy {
   private _initialized = false;
   private _host: any;
   private _svg: any;
-  private _dataContainer: any;
   private _dimensions: DOMRect;
   private _hostWidth = 0;
   private _hostHeight = 0;
@@ -78,12 +78,15 @@ export class MchartLineComponent implements OnDestroy {
   private _injector = inject(Injector);
   private _resizeObserver: ResizeObserver;
   private _tooltipDot: HTMLElement;
+  private _area: any;
+  private _line: any;
+  private _areaGenerator: any;
 
   // readonly tooltipDot = viewChild.required<ElementRef>('tooltipDot');
 
-  tooltipTemplateRef = input<TemplateRef<unknown>>();
+  tooltip = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
-  category = input<any[]>([]);
+  labels = input<any[]>([]);
   strokeWidth = input(2, {
     transform: numberAttribute
   });
@@ -144,21 +147,17 @@ export class MchartLineComponent implements OnDestroy {
   }
 
   private _setupContainers(): void {
-    this._yScale = scaleLinear();
     this._hostWidth = this._dimensions.width;
     this._hostHeight = this._dimensions.height;
     this._innerWidth = this._dimensions.width;
     this._innerHeight = this._dimensions.height;
     this._host = select(this._elementRef.nativeElement);
     this._svg = this._host.select('svg')
-      .attr("viewBox", `0 0 ${this._dimensions.width} ${this._dimensions.height}`)
-    ;
-    this._dataContainer = this._svg.append('g')
-      .attr('class', 'data-container')
-      .attr('transform', `translate(0,0)`)
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", `0 0 ${this._hostWidth} ${this._hostHeight}`)
     ;
 
-    if (this.tooltipTemplateRef()) {
+    if (this.tooltip()) {
       this._tooltipDot = this._renderer.createElement('div');
       this._renderer.setStyle(this._tooltipDot, 'width', '10px');
       this._renderer.setStyle(this._tooltipDot, 'height', '10px');
@@ -169,7 +168,7 @@ export class MchartLineComponent implements OnDestroy {
     }
   }
 
-  private _setupData(): void {
+  private _setupData(isUpdate = false): void {
     let markerDotSize = this.markerDotSize();
 
     if (!this.showMarkers()) {
@@ -179,16 +178,25 @@ export class MchartLineComponent implements OnDestroy {
     const xAccessor = this.xAccessor();
     const yAccessor = this.yAccessor();
     const xDomain = this.data().map((d: any, i: number) => xAccessor(d, i)) as any;
-    this._xScale = scalePoint(xDomain, [this.markerDotSize(), this._innerWidth - markerDotSize]);
+
+    if (!this._xScale) {
+      this._xScale = scalePoint().domain(xDomain);
+    }
+
+    this._xScale.range([markerDotSize, this._innerWidth - markerDotSize]);
 
     const yDomain = [
       this.compact() ? min(this.data().map(d => yAccessor(d))) : 0,
       max(this.data().map(d => yAccessor(d)))
     ];
-    this._yScale = this._yScale
-      .domain(yDomain)
-      .range([this._innerHeight - markerDotSize, markerDotSize])
-    ;
+
+    if (!this._yScale) {
+      this._yScale = scaleLinear()
+        .domain(yDomain)
+      ;
+    }
+
+    this._yScale.range([this._innerHeight - markerDotSize, markerDotSize])
 
     if (this.showArea()) {
       const areaGenerator = area()
@@ -197,13 +205,18 @@ export class MchartLineComponent implements OnDestroy {
         .y0(this._innerHeight - markerDotSize)
         .curve(this._curveMap[this.curve()])
       ;
-      // add area
-      this._svg
-        .append('path')
-        .datum(this.data())
-        .attr('d', areaGenerator)
-        .attr('class', 'area')
-      ;
+
+      if (!this._area) {
+        // add area
+        this._area = this._svg
+          .append('path')
+          .datum(this.data())
+          .attr('d', areaGenerator)
+          .attr('class', 'area')
+        ;
+      } else {
+        this._area.attr('d', areaGenerator);
+      }
     }
 
     const lineGenerator = line()
@@ -211,16 +224,24 @@ export class MchartLineComponent implements OnDestroy {
       .y((d) => this._yScale(yAccessor(d)))
     ;
 
-    // add line
-    this._svg
-      .append('path')
-      .datum(this.data())
-      .attr('d', lineGenerator.curve(this._curveMap[this.curve()]))
-      .attr('class', 'line')
-      .attr('stroke-width', this.strokeWidth())
-    ;
+    if (!this._line) {
+      // add line
+      this._line = this._svg
+        .append('path')
+        .datum(this.data())
+        .attr('d', lineGenerator.curve(this._curveMap[this.curve()]))
+        .attr('class', 'line')
+        .attr('stroke-width', this.strokeWidth())
+      ;
+    } else {
+      this._line.attr('d', lineGenerator.curve(this._curveMap[this.curve()]))
+    }
 
-    if (this.showMarkers() || this.tooltipTemplateRef()) {
+    if (isUpdate) {
+      return;
+    }
+
+    if (this.showMarkers() || this.tooltip()) {
       const markerLine = this._svg
         .append('line')
         .attr('x1', 0)
@@ -241,10 +262,10 @@ export class MchartLineComponent implements OnDestroy {
 
       let x = 0;
       let y = 0;
-      let category: any;
+      let label: any;
       let value: any;
 
-      if (this.tooltipTemplateRef()) {
+      if (this.tooltip()) {
         this.origin = this._tooltipDot;
       }
 
@@ -282,7 +303,7 @@ export class MchartLineComponent implements OnDestroy {
           const eachBand = this._xScale.step();
           const index = Math.round((posX / eachBand));
           const dataValue = this.data()[index];
-          category = this.category()[index] ? this.category()[index] : xAccessor(index, index);
+          label = this.labels()[index] ? this.labels()[index] : xAccessor(index, index);
           value = yAccessor(dataValue);
           x = this._xScale(xAccessor(index, index));
           y = this._yScale(yAccessor(dataValue));
@@ -295,7 +316,7 @@ export class MchartLineComponent implements OnDestroy {
             .attr('cy', y)
           ;
 
-          if (this.tooltipTemplateRef()) {
+          if (this.tooltip()) {
             this._renderer.setStyle(this.origin, 'left', (e.clientX + 10) + 'px');
             this._renderer.setStyle(this.origin, 'top', (e.clientY - 4) + 'px');
 
@@ -304,13 +325,13 @@ export class MchartLineComponent implements OnDestroy {
 
               if (!this._overlayRef?.hasAttached()) {
                 this._show({
-                  category,
+                  label,
                   value
                 });
               } else {
                 if (oldXPosition !== x) {
                   this._show({
-                    category,
+                    label,
                     value
                   });
                 } else {
@@ -334,7 +355,7 @@ export class MchartLineComponent implements OnDestroy {
 
   private _getContentPortal(data: object) {
     this._tooltipPortal = new TemplatePortal(
-      this.tooltipTemplateRef() as TemplateRef<any>,
+      this.tooltip() as TemplateRef<any>,
       this._viewContainerRef,
       {
         '$implicit': {
@@ -375,7 +396,16 @@ export class MchartLineComponent implements OnDestroy {
     }
 
     this._resizeObserver = new ResizeObserver((entries) => {
-      // console.log(entries[0]);
+      if (this._hostWidth !== entries[0].contentRect.width || this._hostHeight !== entries[0].contentRect.height) {
+        this._hostWidth = entries[0].contentRect.width;
+        this._hostHeight = entries[0].contentRect.height;
+        this._innerWidth = entries[0].contentRect.width;
+        this._innerHeight = entries[0].contentRect.height;
+        this._svg
+          .attr("viewBox", `0 0 ${this._hostWidth} ${this._hostHeight}`)
+        ;
+        this._setupData(true);
+      }
     });
     this._resizeObserver.observe(this._elementRef.nativeElement);
   }

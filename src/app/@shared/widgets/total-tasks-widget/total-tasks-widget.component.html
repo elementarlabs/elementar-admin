@@ -8,17 +8,18 @@
     <div class="font-bold text-sm">136 Tasks</div>
   </div>
   <emr-mchart-line [data]="data"
-                   [category]="category"
-                   [tooltipTemplateRef]="tooltipRef"
+                   [labels]="labels"
+                   [tooltip]="tooltipRef"
                    showArea
                    showMarkers
                    curve="catmullRom"
                    strokeWidth="3"
                    markerDotSize="6"
+                   responsive
                    class="h-[146px] mt-3 -mx-1 chart">
     <ng-template #tooltipRef let-data>
       <emr-mchart-tooltip>
-        <emr-mchart-tooltip-title>{{ data.category }}</emr-mchart-tooltip-title>
+        <emr-mchart-tooltip-title>{{ data.label }}</emr-mchart-tooltip-title>
         <emr-mchart-tooltip-body>
           Value: <span class="font-medium">{{ data.value }}</span>
         </emr-mchart-tooltip-body>

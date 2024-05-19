@@ -21,5 +21,5 @@ import {
 })
 export class TotalProjectsWidgetComponent {
   data = [47, 54, 38, 24, 65, 37];
-  category = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+  labels = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
 }
