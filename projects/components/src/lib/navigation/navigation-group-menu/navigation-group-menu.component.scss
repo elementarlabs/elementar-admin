@@ -2,10 +2,19 @@
   padding-inline-start: var(--emr-navigation-group-menu-padding-start);
   margin-top: var(--emr-navigation-item-space-y);
   display: none;
+
+  //display: block;
+  //height: 0;
+  //opacity: 0;
+  //overflow: hidden;
+  //transition: height 0.3s, opacity 0.5s, content-visibility 0.3s step-end;
 }
 
 :host(.is-active) {
   display: block;
+  //opacity: 1;
+  //height: calc-size(auto);
+  //transition: height 0.3s, opacity 0.5s, content-visibility 0.3s step-start;
 }
 
 :host ::ng-deep .emr-navigation-item {
