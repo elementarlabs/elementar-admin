@@ -30,4 +30,14 @@
       }
     }
   }
+
+  &.with-tooltip {
+    ::ng-deep {
+      .bar {
+        &:hover {
+          opacity: .85;
+        }
+      }
+    }
+  }
 }

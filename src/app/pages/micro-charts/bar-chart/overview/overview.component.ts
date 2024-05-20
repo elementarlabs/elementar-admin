@@ -17,6 +17,9 @@ import {
 import {
   MchartBarFillGradientExampleComponent
 } from '../_examples/mchart-bar-fill-gradient-example/mchart-bar-fill-gradient-example.component';
+import {
+  MchartBarWithTooltipExampleComponent
+} from '../_examples/mchart-bar-with-tooltip-example/mchart-bar-with-tooltip-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -29,7 +32,8 @@ import {
     MchartBarCustomRadiusExampleComponent,
     MchartBarWithBarHighlightExampleComponent,
     MchartBarResponsiveExampleComponent,
-    MchartBarFillGradientExampleComponent
+    MchartBarFillGradientExampleComponent,
+    MchartBarWithTooltipExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

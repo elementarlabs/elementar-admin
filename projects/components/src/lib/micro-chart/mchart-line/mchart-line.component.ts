@@ -53,12 +53,6 @@ import { MchartLineCurveType } from '../types';
   }
 })
 export class MchartLineComponent implements OnDestroy, AfterViewChecked {
-  private _renderer = inject(Renderer2);
-  private _document = inject(DOCUMENT);
-  private _destroyRef = inject(DestroyRef);
-  private _overlay = inject(Overlay);
-  private _viewContainerRef = inject(ViewContainerRef);
-  private _elementRef = inject(ElementRef);
   private _initialized = false;
   private _host: any;
   private _svg: any;
@@ -69,7 +63,6 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
   private _innerHeight = 0;
   private _yScale: any;
   private _xScale: any;
-  private _platformId = inject(PLATFORM_ID);
   private _curveMap = {
     'linear': curveLinear,
     'catmullRom': curveCatmullRom,
@@ -79,13 +72,19 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
   origin: HTMLElement;
   private _overlayRef: OverlayRef | null = null;
   private _tooltipPortal!: TemplatePortal;
-  private _injector = inject(Injector);
   private _resizeObserver: ResizeObserver;
   private _tooltipDot: HTMLElement;
   private _area: any;
   private _line: any;
+  private _platformId = inject(PLATFORM_ID);
+  private _renderer = inject(Renderer2);
+  private _document = inject(DOCUMENT);
+  private _destroyRef = inject(DestroyRef);
+  private _overlay = inject(Overlay);
+  private _viewContainerRef = inject(ViewContainerRef);
+  private _elementRef = inject(ElementRef);
+  private _injector = inject(Injector);
 
-  tooltip = input<TemplateRef<unknown>>();
   data = input<number[]>([]);
   labels = input<any[]>([]);
   strokeWidth = input(2, {
@@ -109,6 +108,7 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
   markerDotSize = input(5, {
     transform: numberAttribute
   });
+  tooltip = input<TemplateRef<unknown>>();
   tooltipPosition = input<OverlayPosition>('after-center');
 
   constructor() {
