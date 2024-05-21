@@ -39,6 +39,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MchartLineCurveType } from '../types';
+import { BaseChartTooltip } from '../base-chart.tooltip';
 
 @Component({
   selector: 'emr-mchart-line',
@@ -52,7 +53,7 @@ import { MchartLineCurveType } from '../types';
     'class': 'emr-mchart-line'
   }
 })
-export class MchartLineComponent implements OnDestroy, AfterViewChecked {
+export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, AfterViewChecked {
   private _initialized = false;
   private _host: any;
   private _svg: any;
@@ -69,21 +70,13 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
     'curveBumpX': curveBumpX,
     'curveStep': curveStep
   };
-  origin: HTMLElement;
-  private _overlayRef: OverlayRef | null = null;
-  private _tooltipPortal!: TemplatePortal;
   private _resizeObserver: ResizeObserver;
   private _tooltipDot: HTMLElement;
   private _area: any;
   private _line: any;
   private _platformId = inject(PLATFORM_ID);
-  private _renderer = inject(Renderer2);
-  private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
-  private _overlay = inject(Overlay);
-  private _viewContainerRef = inject(ViewContainerRef);
   private _elementRef = inject(ElementRef);
-  private _injector = inject(Injector);
 
   data = input<number[]>([]);
   labels = input<any[]>([]);
@@ -112,6 +105,7 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
   tooltipPosition = input<OverlayPosition>('after-center');
 
   constructor() {
+    super();
     effect(() => {
       if (!this._initialized) {
         return;
@@ -140,6 +134,14 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
 
   ngOnDestroy() {
     this._resizeObserver?.disconnect();
+  }
+
+  getTooltipPosition(): OverlayPosition {
+    return this.tooltipPosition();
+  }
+
+  getTooltipTemplateRef(): TemplateRef<any> | undefined {
+    return this.tooltip();
   }
 
   private _render(): void {
@@ -267,7 +269,7 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
       let value: any;
 
       if (this.tooltip()) {
-        this.origin = this._tooltipDot;
+        this._createTooltipOrigin();
       }
 
       fromEvent<MouseEvent>(this._document, 'mousemove')
@@ -318,20 +320,19 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
           ;
 
           if (this.tooltip()) {
-            this._renderer.setStyle(this.origin, 'left', (e.clientX + 10) + 'px');
-            this._renderer.setStyle(this.origin, 'top', (e.clientY - 4) + 'px');
+            this._setTooltipPositionByEvent(e);
 
             if (visible) {
-              this._renderer.addClass(this.origin, 'is-visible');
+              this._setTooltipVisible();
 
               if (!this._overlayRef?.hasAttached()) {
-                this._show({
+                this._showTooltip({
                   label,
                   value
                 });
               } else {
                 if (oldXPosition !== x) {
-                  this._show({
+                  this._showTooltip({
                     label,
                     value
                   });
@@ -340,55 +341,12 @@ export class MchartLineComponent implements OnDestroy, AfterViewChecked {
                 }
               }
             } else {
-              this._renderer.removeClass(this.origin, 'is-visible');
+              this._setTooltipInVisible();
             }
           }
         })
       ;
     }
-  }
-
-  private _show(data: object): void {
-    this._overlayRef?.detach();
-    this._overlayRef = this._overlay.create(this._getOverlayConfig());
-    this._overlayRef.attach(this._getContentPortal(data));
-  }
-
-  private _getContentPortal(data: object) {
-    this._tooltipPortal = new TemplatePortal(
-      this.tooltip() as TemplateRef<any>,
-      this._viewContainerRef,
-      {
-        '$implicit': {
-          ...data
-        }
-      },
-      this._injector
-    );
-
-    return this._tooltipPortal;
-  }
-
-  private _getOverlayConfig() {
-    return new OverlayConfig({
-      panelClass: 'emr-mchart-tooltip-overlay',
-      positionStrategy: this._getOverlayPositionStrategy(),
-      scrollStrategy: this._overlay.scrollStrategies.reposition()
-    });
-  }
-
-  private _getOverlayPositionStrategy(): FlexibleConnectedPositionStrategy {
-    return this._overlay
-      .position()
-      .flexibleConnectedTo(this.origin)
-      .withFlexibleDimensions()
-      .withGrowAfterOpen()
-      .withPositions(this._getOverlayPositions())
-    ;
-  }
-
-  private _getOverlayPositions(): ConnectedPosition[] {
-    return (new PositionManager()).build(this.tooltipPosition());
   }
 
   private _setupResizeObserver(): void {

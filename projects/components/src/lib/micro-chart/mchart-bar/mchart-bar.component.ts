@@ -10,7 +10,7 @@ import {
   PLATFORM_ID, Renderer2, TemplateRef, ViewContainerRef
 } from '@angular/core';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
-import { pointer, scaleBand, scaleLinear, select } from 'd3';
+import { index, pointer, scaleBand, scaleLinear, select } from 'd3';
 import { OverlayPosition, PositionManager } from '../../overlay';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -22,6 +22,8 @@ import {
   OverlayRef
 } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { BaseChartTooltip } from '../base-chart.tooltip';
+import e from 'express';
 
 @Component({
   selector: 'emr-mchart-bar',
@@ -36,7 +38,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
     '[class.with-tooltip]': '!!tooltip()',
   }
 })
-export class MchartBarComponent implements OnDestroy, AfterViewChecked {
+export class MchartBarComponent extends BaseChartTooltip implements OnDestroy, AfterViewChecked {
   private _initialized = false;
   private _host: any;
   private _svg: any;
@@ -49,18 +51,10 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
   private _hostHeight = 0;
   private _xScale: any;
   private _yScale: any;
-  private _tooltipOrigin: HTMLElement;
   private _resizeObserver: ResizeObserver;
-  private _tooltipPortal!: TemplatePortal;
-  private _overlayRef: OverlayRef | null = null;
-  private _renderer = inject(Renderer2);
-  private _document = inject(DOCUMENT);
   private _platformId = inject(PLATFORM_ID);
   private _elementRef = inject(ElementRef);
   private _destroyRef = inject(DestroyRef);
-  private _overlay = inject(Overlay);
-  private _viewContainerRef = inject(ViewContainerRef);
-  private _injector = inject(Injector);
 
   data = input<number[]>([]);
   labels = input<string[]>([]);
@@ -81,10 +75,11 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
   });
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
-  tooltip = input<TemplateRef<unknown>>();
+  tooltip = input<TemplateRef<any>>();
   tooltipPosition = input<OverlayPosition>('after-center');
 
   constructor() {
+    super();
     effect(() => {
       if (!this._initialized) {
         return;
@@ -114,6 +109,14 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
 
   ngOnDestroy() {
     this._resizeObserver?.disconnect();
+  }
+
+  getTooltipPosition(): OverlayPosition {
+    return this.tooltipPosition();
+  }
+
+  getTooltipTemplateRef(): TemplateRef<any> | undefined {
+    return this.tooltip();
   }
 
   private _render(): void {
@@ -233,13 +236,7 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
 
     const xAccessor = this.xAccessor();
     const yAccessor = this.yAccessor();
-    this._tooltipOrigin = this._renderer.createElement('div');
-    this._renderer.setStyle(this._tooltipOrigin, 'width', '10px');
-    this._renderer.setStyle(this._tooltipOrigin, 'height', '10px');
-    this._renderer.setStyle(this._tooltipOrigin, 'z-index', '-1');
-    this._renderer.setStyle(this._tooltipOrigin, 'position', 'fixed');
-    this._renderer.setStyle(this._tooltipOrigin, 'opacity', '0');
-    this._renderer.appendChild(this._document.body, this._tooltipOrigin);
+    this._createTooltipOrigin();
 
     let x = 0;
     let y = 0;
@@ -278,11 +275,10 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
         value = yAccessor(dataValue);
         x = this._xScale(xAccessor(index, index));
         y = this._yScale(yAccessor(dataValue));
-        this._renderer.setStyle(this._tooltipOrigin, 'left', (e.clientX + 10) + 'px');
-        this._renderer.setStyle(this._tooltipOrigin, 'top', (e.clientY - 4) + 'px');
+        this._setTooltipPositionByEvent(e);
 
         if (visible) {
-          this._renderer.addClass(this._tooltipOrigin, 'is-visible');
+          this._setTooltipVisible();
 
           if (!this._overlayRef?.hasAttached()) {
             oldX = x;
@@ -303,52 +299,9 @@ export class MchartBarComponent implements OnDestroy, AfterViewChecked {
           }
         } else {
           oldX = x;
-          this._renderer.removeClass(this._tooltipOrigin, 'is-visible');
+          this._setTooltipInVisible();
         }
       })
     ;
-  }
-
-  private _showTooltip(data: object): void {
-    this._overlayRef?.detach();
-    this._overlayRef = this._overlay.create(this._getOverlayConfig());
-    this._overlayRef.attach(this._getContentPortal(data));
-  }
-
-  private _getContentPortal(data: object) {
-    this._tooltipPortal = new TemplatePortal(
-      this.tooltip() as TemplateRef<any>,
-      this._viewContainerRef,
-      {
-        '$implicit': {
-          ...data
-        }
-      },
-      this._injector
-    );
-
-    return this._tooltipPortal;
-  }
-
-  private _getOverlayConfig() {
-    return new OverlayConfig({
-      panelClass: 'emr-mchart-tooltip-overlay',
-      positionStrategy: this._getOverlayPositionStrategy(),
-      scrollStrategy: this._overlay.scrollStrategies.reposition()
-    });
-  }
-
-  private _getOverlayPositionStrategy(): FlexibleConnectedPositionStrategy {
-    return this._overlay
-      .position()
-      .flexibleConnectedTo(this._tooltipOrigin)
-      .withFlexibleDimensions()
-      .withGrowAfterOpen()
-      .withPositions(this._getOverlayPositions())
-    ;
-  }
-
-  private _getOverlayPositions(): ConnectedPosition[] {
-    return (new PositionManager()).build(this.tooltipPosition());
   }
 }
