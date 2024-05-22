@@ -1,6 +1,6 @@
 import {
   AfterViewChecked,
-  booleanAttribute,
+  booleanAttribute, ChangeDetectionStrategy,
   Component, DestroyRef,
   effect,
   ElementRef,
@@ -32,6 +32,7 @@ import e from 'express';
   imports: [],
   templateUrl: './mchart-bar.component.html',
   styleUrl: './mchart-bar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-mchart-bar',
     '[class.fill-gradient]': 'fillGradient()',

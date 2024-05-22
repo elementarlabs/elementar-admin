@@ -424,6 +424,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Bar Chart',
           link: '/pages/micro-charts/bar-chart'
+        },
+        {
+          type: 'link',
+          name: 'Pie Chart',
+          link: '/pages/micro-charts/pie-chart'
         }
       ]
     },
