@@ -19,8 +19,8 @@ import { fromEvent, merge, Subject, takeUntil } from 'rxjs';
 import { Directionality } from '@angular/cdk/bidi';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { _getEventTarget } from '@angular/cdk/platform';
-import { PopoverPosition, PopoverTrigger } from './popover.properties';
-import { PositionManager } from './position-manager';
+import { PopoverTrigger, PopoverPosition } from './types';
+import { PositionManager } from '../overlay';
 
 @Directive({
   selector: '[emrPopoverTriggerFor]',
