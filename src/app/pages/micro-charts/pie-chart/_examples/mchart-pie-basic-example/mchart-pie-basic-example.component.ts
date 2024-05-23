@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { MchartLineComponent, MchartPieComponent } from '@elementar/components';
 import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+import { MatButton } from '@angular/material/button';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-mchart-pie-basic-example',
@@ -8,11 +11,31 @@ import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
   imports: [
     MchartPieComponent,
     MchartLineComponent,
-    ShuffleArrayPipe
+    ShuffleArrayPipe,
+    MatButton,
+    MatSlideToggle,
+    FormsModule
   ],
   templateUrl: './mchart-pie-basic-example.component.html',
   styleUrl: './mchart-pie-basic-example.component.scss'
 })
 export class MchartPieBasicExampleComponent {
+  private _cdr = inject(ChangeDetectorRef);
+  data1 = [1, 2, 3];
+  data2 = [5, 2, 3];
+  data3 = [1, 2, 3, 4];
+  data4 = [6, 2, 3, 8, 10];
 
+  showAnimation = false;
+
+  refreshData(): void {
+    this.data1 = this._shuffleArray(this.data1);
+    this.data2 = this._shuffleArray(this.data2);
+    this.data3 = this._shuffleArray(this.data3);
+    this.data4 = this._shuffleArray(this.data4);
+  }
+
+  private _shuffleArray(data: number[]): number[] {
+    return [...data.sort(() => .5 - Math.random())];
+  }
 }

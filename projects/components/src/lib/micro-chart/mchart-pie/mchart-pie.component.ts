@@ -1,16 +1,22 @@
 import {
-  AfterViewChecked,
+  AfterViewChecked, booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
-  effect,
   ElementRef,
   inject,
-  input, numberAttribute,
-  PLATFORM_ID
+  input, numberAttribute, OnChanges, OnDestroy,
+  PLATFORM_ID, SimpleChanges
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
-import { arc, pie, scaleOrdinal, schemeCategory10, select } from 'd3';
+import {
+  arc,
+  interpolate,
+  pie,
+  scaleOrdinal,
+  schemeTableau10,
+  select
+} from 'd3';
 
 @Component({
   selector: 'emr-mchart-pie',
@@ -24,7 +30,7 @@ import { arc, pie, scaleOrdinal, schemeCategory10, select } from 'd3';
     'class': 'emr-mchart-pie'
   }
 })
-export class MchartPieComponent implements AfterViewChecked {
+export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestroy {
   private _initialized = false;
   private _host: any;
   private _svg: any;
@@ -35,8 +41,6 @@ export class MchartPieComponent implements AfterViewChecked {
   private _innerHeight = 0;
   private _hostWidth = 0;
   private _hostHeight = 0;
-  private _xScale: any;
-  private _yScale: any;
   private _resizeObserver: ResizeObserver;
   private _platformId = inject(PLATFORM_ID);
   private _elementRef = inject(ElementRef);
@@ -45,6 +49,7 @@ export class MchartPieComponent implements AfterViewChecked {
   private _arcGenerator: any;
   private _pieGenerator: any;
   private _colorsGenerator: any;
+  private _arcTweenGenerator: any;
 
   data = input<number[]>([]);
   labels = input<string[]>([]);
@@ -53,17 +58,9 @@ export class MchartPieComponent implements AfterViewChecked {
   legendContainerWidth = input(0, {
     transform: numberAttribute
   });
-
-  constructor() {
-    effect(() => {
-      if (!this._initialized) {
-        return;
-      }
-
-      this._render();
-      this._setupResizeObserver();
-    });
-  }
+  showAnimation = input(false, {
+    transform: booleanAttribute
+  })
 
   ngAfterViewChecked() {
     if (isPlatformServer(this._platformId)) {
@@ -79,6 +76,16 @@ export class MchartPieComponent implements AfterViewChecked {
         this._render();
         this._setupResizeObserver();
       }
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!this._initialized) {
+      return;
+    }
+
+    if (changes['data'] && !changes['data'].firstChange) {
+      this._draw();
     }
   }
 
@@ -120,6 +127,7 @@ export class MchartPieComponent implements AfterViewChecked {
   }
 
   private _setGenerators(): void {
+    const self = this;
     this._arcGenerator = arc()
       .innerRadius(0)
       .outerRadius(this._radius)
@@ -127,13 +135,25 @@ export class MchartPieComponent implements AfterViewChecked {
     this._pieGenerator = pie()
       .value(this.valueAccessor())
     ;
-    this._colorsGenerator = scaleOrdinal(schemeCategory10)
+    this._colorsGenerator = scaleOrdinal(schemeTableau10)
       .domain(this.data().map((d: number, i: number) => i.toString()))
+    ;
+    this._arcTweenGenerator = function(d: number) {
+        // @ts-ignore
+        const _this = this as any;
+        const current = d;
+        const interpolateGenerator = interpolate(_this._previous, current);
+        _this._previous = current;
+        return (t: any) => {
+          return self._arcGenerator(interpolateGenerator(t));
+        };
+      }
     ;
   }
 
   private _draw(): void {
     const data = this._pieGenerator(this.data());
+    const self = this;
     this._dataContainer
       .selectAll('path.data')
       .data(data)
@@ -141,6 +161,9 @@ export class MchartPieComponent implements AfterViewChecked {
       .attr('class', 'data')
       .attr('d', (d: number) => this._arcGenerator(d))
       .style('fill', (d: number, i: number) => this._colorsGenerator(i))
+      .transition()
+      .duration(this.showAnimation() ? 1000 : 0)
+      .attrTween('d', this._arcTweenGenerator)
     ;
   }
 
