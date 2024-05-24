@@ -26,7 +26,8 @@ export class MchartPieBasicExampleComponent {
   data3 = [1, 2, 3, 4];
   data4 = [6, 2, 3, 8, 10];
 
-  showAnimation = false;
+  showDataAnimation = true;
+  showHoverAnimation = true;
 
   refreshData(): void {
     this.data1 = this._shuffleArray(this.data1);

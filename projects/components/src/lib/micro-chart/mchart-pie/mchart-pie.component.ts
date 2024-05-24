@@ -27,7 +27,8 @@ import {
   styleUrl: './mchart-pie.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-mchart-pie'
+    'class': 'emr-mchart-pie',
+    '[class.hover-animation]': 'showHoverAnimation()',
   }
 })
 export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestroy {
@@ -53,14 +54,16 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
 
   data = input<number[]>([]);
   labels = input<string[]>([]);
-  colors = input<string[]>([]);
   valueAccessor = input((d: any) => d);
   legendContainerWidth = input(0, {
     transform: numberAttribute
   });
-  showAnimation = input(false, {
+  showDataAnimation = input(false, {
     transform: booleanAttribute
-  })
+  });
+  showHoverAnimation = input(false, {
+    transform: booleanAttribute
+  });
 
   ngAfterViewChecked() {
     if (isPlatformServer(this._platformId)) {
@@ -85,7 +88,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     }
 
     if (changes['data'] && !changes['data'].firstChange) {
-      this._draw();
+      this._draw(true);
     }
   }
 
@@ -97,7 +100,12 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     this._initDimensions();
     this._initContainers();
     this._setGenerators();
+    this._setLegend();
     this._draw();
+  }
+
+  private _setLegend(): void {
+
   }
 
   private _initDimensions(): void {
@@ -151,9 +159,14 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     ;
   }
 
-  private _draw(): void {
+  private _draw(isUpdate = false): void {
+    if (isUpdate) {
+      this._colorsGenerator
+        .domain(this.data().map((d: number, i: number) => i.toString()))
+      ;
+    }
+
     const data = this._pieGenerator(this.data());
-    const self = this;
     this._dataContainer
       .selectAll('path.data')
       .data(data)
@@ -162,7 +175,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
       .attr('d', (d: number) => this._arcGenerator(d))
       .style('fill', (d: number, i: number) => this._colorsGenerator(i))
       .transition()
-      .duration(this.showAnimation() ? 1000 : 0)
+      .duration(this.showDataAnimation() ? 1000 : 0)
       .attrTween('d', this._arcTweenGenerator)
     ;
   }
