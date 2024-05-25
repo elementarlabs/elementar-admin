@@ -12,13 +12,11 @@ import { isPlatformServer } from '@angular/common';
 import {
   arc,
   interpolate,
-  pie, pointer,
+  pie,
   scaleOrdinal,
   schemeTableau10,
   select
 } from 'd3';
-import { fromEvent } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { OverlayPosition } from '../../overlay';
 import { BaseChartTooltip } from '../base-chart.tooltip';
 
@@ -58,6 +56,9 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   data = input<number[]>([]);
   labels = input<string[] | number[]>([]);
   valueAccessor = input((d: any) => d);
+  dataItemStrokeWidth = input(1, {
+    transform: numberAttribute
+  });
   legendContainerWidth = input(0, {
     transform: numberAttribute
   });
@@ -139,8 +140,8 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   private _initDimensions(): void {
     this._hostWidth = this._dimensions.width;
     this._hostHeight = this._dimensions.height;
-    this._innerWidth = this._dimensions.width - this.legendContainerWidth();
-    this._innerHeight = this._dimensions.height;
+    this._innerWidth = this._dimensions.width - this.legendContainerWidth() - this.dataItemStrokeWidth() * 2;
+    this._innerHeight = this._dimensions.height - this.dataItemStrokeWidth() * 2;
     this._host = select(this._elementRef.nativeElement);
     this._svg = this._host
       .select('svg')
@@ -254,6 +255,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
       .data(data)
       .join('path')
       .attr('class', 'data-item')
+      .attr('stroke-width', this.dataItemStrokeWidth())
       .attr('d', (d: number) => this._arcGenerator(d))
       .style('fill', (d: number, i: number) => this._colorsGenerator(i))
       .attr('data-index', (d: number, i: number) => i)
