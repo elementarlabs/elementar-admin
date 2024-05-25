@@ -6,17 +6,21 @@ import {
   ElementRef,
   inject,
   input, numberAttribute, OnChanges, OnDestroy,
-  PLATFORM_ID, SimpleChanges
+  PLATFORM_ID, SimpleChanges, TemplateRef
 } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
 import {
   arc,
   interpolate,
-  pie,
+  pie, pointer,
   scaleOrdinal,
   schemeTableau10,
   select
 } from 'd3';
+import { fromEvent } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { OverlayPosition } from '../../overlay';
+import { BaseChartTooltip } from '../base-chart.tooltip';
 
 @Component({
   selector: 'emr-mchart-pie',
@@ -30,7 +34,7 @@ import {
     'class': 'emr-mchart-pie'
   }
 })
-export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestroy {
+export class MchartPieComponent extends BaseChartTooltip implements AfterViewChecked, OnChanges, OnDestroy {
   private _initialized = false;
   private _host: any;
   private _svg: any;
@@ -81,6 +85,16 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
   valueFontSize = input(12, {
     transform: numberAttribute
   });
+  tooltip = input<TemplateRef<unknown>>();
+  tooltipPosition = input<OverlayPosition>('after-center');
+
+  getTooltipPosition(): OverlayPosition {
+    return this.tooltipPosition();
+  }
+
+  getTooltipTemplateRef(): TemplateRef<any> | undefined {
+    return this.tooltip();
+  }
 
   ngAfterViewChecked() {
     if (isPlatformServer(this._platformId)) {
@@ -119,6 +133,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     this._setGenerators();
     this._setLegend();
     this._draw();
+    this._initTooltip();
   }
 
   private _initDimensions(): void {
@@ -266,22 +281,46 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
   }
 
   private _setupResizeObserver(): void {
-    // if (!this.responsive()) {
-    //   return;
-    // }
-    //
-    // this._resizeObserver?.disconnect();
-    // this._resizeObserver = new ResizeObserver((entries) => {
-    //   if (this._hostWidth !== entries[0].contentRect.width || this._hostHeight !== entries[0].contentRect.height) {
-    //     this._hostWidth = entries[0].contentRect.width;
-    //     this._hostHeight = entries[0].contentRect.height;
-    //     this._innerWidth = entries[0].contentRect.width;
-    //     this._innerHeight = entries[0].contentRect.height;
-    //     this._svg.attr('viewBox', `0 0 ${this._hostWidth} ${this._hostHeight}`);
-    //     this._setupAxisScale();
-    //     this._setupData();
-    //   }
-    // });
-    // this._resizeObserver.observe(this._elementRef.nativeElement);
+  }
+
+  private _initTooltip(): void {
+    if (!this.tooltip()) {
+      return;
+    }
+
+    let oldValue: number;
+    const data = this._pieGenerator(this.data());
+    this._createTooltipOrigin();
+    this._dataContainer
+      .selectAll('path.data-item')
+      .data(data)
+      .join('path')
+      .on('mousemove', (event: MouseEvent, d: any) => {
+        this._setTooltipPositionByEvent(event);
+        this._setTooltipVisible();
+
+        if (!this._overlayRef?.hasAttached()) {
+          this._showTooltip({
+            label: this.labels()[d.index] ? this.labels()[d.index] : null,
+            value: d.data
+          });
+          oldValue = d.data;
+        } else {
+          if (oldValue !== d.data) {
+            this._showTooltip({
+              label: this.labels()[d.index] ? this.labels()[d.index] : null,
+              value: d.data
+            });
+            oldValue = d.data;
+          } else {
+            this._overlayRef.updatePosition();
+          }
+        }
+      })
+      .on('mouseleave', () => {
+        this._setTooltipInVisible();
+        this._hideTooltip();
+      })
+    ;
   }
 }

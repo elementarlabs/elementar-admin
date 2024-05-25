@@ -17,7 +17,4 @@ export class MchartPieValueOnSlicesExampleComponent {
   data2 = [5, 2, 3];
   data3 = [1, 2, 3, 4];
   data4 = [6, 2, 3, 8, 10];
-
-  showDataAnimation = true;
-  showHoverAnimation = true;
 }

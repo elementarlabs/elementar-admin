@@ -39,6 +39,10 @@ export abstract class BaseChartTooltip {
     this._overlayRef.attach(this._getContentPortal(data));
   }
 
+  protected _hideTooltip(): void {
+    this._overlayRef?.detach();
+  }
+
   protected _setTooltipPositionByEvent(e: MouseEvent): void {
     this._renderer.setStyle(this._tooltipOrigin, 'left', (e.clientX + 10) + 'px');
     this._renderer.setStyle(this._tooltipOrigin, 'top', (e.clientY - 4) + 'px');

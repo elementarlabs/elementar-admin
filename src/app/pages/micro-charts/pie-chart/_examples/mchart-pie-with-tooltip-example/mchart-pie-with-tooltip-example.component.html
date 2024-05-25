@@ -1,0 +1,26 @@
+<div class="flex items-center gap-10">
+  <emr-mchart-pie [data]="data1 | shuffleArray"
+                  [labels]="labels"
+                  [tooltip]="tooltipRef"
+                  class="size-[25px]"></emr-mchart-pie>
+  <emr-mchart-pie [data]="data2 | shuffleArray"
+                  [labels]="labels"
+                  [tooltip]="tooltipRef"
+                  class="size-[50px]"></emr-mchart-pie>
+  <emr-mchart-pie [data]="data3 | shuffleArray"
+                  [labels]="labels"
+                  [tooltip]="tooltipRef"
+                  class="size-[100px]"></emr-mchart-pie>
+  <emr-mchart-pie [data]="data4 | shuffleArray"
+                  [labels]="labels"
+                  [tooltip]="tooltipRef"
+                  class="size-[200px]"></emr-mchart-pie>
+</div>
+<ng-template #tooltipRef let-data>
+  <emr-mchart-tooltip>
+    <emr-mchart-tooltip-title>{{ data.label }}</emr-mchart-tooltip-title>
+    <emr-mchart-tooltip-body>
+      Value: {{ data.value }}
+    </emr-mchart-tooltip-body>
+  </emr-mchart-tooltip>
+</ng-template>

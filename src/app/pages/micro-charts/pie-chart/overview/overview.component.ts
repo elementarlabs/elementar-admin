@@ -11,6 +11,9 @@ import {
 import {
   MchartPieValueOnSlicesExampleComponent
 } from '../_examples/mchart-pie-value-on-slices-example/mchart-pie-value-on-slices-example.component';
+import {
+  MchartPieWithTooltipExampleComponent
+} from '../_examples/mchart-pie-with-tooltip-example/mchart-pie-with-tooltip-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -21,7 +24,8 @@ import {
     PlaygroundComponent,
     MchartPieBasicExampleComponent,
     MchartPieWithLegendExampleComponent,
-    MchartPieValueOnSlicesExampleComponent
+    MchartPieValueOnSlicesExampleComponent,
+    MchartPieWithTooltipExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
