@@ -20,14 +20,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './mchart-pie-basic-example.component.scss'
 })
 export class MchartPieBasicExampleComponent {
-  private _cdr = inject(ChangeDetectorRef);
   data1 = [1, 2, 3];
   data2 = [5, 2, 3];
   data3 = [1, 2, 3, 4];
   data4 = [6, 2, 3, 8, 10];
 
   showDataAnimation = true;
-  showHoverAnimation = true;
 
   refreshData(): void {
     this.data1 = this._shuffleArray(this.data1);

@@ -7,11 +7,10 @@
     height: 100%;
   }
 
-  &.hover-animation:has(.data:hover),
-  &.hover-animation:has(.data.active) {
+  &:has(.data-item.active) {
     ::ng-deep {
-      .data:not(:hover):not(.active) {
-        opacity: 0.8;
+      .data-item:not(.active) {
+        opacity: 0.7;
         scale: 0.97;
         transition: scale 0.2s;
       }
@@ -19,6 +18,12 @@
   }
 
   ::ng-deep {
+    .value {
+      text-anchor: middle;
+      alignment-baseline: middle;
+      fill: var(--emr-mchart-pie-value-color);
+    }
+
     .legend-item {
       cursor: pointer;
 

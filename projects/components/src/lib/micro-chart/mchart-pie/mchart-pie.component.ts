@@ -27,8 +27,7 @@ import {
   styleUrl: './mchart-pie.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-mchart-pie',
-    '[class.hover-animation]': 'showHoverAnimation()',
+    'class': 'emr-mchart-pie'
   }
 })
 export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestroy {
@@ -61,7 +60,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
   showDataAnimation = input(false, {
     transform: booleanAttribute
   });
-  showHoverAnimation = input(false, {
+  showValueOnSlices = input(false, {
     transform: booleanAttribute
   });
   legendOffset = input(20, {
@@ -77,6 +76,9 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     transform: numberAttribute
   });
   legendItemSymbolBorderRadius = input(12, {
+    transform: numberAttribute
+  });
+  valueFontSize = input(12, {
     transform: numberAttribute
   });
 
@@ -181,7 +183,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
         const target = event.target as HTMLElement;
         const index = +(target.getAttribute('data-index') as string);
         this._dataContainer
-          .select(`path.data[data-index="${index}"]`)
+          .select(`path.data-item[data-index="${index}"]`)
           .classed('active', true)
         ;
       })
@@ -189,7 +191,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
         const target = event.target as HTMLElement;
         const index = +(target.getAttribute('data-index') as string);
         this._dataContainer
-          .select(`path.data[data-index="${index}"]`)
+          .select(`path.data-item[data-index="${index}"]`)
           .classed('active', false)
         ;
       })
@@ -233,10 +235,10 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
 
     const data = this._pieGenerator(this.data());
     this._dataContainer
-      .selectAll('path.data')
+      .selectAll('path.data-item')
       .data(data)
       .join('path')
-      .attr('class', 'data')
+      .attr('class', 'data-item')
       .attr('d', (d: number) => this._arcGenerator(d))
       .style('fill', (d: number, i: number) => this._colorsGenerator(i))
       .attr('data-index', (d: number, i: number) => i)
@@ -244,6 +246,23 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
       .duration(this.showDataAnimation() ? 1000 : 0)
       .attrTween('d', this._arcTweenGenerator)
     ;
+
+    if (this.showValueOnSlices()) {
+      this._dataContainer
+        .selectAll('text.value')
+        .data(data)
+        .join('text')
+        .attr('class', 'value')
+        .attr('font-size', this.valueFontSize())
+        .attr('transform', (d: any) => {
+          const coordinates = this._arcGenerator.centroid(d);
+          return `translate(${coordinates[0]},${coordinates[1]})`;
+        })
+        .text((d: any) => {
+          return d.data;
+        })
+      ;
+    }
   }
 
   private _setupResizeObserver(): void {

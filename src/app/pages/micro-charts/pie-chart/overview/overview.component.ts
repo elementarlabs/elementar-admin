@@ -8,6 +8,9 @@ import {
 import {
   MchartPieWithLegendExampleComponent
 } from '../_examples/mchart-pie-with-legend-example/mchart-pie-with-legend-example.component';
+import {
+  MchartPieValueOnSlicesExampleComponent
+} from '../_examples/mchart-pie-value-on-slices-example/mchart-pie-value-on-slices-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +20,8 @@ import {
     PageContentDirective,
     PlaygroundComponent,
     MchartPieBasicExampleComponent,
-    MchartPieWithLegendExampleComponent
+    MchartPieWithLegendExampleComponent,
+    MchartPieValueOnSlicesExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
