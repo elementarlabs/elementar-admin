@@ -24,13 +24,20 @@ export abstract class BaseChartTooltip {
   abstract getTooltipPosition(): OverlayPosition;
 
   protected _createTooltipOrigin(): void {
-    this._tooltipOrigin = this._renderer.createElement('div');
+    let tooltipOrigin: HTMLElement | null = this._document.querySelector('.emr-mchart-tooltip-origin');
+
+    if (!tooltipOrigin) {
+      tooltipOrigin = this._renderer.createElement('div') as HTMLElement;
+      tooltipOrigin.classList.add('emr-mchart-tooltip-origin');
+      this._renderer.appendChild(this._document.body, tooltipOrigin);
+    }
+
+    this._tooltipOrigin = tooltipOrigin;
     this._renderer.setStyle(this._tooltipOrigin, 'width', '10px');
     this._renderer.setStyle(this._tooltipOrigin, 'height', '10px');
     this._renderer.setStyle(this._tooltipOrigin, 'z-index', '-1');
     this._renderer.setStyle(this._tooltipOrigin, 'position', 'fixed');
     this._renderer.setStyle(this._tooltipOrigin, 'opacity', '0');
-    this._renderer.appendChild(this._document.body, this._tooltipOrigin);
   }
 
   protected _showTooltip(data: object): void {

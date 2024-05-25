@@ -68,7 +68,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   showValueOnSlices = input(false, {
     transform: booleanAttribute
   });
-  legendOffset = input(20, {
+  legendOffset = input(30, {
     transform: numberAttribute
   });
   legendItemHeight = input(30, {
@@ -154,7 +154,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
     this._dataContainer = this._svg
       .append('g')
       .attr('class', 'data-container')
-      .attr('transform', `translate(${this._innerWidth * .5},${this._innerHeight * .5})`)
+      .attr('transform', `translate(${this._radius},${this._innerHeight * .5})`)
     ;
     this._legendContainer = this._svg
       .append('g')
@@ -238,7 +238,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
     const dimensions = this._legendContainer.node().getBBox();
     this._legendContainer.attr(
       'transform',
-      `translate(${this._innerWidth + this.legendOffset()},${this._innerHeight * .5 - .5 * dimensions.height})`
+      `translate(${this._radius * 2 + this.legendOffset()},${this._innerHeight * .5 - .5 * dimensions.height})`
     )
   }
 
