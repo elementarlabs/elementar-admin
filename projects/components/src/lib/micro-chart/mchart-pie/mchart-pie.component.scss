@@ -7,13 +7,30 @@
     height: 100%;
   }
 
-  &.hover-animation:has(.data:hover) {
+  &.hover-animation:has(.data:hover),
+  &.hover-animation:has(.data.active) {
     ::ng-deep {
-      .data:not(:hover) {
+      .data:not(:hover):not(.active) {
         opacity: 0.8;
         scale: 0.97;
         transition: scale 0.2s;
       }
+    }
+  }
+
+  ::ng-deep {
+    .legend-item {
+      cursor: pointer;
+
+      &:hover {
+        .legend-item-text {
+          fill: var(--emr-mchart-pie-legend-item-hover-color);
+        }
+      }
+    }
+
+    .legend-item-text {
+      fill: var(--emr-mchart-pie-legend-item-color);
     }
   }
 }

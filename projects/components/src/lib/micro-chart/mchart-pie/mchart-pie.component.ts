@@ -53,7 +53,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
   private _arcTweenGenerator: any;
 
   data = input<number[]>([]);
-  labels = input<string[]>([]);
+  labels = input<string[] | number[]>([]);
   valueAccessor = input((d: any) => d);
   legendContainerWidth = input(0, {
     transform: numberAttribute
@@ -63,6 +63,21 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
   });
   showHoverAnimation = input(false, {
     transform: booleanAttribute
+  });
+  legendOffset = input(20, {
+    transform: numberAttribute
+  });
+  legendItemHeight = input(30, {
+    transform: numberAttribute
+  });
+  legendItemSymbolSize = input(12, {
+    transform: numberAttribute
+  });
+  legendItemFontSize = input(14, {
+    transform: numberAttribute
+  });
+  legendItemSymbolBorderRadius = input(12, {
+    transform: numberAttribute
   });
 
   ngAfterViewChecked() {
@@ -104,10 +119,6 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     this._draw();
   }
 
-  private _setLegend(): void {
-
-  }
-
   private _initDimensions(): void {
     this._hostWidth = this._dimensions.width;
     this._hostHeight = this._dimensions.height;
@@ -130,7 +141,6 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     this._legendContainer = this._svg
       .append('g')
       .attr('class', 'legend-container')
-      .attr('transform', `translate(${this._innerWidth - .5 * this.legendContainerWidth()},${this._innerHeight * .5})`)
     ;
   }
 
@@ -159,6 +169,61 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
     ;
   }
 
+  private _setLegend(): void {
+    this._legendContainer
+      .selectAll('g.legend-item')
+      .data(this.data())
+      .join('g')
+      .attr('class', 'legend-item')
+      .attr('data-index', (d: number, i: number) => i)
+      .attr('transform', (d: number, i: number) => `translate(0, ${i * this.legendItemHeight()})`)
+      .on('mouseenter', (event: MouseEvent, d: number) => {
+        const target = event.target as HTMLElement;
+        const index = +(target.getAttribute('data-index') as string);
+        this._dataContainer
+          .select(`path.data[data-index="${index}"]`)
+          .classed('active', true)
+        ;
+      })
+      .on('mouseleave', (event: MouseEvent, d: number) => {
+        const target = event.target as HTMLElement;
+        const index = +(target.getAttribute('data-index') as string);
+        this._dataContainer
+          .select(`path.data[data-index="${index}"]`)
+          .classed('active', false)
+        ;
+      })
+    ;
+    this._legendContainer
+      .selectAll('g.legend-item')
+      .selectAll('text')
+      .data((d: number, i: number) => [i])
+      .join('text')
+      .attr('class', 'legend-item-text')
+      .attr('x', this.legendItemSymbolSize() * 2)
+      .attr('y', this.legendItemHeight() * .5)
+      .attr('font-size', this.legendItemFontSize())
+      .text((i: number) => this.labels()[i])
+    ;
+    this._legendContainer
+      .selectAll('g.legend-item')
+      .selectAll('rect')
+      .data((d: number, i: number) => [i])
+      .join('rect')
+      .attr('class', 'legend-item-symbol')
+      .attr('rx', this.legendItemSymbolBorderRadius())
+      .attr('width', this.legendItemSymbolSize())
+      .attr('height', this.legendItemSymbolSize())
+      .attr('fill', (i: number) => this._colorsGenerator(i))
+      .attr('y', this.legendItemFontSize() * .5 - 2)
+    ;
+    const dimensions = this._legendContainer.node().getBBox();
+    this._legendContainer.attr(
+      'transform',
+      `translate(${this._innerWidth + this.legendOffset()},${this._innerHeight * .5 - .5 * dimensions.height})`
+    )
+  }
+
   private _draw(isUpdate = false): void {
     if (isUpdate) {
       this._colorsGenerator
@@ -174,6 +239,7 @@ export class MchartPieComponent implements AfterViewChecked, OnChanges, OnDestro
       .attr('class', 'data')
       .attr('d', (d: number) => this._arcGenerator(d))
       .style('fill', (d: number, i: number) => this._colorsGenerator(i))
+      .attr('data-index', (d: number, i: number) => i)
       .transition()
       .duration(this.showDataAnimation() ? 1000 : 0)
       .attrTween('d', this._arcTweenGenerator)

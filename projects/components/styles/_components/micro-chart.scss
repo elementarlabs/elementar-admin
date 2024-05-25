@@ -10,9 +10,14 @@
   --emr-line-chart-area-bg: theme('colors.primary.200');
   --emr-line-chart-marker-line-bg: theme('colors.neutral.DEFAULT');
   --emr-line-chart-marker-dot-bg: theme('colors.primary.DEFAULT');
+
+  // pie chart
+  --emr-mchart-pie-legend-item-color: theme('colors.neutral.900');
+  --emr-mchart-pie-legend-item-hover-color: theme('colors.primary.DEFAULT');
 }
 
 html.dark {
   --emt-bar-chart-highlight-bg: theme('colors.neutral.700');
   --emr-line-chart-area-bg: theme('colors.neutral.700');
+  --emr-mchart-pie-legend-item-color: theme('colors.neutral.200');
 }

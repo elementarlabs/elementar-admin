@@ -5,6 +5,9 @@ import { PlaygroundComponent } from '@meta/playground/playground.component';
 import {
   MchartPieBasicExampleComponent
 } from '../_examples/mchart-pie-basic-example/mchart-pie-basic-example.component';
+import {
+  MchartPieWithLegendExampleComponent
+} from '../_examples/mchart-pie-with-legend-example/mchart-pie-with-legend-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -13,7 +16,8 @@ import {
     PageComponent,
     PageContentDirective,
     PlaygroundComponent,
-    MchartPieBasicExampleComponent
+    MchartPieBasicExampleComponent,
+    MchartPieWithLegendExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
