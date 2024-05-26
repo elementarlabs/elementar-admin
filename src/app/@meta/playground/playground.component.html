@@ -47,12 +47,12 @@
     }
 
     <button mat-icon-button (click)="toggleSource()">
-      <mat-icon class="material-symbols-outlined">code</mat-icon>
+      <mat-icon class="font-icon">code</mat-icon>
     </button>
 
     @if (hasScr && showSource) {
       <button mat-icon-button (click)="contentCopy()">
-        <mat-icon class="material-symbols-outlined">content_copy</mat-icon>
+        <mat-icon class="font-icon">content_copy</mat-icon>
       </button>
     }
   </div>
@@ -60,6 +60,6 @@
 
 <ng-template #clipboardButtonTemplate>
   <button mat-icon-button color="accent" (click)="contentCopy()">
-    <mat-icon class="material-symbols-outlined">content_copy</mat-icon>
+    <mat-icon class="font-icon">content_copy</mat-icon>
   </button>
 </ng-template>

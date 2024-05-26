@@ -29,8 +29,8 @@ html.dark {
   --emr-upload-area-bg: theme('colors.neutral.600');
   --emr-upload-area-color: theme('colors.neutral.200');
   --emr-upload-area-border: theme('width.px') dashed theme('colors.neutral.400');
-  --emr-upload-area-drop-active-border: theme('width.px') dashed theme('colors.accent');
-  --emr-upload-area-drop-active-color: theme('colors.accent');
+  --emr-upload-area-drop-active-border: theme('width.px') dashed theme('colors.primary.DEFAULT');
+  --emr-upload-area-drop-active-color: theme('colors.primary.DEFAULT');
   --emr-file-error-color: theme('colors.red.300');
   --emr-file-progress-bg: theme('colors.neutral.500');
   --emr-control-hover-color: theme('colors.neutral.300');

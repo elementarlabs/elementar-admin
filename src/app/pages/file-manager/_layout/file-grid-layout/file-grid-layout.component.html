@@ -3,16 +3,16 @@
     <div class="flex items-center gap-1 cursor-pointer" (click)="sort()">
       <span class="text-md font-medium">{{ groupByName }}</span>
       @if (sortBy === 'asc') {
-        <mat-icon class="material-symbols-outlined size-14 text-base">north</mat-icon>
+        <mat-icon class="font-icon size-14 text-base">north</mat-icon>
       } @else if (sortBy === 'desc') {
-        <mat-icon class="material-symbols-outlined size-14 text-base">south</mat-icon>
+        <mat-icon class="font-icon size-14 text-base">south</mat-icon>
       }
     </div>
     <button mat-icon-button class="ms-16 opacity-0 group-hover:opacity-100"
             [class.opacity-100]="menuTrigger.menuOpen"
             #menuTrigger="matMenuTrigger"
             [matMenuTriggerFor]="groupByMenu">
-      <mat-icon class="material-symbols-outlined">expand_more</mat-icon>
+      <mat-icon class="font-icon">expand_more</mat-icon>
     </button>
   </div>
 </div>
@@ -40,23 +40,23 @@
             <button class="size-9 flex items-center justify-center bg-white dark:bg-neutral-700
                            hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse border-t border-b border-e"
                     (click)="copyLink($event, file)" matTooltip="Copy Link" matTooltipPosition="above">
-              <mat-icon class="material-symbols-outlined">link</mat-icon>
+              <mat-icon class="font-icon">link</mat-icon>
             </button>
             <button #optionsTrigger="matMenuTrigger" [matMenuTriggerFor]="fileOptionsMenu"
                     matTooltip="More Options" matTooltipPosition="above"
                     class="size-9 flex items-center justify-center bg-white dark:bg-neutral-700
                            hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse border-t border-b border-e rounded-e">
-              <mat-icon class="material-symbols-outlined">more_vert</mat-icon>
+              <mat-icon class="font-icon">more_vert</mat-icon>
             </button>
           </div>
         </div>
         @switch (file.type) {
           @case ('folder') {
             @if (file.isShared) {
-              <mat-icon class="material-symbols-outlined filled text-[120px]
+              <mat-icon class="font-icon-filled filled text-[120px]
                                !size-28 text-primary-500 dark:text-tertiary">folder_shared</mat-icon>
             } @else {
-              <mat-icon class="material-symbols-outlined filled text-[120px]
+              <mat-icon class="font-icon-filled text-[120px]
                                !size-28 text-primary-500 dark:text-tertiary">folder</mat-icon>
             }
           }
@@ -66,14 +66,14 @@
           }
 
           @case ('archive') {
-            <mat-icon class="material-symbols-outlined filled text-[120px]
-                               !size-28 text-secondary-500 dark:text-tertiary">folder_zip</mat-icon>
+            <mat-icon class="font-icon-filled text-[120px]
+                             !size-28 text-secondary-500 dark:text-tertiary">folder_zip</mat-icon>
           }
         }
       </div>
       <div class="mt-3.5 flex items-center gap-3 relative">
         @if (file.type === 'folder') {
-          <mat-icon class="material-symbols-outlined filled text-primary-500 dark:text-tertiary">folder</mat-icon>
+          <mat-icon class="font-icon-filled text-primary-500 dark:text-tertiary">folder</mat-icon>
           <div>
             <div class="text-tiny hover:underline underline-offset-1 cursor-pointer">{{ file.name }}</div>
             <div class="text-xs text-neutral-500 flex items-center gap-1.5">
@@ -101,9 +101,9 @@
              [class.opacity-100]="starredModel.isSelected(file.id)">
           <button mat-icon-button (click)="toggleStar(file.id)">
             @if (starredModel.isSelected(file.id)) {
-              <mat-icon class="material-symbols-outlined filled">star</mat-icon>
+              <mat-icon class="font-icon-filled">star</mat-icon>
             } @else {
-              <mat-icon class="material-symbols-outlined">star</mat-icon>
+              <mat-icon class="font-icon">star</mat-icon>
             }
           </button>
         </div>
@@ -112,41 +112,41 @@
     <mat-menu #fileOptionsMenu="matMenu">
       @if (file.type === 'folder') {
         <button mat-menu-item>
-          <mat-icon class="material-symbols-outlined">info</mat-icon>Folder Info
+          <mat-icon class="font-icon">info</mat-icon>Folder Info
         </button>
       } @else {
         <button mat-menu-item>
-          <mat-icon class="material-symbols-outlined">info</mat-icon>File Info
+          <mat-icon class="font-icon">info</mat-icon>File Info
         </button>
       }
 
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">share</mat-icon>Share
+        <mat-icon class="font-icon">share</mat-icon>Share
       </button>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">link</mat-icon>Copy Link
+        <mat-icon class="font-icon">link</mat-icon>Copy Link
       </button>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">group</mat-icon>Manage Permissions
+        <mat-icon class="font-icon">group</mat-icon>Manage Permissions
       </button>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">download</mat-icon>Download
+        <mat-icon class="font-icon">download</mat-icon>Download
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">delete</mat-icon>Delete
+        <mat-icon class="font-icon">delete</mat-icon>Delete
       </button>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">edit</mat-icon>Rename
+        <mat-icon class="font-icon">edit</mat-icon>Rename
       </button>
       <button mat-menu-item>
-        <mat-icon class="material-symbols-outlined">open_with</mat-icon>Move
+        <mat-icon class="font-icon">open_with</mat-icon>Move
       </button>
       <button mat-menu-item>
         @if (file.type === 'folder') {
-          <mat-icon class="material-symbols-outlined">folder_copy</mat-icon>
+          <mat-icon class="font-icon">folder_copy</mat-icon>
         } @else {
-          <mat-icon class="material-symbols-outlined">file_copy</mat-icon>
+          <mat-icon class="font-icon">file_copy</mat-icon>
         }
         Copy
       </button>

@@ -1,5 +1,5 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   darkMode: 'class',
   theme: {
@@ -14,11 +14,26 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['"Poppins"', ...defaultTheme.fontFamily.sans],
+        'serif': ['Open Sans', ...defaultTheme.fontFamily.serif],
+        'icon': [
+          'Material Symbols Outlined',
+          {
+            fontsize: '24px',
+            fontVariationSettings: `"FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24`
+          },
+        ],
+        'icon-filled': [
+          'Material Symbols Outlined',
+          {
+            fontsize: '24px',
+            fontVariationSettings: `"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24`
+          },
+        ],
       },
       colors: {
         background: 'var(--emr-background)',
         'on-background': 'var(--emr-on-background)',
-        'inverse': 'var(--emr-inverse)',
+        inverse: 'var(--emr-inverse)',
         neutral: {
           DEFAULT: 'var(--emr-neutral)',
           0: 'var(--emr-neutral-0)',
@@ -180,11 +195,10 @@ module.exports = {
         warn: 'var(--emr-warn)',
         dark: '#303030'
       }
-    },
+    }
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/container-queries'),
-  ],
+    require('@tailwindcss/container-queries')
+  ]
 }
-

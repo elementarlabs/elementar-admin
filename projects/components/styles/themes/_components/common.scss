@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  @apply min-h-screen;
+  @apply min-h-screen font-sans;
 }
 
 .mdc-icon-button {
@@ -43,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', sans-serif;
+  @apply font-serif;
 }
 
 input.emr-number-input-no-spinners::-webkit-outer-spin-button,

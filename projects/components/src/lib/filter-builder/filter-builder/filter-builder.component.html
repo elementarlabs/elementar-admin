@@ -8,13 +8,13 @@
       @if (_isGroup(item)) {
         <div class="flex items-center group-operations">
           <div class="remove" (click)="removeCondition(index, items)">
-            <mat-icon class="material-symbols-outlined">close</mat-icon>
+            <mat-icon class="font-icon">close</mat-icon>
           </div>
           <button [matMenuTriggerFor]="nestedGroupOperationsMenu" class="group-operation">
             {{ getSelectedGroupOperationName(item) }}
           </button>
           <div [matMenuTriggerFor]="addGroupMenu" class="add">
-            <mat-icon class="material-symbols-outlined">add</mat-icon>
+            <mat-icon class="font-icon">add</mat-icon>
           </div>
           <mat-menu #nestedGroupOperationsMenu>
             <div emrMenuOptionGroup [(ngModel)]="item['logicalOperator']">
@@ -34,7 +34,7 @@
       } @else if (_isCondition(item)) {
         <div class="condition">
           <div class="remove" (click)="removeCondition(index, items)">
-            <mat-icon class="material-symbols-outlined">close</mat-icon>
+            <mat-icon class="font-icon">close</mat-icon>
           </div>
           <button class="condition-field"
                   [matMenuTriggerFor]="fieldsMenu">{{ getConditionField(item['value'][0])?.name }}</button>
@@ -194,7 +194,7 @@
       {{ getSelectedGroupOperationName() }}
     </button>
     <div [matMenuTriggerFor]="addMenu" class="add">
-      <mat-icon class="material-symbols-outlined">add</mat-icon>
+      <mat-icon class="font-icon">add</mat-icon>
     </div>
   </div>
   <ng-container [ngTemplateOutlet]="itemsTpl" [ngTemplateOutletContext]="{ $implicit: _value }"></ng-container>

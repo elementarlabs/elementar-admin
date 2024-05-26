@@ -20,6 +20,6 @@
 }
 
 html.dark {
-  --emr-avatar-group-item-border: 0.125rem solid theme('colors.dark');
-  --emr-avatar-presence-indicator-outline: theme('colors.dark') solid 2px;
+  --emr-avatar-group-item-border: 0.125rem solid theme('colors.neutral.950');
+  --emr-avatar-presence-indicator-outline: theme('colors.neutral.950') solid 2px;
 }

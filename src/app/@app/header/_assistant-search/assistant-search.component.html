@@ -1,10 +1,10 @@
-<mat-icon class="material-symbols-outlined search-icon">search</mat-icon>
+<mat-icon class="font-icon search-icon">search</mat-icon>
 <input type="text" [(ngModel)]="searchText" placeholder="Recommend to search: My orders"
        (focus)="focus($event, suggestionDropdown)">
 @if (searchText) {
   <div class="absolute end-1 w-max">
     <button mat-icon-button (click)="clearText()">
-      <mat-icon class="material-symbols-outlined">close</mat-icon>
+      <mat-icon class="font-icon">close</mat-icon>
     </button>
   </div>
 }
@@ -13,11 +13,11 @@
   <emr-suggestions class="rounded-b border-t dark:border-t-neutral-600 w-[600px] dark:bg-neutral-700 p-4 space-y-4">
     <emr-suggestion-block heading="Recently Viewed">
       <emr-suggestion (click)="close()">
-        <mat-icon emrSuggestionIcon class="material-symbols-outlined">tune</mat-icon>
+        <mat-icon emrSuggestionIcon class="font-icon">tune</mat-icon>
         <span>Settings</span> &ndash; <span class="text-neutral-500 dark:text-neutral-400">My Profile</span>
       </emr-suggestion>
       <emr-suggestion>
-        <mat-icon emrSuggestionIcon class="material-symbols-outlined">timeline</mat-icon>
+        <mat-icon emrSuggestionIcon class="font-icon">timeline</mat-icon>
         <span>Application statistics</span> &ndash; <span class="text-neutral-500 dark:text-neutral-400">Admin Panel</span>
       </emr-suggestion>
     </emr-suggestion-block>
@@ -35,24 +35,24 @@
       <emr-suggestion>
         <div class="size-8 rounded bg-neutral-200 dark:bg-neutral-500 text-neutral-800 shadow-sm
                     flex items-center justify-center dark:text-neutral-200" emrSuggestionThumb>
-          <mat-icon class="material-symbols-outlined">image</mat-icon>
+          <mat-icon class="font-icon">image</mat-icon>
         </div>
         <span>Application flow.png</span> &ndash; <span class="text-neutral-500 dark:text-neutral-400">30KB</span>
       </emr-suggestion>
       <emr-suggestion>
         <div class="size-8 rounded bg-neutral-200 dark:bg-neutral-500 text-neutral-800 shadow-sm
                     flex items-center justify-center dark:text-neutral-200" emrSuggestionThumb>
-          <mat-icon class="material-symbols-outlined">description</mat-icon>
+          <mat-icon class="font-icon">description</mat-icon>
         </div>
         <span>Monthly Report.pdf</span> &ndash; <span class="text-neutral-500 dark:text-neutral-400">502KB</span>
       </emr-suggestion>
     </emr-suggestion-block>
     <emr-suggestion-block heading="Create Team" showDivider inline>
       <button mat-stroked-button>
-        <mat-icon class="material-symbols-outlined">add</mat-icon>Create new team
+        <mat-icon class="font-icon">add</mat-icon>Create new team
       </button>
       <button mat-stroked-button>
-        <mat-icon class="material-symbols-outlined">add</mat-icon>Add new member
+        <mat-icon class="font-icon">add</mat-icon>Add new member
       </button>
     </emr-suggestion-block>
   </emr-suggestions>
