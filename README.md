@@ -17,7 +17,7 @@
 
 ## What's included:
 
-- Angular 17+ & Typescript
+- Angular 18+ & Typescript
 - Tailwind 3+ & SCSS
 - High resolution
 - Flexibly configurable themes (3 themes included)

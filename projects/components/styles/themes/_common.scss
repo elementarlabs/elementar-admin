@@ -168,7 +168,7 @@
 
 html {
   @include mat.all-component-themes($m3-light-theme);
-  @include matx.color-variants-back-compat($m3-light-theme);
+  @include mat.color-variants-backwards-compatibility($m3-light-theme);
 
   background: var(--emr-background);
   color: var(--emr-on-background);
@@ -176,7 +176,7 @@ html {
 
 html.dark {
   @include mat.all-component-colors($m3-dark-theme);
-  @include matx.color-variants-back-compat($m3-dark-theme);
+  @include mat.color-variants-backwards-compatibility($m3-dark-theme);
 
   --emr-background: #{mat.get-theme-color($m3-dark-theme, neutral, 20)};
   --emr-on-background: #fff;

@@ -1,22 +1,21 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use '@angular/material-experimental' as matx;
 
 @include mat.core();
 
-$m3-light-theme: matx.define-theme((
+$m3-light-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: matx.$m3-cyan-palette,
-    tertiary: matx.$m3-orange-palette
+    primary: mat.$cyan-palette,
+    tertiary: mat.$orange-palette
   )
 ));
 
-$m3-dark-theme: matx.define-theme((
+$m3-dark-theme: mat.define-theme((
   color: (
     theme-type: dark,
-    primary: matx.$m3-cyan-palette,
-    tertiary: matx.$m3-orange-palette,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$orange-palette,
   )
 ));
 
