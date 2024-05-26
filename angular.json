@@ -61,17 +61,17 @@
               "styles": [
                 "src/styles.scss",
                 {
-                  "input": "projects/components/styles/cyan-orange.scss",
+                  "input": "projects/components/styles/themes/cyan-orange.scss",
                   "inject": false,
                   "bundleName": "cyan-orange"
                 },
                 {
-                  "input": "projects/components/styles/magenta-violet.scss",
+                  "input": "projects/components/styles/themes/magenta-violet.scss",
                   "inject": false,
                   "bundleName": "magenta-violet"
                 },
                 {
-                  "input": "projects/components/styles/rose-red.scss",
+                  "input": "projects/components/styles/themes/rose-red.scss",
                   "inject": false,
                   "bundleName": "rose-red"
                 }
