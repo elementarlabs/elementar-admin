@@ -69,6 +69,9 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   showValueOnSlices = input(false, {
     transform: booleanAttribute
   });
+  showLegend = input(false, {
+    transform: booleanAttribute
+  });
   legendOffset = input(30, {
     transform: numberAttribute
   });
@@ -139,9 +142,10 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   }
 
   private _initDimensions(): void {
+    const legendContainerWidth = this.showLegend() ? this.legendContainerWidth() : 0;
     this._hostWidth = this._dimensions.width;
     this._hostHeight = this._dimensions.height;
-    this._innerWidth = this._dimensions.width - this.legendContainerWidth() - this.dataItemStrokeWidth() * 2;
+    this._innerWidth = this._dimensions.width - legendContainerWidth - this.dataItemStrokeWidth() * 2;
     this._innerHeight = this._dimensions.height - this.dataItemStrokeWidth() * 2;
     this._host = select(this._elementRef.nativeElement);
     this._svg = this._host
@@ -157,10 +161,13 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
       .attr('class', 'data-container')
       .attr('transform', `translate(${this._radius},${this._innerHeight * .5})`)
     ;
-    this._legendContainer = this._svg
-      .append('g')
-      .attr('class', 'legend-container')
-    ;
+
+    if (this.showLegend()) {
+      this._legendContainer = this._svg
+        .append('g')
+        .attr('class', 'legend-container')
+      ;
+    }
   }
 
   private _setGenerators(): void {
@@ -189,6 +196,10 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   }
 
   private _setLegend(): void {
+    if (!this.showLegend()) {
+      return;
+    }
+
     this._legendContainer
       .selectAll('g.legend-item')
       .data(this.data())
