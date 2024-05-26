@@ -11,7 +11,7 @@ body {
 }
 
 .logo {
-  background: linear-gradient(theme('colors.rose.500'), theme('colors.purple.500'));
+  background: theme('colors.primary.DEFAULT');
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 0;

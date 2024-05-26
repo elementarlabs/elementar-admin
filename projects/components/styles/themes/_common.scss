@@ -1,5 +1,4 @@
 @use '@angular/material' as mat;
-@use '@angular/material-experimental' as matx;
 
 :root {
   --emr-background: #fff;
@@ -180,6 +179,7 @@ html.dark {
 
   --emr-background: #{mat.get-theme-color($m3-dark-theme, neutral, 20)};
   --emr-on-background: #fff;
+  --emr-inverse: #{mat.get-theme-color($m3-dark-theme, neutral, 50)};
 
   --emr-neutral-0: #{mat.get-theme-color($m3-dark-theme, neutral, 100)};
   --emr-neutral-50: #{mat.get-theme-color($m3-dark-theme, neutral, 99)};
@@ -332,4 +332,6 @@ html.dark {
   --mat-table-background-color: var(--emr-background);
   --mat-table-row-item-outline-color: theme('colors.inverse');
   --mat-paginator-container-background-color: none;
+
+  --emr-warn: theme('colors.red.500');
 }

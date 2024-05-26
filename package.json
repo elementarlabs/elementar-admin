@@ -36,7 +36,7 @@
     "iconify-icon": "^2.0.0",
     "libphonenumber-js": "^1.10.57",
     "marked": "^9.1.6",
-    "ngx-markdown": "^17.2.1",
+    "ngx-markdown": "^18.0.0",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

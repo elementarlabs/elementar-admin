@@ -10,7 +10,6 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { IconComponent, MenuOptionGroupDirective } from '@elementar/components';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRipple } from '@angular/material/core';
-import { MatMenuBarItem } from '@angular/material-experimental/menubar';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FormatFileSizePipe } from '@elementar/components';
