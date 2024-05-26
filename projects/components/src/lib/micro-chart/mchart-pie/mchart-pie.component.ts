@@ -52,6 +52,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   private _pieGenerator: any;
   private _colorsGenerator: any;
   private _arcTweenGenerator: any;
+  private _pieData: any;
 
   data = input<number[]>([]);
   labels = input<string[] | number[]>([]);
@@ -249,16 +250,24 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
       ;
     }
 
-    const data = this._pieGenerator(this.data());
+    this._pieData = this._pieGenerator(this.data());
     this._dataContainer
-      .selectAll('path.data-item')
-      .data(data)
+      .selectAll('g.data-item-group')
+      .data(this.data())
+      .join('g')
+      .attr('class', 'data-item-group')
+      .attr('data-index', (d: number, i: number) => i)
+    ;
+    this._dataContainer
+      .selectAll('g.data-item-group')
+      .selectAll('path')
+      .data((d: number, i: number) => [this._pieData[i]])
       .join('path')
       .attr('class', 'data-item')
       .attr('stroke-width', this.dataItemStrokeWidth())
-      .attr('d', (d: number) => this._arcGenerator(d))
-      .style('fill', (d: number, i: number) => this._colorsGenerator(i))
-      .attr('data-index', (d: number, i: number) => i)
+      .attr('d', (d: any) => this._arcGenerator(d))
+      .style('fill', (d: any) => this._colorsGenerator(d.index))
+      .attr('data-index', (d: any) => d.index)
       .transition()
       .duration(this.showDataAnimation() ? 1000 : 0)
       .attrTween('d', this._arcTweenGenerator)
@@ -266,8 +275,9 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
 
     if (this.showValueOnSlices()) {
       this._dataContainer
-        .selectAll('text.value')
-        .data(data)
+        .selectAll('g.data-item-group')
+        .selectAll('text')
+        .data((d: number, i: number) => [this._pieData[i]])
         .join('text')
         .attr('class', 'value')
         .attr('font-size', this.valueFontSize())
@@ -275,9 +285,7 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
           const coordinates = this._arcGenerator.centroid(d);
           return `translate(${coordinates[0]},${coordinates[1]})`;
         })
-        .text((d: any) => {
-          return d.data;
-        })
+        .text((d: any) => d.data)
       ;
     }
   }
@@ -291,35 +299,43 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
     }
 
     let oldValue: number;
-    const data = this._pieGenerator(this.data());
     this._createTooltipOrigin();
     this._dataContainer
-      .selectAll('path.data-item')
-      .data(data)
-      .join('path')
+      .selectAll('g.data-item-group')
+      .data(this._pieData)
       .on('mousemove', (event: MouseEvent, d: any) => {
+        const target = event.target as HTMLElement;
         this._setTooltipPositionByEvent(event);
         this._setTooltipVisible();
 
+        const index = +(target.getAttribute('data-index') as string);
+        const label = this.labels()[index] ? this.labels()[index] : null;
+        const color = this._colorsGenerator(index);
+        const value = d.data;
+
         if (!this._overlayRef?.hasAttached()) {
           this._showTooltip({
-            label: this.labels()[d.index] ? this.labels()[d.index] : null,
-            value: d.data
+            label,
+            color,
+            value
           });
-          oldValue = d.data;
+          oldValue = value;
         } else {
           if (oldValue !== d.data) {
             this._showTooltip({
-              label: this.labels()[d.index] ? this.labels()[d.index] : null,
-              value: d.data
+              label,
+              color,
+              value
             });
-            oldValue = d.data;
+            oldValue = value;
           } else {
             this._overlayRef.updatePosition();
           }
         }
       })
-      .on('mouseleave', () => {
+    ;
+    this._dataContainer
+      .on('mouseleave', (event: MouseEvent) => {
         this._setTooltipInVisible();
         this._hideTooltip();
       })
