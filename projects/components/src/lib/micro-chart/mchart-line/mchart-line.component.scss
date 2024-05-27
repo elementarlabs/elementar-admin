@@ -9,25 +9,25 @@
 
   ::ng-deep {
     .line {
-      stroke: var(--emr-line-chart-line-bg);
+      stroke: var(--emr-mchart-line-line-bg);
       fill: none;
       stroke-linejoin: round;
       stroke-linecap: round;
     }
 
     .area {
-      fill: var(--emr-line-chart-area-bg);
+      fill: var(--emr-mchart-line-area-bg);
       stroke-width: 0;
     }
 
     .marker-line {
-      stroke: var(--emr-line-chart-marker-line-bg);
+      stroke: var(--emr-mchart-line-marker-line-bg);
       stroke-width: 1;
       stroke-dasharray: 3;
     }
 
     .marker-dot {
-      fill: var(--emr-line-chart-marker-dot-bg);
+      fill: var(--emr-mchart-line-marker-dot-bg);
     }
   }
 }

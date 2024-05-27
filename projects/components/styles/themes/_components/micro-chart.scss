@@ -1,15 +1,15 @@
 :root {
   // bar chart
-  --emt-bar-chart-bar-bg: theme('colors.primary.DEFAULT');
-  --emt-bar-chart-bar-gradient-start-color: theme('colors.primary.500');
-  --emt-bar-chart-bar-gradient-end-color: theme('colors.primary.DEFAULT');
-  --emt-bar-chart-highlight-bg: theme('colors.neutral.200');
+  --emr-mchart-bar-bar-bg: theme('colors.primary.DEFAULT');
+  --emr-mchart-bar-bar-gradient-start-color: theme('colors.primary.500');
+  --emr-mchart-bar-bar-gradient-end-color: theme('colors.primary.DEFAULT');
+  --emr-mchart-bar-highlight-bg: theme('colors.neutral.200');
 
   // line chart
-  --emr-line-chart-line-bg: theme('colors.primary.DEFAULT');
-  --emr-line-chart-area-bg: theme('colors.primary.200');
-  --emr-line-chart-marker-line-bg: theme('colors.neutral.DEFAULT');
-  --emr-line-chart-marker-dot-bg: theme('colors.primary.DEFAULT');
+  --emr-mchart-line-line-bg: theme('colors.primary.DEFAULT');
+  --emr-mchart-line-area-bg: theme('colors.primary.200');
+  --emr-mchart-line-marker-line-bg: theme('colors.neutral.DEFAULT');
+  --emr-mchart-line-marker-dot-bg: theme('colors.primary.DEFAULT');
 
   // pie chart
   --emr-mchart-pie-stroke-color: theme('colors.background');
@@ -19,7 +19,7 @@
 }
 
 html.dark {
-  --emt-bar-chart-highlight-bg: theme('colors.neutral.700');
-  --emr-line-chart-area-bg: theme('colors.neutral.700');
+  --emr-mchart-bar-highlight-bg: theme('colors.neutral.700');
+  --emr-mchart-line-area-bg: theme('colors.neutral.700');
   --emr-mchart-pie-legend-item-color: theme('colors.neutral.200');
 }

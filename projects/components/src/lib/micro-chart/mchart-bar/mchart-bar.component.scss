@@ -7,21 +7,21 @@
 
   ::ng-deep {
     .highlight {
-      fill: var(--emt-bar-chart-highlight-bg);
+      fill: var(--emr-mchart-bar-highlight-bg);
     }
 
     .bar {
-      fill: var(--emt-bar-chart-bar-bg);
+      fill: var(--emr-mchart-bar-bar-bg);
     }
   }
 
   &.fill-gradient {
     .lg-start-color {
-      stop-color: var(--emt-bar-chart-bar-gradient-start-color);
+      stop-color: var(--emr-mchart-bar-bar-gradient-start-color);
     }
 
     .lg-end-color {
-      stop-color: var(--emt-bar-chart-bar-gradient-end-color);
+      stop-color: var(--emr-mchart-bar-bar-gradient-end-color);
     }
 
     ::ng-deep {
