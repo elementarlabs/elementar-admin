@@ -271,6 +271,10 @@ const routes: Routes = [
         loadChildren: () => import('./micro-charts/micro-charts.module').then(m => m.MicroChartsModule)
       },
       {
+        path: 'content',
+        loadChildren: () => import('./content/content.module').then(m => m.ContentModule)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard'

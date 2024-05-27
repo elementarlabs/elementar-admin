@@ -527,6 +527,24 @@ export class SidebarComponent {
         }
       ]
     },
+    {
+      id: 'content',
+      type: 'group',
+      icon: 'edit_note',
+      name: 'Content',
+      children: [
+        {
+          type: 'link',
+          name: 'Post List',
+          link: '/pages/content/posts/list'
+        },
+        {
+          type: 'link',
+          name: 'Post New',
+          link: '/pages/content/posts/new'
+        }
+      ]
+    },
   ];
   navItemLinks: NavItem[] = [];
   activeLinkId: any = '/';

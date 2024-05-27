@@ -1,6 +1,7 @@
 :host {
-  display: flex;
-  align-items: center;
   flex: none;
-  height: var(--emr-panel-header-height);
+
+  &:not([class*="h-"]) {
+    height: var(--emr-panel-header-height);
+  }
 }

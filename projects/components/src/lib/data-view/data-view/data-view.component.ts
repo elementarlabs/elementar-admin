@@ -33,7 +33,11 @@ import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
     MatSortHeader
   ],
   templateUrl: './data-view.component.html',
-  styleUrl: './data-view.component.scss'
+  styleUrl: './data-view.component.scss',
+  host: {
+    'class': 'emr-data-view',
+    '[class.highlight-header]': 'highlightHeader()'
+  }
 })
 export class DataViewComponent<T> {
   private _matTable = viewChild<MatTable<T>>('table');
@@ -45,7 +49,13 @@ export class DataViewComponent<T> {
   withSelection = input(false, {
     transform: booleanAttribute
   });
+  highlightHeader = input(false, {
+    transform: booleanAttribute
+  });
   withSorting = input(false, {
+    transform: booleanAttribute
+  });
+  stickyHeader = input(false, {
     transform: booleanAttribute
   });
   displayedColumns = computed((): string[] => {

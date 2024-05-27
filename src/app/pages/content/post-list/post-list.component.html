@@ -1,0 +1,28 @@
+<emr-panel>
+  <emr-panel-header class="px-10 h-16">
+    <div class="border-b dark:border-b-inverse h-full flex items-center">
+      <mat-button-toggle-group name="status" [(ngModel)]="status">
+        <mat-button-toggle value="published">Published</mat-button-toggle>
+        <mat-button-toggle value="scheduled">Scheduled</mat-button-toggle>
+        <mat-button-toggle value="draft">Drafts</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </emr-panel-header>
+  <emr-panel-body>
+    <div class="px-10 pb-6">
+      <emr-data-view [columnDefs]="columnDefs"
+                     [data]="data"
+                     [paginator]="paginator"
+                     withSelection
+                     stickyHeader
+                     withSorting
+                     highlightHeader
+                     (rowSelectionChanged)="rowSelectionChanged($event)"
+                     (selectionChanged)="selectionChanged($event)"
+                     (allRowsSelectionChanged)="allRowsSelectionChanged($event)"></emr-data-view>
+    </div>
+  </emr-panel-body>
+  <emr-panel-footer class="px-10 h-20 flex items-center justify-center border-t dark:border-t-inverse">
+    <mat-paginator #paginator pageSize="20" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </emr-panel-footer>
+</emr-panel>

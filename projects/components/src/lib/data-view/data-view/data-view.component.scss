@@ -25,7 +25,41 @@
     }
   }
 
+  .mat-mdc-table .mat-mdc-header-cell {
+    @apply text-neutral-500 dark:text-neutral-400;
+  }
+
+  &.highlight-header {
+    ::ng-deep {
+      .mat-mdc-header-row {
+        position: relative;
+        margin: var(--emr-data-view-hl-header-margin);
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          background: var(--emr-data-view-hl-header-row-bg);
+          height: theme('height.10');
+          border-radius: theme('borderRadius.lg');
+          z-index: 0;
+        }
+      }
+
+      .mat-mdc-table .mat-mdc-header-cell {
+        background: transparent;
+        @apply text-neutral-700 dark:text-neutral-400;
+      }
+    }
+  }
+
   ::ng-deep {
+    .mat-sort-header {
+      z-index: 1;
+      position: relative;
+    }
+
     .mat-sort-header-stem {
       width: 1px;
     }

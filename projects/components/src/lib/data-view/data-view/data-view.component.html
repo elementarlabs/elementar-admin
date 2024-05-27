@@ -20,14 +20,13 @@
   @for (columnDef of columnDefs(); track columnDef) {
     @if (columnDef.visible) {
       <ng-container [matColumnDef]="columnDef.dataField">
-        <mat-header-cell *matHeaderCellDef mat-sort-header
-                         class="text-neutral-500 dark:text-neutral-400">{{ columnDef.name }}</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ columnDef.name }}</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element[columnDef.dataField] }}</mat-cell>
       </ng-container>
     }
   }
 
-  <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
+  <mat-header-row *matHeaderRowDef="displayedColumns(); sticky: stickyHeader()"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns()"
            [class.is-selected]="selection.isSelected(row)"></mat-row>
 </mat-table>
