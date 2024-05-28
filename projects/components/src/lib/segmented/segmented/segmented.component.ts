@@ -1,7 +1,9 @@
 import {
   booleanAttribute,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   forwardRef,
   inject,
   Input,
@@ -19,6 +21,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   exportAs: 'emrSegmented',
   templateUrl: './segmented.component.html',
   styleUrl: './segmented.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -38,6 +41,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 export class SegmentedComponent implements OnInit, ControlValueAccessor {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
+  private _cdr = inject(ChangeDetectorRef);
 
   @Input()
   set selectedValue(value: any) {
@@ -73,7 +77,8 @@ export class SegmentedComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: any) {
-    this._selectedValue.select(value ? [value] : []);
+    this._selectedValue.select(value ? value : []);
+    this._cdr.detectChanges();
   }
 
   registerOnChange(fn: any) {

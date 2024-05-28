@@ -1,6 +1,6 @@
 :root {
   --emr-segmented-button-height: calc(theme('height.11') - theme('padding.2'));
-  --emr-segmented-bg: theme('colors.neutral.100');
+  --emr-segmented-bg: theme('colors.neutral.200');
   --emr-segmented-button-hover-bg: theme('colors.neutral.200');
   --emr-segmented-button-color: theme('colors.neutral.600');
   --emr-segmented-button-hover-color: theme('colors.neutral.800');
@@ -11,7 +11,7 @@
   --emr-segmented-border-radius: theme('borderRadius.md');
   --emr-segmented-button-border-radius: theme('borderRadius.md');
   --emr-segmented-button-padding: 0 theme('padding.3');
-  --emr-segmented-button-font-size: theme('fontSize.sm');
+  --emr-segmented-button-font-size: theme('fontSize.tiny');
   --emr-segmented-gap: theme('gap.1');
   --emr-segmented-button-gap: theme('gap.1');
   --emr-segmented-button-icon-offset-margin: -6px;

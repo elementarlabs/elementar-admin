@@ -207,9 +207,6 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
       this.customValidator ? this._containCustomChars() : false
     );
     this._strength = requirements.filter(v => v).length * unit;
-
-    console.log(this._strength);
-
     this.propagateChange(this.strength);
     this.onStrengthChanged.emit(this.strength);
     this.setRulesAndValidators();

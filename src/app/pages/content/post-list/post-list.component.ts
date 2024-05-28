@@ -1,8 +1,17 @@
-import { Component } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent, EmrPanelModule } from '@elementar/components';
+import { Component, inject, OnInit } from '@angular/core';
+import {
+  DataViewColumnDef,
+  DataViewComponent,
+  DataViewRowSelectionEvent,
+  EmrPanelModule,
+  EmrSegmentedModule
+} from '@elementar/components';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 export interface PeriodicElement {
   name: string;
@@ -43,12 +52,17 @@ const DATA: PeriodicElement[] = [
     MatPaginator,
     MatButtonToggle,
     MatButtonToggleGroup,
-    FormsModule
+    FormsModule,
+    MatTab,
+    MatTabGroup,
+    EmrSegmentedModule
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })
-export class PostListComponent {
+export class PostListComponent implements OnInit {
+  private _httpClient = inject(HttpClient);
+
   status = 'published';
   columnDefs: DataViewColumnDef[] = [
     {
@@ -75,6 +89,22 @@ export class PostListComponent {
   data = [...DATA];
 
   selectedRows: PeriodicElement[] = [];
+
+  posts$: Observable<any> = this._httpClient.get('http://localhost:8000/api/posts', {
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).pipe(
+    tap(res => {
+      // console.log(res);
+    })
+  );
+
+  ngOnInit() {
+    this.posts$.subscribe(res => {
+
+    });
+  }
 
   rowSelectionChanged(event: DataViewRowSelectionEvent<PeriodicElement>): void {
     console.log(event);

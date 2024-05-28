@@ -1,11 +1,17 @@
 <emr-panel>
   <emr-panel-header class="px-10 h-16">
     <div class="border-b dark:border-b-inverse h-full flex items-center">
-      <mat-button-toggle-group name="status" [(ngModel)]="status">
-        <mat-button-toggle value="published">Published</mat-button-toggle>
-        <mat-button-toggle value="scheduled">Scheduled</mat-button-toggle>
-        <mat-button-toggle value="draft">Drafts</mat-button-toggle>
-      </mat-button-toggle-group>
+      <emr-segmented [(ngModel)]="status">
+        <emr-segmented-button value="published">Published</emr-segmented-button>
+        <emr-segmented-button value="scheduled">Scheduled</emr-segmented-button>
+        <emr-segmented-button value="draft">Drafts</emr-segmented-button>
+      </emr-segmented>
+
+<!--      <mat-button-toggle-group name="status" [(ngModel)]="status">-->
+<!--        <mat-button-toggle value="published">Published</mat-button-toggle>-->
+<!--        <mat-button-toggle value="scheduled">Scheduled</mat-button-toggle>-->
+<!--        <mat-button-toggle value="draft">Drafts</mat-button-toggle>-->
+<!--      </mat-button-toggle-group>-->
     </div>
   </emr-panel-header>
   <emr-panel-body>

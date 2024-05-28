@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, HostListener, inject, Input } from '@angular/core';
+import { booleanAttribute, ChangeDetectionStrategy, Component, HostListener, inject, Input } from '@angular/core';
 import { ULT_SEGMENTED } from '../types';
 import { SegmentedComponent } from '../segmented/segmented.component';
 import { MatRipple } from '@angular/material/core';
@@ -8,6 +8,7 @@ import { MatRipple } from '@angular/material/core';
   exportAs: 'emrSegmentedButton',
   templateUrl: './segmented-button.component.html',
   styleUrl: './segmented-button.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     MatRipple
   ],
@@ -18,7 +19,7 @@ import { MatRipple } from '@angular/material/core';
   }
 })
 export class SegmentedButtonComponent {
-  readonly _segmented = inject<SegmentedComponent>(ULT_SEGMENTED, { skipSelf: true });
+  protected _segmented = inject<SegmentedComponent>(ULT_SEGMENTED, { skipSelf: true });
 
   @Input({ required: true })
   value: any;
@@ -26,7 +27,7 @@ export class SegmentedButtonComponent {
   @Input({ transform: booleanAttribute })
   disabled = false;
 
-  get _isSelected() {
+  get _isSelected(): boolean {
     return this._segmented.api.isSelected(this.value);
   }
 
