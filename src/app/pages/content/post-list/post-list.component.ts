@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 export interface PeriodicElement {
   name: string;
@@ -55,7 +57,9 @@ const DATA: PeriodicElement[] = [
     FormsModule,
     MatTab,
     MatTabGroup,
-    EmrSegmentedModule
+    EmrSegmentedModule,
+    MatButton,
+    MatIcon
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
@@ -63,7 +67,7 @@ const DATA: PeriodicElement[] = [
 export class PostListComponent implements OnInit {
   private _httpClient = inject(HttpClient);
 
-  status = 'published';
+  status = 'all';
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',
