@@ -18,6 +18,9 @@ import {
 import {
   DataViewWithSortingExampleComponent
 } from '../_examples/data-view-with-sorting-example/data-view-with-sorting-example.component';
+import {
+  DataViewHlHeaderExampleComponent
+} from '../_examples/data-view-hl-header-example/data-view-hl-header-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -31,7 +34,8 @@ import {
     BasicDataviewExampleComponent,
     DataviewWithSelectionExampleComponent,
     DataViewWithPaginationExampleComponent,
-    DataViewWithSortingExampleComponent
+    DataViewWithSortingExampleComponent,
+    DataViewHlHeaderExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
