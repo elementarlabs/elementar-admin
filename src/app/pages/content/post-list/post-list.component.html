@@ -1,15 +1,18 @@
 <emr-panel>
   <emr-panel-header class="px-10 h-16">
     <div class="border-b dark:border-b-inverse h-full flex items-center justify-between">
-      <div class="flex items-center gap-5">
+      <div class="flex items-center gap-7">
         <div class="text-lg font-bold">Posts</div>
-        <emr-segmented [(ngModel)]="status" size="sm">
+        <emr-v-divider></emr-v-divider>
+        <emr-segmented [(ngModel)]="status" theme="simple" class="-mx-2">
           <emr-segmented-button value="all">All</emr-segmented-button>
           <emr-segmented-button value="published">Published</emr-segmented-button>
           <emr-segmented-button value="scheduled">Scheduled</emr-segmented-button>
           <emr-segmented-button value="draft">Drafts</emr-segmented-button>
         </emr-segmented>
-
+        <emr-v-divider></emr-v-divider>
+        <input type="text" placeholder="Search..."
+               class="border-b h-10 w-96 text-sm bg-transparent dark:border-b-inverse outline-0 focus-within:border-neutral-950">
       </div>
       <div>
         <button mat-flat-button>

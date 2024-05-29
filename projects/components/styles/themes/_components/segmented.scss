@@ -39,3 +39,25 @@ html.dark {
   --emr-segmented-button-selected-bg: theme('colors.neutral.200');
   --emr-segmented-button-hover-color: theme('colors.white');
 }
+
+.emr-segmented[theme="simple"] {
+  --emr-segmented-bg: none;
+  --emr-segmented-button-hover-bg: none;
+  --emr-segmented-button-color: theme('colors.neutral.600');
+  --emr-segmented-button-hover-color: theme('colors.neutral.800');
+  --emr-segmented-button-selected-color: theme('colors.primary.DEFAULT');
+  --emr-segmented-button-selected-bg: none;
+  --emr-segmented-button-selected-shadow: none;
+  --emr-segmented-padding: 0;
+  --emr-segmented-border-radius: 0;
+  --emr-segmented-button-border-radius: theme('borderRadius.lg');
+  --emr-segmented-button-padding: 0 theme('padding.2');
+  --emr-segmented-button-min-width: 0;
+}
+
+html.dark {
+  .emr-segmented[theme="simple"] {
+    --emr-segmented-button-color: theme('colors.neutral.400');
+    --emr-segmented-button-hover-color: theme('colors.white');
+  }
+}

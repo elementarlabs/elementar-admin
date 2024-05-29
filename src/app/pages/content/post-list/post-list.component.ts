@@ -4,7 +4,7 @@ import {
   DataViewComponent,
   DataViewRowSelectionEvent,
   EmrPanelModule,
-  EmrSegmentedModule
+  EmrSegmentedModule, VDividerComponent
 } from '@elementar/components';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
@@ -59,7 +59,8 @@ const DATA: PeriodicElement[] = [
     MatTabGroup,
     EmrSegmentedModule,
     MatButton,
-    MatIcon
+    MatIcon,
+    VDividerComponent
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
@@ -94,20 +95,20 @@ export class PostListComponent implements OnInit {
 
   selectedRows: PeriodicElement[] = [];
 
-  posts$: Observable<any> = this._httpClient.get('http://localhost:8000/api/posts', {
-    headers: {
-      'Accept': 'application/json'
-    }
-  }).pipe(
-    tap(res => {
-      // console.log(res);
-    })
-  );
+  // posts$: Observable<any> = this._httpClient.get('http://localhost:8000/api/posts', {
+  //   headers: {
+  //     'Accept': 'application/json'
+  //   }
+  // }).pipe(
+  //   tap(res => {
+  //     // console.log(res);
+  //   })
+  // );
 
   ngOnInit() {
-    this.posts$.subscribe(res => {
-
-    });
+    // this.posts$.subscribe(res => {
+    //
+    // });
   }
 
   rowSelectionChanged(event: DataViewRowSelectionEvent<PeriodicElement>): void {
