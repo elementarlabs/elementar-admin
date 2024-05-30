@@ -1,5 +1,13 @@
 :host {
-  @apply w-px bg-neutral-300 dark:bg-neutral-700;
+  @apply block;
+}
+
+:host:not([class*="w-"]) {
+  @apply w-px;
+}
+
+:host:not([class*="bg-"]) {
+  @apply bg-neutral-300 dark:bg-neutral-700;
 }
 
 :host:not([class*="h-"]) {
