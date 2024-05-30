@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { EmrDividerModule } from '@elementar/components';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { HDividerComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-notifications',
   standalone: true,
   imports: [
-    EmrDividerModule,
     MatButton,
     MatIcon,
-    MatSlideToggle
+    MatSlideToggle,
+    HDividerComponent
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'

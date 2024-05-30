@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import {
   BasicDividerExampleComponent
 } from '../../divider/_examples/basic-divider-example/basic-divider-example.component';
-import {
-  DividerWithTextExampleComponent
-} from '../../divider/_examples/divider-with-text-example/divider-with-text-example.component';
 import { PlaygroundComponent } from '@meta/playground/playground.component';
 import {
   BasicSuggestionsExampleComponent
@@ -17,7 +14,6 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
   standalone: true,
   imports: [
     BasicDividerExampleComponent,
-    DividerWithTextExampleComponent,
     PlaygroundComponent,
     BasicSuggestionsExampleComponent,
     PageComponent,

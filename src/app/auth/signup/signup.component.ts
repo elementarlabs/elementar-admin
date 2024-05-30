@@ -4,7 +4,7 @@ import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field'
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { EmrDividerModule } from '@elementar/components';
+import { HDividerComponent } from '@elementar/components';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +17,7 @@ import { EmrDividerModule } from '@elementar/components';
     MatSuffix,
     RouterLink,
     ReactiveFormsModule,
-    EmrDividerModule
+    HDividerComponent
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'

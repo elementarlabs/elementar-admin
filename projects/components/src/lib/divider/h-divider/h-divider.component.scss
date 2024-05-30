@@ -1,0 +1,27 @@
+:host {
+  @apply relative block;
+
+  .content:empty {
+    @apply hidden;
+  }
+}
+
+:host:not([class*="h-"]) {
+  @apply h-px;
+}
+
+:host:not([class*="bg-"]) {
+  @apply bg-neutral-300;
+}
+
+:host:not([class*="text-"]) {
+  @apply text-neutral-500;
+}
+
+:host-context(html.dark):not([class*="dark:bg-"]) {
+  @apply bg-neutral-variant-800;
+}
+
+:host-context(html.dark):not([class*="dark:text-"]) {
+  @apply text-neutral-400;
+}

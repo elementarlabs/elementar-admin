@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule, HDividerComponent } from '@elementar/components';
 import { MatRipple } from '@angular/material/core';
 import { EmrSkeletonModule } from '@elementar/components';
 import { NgTemplateOutlet } from '@angular/common';
@@ -24,7 +24,8 @@ import {
     MentionedInCommentNotification,
     InviteToEditFilesInFolderNotification,
     EmrSkeletonModule,
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    HDividerComponent
   ],
   templateUrl: './notification-list.component.html',
   styleUrl: './notification-list.component.scss'

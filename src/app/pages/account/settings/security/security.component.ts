@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule, HDividerComponent } from '@elementar/components';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { EmrDividerModule } from '@elementar/components';
 
 @Component({
   standalone: true,
@@ -14,7 +13,7 @@ import { EmrDividerModule } from '@elementar/components';
     MatIcon,
     MatSlideToggle,
     FormsModule,
-    EmrDividerModule
+    HDividerComponent
   ],
   templateUrl: './security.component.html',
   styleUrl: './security.component.scss'
