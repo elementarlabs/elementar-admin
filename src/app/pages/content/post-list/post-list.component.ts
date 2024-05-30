@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   DataViewColumnDef,
   DataViewComponent,
@@ -7,56 +7,56 @@ import {
   EmrSegmentedModule, VDividerComponent
 } from '@elementar/components';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
-import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { faker } from '@faker-js/faker';
 
-export interface PeriodicElement {
+export interface User {
+  id: string;
+  username: string,
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  email: string,
+  avatar: string
 }
 
-const DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
-];
+export interface Post {
+  id: string;
+  title: string;
+  author: User;
+  status: string;
+  createdAt: Date;
+  publishedAt?: Date;
+}
+
+export function createRandomUser(): User {
+  return {
+    id: faker.string.uuid(),
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar(),
+    name: faker.person.fullName()
+  };
+}
+
+export function createRandomPost(): Post {
+  return {
+    id: faker.string.uuid(),
+    title: faker.lorem.words(5),
+    createdAt: faker.date.past(),
+    publishedAt: faker.date.past(),
+    author: createRandomUser(),
+    status: 'published'
+  };
+}
 
 @Component({
-  selector: 'app-post-list',
   standalone: true,
   imports: [
     EmrPanelModule,
     DataViewComponent,
     MatPaginator,
-    MatButtonToggle,
-    MatButtonToggleGroup,
     FormsModule,
-    MatTab,
-    MatTabGroup,
     EmrSegmentedModule,
     MatButton,
     MatIcon,
@@ -66,56 +66,48 @@ const DATA: PeriodicElement[] = [
   styleUrl: './post-list.component.scss'
 })
 export class PostListComponent implements OnInit {
-  private _httpClient = inject(HttpClient);
-
   status = 'all';
   columnDefs: DataViewColumnDef[] = [
     {
-      name: 'Position',
-      dataField: 'position',
+      name: 'Id',
+      dataField: 'id',
+      visible: false
+    },
+    {
+      name: 'Title',
+      dataField: 'title',
       visible: true
     },
     {
-      name: 'Name',
-      dataField: 'name',
+      name: 'Author',
+      dataField: 'author',
       visible: true
     },
     {
-      name: 'Weight',
-      dataField: 'weight',
+      name: 'Created At',
+      dataField: 'createdAt',
       visible: true
     },
     {
-      name: 'Symbol',
-      dataField: 'symbol',
+      name: 'Published At',
+      dataField: 'publishedAt',
       visible: true
     }
   ];
-  data = [...DATA];
-
-  selectedRows: PeriodicElement[] = [];
-
-  // posts$: Observable<any> = this._httpClient.get('http://localhost:8000/api/posts', {
-  //   headers: {
-  //     'Accept': 'application/json'
-  //   }
-  // }).pipe(
-  //   tap(res => {
-  //     // console.log(res);
-  //   })
-  // );
+  data: Post[] = [];
+  selectedRows: Post[] = [];
 
   ngOnInit() {
-    // this.posts$.subscribe(res => {
-    //
-    // });
+    this.data = faker.helpers.multiple(createRandomPost, {
+      count: 50,
+    });
   }
 
-  rowSelectionChanged(event: DataViewRowSelectionEvent<PeriodicElement>): void {
+  rowSelectionChanged(event: DataViewRowSelectionEvent<Post>): void {
     console.log(event);
   }
 
-  selectionChanged(rows: PeriodicElement[]): void {
+  selectionChanged(rows: Post[]): void {
     this.selectedRows = rows;
   }
 

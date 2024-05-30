@@ -1,0 +1,11 @@
+:host {
+  ::ng-deep {
+    .milkdown {
+      min-height: 100%;
+
+      .ProseMirror {
+        min-width: 100%;
+      }
+    }
+  }
+}
