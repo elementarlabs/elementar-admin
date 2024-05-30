@@ -2,6 +2,9 @@
   animation: var(--emr-skeleton-item-animation);
   display: block;
   flex: none;
+}
+
+:host:not([class*="rounded"]) {
   border-radius: var(--emr-skeleton-item-border-radius);
 }
 

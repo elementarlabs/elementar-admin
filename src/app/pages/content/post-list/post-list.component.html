@@ -4,15 +4,28 @@
       <div class="flex items-center gap-7">
         <div class="text-lg font-bold">Posts</div>
         <emr-v-divider></emr-v-divider>
-        <emr-segmented [(ngModel)]="status" theme="simple" class="-mx-2">
-          <emr-segmented-button value="all">All</emr-segmented-button>
-          <emr-segmented-button value="published">Published</emr-segmented-button>
-          <emr-segmented-button value="scheduled">Scheduled</emr-segmented-button>
-          <emr-segmented-button value="draft">Drafts</emr-segmented-button>
-        </emr-segmented>
-        <emr-v-divider></emr-v-divider>
-        <input type="text" placeholder="Search..."
-               class="border-b h-10 w-96 text-sm bg-transparent dark:border-b-inverse outline-0 focus-within:border-neutral-950">
+        @if (selectedRows.length === 0) {
+          <emr-segmented [(ngModel)]="status" theme="simple" class="-mx-2">
+            <emr-segmented-button value="all">All</emr-segmented-button>
+            <emr-segmented-button value="published">Published</emr-segmented-button>
+            <emr-segmented-button value="scheduled">Scheduled</emr-segmented-button>
+            <emr-segmented-button value="draft">Drafts</emr-segmented-button>
+          </emr-segmented>
+          <emr-v-divider></emr-v-divider>
+          <input type="text" placeholder="Search..."
+                 class="border-b h-10 w-96 text-sm bg-transparent dark:border-b-inverse outline-0 focus-within:border-neutral-950">
+        } @else {
+          <div class="text-sm">Checked <span class="font-bold">{{ selectedRows.length }}</span></div>
+          <emr-v-divider></emr-v-divider>
+          <div class="flex items-center gap-4">
+            <button mat-stroked-button>
+              <mat-icon class="font-icon">download</mat-icon>Unpublish
+            </button>
+            <button mat-stroked-button color="warn">
+              <mat-icon class="font-icon">delete</mat-icon>Delete
+            </button>
+          </div>
+        }
       </div>
       <div>
         <button mat-flat-button>
@@ -22,10 +35,11 @@
     </div>
   </emr-panel-header>
   <emr-panel-body>
-    <div class="px-10 pb-6">
+    <div class="px-10 pb-5">
       <emr-data-view [columnDefs]="columnDefs"
                      [data]="data"
                      [paginator]="paginator"
+                     [cellRenderers]="cellRenderers"
                      withSelection
                      stickyHeader
                      withSorting

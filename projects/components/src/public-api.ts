@@ -38,6 +38,7 @@ export * from './lib/safe-html.pipe';
 export * from './lib/safe-resource-url.pipe';
 export * from './lib/_services/public-api';
 export * from './lib/_directives/public-api';
+export * from './lib/_pipes/public-api';
 export * from './lib/icon/public-api';
 export * from './lib/data-view/public-api';
 export * from './lib/overlay/public-api';

@@ -3,16 +3,24 @@
   @if (withSelection()) {
     <ng-container matColumnDef="selection">
       <mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                      [checked]="selection.hasValue() && isAllSelected()"
-                      [indeterminate]="selection.hasValue() && !isAllSelected()">
-        </mat-checkbox>
+        @if (loadingCellRenderers) {
+          <emr-skeleton-block class="size-6"></emr-skeleton-block>
+        } @else {
+          <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        }
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()"
-                      (change)="rowSelectionToggle($event, row)"
-                      [checked]="selection.isSelected(row)">
-        </mat-checkbox>
+        @if (loadingCellRenderers) {
+          <emr-skeleton-block class="size-6 max-w-full"></emr-skeleton-block>
+        } @else {
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="rowSelectionToggle($event, row)"
+                        [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        }
       </mat-cell>
     </ng-container>
   }
@@ -20,8 +28,25 @@
   @for (columnDef of columnDefs(); track columnDef) {
     @if (columnDef.visible) {
       <ng-container [matColumnDef]="columnDef.dataField">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ columnDef.name }}</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element[columnDef.dataField] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          @if (loadingCellRenderers) {
+            <emr-skeleton-line class="w-24 max-w-full"></emr-skeleton-line>
+          } @else {
+            {{ columnDef.name }}
+          }
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          @if (loadingCellRenderers) {
+            <emr-skeleton-line></emr-skeleton-line>
+          } @else {
+            @if (columnDef.dataRenderer && hasCellRenderer(columnDef.dataRenderer)) {
+              <ng-container [ngComponentOutlet]="getCellRenderer(columnDef.dataRenderer)"
+                            [ngComponentOutletInputs]="{ element, columnDef, fieldData: element[columnDef.dataField]  }"/>
+            } @else {
+              {{ element[columnDef.dataField] }}
+            }
+          }
+        </mat-cell>
       </ng-container>
     }
   }

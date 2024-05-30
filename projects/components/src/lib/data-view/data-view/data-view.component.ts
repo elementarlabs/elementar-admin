@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, computed, input, output, viewChild } from '@angular/core';
+import { booleanAttribute, Component, computed, input, OnInit, output, viewChild } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -8,10 +8,16 @@ import {
   MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
-import { DataViewColumnDef, DataViewRowSelectionEvent } from '../types';
+import {
+  DataViewCellRenderer,
+  DataViewColumnDef,
+  DataViewRowSelectionEvent
+} from '../types';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
+import { EmrSkeletonModule } from '../../skeleton';
+import { NgComponentOutlet } from '@angular/common';
 
 @Component({
   selector: 'emr-data-view',
@@ -30,7 +36,9 @@ import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
     MatTable,
     MatHeaderCellDef,
     MatSort,
-    MatSortHeader
+    MatSortHeader,
+    EmrSkeletonModule,
+    NgComponentOutlet
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
@@ -39,7 +47,7 @@ import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
     '[class.highlight-header]': 'highlightHeader()'
   }
 })
-export class DataViewComponent<T> {
+export class DataViewComponent<T> implements OnInit {
   private _matTable = viewChild<MatTable<T>>('table');
   private _matSort = viewChild<MatSort>(MatSort);
 
@@ -84,13 +92,31 @@ export class DataViewComponent<T> {
 
     return dataSource;
   });
+  cellRenderers = input<DataViewCellRenderer[]>([]);
 
   protected selection = new SelectionModel<T>(true, []);
+  protected cellRenderersMap = new Map<string, any>();
+  protected loadingCellRenderers = false;
 
   readonly rowSelectionChanged = output<DataViewRowSelectionEvent<T>>();
   readonly selectionChanged = output<T[]>();
   readonly allRowsSelectionChanged = output<boolean>();
   readonly sortChanged = output<Sort>();
+
+  ngOnInit() {
+    if (this.cellRenderers().length === 0) {
+      return;
+    }
+
+    this.loadingCellRenderers = true;
+    const components = this.cellRenderers().map(cellRenderer => cellRenderer.component());
+    Promise.all(components).then(components => {
+      components.forEach((component, index: number) => {
+        this.cellRenderersMap.set(this.cellRenderers()[index].dataRenderer, component)
+      });
+      this.loadingCellRenderers = false;
+    });
+  }
 
   get matTable(): MatTable<T> {
     return this._matTable() as MatTable<T>;
@@ -98,6 +124,14 @@ export class DataViewComponent<T> {
 
   get matSort(): MatSort {
     return this._matSort() as MatSort;
+  }
+
+  hasCellRenderer(dataRenderer: string): boolean {
+    return this.cellRenderersMap.has(dataRenderer);
+  }
+
+  getCellRenderer(dataRenderer: string): any {
+    return this.cellRenderersMap.get(dataRenderer);
   }
 
   /** Whether the number of selected elements matches the total number of rows. */

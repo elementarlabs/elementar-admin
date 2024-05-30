@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  DataViewCellRenderer,
   DataViewColumnDef,
   DataViewComponent,
   DataViewRowSelectionEvent,
@@ -8,7 +9,7 @@ import {
 } from '@elementar/components';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { faker } from '@faker-js/faker';
 
@@ -60,7 +61,8 @@ export function createRandomPost(): Post {
     EmrSegmentedModule,
     MatButton,
     MatIcon,
-    VDividerComponent
+    VDividerComponent,
+    MatIconButton
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
@@ -81,21 +83,34 @@ export class PostListComponent implements OnInit {
     {
       name: 'Author',
       dataField: 'author',
+      dataRenderer: 'author',
       visible: true
     },
     {
       name: 'Created At',
       dataField: 'createdAt',
+      dataRenderer: 'date',
       visible: true
     },
     {
       name: 'Published At',
       dataField: 'publishedAt',
+      dataRenderer: 'date',
       visible: true
     }
   ];
   data: Post[] = [];
   selectedRows: Post[] = [];
+  cellRenderers: DataViewCellRenderer[] = [
+    {
+      dataRenderer: 'author',
+      component: () => import('../_renderers/dv-author-renderer/dv-author-renderer.component').then(c => c.DvAuthorRendererComponent)
+    },
+    {
+      dataRenderer: 'date',
+      component: () => import('../_renderers/dv-date-renderer/dv-date-renderer.component').then(c => c.DvDateRendererComponent)
+    }
+  ];
 
   ngOnInit() {
     this.data = faker.helpers.multiple(createRandomPost, {
@@ -104,7 +119,7 @@ export class PostListComponent implements OnInit {
   }
 
   rowSelectionChanged(event: DataViewRowSelectionEvent<Post>): void {
-    console.log(event);
+    // console.log(event.checked);
   }
 
   selectionChanged(rows: Post[]): void {
@@ -112,6 +127,6 @@ export class PostListComponent implements OnInit {
   }
 
   allRowsSelectionChanged(isAllSelected: boolean): void {
-    console.log(isAllSelected);
+    // console.log(isAllSelected);
   }
 }

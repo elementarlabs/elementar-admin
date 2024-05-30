@@ -1,8 +1,12 @@
 :host {
   --mat-table-row-item-outline-width: 0;
 
-  .mdc-data-table__cell:has(.mat-mdc-checkbox):first-child,
-  .mdc-data-table__header-cell:has(.mat-mdc-checkbox):first-child {
+  .emr-skeleton-block {
+    z-index: 1;
+  }
+
+  .mdc-data-table__cell.mat-column-selection:first-child,
+  .mdc-data-table__header-cell.mat-column-selection:first-child {
     @apply max-w-16 p-0 justify-center;
   }
 
@@ -47,6 +51,11 @@
         }
       }
 
+      .mdc-data-table__header-cell {
+        --emr-skeleton-from-bg: theme('colors.neutral.300/60');
+        --emr-skeleton-from-to: theme('colors.neutral.400/50');
+      }
+
       .mat-mdc-table .mat-mdc-header-cell {
         background: transparent;
         @apply text-neutral-700 dark:text-neutral-400;
@@ -79,5 +88,12 @@
 :host-context(html.dark) {
   .mat-mdc-row.mdc-data-table__row:not(.is-selected) {
     border-color: theme('borderColor.inverse') !important;
+  }
+
+  ::ng-deep {
+    .mdc-data-table__header-cell {
+      --emr-skeleton-from-bg: theme('colors.neutral.700/60');
+      --emr-skeleton-from-to: theme('colors.neutral.800/50');
+    }
   }
 }

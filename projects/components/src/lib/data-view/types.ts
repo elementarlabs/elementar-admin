@@ -12,3 +12,8 @@ export interface DataViewRowSelectionEvent<T> {
   row: T;
   checked: boolean;
 }
+
+export interface DataViewCellRenderer {
+  dataRenderer: string;
+  component: () => Promise<any>;
+}
