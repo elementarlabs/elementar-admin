@@ -537,11 +537,6 @@ export class SidebarComponent {
           type: 'link',
           name: 'Post List',
           link: '/pages/content/posts/list'
-        },
-        {
-          type: 'link',
-          name: 'Post New',
-          link: '/pages/content/posts/new'
         }
       ]
     },
