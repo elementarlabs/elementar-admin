@@ -540,6 +540,19 @@ export class SidebarComponent {
         }
       ]
     },
+    {
+      id: 'service-pages',
+      type: 'group',
+      icon: 'layers',
+      name: 'Service Pages',
+      children: [
+        {
+          type: 'link',
+          name: 'Pending Email Activation',
+          link: '/pages/service-pages/pending-email-activation'
+        }
+      ]
+    },
   ];
   navItemLinks: NavItem[] = [];
   activeLinkId: any = '/';

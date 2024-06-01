@@ -275,6 +275,10 @@ const routes: Routes = [
         loadChildren: () => import('./content/content.module').then(m => m.ContentModule)
       },
       {
+        path: 'service-pages',
+        loadChildren: () => import('./service-pages/service-pages.module').then(m => m.ServicePagesModule)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard'
