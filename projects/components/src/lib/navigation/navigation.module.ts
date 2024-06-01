@@ -9,6 +9,7 @@ import { NavigationGroupToggleComponent } from './navigation-group-toggle/naviga
 import { NavigationGroupMenuComponent } from './navigation-group-menu/navigation-group-menu.component';
 import { NavigationItemIconDirective } from './navigation-item-icon.directive';
 import { NavigationGroupToggleIconDirective } from './navigation-group-toggle-icon.directive';
+import { MatRipple } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavigationGroupToggleIconDirective } from './navigation-group-toggle-ic
     NavigationGroupToggleIconDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatRipple
   ],
   exports: [
     NavigationComponent,

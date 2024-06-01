@@ -2,7 +2,6 @@
   padding-inline-start: var(--emr-navigation-group-menu-padding-start);
   margin-top: var(--emr-navigation-item-space-y);
   display: none;
-
   //display: block;
   //height: 0;
   //opacity: 0;
@@ -11,54 +10,12 @@
 }
 
 :host(.is-active) {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: var(--emr-navigation-items-gap);
+  padding: calc(var(--emr-navigation-items-gap) * 2) 0;
   //opacity: 1;
   //height: calc-size(auto);
   //transition: height 0.3s, opacity 0.5s, content-visibility 0.3s step-start;
 }
-
-:host ::ng-deep .emr-navigation-item {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  white-space: nowrap;
-  position: relative;
-  flex: none;
-  cursor: pointer;
-  user-select: none;
-  background-color: var(--emr-navigation-nested-item-bg);
-  min-height: var(--emr-navigation-nested-item-height);
-  padding: var(--emr-navigation-nested-item-padding);
-  font-size: var(--emr-navigation-item-font-size);
-  font-weight: var(--emr-navigation-item-font-weight);
-  color: var(--emr-navigation-nested-item-color);
-  gap: var(--emr-navigation-item-gap);
-}
-
-/*:host ::ng-deep .emr-navigation-item:before {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  display: none;*/
-/*  transform: translateY(-50%);*/
-/*  inset-inline-start: var(--emr-navigation-nested-item-indicator-position-start);*/
-/*  width: var(--emr-navigation-nested-item-indicator-width);*/
-/*  height: var(--emr-navigation-nested-item-indicator-height);*/
-/*  background-color: var(--emr-navigation-nested-item-indicator-bg);*/
-/*}*/
-
-:host ::ng-deep .emr-navigation-item:hover {
-  background-color: var(--emr-navigation-nested-item-hover-bg);
-  color: var(--emr-navigation-nested-item-hover-color);
-}
-
-:host ::ng-deep .emr-navigation-item.is-active,
-:host ::ng-deep .emr-navigation-item.is-active:hover {
-  background-color: var(--emr-navigation-nested-item-active-bg);
-  color: var(--emr-navigation-nested-item-active-color);
-}
-
-/*:host ::ng-deep .emr-navigation-item:hover:before,*/
-/*:host ::ng-deep .emr-navigation-item.is-active:before {*/
-/*  display: block;*/
-/*}*/

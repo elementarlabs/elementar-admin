@@ -1,12 +1,16 @@
 import { Component, ContentChild, HostListener, inject, Input } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationGroupToggleIconDirective } from '../navigation-group-toggle-icon.directive';
+import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'emr-navigation-group-toggle',
   exportAs: 'emrNavigationGroupToggle',
   templateUrl: './navigation-group-toggle.component.html',
   styleUrls: ['./navigation-group-toggle.component.scss'],
+  hostDirectives: [
+    MatRipple
+  ],
   host: {
     class: 'emr-navigation-group-toggle',
     '[class.is-active]': 'active'

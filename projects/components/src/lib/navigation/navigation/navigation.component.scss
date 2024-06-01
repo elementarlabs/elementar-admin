@@ -1,4 +1,6 @@
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--emr-navigation-items-gap);
   background: var(--emr-navigation-bg);
 }

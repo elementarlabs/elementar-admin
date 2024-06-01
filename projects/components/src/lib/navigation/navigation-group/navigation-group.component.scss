@@ -3,10 +3,6 @@
   border-radius: var(--emr-navigation-group-border-radius);
 }
 
-:host:not(:first-child) {
-  margin-top: var(--emr-navigation-item-space-y);
-}
-
 :host:has(.emr-navigation-group-toggle.is-active) {
   background: var(--emr-navigation-group-active-bg);
 }
