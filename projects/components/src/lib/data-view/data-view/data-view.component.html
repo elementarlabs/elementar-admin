@@ -38,7 +38,7 @@
           </div>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <div class="overflow-hidden">
+          <div class="overflow-hidden w-full">
             @if (loadingCellRenderers || loading()) {
               <emr-skeleton-line></emr-skeleton-line>
             } @else {
