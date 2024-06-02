@@ -8,64 +8,73 @@
   font-weight: var(--emr-avatar-font-weight);
   border-radius: var(--emr-avatar-border-radius);
   position: relative;
-  color: var(--emr-avatar-color);
-}
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  width: var(--emr-avatar-size);
-}
+  &:not([class*="text-"]) {
+    color: var(--emr-avatar-color);
+  }
 
-:host:not([class*="h-"]):not([class*="size-"]) {
-  height: var(--emr-avatar-size);
-}
+  &:not([class*="w-"]):not([class*="size-"]) {
+    width: var(--emr-avatar-size);
+  }
 
-:host:not([class*="bg-"]) {
-  background: var(--emr-avatar-bg);
-}
+  &:not([class*="h-"]):not([class*="size-"]) {
+    height: var(--emr-avatar-size);
+  }
 
-:host(.is-clickable) {
-  cursor: pointer;
-}
+  &:not([class*="bg-"]) {
+    background: var(--emr-avatar-bg);
+  }
 
-:host(.is-hidden) {
-  display: none;
-}
+  &.is-clickable {
+    cursor: pointer;
+  }
 
-:host(.is-clickable:active) {
-  scale: .97;
-}
+  &.is-hidden {
+    display: none;
+  }
 
-:host .image {
-  display: inline;
-  object-fit: cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  z-index: 1;
-}
+  &.is-clickable:active {
+    scale: .97;
+  }
 
-:host .presence-indicator {
-  position: absolute;
-  z-index: 1;
-  outline: var(--emr-avatar-presence-indicator-outline);
-  border-radius: 6.1875rem;
-  width: var(--emr-avatar-presence-indicator-size);
-  height: var(--emr-avatar-presence-indicator-size);
-  top: var(--emr-avatar-presence-indicator-position-top);
-  inset-inline-end: var(--emr-avatar-presence-indicator-position-end);
-}
+  .image {
+    display: inline;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: 1;
+  }
 
-:host .presence-indicator.is-online {
-  background: var(--emr-avatar-presence-indicator-online-bg);
-}
+  .presence-indicator {
+    position: absolute;
+    z-index: 1;
+    outline: var(--emr-avatar-presence-indicator-outline);
+    border-radius: 6.1875rem;
+    width: var(--emr-avatar-presence-indicator-size);
+    height: var(--emr-avatar-presence-indicator-size);
+    top: var(--emr-avatar-presence-indicator-position-top);
+    inset-inline-end: var(--emr-avatar-presence-indicator-position-end);
 
-:host .presence-indicator.is-offline {
-  background: var(--emr-avatar-presence-indicator-offline-bg);
-}
+    &.is-online {
+      background: var(--emr-avatar-presence-indicator-online-bg);
+    }
 
-:host ::ng-deep .mat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    &.is-offline {
+      background: var(--emr-avatar-presence-indicator-offline-bg);
+    }
+  }
+
+  ::ng-deep {
+    .mat-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &.has-automatic-color {
+    border: 1px solid var(--emr-avatar-border-color);
+  }
 }

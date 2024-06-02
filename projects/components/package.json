@@ -1,7 +1,7 @@
 {
   "name": "@elementar/components",
   "description": "Elementar Admin - Free and open source Angular admin panel based on Material 3 and Tailwind",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/elementarlabs/elementar-admin.git"

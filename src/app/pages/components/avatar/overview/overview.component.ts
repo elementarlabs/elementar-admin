@@ -17,6 +17,9 @@ import {
 } from '../_examples/avatar-presence-indicator-example/avatar-presence-indicator-example.component';
 import { PageComponent } from '@meta/page/page.component';
 import { PageContentDirective } from '@meta/page/page-content.directive';
+import {
+  AvatarAutomaticColorExampleComponent
+} from '../_examples/avatar-automatic-color-example/avatar-automatic-color-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -31,7 +34,8 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
     GroupedAndTotalAvatarsExampleComponent,
     AvatarPresenceIndicatorExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    AvatarAutomaticColorExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
