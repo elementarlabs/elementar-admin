@@ -1,5 +1,5 @@
-import { Component, input, OnInit } from '@angular/core';
-import { DataViewCellRendererComponent, EmrAvatarModule, InitialsPipe } from '@elementar/components';
+import { Component, input } from '@angular/core';
+import { DataViewCellRendererComponent, DataViewColumnDef, EmrAvatarModule, InitialsPipe } from '@elementar/components';
 
 @Component({
   selector: 'app-user-cell',
@@ -11,13 +11,8 @@ import { DataViewCellRendererComponent, EmrAvatarModule, InitialsPipe } from '@e
   templateUrl: './user-cell.renderer.html',
   styleUrl: './user-cell.renderer.scss'
 })
-export class UserCellRenderer implements DataViewCellRendererComponent, OnInit {
+export class UserCellRenderer implements DataViewCellRendererComponent {
   element = input<any>();
-  columnDef = input();
+  columnDef = input<DataViewColumnDef>();
   fieldData = input();
-
-  protected _user: any;
-
-  ngOnInit() {
-  }
 }

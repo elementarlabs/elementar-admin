@@ -1,0 +1,17 @@
+import { Component, input } from '@angular/core';
+import { DataViewCellRendererComponent, IconComponent } from '@elementar/components';
+
+@Component({
+  selector: 'app-enabled-cell',
+  standalone: true,
+  imports: [
+    IconComponent
+  ],
+  templateUrl: './enabled-cell.renderer.html',
+  styleUrl: './enabled-cell.renderer.scss'
+})
+export class EnabledCellRenderer implements DataViewCellRendererComponent {
+  element = input();
+  columnDef = input();
+  fieldData = input<string>();
+}

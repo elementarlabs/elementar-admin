@@ -4,20 +4,16 @@ import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@ele
 
 export interface User {
   id: string;
-  username: string,
+  username: string;
   name: string;
-  email: string,
+  email: string;
+  enabled: boolean;
+  website: string;
   avatar: {
     url: string;
     color: string;
   };
   createdAt: string;
-}
-
-export interface Team {
-  id: string;
-  name: string;
-  color: string;
 }
 
 export function createRandomUser(): User {
@@ -29,6 +25,8 @@ export function createRandomUser(): User {
       url: faker.image.avatar(),
       color: faker.color.human()
     },
+    enabled: Math.random() > .5,
+    website: faker.internet.url(),
     name: faker.person.fullName(),
     createdAt: faker.date.past().toDateString()
   };
@@ -57,9 +55,21 @@ export class DataViewCustomCellRenderersExampleComponent implements OnInit {
       visible: true
     },
     {
+      name: 'Enabled',
+      dataField: 'enabled',
+      dataRenderer: 'enabled',
+      visible: true
+    },
+    {
       name: 'Created At',
       dataField: 'createdAt',
       dataRenderer: 'date',
+      visible: true
+    },
+    {
+      name: 'Website',
+      dataField: 'website',
+      dataRenderer: 'link',
       visible: true
     }
   ];
@@ -72,6 +82,14 @@ export class DataViewCustomCellRenderersExampleComponent implements OnInit {
     {
       dataRenderer: 'date',
       component: () => import('../../_prebuilt-renderers/date-cell/date-cell.renderer').then(c => c.DateCellRenderer)
+    },
+    {
+      dataRenderer: 'enabled',
+      component: () => import('../../_prebuilt-renderers/enabled-cell/enabled-cell.renderer').then(c => c.EnabledCellRenderer)
+    },
+    {
+      dataRenderer: 'link',
+      component: () => import('../../_prebuilt-renderers/link-cell/link-cell.renderer').then(c => c.LinkCellRenderer)
     }
   ];
 

@@ -11,7 +11,7 @@
   }
 
   .mat-mdc-header-cell {
-    @apply uppercase text-xs;
+    @apply uppercase text-xs overflow-hidden;
   }
 
   .mat-mdc-row.mdc-data-table__row {

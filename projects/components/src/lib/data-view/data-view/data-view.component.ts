@@ -1,4 +1,14 @@
-import { booleanAttribute, Component, computed, input, OnInit, output, viewChild } from '@angular/core';
+import {
+  booleanAttribute,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  inject, Injector,
+  input,
+  OnInit,
+  output,
+  viewChild
+} from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -48,6 +58,7 @@ import { NgComponentOutlet } from '@angular/common';
   }
 })
 export class DataViewComponent<T> implements OnInit {
+  private _cdr = inject(ChangeDetectorRef);
   private _matTable = viewChild<MatTable<T>>('table');
   private _matSort = viewChild<MatSort>(MatSort);
 
@@ -93,7 +104,11 @@ export class DataViewComponent<T> implements OnInit {
     return dataSource;
   });
   cellRenderers = input<DataViewCellRenderer[]>([]);
+  loading = input(false, {
+    transform: booleanAttribute
+  });
 
+  protected injector = inject(Injector);
   protected selection = new SelectionModel<T>(true, []);
   protected cellRenderersMap = new Map<string, any>();
   protected loadingCellRenderers = false;
@@ -115,6 +130,7 @@ export class DataViewComponent<T> implements OnInit {
         this.cellRenderersMap.set(this.cellRenderers()[index].dataRenderer, component)
       });
       this.loadingCellRenderers = false;
+      this._cdr.detectChanges();
     });
   }
 
