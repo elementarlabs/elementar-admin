@@ -15,10 +15,10 @@ import { faker } from '@faker-js/faker';
 
 export interface User {
   id: string;
-  username: string,
+  username: string;
   name: string;
-  email: string,
-  avatar: string
+  email: string;
+  avatar: string;
 }
 
 export interface Post {

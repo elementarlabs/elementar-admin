@@ -17,3 +17,9 @@ export interface DataViewCellRenderer {
   dataRenderer: string;
   component: () => Promise<any>;
 }
+
+export interface DataViewCellRendererComponent {
+  element: any;
+  columnDef: any;
+  fieldData: any;
+}
