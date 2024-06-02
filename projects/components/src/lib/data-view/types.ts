@@ -1,11 +1,11 @@
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { InputSignal } from '@angular/core';
 
 export interface DataViewColumnDef {
   name: string;
   dataField: string;
   dataRenderer?: string;
   visible: boolean;
+  width?: string;
 }
 
 export interface DataViewRowSelectionEvent<T> {

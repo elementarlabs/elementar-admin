@@ -28,8 +28,9 @@
   @for (columnDef of columnDefs(); track columnDef) {
     @if (columnDef.visible) {
       <ng-container [matColumnDef]="columnDef.dataField">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          <div class="overflow-hidden">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell"
+                         [style.--emr-data-view-cell-width]="columnDef.width">
+          <div class="overflow-hidden w-full">
             @if (loadingCellRenderers || loading()) {
               <emr-skeleton-line class="w-24 max-w-full"></emr-skeleton-line>
             } @else {
@@ -37,7 +38,8 @@
             }
           </div>
         </mat-header-cell>
-        <mat-cell *matCellDef="let element">
+        <mat-cell *matCellDef="let element" class="cell"
+                  [style.--emr-data-view-cell-width]="columnDef.width">
           <div class="overflow-hidden w-full">
             @if (loadingCellRenderers || loading()) {
               <emr-skeleton-line></emr-skeleton-line>

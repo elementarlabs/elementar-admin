@@ -2,6 +2,7 @@
   --emr-data-view-hl-header-row-bg: theme('colors.neutral.200');
   --emr-data-view-hl-header-margin: theme('margin.1') 0;
   --emr-data-view-sticky-header-top: 0;
+  --emr-data-view-selected-border-color: theme('colors.primary.DEFAULT');
 }
 
 html.dark {

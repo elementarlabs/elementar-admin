@@ -25,7 +25,14 @@
 
   .mdc-data-table__row {
     &.is-selected {
-      border-color: theme('colors.primary.DEFAULT') !important;
+      border-color: var(--emr-data-view-selected-border-color) !important;
+    }
+  }
+
+  ::ng-deep {
+    .header-cell,
+    .cell {
+      min-width: var(--emr-data-view-cell-width, auto);
     }
   }
 
