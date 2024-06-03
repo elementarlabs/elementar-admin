@@ -4,7 +4,7 @@ import {
   ElementRef,
   forwardRef,
   inject, input,
-  OnChanges,
+  OnChanges, OnInit,
   SimpleChanges
 } from '@angular/core';
 import { ULT_AVATAR_ACCESSOR } from '../avatar.properties';
@@ -30,7 +30,7 @@ const alreadyLoadedImages: string[] = [];
     '[class.has-loaded-image]': 'src() && imageLoaded',
   }
 })
-export class AvatarComponent implements OnChanges {
+export class AvatarComponent implements OnInit, OnChanges {
   private _elementRef = inject(ElementRef);
 
   src = input<string>();
@@ -42,13 +42,11 @@ export class AvatarComponent implements OnChanges {
   automaticColor = input<string>();
   presenceIndicator = input<'online' | 'offline' | null>(null);
 
-  protected imageLoaded = computed(() => {
-    if (!this.src()) {
-      return false;
-    }
+  protected imageLoaded: boolean;
 
-    return alreadyLoadedImages.includes(<string>this.src());
-  });
+  ngOnInit() {
+    this.imageLoaded = alreadyLoadedImages.includes(<string>this.src());
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['automaticColor'] && changes['automaticColor'].currentValue) {
@@ -56,8 +54,13 @@ export class AvatarComponent implements OnChanges {
     }
   }
 
-  onImageLoaded(event: any): void {
+  onImageLoaded(): void {
+    if (this.imageLoaded) {
+      return;
+    }
+
     alreadyLoadedImages.push(<string>this.src());
+    this.imageLoaded = true;
   }
 
   private _setAutomaticColor(color: any): void {

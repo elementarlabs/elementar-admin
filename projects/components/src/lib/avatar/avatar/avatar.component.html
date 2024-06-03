@@ -1,5 +1,5 @@
 @if (src()) {
-  <img class="image" loading="lazy" [src]="src()" [alt]="alt()" (load)="onImageLoaded($event)">
+  <img class="image" loading="lazy" [src]="src()" [alt]="alt() || ''" (load)="onImageLoaded()">
 }
 
 @if (presenceIndicator()) {
