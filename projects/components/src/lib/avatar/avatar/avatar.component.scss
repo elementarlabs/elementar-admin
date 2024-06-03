@@ -8,6 +8,7 @@
   font-weight: var(--emr-avatar-font-weight);
   border-radius: var(--emr-avatar-border-radius);
   position: relative;
+  box-shadow: var(--emr-avatar-inner-border);
 
   &:not([class*="text-"]) {
     color: var(--emr-avatar-color);
@@ -21,8 +22,14 @@
     height: var(--emr-avatar-size);
   }
 
-  &:not([class*="bg-"]) {
+  &:not([class*="bg-"]):not(.has-loaded-image) {
     background: var(--emr-avatar-bg);
+  }
+
+  &.has-loaded-image {
+    .text {
+      display: none;
+    }
   }
 
   &.is-clickable {

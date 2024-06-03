@@ -17,9 +17,11 @@
   --emr-avatar-total-hover-bg: theme('colors.neutral.600');
   --emr-avatar-group-item-offset: theme('spacing[2.5]');
   --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
+  --emr-avatar-inner-border: inset 0 0 2px theme('borderColor.DEFAULT');
 }
 
 html.dark {
   --emr-avatar-group-item-border: 0.125rem solid theme('colors.neutral.950');
   --emr-avatar-presence-indicator-outline: theme('colors.neutral.950') solid 2px;
+  --emr-avatar-inner-border: inset 0 0 2px theme('borderColor.inverse');
 }

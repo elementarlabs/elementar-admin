@@ -1,19 +1,19 @@
-@if (src) {
-  <img class="image" loading="lazy" [src]="src" [alt]="alt">
+@if (src()) {
+  <img class="image" loading="lazy" [src]="src()" [alt]="alt()" (load)="onImageLoaded($event)">
 }
 
-@if (presenceIndicator) {
+@if (presenceIndicator()) {
   <div class="presence-indicator"
-       [class.is-online]="presenceIndicator === 'online'"
-       [class.is-offline]="presenceIndicator === 'offline'"></div>
+       [class.is-online]="presenceIndicator() === 'online'"
+       [class.is-offline]="presenceIndicator() === 'offline'"></div>
 }
 
-@if (text) {
+@if (text()) {
   <svg
     width="100%"
-    height="100%"
     viewBox="0 0 250 250"
-    xmlns="http://www.w3.org/2000/svg" class="relative z-[0]">
+    height="100%"
+    xmlns="http://www.w3.org/2000/svg" class="relative z-[0] text">
     <text
       x="50%"
       y="50%"
@@ -21,7 +21,7 @@
       text-anchor="middle"
       font-weight="inherit"
       font-size="90"
-      fill="currentColor">{{ text }}</text>
+      fill="currentColor">{{ text() }}</text>
   </svg>
 }
 

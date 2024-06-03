@@ -1,14 +1,15 @@
 import {
   booleanAttribute,
-  Component,
+  Component, computed,
   ElementRef,
   forwardRef,
   inject, input,
-  Input, OnChanges,
-  OnInit,
-  Renderer2, SimpleChanges
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
-import { AvatarColor, ULT_AVATAR_ACCESSOR } from '../avatar.properties';
+import { ULT_AVATAR_ACCESSOR } from '../avatar.properties';
+
+const alreadyLoadedImages: string[] = [];
 
 @Component({
   selector: 'emr-avatar,[emr-avatar]',
@@ -24,37 +25,39 @@ import { AvatarColor, ULT_AVATAR_ACCESSOR } from '../avatar.properties';
   ],
   host: {
     'class': 'emr-avatar',
-    '[class.is-clickable]': 'clickable',
-    '[class.has-automatic-color]': '!!automaticColor()'
+    '[class.is-clickable]': 'clickable()',
+    '[class.has-automatic-color]': '!!automaticColor()',
+    '[class.has-loaded-image]': 'src() && imageLoaded',
   }
 })
-export class AvatarComponent implements OnInit, OnChanges {
+export class AvatarComponent implements OnChanges {
   private _elementRef = inject(ElementRef);
 
-  @Input()
-  src!: string | undefined;
-
-  @Input({ transform: booleanAttribute })
-  clickable = false;
-
-  @Input()
-  text = '';
-
-  @Input()
-  alt = '';
-
+  src = input<string>();
+  clickable = input(false, {
+    transform: booleanAttribute
+  });
+  text = input();
+  alt = input();
   automaticColor = input<string>();
+  presenceIndicator = input<'online' | 'offline' | null>(null);
 
-  @Input()
-  presenceIndicator: 'online' | 'offline' | null = null;
+  protected imageLoaded = computed(() => {
+    if (!this.src()) {
+      return false;
+    }
 
-  ngOnInit(): void {
-  }
+    return alreadyLoadedImages.includes(<string>this.src());
+  });
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['automaticColor'] && changes['automaticColor'].currentValue) {
       this._setAutomaticColor(changes['automaticColor'].currentValue);
     }
+  }
+
+  onImageLoaded(event: any): void {
+    alreadyLoadedImages.push(<string>this.src());
   }
 
   private _setAutomaticColor(color: any): void {
