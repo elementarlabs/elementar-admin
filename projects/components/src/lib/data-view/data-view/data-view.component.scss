@@ -33,6 +33,7 @@
     .header-cell,
     .cell {
       min-width: var(--emr-data-view-cell-width, auto);
+      max-width: var(--emr-data-view-cell-width, auto);
     }
   }
 

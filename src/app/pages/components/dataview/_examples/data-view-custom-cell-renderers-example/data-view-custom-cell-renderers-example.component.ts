@@ -1,35 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { faker } from '@faker-js/faker';
+import { Component, inject, OnInit } from '@angular/core';
 import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar/components';
+import { HttpClient } from '@angular/common/http';
 
 export interface User {
-  id: string;
+  id: string | number;
   username: string;
   name: string;
   email: string;
-  enabled: boolean;
+  enabled: boolean | null;
   website: string;
-  avatar: {
-    url: string;
-    color: string;
-  };
+  avatarUrl: string;
   createdAt: string;
-}
-
-export function createRandomUser(): User {
-  return {
-    id: faker.string.uuid(),
-    username: faker.internet.userName(),
-    email: faker.internet.email(),
-    avatar: {
-      url: faker.image.avatar(),
-      color: faker.color.human()
-    },
-    enabled: Math.random() > .5,
-    website: faker.internet.url(),
-    name: faker.person.fullName(),
-    createdAt: faker.date.past().toDateString()
-  };
 }
 
 @Component({
@@ -42,6 +23,8 @@ export function createRandomUser(): User {
   styleUrl: './data-view-custom-cell-renderers-example.component.scss'
 })
 export class DataViewCustomCellRenderersExampleComponent implements OnInit {
+  private _httpClient = inject(HttpClient);
+
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Id',
@@ -74,7 +57,7 @@ export class DataViewCustomCellRenderersExampleComponent implements OnInit {
       visible: true
     }
   ];
-  data: User[] = [];
+  data: User[] = []
   cellRenderers: DataViewCellRenderer[] = [
     {
       dataRenderer: 'user',
@@ -95,8 +78,11 @@ export class DataViewCustomCellRenderersExampleComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.data = faker.helpers.multiple(createRandomUser, {
-      count: 5,
-    });
+    this._httpClient
+      .get<User[]>('/assets/mockdata/data-view-custom-cell-renderers.json')
+      .subscribe(data => {
+        this.data = data;
+      })
+    ;
   }
 }

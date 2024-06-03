@@ -47,7 +47,6 @@
     "@angular/cli": "^18.0.1",
     "@angular/compiler-cli": "^18.0.0",
     "@angular/localize": "^18.0.0",
-    "@faker-js/faker": "^8.4.1",
     "@iconify-json/circle-flags": "^1.1.47",
     "@iconify-json/ph": "^1.1.12",
     "@tailwindcss/typography": "^0.5.10",
