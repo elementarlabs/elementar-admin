@@ -6,12 +6,15 @@
   flex: none;
   text-transform: uppercase;
   font-weight: var(--emr-avatar-font-weight);
-  border-radius: var(--emr-avatar-border-radius);
   position: relative;
   box-shadow: var(--emr-avatar-inner-border);
 
   &:not([class*="text-"]) {
     color: var(--emr-avatar-color);
+  }
+
+  &:not([class*="rounded"]) {
+    border-radius: var(--emr-avatar-border-radius);
   }
 
   &:not([class*="w-"]):not([class*="size-"]) {

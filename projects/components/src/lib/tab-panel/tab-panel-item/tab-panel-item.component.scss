@@ -12,23 +12,37 @@
   border-radius: var(--emr-tab-panel-item-border-radius);
   color: var(--emr-tab-panel-item-color);
   gap: var(--emr-tab-panel-item-gap);
+
+  &:not(.is-active):hover {
+    background: var(--emr-tab-panel-item-hover-bg);
+    color: var(--emr-tab-panel-item-hover-color);
+  }
+
+  &.is-active {
+    background: var(--emr-tab-panel-item-active-bg);
+    color: var(--emr-tab-panel-item-active-color);
+  }
+
+  .icon {
+    line-height: 0;
+    display: inline-block;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .text {
+    line-height: 1;
+    white-space: nowrap;
+  }
 }
 
-:host(:not(.is-active):hover) {
-  background: var(--emr-tab-panel-item-hover-bg);
-  color: var(--emr-tab-panel-item-hover-color);
-}
+:host-context(.emr-tab-panel.is-compact) {
+  width: var(--emr-tab-panel-compact-item-width);
+  height: var(--emr-tab-panel-compact-item-height);
 
-:host(.is-active) {
-  background: var(--emr-tab-panel-item-active-bg);
-  color: var(--emr-tab-panel-item-active-color);
-}
-
-:host .icon {
-  line-height: 0;
-  display: inline-block;
-}
-
-:host .icon:empty {
-  display: none;
+  .text {
+    display: none;
+  }
 }

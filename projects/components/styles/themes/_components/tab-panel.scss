@@ -16,8 +16,15 @@
   --emr-tab-panel-nav-gap: theme('gap.3');
   --emr-tab-panel-item-text-font-size: theme('fontSize.xs');
   --emr-tab-panel-item-icon-font-size: theme('fontSize.2xl');
+
+  // compact state
+  --emr-tab-panel-compact-width: theme('width.14');
+  --emr-tab-panel-compact-item-width: theme('width.10');
+  --emr-tab-panel-compact-item-height: theme('height.10');
 }
 
 html.dark {
   --emr-tab-panel-border-end: 1px solid theme('colors.neutral.600');
+  --emr-tab-panel-item-hover-bg: theme('colors.neutral.400');
+  --emr-tab-panel-item-active-bg: theme('colors.neutral.300');
 }

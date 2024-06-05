@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { booleanAttribute, Component, EventEmitter, inject, input, Input, Output } from '@angular/core';
 import { TabPanelApiService } from '../tab-panel-api.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { TabPanelApiService } from '../tab-panel-api.service';
   ],
   host: {
     'class': 'emr-tab-panel',
-    '[class.is-hide-content-if-tab-not-selected]': 'hideContentIfTabNotSelected'
+    '[class.is-hide-content-if-tab-not-selected]': 'hideContentIfTabNotSelected',
+    '[class.is-compact]': 'compact()',
   }
 })
 export class TabPanelComponent {
@@ -24,6 +25,10 @@ export class TabPanelComponent {
   set activeItemId(id: any) {
     this.api.activate(id, false);
   }
+
+  compact = input(false, {
+    transform: booleanAttribute
+  });
 
   @Output()
   get itemIdChange(): EventEmitter<any> {

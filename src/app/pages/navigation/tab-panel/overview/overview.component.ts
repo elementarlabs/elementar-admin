@@ -6,6 +6,9 @@ import {
 import { BasicTabPanelExampleComponent } from '../_examples/basic-tab-panel-example/basic-tab-panel-example.component';
 import { PageComponent } from '@meta/page/page.component';
 import { PageContentDirective } from '@meta/page/page-content.directive';
+import {
+  TabPanelCompactExampleComponent
+} from '../_examples/tab-panel-compact-example/tab-panel-compact-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -15,7 +18,8 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
     TabPanelWithPanelsInsideExampleComponent,
     BasicTabPanelExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    TabPanelCompactExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

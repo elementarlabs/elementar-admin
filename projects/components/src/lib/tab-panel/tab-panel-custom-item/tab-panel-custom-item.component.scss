@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  user-select: none;
+  width: var(--emr-tab-panel-item-width);
+  height: var(--emr-tab-panel-item-height);
+}
+
+:host-context(.emr-tab-panel.is-compact) {
+  width: var(--emr-tab-panel-compact-item-width);
+  height: var(--emr-tab-panel-compact-item-height);
+}

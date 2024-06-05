@@ -9,6 +9,8 @@ import { TabPanelItemTextComponent } from './tab-panel-item-text/tab-panel-item-
 import { TabPanelAsideComponent } from './tab-panel-aside/tab-panel-aside.component';
 import { TabPanelAsideContentDirective } from './tab-panel-aside-content.directive';
 import { TabPanelItemIconDirective } from './tab-panel-item-icon.directive';
+import { TabPanelBodyComponent } from './tab-panel-body/tab-panel-body.component';
+import { TabPanelCustomItemComponent } from './tab-panel-custom-item/tab-panel-custom-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { TabPanelItemIconDirective } from './tab-panel-item-icon.directive';
     TabPanelNavComponent,
     TabPanelItemTextComponent,
     TabPanelAsideComponent,
+    TabPanelBodyComponent,
+    TabPanelCustomItemComponent,
     TabPanelAsideContentDirective,
     TabPanelItemIconDirective
   ],
@@ -33,6 +37,8 @@ import { TabPanelItemIconDirective } from './tab-panel-item-icon.directive';
     TabPanelNavComponent,
     TabPanelItemTextComponent,
     TabPanelAsideComponent,
+    TabPanelBodyComponent,
+    TabPanelCustomItemComponent,
     TabPanelAsideContentDirective,
     TabPanelItemIconDirective
   ]
