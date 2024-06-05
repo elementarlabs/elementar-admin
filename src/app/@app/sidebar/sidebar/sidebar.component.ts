@@ -68,6 +68,19 @@ export class SidebarComponent {
       ]
     },
     {
+      id: 'baseLayouts',
+      type: 'group',
+      name: 'Base Layouts',
+      icon: 'dashboard',
+      children: [
+        {
+          type: 'link',
+          name: 'Dual tier sidebar layout',
+          link: '/base-layouts/dual-tier-sidebar-layout'
+        }
+      ]
+    },
+    {
       id: 'dashboard',
       type: 'group',
       name: 'Dashboard',
