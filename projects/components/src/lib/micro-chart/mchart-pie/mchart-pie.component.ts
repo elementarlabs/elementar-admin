@@ -2,7 +2,6 @@ import {
   AfterViewChecked, booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  DestroyRef,
   ElementRef,
   inject,
   input, numberAttribute, OnChanges, OnDestroy,
@@ -46,7 +45,6 @@ export class MchartPieComponent extends BaseChartTooltip implements AfterViewChe
   private _resizeObserver: ResizeObserver;
   private _platformId = inject(PLATFORM_ID);
   private _elementRef = inject(ElementRef);
-  private _destroyRef = inject(DestroyRef);
   private _radius = 0;
   private _arcGenerator: any;
   private _pieGenerator: any;

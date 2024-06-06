@@ -4,8 +4,10 @@
   --emr-mchart-line-line-bg: theme('colors.amber.500');
   --emr-mchart-line-area-bg: theme('colors.amber.100');
   --emr-mchart-line-marker-dot-bg: theme('colors.amber.500');
+  --emr-mchart-line-area-gradient-start-color: theme('colors.amber.200');
 }
 
 :host-context(html.dark) {
   --emr-mchart-line-area-bg: theme('colors.amber.100/0.2');
+  --emr-mchart-line-area-gradient-start-color: theme('colors.neutral.700');
 }

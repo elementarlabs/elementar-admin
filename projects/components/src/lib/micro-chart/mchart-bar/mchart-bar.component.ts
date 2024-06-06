@@ -1,29 +1,23 @@
 import {
   AfterViewChecked,
-  booleanAttribute, ChangeDetectionStrategy,
+  booleanAttribute,
+  ChangeDetectionStrategy,
   Component, DestroyRef,
   effect,
   ElementRef,
-  inject, Injector,
+  inject,
   input,
   numberAttribute, OnDestroy,
-  PLATFORM_ID, Renderer2, TemplateRef, ViewContainerRef
+  PLATFORM_ID, TemplateRef,
 } from '@angular/core';
-import { DOCUMENT, isPlatformServer } from '@angular/common';
-import { index, pointer, scaleBand, scaleLinear, select } from 'd3';
-import { OverlayPosition, PositionManager } from '../../overlay';
+import { isPlatformServer } from '@angular/common';
+import { pointer, scaleBand, scaleLinear, select } from 'd3';
+import { OverlayPosition } from '../../overlay';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import {
-  ConnectedPosition,
-  FlexibleConnectedPositionStrategy,
-  Overlay,
-  OverlayConfig,
-  OverlayRef
-} from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { BaseChartTooltip } from '../base-chart.tooltip';
-import e from 'express';
+
+let nextId = 0;
 
 @Component({
   selector: 'emr-mchart-bar',
@@ -78,6 +72,11 @@ export class MchartBarComponent extends BaseChartTooltip implements OnDestroy, A
   yAccessor = input((d: any) => d);
   tooltip = input<TemplateRef<any>>();
   tooltipPosition = input<OverlayPosition>('after-center');
+
+  get gradientId(): string {
+    return 'areaGradient' + this._gradientId;
+  }
+  private _gradientId = nextId++;
 
   constructor() {
     super();
@@ -189,7 +188,7 @@ export class MchartBarComponent extends BaseChartTooltip implements OnDestroy, A
         .attr('class', 'data-container')
         .attr('transform', `translate(0,0)`)
       ;
-      this._dataContainer.selectAll('rect')
+      const allBars = this._dataContainer.selectAll('rect')
         .data(this.data())
         .enter()
         .append('rect')
@@ -200,6 +199,10 @@ export class MchartBarComponent extends BaseChartTooltip implements OnDestroy, A
         .attr('height', (d: any) => this._innerHeight - this._yScale(d))
         .attr('class', 'bar')
       ;
+
+      if (this.fillGradient()) {
+        allBars.attr('fill', `url(#${this.gradientId})`);
+      }
     } else {
       this._dataContainer.selectAll('rect')
         .attr('x', (d: any, i: number) => this._xScale(i.toString()))

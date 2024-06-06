@@ -16,7 +16,6 @@
     }
 
     .area {
-      fill: var(--emr-mchart-line-area-bg);
       stroke-width: 0;
     }
 
@@ -28,6 +27,24 @@
 
     .marker-dot {
       fill: var(--emr-mchart-line-marker-dot-bg);
+    }
+  }
+
+  &:not(.fill-area-gradient) {
+    ::ng-deep {
+      .area {
+        fill: var(--emr-mchart-line-area-bg);
+      }
+    }
+  }
+
+  &.fill-area-gradient {
+    .lg-start-color {
+      stop-color: var(--emr-mchart-line-area-gradient-start-color);
+    }
+
+    .lg-end-color {
+      stop-color: var(--emr-mchart-line-area-gradient-end-color);
     }
   }
 }

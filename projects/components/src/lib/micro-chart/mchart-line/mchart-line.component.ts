@@ -6,14 +6,12 @@ import {
   effect,
   ElementRef,
   inject,
-  Injector,
   input,
   numberAttribute, OnDestroy,
-  PLATFORM_ID, Renderer2,
+  PLATFORM_ID,
   TemplateRef,
-  ViewContainerRef,
 } from '@angular/core';
-import { DOCUMENT, isPlatformServer } from '@angular/common';
+import { isPlatformServer } from '@angular/common';
 import {
   Selection,
   curveLinear,
@@ -27,19 +25,13 @@ import {
   line, area,
   curveStep
 } from 'd3';
-import {
-  ConnectedPosition,
-  FlexibleConnectedPositionStrategy,
-  Overlay,
-  OverlayConfig,
-  OverlayRef
-} from '@angular/cdk/overlay';
-import { PositionManager, OverlayPosition } from '../../overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
+import { OverlayPosition } from '../../overlay';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MchartLineCurveType } from '../types';
 import { BaseChartTooltip } from '../base-chart.tooltip';
+
+let nextId = 0;
 
 @Component({
   selector: 'emr-mchart-line',
@@ -50,7 +42,8 @@ import { BaseChartTooltip } from '../base-chart.tooltip';
   styleUrl: './mchart-line.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-mchart-line'
+    'class': 'emr-mchart-line',
+    '[class.fill-area-gradient]': 'fillAreaGradient()',
   }
 })
 export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, AfterViewChecked {
@@ -92,6 +85,9 @@ export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, 
   responsive = input(false, {
     transform: booleanAttribute
   });
+  fillAreaGradient = input(false, {
+    transform: booleanAttribute
+  });
   curve = input<MchartLineCurveType>('linear');
   xAccessor = input((d: any, i: number) => i);
   yAccessor = input((d: any) => d);
@@ -103,6 +99,11 @@ export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, 
   });
   tooltip = input<TemplateRef<unknown>>();
   tooltipPosition = input<OverlayPosition>('after-center');
+
+  get gradientId(): string {
+    return 'areaGradient' + this._gradientId;
+  }
+  private _gradientId = nextId++;
 
   constructor() {
     super();
@@ -217,6 +218,11 @@ export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, 
           .attr('d', areaGenerator)
           .attr('class', 'area')
         ;
+
+        if (this.fillAreaGradient()) {
+          console.log(this.gradientId);
+          this._area.attr('fill', `url(#${this.gradientId})`);
+        }
       } else {
         this._area.attr('d', areaGenerator);
       }

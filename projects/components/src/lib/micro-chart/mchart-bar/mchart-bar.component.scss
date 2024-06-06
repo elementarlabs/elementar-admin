@@ -9,9 +9,13 @@
     .highlight {
       fill: var(--emr-mchart-bar-highlight-bg);
     }
+  }
 
-    .bar {
-      fill: var(--emr-mchart-bar-bar-bg);
+  &:not(.fill-gradient) {
+    ::ng-deep {
+      .bar {
+        fill: var(--emr-mchart-bar-bar-bg);
+      }
     }
   }
 
@@ -22,12 +26,6 @@
 
     .lg-end-color {
       stop-color: var(--emr-mchart-bar-bar-gradient-end-color);
-    }
-
-    ::ng-deep {
-      .bar {
-        fill: url(#barGradient);
-      }
     }
   }
 

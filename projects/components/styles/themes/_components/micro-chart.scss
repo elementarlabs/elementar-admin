@@ -10,6 +10,8 @@
   --emr-mchart-line-area-bg: theme('colors.primary.200');
   --emr-mchart-line-marker-line-bg: theme('colors.neutral.DEFAULT');
   --emr-mchart-line-marker-dot-bg: theme('colors.primary.DEFAULT');
+  --emr-mchart-line-area-gradient-start-color: theme('colors.primary.400/80');
+  --emr-mchart-line-area-gradient-end-color: theme('colors.background');
 
   // pie chart
   --emr-mchart-pie-stroke-color: theme('colors.background');
@@ -22,4 +24,5 @@ html.dark {
   --emr-mchart-bar-highlight-bg: theme('colors.neutral.700');
   --emr-mchart-line-area-bg: theme('colors.neutral.700');
   --emr-mchart-pie-legend-item-color: theme('colors.neutral.200');
+  --emr-mchart-line-area-gradient-start-color: theme('colors.neutral.700');
 }
