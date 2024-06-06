@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  EmrAvatarModule,
+  EmrAvatarModule, EmrPanelModule,
   EmrTabPanelModule,
   HDividerComponent,
   IconComponent,
@@ -9,6 +9,7 @@ import {
 import { HeaderComponent } from '@app/header/header/header.component';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-dual-tier-sidebar-layout',
@@ -24,7 +25,10 @@ import { RouterLink } from '@angular/router';
     LayoutHeaderComponent,
     LayoutSidebarComponent,
     MatTooltip,
-    RouterLink
+    RouterLink,
+    EmrPanelModule,
+    MatTab,
+    MatTabGroup
   ],
   templateUrl: './dual-tier-sidebar-layout.component.html',
   styleUrl: './dual-tier-sidebar-layout.component.scss'

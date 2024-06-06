@@ -61,7 +61,29 @@
           Projects content
         </ng-template>
         <ng-template emrTabPanelAsideContent="my-assets">
-          My assets content
+          <emr-panel>
+            <emr-panel-header class="h-auto border-b dark:border-b-inverse">
+              <div class="p-4 space-y-3">
+                <div class="text-sm font-bold">My assets</div>
+                <div class="relative h-10">
+                  <input type="text"
+                         class="outline-0 border border-transparent h-full w-full rounded-lg px-3 text-sm
+                                bg-neutral-200 focus-within:border-primary dark:bg-neutral-700 placeholder-neutral-500"
+                         placeholder="Search assets...">
+                </div>
+              </div>
+            </emr-panel-header>
+            <emr-panel-body>
+              <mat-tab-group class="h-full">
+                <mat-tab label="Images">
+                  <div class="p-4">Images Content</div>
+                </mat-tab>
+                <mat-tab label="Videos">
+                  <div class="p-4">Videos Content</div>
+                </mat-tab>
+              </mat-tab-group>
+            </emr-panel-body>
+          </emr-panel>
         </ng-template>
         <ng-template emrTabPanelAsideContent="account">
           Account
