@@ -1,15 +1,15 @@
 import {
+  booleanAttribute,
   Component,
   contentChildren,
-  ElementRef,
+  ElementRef, input,
   viewChild
 } from '@angular/core';
 import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } from '../types';
 
-
 @Component({
   selector: 'emr-carousel',
-  exportAs: 'emr-carousel',
+  exportAs: 'emrCarousel',
   standalone: true,
   imports: [],
   providers: [
@@ -19,13 +19,20 @@ import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } 
     }
   ],
   templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss'
+  styleUrl: './carousel.component.scss',
+  host: {
+    'class': 'emr-carousel',
+    '[class.highlight]': 'highlight()',
+  }
 })
 export class CarouselComponent {
   private _content = viewChild<ElementRef>('content');
   private _cards = contentChildren<CarouselCardInterface>(CAROUSEL_CARD);
-
   private _index = 0;
+
+  highlight = input(false, {
+    transform: booleanAttribute
+  });
 
   get api(): CarouselApiInterface {
     return {
@@ -56,7 +63,8 @@ export class CarouselComponent {
   private _next(): void {
     const contentElement = this._content()?.nativeElement as HTMLElement;
     const notVisibleCard = this._cards().find(
-      (card: CarouselCardInterface, index: number) => !this._visibleInParentViewport(contentElement, card.element) && index > this._index
+      (card: CarouselCardInterface, index: number) =>
+        !this._visibleInParentViewport(contentElement, card.element) && index > this._index
     );
 
     if (notVisibleCard) {
@@ -78,10 +86,8 @@ export class CarouselComponent {
     const elementRect = el.getBoundingClientRect();
 
     return (
-      elementRect.top >= parentRect.top &&
-      elementRect.right <= parentRect.left &&
-      elementRect.bottom <= parentRect.bottom &&
-      elementRect.left <= parentRect.left
+      elementRect.right <= parentRect.right &&
+      elementRect.left >= parentRect.left
     );
   }
 

@@ -7,6 +7,9 @@ import {
 } from '../_examples/carousel-controls-custom-position-example/carousel-controls-custom-position-example.component';
 import { PageComponent } from '@meta/page/page.component';
 import { PageContentDirective } from '@meta/page/page-content.directive';
+import {
+  CarouselWithHighlightExampleComponent
+} from '../_examples/carousel-with-highlight-example/carousel-with-highlight-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -17,7 +20,8 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
     BasicCarouselExampleComponent,
     CarouselControlsCustomPositionExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    CarouselWithHighlightExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

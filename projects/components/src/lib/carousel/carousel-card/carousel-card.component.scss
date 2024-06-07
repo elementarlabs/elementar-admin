@@ -1,3 +1,17 @@
 :host {
   @apply block;
 }
+
+:host-context(.emr-carousel.highlight) {
+  animation: emr-carousel-highlight both linear;
+  animation-timeline: view(inline);
+}
+
+@keyframes emr-carousel-highlight {
+  from, to {
+    opacity: .4;
+  }
+  50% {
+    opacity: 1
+  }
+}
