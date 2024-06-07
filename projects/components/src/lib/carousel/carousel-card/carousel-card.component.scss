@@ -1,15 +1,18 @@
 :host {
   @apply block;
+  scroll-padding-inline: 100px;
 }
 
-:host-context(.emr-carousel.highlight) {
-  animation: emr-carousel-highlight both linear;
+:host-context(.emr-carousel.fade) {
+  animation: emr-carousel-fade;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
   animation-timeline: view(inline);
 }
 
-@keyframes emr-carousel-highlight {
+@keyframes emr-carousel-fade {
   from, to {
-    opacity: .4;
+    opacity: .3;
   }
   50% {
     opacity: 1

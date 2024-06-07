@@ -22,7 +22,7 @@ import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } 
   styleUrl: './carousel.component.scss',
   host: {
     'class': 'emr-carousel',
-    '[class.highlight]': 'highlight()',
+    '[class.fade]': 'fade()',
   }
 })
 export class CarouselComponent {
@@ -30,7 +30,7 @@ export class CarouselComponent {
   private _cards = contentChildren<CarouselCardInterface>(CAROUSEL_CARD);
   private _index = 0;
 
-  highlight = input(false, {
+  fade = input(false, {
     transform: booleanAttribute
   });
 

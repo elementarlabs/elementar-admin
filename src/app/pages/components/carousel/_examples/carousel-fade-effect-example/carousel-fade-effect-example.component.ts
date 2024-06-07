@@ -9,7 +9,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-carousel-with-highlight-example',
+  selector: 'app-carousel-fade-effect-example',
   standalone: true,
   imports: [
     CarouselCardComponent,
@@ -19,9 +19,9 @@ import { MatIconButton } from '@angular/material/button';
     MatIcon,
     MatIconButton
   ],
-  templateUrl: './carousel-with-highlight-example.component.html',
-  styleUrl: './carousel-with-highlight-example.component.scss'
+  templateUrl: './carousel-fade-effect-example.component.html',
+  styleUrl: './carousel-fade-effect-example.component.scss'
 })
-export class CarouselWithHighlightExampleComponent {
+export class CarouselFadeEffectExampleComponent {
 
 }

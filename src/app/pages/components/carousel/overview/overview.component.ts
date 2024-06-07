@@ -8,8 +8,8 @@ import {
 import { PageComponent } from '@meta/page/page.component';
 import { PageContentDirective } from '@meta/page/page-content.directive';
 import {
-  CarouselWithHighlightExampleComponent
-} from '../_examples/carousel-with-highlight-example/carousel-with-highlight-example.component';
+  CarouselFadeEffectExampleComponent
+} from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -21,7 +21,7 @@ import {
     CarouselControlsCustomPositionExampleComponent,
     PageComponent,
     PageContentDirective,
-    CarouselWithHighlightExampleComponent
+    CarouselFadeEffectExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
