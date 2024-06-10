@@ -33,8 +33,6 @@ import { MatMenu } from '@angular/material/menu';
 import {
   AsYouType,
   CountryCode as CC,
-  E164Number,
-  NationalNumber,
   PhoneNumber,
   getExampleNumber,
   parsePhoneNumberFromString,
@@ -168,7 +166,7 @@ export class PhoneInputComponent
   stateChanges = new Subject<void>();
   focused = false;
   describedBy = '';
-  phoneNumber?: E164Number | NationalNumber = '';
+  phoneNumber?: string = '';
   allCountries: Country[] = [];
   preferredCountriesInDropDown: Country[] = [];
   selectedCountry!: Country;
