@@ -13,10 +13,11 @@ export class SearchPipe implements PipeTransform {
 
     return countries.filter((country) => {
       return `${country.name}+${country.dialCode}${
-        country.areaCodes ? country.areaCodes.join(',') : ''
-      }`
+          country.areaCodes ? country.areaCodes.join(',') : ''
+        }`
         .toLowerCase()
         .includes(searchCriteria.toLowerCase())
+      ;
     });
   }
 }

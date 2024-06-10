@@ -1,0 +1,8 @@
+:root {
+  --emr-phone-input-color: theme('colors.neutral.600');
+  --emr-phone-input-opacity: 0;
+}
+
+html.dark {
+  --emr-phone-input-color: theme('colors.neutral.500');
+}
