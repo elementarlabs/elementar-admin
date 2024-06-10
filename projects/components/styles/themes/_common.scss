@@ -1,6 +1,10 @@
 @use '@angular/material' as mat;
 
 :root {
+  @include mat.all-component-themes($m3-light-theme);
+  @include mat.system-level-colors($m3-light-theme); // 👈 Added
+  @include mat.system-level-typography($m3-light-theme); // 👈 Added
+
   --emr-background: #fff;
   --emr-on-background: #{mat.get-theme-color($m3-light-theme, neutral, 20)};
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
@@ -166,16 +170,22 @@
 }
 
 html {
-  @include mat.all-component-themes($m3-light-theme);
-  @include mat.color-variants-backwards-compatibility($m3-light-theme);
+  //@include mat.all-component-themes($m3-light-theme);
+  //@include mat.color-variants-backwards-compatibility($m3-light-theme);
 
   background: var(--emr-background);
   color: var(--emr-on-background);
 }
 
 html.dark {
-  @include mat.all-component-colors($m3-dark-theme);
-  @include mat.color-variants-backwards-compatibility($m3-dark-theme);
+  //@include mat.all-component-colors($m3-dark-theme);
+  //@include mat.color-variants-backwards-compatibility($m3-dark-theme);
+
+  :root {
+    @include mat.all-component-colors($m3-dark-theme);
+    @include mat.system-level-colors($m3-dark-theme); // 👈 Added
+    @include mat.system-level-typography($m3-dark-theme); // 👈 Added
+  }
 
   --emr-background: #{mat.get-theme-color($m3-dark-theme, neutral, 20)};
   --emr-on-background: #fff;
