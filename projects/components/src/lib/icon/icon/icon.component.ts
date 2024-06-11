@@ -8,8 +8,9 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
-import { loadIcon } from 'iconify-icon';
+import { loadIcon, enableCache } from 'iconify-icon';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+enableCache('all');
 
 @Component({
   selector: 'emr-icon',
