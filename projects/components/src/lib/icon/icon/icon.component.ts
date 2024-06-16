@@ -43,7 +43,19 @@ export class IconComponent implements OnInit, OnChanges {
 
   private async _loadIcon() {
     const data = await loadIcon(this.name());
-    const iconHtml = `<svg viewBox="0 0 ${data.width} ${data.height}">${data.body}</svg>`;
+    let body = data.body;
+
+    // If svg icon has mask of defs with id, we need to replace to unique id
+    // because the same icons can be used on the same page and use the same id, which can cause problems.
+    const allIdMatches = [...body.matchAll(/id="(\w+)"/g)];
+
+    if (allIdMatches.length > 0) {
+      allIdMatches.forEach(match => {
+        body = body.replaceAll(match[1], crypto.randomUUID());
+      });
+    }
+
+    const iconHtml = `<svg viewBox="0 0 ${data.width} ${data.height}">${body}</svg>`;
     this._iconHtml = this._sanitizer.bypassSecurityTrustHtml(iconHtml);
     this._cdr.markForCheck();
   }

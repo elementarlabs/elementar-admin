@@ -220,7 +220,6 @@ export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, 
         ;
 
         if (this.fillAreaGradient()) {
-          console.log(this.gradientId);
           this._area.attr('fill', `url(#${this.gradientId})`);
         }
       } else {
