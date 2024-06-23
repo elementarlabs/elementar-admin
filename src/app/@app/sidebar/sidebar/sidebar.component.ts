@@ -71,7 +71,7 @@ export class SidebarComponent {
       id: 'baseLayouts',
       type: 'group',
       name: 'Base Layouts',
-      icon: 'dashboard',
+      icon: 'space_dashboard',
       children: [
         {
           type: 'link',
