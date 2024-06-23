@@ -1,0 +1,10 @@
+:host {
+  @apply size-40 flex items-center justify-center p-8;
+
+  ::ng-deep {
+    img,
+    svg {
+      @apply max-w-full max-h-full;
+    }
+  }
+}

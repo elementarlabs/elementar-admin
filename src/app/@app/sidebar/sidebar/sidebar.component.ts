@@ -252,6 +252,11 @@ export class SidebarComponent {
         },
         {
           type: 'link',
+          name: 'Block State',
+          link: '/pages/components/block-state'
+        },
+        {
+          type: 'link',
           name: 'Chips',
           link: '/pages/components/chips'
         },

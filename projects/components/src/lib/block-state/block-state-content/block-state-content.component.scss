@@ -1,0 +1,7 @@
+:host {
+  @apply block text-sm text-neutral-600;
+}
+
+:host-context(html.dark) {
+  @apply text-neutral-500;
+}
