@@ -11,9 +11,6 @@
       "@app/*": [
         "./src/app/@app/*"
       ],
-      "@components/*": [
-        "./src/app/@components/*"
-      ],
       "@state/*": [
         "./src/app/@state/*"
       ],

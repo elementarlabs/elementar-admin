@@ -5,11 +5,10 @@ import {
   ElementRef,
   inject,
   Input,
-  OnChanges, SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { GlobalState, GlobalStore } from '@state/global.state';
 import { getState } from '@ngrx/signals';
+import { GlobalState, GlobalStore } from '@elementar/components';
 
 @Component({
   selector: 'app-screen-loader',

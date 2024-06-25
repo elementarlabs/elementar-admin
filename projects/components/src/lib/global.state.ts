@@ -1,13 +1,15 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
-export type GlobalState = {
+export interface GlobalState {
   screenLoading: boolean;
   sidebarHidden: boolean;
-};
+  pageTitle: string;
+}
 
 const initialGlobalState: GlobalState = {
   screenLoading: true,
-  sidebarHidden: false
+  sidebarHidden: false,
+  pageTitle: ''
 };
 
 export const GlobalStore = signalStore(
@@ -17,6 +19,11 @@ export const GlobalStore = signalStore(
     setScreenLoading(isLoading: boolean) {
       patchState(store, {
         screenLoading: isLoading
+      });
+    },
+    setPageTitle(pageTitle: string) {
+      patchState(store, {
+        pageTitle
       });
     }
   }))

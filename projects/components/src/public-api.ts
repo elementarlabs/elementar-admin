@@ -43,3 +43,4 @@ export * from './lib/icon/public-api';
 export * from './lib/data-view/public-api';
 export * from './lib/overlay/public-api';
 export * from './lib/block-state/public-api';
+export * from './lib/global.state';

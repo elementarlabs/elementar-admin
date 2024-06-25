@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,17 @@ export class SeoService {
   private readonly _destroyRef = inject(DestroyRef);
   private readonly _document = inject(DOCUMENT);
   private readonly _platformId = inject(PLATFORM_ID);
+  private readonly _meta = inject(Meta);
+  private readonly _title = inject(Title);
   private _linkCanonical: HTMLLinkElement | null;
+
+  get meta(): Meta {
+    return this._meta;
+  }
+
+  setPageTitle(title: string): void {
+    this._title.setTitle(title);
+  }
 
   trackCanonicalChanges(siteUrl: string): void {
     this._createCanonicalTag(siteUrl);
@@ -24,10 +35,9 @@ export class SeoService {
     this._router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       takeUntilDestroyed(this._destroyRef),
-    )
-      .subscribe(() => {
-        this._linkCanonical?.setAttribute('href', this.getCanonicalUrl(siteUrl));
-      });
+    ).subscribe(() => {
+      this._linkCanonical?.setAttribute('href', this.getCanonicalUrl(siteUrl));
+    });
   }
 
   private getCanonicalUrl(siteUrl: string): string {

@@ -1,6 +1,6 @@
 import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { ThemeManagerService } from '@elementar/components';
+import { EnvironmentService, ThemeManagerService } from '@elementar/components';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
 import { ScreenLoaderService } from '@elementar/components';
 import { isPlatformBrowser } from '@angular/common';
@@ -9,7 +9,6 @@ import { AnalyticsService } from '@elementar/components';
 import { SeoService } from '@elementar/components';
 import { PageLoadingBarComponent } from '@elementar/components';
 import { InactivityTrackerService } from '@elementar/components';
-import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +27,7 @@ export class AppComponent implements OnInit {
   private _analyticsService = inject(AnalyticsService);
   private _inactivityTracker = inject(InactivityTrackerService);
   private _seoService = inject(SeoService);
+  private _envService = inject(EnvironmentService);
   private _platformId = inject(PLATFORM_ID);
   private _router = inject(Router);
 
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
       this._analyticsService.trackPageViews();
       this._inactivityTracker.setupInactivityTimer()
         .subscribe(() => {
-          console.log('Inactive mode has been activated!');
+          // console.log('Inactive mode has been activated!');
           // this._inactivityTracker.reset();
         })
       ;
@@ -72,6 +72,6 @@ export class AppComponent implements OnInit {
       }, 1500);
     }
 
-    this._seoService.trackCanonicalChanges(environment.siteUrl);
+    this._seoService.trackCanonicalChanges(this._envService.getValue('siteUrl'));
   }
 }
