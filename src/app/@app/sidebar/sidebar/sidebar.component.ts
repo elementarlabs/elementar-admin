@@ -536,6 +536,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Basic',
           link: '/pages/pricing/basic'
+        },
+        {
+          type: 'link',
+          name: 'Membership Plans',
+          link: '/pages/pricing/membership-plans'
         }
       ]
     },
