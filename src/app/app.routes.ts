@@ -2,8 +2,19 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+    path: '',
+    loadComponent: () => import('./common/common.component').then(c => c.CommonComponent),
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        loadComponent: () => import('./home/home.component').then(c => c.HomeComponent),
+      }
+    ]
   },
   {
     path: 'auth',
@@ -12,15 +23,6 @@ export const routes: Routes = [
   {
     path: 'error',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorModule)
-  },
-  {
-    path: '',
-    redirectTo: 'pages',
-    pathMatch: 'full'
-  },
-  {
-    path: 'base-layouts',
-    loadChildren: () => import('./base-layouts/base-layouts.module').then(m => m.BaseLayoutsModule)
   },
   {
     path: '**',

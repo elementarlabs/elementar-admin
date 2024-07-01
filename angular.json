@@ -29,11 +29,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              {
-                "glob": "**/_examples/**",
-                "input": "src/app/pages",
-                "output": "_docs"
-              },
               "src/robots.txt",
               "src/sitemap.xml"
             ],
@@ -41,9 +36,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -60,22 +52,7 @@
                 }
               ],
               "styles": [
-                "src/styles.scss",
-                {
-                  "input": "projects/components/styles/themes/cyan-orange.scss",
-                  "inject": false,
-                  "bundleName": "cyan-orange"
-                },
-                {
-                  "input": "projects/components/styles/themes/magenta-violet.scss",
-                  "inject": false,
-                  "bundleName": "magenta-violet"
-                },
-                {
-                  "input": "projects/components/styles/themes/rose-red.scss",
-                  "inject": false,
-                  "bundleName": "rose-red"
-                }
+                "src/styles.scss"
               ],
               "outputHashing": "all",
               "fileReplacements": [
