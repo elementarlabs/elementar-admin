@@ -5,7 +5,7 @@
 # Modern Angular admin panel and dashboard, based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
 <a target="_blank" href="https://elementarui.com">
-  <img src="https://elementarlabs.nyc3.digitaloceanspaces.com/elementar-admin-angular-admin-dasgboard-template.png">
+  <img src="https://elementarui.com/assets/elementar-admin-preview.png">
 </a>
 
 ## Key features
@@ -23,3 +23,23 @@
 - Flexibly configurable themes (3 themes included)
 - Light & dark color schemes in each theme
 - 50+ Angular Components
+
+## Install
+
+Install full project (with demo pages and examples):
+
+```bash
+npx @elementarui/elementar-cli new your-project-name
+```
+
+Install minimal project:
+
+```bash
+npx @elementarui/elementar-cli new your-project-name --minimal
+```
+
+### Go to your project
+```bash
+cd your-project-name
+npm run start
+```
