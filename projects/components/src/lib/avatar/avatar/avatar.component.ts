@@ -37,14 +37,18 @@ export class AvatarComponent implements OnInit, OnChanges {
   clickable = input(false, {
     transform: booleanAttribute
   });
-  text = input();
-  alt = input();
+  text = input<string>();
+  alt = input<string>();
   automaticColor = input<string>();
   presenceIndicator = input<'online' | 'offline' | null>(null);
 
   protected imageLoaded: boolean;
 
   ngOnInit() {
+    if (!this.src()) {
+      return;
+    }
+
     this.imageLoaded = alreadyLoadedImages.includes(<string>this.src());
   }
 
