@@ -418,6 +418,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Sidebar Widgets',
           link: '/pages/components/sidebar-widgets'
+        },
+        {
+          type: 'link',
+          name: 'Confirm',
+          link: '/pages/components/confirm'
         }
       ]
     },

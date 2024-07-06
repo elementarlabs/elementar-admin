@@ -1,0 +1,11 @@
+<div class="backdrop"></div>
+<div class="content">
+  <h2 class="text-4xl font-extrabold">{{ title }}</h2>
+  @if (description) {
+    <div class="text-sm text-neutral-600 dark:text-neutral-400">{{ description }}</div>
+  }
+  <div class="flex items-center gap-5">
+    <button mat-stroked-button (click)="cancel()">Cancel</button>
+    <button mat-flat-button (click)="confirm()" cdkFocusInitial>Confirm</button>
+  </div>
+</div>

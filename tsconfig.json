@@ -19,6 +19,9 @@
       ],
       "@elementar/components": [
         "./projects/components/src"
+      ],
+      "@elementar/components/confirm": [
+        "./projects/components/src/lib/confirm"
       ]
     },
     "outDir": "./dist/out-tsc",

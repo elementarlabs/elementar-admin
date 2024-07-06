@@ -1,0 +1,17 @@
+:host {
+  @apply w-screen h-screen flex items-center justify-center;
+
+  .backdrop {
+    @apply absolute inset-0 z-0 bg-white;
+  }
+
+  .content {
+    @apply flex flex-col gap-8 z-10;
+  }
+}
+
+:host-context(html.dark) {
+  .backdrop {
+    @apply bg-neutral-900;
+  }
+}

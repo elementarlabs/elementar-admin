@@ -243,6 +243,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/block-state/block-state.module').then(m => m.BlockStateModule)
       },
       {
+        path: 'components/confirm',
+        loadChildren: () => import('./components/confirm/confirm.module').then(m => m.ConfirmModule)
+      },
+      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },
