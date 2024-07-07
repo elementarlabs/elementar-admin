@@ -14,21 +14,7 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['"Poppins"', ...defaultTheme.fontFamily.sans],
-        'serif': ['Open Sans', ...defaultTheme.fontFamily.serif],
-        'icon': [
-          'Material Symbols Outlined',
-          {
-            fontsize: '24px',
-            fontVariationSettings: `"FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24`
-          },
-        ],
-        'icon-filled': [
-          'Material Symbols Outlined',
-          {
-            fontsize: '24px',
-            fontVariationSettings: `"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24`
-          },
-        ],
+        'serif': ['Open Sans', ...defaultTheme.fontFamily.serif]
       },
       colors: {
         background: 'var(--emr-background)',

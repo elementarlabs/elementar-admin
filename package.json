@@ -36,6 +36,7 @@
     "iconify-icon": "^2.0.0",
     "libphonenumber-js": "^1.10.57",
     "marked": "^9.1.6",
+    "material-symbols": "^0.21.0",
     "ngx-markdown": "^18.0.0",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",

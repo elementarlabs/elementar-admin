@@ -3,28 +3,28 @@
     <div class="col-span-1">
       <button matRipple class="w-full h-20 cursor-pointer text-primary border dark:border-inverse
                                rounded-md p-3 flex flex-col justify-center hover:bg-neutral-100 dark:hover:bg-neutral-700">
-        <mat-icon class="font-icon">add</mat-icon>
+        <mat-icon>add</mat-icon>
         <div class="text-sm mt-2.5">Create</div>
       </button>
     </div>
     <div class="col-span-1">
       <button matRipple class="w-full h-20 cursor-pointer border dark:border-inverse hover:bg-neutral-100 dark:hover:bg-neutral-700
                                rounded-md p-3 flex flex-col justify-center">
-        <mat-icon class="font-icon">upload</mat-icon>
+        <mat-icon>upload</mat-icon>
         <div class="text-sm mt-2.5">Upload</div>
       </button>
     </div>
     <div class="col-span-1">
       <button matRipple class="w-full h-20 cursor-pointer border dark:border-inverse hover:bg-neutral-100 dark:hover:bg-neutral-700
                                rounded-md p-3 flex flex-col justify-center">
-        <mat-icon class="font-icon">folder</mat-icon>
+        <mat-icon>folder</mat-icon>
         <div class="text-sm mt-2.5">Create Folder</div>
       </button>
     </div>
     <div class="col-span-1">
       <button matRipple class="w-full h-20 cursor-pointer border dark:border-inverse hover:bg-neutral-100 dark:hover:bg-neutral-700
                                rounded-md p-3 flex flex-col justify-center">
-        <mat-icon class="font-icon">album</mat-icon>
+        <mat-icon>album</mat-icon>
         <div class="text-sm mt-2.5">Record</div>
       </button>
     </div>
@@ -34,7 +34,7 @@
       <div class="flex items-center gap-1">
         <h3 class="text-2xl font-bold">All files</h3>
         <button mat-icon-button>
-          <mat-icon class="font-icon">settings</mat-icon>
+          <mat-icon>settings</mat-icon>
         </button>
       </div>
       <div class="flex items-center gap-2.5">
@@ -54,72 +54,72 @@
         } @else {
           <div class="flex gap-3">
             <button mat-flat-button color="tertiary">
-              <mat-icon class="font-icon">share</mat-icon>Share
+              <mat-icon>share</mat-icon>Share
             </button>
             <button mat-stroked-button>
-              <mat-icon class="font-icon">download</mat-icon>Download
+              <mat-icon>download</mat-icon>Download
             </button>
             <button mat-stroked-button color="warn">
-              <mat-icon class="font-icon">delete</mat-icon>Delete
+              <mat-icon>delete</mat-icon>Delete
             </button>
             <button mat-icon-button [matMenuTriggerFor]="fileOptionsMenu">
-              <mat-icon class="font-icon">more_vert</mat-icon>
+              <mat-icon>more_vert</mat-icon>
             </button>
           </div>
           <mat-menu #fileOptionsMenu="matMenu">
             @if (selectedFiles.length === 1) {
               @if (selectedFiles[0].type === 'folder') {
                 <button mat-menu-item>
-                  <mat-icon class="font-icon">info</mat-icon>Folder Info
+                  <mat-icon>info</mat-icon>Folder Info
                 </button>
               } @else {
                 <button mat-menu-item>
-                  <mat-icon class="font-icon">info</mat-icon>File Info
+                  <mat-icon>info</mat-icon>File Info
                 </button>
               }
 
               <button mat-menu-item>
-                <mat-icon class="font-icon">share</mat-icon>Share
+                <mat-icon>share</mat-icon>Share
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">link</mat-icon>Copy Link
+                <mat-icon>link</mat-icon>Copy Link
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">group</mat-icon>Manage Permissions
+                <mat-icon>group</mat-icon>Manage Permissions
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">download</mat-icon>Download
+                <mat-icon>download</mat-icon>Download
               </button>
               <mat-divider></mat-divider>
               <button mat-menu-item>
-                <mat-icon class="font-icon">delete</mat-icon>Delete
+                <mat-icon>delete</mat-icon>Delete
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">edit</mat-icon>Rename
+                <mat-icon>edit</mat-icon>Rename
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">open_with</mat-icon>Move
+                <mat-icon>open_with</mat-icon>Move
               </button>
               <button mat-menu-item>
                 @if (selectedFiles[0].type === 'folder') {
-                  <mat-icon class="font-icon">folder_copy</mat-icon>
+                  <mat-icon>folder_copy</mat-icon>
                 } @else {
-                  <mat-icon class="font-icon">file_copy</mat-icon>
+                  <mat-icon>file_copy</mat-icon>
                 }
                 Copy
               </button>
             } @else if (selectedFiles.length > 1) {
               <button mat-menu-item>
-                <mat-icon class="font-icon">download</mat-icon>Download
+                <mat-icon>download</mat-icon>Download
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">delete</mat-icon>Delete
+                <mat-icon>delete</mat-icon>Delete
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">open_with</mat-icon>Move
+                <mat-icon>open_with</mat-icon>Move
               </button>
               <button mat-menu-item>
-                <mat-icon class="font-icon">content_copy</mat-icon>Copy
+                <mat-icon>content_copy</mat-icon>Copy
               </button>
             }
           </mat-menu>
@@ -133,7 +133,7 @@
           <mat-checkbox [indeterminate]="indeterminate" [checked]="checked"></mat-checkbox>
         </div>
         <button mat-icon-button [matMenuTriggerFor]="filesView">
-          <mat-icon class="font-icon">apps</mat-icon>
+          <mat-icon>apps</mat-icon>
         </button>
       </div>
     </div>
@@ -180,19 +180,19 @@
   <div class="text-xs my-2 px-3.5 text-neutral-600 dark:text-neutral-400">Layout</div>
   <div emrMenuOptionGroup formControlName="layout">
     <mat-option value="grid">
-      <mat-icon class="font-icon">grid_on</mat-icon>
+      <mat-icon>grid_on</mat-icon>
       <span>Grid</span>
     </mat-option>
     <mat-option value="largeGrid">
-      <mat-icon class="font-icon">grid_view</mat-icon>
+      <mat-icon>grid_view</mat-icon>
       <span>Large Grid</span>
     </mat-option>
     <mat-option value="list">
-      <mat-icon class="font-icon">reorder</mat-icon>
+      <mat-icon>reorder</mat-icon>
       <span>List</span>
     </mat-option>
     <mat-option value="largeList">
-      <mat-icon class="font-icon">menu</mat-icon>
+      <mat-icon>menu</mat-icon>
       <span>Large List</span>
     </mat-option>
   </div>
@@ -202,14 +202,14 @@
   <div class="text-xs mb-2 px-3.5 text-neutral-600 dark:text-neutral-400">Open files in</div>
   <div emrMenuOptionGroup formControlName="filePreview">
     <mat-option value="fullscreen">
-      <mat-icon class="font-icon">fullscreen</mat-icon>
+      <mat-icon>fullscreen</mat-icon>
       <div>
         <div>Full screen</div>
         <div class="text-xs text-neutral-500 whitespace-nowrap">One click on a file opens it in full screen</div>
       </div>
     </mat-option>
     <mat-option value="quick">
-      <mat-icon class="font-icon">dock_to_left</mat-icon>
+      <mat-icon>dock_to_left</mat-icon>
       <div>
         <div>Quick view</div>
         <div class="text-xs text-neutral-500 whitespace-nowrap">One click on a file opens it in the sidebar</div>

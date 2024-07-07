@@ -2,26 +2,26 @@
   <div class="h-full flex items-center border-b dark:border-b-neutral-600 gap-7">
     <div class="flex items-center gap-3 -ms-3">
       <button mat-icon-button (click)="toggleSidebar()">
-        <mat-icon class="font-icon">menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </button>
       <app-assistant-search></app-assistant-search>
     </div>
     <div class="ms-auto flex items-center gap-3">
       <a mat-stroked-button href="https://github.com/elementarlabs/elementar-admin" target="_blank">Github</a>
       <button mat-icon-button [matMenuTriggerFor]="appsMenu" matTooltip="Applications">
-        <mat-icon class="font-icon">apps</mat-icon>
+        <mat-icon>apps</mat-icon>
       </button>
       <button mat-icon-button matTooltip="Notifications"
               [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
-        <mat-icon class="font-icon"
+        <mat-icon
                   matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
       </button>
       <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
               emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
         @if (isDark | async) {
-          <mat-icon class="font-icon">light_mode</mat-icon>
+          <mat-icon>light_mode</mat-icon>
         } @else {
-          <mat-icon class="font-icon">dark_mode</mat-icon>
+          <mat-icon>dark_mode</mat-icon>
         }
       </button>
       <emr-avatar text="PS" [clickable]="true" [matMenuTriggerFor]="accountMenu"
@@ -133,35 +133,35 @@
   </div>
   <div class="px-4 pb-4">
     <button mat-stroked-button class="w-full">
-      <mat-icon class="font-icon">workspace_premium</mat-icon>
+      <mat-icon>workspace_premium</mat-icon>
       Upgrade
     </button>
   </div>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="font-icon">tune</mat-icon>
+    <mat-icon>tune</mat-icon>
     <span>Settings</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="font-icon">contrast</mat-icon>
+    <mat-icon>contrast</mat-icon>
     <span>Appearance</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="font-icon">question_mark</mat-icon>
+    <mat-icon>question_mark</mat-icon>
     <span>Help Center</span>
   </a>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="font-icon">translate</mat-icon>
+    <mat-icon>translate</mat-icon>
     <span>Language</span>
   </a>
   <a mat-menu-item>
-    <mat-icon class="font-icon">add</mat-icon>
+    <mat-icon>add</mat-icon>
     <span>Add Account</span>
   </a>
   <mat-divider></mat-divider>
   <a mat-menu-item>
-    <mat-icon class="font-icon">logout</mat-icon>
+    <mat-icon>logout</mat-icon>
     <span>Logout</span>
   </a>
 </mat-menu>
