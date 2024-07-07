@@ -2,6 +2,7 @@ import { booleanAttribute, Component, ElementRef, inject, Input, OnInit, PLATFOR
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { isPlatformServer } from '@angular/common';
+import { CdkScrollable } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'emr-layout-body',
@@ -10,6 +11,9 @@ import { isPlatformServer } from '@angular/common';
   imports: [],
   templateUrl: './layout-body.component.html',
   styleUrl: './layout-body.component.scss',
+  hostDirectives: [
+    CdkScrollable
+  ],
   host: {
     'class': 'emr-layout-body emr-scroll-lg'
   }

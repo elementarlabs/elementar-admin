@@ -12,7 +12,7 @@ export abstract class BaseComponent {
   protected readonly elementRef: ElementRef = inject(ElementRef);
 
   constructor() {
-    this.window = document.defaultView;
+    this.window = this.document.defaultView;
     this.requestAnimationFrame = this.getRequestAnimationFrame();
     this.addEventListeners();
   }

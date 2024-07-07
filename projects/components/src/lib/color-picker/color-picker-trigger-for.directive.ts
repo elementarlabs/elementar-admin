@@ -47,7 +47,6 @@ export class ColorPickerTriggerForDirective {
   private _directionality = inject(Directionality, { optional: true });
   private _viewContainerRef = inject(ViewContainerRef);
   private _injector = inject(Injector);
-
   private _portal!: TemplatePortal;
   private _overlayRef: OverlayRef | null = null;
   private _destroy$: Subject<void> = new Subject();
@@ -97,7 +96,7 @@ export class ColorPickerTriggerForDirective {
     this._overlayRef = null;
   }
 
-  private _subscribeToOutsideClicks() {
+  private _subscribeToOutsideClicks(): void {
     if (this._overlayRef) {
       this._overlayRef
         .outsidePointerEvents()
