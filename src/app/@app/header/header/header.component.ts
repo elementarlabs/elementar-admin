@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
@@ -51,7 +51,6 @@ import { LayoutApiService } from '@elementar/components';
 export class HeaderComponent {
   protected _themeManager = inject(ThemeManagerService);
   private _layoutApi = inject(LayoutApiService);
-  isDark = this._themeManager.isDark();
 
   @Input()
   sidebarHidden = false;

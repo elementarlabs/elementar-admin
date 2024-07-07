@@ -4,6 +4,7 @@ import { filter } from 'rxjs';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Meta, Title } from '@angular/platform-browser';
+import { GlobalStore } from '../global.state';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class SeoService {
   private readonly _router = inject(Router);
   private readonly _destroyRef = inject(DestroyRef);
+  private readonly _globalStore = inject(GlobalStore);
   private readonly _document = inject(DOCUMENT);
   private readonly _platformId = inject(PLATFORM_ID);
   private readonly _meta = inject(Meta);
@@ -23,6 +25,10 @@ export class SeoService {
 
   setPageTitle(title: string): void {
     this._title.setTitle(title);
+  }
+
+  updatePageTitle(title: string): void {
+    this._title.setTitle(`${title} | ${this._globalStore.pageTitle()}`);
   }
 
   trackCanonicalChanges(siteUrl: string): void {

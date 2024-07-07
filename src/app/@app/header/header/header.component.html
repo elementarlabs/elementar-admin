@@ -13,14 +13,13 @@
       </button>
       <button mat-icon-button matTooltip="Notifications"
               [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
-        <mat-icon
-                  matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
+        <mat-icon matBadge="3" matBadgeColor="warn" matBadgeSize="small">notifications</mat-icon>
       </button>
       <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
               emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
-        @if (isDark | async) {
+        @if (_themeManager.getColorScheme() === 'light') {
           <mat-icon>light_mode</mat-icon>
-        } @else {
+        } @else if (_themeManager.getColorScheme() === 'dark') {
           <mat-icon>dark_mode</mat-icon>
         }
       </button>

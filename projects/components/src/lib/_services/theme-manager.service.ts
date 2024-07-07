@@ -1,21 +1,15 @@
 import { afterNextRender, inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 const LOCAL_STORAGE_KEY = 'emr-admin';
-
-function getClassNameForKey(key: string) {
-  return `style-manager-${key}`;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeManagerService {
   private _document = inject(DOCUMENT);
-  private _isDarkSub = new BehaviorSubject(false);
   private _window = this._document.defaultView;
-  private _isDark$ = this._isDarkSub.asObservable();
+  private _colorScheme: 'dark' | 'light';
 
   constructor() {
     afterNextRender(() => {
@@ -34,24 +28,25 @@ export class ThemeManagerService {
     });
   }
 
-  toggleColorScheme() {
-    if (this._isDarkSub.value) {
+  getColorScheme(): 'dark' | 'light' {
+    return this._colorScheme;
+  }
+
+  toggleColorScheme(): void {
+    if (this._getStoredColorScheme() === 'dark') {
       this.changeColorScheme('light');
     } else {
       this.changeColorScheme('dark');
     }
   }
 
-  changeColorScheme(colorScheme: string): void {
+  changeColorScheme(colorScheme: 'dark' | 'light'): void {
+    this._colorScheme = colorScheme;
     this._setStoredColorScheme(colorScheme);
     this.setColorScheme(colorScheme);
   }
 
-  isDark(): Observable<boolean> {
-    return this._isDark$;
-  }
-
-  private _getStoredColorScheme = () => {
+  private _getStoredColorScheme() {
     if (typeof localStorage === 'undefined') {
       return;
     }
@@ -59,7 +54,7 @@ export class ThemeManagerService {
     return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? '{}').colorScheme;
   };
 
-  private _setStoredColorScheme = (colorScheme: string): void => {
+  private _setStoredColorScheme(colorScheme: string): void {
     if (typeof localStorage === 'undefined') {
       return;
     }
@@ -69,7 +64,7 @@ export class ThemeManagerService {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(meta));
   };
 
-  getPreferredColorScheme = (): 'dark' | 'light' => {
+  getPreferredColorScheme(): 'dark' | 'light' {
     const storedTheme = this._getStoredColorScheme();
 
     if (storedTheme) {
@@ -83,21 +78,20 @@ export class ThemeManagerService {
     return 'light';
   };
 
-  setColorScheme = (colorScheme: string): void => {
+  setColorScheme(colorScheme: string): void {
     if (this._window !== null && this._window.matchMedia) {
       if (
         colorScheme === 'auto' &&
         this._window.matchMedia('(prefers-color-scheme: dark)').matches
       ) {
-        this._isDarkSub.next(true);
+        this._colorScheme = 'dark';
         this._document.documentElement.classList.add('dark');
       } else {
-        const isDark = colorScheme === 'dark';
-        this._isDarkSub.next(colorScheme === 'dark');
-
-        if (isDark) {
+        if (colorScheme === 'dark') {
+          this._colorScheme = 'dark';
           this._document.documentElement.classList.add('dark');
         } else {
+          this._colorScheme = 'light';
           this._document.documentElement.classList.remove('dark');
         }
       }
