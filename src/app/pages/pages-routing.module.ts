@@ -151,6 +151,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/slider/slider.module').then(m => m.SliderModule)
       },
       {
+        path: 'components/thumbnail-maker',
+        loadChildren: () => import('./components/thumbnail-maker/thumbnail-maker.module').then(m => m.ThumbnailMakerModule)
+      },
+      {
         path: 'components/expand',
         loadChildren: () => import('./components/expand/expand.module').then(m => m.ExpandModule)
       },

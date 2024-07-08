@@ -22,6 +22,9 @@
       ],
       "@elementar/components/confirm": [
         "./projects/components/src/lib/confirm"
+      ],
+      "@elementar/components/thumbnail-maker": [
+        "./projects/components/src/lib/thumbnail-maker"
       ]
     },
     "outDir": "./dist/out-tsc",

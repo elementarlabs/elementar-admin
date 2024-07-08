@@ -423,6 +423,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Confirm',
           link: '/pages/components/confirm'
+        },
+        {
+          type: 'link',
+          name: 'Thumbnail Maker',
+          link: '/pages/components/thumbnail-maker'
         }
       ]
     },

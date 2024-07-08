@@ -1,0 +1,8 @@
+<div #content class="content" (dragstart)="onDragStart($event)">
+  <img [src]="src()" alt="" class="image" (load)="onLoad($event)" [style.scale]="scale">
+</div>
+<div class="mt-3 mx-auto w-[300px]">
+  <mat-slider class="!w-full" min="20" max="100">
+    <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="scale = $event / 100">
+  </mat-slider>
+</div>
