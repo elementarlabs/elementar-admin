@@ -11,4 +11,8 @@
   .image {
     @apply object-fill max-w-none max-h-none leading-none select-none;
   }
+
+  &:has(.dragging) {
+    cursor: grabbing;
+  }
 }

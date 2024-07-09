@@ -1,6 +1,7 @@
 import { afterNextRender, Component, ElementRef, input, OnInit, viewChild } from '@angular/core';
 import { MatSlider, MatSliderThumb } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import { DragImageDirective } from '../drag-image.directive';
 
 @Component({
   selector: 'emr-thumbnail-maker',
@@ -9,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     MatSlider,
     MatSliderThumb,
-    FormsModule
+    FormsModule,
+    DragImageDirective
   ],
   templateUrl: './thumbnail-maker.component.html',
   styleUrl: './thumbnail-maker.component.scss',
