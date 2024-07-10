@@ -23,7 +23,7 @@ export class ThumbnailMakerComponent implements OnInit {
   src = input.required<string>();
   private _content = viewChild.required<ElementRef>('content');
 
-  scale = 0.2;
+  scale = 1;
   loading = true;
 
   constructor() {
