@@ -38,17 +38,14 @@ export class ThumbnailMakerComponent implements OnInit {
   onLoad(event: Event): void {
     const contentEl = this._content().nativeElement as HTMLElement;
     const target = event.target as HTMLImageElement;
-
     // console.log(contentEl.getBoundingClientRect());
-    console.log(target.width, target.height);
-    console.log(target.naturalWidth, target.naturalHeight);
+    // console.log(target.width, target.height);
+    // console.log(target.naturalWidth, target.naturalHeight);
   }
 
   onDragStart(event: Event): void {
     event.stopPropagation();
     event.preventDefault();
-
-    console.log('start');
   }
 
   private _init(): void {

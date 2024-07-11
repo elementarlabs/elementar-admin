@@ -43,27 +43,34 @@ export class DragImageDirective implements OnInit {
       )
       .subscribe((event: any) => {
         if (this._dragging) {
+          const scaleFactor = (1 / this.scale());
           const scaledImageWidth = this.scale() * image.width;
           const scaledImageHeight = this.scale() * image.height;
-          let offsetY = (event.clientY - this._startClientY) * (1 / this.scale());
-          let offsetX = (event.clientX - this._startClientX) * (1 / this.scale());
+          let offsetY = (event.clientY - this._startClientY) * scaleFactor;
+          let offsetX = (event.clientX - this._startClientX) * scaleFactor;
           let translateX = this._offsetX + offsetX;
-          let offsetStartX = ((image.width / 2) - translateX) / (1 / this.scale());
-          let offsetEndX = (image.width / 2) + translateX / (1 / this.scale());
-          let translateY = 0;
-          let offsetMinWidth = 150;
+          let offsetStartX = ((image.width / 2) - translateX) / scaleFactor;
+          let offsetEndX = ((image.width / 2) + translateX) / scaleFactor;
+          let translateY = this._offsetY + offsetY;
+          let offsetStartY = ((image.height / 2) - translateY) / scaleFactor;
+          let offsetEndY = ((image.height / 2) + translateY) / scaleFactor;
+          let thumbHalfWidth = 150;
 
-          if (offsetStartX <= offsetMinWidth && translateX > 0) {
-            console.log(translateX);
-            translateX = (image.width / 2) - offsetMinWidth;
-            console.log(translateX);
-          } else if (offsetEndX <= offsetMinWidth && translateX < 0) {
-            translateX = -((image.width / 2) - offsetMinWidth);
+          if (offsetStartX <= thumbHalfWidth && translateX > 0) {
+            translateX = (image.width / 2) - (thumbHalfWidth * scaleFactor);
+          } else if (offsetEndX <= thumbHalfWidth && translateX < 0) {
+            translateX = -((image.width / 2) - (thumbHalfWidth * scaleFactor));
+          }
+
+          if (offsetStartY <= thumbHalfWidth && translateY > 0) {
+            translateY = (image.height / 2) - (thumbHalfWidth * scaleFactor);
+          } else if (offsetEndY <= thumbHalfWidth && translateY < 0) {
+            translateY = -((image.height / 2) - (thumbHalfWidth * scaleFactor));
           }
 
           this._renderer.setStyle(
             image,
-            'transform', `translate(${translateX}px,${this._offsetY + offsetY}px)`
+            'transform', `translate(${translateX}px,${translateY}px)`
           );
         }
       })
