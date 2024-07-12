@@ -1,4 +1,14 @@
-import { DestroyRef, Directive, ElementRef, inject, input, numberAttribute, OnInit, Renderer2 } from '@angular/core';
+import {
+  DestroyRef,
+  Directive,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  numberAttribute,
+  OnInit,
+  Renderer2
+} from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -23,9 +33,14 @@ export class DragImageDirective implements OnInit {
   });
   content = input.required<HTMLElement>();
 
+  constructor() {
+    effect(() => {
+
+    });
+  }
+
   ngOnInit() {
     const image = this._elementRef.nativeElement as HTMLImageElement;
-    let fixedStartX: number | undefined = undefined;
     fromEvent(image, 'mousedown')
       .pipe(
         takeUntilDestroyed(this._destroyRef)

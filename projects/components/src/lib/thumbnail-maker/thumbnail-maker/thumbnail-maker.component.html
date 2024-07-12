@@ -4,7 +4,7 @@
        [scale]="scale" [content]="content">
 </div>
 <div class="mt-3 mx-auto w-[300px]">
-  <mat-slider class="!w-full" min="20" max="100">
-    <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="scale = $event / 100">
+  <mat-slider class="!w-full" [min]="min" [max]="max">
+    <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="onScaleChange($event)">
   </mat-slider>
 </div>

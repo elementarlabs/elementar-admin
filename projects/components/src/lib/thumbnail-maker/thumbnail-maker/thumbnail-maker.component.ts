@@ -24,6 +24,8 @@ export class ThumbnailMakerComponent implements OnInit {
   private _content = viewChild.required<ElementRef>('content');
 
   scale = 1;
+  min = 1;
+  max = 100;
   loading = true;
 
   constructor() {
@@ -38,14 +40,22 @@ export class ThumbnailMakerComponent implements OnInit {
   onLoad(event: Event): void {
     const contentEl = this._content().nativeElement as HTMLElement;
     const target = event.target as HTMLImageElement;
-    // console.log(contentEl.getBoundingClientRect());
-    // console.log(target.width, target.height);
-    // console.log(target.naturalWidth, target.naturalHeight);
+    const contentHeight = contentEl.getBoundingClientRect().height;
+    const contentWidth = contentEl.getBoundingClientRect().width;
+    const heightScale =  contentHeight / target.height;
+    const widthScale = contentWidth / target.width;
+    const minScale = Math.min(heightScale, widthScale);
+    this.scale = minScale;
+    this.min = minScale * 100;
   }
 
   onDragStart(event: Event): void {
     event.stopPropagation();
     event.preventDefault();
+  }
+
+  onScaleChange($event: number) {
+    this.scale = $event / 100;
   }
 
   private _init(): void {
