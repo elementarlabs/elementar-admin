@@ -37,7 +37,7 @@ export class DragImageDirective implements OnInit {
 
   constructor() {
     effect(() => {
-
+      this._transform(0, 0, false);
     });
   }
 
@@ -63,33 +63,7 @@ export class DragImageDirective implements OnInit {
           const scaleFactor = (1 / this.scale());
           let offsetY = (event.clientY - this._startClientY) * scaleFactor;
           let offsetX = (event.clientX - this._startClientX) * scaleFactor;
-          let translateX = this._offsetX + offsetX;
-          let offsetStartX = ((image.width / 2) - translateX) / scaleFactor;
-          let offsetEndX = ((image.width / 2) + translateX) / scaleFactor;
-          let translateY = this._offsetY + offsetY;
-          let offsetStartY = ((image.height / 2) - translateY) / scaleFactor;
-          let offsetEndY = ((image.height / 2) + translateY) / scaleFactor;
-          let thumbHalfWidth = 150;
-
-          if (offsetStartX <= thumbHalfWidth && translateX > 0) {
-            translateX = (image.width / 2) - (thumbHalfWidth * scaleFactor);
-          } else if (offsetEndX <= thumbHalfWidth && translateX < 0) {
-            translateX = -((image.width / 2) - (thumbHalfWidth * scaleFactor));
-          }
-
-          if (offsetStartY <= thumbHalfWidth && translateY > 0) {
-            translateY = (image.height / 2) - (thumbHalfWidth * scaleFactor);
-          } else if (offsetEndY <= thumbHalfWidth && translateY < 0) {
-            translateY = -((image.height / 2) - (thumbHalfWidth * scaleFactor));
-          }
-
-          this._tmpOffsetY = translateY;
-          this._tmpOffsetX = translateX;
-
-          this._renderer.setStyle(
-            image,
-            'transform', `translate(${translateX}px,${translateY}px)`
-          );
+          this._transform(offsetY, offsetX);
         }
       })
     ;
@@ -106,5 +80,39 @@ export class DragImageDirective implements OnInit {
         }
       })
     ;
+  }
+
+  private _transform(offsetY: number, offsetX: number, withTmpOffset = true): void {
+    const image = this._elementRef.nativeElement as HTMLImageElement;
+    const scaleFactor = (1 / this.scale());
+    let translateX = this._offsetX + offsetX;
+    let offsetStartX = ((image.width / 2) - translateX) / scaleFactor;
+    let offsetEndX = ((image.width / 2) + translateX) / scaleFactor;
+    let translateY = this._offsetY + offsetY;
+    let offsetStartY = ((image.height / 2) - translateY) / scaleFactor;
+    let offsetEndY = ((image.height / 2) + translateY) / scaleFactor;
+    let thumbHalfWidth = 150;
+
+    if (offsetStartX <= thumbHalfWidth && translateX > 0) {
+      translateX = (image.width / 2) - (thumbHalfWidth * scaleFactor);
+    } else if (offsetEndX <= thumbHalfWidth && translateX < 0) {
+      translateX = -((image.width / 2) - (thumbHalfWidth * scaleFactor));
+    }
+
+    if (offsetStartY <= thumbHalfWidth && translateY > 0) {
+      translateY = (image.height / 2) - (thumbHalfWidth * scaleFactor);
+    } else if (offsetEndY <= thumbHalfWidth && translateY < 0) {
+      translateY = -((image.height / 2) - (thumbHalfWidth * scaleFactor));
+    }
+
+    if (withTmpOffset) {
+      this._tmpOffsetY = translateY;
+      this._tmpOffsetX = translateX;
+    }
+
+    this._renderer.setStyle(
+      image,
+      'transform', `translate(${translateX}px,${translateY}px)`
+    );
   }
 }

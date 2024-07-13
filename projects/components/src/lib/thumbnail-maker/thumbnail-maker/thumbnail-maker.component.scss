@@ -1,11 +1,12 @@
 :host {
-  @apply block w-max overflow-hidden;
+  @apply block w-max overflow-hidden relative;
 
   .content {
     @apply flex w-full items-center justify-center overflow-hidden leading-none relative select-none;
     width: var(--emr-thumbnail-width);
     height: var(--emr-thumbnail-height);
     mask-image: radial-gradient(circle, black 150px, rgba(0, 0, 0, 0.5) 150px);
+    cursor: move;
   }
 
   .image {
