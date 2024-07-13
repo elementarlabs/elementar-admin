@@ -1,8 +1,9 @@
-import { afterNextRender, Component, ElementRef, input, numberAttribute, OnInit, viewChild } from '@angular/core';
+import { Component, ElementRef, input, viewChild } from '@angular/core';
 import { MatSlider, MatSliderThumb } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { DragImageDirective } from '../drag-image.directive';
 import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'emr-thumbnail-maker',
@@ -13,7 +14,8 @@ import { MatIcon } from '@angular/material/icon';
     MatSliderThumb,
     FormsModule,
     DragImageDirective,
-    MatIcon
+    MatIcon,
+    MatIconButton
   ],
   templateUrl: './thumbnail-maker.component.html',
   styleUrl: './thumbnail-maker.component.scss',
@@ -25,9 +27,6 @@ export class ThumbnailMakerComponent {
   private _content = viewChild.required<ElementRef>('content');
 
   src = input.required<string>();
-  thumbRadius = input(150,{
-    transform: numberAttribute
-  });
   helperText = input('');
 
   protected scale = 1;
@@ -35,6 +34,14 @@ export class ThumbnailMakerComponent {
   protected max = 100;
   protected loading = true;
   protected alreadyDragged = false;
+
+  get isEqualsToMinScale(): boolean {
+    return this.scale <= this.min / 100;
+  }
+
+  get isEqualsToMaxScale(): boolean {
+    return this.scale >= this.max / 100;
+  }
 
   onLoad(event: Event): void {
     const contentEl = this._content().nativeElement as HTMLElement;
@@ -46,8 +53,6 @@ export class ThumbnailMakerComponent {
     const minScale = Math.min(heightScale, widthScale);
     this.scale = minScale;
     this.min = minScale * 100;
-
-    console.log(target.getBoundingClientRect());
   }
 
   onDragStart(event: Event): void {
@@ -60,6 +65,19 @@ export class ThumbnailMakerComponent {
     this.scale = $event / 100;
   }
 
-  private _init(): void {
+  increase(): void {
+    if ((this.scale + .1) * 100 <= this.max) {
+      this.scale += .1;
+    } else {
+      this.scale = this.max / 100;
+    }
+  }
+
+  decrease(): void {
+    if ((this.scale - .1) * 100 >= this.min) {
+      this.scale -= .1;
+    } else {
+      this.scale = this.min / 100;
+    }
   }
 }

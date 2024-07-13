@@ -7,12 +7,20 @@
 }
 
 <div #content class="content" (dragstart)="onDragStart($event)">
-  <img [src]="src()" alt="" class="image" (load)="onLoad($event)"
-       [style.scale]="scale" emrDragImage
-       [scale]="scale" [content]="content">
+  <img [src]="src()" loading="lazy" alt="" class="image"
+       (load)="onLoad($event)" [style.scale]="scale"
+       emrDragImage [scale]="scale" [content]="content">
 </div>
-<div class="mt-3 mx-auto w-[300px]">
-  <mat-slider class="!w-full" [min]="min" [max]="max">
-    <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="onScaleChange($event)">
-  </mat-slider>
+<div class="mt-2 mx-auto w-max flex items-center gap-3">
+  <button mat-icon-button (click)="decrease()" [disabled]="isEqualsToMinScale">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <div class="w-[300px]">
+    <mat-slider class="!w-full" [min]="min" [max]="max">
+      <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="onScaleChange($event)">
+    </mat-slider>
+  </div>
+  <button mat-icon-button (click)="increase()" [disabled]="isEqualsToMaxScale">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>
