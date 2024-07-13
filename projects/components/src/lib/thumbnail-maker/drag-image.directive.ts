@@ -27,6 +27,8 @@ export class DragImageDirective implements OnInit {
   private _startClientX = 0;
   private _offsetY = 0;
   private _offsetX = 0;
+  private _tmpOffsetY = 0;
+  private _tmpOffsetX = 0;
 
   scale = input.required({
     transform: numberAttribute
@@ -59,8 +61,6 @@ export class DragImageDirective implements OnInit {
       .subscribe((event: any) => {
         if (this._dragging) {
           const scaleFactor = (1 / this.scale());
-          const scaledImageWidth = this.scale() * image.width;
-          const scaledImageHeight = this.scale() * image.height;
           let offsetY = (event.clientY - this._startClientY) * scaleFactor;
           let offsetX = (event.clientX - this._startClientX) * scaleFactor;
           let translateX = this._offsetX + offsetX;
@@ -83,6 +83,9 @@ export class DragImageDirective implements OnInit {
             translateY = -((image.height / 2) - (thumbHalfWidth * scaleFactor));
           }
 
+          this._tmpOffsetY = translateY;
+          this._tmpOffsetX = translateX;
+
           this._renderer.setStyle(
             image,
             'transform', `translate(${translateX}px,${translateY}px)`
@@ -98,8 +101,8 @@ export class DragImageDirective implements OnInit {
         if (this._dragging) {
           this._dragging = false;
           this._renderer.removeClass(image, 'dragging');
-          this._offsetY = this._offsetY + (event.clientY - this._startClientY) * (1 / this.scale());
-          this._offsetX = this._offsetX + (event.clientX - this._startClientX) * (1 / this.scale());
+          this._offsetY = this._tmpOffsetY;
+          this._offsetX = this._tmpOffsetX;
         }
       })
     ;
