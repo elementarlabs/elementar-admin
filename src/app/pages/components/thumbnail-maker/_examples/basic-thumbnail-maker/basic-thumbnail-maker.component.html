@@ -1,5 +1,17 @@
-<emr-thumbnail-maker src="/assets/thumbnail-maker/photo1.jpeg"
+<emr-thumbnail-maker #thumbnailMaker="emrThumbnailMaker" src="/assets/thumbnail-maker/photo1.jpeg"
                      class="border dark:border-inverse rounded-xl"></emr-thumbnail-maker>
+<div class="mt-10">
+  <button mat-flat-button (click)="makeThumbnail(thumbnailMaker)">Make thumbnail</button>
+</div>
+
+@if (thumbnail) {
+  <div class="mt-2 flex items-start gap-10 flex-wrap">
+    <img [src]="thumbnail" alt="">
+    <img [src]="thumbnail" alt="" class="rounded-xl size-40">
+    <img [src]="thumbnail" alt="" class="rounded-full size-40">
+  </div>
+}
+
 <!--<emr-thumbnail-maker src="https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg"-->
 <!--                     class="border dark:border-inverse rounded-xl"-->
 <!--                     helperText="Drag to change position"></emr-thumbnail-maker>-->

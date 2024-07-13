@@ -51,7 +51,6 @@ export class DragImageDirective implements OnInit {
         this._dragging = true;
         this._startClientY = event.clientY;
         this._startClientX = event.clientX;
-        this._renderer.addClass(image, 'dragging');
       })
     ;
     fromEvent(this._document, 'mousemove')
@@ -74,12 +73,40 @@ export class DragImageDirective implements OnInit {
       .subscribe((event: any) => {
         if (this._dragging) {
           this._dragging = false;
-          this._renderer.removeClass(image, 'dragging');
           this._offsetY = this._tmpOffsetY;
           this._offsetX = this._tmpOffsetX;
         }
       })
     ;
+  }
+
+  getDataUrl(): string {
+    return this._getCanvas().toDataURL('png', 100);
+  }
+
+  toBlob(callback: BlobCallback): void {
+    return this.getCanvas().toBlob(callback, 'png', 100);
+  }
+
+  getCanvas(): HTMLCanvasElement {
+    return this._getCanvas();
+  }
+
+  private _getCanvas(): HTMLCanvasElement {
+    const image = this._elementRef.nativeElement as HTMLImageElement;
+    const canvas = this._document.createElement('canvas');
+    canvas.width = 300;
+    canvas.height = 300;
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    ctx.drawImage(
+      image,
+      -((image.width * this.scale() - 300) / 2) + this._offsetX * this.scale(),
+      -((image.height * this.scale() - 300) / 2) + this._offsetY * this.scale(),
+      image.width * this.scale(),
+      image.height * this.scale()
+    );
+
+    return canvas;
   }
 
   private _transform(offsetY: number, offsetX: number, withTmpOffset = true): void {
