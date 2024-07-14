@@ -27,6 +27,7 @@ import { ThumbnailMakerApi } from '../types';
 export class ThumbnailMakerComponent {
   private _content = viewChild.required<ElementRef>('content');
   private _dragImage = viewChild.required<DragImageDirective>(DragImageDirective);
+  private _thumbnailSize = 300;
 
   src = input.required<string>();
   helperText = input('');
@@ -60,9 +61,9 @@ export class ThumbnailMakerComponent {
     const target = event.target as HTMLImageElement;
     const contentHeight = contentEl.getBoundingClientRect().height;
     const contentWidth = contentEl.getBoundingClientRect().width;
-    const heightScale =  contentHeight / target.height;
-    const widthScale = contentWidth / target.width;
-    const minScale = Math.min(heightScale, widthScale);
+    const heightScale =  this._thumbnailSize / target.height;
+    const widthScale = this._thumbnailSize / target.width;
+    const minScale = Math.max(heightScale, widthScale);
     this.scale = minScale;
     this.min = minScale * 100;
   }
