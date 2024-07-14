@@ -85,7 +85,9 @@ export class DragImageDirective implements OnInit, OnChanges {
         return;
       }
 
-      this._transform(0, 0, false);
+      this._transform(0, 0, );
+      this._offsetY = this._tmpOffsetY;
+      this._offsetX = this._tmpOffsetX;
     }
   }
 
@@ -121,7 +123,7 @@ export class DragImageDirective implements OnInit, OnChanges {
     return canvas;
   }
 
-  private _transform(offsetY: number, offsetX: number, withTmpOffset = true): void {
+  private _transform(offsetY: number, offsetX: number): void {
     const image = this._elementRef.nativeElement as HTMLImageElement;
     const scaleFactor = (1 / this.scale());
     let translateX = this._offsetX + offsetX;
@@ -144,11 +146,8 @@ export class DragImageDirective implements OnInit, OnChanges {
       translateY = -((image.height / 2) - (thumbHalfWidth * scaleFactor));
     }
 
-    if (withTmpOffset) {
-      this._tmpOffsetY = translateY;
-      this._tmpOffsetX = translateX;
-    }
-
+    this._tmpOffsetY = translateY;
+    this._tmpOffsetX = translateX;
     this._renderer.setStyle(
       image,
       'transform', `translate(${translateX}px,${translateY}px)`

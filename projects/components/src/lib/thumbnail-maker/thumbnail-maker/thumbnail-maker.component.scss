@@ -6,11 +6,10 @@
     width: var(--emr-thumbnail-width);
     height: var(--emr-thumbnail-height);
     mask-image: radial-gradient(circle, black 150px, rgba(0, 0, 0, 0.5) 150px);
-    cursor: move;
   }
 
   .image {
-    @apply object-fill max-w-none max-h-none leading-none select-none;
+    @apply object-fill max-w-none max-h-none leading-none select-none cursor-move;
   }
 
   .controls {

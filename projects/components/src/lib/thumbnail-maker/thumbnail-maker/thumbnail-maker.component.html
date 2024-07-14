@@ -15,7 +15,7 @@
   <button mat-icon-button (click)="decrease()" [disabled]="isEqualsToMinScale">
     <mat-icon>remove</mat-icon>
   </button>
-  <div class="w-[300px]">
+  <div class="w-[300px] range-slider -ms-3">
     <mat-slider class="!w-full" [min]="min" [max]="max">
       <input matSliderThumb [ngModel]="scale * 100" (ngModelChange)="onScaleChange($event)">
     </mat-slider>
