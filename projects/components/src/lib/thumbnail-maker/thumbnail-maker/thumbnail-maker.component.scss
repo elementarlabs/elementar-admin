@@ -3,13 +3,17 @@
 
   .content {
     @apply flex w-full items-center justify-center overflow-hidden leading-none relative select-none;
-    width: var(--emr-thumbnail-width);
-    height: var(--emr-thumbnail-height);
+    @apply w-[var(--emr-thumbnail-width)] h-[var(--emr-thumbnail-height)];
     mask-image: radial-gradient(circle, black 150px, rgba(0, 0, 0, 0.5) 150px);
   }
 
   .image {
     @apply object-fill max-w-none max-h-none leading-none select-none cursor-move;
+  }
+
+  .helper-text {
+    @apply absolute z-[1] top-5 start-1/2 -translate-x-1/2 w-max flex items-center gap-2;
+    @apply  bg-neutral-950 text-white rounded-lg px-3 py-2 text-sm opacity-90;
   }
 
   .controls {
