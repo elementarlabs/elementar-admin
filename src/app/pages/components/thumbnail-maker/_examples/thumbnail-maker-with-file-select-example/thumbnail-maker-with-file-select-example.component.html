@@ -1,0 +1,19 @@
+@if (!src) {
+  <emr-upload-trigger accept="image/png,image/jpeg" (selected)="onImageSelected($event)">
+    <button mat-stroked-button>Select a local image</button>
+  </emr-upload-trigger>
+} @else {
+  <emr-thumbnail-maker #thumbnailMaker="emrThumbnailMaker" [src]="src"
+                       class="border dark:border-inverse rounded-xl"></emr-thumbnail-maker>
+  <div class="mt-10">
+    <button mat-flat-button (click)="makeThumbnail(thumbnailMaker)">Make thumbnail</button>
+  </div>
+
+  @if (thumbnail) {
+    <div class="mt-2 flex items-start gap-10 flex-wrap">
+      <img [src]="thumbnail" alt="">
+      <img [src]="thumbnail" alt="" class="rounded-xl size-40">
+      <img [src]="thumbnail" alt="" class="rounded-full size-40">
+    </div>
+  }
+}

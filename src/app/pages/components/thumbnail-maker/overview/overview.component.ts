@@ -6,6 +6,9 @@ import { BasicThumbnailMakerComponent } from '../_examples/basic-thumbnail-maker
 import {
   ThumbnailMakerWithHelperTextExampleComponent
 } from '../_examples/thumbnail-maker-with-helper-text-example/thumbnail-maker-with-helper-text-example.component';
+import {
+  ThumbnailMakerWithFileSelectExampleComponent
+} from '../_examples/thumbnail-maker-with-file-select-example/thumbnail-maker-with-file-select-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -15,7 +18,8 @@ import {
     PageContentDirective,
     PlaygroundComponent,
     BasicThumbnailMakerComponent,
-    ThumbnailMakerWithHelperTextExampleComponent
+    ThumbnailMakerWithHelperTextExampleComponent,
+    ThumbnailMakerWithFileSelectExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
