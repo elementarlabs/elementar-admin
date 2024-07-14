@@ -17,7 +17,7 @@ import { MatButton } from '@angular/material/button';
 export class BasicThumbnailMakerComponent {
   thumbnail = '';
 
-  makeThumbnail(thumbnailMaker: ThumbnailMakerComponent) {
+  makeThumbnail(thumbnailMaker: ThumbnailMakerComponent): void {
     this.thumbnail = thumbnailMaker.api.getDataUrl();
   }
 }

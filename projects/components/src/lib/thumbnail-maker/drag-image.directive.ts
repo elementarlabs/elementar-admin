@@ -1,13 +1,12 @@
 import {
   DestroyRef,
   Directive,
-  effect,
-  ElementRef,
+  ElementRef, HostListener,
   inject,
   input,
-  numberAttribute,
+  numberAttribute, OnChanges,
   OnInit,
-  Renderer2
+  Renderer2, SimpleChanges
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
@@ -17,7 +16,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: '[emrDragImage]',
   standalone: true
 })
-export class DragImageDirective implements OnInit {
+export class DragImageDirective implements OnInit, OnChanges {
   private _elementRef = inject(ElementRef);
   private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
@@ -29,16 +28,16 @@ export class DragImageDirective implements OnInit {
   private _offsetX = 0;
   private _tmpOffsetY = 0;
   private _tmpOffsetX = 0;
+  private _imageLoaded = false;
 
   scale = input.required({
     transform: numberAttribute
   });
   content = input.required<HTMLElement>();
 
-  constructor() {
-    effect(() => {
-      this._transform(0, 0, false);
-    });
+  @HostListener('load')
+  onLoad(): void {
+    this._imageLoaded = true;
   }
 
   ngOnInit() {
@@ -80,6 +79,20 @@ export class DragImageDirective implements OnInit {
     ;
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes['scale'].firstChange) {
+      if (!this._imageLoaded) {
+        return;
+      }
+
+      this._transform(0, 0, false);
+    }
+  }
+
+  onImageLoad(event: any): void {
+    this._imageLoaded = true;
+  }
+
   getDataUrl(): string {
     return this._getCanvas().toDataURL('png', 100);
   }
@@ -105,7 +118,6 @@ export class DragImageDirective implements OnInit {
       image.width * this.scale(),
       image.height * this.scale()
     );
-
     return canvas;
   }
 
