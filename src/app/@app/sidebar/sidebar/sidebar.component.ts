@@ -428,7 +428,12 @@ export class SidebarComponent {
           type: 'link',
           name: 'Thumbnail Maker',
           link: '/pages/components/thumbnail-maker'
-        }
+        },
+        {
+          type: 'link',
+          name: 'Image Viewer',
+          link: '/pages/components/image-viewer'
+        },
       ]
     },
     {

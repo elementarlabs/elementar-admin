@@ -251,6 +251,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/confirm/confirm.module').then(m => m.ConfirmModule)
       },
       {
+        path: 'components/image-viewer',
+        loadChildren: () => import('./components/image-viewer/image-viewer.module').then(m => m.ImageViewerModule)
+      },
+      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },

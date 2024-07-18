@@ -25,6 +25,9 @@
       ],
       "@elementar/components/thumbnail-maker": [
         "./projects/components/src/lib/thumbnail-maker"
+      ],
+      "@elementar/components/image-viewer": [
+        "./projects/components/src/lib/image-viewer"
       ]
     },
     "outDir": "./dist/out-tsc",
