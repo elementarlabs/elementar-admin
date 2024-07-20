@@ -6,7 +6,13 @@
   }
 
   .content {
-    @apply shadow z-[2] flex items-center justify-center gap-8 h-screen w-screen pt-12;
+    @apply shadow z-[2] flex items-center justify-center gap-8 h-screen w-screen;
+  }
+
+  &:has(.title) {
+    .content {
+      @apply pt-12;
+    }
   }
 
   &:has(.aside) {
