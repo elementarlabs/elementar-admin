@@ -21,7 +21,8 @@ import { ThumbnailMakerApi } from '../types';
   templateUrl: './thumbnail-maker.component.html',
   styleUrl: './thumbnail-maker.component.scss',
   host: {
-    'class': 'emr-thumbnail-maker'
+    'class': 'emr-thumbnail-maker',
+    '[class.loading]': 'loading'
   }
 })
 export class ThumbnailMakerComponent {
@@ -59,13 +60,12 @@ export class ThumbnailMakerComponent {
   protected onLoad(event: Event): void {
     const contentEl = this._content().nativeElement as HTMLElement;
     const target = event.target as HTMLImageElement;
-    const contentHeight = contentEl.getBoundingClientRect().height;
-    const contentWidth = contentEl.getBoundingClientRect().width;
     const heightScale =  this._thumbnailSize / target.height;
     const widthScale = this._thumbnailSize / target.width;
     const minScale = Math.max(heightScale, widthScale);
     this.scale = minScale;
     this.min = minScale * 100;
+    this.loading = false;
   }
 
   protected onDragStart(event: Event): void {

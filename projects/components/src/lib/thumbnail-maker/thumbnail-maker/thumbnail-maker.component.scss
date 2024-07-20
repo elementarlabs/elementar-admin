@@ -19,4 +19,10 @@
   .controls {
     @apply my-3;
   }
+  
+  &.loading {
+    .image {
+      @apply invisible relative -z-[1];
+    }
+  }
 }

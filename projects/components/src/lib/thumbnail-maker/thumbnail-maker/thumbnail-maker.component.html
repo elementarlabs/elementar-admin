@@ -6,7 +6,7 @@
 }
 
 <div #content class="content" (dragstart)="onDragStart($event)">
-  <img [src]="src()" loading="lazy" alt="" class="image"
+  <img [src]="src()" alt="" class="image"
        (load)="onLoad($event)" [style.scale]="scale"
        emrDragImage [scale]="scale" [content]="content">
 </div>
