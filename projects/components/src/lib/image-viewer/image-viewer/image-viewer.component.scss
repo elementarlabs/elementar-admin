@@ -1,0 +1,42 @@
+:host {
+  @apply w-screen h-screen flex items-center justify-center;
+
+  .content {
+    @apply max-h-[84%] max-w-[84%] shadow z-[2] flex gap-8;
+  }
+
+  .aside {
+    @apply w-[400px] flex-none bg-neutral-50 rounded-lg flex flex-col gap-5;
+
+    &-header {
+      @apply font-bold px-8 pt-8;
+    }
+
+    &-body {
+      @apply relative grow text-sm text-neutral-600 leading-relaxed;
+
+      &-scroll {
+        @apply absolute inset-0 overflow-y-auto px-8 pb-8;
+      }
+    }
+  }
+
+  .image {
+    @apply flex items-center justify-end;
+    width: var(--emr-image-viewer-image-width, '100%');
+
+    img {
+      @apply max-h-full max-w-full rounded-lg;
+    }
+  }
+
+  .spinner {
+    @apply w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1];
+  }
+
+  &.loading {
+    .content {
+      @apply invisible relative -z-50;
+    }
+  }
+}

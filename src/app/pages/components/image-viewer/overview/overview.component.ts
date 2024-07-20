@@ -8,6 +8,9 @@ import { PlaygroundComponent } from '@meta/playground/playground.component';
 import {
   BasicImageViewerExampleComponent
 } from '../_examples/basic-image-viewer-example/basic-image-viewer-example.component';
+import {
+  ImageViewerWithCaptionAndDescriptionExampleComponent
+} from '../_examples/image-viewer-with-caption-and-description-example/image-viewer-with-caption-and-description-example.component';
 
 @Component({
   standalone: true,
@@ -16,7 +19,8 @@ import {
     PageComponent,
     PageContentDirective,
     PlaygroundComponent,
-    BasicImageViewerExampleComponent
+    BasicImageViewerExampleComponent,
+    ImageViewerWithCaptionAndDescriptionExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -1,5 +1,4 @@
 import { EventEmitter } from '@angular/core';
-import { OverlayRef } from '@angular/cdk/overlay';
 
 export class ConfirmRef {
   readonly canceled = new EventEmitter();

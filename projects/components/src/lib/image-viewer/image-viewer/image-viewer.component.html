@@ -1,1 +1,36 @@
-<p>image-viewer works!</p>
+<div class="backdrop absolute inset-0" (click)="onBackdropClick()"></div>
+<button (click)="pictureRef.close()"
+        class="absolute right-3 top-3 z-[1] size-10 rounded-full flex items-center hover:text-neutral-200 active:text-neutral-100
+               justify-center bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-950 text-neutral-300">
+  <mat-icon>close</mat-icon>
+</button>
+@if (loading) {
+  <div class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+}
+<div class="content">
+  <div class="image">
+    <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)">
+  </div>
+  @if (data.caption || data.description || data.captionTplRef || data.descriptionTplRef) {
+    <div class="aside">
+      <div class="aside-header">
+        @if (data.captionTplRef) {
+          <ng-container [ngTemplateOutlet]="data.captionTplRef"></ng-container>
+        } @else if (data.caption) {
+          {{ data.caption }}
+        }
+      </div>
+      <div class="aside-body">
+        <div class="aside-body-scroll">
+          @if (data.descriptionTplRef) {
+            <ng-container [ngTemplateOutlet]="data.descriptionTplRef"></ng-container>
+          } @else if (data.description) {
+            {{ data.description }}
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
