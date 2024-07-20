@@ -49,7 +49,7 @@
   }
 
   .image {
-    @apply flex items-center justify-end h-full max-w-[90%] max-h-[90%];
+    @apply relative flex items-center justify-end h-full max-w-[90%] max-h-[90%];
 
     img {
       @apply max-h-full max-w-full rounded-lg;
@@ -57,11 +57,15 @@
   }
 
   .spinner {
-    @apply w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1];
+    @apply invisible w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-[1];
   }
 
   &.loading {
-    .content {
+    .spinner {
+      @apply visible z-[1];
+    }
+
+    img {
       @apply invisible relative -z-50;
     }
   }

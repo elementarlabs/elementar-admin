@@ -1,5 +1,5 @@
-<div class="header">
-  <div>
+<div class="header" (click)="onBackdropClick()">
+  <div (click)="onPreventClick($event)">
     @if (data.title || data.titleTplRef) {
       <div class="title">
         @if (data.titleTplRef) {
@@ -10,17 +10,19 @@
       </div>
     }
   </div>
-  <button (click)="pictureRef.close()" class="close">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
-@if (loading) {
-  <div class="spinner">
-    <mat-spinner></mat-spinner>
+  <div (click)="onPreventClick($event)" class="w-max">
+    <button (click)="pictureRef.close()" class="close">
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
-}
+</div>
 <div class="content" (click)="onBackdropClick()">
   <div class="image">
+    @if (loading) {
+      <div class="spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
     <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)" (click)="onPreventClick($event)">
   </div>
   @if (data.caption || data.description || data.captionTplRef || data.descriptionTplRef) {
