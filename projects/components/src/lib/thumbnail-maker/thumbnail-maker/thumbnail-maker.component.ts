@@ -43,7 +43,7 @@ export class ThumbnailMakerComponent {
     }
   }
 
-  protected scale = 1;
+  protected scale = 0;
   protected min = 1;
   protected max = 100;
   protected loading = true;
