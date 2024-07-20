@@ -11,6 +11,9 @@ import {
 import {
   ImageViewerWithCaptionAndDescriptionExampleComponent
 } from '../_examples/image-viewer-with-caption-and-description-example/image-viewer-with-caption-and-description-example.component';
+import {
+  ImageViewerWithTitleExampleComponent
+} from '../_examples/image-viewer-with-title-example/image-viewer-with-title-example.component';
 
 @Component({
   standalone: true,
@@ -20,7 +23,8 @@ import {
     PageContentDirective,
     PlaygroundComponent,
     BasicImageViewerExampleComponent,
-    ImageViewerWithCaptionAndDescriptionExampleComponent
+    ImageViewerWithCaptionAndDescriptionExampleComponent,
+    ImageViewerWithTitleExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

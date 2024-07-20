@@ -3,8 +3,10 @@ import { PictureRef } from './picture-ref';
 
 export interface PictureOptions {
   sourceUrl: string;
+  title?: string | undefined;
   caption?: string | undefined;
   description?: string | undefined;
+  titleTplRef?: TemplateRef<any> | undefined;
   captionTplRef?: TemplateRef<any> | undefined;
   descriptionTplRef?: TemplateRef<any> | undefined;
 }

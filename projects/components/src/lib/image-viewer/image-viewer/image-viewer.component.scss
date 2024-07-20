@@ -1,12 +1,33 @@
 :host {
-  @apply w-screen h-screen flex items-center justify-center;
+  @apply w-screen h-screen flex flex-col;
+
+  .header {
+    @apply absolute top-0 start-0 right-0 h-20 flex-none px-4 z-[3] flex items-center justify-between
+  }
 
   .content {
-    @apply max-h-[84%] max-w-[84%] shadow z-[2] flex gap-8;
+    @apply shadow z-[2] flex items-center justify-center gap-8 h-screen w-screen pt-12;
+  }
+
+  &:has(.aside) {
+    .content {
+      @apply pe-[400px];
+    }
+  }
+
+  .title {
+    @apply font-medium h-10 rounded-full px-4 text-tiny flex items-center;
+    @apply bg-neutral-700 text-neutral-300;
+  }
+
+  .close {
+    @apply size-10 rounded-full flex items-center justify-center;
+    @apply bg-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:text-neutral-200;
+    @apply active:text-neutral-100 active:bg-neutral-950;
   }
 
   .aside {
-    @apply w-[400px] flex-none bg-neutral-50 rounded-lg flex flex-col gap-5;
+    @apply w-[400px] absolute end-0 top-0 bottom-0 flex-none bg-neutral-50 flex flex-col gap-5 h-full;
 
     &-header {
       @apply font-bold px-8 pt-8;
@@ -22,8 +43,7 @@
   }
 
   .image {
-    @apply flex items-center justify-end;
-    width: var(--emr-image-viewer-image-width, '100%');
+    @apply flex items-center justify-end h-full max-w-[90%] max-h-[90%];
 
     img {
       @apply max-h-full max-w-full rounded-lg;
@@ -37,6 +57,26 @@
   &.loading {
     .content {
       @apply invisible relative -z-50;
+    }
+  }
+}
+
+:host-context(html.dark) {
+  .title {
+    @apply bg-neutral-100 text-neutral-600;
+  }
+
+  .close {
+    @apply bg-neutral-100 text-neutral-600;
+    @apply hover:bg-neutral-200 hover:text-neutral-700;
+    @apply active:bg-neutral-300 active:text-neutral-900;
+  }
+
+  .aside {
+    @apply bg-neutral-900;
+
+    &-body {
+      @apply text-neutral-400;
     }
   }
 }
