@@ -1,14 +1,25 @@
 import { Component, inject } from '@angular/core';
-import { CONFIRM_DATA, CONFIRM_REF, ConfirmOptions } from '../types';
 import { MatButton } from '@angular/material/button';
-import { ConfirmRef } from '../confirm-ref';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'emr-confirm',
   exportAs: 'emrConfirm',
   standalone: true,
   imports: [
-    MatButton
+    MatButton,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogTitle,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    ReactiveFormsModule,
+    MatDialogClose
   ],
   templateUrl: './confirm.component.html',
   styleUrl: './confirm.component.scss',
@@ -17,17 +28,9 @@ import { ConfirmRef } from '../confirm-ref';
   }
 })
 export class ConfirmComponent {
-  private _data = inject<ConfirmOptions>(CONFIRM_DATA);
-  private _confirmRef = inject<ConfirmRef>(CONFIRM_REF);
+  private _data = inject(DIALOG_DATA);
+  private _dialogRef = inject(DialogRef);
 
   title = this._data.title;
   description = this._data.description;
-
-  cancel(): void {
-    this._confirmRef.cancel();
-  }
-
-  confirm(): void {
-    this._confirmRef.confirm();
-  }
 }

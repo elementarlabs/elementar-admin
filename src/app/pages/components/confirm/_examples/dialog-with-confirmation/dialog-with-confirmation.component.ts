@@ -9,6 +9,7 @@ import {
 } from '@angular/material/dialog';
 import { ConfirmManager } from '@elementar/components/confirm';
 import { MatButton } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog-with-confirmation',
@@ -24,6 +25,7 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './dialog-with-confirmation.component.scss'
 })
 export class DialogWithConfirmationComponent {
+  private _snackBar = inject(MatSnackBar);
   private _confirmManager = inject(ConfirmManager);
 
   constructor(
@@ -40,10 +42,10 @@ export class DialogWithConfirmationComponent {
       description: 'You are about to unpublish all Posts in the selection. Are you sure?'
     });
     confirmDef.canceled.subscribe(() => {
-      console.log('Cancelled!');
+      this._snackBar.open('Cancelled!', 'OK');
     });
     confirmDef.confirmed.subscribe(() => {
-      console.log('Confirmed!');
+      this._snackBar.open('Confirmed!', 'OK');
     });
   }
 }
