@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar/components';
+import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar/components/data-view';
 import { JsonPipe } from '@angular/common';
 
 export interface PeriodicElement {

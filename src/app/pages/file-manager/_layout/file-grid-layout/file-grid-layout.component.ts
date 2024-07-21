@@ -7,12 +7,12 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { IconComponent, MenuOptionGroupDirective } from '@elementar/components';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
-import { FormatFileSizePipe } from '@elementar/components';
+import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar/components/core';
+import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-file-grid-layout',

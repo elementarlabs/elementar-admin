@@ -1,14 +1,15 @@
 import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { EnvironmentService, ThemeManagerService } from '@elementar/components';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
-import { ScreenLoaderService } from '@elementar/components';
 import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
-import { AnalyticsService } from '@elementar/components';
-import { SeoService } from '@elementar/components';
-import { PageLoadingBarComponent } from '@elementar/components';
-import { InactivityTrackerService } from '@elementar/components';
+import { PageLoadingBarComponent } from '@elementar/components/page-loading-bar';
+import {
+  AnalyticsService, EnvironmentService,
+  InactivityTrackerService,
+  ScreenLoaderService, SeoService,
+  ThemeManagerService
+} from '@elementar/components/core';
 
 @Component({
   selector: 'app-root',

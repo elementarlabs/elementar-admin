@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrColorPickerModule } from '@elementar/components';
+import { EmrColorPickerModule } from '@elementar/components/color-picker';
 
 @Component({
   selector: 'app-color-picker-with-popover-example',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent } from '@elementar/components';
+import { DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
 import { JsonPipe } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 

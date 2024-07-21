@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar/components';
+import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
 import { HttpClient } from '@angular/common/http';
 
 export interface User {

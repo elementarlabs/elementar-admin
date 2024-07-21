@@ -16,7 +16,7 @@ import { UniqueVisitorsWidgetComponent } from '@shared/widgets/unique-visitors-w
 import { DecimalPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { IconComponent } from '@elementar/components';
+import { IconComponent } from '@elementar/components/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import {

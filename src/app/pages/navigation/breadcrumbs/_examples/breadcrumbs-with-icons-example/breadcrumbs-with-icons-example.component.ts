@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BreadcrumbItemIconDirective, EmrBreadcrumbsModule } from '@elementar/components';
+import { BreadcrumbItemIconDirective, EmrBreadcrumbsModule } from '@elementar/components/breadcrumbs';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import {

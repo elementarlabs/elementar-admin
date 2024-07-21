@@ -3,10 +3,10 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { EmrNavigationModule } from '@elementar/components';
 import { MatRipple } from '@angular/material/core';
-import { OrderByPipe } from '@elementar/components';
 import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
+import { EmrNavigationModule } from '@elementar/components/navigation';
+import { OrderByPipe } from '@elementar/components/core';
 
 export interface NavItem {
   type: string;

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
 import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateIconComponent
-} from '@elementar/components';
-import { MatIcon } from '@angular/material/icon';
+} from '@elementar/components/block-state';
 
 @Component({
   selector: 'app-block-state-with-icon-example',

@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { DataViewCellRendererComponent } from '@elementar/components';
+import { DataViewCellRendererComponent } from '@elementar/components/data-view';
 
 @Component({
   selector: 'app-link-cell',

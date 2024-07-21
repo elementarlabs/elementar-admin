@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
 import {
   MchartBarComponent,
   MchartTooltipBodyComponent,
-  MchartTooltipComponent,
-  MchartTooltipTitleComponent
-} from '@elementar/components';
-import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+  MchartTooltipComponent, MchartTooltipTitleComponent
+} from '@elementar/components/micro-chart';
 
 @Component({
   selector: 'app-mchart-bar-with-tooltip-example',
@@ -21,5 +20,4 @@ import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
   styleUrl: './mchart-bar-with-tooltip-example.component.scss'
 })
 export class MchartBarWithTooltipExampleComponent {
-
 }

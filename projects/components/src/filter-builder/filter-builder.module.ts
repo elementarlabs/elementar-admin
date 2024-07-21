@@ -7,12 +7,10 @@ import { FilterBuilderOperationIconDirective } from './filter-builder-operation-
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatAutocomplete, MatAutocompleteTrigger, MatOption } from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
-import { MenuOptionGroupDirective } from '../menu-option-group.directive';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatInput } from '@angular/material/input';
-import { AutoFocusDirective } from '../_directives/auto-focus.directive';
-import { FocusElementDirective } from '../_directives/focus-element.directive';
 import { MatSelect } from '@angular/material/select';
+import { AutoFocusDirective, FocusElementDirective, MenuOptionGroupDirective } from '@elementar/components/core';
 
 @NgModule({
   declarations: [

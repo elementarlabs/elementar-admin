@@ -1,17 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  DataViewCellRenderer,
-  DataViewColumnDef,
-  DataViewComponent,
-  DataViewRowSelectionEvent,
-  EmrPanelModule,
-  EmrSegmentedModule, VDividerComponent
-} from '@elementar/components';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
+import { EmrPanelModule } from '@elementar/components/panel';
+import {
+  DataViewCellRenderer,
+  DataViewColumnDef,
+  DataViewComponent,
+  DataViewRowSelectionEvent
+} from '@elementar/components/data-view';
+import { VDividerComponent } from '@elementar/components/divider';
+import { EmrSegmentedModule } from '@elementar/components/segmented';
 
 export interface User {
   id: string;

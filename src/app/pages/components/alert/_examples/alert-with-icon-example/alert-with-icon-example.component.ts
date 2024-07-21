@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrAlertModule } from '@elementar/components';
+import { EmrAlertModule } from '@elementar/components/alert';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

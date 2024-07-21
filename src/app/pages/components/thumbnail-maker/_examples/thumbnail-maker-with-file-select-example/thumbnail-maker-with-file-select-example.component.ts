@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ThumbnailMakerComponent } from '@elementar/components/thumbnail-maker';
-import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components';
+import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-thumbnail-maker-with-file-select-example',

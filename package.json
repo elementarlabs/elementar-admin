@@ -1,7 +1,21 @@
 {
   "name": "elementar-admin",
+  "description": "Elementar Admin - Free and open source Angular admin panel based on Material 3 and Tailwind",
   "version": "0.0.0",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elementarlabs/elementar-admin/issues"
+  },
+  "homepage": "https://elementarui.com",
+  "keywords": [
+    "elementar admin",
+    "angular admin",
+    "admin panel",
+    "angular dashboard",
+    "angular admin panel",
+    "angular material components",
+    "angular admin template"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

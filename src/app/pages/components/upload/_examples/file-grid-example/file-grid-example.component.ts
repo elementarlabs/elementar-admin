@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { File } from '../file-list-example/file-list-example.component';
-import { FilesGridComponent } from '@elementar/components';
-import { GridFileComponent } from '@elementar/components';
+import { FilesGridComponent, GridFileComponent } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-file-grid-example',

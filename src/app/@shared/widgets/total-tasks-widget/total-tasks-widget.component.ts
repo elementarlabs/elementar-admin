@@ -3,7 +3,7 @@ import {
   MchartLineComponent,
   MchartTooltipBodyComponent,
   MchartTooltipComponent, MchartTooltipTitleComponent
-} from '@elementar/components';
+} from '@elementar/components/micro-chart';
 
 @Component({
   selector: 'app-total-tasks-widget',

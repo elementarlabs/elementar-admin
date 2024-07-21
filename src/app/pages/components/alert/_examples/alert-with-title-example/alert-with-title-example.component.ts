@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrAlertModule } from '@elementar/components';
+import { EmrAlertModule } from '@elementar/components/alert';
 
 @Component({
   selector: 'app-alert-with-title-example',

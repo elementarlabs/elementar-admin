@@ -1,5 +1,7 @@
 import { Component, input } from '@angular/core';
-import { DataViewCellRendererComponent, DataViewColumnDef, EmrAvatarModule, InitialsPipe } from '@elementar/components';
+import { DataViewCellRendererComponent, DataViewColumnDef } from '@elementar/components/data-view';
+import { EmrAvatarModule } from '@elementar/components/avatar';
+import { InitialsPipe } from '@elementar/components/core';
 
 @Component({
   selector: 'app-user-cell',

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule, EmrTabPanelModule, HDividerComponent, IconComponent } from '@elementar/components';
 import { MatTooltip } from '@angular/material/tooltip';
+import { EmrTabPanelModule } from '@elementar/components/tab-panel';
+import { IconComponent } from '@elementar/components/icon';
+import { EmrAvatarModule } from '@elementar/components/avatar';
+import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
   selector: 'app-tab-panel-compact-example',

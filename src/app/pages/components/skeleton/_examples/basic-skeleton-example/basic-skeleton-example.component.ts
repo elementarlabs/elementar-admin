@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrSkeletonModule } from '@elementar/components';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   selector: 'app-basic-skeleton-example',

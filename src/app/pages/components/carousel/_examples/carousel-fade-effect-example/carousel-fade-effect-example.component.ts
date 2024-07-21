@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
 import {
   CarouselCardComponent,
   CarouselComponent,
   CarouselNextDirective,
   CarouselPreviousDirective
-} from '@elementar/components';
-import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
+} from '@elementar/components/carousel';
 
 @Component({
   selector: 'app-carousel-fade-effect-example',

@@ -3,7 +3,6 @@ import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import * as echarts from 'echarts/core';
-import { ThemeManagerService } from '@elementar/components';
 import { LineChart } from 'echarts/charts';
 import {
   DatasetComponent,
@@ -14,6 +13,7 @@ import {
 } from 'echarts/components';
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
+import { ThemeManagerService } from '@elementar/components/core';
 
 @Component({
   selector: 'app-purchases-by-channels-widget',

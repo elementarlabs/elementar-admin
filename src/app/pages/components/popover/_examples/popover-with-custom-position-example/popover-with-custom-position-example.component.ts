@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { EmrPopoverModule, PopoverPosition } from '@elementar/components';
+import { EmrPopoverModule, PopoverPosition } from '@elementar/components/popover';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';

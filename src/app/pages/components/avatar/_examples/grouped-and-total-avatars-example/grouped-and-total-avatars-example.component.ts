@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-grouped-and-total-avatars-example',

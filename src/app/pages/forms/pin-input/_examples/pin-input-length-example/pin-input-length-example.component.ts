@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrPinInputModule } from '@elementar/components';
+import { EmrPinInputModule } from '@elementar/components/pin-input';
 
 @Component({
   selector: 'app-pin-input-length-example',

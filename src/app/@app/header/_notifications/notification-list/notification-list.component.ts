@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
-import { EmrAvatarModule, HDividerComponent } from '@elementar/components';
 import { MatRipple } from '@angular/material/core';
-import { EmrSkeletonModule } from '@elementar/components';
 import { NgTemplateOutlet } from '@angular/common';
 import { Notification } from '@app/header/_notifications/types';
 import {
@@ -12,6 +10,9 @@ import {
 import {
   InviteToEditFilesInFolderNotification
 } from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
+import { EmrAvatarModule } from '@elementar/components/avatar';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
+import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
   selector: 'app-header-notification-list',

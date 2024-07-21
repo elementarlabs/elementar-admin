@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatOptgroup, MatOption, MatRipple } from '@angular/material/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { EmrAvatarModule } from '@elementar/components';
+import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatChipListbox, MatChipOption } from '@angular/material/chips';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -10,12 +10,12 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
-import { MenuOptionGroupDirective } from '@elementar/components';
 import { FileLargeGridLayoutComponent } from '../_layout/file-large-grid-layout/file-large-grid-layout.component';
 import { FileListLayoutComponent } from '../_layout/file-list-layout/file-list-layout.component';
 import { FileLargeListLayoutComponent } from '../_layout/file-large-list-layout/file-large-list-layout.component';
 import { FileGridLayoutComponent } from '../_layout/file-grid-layout/file-grid-layout.component';
 import { File, FileSelectedEvent } from '../types';
+import { MenuOptionGroupDirective } from '@elementar/components/core';
 
 @Component({
   standalone: true,

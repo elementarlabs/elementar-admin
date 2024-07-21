@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
-import { EmrPhoneInputModule } from '@elementar/components';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { phoneValidator } from '@elementar/components';
+import { EmrPhoneInputModule, phoneValidator } from '@elementar/components/phone-input';
 
 @Component({
   selector: 'app-basic-phone-input-example',

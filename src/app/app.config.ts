@@ -8,13 +8,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import {
-  ENVIRONMENT,
-  EnvironmentService,
-  GlobalStore,
-  PageTitleStrategyService
-} from '@elementar/components';
 import { environment } from '../environments/environment';
+import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar/components/core';
 
 export function initializeApp() {
   const envService = inject(EnvironmentService);

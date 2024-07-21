@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import {
   BlockStateActionsComponent,
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateTitleComponent
-} from '@elementar/components';
-import { MatButton } from '@angular/material/button';
+} from '@elementar/components/block-state';
 
 @Component({
   selector: 'app-block-state-with-actions-example',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrSegmentedModule } from '@elementar/components';
+import { EmrSegmentedModule } from '@elementar/components/segmented';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

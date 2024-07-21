@@ -17,17 +17,122 @@
       "@meta/*": [
         "./src/app/@meta/*"
       ],
-      "@elementar/components": [
-        "./projects/components/src"
+      "@elementar/components/core": [
+        "./projects/components/src/core"
+      ],
+      "@elementar/components/alert": [
+        "./projects/components/src/alert"
+      ],
+      "@elementar/components/announcement": [
+        "./projects/components/src/announcement"
+      ],
+      "@elementar/components/avatar": [
+        "./projects/components/src/avatar"
+      ],
+      "@elementar/components/block-state": [
+        "./projects/components/src/block-state"
+      ],
+      "@elementar/components/breadcrumbs": [
+        "./projects/components/src/breadcrumbs"
+      ],
+      "@elementar/components/carousel": [
+        "./projects/components/src/carousel"
+      ],
+      "@elementar/components/color-picker": [
+        "./projects/components/src/color-picker"
+      ],
+      "@elementar/components/command-bar": [
+        "./projects/components/src/command-bar"
       ],
       "@elementar/components/confirm": [
-        "./projects/components/src/lib/confirm"
+        "./projects/components/src/confirm"
       ],
-      "@elementar/components/thumbnail-maker": [
-        "./projects/components/src/lib/thumbnail-maker"
+      "@elementar/components/content-fade": [
+        "./projects/components/src/content-fade"
+      ],
+      "@elementar/components/data-view": [
+        "./projects/components/src/data-view"
+      ],
+      "@elementar/components/divider": [
+        "./projects/components/src/divider"
+      ],
+      "@elementar/components/expand": [
+        "./projects/components/src/expand"
+      ],
+      "@elementar/components/filter-builder": [
+        "./projects/components/src/filter-builder"
+      ],
+      "@elementar/components/gauge": [
+        "./projects/components/src/gauge"
+      ],
+      "@elementar/components/icon": [
+        "./projects/components/src/icon"
       ],
       "@elementar/components/image-viewer": [
-        "./projects/components/src/lib/image-viewer"
+        "./projects/components/src/image-viewer"
+      ],
+      "@elementar/components/incidents": [
+        "./projects/components/src/incidents"
+      ],
+      "@elementar/components/layout": [
+        "./projects/components/src/layout"
+      ],
+      "@elementar/components/micro-chart": [
+        "./projects/components/src/micro-chart"
+      ],
+      "@elementar/components/navigation": [
+        "./projects/components/src/navigation"
+      ],
+      "@elementar/components/number-input": [
+        "./projects/components/src/number-input"
+      ],
+      "@elementar/components/overlay": [
+        "./projects/components/src/overlay"
+      ],
+      "@elementar/components/page-loading-bar": [
+        "./projects/components/src/page-loading-bar"
+      ],
+      "@elementar/components/panel": [
+        "./projects/components/src/panel"
+      ],
+      "@elementar/components/password-strength": [
+        "./projects/components/src/password-strength"
+      ],
+      "@elementar/components/phone-input": [
+        "./projects/components/src/phone-input"
+      ],
+      "@elementar/components/pin-input": [
+        "./projects/components/src/pin-input"
+      ],
+      "@elementar/components/popover": [
+        "./projects/components/src/popover"
+      ],
+      "@elementar/components/resizable-container": [
+        "./projects/components/src/resizable-container"
+      ],
+      "@elementar/components/scroll-spy": [
+        "./projects/components/src/scroll-spy"
+      ],
+      "@elementar/components/segmented": [
+        "./projects/components/src/segmented"
+      ],
+      "@elementar/components/skeleton": [
+        "./projects/components/src/skeleton"
+      ],
+      "@elementar/components/suggestions": [
+        "./projects/components/src/suggestions"
+      ],
+      "@elementar/components/tab-panel": [
+        "./projects/components/src/tab-panel"
+      ],
+      "@elementar/components/thumbnail-maker": [
+        "./projects/components/src/thumbnail-maker"
+      ],
+      "@elementar/components/timeline": [
+        "./projects/components/src/timeline"
+      ],
+      "@elementar/components/upload": [
+        "./projects/components/src/upload"
       ]
     },
     "outDir": "./dist/out-tsc",

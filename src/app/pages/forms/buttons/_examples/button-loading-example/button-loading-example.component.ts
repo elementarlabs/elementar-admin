@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { ButtonDirective } from '@elementar/components';
+import { ButtonDirective } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

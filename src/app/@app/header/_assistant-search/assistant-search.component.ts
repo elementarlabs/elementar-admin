@@ -10,14 +10,16 @@ import {
 import { MatIcon } from '@angular/material/icon';
 import { CdkConnectedOverlay, CdkOverlayOrigin, Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { SuggestionsComponent } from '@elementar/components';
-import { SuggestionBlockComponent } from '@elementar/components';
-import { SuggestionComponent } from '@elementar/components';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { SuggestionIconDirective } from '@elementar/components';
-import { EmrAvatarModule } from '@elementar/components';
-import { SuggestionThumbDirective } from '@elementar/components';
 import { FormsModule } from '@angular/forms';
+import {
+  SuggestionBlockComponent,
+  SuggestionComponent,
+  SuggestionIconDirective,
+  SuggestionsComponent,
+  SuggestionThumbDirective
+} from '@elementar/components/suggestions';
+import { EmrAvatarModule } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-assistant-search',

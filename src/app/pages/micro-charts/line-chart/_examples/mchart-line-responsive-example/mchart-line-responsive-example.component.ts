@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+import { EmrResizableContainerModule } from '@elementar/components/resizable-container';
 import {
-  EmrResizableContainerModule,
   MchartLineComponent,
   MchartTooltipBodyComponent,
   MchartTooltipComponent, MchartTooltipTitleComponent
-} from '@elementar/components';
-import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+} from '@elementar/components/micro-chart';
 
 @Component({
   selector: 'app-mchart-line-responsive-example',

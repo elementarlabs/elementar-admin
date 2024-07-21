@@ -4,9 +4,9 @@ import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { HDividerComponent, PasswordStrengthModule } from '@elementar/components';
-import { EmrPhoneInputModule } from '@elementar/components';
-import { phoneValidator } from '@elementar/components';
+import { PasswordStrengthModule } from '@elementar/components/password-strength';
+import { EmrPhoneInputModule, phoneValidator } from '@elementar/components/phone-input';
+import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
   selector: 'app-create-account',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrBreadcrumbsModule } from '@elementar/components';
+import { EmrBreadcrumbsModule } from '@elementar/components/breadcrumbs';
 import { RouterLink } from '@angular/router';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CarouselCardComponent } from '@elementar/components';
-import { CarouselComponent } from '@elementar/components';
-import { CarouselNextDirective } from '@elementar/components';
-import { CarouselPreviousDirective } from '@elementar/components';
+import { CarouselCardComponent } from '@elementar/components/carousel';
+import { CarouselComponent } from '@elementar/components/carousel';
+import { CarouselNextDirective } from '@elementar/components/carousel';
+import { CarouselPreviousDirective } from '@elementar/components/carousel';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 

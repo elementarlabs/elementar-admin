@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrSegmentedModule } from '@elementar/components';
+import { EmrSegmentedModule } from '@elementar/components/segmented';
 
 @Component({
   selector: 'app-segmented-sizes-example',

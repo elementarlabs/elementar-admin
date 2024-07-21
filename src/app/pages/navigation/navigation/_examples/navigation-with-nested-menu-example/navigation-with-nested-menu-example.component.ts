@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrNavigationModule } from '@elementar/components';
+import { EmrNavigationModule } from '@elementar/components/navigation';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

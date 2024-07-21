@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrUploadModule } from '@elementar/components';
+import { EmrUploadModule } from '@elementar/components/upload';
 import { MatIcon } from '@angular/material/icon';
 
 export interface File {

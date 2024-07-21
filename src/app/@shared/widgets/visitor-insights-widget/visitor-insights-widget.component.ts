@@ -1,5 +1,5 @@
 import { afterNextRender, Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { ThemeManagerService } from '@elementar/components';
+import { ThemeManagerService } from '@elementar/components/core';
 import * as echarts from 'echarts/core';
 import {
   DatasetComponent,

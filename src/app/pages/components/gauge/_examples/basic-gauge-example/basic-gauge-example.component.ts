@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrGaugeModule } from '@elementar/components';
+import { EmrGaugeModule } from '@elementar/components/gauge';
 
 @Component({
   selector: 'app-basic-gauge-example',

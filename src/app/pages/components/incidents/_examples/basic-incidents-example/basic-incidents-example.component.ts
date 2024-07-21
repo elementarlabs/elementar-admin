@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrIncidentsModule } from '@elementar/components';
+import { EmrIncidentsModule } from '@elementar/components/incidents';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

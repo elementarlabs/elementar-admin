@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { EmrAvatarModule, IconComponent } from '@elementar/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { Notification } from '@app/header/_notifications/types';
+import { EmrAvatarModule } from '@elementar/components/avatar';
+import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-mentioned-in-comment',

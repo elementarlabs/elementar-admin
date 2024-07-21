@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
+import { JsonPipe } from '@angular/common';
 import {
   EmrFilterBuilderModule,
   FilterBuilderFieldDef,
-  FilterBuilderGroup,
-  IconComponent
-} from '@elementar/components';
-import { JsonPipe } from '@angular/common';
+  FilterBuilderGroup
+} from '@elementar/components/filter-builder';
+import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-basic-filter-builder-example',

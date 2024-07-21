@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { EmrSegmentedModule } from '@elementar/components';
+import { EmrSegmentedModule } from '@elementar/components/segmented';
 
 @Component({
   selector: 'app-segmented-with-icons-example',
