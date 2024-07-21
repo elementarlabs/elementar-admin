@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'emr-avatar-total,[emr-avatar-total]',
   exportAs: 'emrAvatarTotal',
+  standalone: true,
   templateUrl: './avatar-total.component.html',
   styleUrl: './avatar-total.component.scss',
   host: {

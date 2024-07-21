@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatOptgroup, MatOption, MatRipple } from '@angular/material/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatChipListbox, MatChipOption } from '@angular/material/chips';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -16,6 +15,7 @@ import { FileLargeListLayoutComponent } from '../_layout/file-large-list-layout/
 import { FileGridLayoutComponent } from '../_layout/file-grid-layout/file-grid-layout.component';
 import { File, FileSelectedEvent } from '../types';
 import { MenuOptionGroupDirective } from '@elementar/components/core';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   standalone: true,
@@ -23,7 +23,6 @@ import { MenuOptionGroupDirective } from '@elementar/components/core';
     MatIcon,
     MatRipple,
     MatIconButton,
-    EmrAvatarModule,
     MatTooltip,
     MatChipOption,
     MatChipListbox,
@@ -41,7 +40,8 @@ import { MenuOptionGroupDirective } from '@elementar/components/core';
     FileListLayoutComponent,
     FileLargeListLayoutComponent,
     FileGridLayoutComponent,
-    MatButton
+    MatButton,
+    AvatarComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

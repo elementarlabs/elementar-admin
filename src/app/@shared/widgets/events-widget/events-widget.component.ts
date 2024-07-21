@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent, AvatarGroupComponent, AvatarTotalComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-events-widget',
   standalone: true,
-  imports: [
-    EmrAvatarModule
-  ],
   templateUrl: './events-widget.component.html',
+  imports: [
+    AvatarGroupComponent,
+    AvatarComponent,
+    AvatarTotalComponent
+  ],
   styleUrl: './events-widget.component.scss'
 })
 export class EventsWidgetComponent {

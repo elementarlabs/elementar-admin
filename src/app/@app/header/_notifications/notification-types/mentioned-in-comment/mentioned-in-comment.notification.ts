@@ -3,18 +3,18 @@ import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { Notification } from '@app/header/_notifications/types';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { IconComponent } from '@elementar/components/icon';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-mentioned-in-comment',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatIcon,
     MatRipple,
     RouterLink,
-    IconComponent
+    IconComponent,
+    AvatarComponent
   ],
   templateUrl: './mentioned-in-comment.notification.html',
   styleUrl: './mentioned-in-comment.notification.scss'

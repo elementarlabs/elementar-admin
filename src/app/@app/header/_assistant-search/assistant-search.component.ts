@@ -19,7 +19,7 @@ import {
   SuggestionsComponent,
   SuggestionThumbDirective
 } from '@elementar/components/suggestions';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-assistant-search',
@@ -34,10 +34,10 @@ import { EmrAvatarModule } from '@elementar/components/avatar';
     SuggestionComponent,
     MatButton,
     SuggestionIconDirective,
-    EmrAvatarModule,
     SuggestionThumbDirective,
     FormsModule,
-    MatIconButton
+    MatIconButton,
+    AvatarComponent
   ],
   templateUrl: './assistant-search.component.html',
   styleUrl: './assistant-search.component.scss',

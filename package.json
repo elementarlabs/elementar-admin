@@ -39,6 +39,8 @@
     "@angular/platform-server": "^18.1.0",
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.1.0",
+    "@dicebear/collection": "^9.0.1",
+    "@dicebear/core": "^9.0.1",
     "@ngrx/signals": "^18.0.0-beta.1",
     "@ngrx/store": "^18.0.1",
     "@tailwindcss/container-queries": "^0.1.1",

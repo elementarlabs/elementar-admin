@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-avatar-with-icons-example',
   standalone: true,
   imports: [
-    EmrAvatarModule,
-    MatIcon
+    MatIcon,
+    AvatarComponent
   ],
   templateUrl: './avatar-with-icons-example.component.html',
   styleUrl: './avatar-with-icons-example.component.scss'

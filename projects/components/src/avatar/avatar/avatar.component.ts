@@ -1,6 +1,6 @@
 import {
   booleanAttribute,
-  Component, computed,
+  Component,
   ElementRef,
   forwardRef,
   inject, input,
@@ -14,6 +14,7 @@ const alreadyLoadedImages: string[] = [];
 @Component({
   selector: 'emr-avatar,[emr-avatar]',
   exportAs: 'emrAvatar',
+  standalone: true,
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
   providers: [

@@ -3,13 +3,11 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatButton,
     MatIcon,
     MatSlideToggle,

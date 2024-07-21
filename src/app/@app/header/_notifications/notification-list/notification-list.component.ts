@@ -10,7 +10,6 @@ import {
 import {
   InviteToEditFilesInFolderNotification
 } from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
 
@@ -20,7 +19,6 @@ import { HDividerComponent } from '@elementar/components/divider';
   imports: [
     RouterLink,
     MatIcon,
-    EmrAvatarModule,
     MatRipple,
     MentionedInCommentNotification,
     InviteToEditFilesInFolderNotification,

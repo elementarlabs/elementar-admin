@@ -3,7 +3,6 @@ import { HeaderComponent } from '@app/header/header/header.component';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { EmrTabPanelModule } from '@elementar/components/tab-panel';
 import { HDividerComponent } from '@elementar/components/divider';
 import { IconComponent } from '@elementar/components/icon';
@@ -14,12 +13,12 @@ import {
   LayoutSidebarComponent
 } from '@elementar/components/layout';
 import { EmrPanelModule } from '@elementar/components/panel';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-dual-tier-sidebar-layout',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     EmrTabPanelModule,
     HDividerComponent,
     HeaderComponent,
@@ -32,7 +31,8 @@ import { EmrPanelModule } from '@elementar/components/panel';
     RouterLink,
     EmrPanelModule,
     MatTab,
-    MatTabGroup
+    MatTabGroup,
+    AvatarComponent
   ],
   templateUrl: './dual-tier-sidebar-layout.component.html',
   styleUrl: './dual-tier-sidebar-layout.component.scss'

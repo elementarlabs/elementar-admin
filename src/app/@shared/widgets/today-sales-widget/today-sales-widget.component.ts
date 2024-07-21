@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
 
@@ -7,7 +6,6 @@ import { MatButton, MatIconButton } from '@angular/material/button';
   selector: 'app-today-sales-widget',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatIcon,
     MatIconButton,
     MatButton

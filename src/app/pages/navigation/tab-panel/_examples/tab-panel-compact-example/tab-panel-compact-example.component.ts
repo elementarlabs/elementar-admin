@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { EmrTabPanelModule } from '@elementar/components/tab-panel';
 import { IconComponent } from '@elementar/components/icon';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { HDividerComponent } from '@elementar/components/divider';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-tab-panel-compact-example',
@@ -12,8 +12,8 @@ import { HDividerComponent } from '@elementar/components/divider';
     EmrTabPanelModule,
     IconComponent,
     MatTooltip,
-    EmrAvatarModule,
-    HDividerComponent
+    HDividerComponent,
+    AvatarComponent
   ],
   templateUrl: './tab-panel-compact-example.component.html',
   styleUrl: './tab-panel-compact-example.component.scss'

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-team-widget',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatIcon,
-    MatIconButton
+    MatIconButton,
+    AvatarComponent
   ],
   templateUrl: './team-widget.component.html',
   styleUrl: './team-widget.component.scss'

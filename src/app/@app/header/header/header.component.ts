@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { AsyncPipe } from '@angular/common';
@@ -11,11 +11,11 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { NotificationListComponent } from '@app/header/_notifications/notification-list/notification-list.component';
 import { AssistantSearchComponent } from '@app/header/_assistant-search/assistant-search.component';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { EmrPopoverModule } from '@elementar/components/popover';
 import { IconComponent } from '@elementar/components/icon';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
+import { DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-header',
@@ -31,7 +31,7 @@ import { LayoutApiService } from '@elementar/components/layout';
     MatMenu,
     MatMenuTrigger,
     MatMenuItem,
-    EmrAvatarModule,
+    DicebearComponent,
     MatDivider,
     MatButton,
     MatTooltip,

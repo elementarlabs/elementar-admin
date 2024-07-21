@@ -5,6 +5,7 @@ import {
 @Component({
   selector: 'emr-avatar-group',
   exportAs: 'emrAvatarGroup',
+  standalone: true,
   styleUrls: ['./avatar-group.component.scss'],
   templateUrl: './avatar-group.component.html',
   host: {

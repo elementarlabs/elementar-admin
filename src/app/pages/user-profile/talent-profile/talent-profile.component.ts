@@ -3,7 +3,7 @@ import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 import { IconComponent } from '@elementar/components/icon';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 interface Person {
   avatarUrl: string;
@@ -19,8 +19,8 @@ interface Person {
     MatIconButton,
     MatTooltip,
     IconComponent,
-    EmrAvatarModule,
-    MatAnchor
+    MatAnchor,
+    AvatarComponent
   ],
   templateUrl: './talent-profile.component.html',
   styleUrl: './talent-profile.component.scss'

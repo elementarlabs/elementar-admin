@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-avatar-with-images-example',
   standalone: true,
-  imports: [
-    EmrAvatarModule
-  ],
   templateUrl: './avatar-with-images-example.component.html',
+  imports: [
+    AvatarComponent
+  ],
   styleUrl: './avatar-with-images-example.component.scss'
 })
 export class AvatarWithImagesExampleComponent {

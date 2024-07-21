@@ -20,6 +20,7 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
 import {
   AvatarAutomaticColorExampleComponent
 } from '../_examples/avatar-automatic-color-example/avatar-automatic-color-example.component';
+import { AvatarDicebearExampleComponent } from '../_examples/avatar-dicebear-example/avatar-dicebear-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -35,7 +36,8 @@ import {
     AvatarPresenceIndicatorExampleComponent,
     PageComponent,
     PageContentDirective,
-    AvatarAutomaticColorExampleComponent
+    AvatarAutomaticColorExampleComponent,
+    AvatarDicebearExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -1,5 +1,4 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 import { MatDivider } from '@angular/material/divider';
 import { MatRipple } from '@angular/material/core';
@@ -11,7 +10,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'app-exchange-widget',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatIcon,
     MatDivider,
     MatRipple,

@@ -8,7 +8,7 @@ import {
   MatCardTitle
 } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-card-multiple-sections-example',
@@ -23,7 +23,7 @@ import { EmrAvatarModule } from '@elementar/components/avatar';
     MatCardTitle,
     MatCardAvatar,
     MatCardSubtitle,
-    EmrAvatarModule
+    AvatarComponent
   ],
   templateUrl: './card-multiple-sections-example.component.html',
   styleUrl: './card-multiple-sections-example.component.scss'

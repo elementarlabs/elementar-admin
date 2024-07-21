@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-tasks-in-progress-widget',
@@ -10,7 +10,7 @@ import { EmrAvatarModule } from '@elementar/components/avatar';
     MatButton,
     MatIcon,
     MatIconButton,
-    EmrAvatarModule
+    AvatarComponent
   ],
   templateUrl: './tasks-in-progress-widget.component.html',
   styleUrl: './tasks-in-progress-widget.component.scss'

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import {
@@ -46,7 +45,6 @@ const DATA: TodoTask[] = [
   selector: 'app-todos-widget',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatButton,
     MatIcon,
     MatIconButton,

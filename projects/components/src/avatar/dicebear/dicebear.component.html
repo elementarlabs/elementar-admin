@@ -1,0 +1,13 @@
+@if (src()) {
+  <img class="image" loading="lazy" [src]="src()" [alt]="alt() || ''" (load)="onImageLoaded()">
+}
+
+@if (presenceIndicator()) {
+  <div class="presence-indicator"
+       [class.is-online]="presenceIndicator() === 'online'"
+       [class.is-offline]="presenceIndicator() === 'offline'"></div>
+}
+
+@if (!src() && svg) {
+  <div class="w-full h-full svg absolute z-0 inset-0" [innerHTML]="svg | safeHtml"></div>
+}

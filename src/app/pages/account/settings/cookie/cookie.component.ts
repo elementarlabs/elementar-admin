@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import {
@@ -14,7 +13,6 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
   selector: 'app-cookie',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatButton,
     MatIcon,
     MatAccordion,

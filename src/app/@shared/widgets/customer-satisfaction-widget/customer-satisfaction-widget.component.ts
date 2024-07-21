@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-customer-satisfaction-widget',
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatIcon
   ],
   templateUrl: './customer-satisfaction-widget.component.html',

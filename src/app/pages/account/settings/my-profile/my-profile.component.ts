@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { VDividerComponent } from '@elementar/components/divider';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   standalone: true,
   imports: [
-    EmrAvatarModule,
     MatButton,
     MatIcon,
-    VDividerComponent
+    VDividerComponent,
+    AvatarComponent
   ],
   templateUrl: './my-profile.component.html',
   styleUrl: './my-profile.component.scss'

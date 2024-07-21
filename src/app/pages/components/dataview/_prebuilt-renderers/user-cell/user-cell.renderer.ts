@@ -1,14 +1,14 @@
 import { Component, input } from '@angular/core';
 import { DataViewCellRendererComponent, DataViewColumnDef } from '@elementar/components/data-view';
-import { EmrAvatarModule } from '@elementar/components/avatar';
 import { InitialsPipe } from '@elementar/components/core';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-user-cell',
   standalone: true,
   imports: [
-    EmrAvatarModule,
-    InitialsPipe
+    InitialsPipe,
+    AvatarComponent
   ],
   templateUrl: './user-cell.renderer.html',
   styleUrl: './user-cell.renderer.scss'

@@ -5,7 +5,7 @@ import { MatBadge } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { EmrAvatarModule } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-sidebar-toolbar',
@@ -13,11 +13,11 @@ import { EmrAvatarModule } from '@elementar/components/avatar';
   imports: [
     MatDivider,
     AsyncPipe,
-    EmrAvatarModule,
     MatBadge,
     MatIcon,
     MatIconButton,
-    MatTooltip
+    MatTooltip,
+    AvatarComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
