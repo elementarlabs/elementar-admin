@@ -12,23 +12,52 @@ import { GlobalStore } from '../global.state';
 export class SeoService {
   private readonly _router = inject(Router);
   private readonly _destroyRef = inject(DestroyRef);
-  private readonly _globalStore = inject(GlobalStore);
   private readonly _document = inject(DOCUMENT);
   private readonly _platformId = inject(PLATFORM_ID);
-  private readonly _meta = inject(Meta);
-  private readonly _title = inject(Title);
   private _linkCanonical: HTMLLinkElement | null;
+  private _title = inject(Title);
+  private _meta = inject(Meta);
+  private _globalStore = inject(GlobalStore);
 
   get meta(): Meta {
     return this._meta;
   }
 
-  setPageTitle(title: string): void {
-    this._title.setTitle(title);
+  updateDescription(content?: string): void {
+    if (!content) {
+      return;
+    }
+
+    this.meta.updateTag({
+      name: 'description',
+      content
+    });
+    this.meta.updateTag({
+      name: 'og:description',
+      content
+    });
   }
 
-  updatePageTitle(title: string): void {
-    this._title.setTitle(`${title} | ${this._globalStore.pageTitle()}`);
+  updateOgUrl(content?: string): void {
+    if (!content) {
+      return;
+    }
+
+    this.meta.updateTag({
+      name: 'og:url',
+      content
+    });
+  }
+
+  updateOgImage(content: string): void {
+    if (!content) {
+      return;
+    }
+
+    this.meta.updateTag({
+      name: 'og:image',
+      content
+    });
   }
 
   trackCanonicalChanges(siteUrl: string): void {
@@ -38,11 +67,24 @@ export class SeoService {
       return;
     }
 
-    this._router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      takeUntilDestroyed(this._destroyRef),
-    ).subscribe(() => {
-      this._linkCanonical?.setAttribute('href', this.getCanonicalUrl(siteUrl));
+    this._router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(this._destroyRef),
+      )
+      .subscribe(() => {
+        const href = this.getCanonicalUrl(siteUrl);
+        this._linkCanonical?.setAttribute('href', href);
+        this.updateOgUrl(href);
+      })
+    ;
+  }
+
+  updateTitle(title: string): void {
+    this._title.setTitle(`${title} | ${this._globalStore.pageTitle()}`);
+    this.meta.updateTag({
+      name: 'og:title',
+      content: title
     });
   }
 
