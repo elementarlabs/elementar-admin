@@ -1,18 +1,28 @@
-<div class="header" (click)="onBackdropClick()">
-  <div (click)="onPreventClick($event)">
-    @if (data.title || data.titleTplRef) {
-      <div class="title">
-        @if (data.titleTplRef) {
-          <ng-container [ngTemplateOutlet]="data.titleTplRef"></ng-container>
-        } @else if (data.caption) {
-          {{ data.title }}
-        }
-      </div>
-    }
-  </div>
-  <div (click)="onPreventClick($event)" class="w-max">
+<div class="absolute start-4 top-4 z-[3]">
+  @if (data.title || data.titleTplRef) {
+    <div class="title">
+      @if (data.titleTplRef) {
+        <ng-container [ngTemplateOutlet]="data.titleTplRef"></ng-container>
+      } @else if (data.caption) {
+        {{ data.title }}
+      }
+    </div>
+  }
+</div>
+<div class="absolute end-4 top-4 space-y-4 z-[3]" (click)="onPreventClick($event)">
+  <div class="w-max">
     <button (click)="pictureRef.close()" class="close">
       <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="w-max">
+    <button class="zoom" (click)="zoomIn()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div class="w-max">
+    <button class="zoom" (click)="zoomOut()">
+      <mat-icon>remove</mat-icon>
     </button>
   </div>
 </div>
@@ -23,7 +33,7 @@
         <mat-spinner></mat-spinner>
       </div>
     }
-    <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)" (click)="onPreventClick($event)">
+    <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)" (click)="onPreventClick($event)" class="img">
   </div>
   @if (data.caption || data.description || data.captionTplRef || data.descriptionTplRef) {
     <div class="aside" (click)="onPreventClick($event)">
