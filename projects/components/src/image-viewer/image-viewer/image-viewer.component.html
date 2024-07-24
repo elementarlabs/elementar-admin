@@ -16,18 +16,17 @@
     </button>
   </div>
   <div class="w-max">
-    <button class="zoom" (click)="zoomIn()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
-  <div class="w-max">
-    <button class="zoom" (click)="zoomOut()">
-      <mat-icon>remove</mat-icon>
+    <button class="zoom" (click)="toggleZoom()">
+      @if (scale === this.scaleMin) {
+        <mat-icon>zoom_in</mat-icon>
+      } @else {
+        <mat-icon>zoom_out</mat-icon>
+      }
     </button>
   </div>
 </div>
 <div class="content" (click)="onBackdropClick()">
-  <div class="image">
+  <div class="image" (dragstart)="onDragStart($event)">
     @if (loading) {
       <div class="spinner">
         <mat-spinner></mat-spinner>
