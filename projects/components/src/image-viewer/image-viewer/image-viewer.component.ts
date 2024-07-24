@@ -22,7 +22,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './image-viewer.component.scss',
   host: {
     'class': 'emr-image-viewer',
-    '[class.loading]': 'loading'
+    '[class.loading]': 'loading',
+    '[class.dragging]': '_dragging'
   }
 })
 export class ImageViewerComponent {
@@ -30,13 +31,13 @@ export class ImageViewerComponent {
   private _document = inject(DOCUMENT);
   private _destroyRef = inject(DestroyRef);
   private _renderer = inject(Renderer2);
-  private _dragging = false;
   private _startClientY = 0;
   private _startClientX = 0;
   private _offsetY = 0;
   private _offsetX = 0;
   private _tmpOffsetY = 0;
   private _tmpOffsetX = 0;
+  protected _dragging = false;
   readonly pictureRef = inject(IMAGE_VIEWER_PICTURE_REF);
   readonly data = inject(IMAGE_VIEWER_PICTURE_DATA);
   loading = true;
@@ -61,7 +62,11 @@ export class ImageViewerComponent {
       .pipe(
         takeUntilDestroyed(this._destroyRef)
       )
-      .subscribe((event: any) => {
+      .subscribe((event: MouseEvent | any) => {
+        if (this.scale === this.scaleMin || event.button === 2) {
+          return;
+        }
+
         this._dragging = true;
         this._startClientY = event.clientY;
         this._startClientX = event.clientX;
@@ -108,6 +113,11 @@ export class ImageViewerComponent {
       this.scale = this.scaleMax;
     } else {
       this.scale = this.scaleMin;
+      this._renderer.setStyle(this.image, 'transform', `translate(0px,0px)`);
+      this._offsetX = 0;
+      this._offsetY = 0;
+      this._tmpOffsetY = 0;
+      this._tmpOffsetX = 0;
     }
 
     const element = this.elementRef.nativeElement as HTMLElement;

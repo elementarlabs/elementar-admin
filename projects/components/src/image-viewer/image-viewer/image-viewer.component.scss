@@ -27,6 +27,12 @@
     transition: scale .15s linear;
   }
 
+  &:not(.dragging) {
+    img {
+      transition: transform .15s linear, scale .15s linear;
+    }
+  }
+
   .title {
     @apply font-medium h-10 rounded-full px-4 text-tiny flex items-center;
     @apply bg-neutral-700 text-neutral-300;
