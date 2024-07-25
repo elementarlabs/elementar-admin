@@ -52,9 +52,9 @@ export class ImageViewerComponent {
     this.image = (event.target as HTMLImageElement);
 
     if (this.image.width > this.image.height) {
-      this.scaleMax = 1 + this.image.width / this.image.naturalWidth;
+      this.scaleMax = this.image.naturalWidth / (this.image.width / 100) / 100;
     } else {
-      this.scaleMax = 1 + this.image.height / this.image.naturalWidth;
+      this.scaleMax = this.image.naturalHeight / (this.image.height / 100) / 100;
     }
 
     const image = this.image;
@@ -91,9 +91,14 @@ export class ImageViewerComponent {
       )
       .subscribe((event: any) => {
         if (this._dragging) {
+          const elementRect = (this.elementRef.nativeElement as HTMLElement).getBoundingClientRect();
           this._dragging = false;
           this._offsetY = this._tmpOffsetY;
           this._offsetX = this._tmpOffsetX;
+
+          if (this._offsetY > 0 && this._offsetX > 0) {
+            
+          }
         }
       })
     ;
