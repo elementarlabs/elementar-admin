@@ -9,6 +9,14 @@
     @apply shadow z-[2] flex items-center justify-center gap-8 h-screen w-screen;
   }
 
+  &.scaled {
+    @apply cursor-grab;
+  }
+
+  &.dragging {
+    @apply cursor-grabbing;
+  }
+
   &:has(.title) {
     .content {
       @apply pt-12;

@@ -1,4 +1,4 @@
-import { Component, DestroyRef, ElementRef, inject, Renderer2 } from '@angular/core';
+import { Component, computed, DestroyRef, ElementRef, inject, Renderer2 } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { IMAGE_VIEWER_PICTURE_DATA, IMAGE_VIEWER_PICTURE_REF } from '../types';
 import { MatIcon } from '@angular/material/icon';
@@ -23,7 +23,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   host: {
     'class': 'emr-image-viewer',
     '[class.loading]': 'loading',
-    '[class.dragging]': '_dragging'
+    '[class.dragging]': '_dragging',
+    '[class.scaled]': 'scaled()'
   }
 })
 export class ImageViewerComponent {
@@ -47,14 +48,18 @@ export class ImageViewerComponent {
   scaleMin = 1;
   scaleMax = 1;
 
+  scaled = computed<boolean>(() => {
+    return this.scale === this.scaleMax && this.scale !== this.scaleMin;
+  });
+
   onLoad(event: Event): void {
     this.loading = false;
     this.image = (event.target as HTMLImageElement);
 
     if (this.image.width > this.image.height) {
-      this.scaleMax = this.image.naturalWidth / (this.image.width / 100) / 100;
+      this.scaleMax = this.image.naturalWidth / this.image.width;
     } else {
-      this.scaleMax = this.image.naturalHeight / (this.image.height / 100) / 100;
+      this.scaleMax = this.image.naturalHeight / this.image.height;
     }
 
     const image = this.image;
@@ -91,13 +96,27 @@ export class ImageViewerComponent {
       )
       .subscribe((event: any) => {
         if (this._dragging) {
-          const elementRect = (this.elementRef.nativeElement as HTMLElement).getBoundingClientRect();
+          const element = this.elementRef.nativeElement as HTMLElement;
+          const elementRect = element.getBoundingClientRect();
+          this._renderer.removeClass(element, 'dragging');
           this._dragging = false;
-          this._offsetY = this._tmpOffsetY;
-          this._offsetX = this._tmpOffsetX;
+          const hasTitle = !!(this.data.title || this.data.titleTplRef);
+          let imageWidth = Math.floor(image.getBoundingClientRect().width);
+          let imageHeight = Math.floor(image.getBoundingClientRect().height);
+          let imageViewportWidth = this.scaled() ? elementRect.width - 420 : elementRect.width;
+          let imageViewportHeight = hasTitle ? elementRect.height - 100 : elementRect.height;
 
-          if (this._offsetY > 0 && this._offsetX > 0) {
+          if (imageWidth <= imageViewportWidth && imageHeight <= imageViewportHeight) {
+            this._tmpOffsetY = 0;
+            this._tmpOffsetX = 0;
+            this._offsetY = 0;
+            this._offsetX = 0;
+            this._renderer.setStyle(image, 'transform', `translate(0px,0px)`);
+          } else {
             
+
+            this._offsetY = this._tmpOffsetY;
+            this._offsetX = this._tmpOffsetX;
           }
         }
       })
