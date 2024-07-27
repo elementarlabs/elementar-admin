@@ -35,7 +35,7 @@
     <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)" (click)="onPreventClick($event)" class="img">
   </div>
   @if (data.caption || data.description || data.captionTplRef || data.descriptionTplRef) {
-    <div class="aside" (click)="onPreventClick($event)">
+    <aside class="aside" (click)="onPreventClick($event)">
       <div class="aside-header">
         @if (data.captionTplRef) {
           <ng-container [ngTemplateOutlet]="data.captionTplRef"></ng-container>
@@ -52,6 +52,6 @@
           }
         </div>
       </div>
-    </div>
+    </aside>
   }
 </div>

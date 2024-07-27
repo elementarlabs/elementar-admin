@@ -49,7 +49,13 @@ export class ImageViewerComponent {
   scaleMax = 1;
 
   scaled = computed<boolean>(() => {
-    return this.scale === this.scaleMax && this.scale !== this.scaleMin;
+    return this.scale !== 1;
+  });
+  hasTitle = computed(() => {
+    return !!(this.data.title || this.data.titleTplRef);
+  });
+  hasAside = computed(() => {
+    return !!(this.data.caption || this.data.description || this.data.captionTplRef || this.data.descriptionTplRef);
   });
 
   onLoad(event: Event): void {
@@ -100,11 +106,14 @@ export class ImageViewerComponent {
           const elementRect = element.getBoundingClientRect();
           this._renderer.removeClass(element, 'dragging');
           this._dragging = false;
-          const hasTitle = !!(this.data.title || this.data.titleTplRef);
           let imageWidth = Math.floor(image.getBoundingClientRect().width);
           let imageHeight = Math.floor(image.getBoundingClientRect().height);
-          let imageViewportWidth = this.scaled() ? elementRect.width - 420 : elementRect.width;
-          let imageViewportHeight = hasTitle ? elementRect.height - 100 : elementRect.height;
+          let imageViewportWidth = this.hasAside() ? elementRect.width - 420 : elementRect.width;
+          let imageViewportHeight = elementRect.height;
+
+          console.log(this.scale, this.scaled());
+          console.log(imageWidth, imageViewportWidth);
+          console.log(imageHeight, imageViewportHeight);
 
           if (imageWidth <= imageViewportWidth && imageHeight <= imageViewportHeight) {
             this._tmpOffsetY = 0;
@@ -113,7 +122,7 @@ export class ImageViewerComponent {
             this._offsetX = 0;
             this._renderer.setStyle(image, 'transform', `translate(0px,0px)`);
           } else {
-            
+
 
             this._offsetY = this._tmpOffsetY;
             this._offsetX = this._tmpOffsetX;
