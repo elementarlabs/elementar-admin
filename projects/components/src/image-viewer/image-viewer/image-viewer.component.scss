@@ -17,12 +17,6 @@
     @apply cursor-grabbing;
   }
 
-  //&:has(.title) {
-  //  .content {
-  //    @apply pt-12;
-  //  }
-  //}
-
   &:has(.aside) {
     .content {
       @apply pe-[420px];

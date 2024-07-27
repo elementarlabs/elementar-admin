@@ -1,5 +1,5 @@
 <div class="absolute start-4 top-4 z-[3]">
-  @if (data.title || data.titleTplRef) {
+  @if (hasTitle()) {
     <div class="title">
       @if (data.titleTplRef) {
         <ng-container [ngTemplateOutlet]="data.titleTplRef"></ng-container>
@@ -34,7 +34,7 @@
     }
     <img [src]="data.sourceUrl" alt="" (load)="onLoad($event)" (click)="onPreventClick($event)" class="img">
   </div>
-  @if (data.caption || data.description || data.captionTplRef || data.descriptionTplRef) {
+  @if (hasAside()) {
     <aside class="aside" (click)="onPreventClick($event)">
       <div class="aside-header">
         @if (data.captionTplRef) {

@@ -24,7 +24,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     'class': 'emr-image-viewer',
     '[class.loading]': 'loading',
     '[class.dragging]': '_dragging',
-    '[class.scaled]': 'scaled()'
+    '[class.scaled]': 'scale !== 1'
   }
 })
 export class ImageViewerComponent {
