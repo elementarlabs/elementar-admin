@@ -47,6 +47,7 @@ export class ImageViewerComponent {
   alreadyDragged = false;
   scaleMin = 1;
   scaleMax = 1;
+  padding = 30;
 
   scaled = computed<boolean>(() => {
     return this.scale !== 1;
@@ -111,10 +112,6 @@ export class ImageViewerComponent {
           let imageViewportWidth = this.hasAside() ? elementRect.width - 420 : elementRect.width;
           let imageViewportHeight = elementRect.height;
 
-          console.log(this.scale, this.scaled());
-          console.log(imageWidth, imageViewportWidth);
-          console.log(imageHeight, imageViewportHeight);
-
           if (imageWidth <= imageViewportWidth && imageHeight <= imageViewportHeight) {
             this._tmpOffsetY = 0;
             this._tmpOffsetX = 0;
@@ -122,10 +119,43 @@ export class ImageViewerComponent {
             this._offsetX = 0;
             this._renderer.setStyle(image, 'transform', `translate(0px,0px)`);
           } else {
+            const imageRect = image.getBoundingClientRect();
+            const widthDiff = imageViewportWidth - imageWidth;
+            const heightDiff = imageViewportHeight - imageHeight;
+            const xPositionDiff = widthDiff / this.scale / 2;
+            const yPositionDiff = heightDiff / this.scale / 2;
 
+            console.log(widthDiff, heightDiff);
+            console.log(xPositionDiff, yPositionDiff);
+
+            if (imageRect.x > 0 && imageRect.y > 0) {
+              this._tmpOffsetY = yPositionDiff * -1 + this.padding;
+              this._tmpOffsetX = xPositionDiff * -1 + this.padding;
+            } else if (imageRect.x < widthDiff && imageRect.y > 0) {
+              this._tmpOffsetY = yPositionDiff * -1 + this.padding;
+              this._tmpOffsetX = xPositionDiff - this.padding;
+            } else if (imageRect.x < widthDiff && imageRect.y < heightDiff) {
+              this._tmpOffsetY = yPositionDiff - this.padding;
+              this._tmpOffsetX = xPositionDiff - this.padding;
+            } else if (imageRect.x > 0 && imageRect.y < heightDiff) {
+              this._tmpOffsetY = yPositionDiff - this.padding;
+              this._tmpOffsetX = xPositionDiff * -1 + this.padding;
+            }
+
+            if (imageWidth < imageViewportWidth) {
+              this._tmpOffsetX = 0;
+            }
+
+            if (imageHeight < imageViewportHeight) {
+              this._tmpOffsetY = 0;
+            }
 
             this._offsetY = this._tmpOffsetY;
             this._offsetX = this._tmpOffsetX;
+            this._renderer.setStyle(
+              image,
+              'transform', `translate(${this._tmpOffsetX}px,${this._tmpOffsetY}px)`
+            );
           }
         }
       })

@@ -16,7 +16,7 @@
     </button>
   </div>
   <div class="w-max">
-    <button class="zoom" (click)="toggleZoom()">
+    <button class="zoom" (click)="toggleZoom()" [disabled]="scaleMax === 1 || null">
       @if (scale === this.scaleMin) {
         <mat-icon>zoom_in</mat-icon>
       } @else {

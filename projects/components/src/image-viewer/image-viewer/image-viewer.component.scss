@@ -10,11 +10,15 @@
   }
 
   &.scaled {
-    @apply cursor-grab;
+    img {
+      @apply cursor-grab;
+    }
   }
 
   &.dragging {
-    @apply cursor-grabbing;
+    img {
+      @apply cursor-grabbing;
+    }
   }
 
   &:has(.aside) {
