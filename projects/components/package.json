@@ -23,7 +23,17 @@
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
-    "iconify-icon": "^2.0.0"
+    "iconify-icon": "^2.0.0",
+    "material-symbols": "^0.21.0",
+    "libphonenumber-js": "^1.10.57",
+    "awesome-phonenumber": "^6.4.0",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@dicebear/collection": "^9.0.1",
+    "@dicebear/core": "^9.0.1",
+    "@ngrx/signals": "^18.0.0",
+    "@ngrx/store": "^18.0.1",
+    "d3": "^7.9.0",
+    "tailwindcss": "^3.4.7"
   },
   "dependencies": {
     "tslib": "^2.3.0"
