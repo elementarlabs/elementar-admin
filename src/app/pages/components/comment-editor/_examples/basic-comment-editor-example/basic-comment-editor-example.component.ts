@@ -15,7 +15,7 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 export class BasicCommentEditorExampleComponent {
   comments: string[] = [];
 
-  onSend(content: string): void {
+  onSent(content: string): void {
     this.comments.unshift(content);
   }
 }

@@ -1,9 +1,12 @@
 <form class="w-[500px]" (ngSubmit)="onSubmit()">
+  <h3 mat-dialog-title>Add Link</h3>
   <mat-dialog-content>
-    <mat-form-field class="w-full mt-3">
-      <mat-label>Paste Link</mat-label>
-      <input name="linkUrl" matInput [(ngModel)]="linkUrl">
-    </mat-form-field>
+    <div class="pt-4">
+      <mat-form-field class="w-full">
+        <mat-label>Paste Link</mat-label>
+        <input name="linkUrl" matInput [(ngModel)]="linkUrl">
+      </mat-form-field>
+    </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button>Cancel</button>

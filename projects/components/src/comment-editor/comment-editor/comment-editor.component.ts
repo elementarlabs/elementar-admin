@@ -1,5 +1,5 @@
 import {
-  afterNextRender,
+  afterNextRender, ChangeDetectorRef,
   Component, DestroyRef,
   ElementRef,
   inject,
@@ -25,6 +25,8 @@ import FloatingMenu from '@tiptap/extension-floating-menu';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
 import Code from '@tiptap/extension-code';
 import History from '@tiptap/extension-history';
+import Dropcursor from '@tiptap/extension-dropcursor';
+import Image from '@tiptap/extension-image';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -42,7 +44,12 @@ import { DOCUMENT } from '@angular/common';
     MatButton
   ],
   templateUrl: './comment-editor.component.html',
-  styleUrl: './comment-editor.component.scss'
+  styleUrl: './comment-editor.component.scss',
+  host: {
+    'class': 'emr-comment-editor',
+    '[class.full-view]': 'fullView',
+    '(click)': 'activateFullView()'
+  }
 })
 export class CommentEditorComponent implements OnDestroy {
   private _document = inject(DOCUMENT);
@@ -53,9 +60,11 @@ export class CommentEditorComponent implements OnDestroy {
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
   protected _value = '';
   protected editor: Editor;
-  readonly send = output<string>();
+  readonly sent = output<string>();
 
   setLinkActive = false;
+  showToolbar = false;
+  fullView = false;
 
   placeholder = input('Write something …');
 
@@ -111,9 +120,44 @@ export class CommentEditorComponent implements OnDestroy {
     chainFocus[command]().run();
   }
 
-  onSend(): void {
-    this.send.emit(this._value);
+  send(event: MouseEvent): void {
+    event.stopPropagation();
+    event.preventDefault();
+    this.sent.emit(this._value);
+    this.showToolbar = false;
+    this.fullView = false;
     this._value = '';
+    this.editor.commands.clearContent(true);
+  }
+
+  onAddImage(): void {
+    // this.editor.chain().focus().setImage({ src: url }).run()
+    // this.editor.commands.setImage({
+    //   src: 'https://example.com/foobar.png',
+    //   alt: '',
+    //   title: '',
+    // });
+  }
+
+  activateFullView(): void {
+    if (this.fullView) {
+      return;
+    }
+
+    this.fullView = true;
+  }
+
+  toggleToolbar(): void {
+    this.showToolbar = !this.showToolbar;
+  }
+
+  cancel(event: MouseEvent): void {
+    event.stopPropagation();
+    event.preventDefault();
+    this.showToolbar = false;
+    this.fullView = false;
+    this._value = '';
+    this.editor.commands.clearContent(true);
   }
 
   private _setLink(url: string): void {
@@ -160,6 +204,10 @@ export class CommentEditorComponent implements OnDestroy {
         ListItem,
         Code,
         History,
+        Dropcursor,
+        Image.configure({
+          allowBase64: true
+        }),
         Link.configure({
           openOnClick: false,
           defaultProtocol: 'https',
@@ -167,9 +215,9 @@ export class CommentEditorComponent implements OnDestroy {
         Placeholder.configure({
           placeholder: this.placeholder()
         }),
-        FloatingMenu.configure({
-          element: this._floatingMenu().nativeElement
-        }),
+        // FloatingMenu.configure({
+        //   element: this._floatingMenu().nativeElement
+        // }),
         // image menu
         // BubbleMenu.configure({
         //   pluginKey: new PluginKey('bubbleMenuOne'),

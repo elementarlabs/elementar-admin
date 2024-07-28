@@ -1,6 +1,5 @@
-<div #content class="content"></div>
-<div class="toolbar">
-  @if (editor) {
+@if (showToolbar) {
+  <div class="toolbar">
     <div class="flex items-center gap-0.5">
       <button mat-icon-button class="button"
               [disabled]="isCommandDisabled('toggleBold')"
@@ -36,12 +35,25 @@
         <mat-icon>image</mat-icon>
       </button>
     </div>
-    <div>
-      <button mat-flat-button [disabled]="!_value || null" (click)="onSend()">Send</button>
-    </div>
-  } @else {
-    ......
-  }
+  </div>
+}
+<div #content class="content"></div>
+<div class="footer">
+  <div class="flex items-center gap-0.5">
+    @if (fullView) {
+      <button mat-icon-button class="button"
+              [class.active]="showToolbar" (click)="toggleToolbar()">
+        <mat-icon>title</mat-icon>
+      </button>
+    }
+  </div>
+  <div class="flex items-center gap-2">
+    @if (fullView) {
+      <button mat-button (click)="cancel($event)">Cancel</button>
+    }
+
+    <button mat-flat-button [disabled]="!_value || null" (click)="send($event)">Send</button>
+  </div>
 </div>
 <div #bubbleMenu class="emr-comment-editor-bubble-menu">
   @if (editor) {
@@ -93,18 +105,18 @@
     </div>
   }
 </div>
-<div #floatingMenu class="floating-menu">
-  @if (editor) {
-    <div class="flex items-center gap-1.5">
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleCodeBlock')"
-              [class.active]="editor && editor.isActive('codeBlock')"
-              (click)="onButtonClick('toggleCodeBlock')">
-        <mat-icon>code</mat-icon>
-      </button>
-      <button class="button">
-        <mat-icon>image</mat-icon>
-      </button>
-    </div>
-  }
-</div>
+<!--<div #floatingMenu class="floating-menu">-->
+<!--  @if (editor) {-->
+<!--    <div class="flex items-center gap-1.5">-->
+<!--      <button class="button"-->
+<!--              [disabled]="isCommandDisabled('toggleCodeBlock')"-->
+<!--              [class.active]="editor && editor.isActive('codeBlock')"-->
+<!--              (click)="onButtonClick('toggleCodeBlock')">-->
+<!--        <mat-icon>code</mat-icon>-->
+<!--      </button>-->
+<!--      <button class="button">-->
+<!--        <mat-icon>image</mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  }-->
+<!--</div>-->

@@ -20,7 +20,7 @@
 }
 
 :host {
-  @apply block rounded-xl overflow-hidden border;
+  @apply relative block rounded-2xl overflow-hidden border;
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;
@@ -36,12 +36,22 @@
   }
 
   .content {
+    @apply absolute h-14 inset-0;
+
     ::ng-deep {
       .tiptap {
-        @apply p-4 min-h-20 focus:outline-none;
+        @apply p-4 min-h-10 focus:outline-none;
+
+        img {
+          @apply block h-auto my-6 mx-0 max-w-full;
+
+          &.ProseMirror-selectednode {
+            outline: 3px solid theme('colors.purple.500');
+          }
+        }
 
         p.is-editor-empty:first-child::before {
-          @apply text-neutral-500 float-left h-0 pointer-events-none;
+          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
           content: attr(data-placeholder);
         }
 
@@ -73,8 +83,18 @@
     }
   }
 
+  &.full-view {
+    .content {
+      @apply static h-auto min-h-12;
+    }
+  }
+
+  .footer {
+    @apply h-14 px-2.5 flex items-center justify-between;
+  }
+
   .toolbar {
-    @apply border-t h-14 px-3 flex items-center justify-between;
+    @apply border-b h-14 px-3 flex items-center justify-between;
   }
 
   .button {
