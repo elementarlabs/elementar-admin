@@ -97,6 +97,7 @@
   @if (editor) {
     <div class="flex items-center gap-1.5">
       <button class="button"
+              [disabled]="isCommandDisabled('toggleCodeBlock')"
               [class.active]="editor && editor.isActive('codeBlock')"
               (click)="onButtonClick('toggleCodeBlock')">
         <mat-icon>code</mat-icon>

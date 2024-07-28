@@ -1,18 +1,26 @@
-:host {
-  @apply block rounded-xl overflow-hidden border;
+.bubble-menu {
+  @apply shadow bg-white min-h-12 px-2 rounded-2xl border;
 
-  .bubble-menu {
-    @apply shadow bg-white min-h-12 px-2 rounded-2xl border;
+  .button {
+    @apply leading-[0];
 
-    .button {
-      @apply hover:text-primary rounded-full p-1;
-
-      mat-icon {
-        @apply size-6 text-xl;
-        line-height: 1.25;
-      }
+    &.active {
+      @apply bg-neutral-200;
     }
   }
+
+  .button {
+    @apply hover:text-primary rounded-full p-1;
+
+    mat-icon {
+      @apply size-6 text-xl;
+      line-height: 1.25;
+    }
+  }
+}
+
+:host {
+  @apply block rounded-xl overflow-hidden border;
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;

@@ -24,11 +24,13 @@ import Placeholder from '@tiptap/extension-placeholder';
 import FloatingMenu from '@tiptap/extension-floating-menu';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
 import Code from '@tiptap/extension-code';
+import History from '@tiptap/extension-history';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -43,7 +45,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './comment-editor.component.scss'
 })
 export class CommentEditorComponent implements OnDestroy {
-  private _elementRef = inject(ElementRef);
+  private _document = inject(DOCUMENT);
   private _dialog = inject(MatDialog);
   private _destroyRef = inject(DestroyRef);
   private _content = viewChild.required<ElementRef>('content');
@@ -157,6 +159,7 @@ export class CommentEditorComponent implements OnDestroy {
         BulletList,
         ListItem,
         Code,
+        History,
         Link.configure({
           openOnClick: false,
           defaultProtocol: 'https',
@@ -174,6 +177,10 @@ export class CommentEditorComponent implements OnDestroy {
         // }),
         BubbleMenu.configure({
           element: this._bubbleMenu().nativeElement,
+          tippyOptions: {
+            appendTo: this._document.body,
+            zIndex: 999
+          }
           // shouldShow: ({ editor, view, state, oldState, from, to }) => {
           //   // only show the bubble menu for images and links
           //   // return editor.isActive('image') || editor.isActive('link');
