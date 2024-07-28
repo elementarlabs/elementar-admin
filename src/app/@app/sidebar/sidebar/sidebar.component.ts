@@ -434,6 +434,11 @@ export class SidebarComponent {
           name: 'Image Viewer',
           link: '/pages/components/image-viewer'
         },
+        {
+          type: 'link',
+          name: 'Comment Editor',
+          link: '/pages/components/comment-editor'
+        },
       ]
     },
     {

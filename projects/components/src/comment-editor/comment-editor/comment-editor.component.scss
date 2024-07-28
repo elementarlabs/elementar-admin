@@ -1,0 +1,61 @@
+:host {
+  @apply block rounded-xl overflow-hidden border;
+
+  .floating-menu {
+    @apply flex items-center gap-1.5 bg-white py-1.5 px-2 border rounded-full;
+  }
+
+  .content {
+    ::ng-deep {
+      .tiptap {
+        @apply p-4 min-h-20 focus:outline-none;
+
+        p.is-editor-empty:first-child::before {
+          @apply text-neutral-500 float-left h-0 pointer-events-none;
+          content: attr(data-placeholder);
+        }
+
+        &.ProseMirror-focused {
+          p.is-editor-empty:first-child::before {
+            content: none;
+          }
+        }
+
+        //p.is-empty::before {
+        //  color: #adb5bd;
+        //  content: attr(data-placeholder);
+        //  float: left;
+        //  height: 0;
+        //  pointer-events: none;
+        //}
+      }
+
+      p,
+      pre {
+        &:first-child {
+          @apply mt-0;
+        }
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    @apply border-t h-14 px-3 flex items-center justify-between;
+  }
+
+  .button {
+    @apply leading-[0];
+
+    &.active {
+      @apply bg-neutral-200;
+    }
+  }
+}
+
+:host-context(html.dark) {
+  @apply border-inverse;
+}

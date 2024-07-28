@@ -21,8 +21,8 @@
     "angular admin template"
   ],
   "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0",
+    "@angular/common": "^18.1.2",
+    "@angular/core": "^18.1.2",
     "iconify-icon": "^2.0.0",
     "material-symbols": "^0.21.0",
     "libphonenumber-js": "^1.10.57",

@@ -1,0 +1,49 @@
+<div #content class="content"></div>
+<div class="toolbar">
+  <div class="flex items-center gap-0.5">
+    <button mat-icon-button class="button"
+            [class.active]="editor && editor.isActive('bold')"
+            (click)="onButtonClick('toggleBold')">
+      <mat-icon>format_bold</mat-icon>
+    </button>
+    <button mat-icon-button class="button"
+            [class.active]="editor && editor.isActive('italic')"
+            (click)="onButtonClick('toggleItalic')">
+      <mat-icon>format_italic</mat-icon>
+    </button>
+    <button mat-icon-button class="button"
+            [class.active]="editor && editor.isActive('strike')"
+            (click)="onButtonClick('toggleStrike')">
+      <mat-icon>strikethrough_s</mat-icon>
+    </button>
+    <button mat-icon-button class="button"
+            [class.active]="editor && editor.isActive('bulletList')"
+            (click)="onButtonClick('toggleBulletList')">
+      <mat-icon>list</mat-icon>
+    </button>
+    <button mat-icon-button class="button"
+            [class.active]="editor && editor.isActive('codeBlock')"
+            (click)="onButtonClick('toggleCodeBlock')">
+      <mat-icon>code</mat-icon>
+    </button>
+    <button mat-icon-button class="button">
+      <mat-icon>link</mat-icon>
+    </button>
+    <button mat-icon-button class="button">
+      <mat-icon>image</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button mat-flat-button [disabled]="!_value || null" (click)="onSend()">Send</button>
+  </div>
+</div>
+<div #floatingMenu class="floating-menu">
+  <button class="button"
+          [class.active]="editor && editor.isActive('codeBlock')"
+          (click)="onButtonClick('toggleCodeBlock')">
+    <mat-icon>code</mat-icon>
+  </button>
+  <button class="button">
+    <mat-icon>image</mat-icon>
+  </button>
+</div>

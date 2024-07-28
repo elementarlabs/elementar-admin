@@ -163,6 +163,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/snackbar/snackbar.module').then(m => m.SnackbarModule)
       },
       {
+        path: 'components/comment-editor',
+        loadChildren: () => import('./components/comment-editor/comment-editor.module').then(m => m.CommentEditorModule)
+      },
+      {
         path: 'components/table',
         loadChildren: () => import('./components/table/table.module').then(m => m.TableModule)
       },
