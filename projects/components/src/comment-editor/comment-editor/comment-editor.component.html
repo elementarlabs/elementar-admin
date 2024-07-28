@@ -30,10 +30,7 @@
               [disabled]="isCommandDisabled('toggleCodeBlock')"
               [class.active]="editor && editor.isActive('codeBlock')"
               (click)="onButtonClick('toggleCodeBlock')">
-        <mat-icon>code</mat-icon>
-      </button>
-      <button mat-icon-button class="button">
-        <mat-icon>link</mat-icon>
+        <mat-icon>code_blocks</mat-icon>
       </button>
       <button mat-icon-button class="button">
         <mat-icon>image</mat-icon>
@@ -46,15 +43,67 @@
     ......
   }
 </div>
+<div #bubbleMenu class="bubble-menu">
+  @if (editor) {
+    @if (editor.isActive('link') && getLinkUrl()) {
+      <div class="flex items-center gap-1 h-11 border-b">
+        <div class="grow text-sm overflow-hidden text-ellipsis w-[116px]">
+          <a [href]="getLinkUrl()" target="_blank" class="text-primary">{{ getLinkUrl() }}</a>
+        </div>
+        <div class="flex items-center flex-none">
+          <button class="button" (click)="setLink()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="button" (click)="unsetLink()">
+            <mat-icon>link_off</mat-icon>
+          </button>
+        </div>
+      </div>
+    }
+    <div class="h-12 flex items-center gap-1.5">
+      <button class="button"
+              [class.active]="setLinkActive || editor.isActive('link')"
+              (click)="setLink()">
+        <mat-icon>link</mat-icon>
+      </button>
+      <button class="button"
+              [disabled]="isCommandDisabled('toggleBold')"
+              [class.active]="editor && editor.isActive('bold')"
+              (click)="onButtonClick('toggleBold')">
+        <mat-icon>format_bold</mat-icon>
+      </button>
+      <button class="button"
+              [disabled]="isCommandDisabled('toggleItalic')"
+              [class.active]="editor && editor.isActive('italic')"
+              (click)="onButtonClick('toggleItalic')">
+        <mat-icon>format_italic</mat-icon>
+      </button>
+      <button class="button"
+              [disabled]="isCommandDisabled('toggleStrike')"
+              [class.active]="editor && editor.isActive('strike')"
+              (click)="onButtonClick('toggleStrike')">
+        <mat-icon>strikethrough_s</mat-icon>
+      </button>
+      <button class="button"
+              [disabled]="isCommandDisabled('toggleCode')"
+              [class.active]="editor && editor.isActive('code')"
+              (click)="onButtonClick('toggleCode')">
+        <mat-icon>code</mat-icon>
+      </button>
+    </div>
+  }
+</div>
 <div #floatingMenu class="floating-menu">
   @if (editor) {
-    <button class="button"
-            [class.active]="editor && editor.isActive('codeBlock')"
-            (click)="onButtonClick('toggleCodeBlock')">
-      <mat-icon>code</mat-icon>
-    </button>
-    <button class="button">
-      <mat-icon>image</mat-icon>
-    </button>
+    <div class="flex items-center gap-1.5">
+      <button class="button"
+              [class.active]="editor && editor.isActive('codeBlock')"
+              (click)="onButtonClick('toggleCodeBlock')">
+        <mat-icon>code</mat-icon>
+      </button>
+      <button class="button">
+        <mat-icon>image</mat-icon>
+      </button>
+    </div>
   }
 </div>
