@@ -57,6 +57,11 @@ export class CommentEditorComponent implements OnDestroy {
     return this.editor.chain().focus();
   }
 
+  isCommandDisabled(command: string): boolean | null {
+    const canFocus = this.editor.can().chain().focus() as any;
+    return !canFocus[command]().run() || null;
+  }
+
   ngOnDestroy() {
     this.editor?.destroy();
   }

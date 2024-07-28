@@ -3,6 +3,10 @@
 
   .floating-menu {
     @apply flex items-center gap-1.5 bg-white py-1.5 px-2 border rounded-full;
+
+    .button {
+      @apply hover:text-primary;
+    }
   }
 
   .content {
