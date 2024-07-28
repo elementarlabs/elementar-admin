@@ -1,5 +1,5 @@
 import {
-  afterNextRender, ChangeDetectorRef,
+  afterNextRender, AfterViewInit, ChangeDetectorRef,
   Component, DestroyRef,
   ElementRef,
   inject,
@@ -54,6 +54,7 @@ import { DOCUMENT } from '@angular/common';
 export class CommentEditorComponent implements OnDestroy {
   private _document = inject(DOCUMENT);
   private _dialog = inject(MatDialog);
+  private _cdr = inject(ChangeDetectorRef);
   private _destroyRef = inject(DestroyRef);
   private _content = viewChild.required<ElementRef>('content');
   private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
@@ -243,5 +244,6 @@ export class CommentEditorComponent implements OnDestroy {
         this._value = !editor.isEmpty ? editor.getHTML() : '';
       }
     });
+    this._cdr.detectChanges();
   }
 }
