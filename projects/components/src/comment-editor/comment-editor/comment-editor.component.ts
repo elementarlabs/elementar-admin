@@ -2,7 +2,7 @@ import {
   afterNextRender, AfterViewInit, ChangeDetectorRef,
   Component, DestroyRef,
   ElementRef,
-  inject,
+  inject, Injector,
   input,
   OnDestroy,
   output,
@@ -21,7 +21,7 @@ import BulletList from '@tiptap/extension-bullet-list';
 import ListItem from '@tiptap/extension-list-item';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
-import FloatingMenu from '@tiptap/extension-floating-menu';
+// import FloatingMenu from '@tiptap/extension-floating-menu';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
 import Code from '@tiptap/extension-code';
 import History from '@tiptap/extension-history';
@@ -33,6 +33,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
+import ImageExtExtension from './../extensions/image-ext';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -55,6 +56,7 @@ export class CommentEditorComponent implements OnDestroy {
   private _document = inject(DOCUMENT);
   private _dialog = inject(MatDialog);
   private _cdr = inject(ChangeDetectorRef);
+  private _injector = inject(Injector);
   private _destroyRef = inject(DestroyRef);
   private _content = viewChild.required<ElementRef>('content');
   private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
@@ -131,13 +133,20 @@ export class CommentEditorComponent implements OnDestroy {
     this.editor.commands.clearContent(true);
   }
 
-  onAddImage(): void {
-    // this.editor.chain().focus().setImage({ src: url }).run()
+  addImage(): void {
+    this.editor
+      .chain()
+      .focus()
+      .insertContent({ type: 'imageExt' })
+      .run()
+    ;
+    // this.editor.chain().focus().addImage().run()
     // this.editor.commands.setImage({
     //   src: 'https://example.com/foobar.png',
     //   alt: '',
     //   title: '',
     // });
+
   }
 
   activateFullView(): void {
@@ -206,6 +215,7 @@ export class CommentEditorComponent implements OnDestroy {
         Code,
         History,
         Dropcursor,
+        ImageExtExtension(this._injector),
         Image.configure({
           allowBase64: true
         }),

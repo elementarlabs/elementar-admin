@@ -1,0 +1,14 @@
+@if (!src) {
+  <emr-upload-area #uploadArea="emrUploadArea" accept="image/*" (selected)="onSelected($event)">
+    @if (!uploadArea.api.isDropActive) {
+      <button emr-upload-trigger
+              accept="image/*" class="text-primary"
+              (selected)="onSelected($event)">Select</button> or
+        drag & drop image here
+    } @else {
+      <div class="font-medium">Drop files here</div>
+    }
+  </emr-upload-area>
+} @else {
+  <img [src]="src" alt="" class="max-w-full">
+}
