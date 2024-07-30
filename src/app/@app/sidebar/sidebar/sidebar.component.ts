@@ -58,6 +58,11 @@ export class SidebarComponent {
           type: 'link',
           name: 'Themes',
           link: '/pages/customization/themes'
+        },
+        {
+          type: 'link',
+          name: 'Typography',
+          link: '/pages/customization/typography'
         }
       ]
     },

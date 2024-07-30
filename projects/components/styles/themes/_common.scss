@@ -2,6 +2,7 @@
 
 :root {
   @include mat.all-component-themes($m3-light-theme);
+  @include mat.typography-hierarchy($m3-light-theme);
   @include mat.system-level-colors($m3-light-theme);
   @include mat.system-level-typography($m3-light-theme);
 

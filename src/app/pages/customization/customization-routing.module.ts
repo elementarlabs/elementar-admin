@@ -11,6 +11,11 @@ const routes: Routes = [
     path: 'themes',
     title: 'Themes',
     loadChildren: () => import('./themes/themes.module').then(m => m.ThemesModule)
+  },
+  {
+    path: 'typography',
+    title: 'Typography',
+    loadComponent: () => import('./typography/typography.component').then(m => m.TypographyComponent)
   }
 ];
 
