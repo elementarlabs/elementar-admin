@@ -9,7 +9,6 @@ export class AngularRenderer<C, P> {
 
   constructor(ViewComponent: Type<C>, injector: Injector, props: Partial<P>) {
     this.applicationRef = injector.get(ApplicationRef);
-
     this.componentRef = createComponent(ViewComponent, {
       environmentInjector: this.applicationRef.injector,
       elementInjector: injector,
@@ -17,7 +16,6 @@ export class AngularRenderer<C, P> {
 
     // set input props to the component
     this.updateProps(props);
-
     this.applicationRef.attachView(this.componentRef.hostView);
   }
 

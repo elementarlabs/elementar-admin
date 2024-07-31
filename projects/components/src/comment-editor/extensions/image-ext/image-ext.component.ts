@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { AngularNodeViewComponent } from '../angular-node-view.component';
 import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
 
@@ -9,20 +9,33 @@ import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/uplo
     EmrUploadModule
   ],
   templateUrl: './image-ext.component.html',
-  styleUrl: './image-ext.component.scss'
+  styleUrl: './image-ext.component.scss',
+  host: {
+    '[class.selected]': 'selected'
+  }
 })
-export class ImageExtComponent extends AngularNodeViewComponent {
-  src = '';
+export class ImageExtComponent extends AngularNodeViewComponent implements OnInit {
+  protected src = '';
+
+  ngOnInit() {
+    // console.log(this.node.attrs);
+  }
 
   onSelected(event: UploadSelectedEvent) {
     const file = event.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      this.src = reader.result as string;
+      const src = reader.result as string;
+      // this.editor.chain().insertContentAt(this.getPos(), {
+      //   type: 'image',
+      //   attrs: {
+      //     src
+      //   },
+      // }).focus().run()
     };
     reader.onerror = (error) => {
-      console.log('Error: ', error);
+      // console.log('Error: ', error);
     };
   }
 }

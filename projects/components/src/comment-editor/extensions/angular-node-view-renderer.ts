@@ -5,7 +5,6 @@ import {
 } from '@tiptap/core';
 import type { Decoration } from '@tiptap/pm/view';
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
-
 import { AngularRenderer } from './angular-renderer';
 import { AngularNodeViewComponent } from './angular-node-view.component';
 
@@ -28,7 +27,6 @@ class AngularNodeView extends NodeView<Type<AngularNodeViewComponent>, Editor, A
 
   override mount() {
     const injector = this.options.injector as Injector;
-
     const props: NodeViewProps = {
       editor: this.editor,
       node: this.node,
@@ -111,7 +109,6 @@ class AngularNodeView extends NodeView<Type<AngularNodeViewComponent>, Editor, A
     if (this.options.update) {
       const oldNode = this.node;
       const oldDecorations = this.decorations;
-
       this.node = node;
       this.decorations = decorations;
 

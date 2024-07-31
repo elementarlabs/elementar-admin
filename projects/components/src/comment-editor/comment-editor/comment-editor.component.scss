@@ -46,7 +46,7 @@
           @apply block h-auto my-6 mx-0 max-w-full;
 
           &.ProseMirror-selectednode {
-            outline: 3px solid theme('colors.purple.500');
+            outline: 3px solid theme('colors.tertiary.DEFAULT');
           }
         }
 
@@ -94,7 +94,7 @@
   }
 
   .toolbar {
-    @apply border-b h-14 px-3 flex items-center justify-between;
+    @apply border-b dark:border-b-inverse h-14 px-3 flex items-center justify-between;
   }
 
   .button {

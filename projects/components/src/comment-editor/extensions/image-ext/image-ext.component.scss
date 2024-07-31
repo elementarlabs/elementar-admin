@@ -1,3 +1,7 @@
 :host {
   @apply block;
+
+  &.selected {
+    @apply outline outline-4 outline-purple-500;
+  }
 }

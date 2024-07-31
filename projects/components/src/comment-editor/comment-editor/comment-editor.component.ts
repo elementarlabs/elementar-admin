@@ -34,6 +34,7 @@ import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialo
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import ImageExtExtension from './../extensions/image-ext';
+import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -42,7 +43,8 @@ import ImageExtExtension from './../extensions/image-ext';
   imports: [
     MatIconButton,
     MatIcon,
-    MatButton
+    MatButton,
+    EmrUploadModule
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',
@@ -61,6 +63,7 @@ export class CommentEditorComponent implements OnDestroy {
   private _content = viewChild.required<ElementRef>('content');
   private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
+  private _imageBubbleMenu = viewChild.required<ElementRef>('imageBubbleMenu');
   protected _value = '';
   protected editor: Editor;
   readonly sent = output<string>();
@@ -215,8 +218,9 @@ export class CommentEditorComponent implements OnDestroy {
         Code,
         History,
         Dropcursor,
-        ImageExtExtension(this._injector),
+        // ImageExtExtension(this._injector),
         Image.configure({
+          inline: true,
           allowBase64: true
         }),
         Link.configure({
@@ -230,21 +234,20 @@ export class CommentEditorComponent implements OnDestroy {
         //   element: this._floatingMenu().nativeElement
         // }),
         // image menu
-        // BubbleMenu.configure({
-        //   pluginKey: new PluginKey('bubbleMenuOne'),
-        //   element: document.querySelector('.menu-one'),
-        // }),
+        BubbleMenu.configure({
+          element: this._imageBubbleMenu().nativeElement,
+          shouldShow: ({ editor, view, state, oldState, from, to }) => {
+            return editor.isActive('image');
+          },
+        }),
         BubbleMenu.configure({
           element: this._bubbleMenu().nativeElement,
           tippyOptions: {
             appendTo: this._document.body,
             zIndex: 999
-          }
+          },
           // shouldShow: ({ editor, view, state, oldState, from, to }) => {
-          //   // only show the bubble menu for images and links
-          //   // return editor.isActive('image') || editor.isActive('link');
-          //
-          //   return true;
+          //   return !editor.isActive('image');
           // },
         })
       ],
@@ -255,5 +258,18 @@ export class CommentEditorComponent implements OnDestroy {
       }
     });
     this._cdr.detectChanges();
+  }
+
+  onImageSelected(event: UploadSelectedEvent): void {
+    const file = event.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const src = reader.result as string;
+      this.editor.chain().focus().setImage({ src, alt: '', title: '' }).run()
+    };
+    reader.onerror = (error) => {
+      // console.log('Error: ', error);
+    };
   }
 }
