@@ -1,0 +1,7 @@
+:host {
+  @apply block;
+
+  &.selected {
+    @apply outline outline-4 outline-tertiary;
+  }
+}

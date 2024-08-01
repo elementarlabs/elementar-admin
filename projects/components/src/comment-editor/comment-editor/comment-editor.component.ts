@@ -1,5 +1,5 @@
 import {
-  afterNextRender, AfterViewInit, ChangeDetectorRef,
+  afterNextRender, AfterViewInit, booleanAttribute, ChangeDetectorRef,
   Component, DestroyRef,
   ElementRef,
   inject, Injector,
@@ -33,8 +33,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
-import ImageExtExtension from './../extensions/image-ext';
 import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
+import ImageUploadingPlaceholderExtension
+  from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
+import { resolve } from '@angular/compiler-cli';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -73,6 +75,10 @@ export class CommentEditorComponent implements OnDestroy {
   fullView = false;
 
   placeholder = input('Write something …');
+  alwaysShowToolbar = input(false, {
+    transform: booleanAttribute
+  });
+  uploadFn = input<(file: File) => Promise<string>>();
 
   constructor() {
     afterNextRender(() => {
@@ -218,7 +224,9 @@ export class CommentEditorComponent implements OnDestroy {
         Code,
         History,
         Dropcursor,
-        // ImageExtExtension(this._injector),
+        ImageUploadingPlaceholderExtension(this._injector, {
+          uploadFn: this.uploadFn(),
+        }),
         Image.configure({
           inline: true,
           allowBase64: true
@@ -251,7 +259,6 @@ export class CommentEditorComponent implements OnDestroy {
           // },
         })
       ],
-      autofocus: true,
       content: '',
       onUpdate: ({ editor }) => {
         this._value = !editor.isEmpty ? editor.getHTML() : '';
@@ -266,7 +273,8 @@ export class CommentEditorComponent implements OnDestroy {
     reader.readAsDataURL(file);
     reader.onload = () => {
       const src = reader.result as string;
-      this.editor.chain().focus().setImage({ src, alt: '', title: '' }).run()
+      // this.editor.chain().focus().setImage({ src, alt: '', title: '' }).run()
+      this.editor.chain().focus().addImageUploadingPlaceholder({ src, file }).run()
     };
     reader.onerror = (error) => {
       // console.log('Error: ', error);

@@ -15,6 +15,14 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 export class BasicCommentEditorExampleComponent {
   comments: string[] = [];
 
+  uploadFn = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('/assets/image-viewer/1.jpg');
+      }, 3000);
+    });
+  }
+
   onSent(content: string): void {
     this.comments.unshift(content);
   }

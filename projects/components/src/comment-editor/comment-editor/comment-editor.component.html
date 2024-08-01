@@ -1,48 +1,54 @@
-@if (showToolbar) {
-  <div class="toolbar">
-    <div class="flex items-center gap-0.5">
-      <button mat-icon-button class="button"
-              [disabled]="isCommandDisabled('toggleBold')"
-              [class.active]="editor && editor.isActive('bold')"
-              (click)="onButtonClick('toggleBold')">
-        <mat-icon>format_bold</mat-icon>
-      </button>
-      <button mat-icon-button class="button"
-              [disabled]="isCommandDisabled('toggleItalic')"
-              [class.active]="editor && editor.isActive('italic')"
-              (click)="onButtonClick('toggleItalic')">
-        <mat-icon>format_italic</mat-icon>
-      </button>
-      <button mat-icon-button class="button"
-              [disabled]="isCommandDisabled('toggleStrike')"
-              [class.active]="editor && editor.isActive('strike')"
-              (click)="onButtonClick('toggleStrike')">
-        <mat-icon>strikethrough_s</mat-icon>
-      </button>
-      <button mat-icon-button class="button"
-              [disabled]="isCommandDisabled('toggleBulletList')"
-              [class.active]="editor && editor.isActive('bulletList')"
-              (click)="onButtonClick('toggleBulletList')">
-        <mat-icon>list</mat-icon>
-      </button>
-      <button mat-icon-button class="button"
-              [disabled]="isCommandDisabled('toggleCodeBlock')"
-              [class.active]="editor && editor.isActive('codeBlock')"
-              (click)="onButtonClick('toggleCodeBlock')">
-        <mat-icon>code_blocks</mat-icon>
-      </button>
-      <div class="w-max" emr-upload-trigger accept="image/*" (selected)="onImageSelected($event)">
-        <button mat-icon-button class="button">
-          <mat-icon>image</mat-icon>
+@if ((showToolbar || alwaysShowToolbar()) && fullView) {
+  @if (this.editor) {
+    <div class="toolbar">
+      <div class="flex items-center gap-0.5">
+        <button mat-icon-button class="button"
+                [disabled]="isCommandDisabled('toggleBold')"
+                [class.active]="editor && editor.isActive('bold')"
+                (click)="onButtonClick('toggleBold')">
+          <mat-icon>format_bold</mat-icon>
         </button>
+        <button mat-icon-button class="button"
+                [disabled]="isCommandDisabled('toggleItalic')"
+                [class.active]="editor && editor.isActive('italic')"
+                (click)="onButtonClick('toggleItalic')">
+          <mat-icon>format_italic</mat-icon>
+        </button>
+        <button mat-icon-button class="button"
+                [disabled]="isCommandDisabled('toggleStrike')"
+                [class.active]="editor && editor.isActive('strike')"
+                (click)="onButtonClick('toggleStrike')">
+          <mat-icon>strikethrough_s</mat-icon>
+        </button>
+        <button mat-icon-button class="button"
+                [disabled]="isCommandDisabled('toggleBulletList')"
+                [class.active]="editor && editor.isActive('bulletList')"
+                (click)="onButtonClick('toggleBulletList')">
+          <mat-icon>list</mat-icon>
+        </button>
+        <button mat-icon-button class="button"
+                [disabled]="isCommandDisabled('toggleCodeBlock')"
+                [class.active]="editor && editor.isActive('codeBlock')"
+                (click)="onButtonClick('toggleCodeBlock')">
+          <mat-icon>code_blocks</mat-icon>
+        </button>
+        <div class="w-max" emr-upload-trigger accept="image/*" (selected)="onImageSelected($event)">
+          <button mat-icon-button class="button">
+            <mat-icon>image</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  } @else {
+    <div class="toolbar">
+      loading...
+    </div>
+  }
 }
 <div #content class="content"></div>
 <div class="footer">
   <div class="flex items-center gap-0.5">
-    @if (fullView) {
+    @if (fullView && !alwaysShowToolbar()) {
       <button mat-icon-button class="button"
               [class.active]="showToolbar" (click)="toggleToolbar()">
         <mat-icon>title</mat-icon>
@@ -59,11 +65,9 @@
 </div>
 <div #imageBubbleMenu class="emr-comment-editor-bubble-menu">
   @if (editor) {
-    @if (editor.isActive('image')) {
-      <div>
-        asfasfafs
-      </div>
-    }
+    <div>
+      asfasfafs
+    </div>
   }
 </div>
 <div #bubbleMenu class="emr-comment-editor-bubble-menu">
