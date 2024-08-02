@@ -1,5 +1,5 @@
 import {
-  afterNextRender, AfterViewInit, booleanAttribute, ChangeDetectorRef,
+  afterNextRender, booleanAttribute, ChangeDetectorRef,
   Component, DestroyRef,
   ElementRef,
   inject, Injector,
@@ -18,6 +18,7 @@ import Strike from '@tiptap/extension-strike';
 import CodeBlock from '@tiptap/extension-code-block';
 import { Blockquote } from '@tiptap/extension-blockquote';
 import BulletList from '@tiptap/extension-bullet-list';
+import OrderedList from '@tiptap/extension-ordered-list';
 import ListItem from '@tiptap/extension-list-item';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
@@ -36,7 +37,7 @@ import { DOCUMENT } from '@angular/common';
 import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
-import { resolve } from '@angular/compiler-cli';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -46,7 +47,8 @@ import { resolve } from '@angular/compiler-cli';
     MatIconButton,
     MatIcon,
     MatButton,
-    EmrUploadModule
+    EmrUploadModule,
+    MatTooltip
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',
@@ -63,22 +65,22 @@ export class CommentEditorComponent implements OnDestroy {
   private _injector = inject(Injector);
   private _destroyRef = inject(DestroyRef);
   private _content = viewChild.required<ElementRef>('content');
-  private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
+  // private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
   private _imageBubbleMenu = viewChild.required<ElementRef>('imageBubbleMenu');
   protected _value = '';
   protected editor: Editor;
-  readonly sent = output<string>();
-
-  setLinkActive = false;
-  showToolbar = false;
-  fullView = false;
+  protected setLinkActive = false;
+  protected showToolbar = false;
+  protected fullView = false;
 
   placeholder = input('Write something …');
   alwaysShowToolbar = input(false, {
     transform: booleanAttribute
   });
   uploadFn = input<(file: File) => Promise<string>>();
+
+  readonly sent = output<string>();
 
   constructor() {
     afterNextRender(() => {
@@ -220,6 +222,7 @@ export class CommentEditorComponent implements OnDestroy {
         Blockquote,
         CodeBlock,
         BulletList,
+        OrderedList,
         ListItem,
         Code,
         History,
@@ -241,7 +244,6 @@ export class CommentEditorComponent implements OnDestroy {
         // FloatingMenu.configure({
         //   element: this._floatingMenu().nativeElement
         // }),
-        // image menu
         BubbleMenu.configure({
           element: this._imageBubbleMenu().nativeElement,
           shouldShow: ({ editor, view, state, oldState, from, to }) => {
@@ -273,11 +275,7 @@ export class CommentEditorComponent implements OnDestroy {
     reader.readAsDataURL(file);
     reader.onload = () => {
       const src = reader.result as string;
-      // this.editor.chain().focus().setImage({ src, alt: '', title: '' }).run()
       this.editor.chain().focus().addImageUploadingPlaceholder({ src, file }).run()
-    };
-    reader.onerror = (error) => {
-      // console.log('Error: ', error);
     };
   }
 }

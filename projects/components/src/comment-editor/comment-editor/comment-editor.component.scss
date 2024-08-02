@@ -16,6 +16,10 @@
       @apply size-6 text-xl;
       line-height: 1.25;
     }
+
+    &:disabled {
+      @apply opacity-70 pointer-events-none;
+    }
   }
 }
 
@@ -31,6 +35,10 @@
       mat-icon {
         @apply size-6 text-xl;
         line-height: 1.25;
+      }
+
+      &:disabled {
+        @apply opacity-70 pointer-events-none;
       }
     }
   }

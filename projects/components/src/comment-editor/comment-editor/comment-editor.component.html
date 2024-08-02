@@ -3,37 +3,49 @@
     <div class="toolbar">
       <div class="flex items-center gap-0.5">
         <button mat-icon-button class="button"
+                matTooltip="Bold"
                 [disabled]="isCommandDisabled('toggleBold')"
                 [class.active]="editor && editor.isActive('bold')"
                 (click)="onButtonClick('toggleBold')">
           <mat-icon>format_bold</mat-icon>
         </button>
         <button mat-icon-button class="button"
+                matTooltip="Italic"
                 [disabled]="isCommandDisabled('toggleItalic')"
                 [class.active]="editor && editor.isActive('italic')"
                 (click)="onButtonClick('toggleItalic')">
           <mat-icon>format_italic</mat-icon>
         </button>
         <button mat-icon-button class="button"
+                matTooltip="Strike"
                 [disabled]="isCommandDisabled('toggleStrike')"
                 [class.active]="editor && editor.isActive('strike')"
                 (click)="onButtonClick('toggleStrike')">
           <mat-icon>strikethrough_s</mat-icon>
         </button>
         <button mat-icon-button class="button"
+                matTooltip="Bullet List"
                 [disabled]="isCommandDisabled('toggleBulletList')"
                 [class.active]="editor && editor.isActive('bulletList')"
                 (click)="onButtonClick('toggleBulletList')">
-          <mat-icon>list</mat-icon>
+          <mat-icon>format_list_bulleted</mat-icon>
         </button>
         <button mat-icon-button class="button"
+                matTooltip="Ordered List"
+                [disabled]="isCommandDisabled('toggleOrderedList')"
+                [class.active]="editor && editor.isActive('orderedList')"
+                (click)="onButtonClick('toggleOrderedList')">
+          <mat-icon>format_list_numbered</mat-icon>
+        </button>
+        <button mat-icon-button class="button"
+                matTooltip="Code Block"
                 [disabled]="isCommandDisabled('toggleCodeBlock')"
                 [class.active]="editor && editor.isActive('codeBlock')"
                 (click)="onButtonClick('toggleCodeBlock')">
           <mat-icon>code_blocks</mat-icon>
         </button>
         <div class="w-max" emr-upload-trigger accept="image/*" (selected)="onImageSelected($event)">
-          <button mat-icon-button class="button">
+          <button mat-icon-button class="button" matTooltip="Upload Image">
             <mat-icon>image</mat-icon>
           </button>
         </div>
@@ -74,7 +86,7 @@
   @if (editor) {
     @if (editor.isActive('link') && getLinkUrl()) {
       <div class="flex items-center gap-1 h-11 border-b">
-        <div class="grow text-sm overflow-hidden text-ellipsis w-[116px]">
+        <div class="grow text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[116px]">
           <a [href]="getLinkUrl()" target="_blank" class="text-primary">{{ getLinkUrl() }}</a>
         </div>
         <div class="flex items-center flex-none">
@@ -89,6 +101,7 @@
     }
     <div class="h-12 flex items-center gap-1.5">
       <button class="button"
+              [disabled]="isCommandDisabled('toggleLink')"
               [class.active]="setLinkActive || editor.isActive('link')"
               (click)="setLink()">
         <mat-icon>link</mat-icon>

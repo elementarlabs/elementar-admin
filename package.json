@@ -51,6 +51,8 @@
     "@tiptap/extension-history": "^2.5.7",
     "@tiptap/extension-image": "^2.5.7",
     "@tiptap/extension-link": "^2.5.7",
+    "@tiptap/extension-list-item": "^2.5.8",
+    "@tiptap/extension-ordered-list": "^2.5.8",
     "@tiptap/extension-placeholder": "^2.5.7",
     "@tiptap/pm": "^2.5.7",
     "@tiptap/starter-kit": "^2.5.7",
