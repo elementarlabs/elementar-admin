@@ -54,6 +54,7 @@
     "@tiptap/extension-list-item": "^2.5.8",
     "@tiptap/extension-ordered-list": "^2.5.8",
     "@tiptap/extension-placeholder": "^2.5.7",
+    "@tiptap/extension-youtube": "^2.5.8",
     "@tiptap/pm": "^2.5.7",
     "@tiptap/starter-kit": "^2.5.7",
     "awesome-phonenumber": "^6.4.0",

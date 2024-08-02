@@ -50,6 +50,24 @@
       .tiptap {
         @apply p-4 min-h-10 focus:outline-none;
 
+        div[data-youtube-video] {
+          cursor: move;
+          padding-right: 1.5rem;
+
+          iframe {
+            border: none;
+            display: block;
+            min-height: 200px;
+            min-width: 200px;
+            outline: 0 solid transparent;
+          }
+
+          &.ProseMirror-selectednode iframe {
+            outline: 4px solid theme('colors.tertiary.DEFAULT');
+            transition: outline 0.15s;
+          }
+        }
+
         img {
           @apply block h-auto my-6 mx-0 max-w-full;
 

@@ -22,6 +22,7 @@ import OrderedList from '@tiptap/extension-ordered-list';
 import ListItem from '@tiptap/extension-list-item';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
+import Youtube from '@tiptap/extension-youtube';
 // import FloatingMenu from '@tiptap/extension-floating-menu';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
 import Code from '@tiptap/extension-code';
@@ -38,6 +39,7 @@ import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/uplo
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { MatTooltip } from '@angular/material/tooltip';
+import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/youtube.dialog';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -54,7 +56,7 @@ import { MatTooltip } from '@angular/material/tooltip';
   styleUrl: './comment-editor.component.scss',
   host: {
     'class': 'emr-comment-editor',
-    '[class.full-view]': 'fullView',
+    '[class.full-view]': 'fullView || fullViewMode()',
     '(click)': 'activateFullView()'
   }
 })
@@ -75,7 +77,10 @@ export class CommentEditorComponent implements OnDestroy {
   protected fullView = false;
 
   placeholder = input('Write something …');
-  alwaysShowToolbar = input(false, {
+  toolbarAlwaysVisible = input(false, {
+    transform: booleanAttribute
+  });
+  fullViewMode = input(false, {
     transform: booleanAttribute
   });
   uploadFn = input<(file: File) => Promise<string>>();
@@ -132,6 +137,32 @@ export class CommentEditorComponent implements OnDestroy {
   onButtonClick(command: string): void {
     const chainFocus = this.editor.chain().focus() as any;
     chainFocus[command]().run();
+  }
+
+  addYoutube(): void {
+    const dialogRef = this._dialog.open(YoutubeDialog, {
+      data: {
+        linkUrl: (this.editor.getAttributes('iframe') as HTMLIFrameElement).src
+      }
+    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        takeUntilDestroyed(this._destroyRef)
+      )
+      .subscribe((linkUrl: string) => {
+        if (typeof linkUrl === 'undefined') {
+          return;
+        }
+
+        const contentRect = this._content().nativeElement.getBoundingClientRect();
+        this.editor.commands.setYoutubeVideo({
+          src: linkUrl,
+          // width: Math.max(320, parseInt(contentRect.width, 10)) || 640,
+          // height: Math.max(180, parseInt(this.height, 10)) || 480,
+        });
+      })
+    ;
   }
 
   send(event: MouseEvent): void {
@@ -227,6 +258,10 @@ export class CommentEditorComponent implements OnDestroy {
         Code,
         History,
         Dropcursor,
+        Youtube.configure({
+          controls: false,
+          nocookie: true,
+        }),
         ImageUploadingPlaceholderExtension(this._injector, {
           uploadFn: this.uploadFn(),
         }),

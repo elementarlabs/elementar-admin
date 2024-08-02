@@ -1,4 +1,4 @@
-@if ((showToolbar || alwaysShowToolbar()) && fullView) {
+@if ((showToolbar || toolbarAlwaysVisible() || fullViewMode()) && (fullView || fullViewMode())) {
   @if (this.editor) {
     <div class="toolbar">
       <div class="flex items-center gap-0.5">
@@ -49,6 +49,10 @@
             <mat-icon>image</mat-icon>
           </button>
         </div>
+        <button mat-icon-button class="button"
+                matTooltip="Add Youtube" (click)="addYoutube()">
+          <mat-icon>videocam</mat-icon>
+        </button>
       </div>
     </div>
   } @else {
@@ -60,7 +64,7 @@
 <div #content class="content"></div>
 <div class="footer">
   <div class="flex items-center gap-0.5">
-    @if (fullView && !alwaysShowToolbar()) {
+    @if (fullView && !fullViewMode()) {
       <button mat-icon-button class="button"
               [class.active]="showToolbar" (click)="toggleToolbar()">
         <mat-icon>title</mat-icon>
@@ -68,7 +72,7 @@
     }
   </div>
   <div class="flex items-center gap-2">
-    @if (fullView) {
+    @if (fullView && !fullViewMode()) {
       <button mat-button (click)="cancel($event)">Cancel</button>
     }
 

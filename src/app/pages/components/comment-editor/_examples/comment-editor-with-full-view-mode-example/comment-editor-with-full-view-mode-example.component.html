@@ -1,0 +1,9 @@
+<emr-comment-editor fullViewMode [uploadFn]="uploadFn" (sent)="onSent($event)"></emr-comment-editor>
+
+@if (comments.length > 0) {
+  <div class="mt-10 space-y-7">
+    @for (comment of comments; track comment) {
+      <div class="border rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
+    }
+  </div>
+}
