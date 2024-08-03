@@ -13,8 +13,7 @@
     @apply hover:text-primary rounded-full p-1;
 
     mat-icon {
-      @apply size-6 text-xl;
-      line-height: 1.25;
+      @apply size-6 text-xl leading-[1.25];
     }
 
     &:disabled {
@@ -33,8 +32,7 @@
       @apply hover:text-primary rounded-full;
 
       mat-icon {
-        @apply size-6 text-xl;
-        line-height: 1.25;
+        @apply size-6 text-xl leading-[1.25];
       }
 
       &:disabled {
@@ -51,20 +49,14 @@
         @apply p-4 min-h-10 focus:outline-none;
 
         div[data-youtube-video] {
-          cursor: move;
-          padding-right: 1.5rem;
+          @apply cursor-move bg-neutral-100 p-6 flex items-center justify-center;
 
           iframe {
-            border: none;
-            display: block;
-            min-height: 200px;
-            min-width: 200px;
-            outline: 0 solid transparent;
+            @apply w-full aspect-video border-none block min-h-[200px] min-w-[200px] outline-none;
           }
 
           &.ProseMirror-selectednode iframe {
-            outline: 4px solid theme('colors.tertiary.DEFAULT');
-            transition: outline 0.15s;
+            @apply outline outline-4 outline-tertiary transition-all;
           }
         }
 
@@ -72,7 +64,7 @@
           @apply block h-auto my-6 mx-0 max-w-full;
 
           &.ProseMirror-selectednode {
-            outline: 3px solid theme('colors.tertiary.DEFAULT');
+            @apply outline outline-4 outline-tertiary transition-all;
           }
         }
 
@@ -87,13 +79,10 @@
           }
         }
 
-        //p.is-empty::before {
-        //  color: #adb5bd;
-        //  content: attr(data-placeholder);
-        //  float: left;
-        //  height: 0;
-        //  pointer-events: none;
-        //}
+        p.is-empty::before {
+          content: attr(data-placeholder);
+          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
+        }
       }
 
       p,

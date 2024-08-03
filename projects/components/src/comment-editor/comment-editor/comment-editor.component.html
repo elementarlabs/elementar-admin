@@ -64,7 +64,7 @@
 <div #content class="content"></div>
 <div class="footer">
   <div class="flex items-center gap-0.5">
-    @if (fullView && !fullViewMode()) {
+    @if (fullView && !toolbarAlwaysVisible() && !fullViewMode()) {
       <button mat-icon-button class="button"
               [class.active]="showToolbar" (click)="toggleToolbar()">
         <mat-icon>title</mat-icon>
