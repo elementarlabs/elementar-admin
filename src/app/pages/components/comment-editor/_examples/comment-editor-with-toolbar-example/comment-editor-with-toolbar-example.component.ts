@@ -15,12 +15,24 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 export class CommentEditorWithToolbarExampleComponent {
   comments: string[] = [];
 
-  uploadFn = (file: File): Promise<string> => {
+  uploadFn = (file: Blob): Promise<string> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve('/assets/image-viewer/1.jpg');
       }, 3000);
     });
+
+    // upload to a server
+    // return new Promise((resolve, reject) => {
+    //   const formData = new FormData();
+    //   formData.append('image', file);
+    //   this._api
+    //     .post(`upload`, formData)
+    //     .subscribe((res: any) => {
+    //       resolve(res.url);
+    //     })
+    //   ;
+    // });
   }
 
   onSent(content: string): void {

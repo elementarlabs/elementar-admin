@@ -15,7 +15,7 @@ declare module '@tiptap/core' {
 }
 
 interface ImageUploadingPlaceholderOptions {
-  uploadFn: ((file: File) => Promise<string>) | undefined;
+  uploadFn: ((file: Blob) => Promise<string>) | undefined;
 }
 
 const ImageUploadingPlaceholderExtension = (injector: Injector, options: ImageUploadingPlaceholderOptions): Node => {

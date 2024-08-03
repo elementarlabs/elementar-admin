@@ -14,6 +14,9 @@ import {
 import {
   CommentEditorWithFullViewModeExampleComponent
 } from '../_examples/comment-editor-with-full-view-mode-example/comment-editor-with-full-view-mode-example.component';
+import {
+  CommentEditorWithUploadErrorExampleComponent
+} from '../_examples/comment-editor-with-upload-error-example/comment-editor-with-upload-error-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -25,7 +28,8 @@ import {
     PlaygroundComponent,
     BasicCommentEditorExampleComponent,
     CommentEditorWithToolbarExampleComponent,
-    CommentEditorWithFullViewModeExampleComponent
+    CommentEditorWithFullViewModeExampleComponent,
+    CommentEditorWithUploadErrorExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

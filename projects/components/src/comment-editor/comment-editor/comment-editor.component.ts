@@ -86,7 +86,7 @@ export class CommentEditorComponent implements OnDestroy {
   fullViewMode = input(false, {
     transform: booleanAttribute
   });
-  uploadFn = input<(file: File) => Promise<string>>();
+  uploadFn = input<(file: Blob) => Promise<string>>();
 
   readonly sent = output<string>();
 
