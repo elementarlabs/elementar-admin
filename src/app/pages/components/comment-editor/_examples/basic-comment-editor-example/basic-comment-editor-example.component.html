@@ -1,10 +1,10 @@
 <emr-comment-editor [uploadFn]="uploadFn" (sent)="onSent($event)"
-                    class="rounded-2xl border"></emr-comment-editor>
+                    class="rounded-2xl border dark:border-inverse"></emr-comment-editor>
 
 @if (comments.length > 0) {
   <div class="mt-10 space-y-7">
     @for (comment of comments; track comment) {
-      <div class="border rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
+      <div class="border dark:border-inverse rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
     }
   </div>
 }
