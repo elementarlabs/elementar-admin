@@ -25,7 +25,6 @@
 
 :host {
   @apply relative block overflow-hidden;
-  @apply dark:bg-neutral-700;
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;
