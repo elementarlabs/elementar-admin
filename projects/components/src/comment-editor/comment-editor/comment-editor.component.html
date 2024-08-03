@@ -56,8 +56,14 @@
       </div>
     </div>
   } @else {
-    <div class="toolbar">
-      loading...
+    <div class="toolbar gap-2">
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
+      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
     </div>
   }
 }
@@ -69,6 +75,7 @@
               [class.active]="showToolbar" (click)="toggleToolbar()">
         <mat-icon>title</mat-icon>
       </button>
+      <ng-content select="[emrCommentEditorFooterBarContent]"/>
     }
   </div>
   <div class="flex items-center gap-2">
@@ -81,9 +88,7 @@
 </div>
 <div #imageBubbleMenu class="emr-comment-editor-bubble-menu">
   @if (editor) {
-    <div>
-      asfasfafs
-    </div>
+    <div></div>
   }
 </div>
 <div #bubbleMenu class="emr-comment-editor-bubble-menu">

@@ -40,6 +40,7 @@ import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { MatTooltip } from '@angular/material/tooltip';
 import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/youtube.dialog';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -50,7 +51,8 @@ import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/yout
     MatIcon,
     MatButton,
     EmrUploadModule,
-    MatTooltip
+    MatTooltip,
+    EmrSkeletonModule
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',
@@ -157,9 +159,7 @@ export class CommentEditorComponent implements OnDestroy {
 
         const contentRect = this._content().nativeElement.getBoundingClientRect();
         this.editor.commands.setYoutubeVideo({
-          src: linkUrl,
-          // width: Math.max(320, parseInt(contentRect.width, 10)) || 640,
-          // height: Math.max(180, parseInt(this.height, 10)) || 480,
+          src: linkUrl
         });
       })
     ;
@@ -173,22 +173,6 @@ export class CommentEditorComponent implements OnDestroy {
     this.fullView = false;
     this._value = '';
     this.editor.commands.clearContent(true);
-  }
-
-  addImage(): void {
-    this.editor
-      .chain()
-      .focus()
-      .insertContent({ type: 'imageExt' })
-      .run()
-    ;
-    // this.editor.chain().focus().addImage().run()
-    // this.editor.commands.setImage({
-    //   src: 'https://example.com/foobar.png',
-    //   alt: '',
-    //   title: '',
-    // });
-
   }
 
   activateFullView(): void {
@@ -282,7 +266,8 @@ export class CommentEditorComponent implements OnDestroy {
         BubbleMenu.configure({
           element: this._imageBubbleMenu().nativeElement,
           shouldShow: ({ editor, view, state, oldState, from, to }) => {
-            return editor.isActive('image');
+            // return editor.isActive('image');
+            return false;
           },
         }),
         BubbleMenu.configure({
@@ -291,9 +276,13 @@ export class CommentEditorComponent implements OnDestroy {
             appendTo: this._document.body,
             zIndex: 999
           },
-          // shouldShow: ({ editor, view, state, oldState, from, to }) => {
-          //   return !editor.isActive('image');
-          // },
+          shouldShow: ({ editor, view, state, oldState, from, to }) => {
+            return !editor.isActive('image') &&
+              !editor.isActive('youtube') &&
+              !editor.isActive('imageUploadingPlaceholder') &&
+              !editor.view.state.selection.empty
+            ;
+          },
         })
       ],
       content: '',
