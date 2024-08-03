@@ -24,7 +24,7 @@
 }
 
 :host {
-  @apply relative block overflow-hidden;
+  @apply relative block overflow-hidden bg-neutral-50;
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;
@@ -117,7 +117,11 @@
     @apply leading-[0];
 
     &.active {
-      @apply bg-neutral-200 dark:bg-neutral-800;
+      @apply bg-neutral-200 dark:bg-neutral-650 dark:text-neutral-200;
     }
   }
+}
+
+:host-context(html.dark) {
+  @apply bg-neutral-800;
 }
