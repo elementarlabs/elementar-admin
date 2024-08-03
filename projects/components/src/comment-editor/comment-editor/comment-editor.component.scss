@@ -23,7 +23,7 @@
 }
 
 :host {
-  @apply relative block rounded-2xl overflow-hidden border;
+  @apply relative block overflow-hidden;
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;

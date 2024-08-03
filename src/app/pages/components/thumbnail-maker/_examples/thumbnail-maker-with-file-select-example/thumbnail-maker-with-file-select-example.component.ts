@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ThumbnailMakerComponent } from '@elementar/components/thumbnail-maker';
-import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
+import { EmrUploadModule, UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-thumbnail-maker-with-file-select-example',
@@ -9,7 +9,8 @@ import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/uplo
   imports: [
     MatButton,
     ThumbnailMakerComponent,
-    EmrUploadModule
+    EmrUploadModule,
+    UploadTriggerDirective
   ],
   templateUrl: './thumbnail-maker-with-file-select-example.component.html',
   styleUrl: './thumbnail-maker-with-file-select-example.component.scss'

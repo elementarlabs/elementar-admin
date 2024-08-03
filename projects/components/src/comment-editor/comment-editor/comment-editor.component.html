@@ -44,11 +44,10 @@
                 (click)="onButtonClick('toggleCodeBlock')">
           <mat-icon>code_blocks</mat-icon>
         </button>
-        <div class="w-max" emr-upload-trigger accept="image/*" (selected)="onImageSelected($event)">
-          <button mat-icon-button class="button" matTooltip="Upload Image">
-            <mat-icon>image</mat-icon>
-          </button>
-        </div>
+        <button mat-icon-button class="button" matTooltip="Upload Image"
+                emrUploadTrigger accept="image/*" (fileSelected)="onImageSelected($event)">
+          <mat-icon>image</mat-icon>
+        </button>
         <button mat-icon-button class="button"
                 matTooltip="Add Youtube" (click)="addYoutube()">
           <mat-icon>videocam</mat-icon>

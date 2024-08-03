@@ -1,7 +1,6 @@
 @if (!src) {
-  <emr-upload-trigger accept="image/png,image/jpeg" (selected)="onImageSelected($event)">
-    <button mat-stroked-button>Select a local image</button>
-  </emr-upload-trigger>
+  <button mat-stroked-button emrUploadTrigger
+          accept="image/png,image/jpeg" (fileSelected)="onImageSelected($event)">Select a local image</button>
 } @else {
   <emr-thumbnail-maker #thumbnailMaker="emrThumbnailMaker" [src]="src"
                        class="border dark:border-inverse rounded-xl"></emr-thumbnail-maker>

@@ -35,7 +35,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
-import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
+import { EmrUploadModule, UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -52,7 +52,8 @@ import { EmrSkeletonModule } from '@elementar/components/skeleton';
     MatButton,
     EmrUploadModule,
     MatTooltip,
-    EmrSkeletonModule
+    EmrSkeletonModule,
+    UploadTriggerDirective
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',

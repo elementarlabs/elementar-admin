@@ -15,7 +15,7 @@ import { JsonPipe } from '@angular/common';
 export class UploadAreaExampleComponent {
   files: any[] = [];
 
-  selected(event: UploadSelectedEvent): void {
+  onFileSelected(event: UploadSelectedEvent): void {
     this.files = event.files.map(rawFile => {
       return {
         name: rawFile.name,

@@ -1,6 +1,5 @@
-<emr-upload-trigger (selected)="selected($event)">
-  <button mat-stroked-button>Select a local file</button>
-</emr-upload-trigger>
+<button mat-stroked-button emrUploadTrigger
+        (fileSelected)="onFileSelected($event)">Select a local file</button>
 <p>
   Selected files: {{ files | json }}
 </p>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
+import { EmrUploadModule, UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -9,7 +9,8 @@ import { JsonPipe } from '@angular/common';
   imports: [
     MatButton,
     EmrUploadModule,
-    JsonPipe
+    JsonPipe,
+    UploadTriggerDirective
   ],
   templateUrl: './basic-upload-example.component.html',
   styleUrl: './basic-upload-example.component.scss'
@@ -17,7 +18,7 @@ import { JsonPipe } from '@angular/common';
 export class BasicUploadExampleComponent {
   files: any = [];
 
-  selected(event: UploadSelectedEvent) {
+  onFileSelected(event: UploadSelectedEvent) {
     this.files = event.files.map(rawFile => {
       return {
         name: rawFile.name,

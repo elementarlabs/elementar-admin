@@ -4,15 +4,13 @@ import { UploadAreaComponent } from './upload-area/upload-area.component';
 import { FileListComponent } from './file-list/file-list.component';
 import { FileComponent } from './file/file.component';
 import { FileControlComponent } from './file-control/file-control.component';
-import { UploadTriggerComponent } from './upload-trigger/upload-trigger.component';
 
 @NgModule({
   declarations: [
     UploadAreaComponent,
     FileListComponent,
     FileComponent,
-    FileControlComponent,
-    UploadTriggerComponent
+    FileControlComponent
   ],
   imports: [
     CommonModule
@@ -21,8 +19,7 @@ import { UploadTriggerComponent } from './upload-trigger/upload-trigger.componen
     UploadAreaComponent,
     FileListComponent,
     FileComponent,
-    FileControlComponent,
-    UploadTriggerComponent
+    FileControlComponent
   ]
 })
 export class EmrUploadModule { }

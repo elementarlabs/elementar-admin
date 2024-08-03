@@ -1,11 +1,12 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostListener,
-  inject,
-  Input,
+  inject, input,
+  Input, output,
   Output,
   Renderer2
 } from '@angular/core';
@@ -25,22 +26,13 @@ import { UploadSelectedEvent } from '../properties';
 })
 export class UploadAreaComponent {
   protected _renderer = inject(Renderer2);
-  private _elementRef = inject(ElementRef);
 
-  @Input()
-  accept!: string;
+  accept = input<string>();
+  multiple = input(false, {
+    transform: booleanAttribute
+  });
 
-  @Input()
-  set multiple(value: BooleanInput) {
-    this._multiple = coerceBooleanProperty(value);
-  }
-  get multiple(): boolean {
-    return this._multiple;
-  }
-  private _multiple = false;
-
-  @Output()
-  readonly selected = new EventEmitter<UploadSelectedEvent>();
+  readonly fileSelected = output<UploadSelectedEvent>();
 
   protected isDropActive = false;
 
@@ -92,8 +84,8 @@ export class UploadAreaComponent {
         }
       }
 
-      this.selected.emit({
-        multiple: this.multiple,
+      this.fileSelected.emit({
+        multiple: this.multiple(),
         fileList: event.dataTransfer.files,
         event,
         files
