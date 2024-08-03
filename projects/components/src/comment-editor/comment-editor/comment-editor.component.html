@@ -38,6 +38,13 @@
           <mat-icon>format_list_numbered</mat-icon>
         </button>
         <button mat-icon-button class="button"
+                matTooltip="Blockquote"
+                [disabled]="isCommandDisabled('toggleBlockquote')"
+                [class.active]="editor && editor.isActive('blockquote')"
+                (click)="onButtonClick('toggleBlockquote')">
+          <mat-icon>format_quote</mat-icon>
+        </button>
+        <button mat-icon-button class="button"
                 matTooltip="Code Block"
                 [disabled]="isCommandDisabled('toggleCodeBlock')"
                 [class.active]="editor && editor.isActive('codeBlock')"
