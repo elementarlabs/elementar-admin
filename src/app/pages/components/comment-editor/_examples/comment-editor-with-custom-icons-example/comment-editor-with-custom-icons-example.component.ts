@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  CommentCommandsDividerComponent,
+  CommentEditorDividerComponent,
   CommentEditorCommandBlockquoteDirective,
   CommentEditorCommandBoldDirective,
   CommentEditorCommandBulletListDirective,
@@ -10,7 +10,7 @@ import {
   CommentEditorCommandItalicDirective,
   CommentEditorCommandOrderedListDirective,
   CommentEditorCommandStrikeDirective,
-  CommentEditorCommandYoutubeDirective, CommentEditorComponent
+  CommentEditorCommandYoutubeDirective, CommentEditorComponent, CommentEditorToolbarComponent
 } from '@elementar/components/comment-editor';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
@@ -22,7 +22,7 @@ import { IconComponent } from '@elementar/components/icon';
   selector: 'app-comment-editor-with-custom-icons-example',
   standalone: true,
   imports: [
-    CommentCommandsDividerComponent,
+    CommentEditorDividerComponent,
     CommentEditorCommandBlockquoteDirective,
     CommentEditorCommandBoldDirective,
     CommentEditorCommandBulletListDirective,
@@ -38,7 +38,8 @@ import { IconComponent } from '@elementar/components/icon';
     MatIconButton,
     MatTooltip,
     SafeHtmlPipe,
-    IconComponent
+    IconComponent,
+    CommentEditorToolbarComponent
   ],
   templateUrl: './comment-editor-with-custom-icons-example.component.html',
   styleUrl: './comment-editor-with-custom-icons-example.component.scss'

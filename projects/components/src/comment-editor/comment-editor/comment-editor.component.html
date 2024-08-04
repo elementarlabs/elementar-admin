@@ -1,11 +1,7 @@
 @if ((showToolbar || toolbarAlwaysVisible() || fullViewMode()) && (fullView || fullViewMode())) {
-  @if (this.editor) {
-    <div class="toolbar">
-      <div class="flex items-center gap-0.5">
-        <ng-content select="[emrCommentEditorCommand],emr-comment-commands-divider"></ng-content>
-      </div>
-    </div>
-  }
+  <div class="toolbar">
+    <ng-content select="emr-comment-editor-toolbar" />
+  </div>
 }
 <div #content class="content prose dark:prose-invert max-w-full"></div>
 <div class="footer">
@@ -27,60 +23,9 @@
   </div>
 </div>
 <div #imageBubbleMenu class="emr-comment-editor-bubble-menu">
-  @if (editor) {
-    <div></div>
-  }
 </div>
-<div #bubbleMenu class="emr-comment-editor-bubble-menu">
-  @if (editor) {
-    @if (editor.isActive('link') && getLinkUrl()) {
-      <div class="flex items-center gap-1 h-11 border-b border-b-neutral-700">
-        <div class="grow text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[116px]">
-          <a [href]="getLinkUrl()" target="_blank" class="link">{{ getLinkUrl() }}</a>
-        </div>
-        <div class="flex items-center flex-none">
-          <button class="button" (click)="setLink()">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button class="button" (click)="unsetLink()">
-            <mat-icon>link_off</mat-icon>
-          </button>
-        </div>
-      </div>
-    }
-    <div class="h-12 flex items-center gap-1.5">
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleLink')"
-              [class.active]="setLinkActive || editor.isActive('link')"
-              (click)="setLink()">
-        <mat-icon>link</mat-icon>
-      </button>
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleBold')"
-              [class.active]="editor && editor.isActive('bold')"
-              (click)="onButtonClick('toggleBold')">
-        <mat-icon>format_bold</mat-icon>
-      </button>
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleItalic')"
-              [class.active]="editor && editor.isActive('italic')"
-              (click)="onButtonClick('toggleItalic')">
-        <mat-icon>format_italic</mat-icon>
-      </button>
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleStrike')"
-              [class.active]="editor && editor.isActive('strike')"
-              (click)="onButtonClick('toggleStrike')">
-        <mat-icon>strikethrough_s</mat-icon>
-      </button>
-      <button class="button"
-              [disabled]="isCommandDisabled('toggleCode')"
-              [class.active]="editor && editor.isActive('code')"
-              (click)="onButtonClick('toggleCode')">
-        <mat-icon>code</mat-icon>
-      </button>
-    </div>
-  }
+<div #bubbleMenu>
+  <ng-content select="emr-comment-editor-bubble-menu"/>
 </div>
 <!--<div #floatingMenu class="floating-menu">-->
 <!--  @if (editor) {-->

@@ -6,7 +6,6 @@ import { COMMENT_EDITOR, CommentEditor } from '../types';
   exportAs: 'emrCommentEditorCommandBold',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleBold')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('bold')`,
     '(click)': `onClick()`

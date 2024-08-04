@@ -13,3 +13,4 @@ export interface CommentEditorAPI {
 }
 
 export const COMMENT_EDITOR = new InjectionToken('COMMENT_EDITOR');
+export const COMMENT_EDITOR_BUBBLE_MENU = new InjectionToken('COMMENT_EDITOR_BUBBLE_MENU');

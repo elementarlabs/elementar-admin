@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandBlockquote]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleBlockquote')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('blockquote')`,
     '(click)': `onClick()`

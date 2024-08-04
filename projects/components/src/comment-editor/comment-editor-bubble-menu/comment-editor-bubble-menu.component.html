@@ -1,0 +1,18 @@
+@if (this.commentEditor.api.editor().isActive('link') && getLinkUrl()) {
+  <div class="flex items-center gap-1 h-11 border-b border-b-neutral-700">
+    <div class="grow text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[116px]">
+      <a [href]="getLinkUrl()" target="_blank" class="link">{{ getLinkUrl() }}</a>
+    </div>
+    <div class="flex items-center flex-none">
+      <button class="button" (click)="setLink()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="button" (click)="unsetLink()">
+        <mat-icon>link_off</mat-icon>
+      </button>
+    </div>
+  </div>
+}
+<div class="h-12 flex items-center gap-1.5">
+  <ng-content select="[emrCommentEditorCommand],emr-comment-editor-divider"></ng-content>
+</div>

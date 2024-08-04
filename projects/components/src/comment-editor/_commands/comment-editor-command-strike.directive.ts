@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandStrike]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleStrike')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('strike')`,
     '(click)': `onClick()`

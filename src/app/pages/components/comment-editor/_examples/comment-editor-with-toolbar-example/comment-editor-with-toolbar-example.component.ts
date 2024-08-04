@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  CommentCommandsDividerComponent,
+  CommentEditorDividerComponent,
   CommentEditorCommandBlockquoteDirective,
   CommentEditorCommandBoldDirective,
   CommentEditorCommandBulletListDirective,
@@ -9,7 +9,7 @@ import {
   CommentEditorCommandImageDirective,
   CommentEditorCommandItalicDirective,
   CommentEditorCommandOrderedListDirective, CommentEditorCommandStrikeDirective, CommentEditorCommandYoutubeDirective,
-  CommentEditorComponent
+  CommentEditorComponent, CommentEditorToolbarComponent
 } from '@elementar/components/comment-editor';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
@@ -35,7 +35,8 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIcon,
     MatIconButton,
     MatTooltip,
-    CommentCommandsDividerComponent
+    CommentEditorDividerComponent,
+    CommentEditorToolbarComponent
   ],
   templateUrl: './comment-editor-with-toolbar-example.component.html',
   styleUrl: './comment-editor-with-toolbar-example.component.scss'

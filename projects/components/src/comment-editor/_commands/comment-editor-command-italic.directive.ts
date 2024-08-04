@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandItalic]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleItalic')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('italic')`,
     '(click)': `onClick()`

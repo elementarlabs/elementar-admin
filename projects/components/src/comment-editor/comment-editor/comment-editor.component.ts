@@ -69,10 +69,8 @@ import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-
 })
 export class CommentEditorComponent implements OnInit, OnDestroy {
   private _document = inject(DOCUMENT);
-  private _dialog = inject(MatDialog);
   private _cdr = inject(ChangeDetectorRef);
   private _injector = inject(Injector);
-  private _destroyRef = inject(DestroyRef);
   private _content = viewChild.required<ElementRef>('content');
   // private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
@@ -122,38 +120,6 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
     this.editor?.destroy();
   }
 
-  setLink(): void {
-    this.setLinkActive = true;
-    const dialogRef = this._dialog.open(LinkDialog, {
-      data: {
-        linkUrl: (this.editor.getAttributes('link') as HTMLLinkElement).href
-      }
-    });
-    dialogRef
-      .afterClosed()
-      .pipe(
-        takeUntilDestroyed(this._destroyRef)
-      )
-      .subscribe((linkUrl: string) => {
-        this.setLinkActive = false;
-
-        if (typeof linkUrl === 'undefined') {
-          return;
-        }
-
-        this._setLink(linkUrl);
-      })
-    ;
-  }
-
-  unsetLink(): void {
-    this.editor.commands.unsetLink()
-  }
-
-  getLinkUrl(): string | null {
-    return (this.editor.getAttributes('link') as HTMLLinkElement).href || null;
-  }
-
   onButtonClick(command: string): void {
     const chainFocus = this.editor.chain().focus() as any;
     chainFocus[command]().run();
@@ -193,34 +159,6 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   private _runCommand(command: string): void {
     const chainFocus = this.editor.chain().focus() as any;
     chainFocus[command]().run();
-  }
-
-  private _setLink(url: string): void {
-    // cancelled
-    if (url === null) {
-      return;
-    }
-
-    // empty
-    if (url === '') {
-      this.editor
-        .chain()
-        .focus()
-        .extendMarkRange('link')
-        .unsetLink()
-        .run()
-      ;
-      return;
-    }
-
-    // update link
-    this.editor
-      .chain()
-      .focus()
-      .extendMarkRange('link')
-      .setLink({ href: url })
-      .run()
-    ;
   }
 
   private _init(): void {

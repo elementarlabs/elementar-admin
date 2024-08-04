@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
   selector: '[emrCommentEditorCommandYoutube]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleBlockquote')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('blockquote')`,
     '(click)': `onClick()`

@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandCodeBlock]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleCodeBlock')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('codeBlock')`,
     '(click)': `onClick()`

@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandBulletList]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleBulletList')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('bulletList')`,
     '(click)': `onClick()`

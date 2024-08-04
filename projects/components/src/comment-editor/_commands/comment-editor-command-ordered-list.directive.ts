@@ -5,7 +5,6 @@ import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-edi
   selector: '[emrCommentEditorCommandOrderedList]',
   standalone: true,
   host: {
-    '[class.button]': 'true',
     '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleOrderedList')`,
     '[class.active]': `commentEditor && commentEditor.api.isActive('orderedList')`,
     '(click)': `onClick()`
