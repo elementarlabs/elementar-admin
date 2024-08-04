@@ -32,6 +32,7 @@ export class LinkDialog {
   private _dialogRef = inject(MatDialogRef);
   private _data = inject(MAT_DIALOG_DATA);
   linkUrl = this._data.linkUrl || '';
+  isUpdate = !!this._data.linkUrl;
 
   onSubmit(): void {
     this._dialogRef.close(this.linkUrl);

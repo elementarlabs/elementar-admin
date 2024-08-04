@@ -1,19 +1,18 @@
 import { DestroyRef, Directive, inject } from '@angular/core';
-import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-editor';
 import { MatDialog } from '@angular/material/dialog';
+import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-editor';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
-  selector: '[emrCommentEditorCommandLink]',
+  selector: '[emrCommentEditorCommandEditLink]',
   standalone: true,
   host: {
-    '[disabled]': `commentEditor && commentEditor.api.isCommandDisabled('toggleLink')`,
-    '[class.active]': `commentEditor && commentEditor.api.isActive('link')`,
+    '[class.button]': 'true',
     '(click)': `onClick()`
   }
 })
-export class CommentEditorCommandLinkDirective {
+export class CommentEditorCommandEditLinkDirective {
   private _destroyRef = inject(DestroyRef);
   private _dialog = inject(MatDialog);
   protected commentEditor = inject<CommentEditor>(COMMENT_EDITOR);

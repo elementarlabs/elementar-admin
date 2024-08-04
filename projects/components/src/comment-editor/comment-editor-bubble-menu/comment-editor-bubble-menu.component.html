@@ -4,15 +4,10 @@
       <a [href]="getLinkUrl()" target="_blank" class="link">{{ getLinkUrl() }}</a>
     </div>
     <div class="flex items-center flex-none">
-      <button class="button" (click)="setLink()">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button class="button" (click)="unsetLink()">
-        <mat-icon>link_off</mat-icon>
-      </button>
+      <ng-content select="[emrCommentEditorCommandEditLink],[emrCommentEditorCommandUnsetLink]"></ng-content>
     </div>
   </div>
 }
-<div class="h-12 flex items-center gap-1.5">
+<div class="h-12 flex items-center justify-center gap-1.5">
   <ng-content select="[emrCommentEditorCommand],emr-comment-editor-divider"></ng-content>
 </div>

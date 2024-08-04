@@ -4,6 +4,7 @@
 
   .button,
   ::ng-deep .button {
+    --emr-icon-size: theme('fontSize.xl');
     @apply hover:text-tertiary-300 hover:bg-neutral-700 rounded-full p-1 leading-[0];
 
     &.active {

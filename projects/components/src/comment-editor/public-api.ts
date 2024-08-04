@@ -14,4 +14,6 @@ export * from './_commands/comment-editor-command-image.directive';
 export * from './_commands/comment-editor-command-youtube.directive';
 export * from './_commands/comment-editor-command-link.directive';
 export * from './_commands/comment-editor-command-code.directive';
+export * from './_commands/comment-editor-command-edit-link.directive';
+export * from './_commands/comment-editor-command-unset-link.directive';
 export * from './types';

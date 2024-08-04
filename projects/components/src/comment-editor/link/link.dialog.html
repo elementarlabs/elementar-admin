@@ -1,5 +1,10 @@
 <form class="w-[500px]" (ngSubmit)="onSubmit()">
-  <h3 mat-dialog-title>Add Link</h3>
+  <h3 mat-dialog-title>
+    @if (isUpdate) {
+      Update Link
+    } @else {
+      Add Link
+    }</h3>
   <mat-dialog-content>
     <div class="pt-4">
       <mat-form-field class="w-full">
@@ -11,6 +16,12 @@
   <mat-dialog-actions align="end">
     <button mat-button>Cancel</button>
     <button type="submit" mat-flat-button color="primary"
-            cdkFocusInitial [disabled]="!linkUrl.trim() || null">Add link</button>
+            cdkFocusInitial [disabled]="!linkUrl.trim() || null">
+      @if (isUpdate) {
+        Save
+      } @else {
+        Add link
+      }
+    </button>
   </mat-dialog-actions>
 </form>

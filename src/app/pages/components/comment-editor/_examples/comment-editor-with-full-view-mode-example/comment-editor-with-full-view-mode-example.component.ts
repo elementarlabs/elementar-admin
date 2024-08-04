@@ -8,8 +8,16 @@ import {
   CommentEditorCommandDirective,
   CommentEditorCommandImageDirective,
   CommentEditorCommandItalicDirective,
-  CommentEditorCommandOrderedListDirective, CommentEditorCommandStrikeDirective, CommentEditorCommandYoutubeDirective,
-  CommentEditorComponent, CommentEditorToolbarComponent
+  CommentEditorCommandOrderedListDirective,
+  CommentEditorCommandStrikeDirective,
+  CommentEditorCommandYoutubeDirective,
+  CommentEditorComponent,
+  CommentEditorToolbarComponent,
+  CommentEditorBubbleMenuComponent,
+  CommentEditorCommandCodeDirective,
+  CommentEditorCommandEditLinkDirective,
+  CommentEditorCommandLinkDirective,
+  CommentEditorCommandUnsetLinkDirective
 } from '@elementar/components/comment-editor';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
@@ -36,7 +44,12 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatIconButton,
     MatTooltip,
     CommentEditorDividerComponent,
-    CommentEditorToolbarComponent
+    CommentEditorToolbarComponent,
+    CommentEditorBubbleMenuComponent,
+    CommentEditorCommandCodeDirective,
+    CommentEditorCommandEditLinkDirective,
+    CommentEditorCommandLinkDirective,
+    CommentEditorCommandUnsetLinkDirective
   ],
   templateUrl: './comment-editor-with-full-view-mode-example.component.html',
   styleUrl: './comment-editor-with-full-view-mode-example.component.scss'

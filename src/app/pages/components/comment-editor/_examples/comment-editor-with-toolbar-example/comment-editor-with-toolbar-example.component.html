@@ -40,6 +40,29 @@
       <mat-icon>videocam</mat-icon>
     </button>
   </emr-comment-editor-toolbar>
+  <emr-comment-editor-bubble-menu>
+    <button emrCommentEditorCommandEditLink>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button emrCommentEditorCommandUnsetLink>
+      <mat-icon>link_off</mat-icon>
+    </button>
+    <button emrCommentEditorCommand emrCommentEditorCommandLink>
+      <mat-icon>link</mat-icon>
+    </button>
+    <button emrCommentEditorCommand emrCommentEditorCommandBold>
+      <mat-icon>format_bold</mat-icon>
+    </button>
+    <button emrCommentEditorCommand emrCommentEditorCommandItalic>
+      <mat-icon>format_italic</mat-icon>
+    </button>
+    <button emrCommentEditorCommand emrCommentEditorCommandStrike>
+      <mat-icon>strikethrough_s</mat-icon>
+    </button>
+    <button emrCommentEditorCommand emrCommentEditorCommandCode>
+      <mat-icon>code</mat-icon>
+    </button>
+  </emr-comment-editor-bubble-menu>
 </emr-comment-editor>
 
 @if (comments.length > 0) {
