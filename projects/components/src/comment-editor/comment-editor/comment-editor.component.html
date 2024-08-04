@@ -2,74 +2,12 @@
   @if (this.editor) {
     <div class="toolbar">
       <div class="flex items-center gap-0.5">
-        <button mat-icon-button class="button"
-                matTooltip="Bold"
-                [disabled]="isCommandDisabled('toggleBold')"
-                [class.active]="editor && editor.isActive('bold')"
-                (click)="onButtonClick('toggleBold')">
-          <mat-icon>format_bold</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Italic"
-                [disabled]="isCommandDisabled('toggleItalic')"
-                [class.active]="editor && editor.isActive('italic')"
-                (click)="onButtonClick('toggleItalic')">
-          <mat-icon>format_italic</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Strike"
-                [disabled]="isCommandDisabled('toggleStrike')"
-                [class.active]="editor && editor.isActive('strike')"
-                (click)="onButtonClick('toggleStrike')">
-          <mat-icon>strikethrough_s</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Bullet List"
-                [disabled]="isCommandDisabled('toggleBulletList')"
-                [class.active]="editor && editor.isActive('bulletList')"
-                (click)="onButtonClick('toggleBulletList')">
-          <mat-icon>format_list_bulleted</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Ordered List"
-                [disabled]="isCommandDisabled('toggleOrderedList')"
-                [class.active]="editor && editor.isActive('orderedList')"
-                (click)="onButtonClick('toggleOrderedList')">
-          <mat-icon>format_list_numbered</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Blockquote"
-                [disabled]="isCommandDisabled('toggleBlockquote')"
-                [class.active]="editor && editor.isActive('blockquote')"
-                (click)="onButtonClick('toggleBlockquote')">
-          <mat-icon>format_quote</mat-icon>
-        </button>
-        <button mat-icon-button class="button"
-                matTooltip="Code Block"
-                [disabled]="isCommandDisabled('toggleCodeBlock')"
-                [class.active]="editor && editor.isActive('codeBlock')"
-                (click)="onButtonClick('toggleCodeBlock')">
-          <mat-icon>code_blocks</mat-icon>
-        </button>
-        <button mat-icon-button class="button" matTooltip="Upload Image"
-                emrUploadTrigger accept="image/*" (fileSelected)="onImageSelected($event)">
-          <mat-icon>image</mat-icon>
-        </button>
+        <ng-content select="[emrCommentEditorCommand]"></ng-content>
         <button mat-icon-button class="button"
                 matTooltip="Add Youtube" (click)="addYoutube()">
           <mat-icon>videocam</mat-icon>
         </button>
       </div>
-    </div>
-  } @else {
-    <div class="toolbar gap-2">
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
-      <emr-skeleton-circle class="size-10"></emr-skeleton-circle>
     </div>
   }
 }

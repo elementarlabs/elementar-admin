@@ -1,10 +1,10 @@
 import {
   afterNextRender, booleanAttribute, ChangeDetectorRef,
   Component, DestroyRef,
-  ElementRef,
+  ElementRef, forwardRef,
   inject, Injector,
   input,
-  OnDestroy,
+  OnDestroy, OnInit,
   output,
   viewChild
 } from '@angular/core';
@@ -35,12 +35,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
-import { EmrUploadModule, UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
+import { EmrUploadModule } from '@elementar/components/upload';
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { MatTooltip } from '@angular/material/tooltip';
 import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/youtube.dialog';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
+import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-editor/types';
 
 @Component({
   selector: 'emr-comment-editor',
@@ -51,19 +51,23 @@ import { EmrSkeletonModule } from '@elementar/components/skeleton';
     MatIcon,
     MatButton,
     EmrUploadModule,
-    MatTooltip,
-    EmrSkeletonModule,
-    UploadTriggerDirective
+    MatTooltip
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',
+  providers: [
+    {
+      provide: COMMENT_EDITOR,
+      useExisting: forwardRef(() => CommentEditorComponent)
+    }
+  ],
   host: {
     'class': 'emr-comment-editor',
     '[class.full-view]': 'fullView || fullViewMode()',
     '(click)': 'activateFullView()'
   }
 })
-export class CommentEditorComponent implements OnDestroy {
+export class CommentEditorComponent implements OnInit, OnDestroy {
   private _document = inject(DOCUMENT);
   private _dialog = inject(MatDialog);
   private _cdr = inject(ChangeDetectorRef);
@@ -86,14 +90,27 @@ export class CommentEditorComponent implements OnDestroy {
   fullViewMode = input(false, {
     transform: booleanAttribute
   });
-  uploadFn = input<(file: Blob) => Promise<string>>();
+  imageUploadFn = input<(file: Blob) => Promise<string>>();
 
   readonly sent = output<string>();
 
+  get api(): CommentEditorAPI {
+    return {
+      isCommandDisabled: (command: string) => this.isCommandDisabled(command),
+      isActive: (command: string) => this.editor.isActive(command),
+      runCommand: (command: string) => this._runCommand(command),
+      editor: () => this.editor
+    }
+  }
+
   constructor() {
     afterNextRender(() => {
-      this._init();
+      // this._init();
     });
+  }
+
+  ngOnInit() {
+    this._init();
   }
 
   isCommandDisabled(command: string): boolean | null {
@@ -197,6 +214,11 @@ export class CommentEditorComponent implements OnDestroy {
     this.editor.commands.clearContent(true);
   }
 
+  private _runCommand(command: string): void {
+    const chainFocus = this.editor.chain().focus() as any;
+    chainFocus[command]().run();
+  }
+
   private _setLink(url: string): void {
     // cancelled
     if (url === null) {
@@ -248,7 +270,7 @@ export class CommentEditorComponent implements OnDestroy {
           nocookie: true,
         }),
         ImageUploadingPlaceholderExtension(this._injector, {
-          uploadFn: this.uploadFn(),
+          uploadFn: this.imageUploadFn(),
         }),
         Image.configure({
           inline: true,
@@ -292,15 +314,5 @@ export class CommentEditorComponent implements OnDestroy {
       }
     });
     this._cdr.detectChanges();
-  }
-
-  onImageSelected(event: UploadSelectedEvent): void {
-    const file = event.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      const src = reader.result as string;
-      this.editor.chain().focus().addImageUploadingPlaceholder({ src, file }).run()
-    };
   }
 }

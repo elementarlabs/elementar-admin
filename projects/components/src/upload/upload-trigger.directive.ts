@@ -1,7 +1,7 @@
 import {
   booleanAttribute,
   DestroyRef,
-  Directive,
+  Directive, ElementRef,
   HostListener,
   inject,
   input, output,
@@ -17,6 +17,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   standalone: true
 })
 export class UploadTriggerDirective {
+  private _elementRef = inject(ElementRef);
   protected _renderer = inject(Renderer2);
   protected _destroyRef = inject(DestroyRef);
 
@@ -31,9 +32,14 @@ export class UploadTriggerDirective {
   private _handleClick() {
     const element: HTMLInputElement = this._renderer.createElement('input');
     this._renderer.setAttribute(element, 'type', 'file');
+    let accept = this.accept();
 
-    if (this.accept()) {
-      this._renderer.setAttribute(element, 'accept', this.accept() as string);
+    if (!accept) {
+      accept = this._elementRef.nativeElement.getAttribute('accept') || '';
+    }
+
+    if (accept) {
+      this._renderer.setAttribute(element, 'accept', accept);
     }
 
     if (this.multiple()) {

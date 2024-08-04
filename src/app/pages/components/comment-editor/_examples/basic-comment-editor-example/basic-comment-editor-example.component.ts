@@ -1,13 +1,36 @@
 import { Component } from '@angular/core';
-import { CommentEditorComponent } from '@elementar/components/comment-editor';
+import {
+  CommentEditorCommandBlockquoteDirective,
+  CommentEditorCommandBoldDirective, CommentEditorCommandBulletListDirective, CommentEditorCommandCodeBlockDirective,
+  CommentEditorCommandDirective, CommentEditorCommandImageDirective,
+  CommentEditorCommandItalicDirective, CommentEditorCommandOrderedListDirective, CommentEditorCommandStrikeDirective,
+  CommentEditorComponent
+} from '@elementar/components/comment-editor';
 import { SafeHtmlPipe } from '@elementar/components/core';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
+import { UploadTriggerDirective } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-basic-comment-editor-example',
   standalone: true,
   imports: [
     CommentEditorComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    MatIcon,
+    MatIconButton,
+    MatTooltip,
+    CommentEditorCommandDirective,
+    CommentEditorCommandBoldDirective,
+    CommentEditorCommandItalicDirective,
+    CommentEditorCommandStrikeDirective,
+    CommentEditorCommandBulletListDirective,
+    CommentEditorCommandOrderedListDirective,
+    CommentEditorCommandBlockquoteDirective,
+    CommentEditorCommandCodeBlockDirective,
+    UploadTriggerDirective,
+    CommentEditorCommandImageDirective
   ],
   templateUrl: './basic-comment-editor-example.component.html',
   styleUrl: './basic-comment-editor-example.component.scss'
