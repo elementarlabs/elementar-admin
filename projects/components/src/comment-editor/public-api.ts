@@ -1,4 +1,6 @@
 export * from './comment-editor/comment-editor.component';
+export * from './comment-commands-divider/comment-commands-divider.component';
+export * from './types';
 export * from './commands/comment-editor-command.directive';
 export * from './commands/comment-editor-command-bold.directive';
 export * from './commands/comment-editor-command-italic.directive';
@@ -8,3 +10,4 @@ export * from './commands/comment-editor-command-ordered-list.directive';
 export * from './commands/comment-editor-command-blockquote.directive';
 export * from './commands/comment-editor-command-code-block.directive';
 export * from './commands/comment-editor-command-image.directive';
+export * from './commands/comment-editor-command-youtube.directive';

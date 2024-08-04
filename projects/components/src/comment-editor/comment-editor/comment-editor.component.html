@@ -2,11 +2,7 @@
   @if (this.editor) {
     <div class="toolbar">
       <div class="flex items-center gap-0.5">
-        <ng-content select="[emrCommentEditorCommand]"></ng-content>
-        <button mat-icon-button class="button"
-                matTooltip="Add Youtube" (click)="addYoutube()">
-          <mat-icon>videocam</mat-icon>
-        </button>
+        <ng-content select="[emrCommentEditorCommand],emr-comment-commands-divider"></ng-content>
       </div>
     </div>
   }

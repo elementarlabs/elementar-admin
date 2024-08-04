@@ -159,30 +159,6 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
     chainFocus[command]().run();
   }
 
-  addYoutube(): void {
-    const dialogRef = this._dialog.open(YoutubeDialog, {
-      data: {
-        linkUrl: (this.editor.getAttributes('iframe') as HTMLIFrameElement).src
-      }
-    });
-    dialogRef
-      .afterClosed()
-      .pipe(
-        takeUntilDestroyed(this._destroyRef)
-      )
-      .subscribe((linkUrl: string) => {
-        if (typeof linkUrl === 'undefined') {
-          return;
-        }
-
-        const contentRect = this._content().nativeElement.getBoundingClientRect();
-        this.editor.commands.setYoutubeVideo({
-          src: linkUrl
-        });
-      })
-    ;
-  }
-
   send(event: MouseEvent): void {
     event.stopPropagation();
     event.preventDefault();

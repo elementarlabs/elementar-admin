@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
 import {
   CommentEditorCommandBlockquoteDirective,
-  CommentEditorCommandBoldDirective, CommentEditorCommandBulletListDirective, CommentEditorCommandCodeBlockDirective,
-  CommentEditorCommandDirective, CommentEditorCommandImageDirective,
-  CommentEditorCommandItalicDirective, CommentEditorCommandOrderedListDirective, CommentEditorCommandStrikeDirective,
-  CommentEditorComponent
+  CommentEditorCommandBoldDirective,
+  CommentEditorCommandBulletListDirective,
+  CommentEditorCommandCodeBlockDirective,
+  CommentEditorCommandDirective,
+  CommentEditorCommandImageDirective,
+  CommentEditorCommandItalicDirective,
+  CommentEditorCommandOrderedListDirective,
+  CommentEditorCommandStrikeDirective,
+  CommentEditorCommandYoutubeDirective,
+  CommentEditorComponent,
+  CommentCommandsDividerComponent
 } from '@elementar/components/comment-editor';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
@@ -17,6 +24,7 @@ import { UploadTriggerDirective } from '@elementar/components/upload';
   standalone: true,
   imports: [
     CommentEditorComponent,
+    CommentCommandsDividerComponent,
     SafeHtmlPipe,
     MatIcon,
     MatIconButton,
@@ -30,7 +38,8 @@ import { UploadTriggerDirective } from '@elementar/components/upload';
     CommentEditorCommandBlockquoteDirective,
     CommentEditorCommandCodeBlockDirective,
     UploadTriggerDirective,
-    CommentEditorCommandImageDirective
+    CommentEditorCommandImageDirective,
+    CommentEditorCommandYoutubeDirective
   ],
   templateUrl: './basic-comment-editor-example.component.html',
   styleUrl: './basic-comment-editor-example.component.scss'
