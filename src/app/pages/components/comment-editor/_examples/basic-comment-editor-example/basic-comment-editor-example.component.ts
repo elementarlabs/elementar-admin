@@ -17,13 +17,16 @@ import {
   CommentEditorBubbleMenuComponent,
   CommentEditorCommandCodeDirective,
   CommentEditorCommandUnsetLinkDirective,
-  CommentEditorCommandEditLinkDirective
+  CommentEditorCommandEditLinkDirective, CommentEditorCommandToggleToolbarDirective
 } from '@elementar/components/comment-editor';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { UploadTriggerDirective } from '@elementar/components/upload';
+import {
+  CommentEditorFooterBarComponent
+} from '@elementar/components/comment-editor/comment-editor-footer-bar/comment-editor-footer-bar.component';
 
 @Component({
   selector: 'app-basic-comment-editor-example',
@@ -51,7 +54,9 @@ import { UploadTriggerDirective } from '@elementar/components/upload';
     CommentEditorCommandLinkDirective,
     CommentEditorCommandCodeDirective,
     CommentEditorCommandUnsetLinkDirective,
-    CommentEditorCommandEditLinkDirective
+    CommentEditorCommandEditLinkDirective,
+    CommentEditorFooterBarComponent,
+    CommentEditorCommandToggleToolbarDirective
   ],
   templateUrl: './basic-comment-editor-example.component.html',
   styleUrl: './basic-comment-editor-example.component.scss'

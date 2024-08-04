@@ -16,13 +16,16 @@ import {
   CommentEditorBubbleMenuComponent,
   CommentEditorCommandCodeDirective,
   CommentEditorCommandEditLinkDirective,
-  CommentEditorCommandLinkDirective, CommentEditorCommandUnsetLinkDirective
+  CommentEditorCommandLinkDirective, CommentEditorCommandUnsetLinkDirective, CommentEditorCommandToggleToolbarDirective
 } from '@elementar/components/comment-editor';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { IconComponent } from '@elementar/components/icon';
+import {
+  CommentEditorFooterBarComponent
+} from '@elementar/components/comment-editor/comment-editor-footer-bar/comment-editor-footer-bar.component';
 
 @Component({
   selector: 'app-comment-editor-with-custom-icons-example',
@@ -50,7 +53,9 @@ import { IconComponent } from '@elementar/components/icon';
     CommentEditorCommandCodeDirective,
     CommentEditorCommandEditLinkDirective,
     CommentEditorCommandLinkDirective,
-    CommentEditorCommandUnsetLinkDirective
+    CommentEditorCommandUnsetLinkDirective,
+    CommentEditorCommandToggleToolbarDirective,
+    CommentEditorFooterBarComponent
   ],
   templateUrl: './comment-editor-with-custom-icons-example.component.html',
   styleUrl: './comment-editor-with-custom-icons-example.component.scss'

@@ -1,6 +1,6 @@
 import {
   afterNextRender, booleanAttribute, ChangeDetectorRef,
-  Component, DestroyRef,
+  Component, computed, DestroyRef,
   ElementRef, forwardRef,
   inject, Injector,
   input,
@@ -97,7 +97,9 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
       isCommandDisabled: (command: string) => this.isCommandDisabled(command),
       isActive: (command: string) => this.editor.isActive(command),
       runCommand: (command: string) => this._runCommand(command),
-      editor: () => this.editor
+      editor: () => this.editor,
+      isToolbarActive: () => this.showToolbar,
+      toggleToolbar: () => this.toggleToolbar()
     }
   }
 
@@ -111,6 +113,10 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
     this._init();
   }
 
+  isToolbarVisible(): boolean {
+    return this.fullView && !this.toolbarAlwaysVisible() && !this.fullViewMode();
+  }
+
   isCommandDisabled(command: string): boolean | null {
     const canFocus = this.editor.can().chain().focus() as any;
     return !canFocus[command]().run() || null;
@@ -118,11 +124,6 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.editor?.destroy();
-  }
-
-  onButtonClick(command: string): void {
-    const chainFocus = this.editor.chain().focus() as any;
-    chainFocus[command]().run();
   }
 
   send(event: MouseEvent): void {

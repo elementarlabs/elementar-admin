@@ -23,7 +23,7 @@
   "peerDependencies": {
     "@angular/common": "^18.1.2",
     "@angular/core": "^18.1.2",
-    "iconify-icon": "^2.0.0",
+    "iconify-icon": "^2.1.0",
     "material-symbols": "^0.21.0",
     "libphonenumber-js": "^1.10.57",
     "awesome-phonenumber": "^6.4.0",
@@ -46,7 +46,9 @@
     "@tiptap/extension-placeholder": "^2.5.8",
     "@tiptap/extension-youtube": "^2.5.8",
     "@tiptap/starter-kit": "^2.5.8",
-    "@tiptap/pm": "^2.5.8"
+    "@tiptap/pm": "^2.5.8",
+    "@iconify-json/circle-flags": "^1.1.48",
+    "@iconify-json/ph": "^1.1.13"
   },
   "dependencies": {
     "tslib": "^2.3.0"

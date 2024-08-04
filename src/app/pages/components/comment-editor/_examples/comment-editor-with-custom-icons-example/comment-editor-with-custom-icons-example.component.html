@@ -1,4 +1,4 @@
-<emr-comment-editor fullViewMode [imageUploadFn]="uploadFn" (sent)="onSent($event)"
+<emr-comment-editor [imageUploadFn]="uploadFn" (sent)="onSent($event)"
                     class="rounded-2xl border dark:border-inverse">
   <emr-comment-editor-toolbar>
     <button mat-icon-button matTooltip="Bold"
@@ -63,6 +63,12 @@
       <emr-icon name="ph:code"></emr-icon>
     </button>
   </emr-comment-editor-bubble-menu>
+  <emr-comment-editor-footer-bar>
+    <button mat-icon-button matTooltip="Toggle Toolbar"
+            emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
+      <emr-icon name="ph:browser"></emr-icon>
+    </button>
+  </emr-comment-editor-footer-bar>
 </emr-comment-editor>
 
 @if (comments.length > 0) {

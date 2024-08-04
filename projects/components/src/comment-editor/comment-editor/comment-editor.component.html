@@ -6,12 +6,8 @@
 <div #content class="content prose dark:prose-invert max-w-full"></div>
 <div class="footer">
   <div class="flex items-center gap-0.5">
-    @if (fullView && !toolbarAlwaysVisible() && !fullViewMode()) {
-      <button mat-icon-button class="button"
-              [class.active]="showToolbar" (click)="toggleToolbar()">
-        <mat-icon>title</mat-icon>
-      </button>
-      <ng-content select="[emrCommentEditorFooterBarContent]"/>
+    @if (isToolbarVisible()) {
+      <ng-content select="emr-comment-editor-footer-bar"/>
     }
   </div>
   <div class="flex items-center gap-2">
