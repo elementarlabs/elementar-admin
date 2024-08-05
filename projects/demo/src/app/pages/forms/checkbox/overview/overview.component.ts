@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicCheckboxesExampleComponent
 } from '../_examples/basic-checkboxes-example/basic-checkboxes-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

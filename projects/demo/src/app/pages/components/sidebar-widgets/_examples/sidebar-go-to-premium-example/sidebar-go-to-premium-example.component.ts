@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoToPremiumComponent } from '@app/sidebar/_go-to-premium/go-to-premium.component';
+import { GoToPremiumComponent } from '@demo/app/sidebar/_go-to-premium/go-to-premium.component';
 
 @Component({
   selector: 'app-sidebar-go-to-premium-example',

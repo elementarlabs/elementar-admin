@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicSnackbarExampleComponent } from '../_examples/basic-snackbar-example/basic-snackbar-example.component';
 import {
   SnackbarWithCustomComponentExampleComponent
@@ -7,8 +7,8 @@ import {
 import {
   ConfigurableSnackbarExampleComponent
 } from '../_examples/configurable-snackbar-example/configurable-snackbar-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   standalone: true,

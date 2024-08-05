@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicColorPickerExampleComponent
 } from '../_examples/basic-color-picker-example/basic-color-picker-example.component';
@@ -9,8 +9,8 @@ import {
 import {
   InputWithColorPickerExampleComponent
 } from '../_examples/input-with-color-picker-example/input-with-color-picker-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   standalone: true,

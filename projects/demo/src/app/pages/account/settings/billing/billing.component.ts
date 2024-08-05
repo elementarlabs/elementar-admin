@@ -8,10 +8,10 @@ import {
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { CurrentPlanWidgetComponent } from '@shared/widgets/current-plan-widget/current-plan-widget.component';
+import { CurrentPlanWidgetComponent } from '@demo/shared/widgets/current-plan-widget/current-plan-widget.component';
 import {
   PaymentInformationWidgetComponent
-} from '@shared/widgets/payment-information-widget/payment-information-widget.component';
+} from '@demo/shared/widgets/payment-information-widget/payment-information-widget.component';
 import {
   MatCell,
   MatCellDef,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MchartLineComponent, MchartPieComponent } from '@elementar/components/micro-chart';
-import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 import { MatButton } from '@angular/material/button';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';

@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { AvgClickRateWidgetComponent } from '@shared/widgets/avg-click-rate-widget/avg-click-rate-widget.component';
-import { AvgOpenRateWidgetComponent } from '@shared/widgets/avg-open-rate-widget/avg-open-rate-widget.component';
-import { EventsWidgetComponent } from '@shared/widgets/events-widget/events-widget.component';
+import { AvgClickRateWidgetComponent } from '@demo/shared/widgets/avg-click-rate-widget/avg-click-rate-widget.component';
+import { AvgOpenRateWidgetComponent } from '@demo/shared/widgets/avg-open-rate-widget/avg-open-rate-widget.component';
+import { EventsWidgetComponent } from '@demo/shared/widgets/events-widget/events-widget.component';
 import {
   TasksInProgressWidgetComponent
-} from '@shared/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component';
-import { TeamWidgetComponent } from '@shared/widgets/team-widget/team-widget.component';
-import { TodosWidgetComponent } from '@shared/widgets/todos-widget/todos-widget.component';
-import { TotalProjectsWidgetComponent } from '@shared/widgets/total-projects-widget/total-projects-widget.component';
+} from '@demo/shared/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component';
+import { TeamWidgetComponent } from '@demo/shared/widgets/team-widget/team-widget.component';
+import { TodosWidgetComponent } from '@demo/shared/widgets/todos-widget/todos-widget.component';
+import { TotalProjectsWidgetComponent } from '@demo/shared/widgets/total-projects-widget/total-projects-widget.component';
 import {
   TotalSubscribersWidgetComponent
-} from '@shared/widgets/total-subscribers-widget/total-subscribers-widget.component';
-import { TotalTasksWidgetComponent } from '@shared/widgets/total-tasks-widget/total-tasks-widget.component';
-import { UniqueVisitorsWidgetComponent } from '@shared/widgets/unique-visitors-widget/unique-visitors-widget.component';
+} from '@demo/shared/widgets/total-subscribers-widget/total-subscribers-widget.component';
+import { TotalTasksWidgetComponent } from '@demo/shared/widgets/total-tasks-widget/total-tasks-widget.component';
+import { UniqueVisitorsWidgetComponent } from '@demo/shared/widgets/unique-visitors-widget/unique-visitors-widget.component';
 import { DecimalPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
 import {
   Transaction,
   TransactionsWidgetComponent
-} from '@shared/widgets/transactions-widget/transactions-widget.component';
+} from '@demo/shared/widgets/transactions-widget/transactions-widget.component';
 
 @Component({
   standalone: true,

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicAnnouncementExampleComponent
 } from '../_examples/basic-announcement-example/basic-announcement-example.component';
 import {
   AnnouncementWithIconsExampleComponent
 } from '../_examples/announcement-with-icons-example/announcement-with-icons-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
-import { Notification } from '@app/header/_notifications/types';
+import { Notification } from '@demo/app/header/_notifications/types';
 import { IconComponent } from '@elementar/components/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UpgradeToProComponent } from '@app/sidebar/_upgrade-to-pro/upgrade-to-pro.component';
+import { UpgradeToProComponent } from '@demo/app/sidebar/_upgrade-to-pro/upgrade-to-pro.component';
 
 @Component({
   selector: 'app-sidebar-upgrade-to-pro-example',

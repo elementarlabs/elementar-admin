@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicProgressBarExampleComponent
 } from '../_examples/basic-progress-bar-example/basic-progress-bar-example.component';
@@ -12,8 +12,8 @@ import {
 import {
   QueryProgressBarExampleComponent
 } from '../_examples/query-progress-bar-example/query-progress-bar-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

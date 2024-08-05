@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   BasicCheckboxesExampleComponent
 } from '../../../forms/checkbox/_examples/basic-checkboxes-example/basic-checkboxes-example.component';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicTimelineExampleComponent } from '../_examples/basic-timeline-example/basic-timeline-example.component';
 import {
   TimelineTimestampExampleComponent
@@ -10,8 +10,8 @@ import {
 import {
   TimelineWithCutsomIndicatorExampleComponent
 } from '../_examples/timeline-with-cutsom-indicator-example/timeline-with-cutsom-indicator-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

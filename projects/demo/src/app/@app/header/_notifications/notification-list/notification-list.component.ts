@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { Notification } from '@app/header/_notifications/types';
+import { Notification } from '@demo/app/header/_notifications/types';
 import {
   MentionedInCommentNotification
 } from '../notification-types/mentioned-in-comment/mentioned-in-comment.notification';

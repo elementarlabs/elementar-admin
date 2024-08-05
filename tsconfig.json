@@ -2,23 +2,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@shared/*": [
-        "./src/app/@shared/*"
+      "@elementar/components/*": [
+        "./projects/components/src/*"
       ],
-      "@services/*": [
-        "./src/app/@services/*"
+      "@demo/shared/*": [
+        "./projects/demo/src/app/@shared/*"
+      ],
+      "@demo/meta/*": [
+        "./projects/demo/src/app/@meta/*"
+      ],
+      "@demo/app/*": [
+        "./projects/demo/src/app/@app/*"
       ],
       "@app/*": [
         "./src/app/@app/*"
-      ],
-      "@state/*": [
-        "./src/app/@state/*"
-      ],
-      "@meta/*": [
-        "./src/app/@meta/*"
-      ],
-      "@elementar/components/*": [
-        "./projects/components/src/*"
       ]
     },
     "outDir": "./dist/out-tsc",

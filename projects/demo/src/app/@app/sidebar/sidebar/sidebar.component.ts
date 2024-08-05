@@ -4,7 +4,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
-import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
+import { ToolbarComponent } from '@demo/app/sidebar/_toolbar/toolbar.component';
 import { EmrNavigationModule } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
 

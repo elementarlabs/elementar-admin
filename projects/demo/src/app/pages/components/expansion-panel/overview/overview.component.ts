@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicExpansionPanelExampleComponent
 } from '../_examples/basic-expansion-panel-example/basic-expansion-panel-example.component';
@@ -9,8 +9,8 @@ import {
 import {
   ExpansionPanelAsAccordionExampleComponent
 } from '../_examples/expansion-panel-as-accordion-example/expansion-panel-as-accordion-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

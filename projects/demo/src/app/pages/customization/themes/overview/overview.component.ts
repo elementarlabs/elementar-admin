@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   standalone: true,

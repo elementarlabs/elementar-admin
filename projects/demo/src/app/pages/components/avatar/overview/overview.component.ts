@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicAvatarExampleComponent } from '../_examples/basic-avatar-example/basic-avatar-example.component';
 import { AvatarSizesExampleComponent } from '../_examples/avatar-sizes-example/avatar-sizes-example.component';
 import {
@@ -15,8 +15,8 @@ import {
 import {
   AvatarPresenceIndicatorExampleComponent
 } from '../_examples/avatar-presence-indicator-example/avatar-presence-indicator-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   AvatarAutomaticColorExampleComponent
 } from '../_examples/avatar-automatic-color-example/avatar-automatic-color-example.component';

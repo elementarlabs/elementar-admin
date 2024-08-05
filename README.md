@@ -32,13 +32,13 @@ Install full project (with demo pages and examples):
 npx @elementarui/elementar-cli new your-project-name
 ```
 
-Install minimal project:
-
+### Start demo application
 ```bash
-npx @elementarui/elementar-cli new your-project-name --minimal
+cd your-project-name
+npm run start:demo
 ```
 
-### Go to your project
+### Start empty application
 ```bash
 cd your-project-name
 npm run start

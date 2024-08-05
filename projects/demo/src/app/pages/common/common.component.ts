@@ -5,8 +5,8 @@ import { LayoutBodyComponent } from '@elementar/components/layout';
 import { LayoutSidebarComponent } from '@elementar/components/layout';
 import { LayoutHeaderComponent } from '@elementar/components/layout';
 import { LayoutTopbarComponent } from '@elementar/components/layout';
-import { HeaderComponent } from '@app/header/header/header.component';
-import { SidebarComponent } from '@app/sidebar/sidebar/sidebar.component';
+import { HeaderComponent } from '@demo/app/header/header/header.component';
+import { SidebarComponent } from '@demo/app/sidebar/sidebar/sidebar.component';
 
 @Component({
   standalone: true,

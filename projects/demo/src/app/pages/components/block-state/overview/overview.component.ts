@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicBlockStateExampleComponent
 } from '../_examples/basic-block-state-example/basic-block-state-example.component';

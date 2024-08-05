@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicSegmentedExampleComponent } from '../_examples/basic-segmented-example/basic-segmented-example.component';
 import { SegmentedSizesExampleComponent } from '../_examples/segmented-sizes-example/segmented-sizes-example.component';
 import {
@@ -8,8 +8,8 @@ import {
 import {
   SegmentedWithIconsExampleComponent
 } from '../_examples/segmented-with-icons-example/segmented-with-icons-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   SegmentedSimpleThemeExampleComponent
 } from '../_examples/segmented-simple-theme-example/segmented-simple-theme-example.component';

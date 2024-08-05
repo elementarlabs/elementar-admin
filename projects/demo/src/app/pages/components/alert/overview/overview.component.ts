@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicAlertExampleComponent } from '../_examples/basic-alert-example/basic-alert-example.component';
 import { AlertVariantsExampleComponent } from '../_examples/alert-variants-example/alert-variants-example.component';
 import {
@@ -10,8 +10,8 @@ import {
   AlertWithTitleExampleComponent
 } from '../_examples/alert-with-title-example/alert-with-title-example.component';
 import { AlertActionsExampleComponent } from '../_examples/alert-actions-example/alert-actions-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   standalone: true,

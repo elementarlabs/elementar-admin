@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {
   BasicCommandBarExampleComponent
 } from '../../command-bar/_examples/basic-command-bar-example/basic-command-bar-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicCommentEditorExampleComponent
 } from '../_examples/basic-comment-editor-example/basic-comment-editor-example.component';

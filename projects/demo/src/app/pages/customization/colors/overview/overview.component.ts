@@ -3,7 +3,7 @@ import {
   BasicDividerExampleComponent
 } from '../../../components/divider/_examples/basic-divider-example/basic-divider-example.component';
 import { MatDivider } from '@angular/material/divider';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { PrimaryColorsExampleComponent } from '../_examples/primary-colors-example/primary-colors-example.component';
 import {
   SecondaryColorsExampleComponent
@@ -18,8 +18,8 @@ import {
   NeutralVariantColorsExampleComponent
 } from '../_examples/neutral-variant-colors-example/neutral-variant-colors-example.component';
 import { OtherColorsExampleComponent } from '../_examples/other-colors-example/other-colors-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',

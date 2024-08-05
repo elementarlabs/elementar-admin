@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '@app/header/header/header.component';
+import { HeaderComponent } from '@demo/app/header/header/header.component';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 import { EmrResizableContainerModule } from '@elementar/components/resizable-container';
 import {
   MchartLineComponent,

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {
   BasicFilterBuilderExampleComponent
 } from '../../filter-builder/_examples/basic-filter-builder-example/basic-filter-builder-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicImageViewerExampleComponent
 } from '../_examples/basic-image-viewer-example/basic-image-viewer-example.component';

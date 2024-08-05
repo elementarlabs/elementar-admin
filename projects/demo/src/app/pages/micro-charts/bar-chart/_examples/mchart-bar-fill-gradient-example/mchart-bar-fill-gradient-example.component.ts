@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MchartBarComponent } from '@elementar/components/micro-chart';
-import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
+import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({
   selector: 'app-mchart-bar-fill-gradient-example',

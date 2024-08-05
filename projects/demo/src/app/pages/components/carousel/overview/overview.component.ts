@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { BasicBadgesExampleComponent } from '../../badge/_examples/basic-badges-example/basic-badges-example.component';
-import { PlaygroundComponent } from '@meta/playground/playground.component';
+import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicCarouselExampleComponent } from '../_examples/basic-carousel-example/basic-carousel-example.component';
 import {
   CarouselControlsCustomPositionExampleComponent
 } from '../_examples/carousel-controls-custom-position-example/carousel-controls-custom-position-example.component';
-import { PageComponent } from '@meta/page/page.component';
-import { PageContentDirective } from '@meta/page/page-content.directive';
+import { PageComponent } from '@demo/meta/page/page.component';
+import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   CarouselFadeEffectExampleComponent
 } from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
