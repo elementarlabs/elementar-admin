@@ -23,7 +23,11 @@
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs"
+
+    "start:demo": "ng serve demo",
+
+    "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs",
+    "serve:ssr:demo": "node dist/demo/server/server.mjs"
   },
   "private": true,
   "dependencies": {

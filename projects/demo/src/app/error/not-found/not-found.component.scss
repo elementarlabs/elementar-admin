@@ -1,0 +1,11 @@
+:host {
+  @apply block h-screen;
+
+  .tracking-tighter-less {
+    letter-spacing: -0.75rem;
+  }
+
+  .text-shadow {
+    text-shadow: -8px 0 0 theme('colors.primary.400');
+  }
+}
