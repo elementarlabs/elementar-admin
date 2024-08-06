@@ -1,6 +1,7 @@
 :host {
   display: block;
   height: 480px;
+  --mat-table-background-color: transparent;
 
   .row {
     &.is-selected {

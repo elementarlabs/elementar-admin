@@ -27,7 +27,9 @@
     "build:demo": "ng build demo",
     "build:demo:prod": "ng build demo --configuration production",
     "serve:ssr:demo": "node dist/demo/server/server.mjs",
-    "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs"
+    "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs",
+    "serve:ssr:mono": "node dist/mono/server/server.mjs",
+    "start:mono": "ng serve mono"
   },
   "private": true,
   "dependencies": {
