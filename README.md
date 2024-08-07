@@ -44,6 +44,12 @@ cd your-project-name
 npm run start:demo
 ```
 
+### Start mono layout application
+```bash
+cd your-project-name
+npm run start:mono
+```
+
 ### Start empty application
 ```bash
 cd your-project-name
