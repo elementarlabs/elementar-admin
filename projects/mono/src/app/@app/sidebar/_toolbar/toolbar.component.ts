@@ -3,7 +3,7 @@ import { MatDivider } from '@angular/material/divider';
 import { AsyncPipe } from '@angular/common';
 import { MatBadge } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { AvatarComponent } from '@elementar/components/avatar';
 
@@ -17,7 +17,8 @@ import { AvatarComponent } from '@elementar/components/avatar';
     MatIcon,
     MatIconButton,
     MatTooltip,
-    AvatarComponent
+    AvatarComponent,
+    MatButton
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'

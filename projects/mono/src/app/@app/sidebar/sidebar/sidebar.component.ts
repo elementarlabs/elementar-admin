@@ -4,10 +4,10 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
-import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
 import { EmrNavigationModule } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
 import { MatButton } from '@angular/material/button';
+import { ToolbarComponent } from '../_toolbar/toolbar.component';
 
 export interface NavItem {
   type: string;
@@ -26,9 +26,9 @@ export interface NavItem {
     RouterLink,
     EmrNavigationModule,
     MatRipple,
-    ToolbarComponent,
     OrderByPipe,
-    MatButton
+    MatButton,
+    ToolbarComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

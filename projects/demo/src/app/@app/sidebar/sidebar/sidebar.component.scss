@@ -6,7 +6,7 @@
   }
 
   .inner {
-    @apply h-full flex flex-col w-[300px] rounded-e-xl bg-neutral-100 overflow-y-auto overflow-x-hidden;
+    @apply h-full flex flex-col w-[300px] bg-neutral-100 overflow-y-auto overflow-x-hidden;
   }
 
   .header {
