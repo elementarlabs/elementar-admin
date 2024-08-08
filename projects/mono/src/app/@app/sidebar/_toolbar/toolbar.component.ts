@@ -5,7 +5,7 @@ import { MatBadge } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'app-sidebar-toolbar',
@@ -17,8 +17,8 @@ import { AvatarComponent } from '@elementar/components/avatar';
     MatIcon,
     MatIconButton,
     MatTooltip,
-    AvatarComponent,
-    MatButton
+    MatButton,
+    DicebearComponent
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'

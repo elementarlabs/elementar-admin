@@ -29,11 +29,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              {
-                "glob": "**/_examples/**",
-                "input": "src/app/pages",
-                "output": "_docs"
-              },
               "src/robots.txt",
               "src/sitemap.xml"
             ],
@@ -41,9 +36,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-css.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -195,6 +187,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               {
+                "glob": "**/_examples/**",
+                "input": "projects/demo/src/app/pages",
+                "output": "_docs"
+              },
+              {
                 "glob": "**/*",
                 "input": "projects/demo/public"
               }
@@ -202,7 +199,11 @@
             "styles": [
               "projects/demo/src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js"
+            ],
             "server": "projects/demo/src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -366,6 +367,107 @@
             ],
             "styles": [
               "projects/mono/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "dual-tier": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/dual-tier",
+      "sourceRoot": "projects/dual-tier/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/dual-tier",
+            "index": "projects/dual-tier/src/index.html",
+            "browser": "projects/dual-tier/src/main.ts",
+            "polyfills": [
+              "zone.js",
+              "@angular/localize/init"
+            ],
+            "tsConfig": "projects/dual-tier/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/dual-tier/public"
+              }
+            ],
+            "styles": [
+              "projects/dual-tier/src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "projects/dual-tier/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/dual-tier/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1MB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "24kB",
+                  "maximumError": "24kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "dual-tier:build:production"
+            },
+            "development": {
+              "buildTarget": "dual-tier:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/dual-tier/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/dual-tier/public"
+              }
+            ],
+            "styles": [
+              "projects/dual-tier/src/styles.scss"
             ],
             "scripts": []
           }

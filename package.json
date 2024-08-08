@@ -31,7 +31,11 @@
     "start:mono": "ng serve mono",
     "build:mono": "ng build mono",
     "build:mono:prod": "ng build mono --configuration production",
-    "serve:ssr:mono": "node dist/mono/server/server.mjs"
+    "serve:ssr:mono": "node dist/mono/server/server.mjs",
+    "start:dual-tier": "ng serve dual-tier",
+    "build:dual-tier": "ng build dual-tier",
+    "build:dual-tier:prod": "ng build dual-tier --configuration production",
+    "serve:ssr:dual-tier": "node dist/dual-tier/server/server.mjs"
   },
   "private": true,
   "dependencies": {

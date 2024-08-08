@@ -9,5 +9,5 @@
 }
 
 @if (!src() && svg) {
-  <div class="w-full h-full svg absolute z-0 inset-0" [innerHTML]="svg | safeHtml"></div>
+  <div class="w-full h-full svg absolute z-0 inset-0 svg" [innerHTML]="svg | safeHtml"></div>
 }

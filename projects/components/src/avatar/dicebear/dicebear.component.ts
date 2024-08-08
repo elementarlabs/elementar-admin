@@ -37,8 +37,8 @@ const presets: {[prop: string]: Preset} = {
 };
 
 @Component({
-  selector: 'emr-avatar,[emr-avatar]',
-  exportAs: 'emrAvatar',
+  selector: 'emr-dicebear,[emr-dicebear]',
+  exportAs: 'emrDicebear',
   templateUrl: './dicebear.component.html',
   styleUrls: ['./dicebear.component.scss'],
   providers: [
@@ -53,7 +53,7 @@ const presets: {[prop: string]: Preset} = {
     SafeHtmlPipe
   ],
   host: {
-    'class': 'emr-avatar',
+    'class': 'emr-avatar emr-dicebear',
     '[class.is-clickable]': 'clickable()',
     '[class.has-loaded-image]': 'src() && imageLoaded',
   }
