@@ -38,20 +38,34 @@ Install minimal project (without demo pages and examples):
 npx @elementarui/elementar-cli new your-project-name --minimal
 ```
 
-### Start demo application
+#### Start demo application
 ```bash
 cd your-project-name
 npm run start:demo
 ```
 
-### Start mono layout application
+[Live Preview (Demo)](https://demo.elementarui.com)
+
+### Start mono application
 ```bash
 cd your-project-name
 npm run start:mono
 ```
 
-### Start empty application
+[Live Preview (Mono)](https://mono.elementarui.com)
+
+### Start dual tier application
+```bash
+cd your-project-name
+npm run start:dual-tier
+```
+
+[Live Preview (Dual Tier)](https://dual-tier.elementarui.com)
+
+### Start minimal application
 ```bash
 cd your-project-name
 npm run start
 ```
+
+[Live Preview (Minimal)](https://minimal.elementarui.com)
