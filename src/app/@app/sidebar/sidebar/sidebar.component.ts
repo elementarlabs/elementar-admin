@@ -48,6 +48,7 @@ export class SidebarComponent {
       type: 'item',
       name: 'Home',
       icon: 'home',
+      link: ''
     },
     {
       id: 'item-menu-1',
