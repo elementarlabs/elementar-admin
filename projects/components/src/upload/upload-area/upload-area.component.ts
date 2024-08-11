@@ -2,15 +2,11 @@ import {
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
-  EventEmitter,
   HostListener,
   inject, input,
-  Input, output,
-  Output,
+  output,
   Renderer2
 } from '@angular/core';
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UploadFileSelectedEvent } from '../properties';
 
 @Component({
