@@ -29,13 +29,13 @@
 Install full project (with demo pages and examples):
 
 ```bash
-npx @elementarui/elementar-cli new your-project-name
+npx @elementarui/elementar-cli@1.2.0 new your-project-name
 ```
 
 Install minimal project (without demo pages and examples):
 
 ```bash
-npx @elementarui/elementar-cli new your-project-name --minimal
+npx @elementarui/elementar-cli@1.2.0 new your-project-name --minimal
 ```
 
 #### Start demo application
