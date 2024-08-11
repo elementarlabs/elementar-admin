@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmrUploadModule, UploadSelectedEvent } from '@elementar/components/upload';
+import { EmrUploadModule, UploadFileSelectedEvent } from '@elementar/components/upload';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -15,7 +15,7 @@ import { JsonPipe } from '@angular/common';
 export class UploadAreaExampleComponent {
   files: any[] = [];
 
-  onFileSelected(event: UploadSelectedEvent): void {
+  onFileSelected(event: UploadFileSelectedEvent): void {
     this.files = event.files.map(rawFile => {
       return {
         name: rawFile.name,

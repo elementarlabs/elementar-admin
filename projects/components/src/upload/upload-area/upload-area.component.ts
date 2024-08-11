@@ -11,7 +11,7 @@ import {
   Renderer2
 } from '@angular/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { UploadSelectedEvent } from '../properties';
+import { UploadFileSelectedEvent } from '../properties';
 
 @Component({
   selector: 'emr-upload-area',
@@ -32,7 +32,7 @@ export class UploadAreaComponent {
     transform: booleanAttribute
   });
 
-  readonly fileSelected = output<UploadSelectedEvent>();
+  readonly fileSelected = output<UploadFileSelectedEvent>();
 
   protected isDropActive = false;
 

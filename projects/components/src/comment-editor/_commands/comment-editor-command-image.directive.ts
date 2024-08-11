@@ -1,5 +1,5 @@
 import { Directive, inject } from '@angular/core';
-import { UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
+import { UploadFileSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 import { COMMENT_EDITOR, CommentEditor } from '../types';
 
 @Directive({
@@ -19,7 +19,7 @@ import { COMMENT_EDITOR, CommentEditor } from '../types';
 export class CommentEditorCommandImageDirective {
   protected commentEditor = inject<CommentEditor>(COMMENT_EDITOR);
 
-  protected onImageSelected(event: UploadSelectedEvent): void {
+  protected onImageSelected(event: UploadFileSelectedEvent): void {
     const file = event.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);

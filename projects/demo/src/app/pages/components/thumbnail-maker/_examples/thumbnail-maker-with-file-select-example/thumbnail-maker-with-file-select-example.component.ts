@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ThumbnailMakerComponent } from '@elementar/components/thumbnail-maker';
-import { EmrUploadModule, UploadSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
+import { EmrUploadModule, UploadFileSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-thumbnail-maker-with-file-select-example',
@@ -23,7 +23,7 @@ export class ThumbnailMakerWithFileSelectExampleComponent {
     this.thumbnail = thumbnailMaker.api.getDataUrl();
   }
 
-  onImageSelected(event: UploadSelectedEvent) {
+  onImageSelected(event: UploadFileSelectedEvent) {
     const reader = new FileReader();
     reader.onload = () => {
       this.src = reader.result as string;

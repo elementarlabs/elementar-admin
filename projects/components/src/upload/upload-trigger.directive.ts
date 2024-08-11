@@ -7,7 +7,7 @@ import {
   input, output,
   Renderer2
 } from '@angular/core';
-import { UploadSelectedEvent } from './properties';
+import { UploadFileSelectedEvent } from './properties';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -26,7 +26,7 @@ export class UploadTriggerDirective {
     transform: booleanAttribute
   });
 
-  readonly fileSelected = output<UploadSelectedEvent>();
+  readonly fileSelected = output<UploadFileSelectedEvent>();
 
   @HostListener('click')
   private _handleClick() {

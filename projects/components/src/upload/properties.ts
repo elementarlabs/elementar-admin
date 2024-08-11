@@ -1,5 +1,5 @@
 export type UploadFileState = 'uploading' | 'error' | 'uploaded' | string;
-export interface UploadSelectedEvent {
+export interface UploadFileSelectedEvent {
   event: any;
   multiple: boolean;
   fileList: FileList | null;
