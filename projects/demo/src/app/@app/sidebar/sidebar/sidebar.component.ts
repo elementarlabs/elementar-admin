@@ -203,6 +203,11 @@ export class SidebarComponent {
         },
         {
           type: 'link',
+          name: 'Card Overlay',
+          link: '/pages/components/card-overlay'
+        },
+        {
+          type: 'link',
           name: 'Carousel',
           link: '/pages/components/carousel'
         },

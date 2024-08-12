@@ -87,6 +87,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/card/card.module').then(m => m.CardModule)
       },
       {
+        path: 'components/card-overlay',
+        loadChildren: () => import('./components/card-overlay/card-overlay.module').then(m => m.CardOverlayModule)
+      },
+      {
         path: 'components/carousel',
         loadChildren: () => import('./components/carousel/carousel.module').then(m => m.CarouselModule)
       },

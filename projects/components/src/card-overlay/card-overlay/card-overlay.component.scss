@@ -1,0 +1,29 @@
+:host {
+  @apply flex items-center justify-center absolute inset-0 z-[1];
+
+  .background {
+    @apply bg-black/30 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-all;
+  }
+
+  .content {
+    @apply z-[1] opacity-0 group-hover:opacity-100;
+  }
+
+  &.with-translate {
+    .background {
+      @apply translate-y-full group-hover:translate-y-0;
+    }
+  }
+
+  &.with-blur {
+    .background {
+      @apply backdrop-blur-sm;
+    }
+  }
+}
+
+:host-context(html.dark) {
+  .background {
+    @apply bg-white/20;
+  }
+}
