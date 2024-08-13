@@ -5,7 +5,7 @@
 # Modern Angular admin panel and dashboard, based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
 <a target="_blank" href="https://elementarui.com">
-  <img src="https://elementarui.com/assets/elementar-admin-preview.png">
+  <img src="https://elementarui.com/assets/elementar-admin-github-preview.png">
 </a>
 
 ## Key features
