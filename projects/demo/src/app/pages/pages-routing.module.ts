@@ -75,6 +75,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/badge/badge.module').then(m => m.BadgeModule)
       },
       {
+        path: 'components/sidebar',
+        loadChildren: () => import('./components/sidebar/sidebar.module').then(m => m.SidebarModule)
+      },
+      {
         path: 'components/sidebar-widgets',
         loadChildren: () => import('./components/sidebar-widgets/sidebar-widgets.module').then(m => m.SidebarWidgetsModule)
       },

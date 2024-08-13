@@ -5,17 +5,8 @@ import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
 import { ToolbarComponent } from '@demo/app/sidebar/_toolbar/toolbar.component';
-import { EmrNavigationModule } from '@elementar/components/navigation';
+import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
-
-export interface NavItem {
-  type: string;
-  name: string;
-  icon?: string;
-  id?: string | number;
-  link?: string;
-  children?: NavItem[];
-}
 
 @Component({
   selector: 'app-sidebar',
@@ -42,7 +33,7 @@ export class SidebarComponent {
   @ViewChild('navigation', { static: true })
   navigation!: any;
 
-  navItems: NavItem[] = [
+  navItems: NavigationItem[] = [
     {
       id: 'customization',
       type: 'group',
@@ -413,6 +404,11 @@ export class SidebarComponent {
         },
         {
           type: 'link',
+          name: 'Sidebar',
+          link: '/pages/components/sidebar'
+        },
+        {
+          type: 'link',
           name: 'Sidebar Widgets',
           link: '/pages/components/sidebar-widgets'
         },
@@ -588,7 +584,7 @@ export class SidebarComponent {
       ]
     },
   ];
-  navItemLinks: NavItem[] = [];
+  navItemLinks: NavigationItem[] = [];
   activeLinkId: any = '/';
 
   ngOnInit() {
@@ -596,7 +592,7 @@ export class SidebarComponent {
       this.navItemLinks.push(navItem);
 
       if (navItem.children) {
-        this.navItemLinks = this.navItemLinks.concat(navItem.children as NavItem[]);
+        this.navItemLinks = this.navItemLinks.concat(navItem.children as NavigationItem[]);
       }
     });
     this._activateLink();
