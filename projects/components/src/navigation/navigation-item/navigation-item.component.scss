@@ -1,5 +1,5 @@
 :host {
-  position: relative;
+  @apply no-underline relative;
 
   .inner {
     display: flex;

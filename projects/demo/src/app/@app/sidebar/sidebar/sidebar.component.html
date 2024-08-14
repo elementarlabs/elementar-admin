@@ -14,14 +14,14 @@
           }
           @case ('group') {
             <emr-navigation-group>
-              <emr-navigation-group-toggle [for]="navItem.id">
+              <emr-navigation-group-toggle [for]="navItem.key">
                 @if (navItem.icon) {
                   <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
                 }
                 {{ navItem.name }}
                 <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
               </emr-navigation-group-toggle>
-              <emr-navigation-group-menu [key]="navItem.id">
+              <emr-navigation-group-menu [key]="navItem.key">
                 @for (childItem of navItem.children | orderBy:'name'; track childItem) {
                   <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.link">
                     {{ childItem.name }}

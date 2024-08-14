@@ -22,14 +22,14 @@ import { NavigationItem } from '@elementar/components/navigation';
 export class BasicSidebarExampleComponent {
   navItems: NavigationItem[] = [
     {
-      type: 'link',
-      name: 'Home',
-      link: '/home'
+      key: 'home',
+      type: 'item',
+      name: 'Home'
     },
     {
-      type: 'link',
-      name: 'Account',
-      link: '/account'
-    },
+      key: 'account',
+      type: 'item',
+      name: 'Account'
+    }
   ];
 }

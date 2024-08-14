@@ -5,17 +5,8 @@ import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
 import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
-import { EmrNavigationModule } from '@elementar/components/navigation';
+import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
-
-export interface NavItem {
-  type: string;
-  name: string;
-  icon?: string;
-  id?: string | number;
-  link?: string;
-  children?: NavItem[];
-}
 
 @Component({
   selector: 'app-sidebar',
@@ -42,34 +33,34 @@ export class SidebarComponent {
   @ViewChild('navigation', { static: true })
   navigation!: any;
 
-  navItems: NavItem[] = [
+  navItems: NavigationItem[] = [
     {
-      id: 'home',
-      type: 'item',
+      key: 'home',
+      type: 'link',
       name: 'Home',
       icon: 'home',
-      link: ''
+      link: '/'
     },
     {
-      id: 'item-menu-1',
+      key: 'item-menu-1',
       type: 'item',
       name: 'Item menu 1',
     },
     {
-      id: 'item-menu-2',
+      key: 'item-menu-2',
       type: 'item',
       name: 'Item menu 2',
     },
   ];
-  navItemLinks: NavItem[] = [];
-  activeLinkId: any = '/';
+  navItemLinks: NavigationItem[] = [];
+  activeKey: any = 'home';
 
   ngOnInit() {
     this.navItems.forEach(navItem => {
       this.navItemLinks.push(navItem);
 
       if (navItem.children) {
-        this.navItemLinks = this.navItemLinks.concat(navItem.children as NavItem[]);
+        this.navItemLinks = this.navItemLinks.concat(navItem.children as NavigationItem[]);
       }
     });
     this._activateLink();
@@ -89,9 +80,9 @@ export class SidebarComponent {
     );
 
     if (activeLink) {
-      this.activeLinkId = activeLink.link;
+      this.activeKey = activeLink.key;
     } else {
-      this.activeLinkId = null;
+      this.activeKey = null;
     }
   }
 }
