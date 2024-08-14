@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { loadIcon, enableCache } from 'iconify-icon';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { v7 as uuid } from 'uuid';
 enableCache('all');
 
 @Component({
@@ -51,7 +52,7 @@ export class IconComponent implements OnInit, OnChanges {
 
     if (allIdMatches.length > 0) {
       allIdMatches.forEach(match => {
-        body = body.replaceAll(match[1], crypto.randomUUID());
+        body = body.replaceAll(match[1], uuid());
       });
     }
 

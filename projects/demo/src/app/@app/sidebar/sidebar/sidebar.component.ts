@@ -7,6 +7,7 @@ import { MatRipple } from '@angular/material/core';
 import { ToolbarComponent } from '@demo/app/sidebar/_toolbar/toolbar.component';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
+import { v7 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-sidebar',
@@ -41,19 +42,19 @@ export class SidebarComponent {
       icon: 'tune',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Colors',
           link: '/pages/customization/colors'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Themes',
           link: '/pages/customization/themes'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Typography',
           link: '/pages/customization/typography'
@@ -67,19 +68,19 @@ export class SidebarComponent {
       icon: 'dashboard',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Basic',
           link: '/pages/dashboard'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Ecommerce',
           link: '/pages/dashboard/ecommerce'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Finance',
           link: '/pages/dashboard/finance'
@@ -93,19 +94,19 @@ export class SidebarComponent {
       name: 'Navigation',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Navigation',
           link: '/pages/navigation/navigation'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Breadcrumbs',
           link: '/pages/navigation/breadcrumbs'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Tab Panel',
           link: '/pages/navigation/tab-panel'
@@ -119,73 +120,73 @@ export class SidebarComponent {
       name: 'Forms',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Autocomplete',
           link: '/pages/forms/autocomplete'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Input',
           link: '/pages/forms/input'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Buttons',
           link: '/pages/forms/buttons'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Slide Toggle',
           link: '/pages/forms/slide-toggle'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Checkbox',
           link: '/pages/forms/checkbox'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Radio',
           link: '/pages/forms/radio'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Select',
           link: '/pages/forms/select'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Segmented',
           link: '/pages/forms/segmented'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Pin Input',
           link: '/pages/forms/pin-input'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Number Input',
           link: '/pages/forms/number-input'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Button Toggle',
           link: '/pages/forms/button-toggle'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Phone Input',
           link: '/pages/forms/phone-input'
@@ -199,307 +200,307 @@ export class SidebarComponent {
       name: 'Components',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Alert',
           link: '/pages/components/alert'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Bottom Sheet',
           link: '/pages/components/bottom-sheet'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Card',
           link: '/pages/components/card'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Card Overlay',
           link: '/pages/components/card-overlay'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Carousel',
           link: '/pages/components/carousel'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Incidents',
           link: '/pages/components/incidents'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Expand',
           link: '/pages/components/expand'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Content Fade',
           link: '/pages/components/content-fade'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Icon',
           link: '/pages/components/icon'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Badge',
           link: '/pages/components/badge'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Avatar',
           link: '/pages/components/avatar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Block State',
           link: '/pages/components/block-state'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Chips',
           link: '/pages/components/chips'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Datepicker',
           link: '/pages/components/datepicker'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Tabs',
           link: '/pages/components/tabs'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Menu',
           link: '/pages/components/menu'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Paginator',
           link: '/pages/components/paginator'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Popover',
           link: '/pages/components/popover'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Tooltip',
           link: '/pages/components/tooltip'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Gauge',
           link: '/pages/components/gauge'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Slider',
           link: '/pages/components/slider'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Table',
           link: '/pages/components/table'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Data View',
           link: '/pages/components/dataview'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Timeline',
           link: '/pages/components/timeline'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Dialog',
           link: '/pages/components/dialog'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Upload',
           link: '/pages/components/upload'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Panel',
           link: '/pages/components/panel'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Resizable Container',
           link: '/pages/components/resizable-container'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Snackbar',
           link: '/pages/components/snackbar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Command Bar',
           link: '/pages/components/command-bar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Color Picker',
           link: '/pages/components/color-picker'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Divider',
           link: '/pages/components/divider'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Skeleton',
           link: '/pages/components/skeleton'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Filter Builder',
           link: '/pages/components/filter-builder'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Expansion Panel',
           link: '/pages/components/expansion-panel'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'List',
           link: '/pages/components/list'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Progress Bar',
           link: '/pages/components/progress-bar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Progress Spinner',
           link: '/pages/components/progress-spinner'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Stepper',
           link: '/pages/components/stepper'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Toolbar',
           link: '/pages/components/toolbar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Tree',
           link: '/pages/components/tree'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Password Strength',
           link: '/pages/components/password-strength'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Layout',
           link: '/pages/components/layout'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Suggestions',
           link: '/pages/components/suggestions'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Announcement',
           link: '/pages/components/announcement'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Sidebar',
           link: '/pages/components/sidebar'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Sidebar Widgets',
           link: '/pages/components/sidebar-widgets'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Confirm',
           link: '/pages/components/confirm'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Thumbnail Maker',
           link: '/pages/components/thumbnail-maker'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Image Viewer',
           link: '/pages/components/image-viewer'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Comment Editor',
           link: '/pages/components/comment-editor'
@@ -513,19 +514,19 @@ export class SidebarComponent {
       name: 'Micro Charts',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Line Chart',
           link: '/pages/micro-charts/line-chart'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Bar Chart',
           link: '/pages/micro-charts/bar-chart'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Pie Chart',
           link: '/pages/micro-charts/pie-chart'
@@ -539,43 +540,43 @@ export class SidebarComponent {
       name: 'Auth',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Sign In',
           link: '/auth/sign-in'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Sign Up',
           link: '/auth/signup'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Forgot Password',
           link: '/auth/forgot-password'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Password Reset',
           link: '/auth/password-reset'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Set New Password',
           link: '/auth/set-new-password'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Done',
           link: '/auth/done'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Create Account',
           link: '/auth/create-account'
@@ -589,7 +590,7 @@ export class SidebarComponent {
       icon: 'person',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Talent Profile',
           link: '/pages/user-profile/talent-profile'
@@ -603,7 +604,7 @@ export class SidebarComponent {
       icon: 'badge',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Settings',
           link: '/pages/account/settings'
@@ -617,7 +618,7 @@ export class SidebarComponent {
       name: 'File Manager',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Overview',
           link: '/pages/file-manager'
@@ -631,13 +632,13 @@ export class SidebarComponent {
       name: 'Pricing',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Basic',
           link: '/pages/pricing/basic'
         },
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Membership Plans',
           link: '/pages/pricing/membership-plans'
@@ -651,7 +652,7 @@ export class SidebarComponent {
       name: 'Content',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Post List',
           link: '/pages/content/posts/list'
@@ -665,7 +666,7 @@ export class SidebarComponent {
       name: 'Service Pages',
       children: [
         {
-          key: crypto.randomUUID(),
+          key: uuid(),
           type: 'link',
           name: 'Pending Email Activation',
           link: '/pages/service-pages/pending-email-activation'

@@ -8,6 +8,7 @@ import { ULT_AVATAR_ACCESSOR } from '../avatar.properties';
 import { createAvatar } from '@dicebear/core';
 import { identicon, initials, thumbs } from '@dicebear/collection';
 import { SafeHtmlPipe } from '@elementar/components/core';
+import { v7 as uuid } from 'uuid';
 
 export interface Preset {
   style: any,
@@ -81,7 +82,7 @@ export class DicebearComponent implements OnInit {
       seed: this.text() || '',
       ...preset.options
     });
-    this.svg = avatar.toString().replace('viewboxMask', crypto.randomUUID());
+    this.svg = avatar.toString().replace('viewboxMask', uuid());
   }
 
   onImageLoaded(): void {
