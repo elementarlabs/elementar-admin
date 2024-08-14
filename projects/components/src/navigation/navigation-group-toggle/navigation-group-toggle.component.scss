@@ -60,6 +60,7 @@
   align-items: center;
   justify-content: center;
   transition: var(--emr-transition-transform);
+  margin-inline-end: 2px;
 }
 
 :host(.is-active) .toggle {

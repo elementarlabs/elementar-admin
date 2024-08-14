@@ -6,13 +6,13 @@
   --emr-navigation-item-height: theme('height.12');
   --emr-navigation-item-padding: 0 theme('padding.4');
   --emr-navigation-item-font-size: theme('fontSize.sm');
-  --emr-navigation-item-border-radius: theme('borderRadius.lg');
+  --emr-navigation-item-border-radius: theme('borderRadius.full');
   --emr-navigation-item-border-width: 1px;
   --emr-navigation-item-border-color: theme('colors.transparent');
   --emr-navigation-item-font-weight: theme('fontWeight.medium');
   --emr-navigation-item-color: theme('textColor.secondary.600');
   --emr-navigation-item-hover-bg: theme('colors.neutral.200');
-  --emr-navigation-item-active-bg: theme('colors.neutral.300');
+  --emr-navigation-item-active-bg: theme('colors.primary.300');
   --emr-navigation-item-hover-color: theme('colors.secondary.800');
   --emr-navigation-item-active-color: theme('colors.secondary.950');
   --emr-navigation-item-icon-font-size: theme('fontSize.2xl');

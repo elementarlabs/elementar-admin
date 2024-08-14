@@ -16,7 +16,7 @@
   input {
     position: absolute;
     inset: 0;
-    border-radius: theme('borderRadius.lg');
+    border-radius: theme('borderRadius.full');
     padding-left: theme('padding.12');
     background: theme('colors.neutral.200');
     z-index: 0;
@@ -28,6 +28,8 @@
     z-index: 1001;
 
     input {
+      border-top-left-radius: theme('borderRadius.3xl');
+      border-top-right-radius: theme('borderRadius.3xl');
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       background: theme('colors.white');
