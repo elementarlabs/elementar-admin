@@ -6,9 +6,8 @@
   --emr-suggestion-block-content-padding: theme('padding.2') 0;
   --emr-suggestion-height: theme('height.11');
   --emr-suggestion-padding: 0 theme('padding.2');
-  --emr-suggestion-margin: 0 calc(-1 * theme('margin.2'));
   --emr-suggestion-hover-bg: theme('colors.neutral.100');
-  --emr-suggestion-border-radius: theme('borderRadius.DEFAULT');
+  --emr-suggestion-border-radius: theme('borderRadius.full');
 }
 
 html.dark {

@@ -5,7 +5,6 @@
   gap: theme('gap[2.5]');
   height: var(--emr-suggestion-height);
   padding: var(--emr-suggestion-padding);
-  margin: var(--emr-suggestion-margin);
   border-radius: var(--emr-suggestion-border-radius);
 
   &:hover {
@@ -24,6 +23,7 @@
     align-items: center;
     justify-content: center;
     --emr-avatar-size: theme('size.8');
+    border-radius: theme('borderRadius.full');
   }
 
   .icon:empty,
