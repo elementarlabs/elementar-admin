@@ -57,7 +57,7 @@ export class SidebarComponent {
     }
   ];
   navItemLinks: NavigationItem[] = [];
-  activeKey: any = 'home';
+  activeKey: string | null = 'home';
 
   ngOnInit() {
     this.navItems.forEach(navItem => {
@@ -80,7 +80,9 @@ export class SidebarComponent {
 
   private _activateLink() {
     const activeLink = this.navItemLinks.find(
-      navItem => navItem.link === this.location.path()
+      navItem =>
+        navItem.link === this.location.path() ||
+        navItem.link === '/' && this.location.path() === ''
     );
 
     if (activeLink) {

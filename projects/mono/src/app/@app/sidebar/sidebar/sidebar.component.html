@@ -23,7 +23,7 @@
               </emr-navigation-group-toggle>
               <emr-navigation-group-menu [key]="navItem.key">
                 @for (childItem of navItem.children | orderBy:'name'; track childItem) {
-                  <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.link">
+                  <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.key">
                     {{ childItem.name }}
                   </a>
                 }
@@ -32,14 +32,14 @@
           }
           @default {
             @if (navItem.link) {
-              <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.link">
+              <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.key">
                 @if (navItem.icon) {
                   <mat-icon emrNavigationItemIcon class="filled">{{ navItem.icon }}</mat-icon>
                 }
                 {{ navItem.name }}
               </a>
             } @else {
-              <emr-navigation-item>
+              <emr-navigation-item [key]="navItem.key">
                 @if (navItem.icon) {
                   <mat-icon emrNavigationItemIcon class="filled">{{ navItem.icon }}</mat-icon>
                 }
