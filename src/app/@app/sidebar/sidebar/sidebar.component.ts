@@ -76,7 +76,9 @@ export class SidebarComponent {
 
   private _activateLink() {
     const activeLink = this.navItemLinks.find(
-      navItem => navItem.link === this.location.path()
+      navItem =>
+        navItem.link === this.location.path() ||
+        navItem.link === '/' && this.location.path() === ''
     );
 
     if (activeLink) {
