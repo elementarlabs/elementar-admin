@@ -1,3 +1,22 @@
 :host {
-  @apply flex flex-col h-full;
+  @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)] transition-all;
+
+  &.compact:not(:hover) {
+    @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
+    --emr-navigation-item-width: var(--emr-navigation-item-height);
+
+    ::ng-deep {
+      .emr-navigation-item {
+        .inner {
+          @apply gap-0;
+        }
+
+        &:has(.icon:not(:empty)) {
+          .text {
+            @apply opacity-0 w-0 max-w-0 transition-all;
+          }
+        }
+      }
+    }
+  }
 }

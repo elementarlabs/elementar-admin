@@ -1,0 +1,28 @@
+<div>
+  <mat-slide-toggle [(ngModel)]="compact">Compact</mat-slide-toggle>
+</div>
+<div class="h-[500px] mt-10">
+  <emr-sidebar [compact]="compact" class="border">
+    <emr-sidebar-header class="border-b">
+      <div class="h-20 flex items-center text-primary font-bold">
+        @if (compact) {
+          EL
+        } @else {
+          Elementar
+        }
+      </div>
+    </emr-sidebar-header>
+    <emr-sidebar-body>
+      <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
+    </emr-sidebar-body>
+    <emr-sidebar-footer class="border-t">
+      <div class="h-20 flex items-center text-sm">
+        @if (compact) {
+          2024
+        } @else {
+          Copyright &copy; 2024
+        }
+      </div>
+    </emr-sidebar-footer>
+  </emr-sidebar>
+</div>

@@ -3,5 +3,5 @@
     <ng-content select="[emrNavigationItemIcon]"></ng-content>
     <ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
   </div>
-  <ng-content></ng-content>
+  <span class="text grow"><ng-content></ng-content></span>
 </div>

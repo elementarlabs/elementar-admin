@@ -6,27 +6,33 @@ import {
   SidebarHeaderComponent,
   SidebarNavComponent
 } from '@elementar/components/sidebar';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { NavigationItem } from '@elementar/components/navigation';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-basic-sidebar-example',
+  selector: 'app-sidebar-compact-example',
   standalone: true,
   imports: [
     SidebarComponent,
+    SidebarFooterComponent,
     SidebarHeaderComponent,
     SidebarNavComponent,
-    SidebarFooterComponent,
+    MatSlideToggle,
+    FormsModule,
     SidebarBodyComponent
   ],
-  templateUrl: './basic-sidebar-example.component.html',
-  styleUrl: './basic-sidebar-example.component.scss'
+  templateUrl: './sidebar-compact-example.component.html',
+  styleUrl: './sidebar-compact-example.component.scss'
 })
-export class BasicSidebarExampleComponent {
+export class SidebarCompactExampleComponent {
+  compact = true;
   navItems: NavigationItem[] = [
     {
       key: 'home',
       type: 'item',
-      name: 'Home'
+      name: 'Home',
+      icon: 'dashboard',
     },
     {
       key: 'account',

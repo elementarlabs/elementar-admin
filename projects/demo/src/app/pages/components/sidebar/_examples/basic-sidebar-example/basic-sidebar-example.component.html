@@ -1,14 +1,16 @@
-<div class="border w-[300px] h-[500px]">
-  <emr-sidebar>
-    <emr-sidebar-header>
-      <div class="h-20 border-b px-7 flex items-center">
-        Header
+<div class="h-[500px]">
+  <emr-sidebar class="border">
+    <emr-sidebar-header class="border-b">
+      <div class="h-20 flex items-center text-primary">
+        Elementar
       </div>
     </emr-sidebar-header>
-    <emr-sidebar-nav activeKey="home" [navItems]="navItems" class="p-4"/>
-    <emr-sidebar-footer>
-      <div class="h-20 border-t px-7 flex items-center">
-        Footer
+    <emr-sidebar-body>
+      <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
+    </emr-sidebar-body>
+    <emr-sidebar-footer class="border-t">
+      <div class="h-20 flex items-center">
+        Copyright &copy; 2024
       </div>
     </emr-sidebar-footer>
   </emr-sidebar>

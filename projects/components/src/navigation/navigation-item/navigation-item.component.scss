@@ -22,6 +22,10 @@
     border: var(--emr-navigation-item-border-width) solid var(--emr-navigation-item-border-color);
     transition: all .2s;
   }
+
+  .text {
+    @apply overflow-hidden overflow-ellipsis;
+  }
 }
 
 :host-context(.emr-navigation-group-menu) {
@@ -91,9 +95,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex: none;
     width: var(--emr-navigation-item-icon-width);
     color: var(--emr-navigation-item-icon-color);
-    margin-inline-start: -3px;
+    margin-inline-start: -6px;
   }
 }
 
