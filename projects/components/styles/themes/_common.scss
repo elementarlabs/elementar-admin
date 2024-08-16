@@ -107,7 +107,6 @@
 
   --mat-table-background-color: var(--emr-background);
   --mat-table-row-item-outline-color: theme('borderColor.DEFAULT');
-  --mat-paginator-container-background-color: none;
 
   --emr-transition-transform: transform .15s linear;
   --mdc-protected-button-container-height: 2.375rem;
@@ -229,7 +228,6 @@ html.dark {
   --emr-inverse: #{mat.get-theme-color($m3-dark-theme, neutral, 50)};
   --mat-table-background-color: var(--emr-background);
   --mat-table-row-item-outline-color: theme('colors.inverse');
-  --mat-paginator-container-background-color: none;
   --emr-warn: theme('colors.red.500');
 
   @include mat.all-component-colors($m3-dark-theme);
