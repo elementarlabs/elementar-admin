@@ -2,10 +2,15 @@
   display: block;
   height: 480px;
   --mat-table-background-color: transparent;
+  --mat-table-row-item-outline-color: theme('colors.neutral.300');
 
   .row {
     &.is-selected {
       text-decoration: line-through;
     }
   }
+}
+
+:host-context(html.dark) {
+  --mat-table-row-item-outline-color: theme('colors.neutral.600');
 }
