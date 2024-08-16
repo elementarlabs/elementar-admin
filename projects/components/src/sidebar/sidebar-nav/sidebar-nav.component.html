@@ -10,12 +10,12 @@
             @if (navItem.icon) {
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
             }
-            {{ navItem.name }}
+            {{ navItem.name }} {{ navItem.children?.length }}
             <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
           </emr-navigation-group-toggle>
           <emr-navigation-group-menu [key]="navItem.key">
             @for (childItem of navItem.children | orderBy:'name'; track childItem) {
-              @if (childItem.link) {
+              @if (childItem.type === 'link') {
                 <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.key">
                   {{ childItem.name }}
                 </a>
@@ -29,7 +29,7 @@
         </emr-navigation-group>
       }
       @default {
-        @if (navItem.link) {
+        @if (navItem.type === 'link') {
           <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.key">
             @if (navItem.icon) {
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>

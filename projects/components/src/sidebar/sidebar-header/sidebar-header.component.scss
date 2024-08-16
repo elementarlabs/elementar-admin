@@ -1,3 +1,29 @@
 :host {
   @apply block w-full p-[var(--emr-sidebar-header-padding)];
+
+  .compact-view {
+    @apply hidden;
+  }
+}
+
+:host-context(.emr-sidebar.compact:not(:hover)) {
+  @apply p-[var(--emr-sidebar-header-compact-padding)] transition-all;
+
+  .compact-view {
+    @apply block;
+  }
+
+  .full-view {
+    @apply hidden;
+  }
+}
+
+:host-context(.emr-sidebar.compact:hover) {
+  .compact-view {
+    @apply hidden;
+  }
+
+  .full-view {
+    @apply block;
+  }
 }

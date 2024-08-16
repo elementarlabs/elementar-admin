@@ -4,24 +4,18 @@
 <div class="h-[500px] mt-10">
   <emr-sidebar [compact]="compact" class="border">
     <emr-sidebar-header class="border-b">
-      <div class="h-20 flex items-center text-primary font-bold">
-        @if (compact) {
-          EL
-        } @else {
-          Elementar
-        }
-      </div>
+      <div emrSidebarCompactViewMode class="h-20 flex items-center justify-center text-primary font-bold">El</div>
+      <div emrSidebarFullViewMode class="h-20 flex items-center px-7 text-primary font-bold">Elementar</div>
     </emr-sidebar-header>
     <emr-sidebar-body>
       <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
     </emr-sidebar-body>
     <emr-sidebar-footer class="border-t">
-      <div class="h-20 flex items-center text-sm">
-        @if (compact) {
-          2024
-        } @else {
-          Copyright &copy; 2024
-        }
+      <div emrSidebarCompactViewMode class="h-20 flex items-center justify-center text-sm">
+        2024
+      </div>
+      <div emrSidebarFullViewMode class="h-20 flex px-7 whitespace-nowrap items-center text-sm">
+        Copyright &copy; 2024
       </div>
     </emr-sidebar-footer>
   </emr-sidebar>

@@ -1,5 +1,5 @@
 :host {
-  @apply no-underline relative;
+  @apply block no-underline relative;
 
   .inner {
     display: flex;
@@ -98,7 +98,7 @@
     flex: none;
     width: var(--emr-navigation-item-icon-width);
     color: var(--emr-navigation-item-icon-color);
-    margin-inline-start: -6px;
+    margin-inline-start: -5px;
   }
 }
 

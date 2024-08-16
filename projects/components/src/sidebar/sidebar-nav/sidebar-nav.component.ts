@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sidebar-nav.component.html',
   styleUrl: './sidebar-nav.component.scss'
 })
-export class SidebarNavComponent {
+export class SidebarNavComponent<T extends NavigationItem> {
   activeKey = input();
-  navItems = input<NavigationItem[]>([]);
+  navItems = input<T[]>([]);
 }

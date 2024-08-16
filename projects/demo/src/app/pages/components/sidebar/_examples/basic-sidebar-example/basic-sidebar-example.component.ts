@@ -7,6 +7,7 @@ import {
   SidebarNavComponent
 } from '@elementar/components/sidebar';
 import { NavigationItem } from '@elementar/components/navigation';
+import { v7 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-basic-sidebar-example',
@@ -32,6 +33,24 @@ export class BasicSidebarExampleComponent {
       key: 'account',
       type: 'item',
       name: 'Account'
-    }
+    },
+    {
+      key: 'nested-menu',
+      type: 'group',
+      name: 'Nested Menu',
+      icon: 'tune',
+      children: [
+        {
+          key: uuid(),
+          type: 'item',
+          name: 'Nested Item 1'
+        },
+        {
+          key: uuid(),
+          type: 'item',
+          name: 'Nested Item 2'
+        }
+      ]
+    },
   ];
 }

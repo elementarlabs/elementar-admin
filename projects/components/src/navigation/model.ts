@@ -5,4 +5,5 @@ export interface NavigationItem {
   icon?: string;
   children?: NavigationItem[];
   link?: string;
+  [prop: string]: any;
 }

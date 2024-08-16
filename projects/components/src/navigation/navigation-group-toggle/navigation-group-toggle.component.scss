@@ -28,11 +28,6 @@
   color: var(--emr-navigation-item-active-color);
 }
 
-/*:host(:focus-visible) {*/
-/*  outline: var(--emr-outline-size) solid var(--emr-outline-color);*/
-/*  outline-offset: var(--emr-outline-offset);*/
-/*}*/
-
 :host .icon {
   display: inline-flex;
   align-items: center;
@@ -40,7 +35,7 @@
   width: var(--emr-navigation-item-icon-width);
   color: var(--emr-navigation-item-icon-color);
   margin-right: 0.75rem;
-  margin-inline-start: -0.0625rem;
+  margin-inline-start: -3px;
 }
 
 :host:not(.is-active):hover .icon {

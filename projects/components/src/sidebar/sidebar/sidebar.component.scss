@@ -6,6 +6,16 @@
     --emr-navigation-item-width: var(--emr-navigation-item-height);
 
     ::ng-deep {
+      .toggle {
+        @apply hidden;
+      }
+
+      .emr-navigation-group-menu {
+        &.is-active {
+          @apply hidden;
+        }
+      }
+
       .emr-navigation-item {
         .inner {
           @apply gap-0;
