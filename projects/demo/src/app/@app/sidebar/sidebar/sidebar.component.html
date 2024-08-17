@@ -2,11 +2,19 @@
   <emr-sidebar-header class="header">
     <a routerLink="/" emrSidebarCompactViewMode class="logo justify-center">EL</a>
     <a routerLink="/" emrSidebarFullViewMode class="logo">ELEMENTAR</a>
+    <button mat-icon-button (click)="compact = !compact" class="sidebar-toggle">
+      @if (compact) {
+        <mat-icon>right_panel_close</mat-icon>
+      } @else {
+        <mat-icon>right_panel_open</mat-icon>
+      }
+    </button>
   </emr-sidebar-header>
   <emr-sidebar-body class="body">
     <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems"/>
   </emr-sidebar-body>
   <emr-sidebar-footer class="footer">
-    <app-sidebar-toolbar></app-sidebar-toolbar>
+    <emr-dicebear emrSidebarCompactViewMode></emr-dicebear>
+    <app-sidebar-toolbar emrSidebarFullViewMode></app-sidebar-toolbar>
   </emr-sidebar-footer>
 </emr-sidebar>

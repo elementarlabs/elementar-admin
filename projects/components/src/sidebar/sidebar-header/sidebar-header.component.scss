@@ -1,5 +1,5 @@
 :host {
-  @apply block w-full p-[var(--emr-sidebar-header-padding)];
+  @apply block flex-none w-full p-[var(--emr-sidebar-header-padding)];
 
   .compact-view {
     @apply hidden;

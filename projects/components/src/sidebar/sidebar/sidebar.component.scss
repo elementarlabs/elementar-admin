@@ -1,8 +1,12 @@
 :host {
-  @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)];
+  @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)] transition-all;
+
+  &.compact {
+    @apply absolute indent-0;
+  }
 
   &.compact:not(:hover) {
-    @apply transition-all w-[var(--emr-sidebar-compact-width)] overflow-hidden;
+    @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
     --emr-navigation-item-width: var(--emr-navigation-item-height);
 
     ::ng-deep {

@@ -14,6 +14,8 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
 } from '@elementar/components/sidebar';
+import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-sidebar',
@@ -30,12 +32,16 @@ import {
     EmrSidebarComponent,
     SidebarFooterComponent,
     SidebarHeaderComponent,
-    SidebarNavComponent
+    SidebarNavComponent,
+    AvatarComponent,
+    DicebearComponent,
+    MatIconButton
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
   host: {
-    'class': 'sidebar'
+    'class': 'sidebar',
+    '[class.compact]': 'compact'
   }
 })
 export class SidebarComponent {

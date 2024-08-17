@@ -1,23 +1,54 @@
 :host {
-  @apply block h-full bg-neutral-100;
+  @apply block h-full relative min-w-[var(--emr-sidebar-compact-width)];
 
   .sidebar {
-    --emr-sidebar-width: 300px;
+    @apply bg-neutral-100;
+
+    &.compact:hover {
+      @apply shadow-lg;
+    }
+  }
+
+  .sidebar-toggle {
+    @apply -me-2;
+  }
+
+  &.compact {
+    .sidebar-toggle {
+      @apply opacity-0;
+    }
+
+    &:hover {
+      .sidebar-toggle {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  .header {
+    @apply h-20 flex items-center justify-between;
+    --emr-sidebar-header-padding: 0 theme('padding.7');
+    --emr-sidebar-header-compact-padding: 0 theme('padding.7');
   }
 
   .logo {
-    @apply text-lg px-7 h-20 flex items-center text-primary font-bold hover:text-tertiary;
+    @apply text-lg text-primary font-bold hover:text-tertiary;
   }
 
   .body {
     --emr-sidebar-body-padding: 0 theme('padding.3');
+    --emr-sidebar-body-compact-padding: 0 theme('padding.3');
   }
 
   .footer {
+    @apply flex items-center justify-center;
     --emr-sidebar-footer-padding: theme('padding.6') theme('padding.7');
+    --emr-sidebar-footer-compact-padding: theme('padding.3') theme('padding.7');
   }
 }
 
 :host-context(html.dark) {
-  @apply bg-neutral-900;
+  .sidebar {
+    @apply bg-neutral-900;
+  }
 }
