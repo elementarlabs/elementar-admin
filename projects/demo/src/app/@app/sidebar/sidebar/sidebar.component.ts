@@ -679,6 +679,32 @@ export class SidebarComponent {
       ]
     },
     {
+      key: 'error-pages',
+      type: 'group',
+      icon: 'error',
+      name: 'Error Pages',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Not Found (404)',
+          link: '/error/not-found'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Server Error (500)',
+          link: '/error/internal-server-error'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Forbidden (401)',
+          link: '/error/forbidden'
+        }
+      ]
+    },
+    {
       key: 'service-pages',
       type: 'group',
       icon: 'layers',

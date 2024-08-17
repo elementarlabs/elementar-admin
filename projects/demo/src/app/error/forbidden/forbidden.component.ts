@@ -3,16 +3,16 @@ import { MatAnchor, MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-internal-server-error',
+  selector: 'app-forbidden',
   standalone: true,
   imports: [
     MatAnchor,
-    RouterLink,
-    MatButton
+    MatButton,
+    RouterLink
   ],
-  templateUrl: './internal-server-error.component.html',
-  styleUrl: './internal-server-error.component.scss'
+  templateUrl: './forbidden.component.html',
+  styleUrl: './forbidden.component.scss'
 })
-export class InternalServerErrorComponent {
+export class ForbiddenComponent {
 
 }
