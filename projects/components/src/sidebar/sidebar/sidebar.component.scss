@@ -1,8 +1,8 @@
 :host {
-  @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)] transition-all;
+  @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)];
 
   &.compact:not(:hover) {
-    @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
+    @apply transition-all w-[var(--emr-sidebar-compact-width)] overflow-hidden;
     --emr-navigation-item-width: var(--emr-navigation-item-height);
 
     ::ng-deep {
@@ -10,9 +10,28 @@
         @apply hidden;
       }
 
+      .emr-navigation-heading {
+        @apply p-0 flex items-center text-4xs;
+      }
+
       .emr-navigation-group-menu {
         &.is-active {
           @apply hidden;
+        }
+      }
+
+      .emr-navigation-group-toggle {
+        gap: 0;
+
+        &:has(.icon:not(:empty)) {
+          .icon {
+            margin-left: -5px;
+            @apply transition-all;
+          }
+
+          .text {
+            @apply opacity-0 w-0 max-w-0 transition-all;
+          }
         }
       }
 
@@ -22,6 +41,11 @@
         }
 
         &:has(.icon:not(:empty)) {
+          .icon {
+            margin-left: -7px;
+            @apply transition-all;
+          }
+
           .text {
             @apply opacity-0 w-0 max-w-0 transition-all;
           }
