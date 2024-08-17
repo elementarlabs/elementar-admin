@@ -4,6 +4,9 @@
       @case ('heading') {
         <emr-navigation-heading>{{ navItem.name }}</emr-navigation-heading>
       }
+      @case ('divider') {
+        <emr-navigation-divider/>
+      }
       @case ('group') {
         <emr-navigation-group>
           <emr-navigation-group-toggle [for]="navItem.key">

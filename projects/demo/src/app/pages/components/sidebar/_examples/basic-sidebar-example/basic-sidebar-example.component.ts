@@ -52,5 +52,20 @@ export class BasicSidebarExampleComponent {
         }
       ]
     },
+    {
+      key: 'heading',
+      type: 'heading',
+      name: 'Overview'
+    },
+    {
+      key: 'item1',
+      type: 'item',
+      name: 'Item 1'
+    },
+    {
+      key: 'item2',
+      type: 'item',
+      name: 'Item 2'
+    },
   ];
 }

@@ -1,3 +1,11 @@
 :host {
   @apply block w-full grow overflow-y-auto overflow-x-hidden p-[var(--emr-sidebar-body-padding)];
 }
+
+:host-context(.emr-sidebar.compact) {
+  @apply overflow-y-hidden;
+}
+
+:host-context(.emr-sidebar.compact:hover) {
+  @apply overflow-y-auto;
+}
