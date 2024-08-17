@@ -13,7 +13,7 @@
             @if (navItem.icon) {
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
             }
-            {{ navItem.name }} {{ navItem.children?.length }}
+            {{ navItem.name }}
             <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
           </emr-navigation-group-toggle>
           <emr-navigation-group-menu [key]="navItem.key">

@@ -3,7 +3,7 @@
 }
 
 :host-context(.emr-sidebar.compact) {
-  @apply overflow-y-hidden;
+  @apply overflow-y-hidden p-[var(--emr-sidebar-body-compact-padding)];
 }
 
 :host-context(.emr-sidebar.compact:hover) {

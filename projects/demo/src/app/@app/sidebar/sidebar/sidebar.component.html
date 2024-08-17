@@ -1,52 +1,12 @@
-<div class="inner">
-  <div class="header h-20">
-    <a routerLink="/" class="logo">ELEMENTAR</a>
-    <!--  <div class="p-4">-->
-    <!--    <img src="assets/logo.svg" alt="" class="h-10">-->
-    <!--  </div>-->
-  </div>
-  <div class="body">
-    <emr-navigation #navigation [activeKey]="activeLinkId" class="navigation">
-      @for (navItem of navItems; track navItem) {
-        @switch (navItem.type) {
-          @case ('heading') {
-            <emr-navigation-heading>{{ navItem.name }}</emr-navigation-heading>
-          }
-          @case ('group') {
-            <emr-navigation-group>
-              <emr-navigation-group-toggle [for]="navItem.key">
-                @if (navItem.icon) {
-                  <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
-                }
-                {{ navItem.name }}
-                <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
-              </emr-navigation-group-toggle>
-              <emr-navigation-group-menu [key]="navItem.key">
-                @for (childItem of navItem.children | orderBy:'name'; track childItem) {
-                  <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.link">
-                    {{ childItem.name }}
-                  </a>
-                }
-              </emr-navigation-group-menu>
-            </emr-navigation-group>
-          }
-          @default {
-            <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.link">
-              @if (navItem.icon) {
-                <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
-              }
-              {{ navItem.name }}
-            </a>
-          }
-        }
-      }
-    </emr-navigation>
-  </div>
-  <div class="footer p-7">
-    <!--  <app-sidebar-go-to-premium></app-sidebar-go-to-premium>-->
-    <!--  <app-sidebar-upgrade-to-pro></app-sidebar-upgrade-to-pro>-->
-    <!--  <app-sidebar-upgrade-now></app-sidebar-upgrade-now>-->
-<!--    <app-used-space></app-used-space>-->
+<emr-sidebar [compact]="compact" class="sidebar">
+  <emr-sidebar-header class="header">
+    <a routerLink="/" emrSidebarCompactViewMode class="logo justify-center">EL</a>
+    <a routerLink="/" emrSidebarFullViewMode class="logo">ELEMENTAR</a>
+  </emr-sidebar-header>
+  <emr-sidebar-body class="body">
+    <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems"/>
+  </emr-sidebar-body>
+  <emr-sidebar-footer class="footer">
     <app-sidebar-toolbar></app-sidebar-toolbar>
-  </div>
-</div>
+  </emr-sidebar-footer>
+</emr-sidebar>

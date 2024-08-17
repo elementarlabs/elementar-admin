@@ -15,6 +15,40 @@
   font-weight: var(--emr-navigation-item-font-weight);
   color: var(--emr-navigation-item-color);
   gap: var(--emr-navigation-item-gap);
+  width: var(--emr-navigation-item-width);
+
+  &:has(.icon:not(:empty)) .icon {
+    margin-left: -3px;
+  }
+
+  .text {
+    @apply overflow-hidden overflow-ellipsis;
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--emr-navigation-item-icon-width);
+    color: var(--emr-navigation-item-icon-color);
+    flex: none;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--emr-transition-transform);
+    margin-inline-end: 2px;
+
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 :host(:hover) {
@@ -28,16 +62,6 @@
   color: var(--emr-navigation-item-active-color);
 }
 
-:host .icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--emr-navigation-item-icon-width);
-  color: var(--emr-navigation-item-icon-color);
-  margin-right: 0.75rem;
-  margin-inline-start: -3px;
-}
-
 :host:not(.is-active):hover .icon {
   color: var(--emr-navigation-item-hover-icon-color);
 }
@@ -46,24 +70,8 @@
   color: var(--emr-navigation-item-active-icon-color);
 }
 
-:host .icon:empty {
-  display: none;
-}
-
-:host .toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--emr-transition-transform);
-  margin-inline-end: 2px;
-}
-
 :host(.is-active) .toggle {
   transform: rotate(-180deg);
-}
-
-:host .toggle:empty {
-  display: none;
 }
 
 :host:has(.toggle:not(:empty)) {

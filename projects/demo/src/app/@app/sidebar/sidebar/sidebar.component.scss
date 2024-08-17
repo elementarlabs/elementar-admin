@@ -1,27 +1,23 @@
 :host {
-  @apply block h-full p-0 rounded-e-xl;
+  @apply block h-full bg-neutral-100;
+
+  .sidebar {
+    --emr-sidebar-width: 300px;
+  }
 
   .logo {
-    @apply font-bold text-lg px-7 text-primary;
-  }
-
-  .inner {
-    @apply h-full flex flex-col w-[300px] bg-neutral-100 overflow-y-auto overflow-x-hidden;
-  }
-
-  .header {
-    @apply flex-none flex items-center;
+    @apply text-lg px-7 h-20 flex items-center text-primary font-bold hover:text-tertiary;
   }
 
   .body {
-    @apply grow relative overflow-y-auto overflow-x-hidden px-3;
+    --emr-sidebar-body-padding: 0 theme('padding.3');
   }
 
   .footer {
-    @apply flex-none;
+    --emr-sidebar-footer-padding: theme('padding.6') theme('padding.7');
   }
 }
 
-:host-context(html.dark) .inner {
+:host-context(html.dark) {
   @apply bg-neutral-900;
 }

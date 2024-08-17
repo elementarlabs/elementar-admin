@@ -1,8 +1,8 @@
-<div class="flex items-center h-full w-full whitespace-nowrap overflow-hidden overflow-ellipsis">
-  <div class="icon"><ng-content select="[emrNavigationItemIcon]"></ng-content></div>
-  <ng-content></ng-content>
-</div>
+<div class="icon"><ng-content select="[emrNavigationItemIcon]"></ng-content></div>
+<span class="text grow"><ng-content></ng-content></span>
 <div class="toggle">
   <ng-content select="[emrNavigationGroupToggleIcon]"></ng-content>
-  <ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
+  @if (iconRef) {
+    <ng-container [ngTemplateOutlet]="iconRef.templateRef"></ng-container>
+  }
 </div>

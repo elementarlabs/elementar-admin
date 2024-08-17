@@ -8,6 +8,12 @@ import { ToolbarComponent } from '@demo/app/sidebar/_toolbar/toolbar.component';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
 import { v7 as uuid } from 'uuid';
+import {
+  SidebarBodyComponent,
+  SidebarCompactViewModeDirective,
+  SidebarComponent as EmrSidebarComponent,
+  SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
+} from '@elementar/components/sidebar';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +24,13 @@ import { v7 as uuid } from 'uuid';
     EmrNavigationModule,
     MatRipple,
     ToolbarComponent,
-    OrderByPipe
+    OrderByPipe,
+    SidebarBodyComponent,
+    SidebarCompactViewModeDirective,
+    EmrSidebarComponent,
+    SidebarFooterComponent,
+    SidebarHeaderComponent,
+    SidebarNavComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
@@ -30,6 +42,7 @@ export class SidebarComponent {
   router = inject(Router);
   location = inject(Location);
   height: string | null = '200px';
+  compact = false;
 
   @ViewChild('navigation', { static: true })
   navigation!: any;
@@ -675,7 +688,7 @@ export class SidebarComponent {
     },
   ];
   navItemLinks: NavigationItem[] = [];
-  activeLinkId: null | string = null;
+  activeKey: null | string = null;
 
   ngOnInit() {
     this.navItems.forEach(navItem => {
@@ -704,9 +717,9 @@ export class SidebarComponent {
     );
 
     if (activeLink) {
-      this.activeLinkId = activeLink.link as string;
+      this.activeKey = activeLink.key;
     } else {
-      this.activeLinkId = null;
+      this.activeKey = null;
     }
   }
 }

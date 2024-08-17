@@ -23,6 +23,10 @@
     transition: all .2s;
   }
 
+  &:has(.icon:not(:empty)) .icon {
+    margin-left: -4px;
+  }
+
   .text {
     @apply overflow-hidden overflow-ellipsis;
   }
@@ -31,7 +35,7 @@
 :host-context(.emr-navigation-group-menu) {
   .inner {
     margin: var(--emr-navigation-nested-item-margin);
-    width: clac(var(--emr-navigation-item-width) - var(--emr-navigation-nested-item-margin));
+    width: calc(var(--emr-navigation-item-width) - var(--emr-navigation-nested-item-margin));
     background-color: var(--emr-navigation-nested-item-bg);
     min-height: var(--emr-navigation-nested-item-height);
     padding: var(--emr-navigation-nested-item-padding);
@@ -98,7 +102,6 @@
     flex: none;
     width: var(--emr-navigation-item-icon-width);
     color: var(--emr-navigation-item-icon-color);
-    margin-inline-start: -5px;
   }
 }
 
