@@ -51,24 +51,6 @@
                   "maximumWarning": "24kb"
                 }
               ],
-              "styles": [
-                "src/styles.scss",
-                {
-                  "input": "projects/components/styles/themes/cyan-orange.scss",
-                  "inject": false,
-                  "bundleName": "cyan-orange"
-                },
-                {
-                  "input": "projects/components/styles/themes/magenta-violet.scss",
-                  "inject": false,
-                  "bundleName": "magenta-violet"
-                },
-                {
-                  "input": "projects/components/styles/themes/rose-red.scss",
-                  "inject": false,
-                  "bundleName": "rose-red"
-                }
-              ],
               "outputHashing": "all",
               "fileReplacements": [
                 {
@@ -222,6 +204,24 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "24kb",
                   "maximumError": "24kb"
+                }
+              ],
+              "styles": [
+                "projects/demo/src/styles.scss",
+                {
+                  "input": "projects/components/styles/themes/cyan-orange.scss",
+                  "inject": false,
+                  "bundleName": "cyan-orange"
+                },
+                {
+                  "input": "projects/components/styles/themes/magenta-violet.scss",
+                  "inject": false,
+                  "bundleName": "magenta-violet"
+                },
+                {
+                  "input": "projects/components/styles/themes/rose-red.scss",
+                  "inject": false,
+                  "bundleName": "rose-red"
                 }
               ],
               "outputHashing": "all"
