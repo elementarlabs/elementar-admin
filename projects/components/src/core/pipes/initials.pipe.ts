@@ -10,8 +10,7 @@ export class InitialsPipe implements PipeTransform {
       return '';
     }
 
-    const rgx = new RegExp(/(\p{L}{1})\p{L}+/, 'gu');
-    const initials = [...value.toString().matchAll(rgx)] || [];
+    const initials = [...value.toString().matchAll(/(\p{L}{1})\p{L}+/gu)] || [];
     const result = ((initials.shift()?.[1] || '') + (initials.pop()?.[1] || '')).toUpperCase();
     return result ? result : value[0];
   }
