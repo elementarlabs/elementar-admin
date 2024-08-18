@@ -1,8 +1,11 @@
 :host {
-  display: block;
-  z-index: 101;
+  @apply block z-[101];
+
+  &:has(.emr-sidebar.compact) {
+    @apply z-[102]
+  }
 
   &.is-hidden {
-    display: none;
+    @apply hidden;
   }
 }
