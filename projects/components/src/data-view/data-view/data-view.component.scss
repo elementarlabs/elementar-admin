@@ -2,6 +2,10 @@
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: transparent;
 
+  .mat-mdc-cell {
+    @apply bg-[var(--emr-data-view-row-bg)];
+  }
+
   .emr-skeleton-block {
     z-index: 1;
   }
@@ -95,10 +99,6 @@
 }
 
 :host-context(html.dark) {
-  .mat-mdc-cell {
-    @apply bg-neutral-800;
-  }
-
   .mat-mdc-row.mdc-data-table__row:not(.is-selected) {
     border-color: theme('borderColor.inverse') !important;
   }

@@ -1,12 +1,20 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
-import { ToolbarComponent } from '@app/sidebar/_toolbar/toolbar.component';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 import { OrderByPipe } from '@elementar/components/core';
+import { DicebearComponent } from '@elementar/components/avatar';
+import { MatIconButton } from '@angular/material/button';
+import {
+  SidebarBodyComponent,
+  SidebarCompactViewModeDirective,
+  SidebarComponent as EmrSidebarComponent,
+  SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
+} from '@elementar/components/sidebar';
+import { ToolbarComponent } from '@demo/app/sidebar/_toolbar/toolbar.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +25,16 @@ import { OrderByPipe } from '@elementar/components/core';
     EmrNavigationModule,
     MatRipple,
     ToolbarComponent,
-    OrderByPipe
+    OrderByPipe,
+    DicebearComponent,
+    MatIconButton,
+    SidebarBodyComponent,
+    SidebarCompactViewModeDirective,
+    EmrSidebarComponent,
+    SidebarFooterComponent,
+    SidebarHeaderComponent,
+    SidebarNavComponent,
+    ToolbarComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
@@ -25,10 +42,11 @@ import { OrderByPipe } from '@elementar/components/core';
     'class': 'sidebar'
   }
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   router = inject(Router);
   location = inject(Location);
   height: string | null = '200px';
+  compact = false;
 
   @ViewChild('navigation', { static: true })
   navigation!: any;

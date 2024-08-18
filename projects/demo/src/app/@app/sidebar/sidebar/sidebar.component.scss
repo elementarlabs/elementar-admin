@@ -2,7 +2,7 @@
   @apply block h-full relative min-w-[var(--emr-sidebar-compact-width)];
 
   .sidebar {
-    @apply bg-neutral-100;
+    @apply bg-neutral-100 border-e border-e-neutral-200;
 
     &.compact:hover {
       @apply shadow-lg;
@@ -49,6 +49,6 @@
 
 :host-context(html.dark) {
   .sidebar {
-    @apply bg-neutral-900;
+    @apply bg-neutral-900 border-e-inverse;
   }
 }
