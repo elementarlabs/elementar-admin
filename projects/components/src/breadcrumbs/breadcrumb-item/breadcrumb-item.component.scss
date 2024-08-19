@@ -2,27 +2,25 @@
   font-size: var(--emr-breadcrumbs-item-font-size);
   font-weight: var(--emr-breadcrumbs-item-font-weight);
   color: var(--emr-breadcrumbs-item-color);
-  cursor: pointer;
-  text-decoration: none;
-  display: flex;
-  gap: theme('gap[1.5]');
+  @apply flex gap-1.5 cursor-pointer no-underline;
 
   .icon {
     line-height: 11px;
 
-    ::ng-deep .emr-breadcrumb-item-icon {
-      width: 22px;
-      height: 22px;
-      font-size: 22px;
+    ::ng-deep {
+      .emr-breadcrumb-item-icon {
+        font-size: 22px;
+        @apply w-[22px] h-[22px] flex-none;
+      }
     }
   }
 
   .icon:empty {
-    display: none;
+    @apply hidden;
   }
 
   .content:has(.name:empty) {
-    display: none;
+    @apply hidden;
   }
 
   &:not(:last-child):hover {
@@ -32,13 +30,30 @@
 
     .name {
       color: var(--emr-breadcrumbs-item-hover-color);
-      text-decoration: underline;
-      text-underline-offset: 0.1875rem;
+      @apply underline underline-offset-1;
     }
   }
 
   &:last-child {
-    cursor: auto;
+    @apply cursor-auto;
     color: var(--emr-breadcrumbs-active-item-color);
+  }
+}
+
+:host-context(.emr-breadcrumbs.last-item-as-link) {
+  &:last-child {
+    color: var(--emr-breadcrumbs-item-color);
+    @apply cursor-pointer;
+
+    &:hover {
+      .icon {
+        color: var(--emr-breadcrumbs-item-hover-color);
+      }
+
+      .name {
+        color: var(--emr-breadcrumbs-item-hover-color);
+        @apply underline underline-offset-1;
+      }
+    }
   }
 }

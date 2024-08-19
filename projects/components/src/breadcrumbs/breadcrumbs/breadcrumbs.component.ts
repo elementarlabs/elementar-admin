@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, input, booleanAttribute, contentChild } from '@angular/core';
 import { BreadcrumbItemDefDirective } from '../breadcrumb-item-def.directive';
 import { BreadcrumbSeparatorDefDirective } from '../breadcrumb-separator-def.directive';
 import { BreadcrumbActiveItemDefDirective } from '../breadcrumb-active-item-def.directive';
@@ -9,13 +9,22 @@ import { BreadcrumbActiveItemDefDirective } from '../breadcrumb-active-item-def.
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss'],
   host: {
-    class: 'emr-breadcrumbs'
+    'class': 'emr-breadcrumbs',
+    '[class.last-item-as-link]': 'lastItemAsLink()'
   }
 })
 export class BreadcrumbsComponent {
-  @ContentChild(BreadcrumbItemDefDirective, { read: TemplateRef }) itemRef!: TemplateRef<any>;
-  @ContentChild(BreadcrumbActiveItemDefDirective, { read: TemplateRef }) activeItemRef!: TemplateRef<any>;
-  @ContentChild(BreadcrumbSeparatorDefDirective, { read: TemplateRef }) separatorRef!: TemplateRef<any>;
-
-  @Input() dataSource: any[] = [];
+  itemRef = contentChild.required(BreadcrumbItemDefDirective, {
+    read: TemplateRef
+  });
+  activeItemRef = contentChild.required(BreadcrumbActiveItemDefDirective, {
+    read: TemplateRef
+  });
+  separatorRef = contentChild.required(BreadcrumbSeparatorDefDirective, {
+    read: TemplateRef
+  });
+  dataSource = input<any[]>([]);
+  lastItemAsLink = input(false, {
+    transform: booleanAttribute
+  });
 }

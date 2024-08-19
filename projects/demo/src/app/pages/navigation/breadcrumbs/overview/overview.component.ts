@@ -14,6 +14,9 @@ import {
 } from '../_examples/breadcrumbs-with-titles-example/breadcrumbs-with-titles-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import {
+  BreadcrumbsWithLastItemAsLinkExampleComponent
+} from '../_examples/breadcrumbs-with-last-item-as-link-example/breadcrumbs-with-last-item-as-link-example.component';
 
 @Component({
   standalone: true,
@@ -24,7 +27,8 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
     BreadcrumbsWithIconsExampleComponent,
     BreadcrumbsWithTitlesExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    BreadcrumbsWithLastItemAsLinkExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
