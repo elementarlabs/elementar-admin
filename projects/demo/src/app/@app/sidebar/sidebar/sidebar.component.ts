@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
@@ -44,7 +44,7 @@ import { MatIconButton } from '@angular/material/button';
     '[class.compact]': 'compact'
   }
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   router = inject(Router);
   location = inject(Location);
   height: string | null = '200px';
@@ -90,7 +90,7 @@ export class SidebarComponent {
           key: uuid(),
           type: 'link',
           name: 'Basic',
-          link: '/pages/dashboard'
+          link: '/pages/dashboard/basic'
         },
         {
           key: uuid(),

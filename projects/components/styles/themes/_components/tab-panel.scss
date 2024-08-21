@@ -7,9 +7,9 @@
   --emr-tab-panel-item-gap: theme('gap.1');
   --emr-tab-panel-item-hover-bg: theme('colors.neutral.200');
   --emr-tab-panel-item-hover-color: theme('colors.neutral.700');
-  --emr-tab-panel-item-active-bg: theme('colors.neutral.300');
-  --emr-tab-panel-item-active-color: theme('colors.neutral.800');
-  --emr-tab-panel-item-border-radius: theme('borderRadius.lg');
+  --emr-tab-panel-item-active-bg: theme('colors.primary.300');
+  --emr-tab-panel-item-active-color: theme('colors.neutral.950');
+  --emr-tab-panel-item-border-radius: theme('borderRadius.xl');
   --emr-tab-panel-aside-width: 18.75rem;
   --emr-tab-panel-border-end: 1px solid theme('borderColor.DEFAULT');
   --emr-tab-panel-nav-padding: theme('padding[2.5]');
@@ -25,6 +25,7 @@
 
 html.dark {
   --emr-tab-panel-border-end: 1px solid theme('colors.neutral.600');
-  --emr-tab-panel-item-hover-bg: theme('colors.neutral.400');
-  --emr-tab-panel-item-active-bg: theme('colors.neutral.300');
+  --emr-tab-panel-item-hover-bg: theme('colors.neutral.700');
+  --emr-tab-panel-item-hover-color: theme('colors.primary.200');
+  --emr-tab-panel-item-active-bg: theme('colors.primary.300');
 }

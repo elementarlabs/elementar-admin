@@ -91,17 +91,17 @@
 html.dark {
   --emr-navigation-item-color: theme('colors.neutral.300');
   --emr-navigation-item-icon-color: theme('colors.neutral.400');
-  --emr-navigation-item-hover-bg: #{rgba(#fff, .2)};
-  --emr-navigation-item-active-bg: #{rgba(#fff, .2)};
+  --emr-navigation-item-hover-bg: theme('colors.neutral.700');
+  --emr-navigation-item-active-bg: theme('colors.primary.300');
   --emr-navigation-item-hover-color: theme('colors.neutral.100');
   --emr-navigation-item-hover-icon-color: theme('colors.neutral.100');
-  --emr-navigation-item-active-color: theme('colors.neutral.100');
-  --emr-navigation-item-active-icon-color: theme('colors.neutral.100');
+  --emr-navigation-item-active-color: theme('colors.neutral.950');
+  --emr-navigation-item-active-icon-color: theme('colors.neutral.950');
   --emr-navigation-heading-color: theme('colors.neutral.200');
   --emr-navigation-nested-item-color: theme('textColor.neutral.300');
   --emr-navigation-nested-item-active-color: theme('colors.neutral.100');
-  --emr-navigation-nested-item-hover-bg: #{rgba(#fff, .1)};
-  --emr-navigation-nested-item-active-bg: #{rgba(#fff, .1)};
+  --emr-navigation-nested-item-hover-bg: theme('colors.neutral.700');
+  --emr-navigation-nested-item-active-bg: theme('colors.neutral.700');
   --emr-navigation-nested-item-hover-color: theme('colors.neutral.100');
   --emr-navigation-divider-bg: theme('borderColor.inverse');
   --emr-navigation-group-tree-lines-color: theme('borderColor.inverse');
