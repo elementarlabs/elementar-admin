@@ -8,6 +8,7 @@
   &.compact:not(:hover) {
     @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
     --emr-navigation-item-width: var(--emr-navigation-item-height);
+    --emr-navigation-item-padding: 0;
 
     ::ng-deep {
       .toggle {
@@ -25,14 +26,14 @@
       }
 
       .emr-navigation-group-toggle {
-        gap: 0;
+        @apply justify-center gap-0;
+        --emr-navigation-group-toggle-has-icon-padding-end: 0;
+
+        .icon {
+          @apply transition-all;
+        }
 
         &:has(.icon:not(:empty)) {
-          .icon {
-            margin-left: -5px;
-            @apply transition-all;
-          }
-
           .text {
             @apply opacity-0 w-0 max-w-0 transition-all;
           }
@@ -40,16 +41,17 @@
       }
 
       .emr-navigation-item {
+        @apply justify-center;
+
         .inner {
           @apply gap-0;
         }
 
-        &:has(.icon:not(:empty)) {
-          .icon {
-            margin-left: -7px;
-            @apply transition-all;
-          }
+        .icon {
+          @apply transition-all;
+        }
 
+        &:has(.icon:not(:empty)) {
           .text {
             @apply opacity-0 w-0 max-w-0 transition-all;
           }

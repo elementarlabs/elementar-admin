@@ -17,10 +17,6 @@
   gap: var(--emr-navigation-item-gap);
   width: var(--emr-navigation-item-width);
 
-  &:has(.icon:not(:empty)) .icon {
-    margin-left: -3px;
-  }
-
   .text {
     @apply overflow-hidden overflow-ellipsis;
   }

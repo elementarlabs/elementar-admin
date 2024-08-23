@@ -26,7 +26,6 @@
   }
 
   .header {
-    @apply h-20 flex items-center justify-between;
     --emr-sidebar-header-padding: 0 theme('padding.7');
     --emr-sidebar-header-compact-padding: 0 theme('padding.7');
   }
@@ -36,8 +35,8 @@
   }
 
   .body {
-    --emr-sidebar-body-padding: 0 theme('padding.3');
-    --emr-sidebar-body-compact-padding: 0 theme('padding.3');
+    --emr-sidebar-body-padding: theme('padding.4') theme('padding.3');
+    --emr-sidebar-body-compact-padding: theme('padding.4') theme('padding.3');
   }
 
   .footer {

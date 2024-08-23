@@ -1,20 +1,26 @@
 <emr-sidebar [compact]="compact" class="sidebar">
   <emr-sidebar-header class="header">
-    <a routerLink="/" emrSidebarCompactViewMode class="logo justify-center">EL</a>
-    <a routerLink="/" emrSidebarFullViewMode class="logo">ELEMENTAR</a>
-    <button mat-icon-button (click)="compact = !compact" class="sidebar-toggle">
-      @if (compact) {
-        <mat-icon>right_panel_close</mat-icon>
-      } @else {
-        <mat-icon>right_panel_open</mat-icon>
-      }
-    </button>
+    <div class="h-20 flex items-center w-full justify-between border-b dark:border-b-700">
+      <a routerLink="/" emrSidebarCompactViewMode class="logo justify-center">EL</a>
+      <a routerLink="/" emrSidebarFullViewMode class="logo">ELEMENTAR</a>
+      <button mat-icon-button (click)="compact = !compact" class="sidebar-toggle">
+        @if (compact) {
+          <mat-icon>right_panel_close</mat-icon>
+        } @else {
+          <mat-icon>right_panel_open</mat-icon>
+        }
+      </button>
+    </div>
   </emr-sidebar-header>
   <emr-sidebar-body class="body">
     <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems"/>
   </emr-sidebar-body>
   <emr-sidebar-footer class="footer">
-    <emr-dicebear emrSidebarCompactViewMode></emr-dicebear>
-    <app-sidebar-toolbar emrSidebarFullViewMode></app-sidebar-toolbar>
+    <div emrSidebarCompactViewMode>
+      <emr-dicebear></emr-dicebear>
+    </div>
+    <div emrSidebarFullViewMode>
+      <app-sidebar-toolbar></app-sidebar-toolbar>
+    </div>
   </emr-sidebar-footer>
 </emr-sidebar>

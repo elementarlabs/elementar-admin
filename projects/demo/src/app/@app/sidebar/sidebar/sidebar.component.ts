@@ -12,7 +12,7 @@ import {
   SidebarBodyComponent,
   SidebarCompactViewModeDirective,
   SidebarComponent as EmrSidebarComponent,
-  SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
+  SidebarFooterComponent, SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent
 } from '@elementar/components/sidebar';
 import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 import { MatIconButton } from '@angular/material/button';
@@ -29,6 +29,7 @@ import { MatIconButton } from '@angular/material/button';
     OrderByPipe,
     SidebarBodyComponent,
     SidebarCompactViewModeDirective,
+    SidebarFullViewModeDirective,
     EmrSidebarComponent,
     SidebarFooterComponent,
     SidebarHeaderComponent,
