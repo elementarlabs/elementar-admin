@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { EmrContentFadeModule } from '@elementar/components/content-fade';
+import { ContentFadeComponent } from '@elementar/components/content-fade';
 
 @Component({
   selector: 'app-basic-content-fade-example',
   standalone: true,
   imports: [
-    EmrContentFadeModule
+    ContentFadeComponent
   ],
   templateUrl: './basic-content-fade-example.component.html',
   styleUrl: './basic-content-fade-example.component.scss'

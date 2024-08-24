@@ -1,6 +1,7 @@
 :host {
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: transparent;
+  --emr-content-fade-color: var(--emr-data-view-row-bg);
 
   .mat-mdc-cell {
     @apply bg-[var(--emr-data-view-row-bg)];

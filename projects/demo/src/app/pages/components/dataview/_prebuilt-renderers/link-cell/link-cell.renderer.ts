@@ -1,10 +1,13 @@
 import { Component, input } from '@angular/core';
 import { DataViewCellRendererComponent } from '@elementar/components/data-view';
+import { ContentFadeComponent } from '@elementar/components/content-fade';
 
 @Component({
   selector: 'app-link-cell',
   standalone: true,
-  imports: [],
+  imports: [
+    ContentFadeComponent
+  ],
   templateUrl: './link-cell.renderer.html',
   styleUrl: './link-cell.renderer.scss'
 })
