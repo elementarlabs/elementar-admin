@@ -4,6 +4,7 @@ import { CommandBarPosition } from '../types';
 @Component({
   selector: 'emr-command-bar',
   exportAs: 'emrCommandBar',
+  standalone: true,
   templateUrl: './command-bar.component.html',
   styleUrl: './command-bar.component.scss',
   host: {

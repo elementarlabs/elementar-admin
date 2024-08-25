@@ -1,8 +1,4 @@
 :host {
-  position: fixed;
-  width: min-content;
-  display: flex;
-  margin: var(--emr-command-bar-margin);
   left: 50%;
   translate: -50% 0;
   height: var(--emr-command-bar-height);
@@ -10,8 +6,18 @@
   box-shadow: var(--emr-command-bar-shadow);
   border-radius: var(--emr-command-bar-border-radius);
   z-index: -1;
-  opacity: 0;
-  background: var(--emr-command-bar-bg);
+  font-size: var(--emr-command-bar-font-size);
+  color: var(--emr-command-bar-color);
+  @apply p-[var(--emr-command-bar-padding)] overflow-hidden opacity-0 flex items-center w-min fixed;
+  @apply bg-[var(--emr-command-bar-bg)] m-[var(--emr-command-bar-margin)] gap-1;
+
+  .content {
+    &:empty {
+      @apply hidden;
+    }
+
+    @apply whitespace-nowrap p-[var(--emr-command-bar-content-padding)];
+  }
 }
 
 :host.is-open {

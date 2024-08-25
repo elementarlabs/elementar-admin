@@ -5,7 +5,12 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption } from '@angular/material/autocomplete';
 import { MatSelect } from '@angular/material/select';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { CommandBarPosition, EmrCommandBarModule } from '@elementar/components/command-bar';
+import {
+  CommandBarCommandComponent,
+  CommandBarComponent,
+  CommandBarDividerComponent,
+  CommandBarPosition
+} from '@elementar/components/command-bar';
 
 @Component({
   selector: 'app-basic-command-bar-example',
@@ -13,12 +18,14 @@ import { CommandBarPosition, EmrCommandBarModule } from '@elementar/components/c
   imports: [
     MatCheckbox,
     FormsModule,
-    EmrCommandBarModule,
     MatFormField,
     MatLabel,
     MatOption,
     MatSelect,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommandBarDividerComponent,
+    CommandBarComponent,
+    CommandBarCommandComponent
   ],
   templateUrl: './basic-command-bar-example.component.html',
   styleUrl: './basic-command-bar-example.component.scss'

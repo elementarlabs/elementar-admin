@@ -1,0 +1,4 @@
+:host {
+  @apply block w-[var(--emr-command-bar-divider-width)] h-[var(--emr-command-bar-divider-height)];
+  @apply bg-[var(--emr-command-bar-divider-bg)];
+}
