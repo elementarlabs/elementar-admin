@@ -69,3 +69,20 @@ npm run start
 ```
 
 [Live Preview (Minimal)](https://minimal.elementarui.com)
+
+## Update
+
+To update your project, run next command:
+
+```bash
+cd your-project-name
+npx @elementarui/elementar-cli@latest update
+```
+
+By default, update command will update only `projects/components` folder and root `package.json`, but if you
+want to update all projects like demo, dual-tier, mono layout, you can do this with command:
+
+```bash
+cd your-project-name
+npx @elementarui/elementar-cli@latest update all
+```
