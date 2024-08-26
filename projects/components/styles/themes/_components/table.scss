@@ -12,14 +12,11 @@
 
   td {
     height: var(--mat-table-row-item-container-height);
+    border-top: 1px solid theme('borderColor.DEFAULT');
   }
 
   tr {
     color: var(--mat-table-row-item-label-text-color);
-
-    td {
-      border-top: 1px solid theme('borderColor.DEFAULT');
-    }
   }
 }
 
@@ -44,6 +41,13 @@
 }
 
 html.dark {
+  .emr-table {
+    td {
+      height: var(--mat-table-row-item-container-height);
+      border-top: 1px solid theme('borderColor.inverse');
+    }
+  }
+
   .mat-mdc-table {
     --mat-table-row-item-outline-color: theme('colors.neutral.600');
   }
