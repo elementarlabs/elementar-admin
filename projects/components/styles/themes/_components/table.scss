@@ -1,3 +1,28 @@
+.emr-table {
+  @apply my-0 text-sm w-full;
+
+  th,
+  td {
+    @apply px-4 py-3 align-middle text-left;
+  }
+
+  th {
+    height: var(--mat-table-row-item-container-height);
+  }
+
+  td {
+    height: var(--mat-table-row-item-container-height);
+  }
+
+  tr {
+    color: var(--mat-table-row-item-label-text-color);
+
+    td {
+      border-top: 1px solid theme('borderColor.DEFAULT');
+    }
+  }
+}
+
 .mat-mdc-table {
   --mat-table-background-color: theme('colors.background');
   --mat-table-row-item-outline-color: theme('colors.neutral.300');
