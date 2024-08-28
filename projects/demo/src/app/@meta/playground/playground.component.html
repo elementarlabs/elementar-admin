@@ -22,32 +22,34 @@
     @if (showSource) {
       <div class="flex items-center gap-2 absolute start-3 top-1/2 -translate-y-1/2">
         @if (htmlSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
-                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
-                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
-                      dark:border-neutral-400 dark:text-white"
+          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+                      dark:hover:bg-primary-500 dark:hover:border-primary-500
+                      dark:border-neutral-500 dark:text-white
+                      [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"
                [class.active]="isCurrentTab('html')" (click)="selectTab('html')">HTML</div>
         }
 
         @if (tsSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
-                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
-                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
-                      dark:border-neutral-400 dark:text-white"
+          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+                      dark:hover:bg-primary-500 dark:hover:border-primary-500
+                      dark:border-neutral-500 dark:text-white
+                      [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"
                [class.active]="isCurrentTab('ts')" (click)="selectTab('ts')">TS</div>
         }
 
         @if (cssSrc) {
-          <div class="rounded-full hover:bg-neutral-200 border px-2.5 py-1 text-sm cursor-pointer
-                      [&.active]:text-white [&.active]:bg-primary [&.active]:border-primary
-                      dark:hover:bg-neutral-400 dark:hover:border-neutral-400
-                      dark:border-neutral-400 dark:text-white"
+          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+                      dark:hover:bg-primary-500 dark:hover:border-primary-500
+                      dark:border-neutral-500 dark:text-white
+                      [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"
                [class.active]="isCurrentTab('css')" (click)="selectTab('css')">CSS</div>
         }
       </div>
     }
 
-    <button mat-icon-button (click)="toggleSource()">
+    <button mat-icon-button (click)="toggleSource()"
+            [class.!bg-neutral-300]="showSource"
+            [class.dark:!bg-neutral-600]="showSource">
       <mat-icon>code</mat-icon>
     </button>
 
