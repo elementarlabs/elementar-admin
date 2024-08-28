@@ -21,6 +21,12 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import { PageAsideDirective } from '@demo/meta/page/page-aside.directive';
 import { EmrScrollSpyModule } from '@elementar/components/scroll-spy';
+import {
+  ButtonsWithInteractiveDisabledExampleComponent
+} from '../_examples/buttons-with-interactive-disabled-example/buttons-with-interactive-disabled-example.component';
+import {
+  ButtonsExtendedFabExampleComponent
+} from '../_examples/buttons-extended-fab-example/buttons-extended-fab-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -47,7 +53,9 @@ import { EmrScrollSpyModule } from '@elementar/components/scroll-spy';
     RouterLink,
     PageComponent,
     PageContentDirective,
-    PageAsideDirective
+    PageAsideDirective,
+    ButtonsWithInteractiveDisabledExampleComponent,
+    ButtonsExtendedFabExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
