@@ -1,7 +1,6 @@
 import {
   booleanAttribute,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ContentChild,
   DoCheck,
@@ -37,14 +36,14 @@ import { Subject } from 'rxjs';
       useExisting: NumberInputComponent
     }
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-number-input'
   }
 })
 export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy, DoCheck {
   private _elementRef = inject(ElementRef);
-  private _cdr = inject(ChangeDetectorRef);
+  readonly disableAutomaticLabeling: boolean;
+  readonly placeholder: string;
 
   @ViewChild('input', { static: true, read: ElementRef })
   private _input: ElementRef<HTMLInputElement>;
@@ -81,16 +80,6 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
 
   @Input({ transform: booleanAttribute })
   roundedFull = false;
-
-  @Input()
-  get placeholder() {
-    return this._placeholder;
-  }
-  set placeholder(plh) {
-    this._placeholder = plh;
-    this.stateChanges.next();
-  }
-  private _placeholder: string;
 
   @HostBinding('class.floating')
   get shouldLabelFloat() {
