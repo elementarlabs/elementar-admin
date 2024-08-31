@@ -279,6 +279,10 @@ const routes: Routes = [
         loadChildren: () => import('./navigation/navigation/navigation.module').then(m => m.NavigationModule)
       },
       {
+        path: 'navigation/rail-nav',
+        loadChildren: () => import('./navigation/rail-nav/rail-nav.module').then(m => m.RailNavModule)
+      },
+      {
         path: 'user-profile',
         loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
       },

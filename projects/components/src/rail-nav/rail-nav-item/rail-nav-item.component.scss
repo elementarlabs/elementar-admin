@@ -1,0 +1,39 @@
+:host {
+  @apply flex flex-none items-center justify-center gap-1 flex-col cursor-pointer;
+
+  .icon {
+    @apply px-4 rounded-full flex items-center justify-center py-1;
+
+    &:empty {
+      @apply hidden;
+    }
+  }
+
+  &:hover {
+    .icon {
+      @apply bg-neutral-200;
+    }
+  }
+
+  &:active {
+    .icon {
+      @apply bg-neutral-300;
+    }
+  }
+
+  &.selected {
+    .icon {
+      @apply bg-primary-300;
+    }
+  }
+
+  &.selected:active {
+    .icon {
+      @apply bg-primary-200;
+    }
+  }
+
+  .label {
+    @apply text-tiny;
+  }
+}
