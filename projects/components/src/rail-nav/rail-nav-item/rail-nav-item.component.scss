@@ -1,8 +1,8 @@
 :host {
-  @apply flex flex-none items-center justify-center gap-1 flex-col cursor-pointer;
+  @apply flex flex-none items-center justify-center gap-0.5 flex-col cursor-pointer;
 
   .icon {
-    @apply px-4 rounded-full flex items-center justify-center py-1;
+    @apply px-4 rounded-full flex items-center justify-center py-1.5;
 
     &:empty {
       @apply hidden;
