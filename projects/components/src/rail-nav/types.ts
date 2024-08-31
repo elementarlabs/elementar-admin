@@ -2,6 +2,12 @@ import { InjectionToken } from "@angular/core";
 
 export const RAIL_NAV = new InjectionToken('RAIL_NAV');
 
-export interface RailNavApi {
-  activeKey: () => any;
+export interface RailNavAPI {
+  getActiveKey: () => any;
+  activateItem: (key: any) => void;
+  isSelected: (key: any) => boolean;
+}
+
+export interface RailNavComponent {
+  api: RailNavAPI
 }

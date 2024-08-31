@@ -12,6 +12,10 @@
   &:hover {
     .icon {
       @apply bg-neutral-200;
+
+      ::ng-deep * {
+        @apply scale-110 transition-all;
+      }
     }
   }
 

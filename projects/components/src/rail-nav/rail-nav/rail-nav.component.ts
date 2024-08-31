@@ -1,5 +1,5 @@
-import { Component, forwardRef, input } from '@angular/core';
-import { RAIL_NAV } from '@elementar/components/rail-nav/types';
+import { Component, forwardRef, input, OnInit } from '@angular/core';
+import { RAIL_NAV, RailNavAPI } from '@elementar/components/rail-nav/types';
 
 @Component({
   selector: 'emr-rail-nav',
@@ -18,6 +18,20 @@ import { RAIL_NAV } from '@elementar/components/rail-nav/types';
     class: 'emr-rail-nav'
   }
 })
-export class RailNavComponent {
+export class RailNavComponent implements OnInit {
   activeKey = input();
+
+  private _activeKey: any;
+
+  readonly api: RailNavAPI = {
+    activateItem: (key: any) => {
+      this._activeKey = key;
+    },
+    getActiveKey: () => this._activeKey,
+    isSelected: (key: any) => key === this._activeKey,
+  };
+
+  ngOnInit() {
+    this._activeKey = this.activeKey();
+  }
 }

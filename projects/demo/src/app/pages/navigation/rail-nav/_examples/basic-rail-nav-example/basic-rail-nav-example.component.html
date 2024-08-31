@@ -1,14 +1,22 @@
-<emr-rail-nav>
-  <button emr-rail-nav-item>
-    <mat-icon emrRailNavItemIcon>font_download</mat-icon>
+<emr-rail-nav #railNav activeKey="fonts">
+  <button key="fonts" emr-rail-nav-item>
+    <mat-icon emrRailNavItemIcon
+              [class.filled]="railNav.api.isSelected('fonts')">font_download</mat-icon>
     Fonts
   </button>
-  <button emr-rail-nav-item>
-    <mat-icon emrRailNavItemIcon>language</mat-icon>
+  <button key="noto" emr-rail-nav-item>
+    <mat-icon emrRailNavItemIcon
+              [class.filled]="railNav.api.isSelected('noto')">language</mat-icon>
     Noto
   </button>
-  <button emr-rail-nav-item>
-    <mat-icon emrRailNavItemIcon>language</mat-icon>
-    Noto
+  <button key="icons" emr-rail-nav-item>
+    <mat-icon emrRailNavItemIcon
+              [class.filled]="railNav.api.isSelected('icons')">interests</mat-icon>
+    Icons
+  </button>
+  <button key="knowlenge" emr-rail-nav-item>
+    <mat-icon emrRailNavItemIcon
+              [class.filled]="railNav.api.isSelected('knowlenge')">school</mat-icon>
+    Knowlenge
   </button>
 </emr-rail-nav>

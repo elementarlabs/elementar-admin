@@ -1,5 +1,5 @@
-import { Component, inject, input, OnInit } from '@angular/core';
-import { RAIL_NAV, RailNavApi } from '@elementar/components/rail-nav/types';
+import { Component, HostListener, inject, input } from '@angular/core';
+import { RAIL_NAV, RailNavComponent } from '@elementar/components/rail-nav/types';
 import { v7 as uuid } from 'uuid';
 
 @Component({
@@ -14,21 +14,25 @@ import { v7 as uuid } from 'uuid';
     '[class.selected]': 'selected',
   }
 })
-export class RailNavItemComponent implements OnInit {
-  protected _railNav = inject<RailNavApi>(RAIL_NAV);
+export class RailNavItemComponent {
+  protected _railNav = inject<RailNavComponent>(RAIL_NAV);
 
   key = input(uuid());
 
   get selected() {
-    if (!this.key() || !this._railNav.activeKey()) {
+    if (!this.key() || !this._railNav.api.getActiveKey()) {
       return false;
     }
 
-    return this.key() === this._railNav.activeKey();
+    return this._railNav.api.isSelected(this.key());
   }
 
-  ngOnInit() {
-    console.log(this.key());
-    console.log(this._railNav.activeKey());
+  @HostListener('click', ['$event'])
+  click(event: MouseEvent) {
+    if (!this.key()) {
+      return;
+    }
+
+    this._railNav.api.activateItem(this.key());
   }
 }
