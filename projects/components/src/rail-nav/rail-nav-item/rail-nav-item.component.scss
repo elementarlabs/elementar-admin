@@ -25,13 +25,13 @@
     }
   }
 
-  &.selected {
+  &.is-active {
     .icon {
       @apply bg-primary-300;
     }
   }
 
-  &.selected:active {
+  &.is-active:active {
     .icon {
       @apply bg-primary-200;
     }

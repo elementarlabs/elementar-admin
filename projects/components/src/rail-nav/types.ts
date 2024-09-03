@@ -5,9 +5,9 @@ export const RAIL_NAV = new InjectionToken('RAIL_NAV');
 export interface RailNavAPI {
   getActiveKey: () => any;
   activateItem: (key: any) => void;
-  isSelected: (key: any) => boolean;
+  isActive: (key: any) => boolean;
 }
 
 export interface RailNavComponent {
-  api: RailNavAPI
+  api: RailNavAPI;
 }

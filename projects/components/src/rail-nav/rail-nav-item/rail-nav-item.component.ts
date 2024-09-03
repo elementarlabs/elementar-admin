@@ -11,7 +11,7 @@ import { v7 as uuid } from 'uuid';
   styleUrl: './rail-nav-item.component.scss',
   host: {
     'class': 'emr-rail-nav-item',
-    '[class.selected]': 'selected',
+    '[class.is-active]': 'isActive',
   }
 })
 export class RailNavItemComponent {
@@ -19,12 +19,12 @@ export class RailNavItemComponent {
 
   key = input(uuid());
 
-  get selected() {
+  get isActive(): boolean {
     if (!this.key() || !this._railNav.api.getActiveKey()) {
       return false;
     }
 
-    return this._railNav.api.isSelected(this.key());
+    return this._railNav.api.isActive(this.key());
   }
 
   @HostListener('click', ['$event'])

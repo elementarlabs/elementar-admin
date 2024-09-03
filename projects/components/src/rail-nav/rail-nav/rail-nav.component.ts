@@ -28,7 +28,7 @@ export class RailNavComponent implements OnInit {
       this._activeKey = key;
     },
     getActiveKey: () => this._activeKey,
-    isSelected: (key: any) => key === this._activeKey,
+    isActive: (key: any) => key === this._activeKey,
   };
 
   ngOnInit() {

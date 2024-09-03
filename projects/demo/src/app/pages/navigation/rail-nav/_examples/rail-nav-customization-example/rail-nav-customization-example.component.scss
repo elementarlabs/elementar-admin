@@ -1,7 +1,8 @@
 :host {
   @apply block w-max py-4 bg-primary-100;
 
-  .navigation {
-
+  emr-rail-nav {
+    --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.300');
+    --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.400');
   }
 }

@@ -1,3 +1,13 @@
 :host {
-  @apply flex flex-col gap-3 w-24;
+  --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.200');
+  --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.300');
+  --emr-rail-nav-width: theme('width.24');
+  --emr-rail-nav-gap: theme('gap.3');
+
+  @apply flex flex-col gap-[var(--emr-rail-nav-gap)] w-[var(--emr-rail-nav-width)];
+}
+
+:host-context(html.dark) {
+  --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.700');
+  --emr-rail-nav-bg-item-icon-active-bg: theme('colors.primary.300');
 }
