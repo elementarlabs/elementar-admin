@@ -1,8 +1,10 @@
 :host {
   @apply flex flex-none items-center justify-center gap-0.5 flex-col cursor-pointer;
+  @apply text-[var(--emr-rail-nav-bg-item-color)];
 
   .icon {
     @apply px-4 rounded-full flex items-center justify-center py-1.5;
+    @apply text-[var(--emr-rail-nav-bg-item-icon-color)];
 
     &:empty {
       @apply hidden;
@@ -11,7 +13,7 @@
 
   &:hover {
     .icon {
-      @apply bg-neutral-200;
+      @apply bg-[var(--emr-rail-nav-bg-item-icon-hover-bg)];
 
       ::ng-deep * {
         @apply scale-110 transition-all;
@@ -21,19 +23,20 @@
 
   &:active {
     .icon {
-      @apply bg-neutral-300;
+      @apply bg-[var(--emr-rail-nav-bg-item-icon-active-bg)];
     }
   }
 
   &.is-active {
     .icon {
-      @apply bg-primary-300;
+      @apply bg-[var(--emr-rail-nav-bg-item-icon-is-active-bg)];
+      @apply text-[var(--emr-rail-nav-bg-item-icon-is-active-color)];
     }
   }
 
   &.is-active:active {
     .icon {
-      @apply bg-primary-200;
+      @apply bg-[var(--emr-rail-nav-bg-item-icon-is-active-active-bg)];
     }
   }
 

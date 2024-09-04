@@ -4,5 +4,18 @@
   emr-rail-nav {
     --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.300');
     --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.400');
+    --emr-rail-nav-bg-item-icon-is-active-bg: theme('colors.tertiary.300');
+    --emr-rail-nav-bg-item-icon-is-active-active-bg: theme('colors.tertiary.400');
+  }
+}
+
+:host-context(html.dark) {
+  @apply bg-neutral-700;
+
+  emr-rail-nav {
+    --emr-rail-nav-bg-item-icon-is-active-bg: theme('colors.tertiary.300');
+    --emr-rail-nav-bg-item-icon-is-active-active-bg: theme('colors.tertiary.400');
+    --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.600');
+    --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.500');
   }
 }
