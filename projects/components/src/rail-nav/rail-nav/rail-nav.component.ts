@@ -15,7 +15,7 @@ import { RAIL_NAV, RailNavAPI } from '@elementar/components/rail-nav/types';
     }
   ],
   host: {
-    class: 'emr-rail-nav'
+    'class': 'emr-rail-nav'
   }
 })
 export class RailNavComponent implements OnInit {
