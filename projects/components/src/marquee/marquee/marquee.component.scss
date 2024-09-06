@@ -1,0 +1,86 @@
+:host {
+  --emr-marquee-animation-duration: 20s;
+  --emr-marquee-gap: 1rem;
+  --emr-marquee-reverse: ;
+  --emr-marquee-pause: paused;
+
+  @apply block w-full;
+
+  .container {
+    width: 100%;
+    height: 100%;
+
+    &.direction-row {
+      .emr-marquee-content {
+        flex-direction: row;
+
+        .emr-marquee-item-wrapper {
+          flex-direction: row;
+          animation: emr-marquee-row var(--emr-marquee-animation-duration) infinite
+          linear var(--emr-marquee-reverse);
+        }
+      }
+    }
+
+    &.direction-column {
+      .emr-marquee-content {
+        flex-direction: column;
+
+        .emr-marquee-item-wrapper {
+          flex-direction: column;
+          animation: emr-marquee-column var(--emr-marquee-animation-duration)
+          infinite linear var(--emr-marquee-reverse);
+        }
+      }
+    }
+  }
+
+  .emr-marquee-invisible {
+    width: 0;
+    height: 0;
+    display: none;
+    pointer-events: none;
+  }
+
+  .emr-marquee-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: var(--emr-marquee-gap);
+    overflow: hidden;
+    padding: 0.5rem;
+
+    .emr-marquee-item-wrapper {
+      display: flex;
+      gap: var(--emr-marquee-gap);
+      flex-shrink: 0;
+    }
+  }
+
+  .emr-marquee-content:hover > .emr-marquee-item-wrapper {
+    animation-play-state: var(--emr-marquee-pause);
+  }
+
+  .emr-marquee-content.outOfView > .emr-marquee-item-wrapper {
+    animation-play-state: paused;
+  }
+
+  @keyframes emr-marquee-row {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - var(--emr-marquee-gap)));
+    }
+  }
+
+  @keyframes emr-marquee-column {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(-100% - var(--emr-marquee-gap)));
+    }
+  }
+}
+

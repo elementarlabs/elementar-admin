@@ -267,6 +267,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/image-viewer/image-viewer.module').then(m => m.ImageViewerModule)
       },
       {
+        path: 'components/marquee',
+        loadChildren: () => import('./components/marquee/marquee.module').then(m => m.MarqueeModule)
+      },
+      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },

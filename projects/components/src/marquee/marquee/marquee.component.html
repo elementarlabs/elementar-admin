@@ -1,0 +1,33 @@
+<div
+  class="container"
+  [class.direction-row]="!vertical"
+  [class.direction-column]="vertical"
+  [ngStyle]="style"
+  [ngClass]="styleClass"
+  #container>
+<!--  <div class="emr-marquee-invisible">-->
+<!--    <ng-content/>-->
+<!--  </div>-->
+  <div class="emr-marquee-content" [class.outOfView]="!isInView">
+    <div class="emr-marquee-item-wrapper">
+      @for (content of marqueeElements; track $index) {
+        <div class="emr-marquee-item" [innerHTML]="content"></div>
+      }
+    </div>
+    <div class="emr-marquee-item-wrapper">
+      @for (content of marqueeElements; track $index) {
+        <div class="emr-marquee-item" [innerHTML]="content"></div>
+      }
+    </div>
+    <div class="emr-marquee-item-wrapper">
+      @for (content of marqueeElements; track $index) {
+        <div class="emr-marquee-item" [innerHTML]="content"></div>
+      }
+    </div>
+    <div class="emr-marquee-item-wrapper">
+      @for (content of marqueeElements; track $index) {
+        <div class="emr-marquee-item" [innerHTML]="content"></div>
+      }
+    </div>
+  </div>
+</div>

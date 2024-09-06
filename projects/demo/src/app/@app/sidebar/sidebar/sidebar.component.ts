@@ -498,6 +498,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Marquee',
+          link: '/pages/components/marquee'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Sidebar',
           link: '/pages/components/sidebar'
         },
