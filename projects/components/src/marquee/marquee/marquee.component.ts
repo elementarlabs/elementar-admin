@@ -11,7 +11,7 @@ import {
   SimpleChanges,
   OnDestroy, OnInit
 } from '@angular/core';
-import { isPlatformServer, NgStyle } from '@angular/common';
+import { isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'emr-marquee',
@@ -22,9 +22,7 @@ import { isPlatformServer, NgStyle } from '@angular/common';
   templateUrl: './marquee.component.html',
   styleUrl: './marquee.component.scss',
   host: {
-    'class': 'emr-marquee',
-    '[class.direction-row]': '!vertical()',
-    '[class.direction-column]': 'vertical()'
+    'class': 'emr-marquee'
   }
 })
 export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy {
@@ -32,12 +30,7 @@ export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy 
   private _platformId = inject(PLATFORM_ID);
   private _intersectionObserver?: IntersectionObserver;
 
-  contentRef = viewChild.required<ElementRef<HTMLElement>>('contentRef');
   reverse = input(false, {
-    transform: booleanAttribute
-  });
-  animationDuration = input<string>();
-  vertical = input(false, {
     transform: booleanAttribute
   });
   pauseOnHover = input(false, {
@@ -51,10 +44,6 @@ export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['animationDuration'] && changes['animationDuration'].currentValue) {
-      this.nativeElement.style.setProperty('--emr-marquee-animation-duration', changes['animationDuration'].currentValue);
-    }
-
     if (changes['reverse']) {
       this.nativeElement.style.setProperty('--emr-marquee-reverse', changes['reverse'].currentValue ? 'reverse' : '');
     }

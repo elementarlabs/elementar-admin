@@ -6,28 +6,6 @@
 
   @apply block w-full;
 
-  &.direction-row {
-    .content {
-      flex-direction: row;
-
-      .item {
-        flex-direction: row;
-        animation: emr-marquee-row var(--emr-marquee-animation-duration) infinite linear var(--emr-marquee-reverse);
-      }
-    }
-  }
-
-  &.direction-column {
-    .content {
-      flex-direction: column;
-
-      .item {
-        flex-direction: column;
-        animation: emr-marquee-column var(--emr-marquee-animation-duration) infinite linear var(--emr-marquee-reverse);
-      }
-    }
-  }
-
   .content {
     width: 100%;
     height: 100%;
@@ -35,6 +13,12 @@
     gap: var(--emr-marquee-gap);
     overflow: hidden;
     padding: 0.5rem;
+    flex-direction: row;
+
+    .item {
+      flex-direction: row;
+      animation: emr-marquee-animation var(--emr-marquee-animation-duration) infinite linear var(--emr-marquee-reverse);
+    }
 
     .item {
       display: flex;
@@ -59,21 +43,12 @@
     @apply w-0 h-0 hidden pointer-events-none;
   }
 
-  @keyframes emr-marquee-row {
+  @keyframes emr-marquee-animation {
     0% {
       transform: translateX(0);
     }
     100% {
       transform: translateX(calc(-100% - var(--emr-marquee-gap)));
-    }
-  }
-
-  @keyframes emr-marquee-column {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(calc(-100% - var(--emr-marquee-gap)));
     }
   }
 }

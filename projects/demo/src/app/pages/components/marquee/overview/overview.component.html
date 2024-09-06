@@ -3,19 +3,15 @@
     <h1>Marquee</h1>
 
     <p>
-      The <code>&#64;elementar/components/marquee</code> library is an Angular package that delivers a versatile
-      marquee component, allowing for customizable scrolling content either horizontally or vertically.
-      It offers various configuration options, including
-      animation speed, direction (horizontal or vertical), reverse scrolling, gap size, and the ability to pause on hover.
+      The <code>&#64;elementar/components/marquee</code> is an Angular marquee library that delivers a versatile
+      marquee component with various configuration options, including
+      animation speed, reverse scrolling, gap size, and the ability to pause on hover.
     </p>
 
     <h2>Features</h2>
     <ul>
       <li>
-        A scrolling marquee with customizable options for both horizontal and vertical movement.
-      </li>
-      <li>
-        Includes options to control animation speed, direction, and reverse scrolling.
+        Includes options to control animation speed and reverse scrolling.
       </li>
       <li>
         Allows the marquee to pause when hovered.
@@ -39,5 +35,44 @@
     <emr-playground exampleUrl="_docs/components/marquee/_examples" exampleName="marquee-pause-on-hover-example">
       <app-marquee-pause-on-hover-example/>
     </emr-playground>
+
+    <h2>API Reference</h2>
+    <p>
+      <code>emr-marquee</code> -
+      the root component of the marquee component. This component contains a text of the marquee.
+    </p>
+    <div class="border dark:border-inverse rounded-xl shadow-sm overflow-hidden">
+      <table class="emr-table not-prose">
+        <thead>
+        <tr class="bg-neutral-200 dark:bg-neutral-700">
+          <th>Prop</th>
+          <th>Type</th>
+          <th>Default</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <div>reverse</div>
+            <div class="text-xs text-neutral-500 mt-0.5">
+              Flip the running line text to the other side.
+            </div>
+          </td>
+          <td>boolean</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>
+            <div>pauseOnHover</div>
+            <div class="text-xs text-neutral-500 mt-0.5">
+              The running line stops when you hover over it.
+            </div>
+          </td>
+          <td>boolean</td>
+          <td>false</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </app-page>
