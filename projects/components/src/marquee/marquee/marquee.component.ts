@@ -3,29 +3,36 @@ import {
   ElementRef,
   input,
   viewChild,
-  AfterContentInit, inject, PLATFORM_ID, booleanAttribute, OnChanges, SimpleChanges, OnDestroy
+  AfterContentInit,
+  inject,
+  PLATFORM_ID,
+  booleanAttribute,
+  OnChanges,
+  SimpleChanges,
+  OnDestroy, OnInit
 } from '@angular/core';
-import { isPlatformServer, NgClass, NgStyle } from '@angular/common';
+import { isPlatformServer, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'emr-marquee',
   exportAs: 'emrMarquee',
   standalone: true,
   imports: [
-    NgStyle,
-    NgClass
   ],
   templateUrl: './marquee.component.html',
   styleUrl: './marquee.component.scss',
   host: {
-    'class': 'emr-marquee'
+    'class': 'emr-marquee',
+    '[class.direction-row]': '!vertical()',
+    '[class.direction-column]': 'vertical()'
   }
 })
 export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy {
+  private _elementRef = inject(ElementRef);
   private _platformId = inject(PLATFORM_ID);
   private _intersectionObserver?: IntersectionObserver;
 
-  containerRef = viewChild.required<ElementRef<HTMLElement>>('container');
+  contentRef = viewChild.required<ElementRef<HTMLElement>>('contentRef');
   reverse = input(false, {
     transform: booleanAttribute
   });
@@ -37,21 +44,23 @@ export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy 
     transform: booleanAttribute
   });
 
-  protected style: any = {
-  };
   protected isInView = false;
 
+  protected get nativeElement(): HTMLElement {
+    return this._elementRef.nativeElement;
+  }
+
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['animationDuration']) {
-      this.style['--emr-marquee-animation-duration'] = changes['animationDuration'].currentValue;
+    if (changes['animationDuration'] && changes['animationDuration'].currentValue) {
+      this.nativeElement.style.setProperty('--emr-marquee-animation-duration', changes['animationDuration'].currentValue);
     }
 
     if (changes['reverse']) {
-      this.style['--emr-marquee-reverse'] = changes['reverse'].currentValue ? 'reverse' : '';
+      this.nativeElement.style.setProperty('--emr-marquee-reverse', changes['reverse'].currentValue ? 'reverse' : '');
     }
 
     if (changes['pauseOnHover']) {
-      this.style['--emr-marquee-pause'] = changes['pauseOnHover'].currentValue ? 'paused' : 'running';
+      this.nativeElement.style.setProperty('--emr-marquee-pause', changes['pauseOnHover'].currentValue ? 'paused' : 'running');
     }
   }
 
@@ -69,7 +78,7 @@ export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy 
         this.isInView = false;
       }
     });
-    this._intersectionObserver.observe(this.containerRef().nativeElement);
+    this._intersectionObserver.observe(this.nativeElement);
   }
 
   ngOnDestroy(): void {

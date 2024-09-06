@@ -1,14 +1,9 @@
-<div class="container"
-    [class.direction-row]="!vertical()"
-    [class.direction-column]="vertical()"
-    [ngStyle]="style" #container>
-  <div #contentRef class="invisible">
-    <ng-content/>
-  </div>
-  <div class="content" [class.out-of-view]="!isInView">
-    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
-    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
-    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
-    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
-  </div>
+<div #contentRef class="invisible">
+  <ng-content/>
+</div>
+<div class="content" [class.out-of-view]="!isInView">
+  <div class="item" [innerHTML]="contentRef.innerHTML"></div>
+  <div class="item" [innerHTML]="contentRef.innerHTML"></div>
+  <div class="item" [innerHTML]="contentRef.innerHTML"></div>
+  <div class="item" [innerHTML]="contentRef.innerHTML"></div>
 </div>
