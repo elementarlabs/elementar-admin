@@ -1,33 +1,14 @@
-<div
-  class="container"
-  [class.direction-row]="!vertical"
-  [class.direction-column]="vertical"
-  [ngStyle]="style"
-  [ngClass]="styleClass"
-  #container>
-<!--  <div class="emr-marquee-invisible">-->
-<!--    <ng-content/>-->
-<!--  </div>-->
-  <div class="emr-marquee-content" [class.outOfView]="!isInView">
-    <div class="emr-marquee-item-wrapper">
-      @for (content of marqueeElements; track $index) {
-        <div class="emr-marquee-item" [innerHTML]="content"></div>
-      }
-    </div>
-    <div class="emr-marquee-item-wrapper">
-      @for (content of marqueeElements; track $index) {
-        <div class="emr-marquee-item" [innerHTML]="content"></div>
-      }
-    </div>
-    <div class="emr-marquee-item-wrapper">
-      @for (content of marqueeElements; track $index) {
-        <div class="emr-marquee-item" [innerHTML]="content"></div>
-      }
-    </div>
-    <div class="emr-marquee-item-wrapper">
-      @for (content of marqueeElements; track $index) {
-        <div class="emr-marquee-item" [innerHTML]="content"></div>
-      }
-    </div>
+<div class="container"
+    [class.direction-row]="!vertical()"
+    [class.direction-column]="vertical()"
+    [ngStyle]="style" #container>
+  <div #contentRef class="invisible">
+    <ng-content/>
+  </div>
+  <div class="content" [class.out-of-view]="!isInView">
+    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
+    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
+    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
+    <div class="item-wrapper" [innerHTML]="contentRef.innerHTML"></div>
   </div>
 </div>

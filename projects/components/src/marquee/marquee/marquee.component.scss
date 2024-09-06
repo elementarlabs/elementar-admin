@@ -2,67 +2,65 @@
   --emr-marquee-animation-duration: 20s;
   --emr-marquee-gap: 1rem;
   --emr-marquee-reverse: ;
-  --emr-marquee-pause: paused;
+  --emr-marquee-pause: running;
 
   @apply block w-full;
 
   .container {
-    width: 100%;
-    height: 100%;
+    @apply w-full h-full;
 
     &.direction-row {
-      .emr-marquee-content {
+      .content {
         flex-direction: row;
 
-        .emr-marquee-item-wrapper {
+        .item-wrapper {
           flex-direction: row;
-          animation: emr-marquee-row var(--emr-marquee-animation-duration) infinite
-          linear var(--emr-marquee-reverse);
+          animation: emr-marquee-row var(--emr-marquee-animation-duration) infinite linear var(--emr-marquee-reverse);
         }
       }
     }
 
     &.direction-column {
-      .emr-marquee-content {
+      .content {
         flex-direction: column;
 
-        .emr-marquee-item-wrapper {
+        .item-wrapper {
           flex-direction: column;
-          animation: emr-marquee-column var(--emr-marquee-animation-duration)
-          infinite linear var(--emr-marquee-reverse);
+          animation: emr-marquee-column var(--emr-marquee-animation-duration) infinite linear var(--emr-marquee-reverse);
         }
+      }
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      gap: var(--emr-marquee-gap);
+      overflow: hidden;
+      padding: 0.5rem;
+
+      .item-wrapper {
+        display: flex;
+        gap: var(--emr-marquee-gap);
+        flex-shrink: 0;
+      }
+    }
+
+    .content:hover {
+      & > .item-wrapper {
+        animation-play-state: var(--emr-marquee-pause);
+      }
+    }
+
+    .content.out-of-view {
+      & > .item-wrapper {
+        animation-play-state: paused;
       }
     }
   }
 
-  .emr-marquee-invisible {
-    width: 0;
-    height: 0;
-    display: none;
-    pointer-events: none;
-  }
-
-  .emr-marquee-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: var(--emr-marquee-gap);
-    overflow: hidden;
-    padding: 0.5rem;
-
-    .emr-marquee-item-wrapper {
-      display: flex;
-      gap: var(--emr-marquee-gap);
-      flex-shrink: 0;
-    }
-  }
-
-  .emr-marquee-content:hover > .emr-marquee-item-wrapper {
-    animation-play-state: var(--emr-marquee-pause);
-  }
-
-  .emr-marquee-content.outOfView > .emr-marquee-item-wrapper {
-    animation-play-state: paused;
+  .invisible {
+    @apply w-0 h-0 hidden pointer-events-none;
   }
 
   @keyframes emr-marquee-row {
@@ -83,4 +81,3 @@
     }
   }
 }
-

@@ -1,79 +1,58 @@
 import {
   Component,
-  ContentChildren,
   ElementRef,
-  Input,
-  QueryList,
   input,
   viewChild,
-  AfterViewInit, AfterContentInit, inject, PLATFORM_ID
+  AfterContentInit, inject, PLATFORM_ID, booleanAttribute, OnChanges, SimpleChanges, OnDestroy
 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Subject, takeUntil } from 'rxjs';
-import { MarqueeItemDirective } from '@elementar/components/marquee/marquee-item.directive';
 import { isPlatformServer, NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'emr-marquee',
+  exportAs: 'emrMarquee',
   standalone: true,
   imports: [
     NgStyle,
     NgClass
   ],
   templateUrl: './marquee.component.html',
-  styleUrl: './marquee.component.scss'
+  styleUrl: './marquee.component.scss',
+  host: {
+    'class': 'emr-marquee'
+  }
 })
-export class MarqueeComponent implements AfterContentInit {
+export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy {
   private _platformId = inject(PLATFORM_ID);
+  private _intersectionObserver?: IntersectionObserver;
 
   containerRef = viewChild.required<ElementRef<HTMLElement>>('container');
+  reverse = input(false, {
+    transform: booleanAttribute
+  });
+  animationDuration = input<string>();
+  vertical = input(false, {
+    transform: booleanAttribute
+  });
+  pauseOnHover = input(false, {
+    transform: booleanAttribute
+  });
 
-  @ContentChildren(MarqueeItemDirective)
-  elementRefs?: QueryList<ElementRef<HTMLElement>>;
+  protected style: any = {
+  };
+  protected isInView = false;
 
-  styleClass = input();
-
-  @Input("reverse")
-  set reverse(reverse: boolean) {
-    if (reverse) {
-      this.style["--emr-marquee-reverse"] = "reverse";
-      return;
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['animationDuration']) {
+      this.style['--emr-marquee-animation-duration'] = changes['animationDuration'].currentValue;
     }
 
-    this.style["--emr-marquee-reverse"] = "";
-  }
-
-  @Input("animationDuration")
-  set animationDuration(animationDuration: string) {
-    this.style["--emr-marquee-animation-duration"] = animationDuration;
-  }
-
-  @Input("marqueeGap")
-  set marqueeGap(marqueeGap: string) {
-    this.style["--emr-marquee-gap"] = marqueeGap;
-  }
-
-  @Input("pauseOnHover")
-  set pauseOnHover(pauseOnHover: boolean) {
-    if (pauseOnHover) {
-      this.style["--emr-marquee-pause"] = "paused";
-      return;
+    if (changes['reverse']) {
+      this.style['--emr-marquee-reverse'] = changes['reverse'].currentValue ? 'reverse' : '';
     }
 
-    this.style["--emr-marquee-pause"] = "running";
-  }
-
-  @Input("vertical")
-  vertical = false;
-
-  style: any = {};
-
-  marqueeElements: SafeHtml[] = [];
-
-  isInView = false;
-  private intersectionObserver?: IntersectionObserver;
-
-  constructor(private readonly sanitizer: DomSanitizer) {
+    if (changes['pauseOnHover']) {
+      this.style['--emr-marquee-pause'] = changes['pauseOnHover'].currentValue ? 'paused' : 'running';
+    }
   }
 
   ngAfterContentInit(): void {
@@ -81,13 +60,7 @@ export class MarqueeComponent implements AfterContentInit {
       return;
     }
 
-    this.getMarqueeContent();
-
-    this.elementRefs?.changes.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.getMarqueeContent();
-    });
-
-    this.intersectionObserver = new IntersectionObserver(([entry]) => {
+    this._intersectionObserver = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         if (!this.isInView) {
           this.isInView = true;
@@ -96,29 +69,12 @@ export class MarqueeComponent implements AfterContentInit {
         this.isInView = false;
       }
     });
-    this.intersectionObserver.observe(this.containerRef().nativeElement);
+    this._intersectionObserver.observe(this.containerRef().nativeElement);
   }
-
-  destroy$ = new Subject<void>();
 
   ngOnDestroy(): void {
-    if (this.intersectionObserver) {
-      this.intersectionObserver.disconnect();
+    if (this._intersectionObserver) {
+      this._intersectionObserver.disconnect();
     }
-
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  private getMarqueeContent(): void {
-    if (!this.elementRefs) {
-      return;
-    }
-
-    this.marqueeElements = this.elementRefs?.toArray().map((ref) => {
-      return this.sanitizer.bypassSecurityTrustHtml(
-        ref.nativeElement.outerHTML
-      );
-    });
   }
 }
