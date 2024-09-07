@@ -25,6 +25,6 @@ export class CommentEditorBubbleMenuComponent {
   protected commentEditor = inject<CommentEditor>(COMMENT_EDITOR);
 
   getLinkUrl(): string | null {
-    return (this.commentEditor.api.editor().getAttributes('link') as HTMLLinkElement).href || null;
+    return (this.commentEditor.api.editor()?.getAttributes('link') as HTMLLinkElement).href || null;
   }
 }

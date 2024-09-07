@@ -1,6 +1,6 @@
 import {
-  afterNextRender, booleanAttribute, ChangeDetectorRef,
-  Component, computed, DestroyRef,
+  booleanAttribute, ChangeDetectorRef,
+  Component,
   ElementRef, forwardRef,
   inject, Injector,
   input,
@@ -23,7 +23,6 @@ import ListItem from '@tiptap/extension-list-item';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
 import Youtube from '@tiptap/extension-youtube';
-// import FloatingMenu from '@tiptap/extension-floating-menu';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
 import Code from '@tiptap/extension-code';
 import History from '@tiptap/extension-history';
@@ -31,15 +30,11 @@ import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
-import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { EmrUploadModule } from '@elementar/components/upload';
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { MatTooltip } from '@angular/material/tooltip';
-import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/youtube.dialog';
 import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-editor/types';
 
 @Component({
@@ -72,15 +67,15 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   private _cdr = inject(ChangeDetectorRef);
   private _injector = inject(Injector);
   private _content = viewChild.required<ElementRef>('content');
-  // private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
   private _imageBubbleMenu = viewChild.required<ElementRef>('imageBubbleMenu');
   protected _value = '';
   protected editor: Editor;
-  protected setLinkActive = false;
   protected showToolbar = false;
   protected fullView = false;
 
+  buttonCancelLabel = input<string>('Cancel');
+  buttonSendLabel = input<string>('Send');
   placeholder = input('Write something …');
   toolbarAlwaysVisible = input(false, {
     transform: booleanAttribute
@@ -91,22 +86,17 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   imageUploadFn = input<(file: Blob) => Promise<string>>();
 
   readonly sent = output<string>();
+  readonly canceled = output<void>();
 
   get api(): CommentEditorAPI {
     return {
       isCommandDisabled: (command: string) => this.isCommandDisabled(command),
-      isActive: (command: string) => this.editor.isActive(command),
+      isActive: (command: string) => this.editor?.isActive(command),
       runCommand: (command: string) => this._runCommand(command),
       editor: () => this.editor,
       isToolbarActive: () => this.showToolbar,
       toggleToolbar: () => this.toggleToolbar()
     }
-  }
-
-  constructor() {
-    afterNextRender(() => {
-      // this._init();
-    });
   }
 
   ngOnInit() {
@@ -118,6 +108,10 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   }
 
   isCommandDisabled(command: string): boolean | null {
+    if (!this.editor) {
+      return true;
+    }
+
     const canFocus = this.editor.can().chain().focus() as any;
     return !canFocus[command]().run() || null;
   }
@@ -155,9 +149,14 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
     this.fullView = false;
     this._value = '';
     this.editor.commands.clearContent(true);
+    this.canceled.emit();
   }
 
   private _runCommand(command: string): void {
+    if (!this.editor) {
+      return;
+    }
+
     const chainFocus = this.editor.chain().focus() as any;
     chainFocus[command]().run();
   }

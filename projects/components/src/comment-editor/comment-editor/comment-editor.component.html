@@ -12,10 +12,10 @@
   </div>
   <div class="flex items-center gap-2">
     @if (fullView && !fullViewMode()) {
-      <button mat-button (click)="cancel($event)">Cancel</button>
+      <button mat-button (click)="cancel($event)">{{ buttonCancelLabel() }}</button>
     }
 
-    <button mat-flat-button [disabled]="!_value || null" (click)="send($event)">Send</button>
+    <button mat-flat-button [disabled]="!_value || null" (click)="send($event)">{{ buttonSendLabel() }}</button>
   </div>
 </div>
 <div #imageBubbleMenu class="emr-comment-editor-bubble-menu">
