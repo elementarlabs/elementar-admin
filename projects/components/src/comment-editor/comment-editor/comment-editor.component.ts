@@ -83,6 +83,9 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   fullViewMode = input(false, {
     transform: booleanAttribute
   });
+  cancelButtonAlwaysVisible = input(false, {
+    transform: booleanAttribute
+  });
   imageUploadFn = input<(file: Blob) => Promise<string>>();
 
   readonly sent = output<string>();

@@ -20,6 +20,12 @@ import {
 import {
   CommentEditorWithCustomIconsExampleComponent
 } from '../_examples/comment-editor-with-custom-icons-example/comment-editor-with-custom-icons-example.component';
+import {
+  CommentEditorCancelButtonAlwaysVisibleExampleComponent
+} from '../_examples/comment-editor-cancel-button-always-visible-example/comment-editor-cancel-button-always-visible-example.component';
+import {
+  CommentEditorCustomButtonLabelsExampleComponent
+} from '../_examples/comment-editor-custom-button-labels-example/comment-editor-custom-button-labels-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -33,7 +39,9 @@ import {
     CommentEditorWithToolbarExampleComponent,
     CommentEditorWithFullViewModeExampleComponent,
     CommentEditorWithUploadErrorExampleComponent,
-    CommentEditorWithCustomIconsExampleComponent
+    CommentEditorWithCustomIconsExampleComponent,
+    CommentEditorCancelButtonAlwaysVisibleExampleComponent,
+    CommentEditorCustomButtonLabelsExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
