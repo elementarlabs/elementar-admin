@@ -1,4 +1,4 @@
-<emr-comment-editor [imageUploadFn]="uploadFn" (sent)="onSent($event)"
+<emr-comment-editor #editor [imageUploadFn]="uploadFn" (sent)="onSent($event)"
                     class="rounded-2xl border dark:border-inverse">
   <emr-comment-editor-toolbar>
     <button mat-icon-button matTooltip="Bold"
@@ -64,10 +64,12 @@
     </button>
   </emr-comment-editor-bubble-menu>
   <emr-comment-editor-footer-bar>
-    <button mat-icon-button matTooltip="Toggle Toolbar"
-            emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
-      <emr-icon name="ph:browser"></emr-icon>
-    </button>
+    @if (editor.api.isEditorActivated()) {
+      <button mat-icon-button matTooltip="Toggle Toolbar"
+              emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
+        <emr-icon name="ph:browser"></emr-icon>
+      </button>
+    }
   </emr-comment-editor-footer-bar>
 </emr-comment-editor>
 

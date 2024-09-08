@@ -1,4 +1,4 @@
-<emr-comment-editor buttonCancelLabel="Close" buttonSendLabel="Reply"
+<emr-comment-editor #editor buttonCancelLabel="Close" buttonSendLabel="Reply"
                     cancelButtonAlwaysVisible
                     [imageUploadFn]="uploadFn" (sent)="onSent($event)"
                     class="rounded-2xl border dark:border-inverse">
@@ -66,10 +66,12 @@
     </button>
   </emr-comment-editor-bubble-menu>
   <emr-comment-editor-footer-bar>
-    <button mat-icon-button matTooltip="Toggle Toolbar"
-            emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
-      <mat-icon>title</mat-icon>
-    </button>
+    @if (editor.api.isEditorActivated()) {
+      <button mat-icon-button matTooltip="Toggle Toolbar"
+              emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
+        <mat-icon>title</mat-icon>
+      </button>
+    }
   </emr-comment-editor-footer-bar>
 </emr-comment-editor>
 

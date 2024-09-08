@@ -6,9 +6,7 @@
 <div #content class="content prose dark:prose-invert max-w-full"></div>
 <div class="footer">
   <div class="flex items-center gap-0.5">
-    @if (isToolbarVisible()) {
-      <ng-content select="emr-comment-editor-footer-bar"/>
-    }
+    <ng-content select="emr-comment-editor-footer-bar"/>
   </div>
   <div class="flex items-center gap-2">
     @if ((fullView && !fullViewMode()) || cancelButtonAlwaysVisible()) {

@@ -12,6 +12,7 @@ export interface CommentEditorAPI {
   editor: () => Editor;
   isToolbarActive: () => boolean;
   toggleToolbar: () => void;
+  isEditorActivated: () => boolean;
 }
 
 export const COMMENT_EDITOR = new InjectionToken('COMMENT_EDITOR');

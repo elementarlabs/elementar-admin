@@ -98,16 +98,13 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
       runCommand: (command: string) => this._runCommand(command),
       editor: () => this.editor,
       isToolbarActive: () => this.showToolbar,
-      toggleToolbar: () => this.toggleToolbar()
+      toggleToolbar: () => this.toggleToolbar(),
+      isEditorActivated: () => this.fullView || this.fullViewMode()
     }
   }
 
   ngOnInit() {
     this._init();
-  }
-
-  isToolbarVisible(): boolean {
-    return this.fullView && !this.toolbarAlwaysVisible() && !this.fullViewMode();
   }
 
   isCommandDisabled(command: string): boolean | null {
