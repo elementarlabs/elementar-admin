@@ -11,8 +11,8 @@ import {
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
-  SegmentedSimpleThemeExampleComponent
-} from '../_examples/segmented-simple-theme-example/segmented-simple-theme-example.component';
+  SegmentedIconsOnlyExampleComponent
+} from '../_examples/segmented-icons-only-example/segmented-icons-only-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -25,7 +25,7 @@ import {
     SegmentedWithIconsExampleComponent,
     PageComponent,
     PageContentDirective,
-    SegmentedSimpleThemeExampleComponent
+    SegmentedIconsOnlyExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -12,7 +12,7 @@ import {
   DataViewRowSelectionEvent
 } from '@elementar/components/data-view';
 import { VDividerComponent } from '@elementar/components/divider';
-import { EmrSegmentedModule } from '@elementar/components/segmented';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
 
 export interface User {
   id: string;
@@ -38,11 +38,12 @@ export interface Post {
     DataViewComponent,
     MatPaginator,
     FormsModule,
-    EmrSegmentedModule,
     MatButton,
     MatIcon,
     VDividerComponent,
-    MatIconButton
+    MatIconButton,
+    SegmentedButtonComponent,
+    SegmentedComponent
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'

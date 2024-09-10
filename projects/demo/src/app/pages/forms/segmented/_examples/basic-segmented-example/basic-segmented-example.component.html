@@ -1,5 +1,7 @@
-<emr-segmented selectedValue="weekly">
+<emr-segmented [(ngModel)]="period">
   <emr-segmented-button value="daily">Daily</emr-segmented-button>
   <emr-segmented-button value="weekly">Weekly</emr-segmented-button>
   <emr-segmented-button value="monthly">Monthly</emr-segmented-button>
 </emr-segmented>
+
+<div class="mt-6">Selected value: {{ period }}</div>

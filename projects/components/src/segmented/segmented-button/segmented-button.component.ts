@@ -1,11 +1,18 @@
-import { booleanAttribute, ChangeDetectionStrategy, Component, HostListener, inject, Input } from '@angular/core';
-import { ULT_SEGMENTED } from '../types';
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input
+} from '@angular/core';
+import { EMR_SEGMENTED } from '../types';
 import { SegmentedComponent } from '../segmented/segmented.component';
 import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'emr-segmented-button,[emr-segmented-button]',
   exportAs: 'emrSegmentedButton',
+  standalone: true,
   templateUrl: './segmented-button.component.html',
   styleUrl: './segmented-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,21 +21,25 @@ import { MatRipple } from '@angular/material/core';
   ],
   host: {
     'class': 'emr-segmented-button',
+    '[class.icon-only]': 'iconOnly()',
     '[class.is-selected]': '_isSelected',
-    '[class.is-disabled]': 'disabled'
+    '[class.is-disabled]': 'disabled() || null',
+    '(click)': '_handleClick()',
   }
 })
 export class SegmentedButtonComponent {
-  protected _segmented = inject<SegmentedComponent>(ULT_SEGMENTED, { skipSelf: true });
+  private _segmented = inject<SegmentedComponent>(EMR_SEGMENTED, { skipSelf: true });
 
-  @Input({ required: true })
-  value: any;
-
-  @Input({ transform: booleanAttribute })
-  disabled = false;
+  value: any = input.required<any>();
+  disabled = input(false, {
+    transform: booleanAttribute
+  });
+  iconOnly = input(false, {
+    transform: booleanAttribute
+  });
 
   get _isSelected(): boolean {
-    return this._segmented.api.isSelected(this.value);
+    return this._segmented.api.isSelected(this.value());
   }
 
   get api() {
@@ -37,8 +48,7 @@ export class SegmentedButtonComponent {
     }
   }
 
-  @HostListener('click')
-  private _handleClick() {
-    this._segmented.api.select(this.value);
+  protected _handleClick() {
+    this._segmented.api.select(this.value());
   }
 }

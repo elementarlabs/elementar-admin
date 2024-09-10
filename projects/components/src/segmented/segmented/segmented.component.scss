@@ -1,10 +1,44 @@
 :host {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  background: var(--emr-segmented-bg);
-  padding: var(--emr-segmented-padding);
-  border-radius: var(--emr-segmented-border-radius);
-  gap: var(--emr-segmented-gap);
-  user-select: none;
+  --emr-segmented-button-height: calc(theme('height.9'));
+  --emr-segmented-bg: theme('colors.neutral.200');
+  --emr-segmented-button-hover-bg: transparent;
+  --emr-segmented-button-color: theme('colors.neutral.700');
+  --emr-segmented-button-hover-color: theme('colors.primary.650');
+  --emr-segmented-button-selected-color: theme('colors.primary.650');
+  --emr-segmented-button-selected-bg: theme('colors.white');
+  --emr-segmented-button-selected-shadow: theme('boxShadow.sm');
+  --emr-segmented-padding: theme('padding.1');
+  --emr-segmented-border-radius: theme('borderRadius.lg');
+  --emr-segmented-button-border-radius: theme('borderRadius.lg');
+  --emr-segmented-button-padding: 0 theme('padding.3');
+  --emr-segmented-button-min-width: theme('width.12');
+  --emr-segmented-button-font-size: theme('fontSize.tiny');
+  --emr-segmented-gap: theme('gap.1');
+  --emr-segmented-button-gap: theme('gap.1');
+  --emr-segmented-button-icon-offset-margin: -6px;
+
+  &[emr-segmented-size="sm"] {
+    --emr-segmented-button-height: calc(theme('height.10') - theme('padding.2'));
+    --emr-segmented-button-font-size: theme('fontSize.xs');
+    --emr-segmented-button-padding: 0 theme('padding.2');
+    --emr-segmented-button-gap: theme('gap[0.5]');
+  }
+
+  &[emr-segmented-size="lg"] {
+    --emr-segmented-button-height: calc(theme('height.14') - theme('padding.2'));
+    --emr-segmented-button-font-size: theme('fontSize.sm');
+    --emr-segmented-button-padding: 0 theme('padding.4');
+    --emr-segmented-button-gap: theme('gap[1.5]');
+  }
+
+  @apply flex items-center w-max select-none;
+  @apply bg-[var(--emr-segmented-bg)] p-[var(--emr-segmented-padding)];
+  @apply rounded-[var(--emr-segmented-border-radius)] gap-[var(--emr-segmented-gap)];
+}
+
+:host-context(html.dark) {
+  --emr-segmented-bg: theme('colors.neutral.700');
+  --emr-segmented-button-color: theme('colors.neutral.300');
+  --emr-segmented-button-selected-bg: theme('colors.neutral.200');
+  --emr-segmented-button-hover-color: theme('colors.primary.300');
 }

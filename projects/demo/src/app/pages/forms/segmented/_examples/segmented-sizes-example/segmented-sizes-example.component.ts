@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { EmrSegmentedModule } from '@elementar/components/segmented';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
 
 @Component({
   selector: 'app-segmented-sizes-example',
   standalone: true,
   imports: [
-    EmrSegmentedModule
+    SegmentedComponent,
+    SegmentedButtonComponent
   ],
   templateUrl: './segmented-sizes-example.component.html',
   styleUrl: './segmented-sizes-example.component.scss'
