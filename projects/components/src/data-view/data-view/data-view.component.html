@@ -1,4 +1,5 @@
-<mat-table #table [dataSource]="dataSource()" matSort [matSortDisabled]="!withSorting()"
+<mat-table #table [dataSource]="dataSource()"
+           matSort [matSortDisabled]="!withSorting()"
            (matSortChange)="sortChange($event)" class="table">
   @if (withSelection()) {
     <ng-container matColumnDef="selection">
@@ -42,7 +43,7 @@
                   [style.--emr-data-view-cell-width]="columnDef.width">
           <div class="overflow-hidden w-full">
             @if (loadingCellRenderers || loading()) {
-              <emr-skeleton-line></emr-skeleton-line>
+              <emr-skeleton-line/>
             } @else {
               @if (columnDef.dataRenderer && hasCellRenderer(columnDef.dataRenderer)) {
                 <ng-container [ngComponentOutlet]="getCellRenderer(columnDef.dataRenderer)"
@@ -58,7 +59,16 @@
     }
   }
 
-  <mat-header-row *matHeaderRowDef="displayedColumns(); sticky: stickyHeader()"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns()"
-           [class.is-selected]="selection.isSelected(row)"></mat-row>
+  <ng-container matColumnDef="__actionBar">
+    <mat-header-cell *matHeaderCellDef class="header-cell-action-bar"/>
+    <mat-cell *matCellDef="let element" class="cell-action-bar">
+      @if (actionBarTemplateRef) {
+        <ng-container [ngTemplateOutlet]="actionBarTemplateRef" [ngTemplateOutletContext]="{ $implicit: element }"/>
+      }
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns(); sticky: stickyHeader()"/>
+  <mat-row *matRowDef="let row; columns: displayedColumns()" class="data-view-row"
+           [class.is-selected]="selection.isSelected(row)"/>
 </mat-table>

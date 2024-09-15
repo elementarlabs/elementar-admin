@@ -24,3 +24,7 @@ export interface DataViewCellRendererComponent {
   columnDef: any;
   fieldData: any;
 }
+
+export interface DataViewActionBarAPI {
+  setForceVisible: (visible: boolean) => void;
+}

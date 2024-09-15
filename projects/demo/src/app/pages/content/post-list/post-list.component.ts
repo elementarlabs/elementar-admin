@@ -6,6 +6,7 @@ import { MatIcon } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
 import { EmrPanelModule } from '@elementar/components/panel';
 import {
+  DataViewActionBarComponent, DataViewActionBarDirective,
   DataViewCellRenderer,
   DataViewColumnDef,
   DataViewComponent,
@@ -13,6 +14,7 @@ import {
 } from '@elementar/components/data-view';
 import { VDividerComponent } from '@elementar/components/divider';
 import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 export interface User {
   id: string;
@@ -43,7 +45,12 @@ export interface Post {
     VDividerComponent,
     MatIconButton,
     SegmentedButtonComponent,
-    SegmentedComponent
+    SegmentedComponent,
+    DataViewActionBarComponent,
+    DataViewActionBarDirective,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'

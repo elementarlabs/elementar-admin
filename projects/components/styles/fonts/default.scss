@@ -11,7 +11,8 @@
 
 // internal angular material icon font
 .material-icons {
-  font-family: 'Material Symbols Outlined';
+  word-wrap: normal;
+  font-family: 'Material Symbols Outlined', serif;
   font-size: 24px;
   line-height: 1;
 }

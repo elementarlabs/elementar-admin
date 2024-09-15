@@ -2,11 +2,11 @@ import {
   booleanAttribute,
   ChangeDetectorRef,
   Component,
-  computed,
+  computed, contentChild,
   inject, Injector,
   input,
   OnInit,
-  output,
+  output, TemplateRef,
   viewChild
 } from '@angular/core';
 import {
@@ -27,7 +27,10 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 import { EmrSkeletonModule } from '../../skeleton';
-import { NgComponentOutlet } from '@angular/common';
+import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
+import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'emr-data-view',
@@ -48,19 +51,24 @@ import { NgComponentOutlet } from '@angular/common';
     MatSort,
     MatSortHeader,
     EmrSkeletonModule,
-    NgComponentOutlet
+    NgComponentOutlet,
+    NgTemplateOutlet,
+    MatIcon,
+    MatIconButton
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
   host: {
     'class': 'emr-data-view',
-    '[class.highlight-header]': 'highlightHeader()'
+    '[class.highlight-header]': 'highlightHeader()',
+    '[class.hover-rows]': 'hoverRows()',
   }
 })
 export class DataViewComponent<T> implements OnInit {
   private _cdr = inject(ChangeDetectorRef);
   private _matTable = viewChild<MatTable<T>>('table');
   private _matSort = viewChild<MatSort>(MatSort);
+  protected _actionBarRef = contentChild<DataViewActionBarDirective>(DataViewActionBarDirective);
 
   paginator = input<MatPaginator>();
   columnDefs = input<DataViewColumnDef[]>([]);
@@ -77,6 +85,9 @@ export class DataViewComponent<T> implements OnInit {
   stickyHeader = input(false, {
     transform: booleanAttribute
   });
+  hoverRows = input(false, {
+    transform: booleanAttribute
+  });
   displayedColumns = computed((): string[] => {
     const displayedColumns = this
       .columnDefs()
@@ -88,7 +99,7 @@ export class DataViewComponent<T> implements OnInit {
       displayedColumns.unshift('selection');
     }
 
-    return displayedColumns;
+    return [...displayedColumns, '__actionBar'];
   });
   dataSource = computed((): MatTableDataSource<T> => {
     const dataSource = new MatTableDataSource<T>(this.data());
@@ -117,6 +128,10 @@ export class DataViewComponent<T> implements OnInit {
   readonly selectionChanged = output<T[]>();
   readonly allRowsSelectionChanged = output<boolean>();
   readonly sortChanged = output<Sort>();
+
+  get actionBarTemplateRef(): TemplateRef<any> | undefined {
+    return this._actionBarRef()?.templateRef;
+  }
 
   ngOnInit() {
     if (this.cellRenderers().length === 0) {

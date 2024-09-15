@@ -5,6 +5,10 @@
 
   .mat-mdc-cell {
     @apply bg-[var(--emr-data-view-row-bg)];
+
+    &.cell-action-bar {
+      background: linear-gradient(to left, var(--emr-data-view-row-bg) 90%, transparent);
+    }
   }
 
   .emr-skeleton-block {
@@ -30,8 +34,28 @@
   }
 
   .mdc-data-table__row {
+    @apply relative;
+
     &.is-selected {
       border-color: var(--emr-data-view-selected-border-color) !important;
+    }
+  }
+
+  &.hover-rows {
+    .data-view-row {
+      &:hover {
+        .mat-mdc-cell {
+          --emr-data-view-row-bg: var(--emr-data-view-row-hover-bg);
+        }
+      }
+    }
+  }
+
+  .data-view-row {
+    &:hover {
+      .cell-action-bar {
+        @apply opacity-100 z-[1];
+      }
     }
   }
 
@@ -40,6 +64,15 @@
     .cell {
       min-width: var(--emr-data-view-cell-width, auto);
       max-width: var(--emr-data-view-cell-width, auto);
+    }
+
+    .header-cell-action-bar,
+    .cell-action-bar {
+      @apply absolute top-0 bottom-0 end-0 p-0;
+
+      &:not(:has(.force-visible)) {
+        @apply opacity-0 -z-50;
+      }
     }
   }
 

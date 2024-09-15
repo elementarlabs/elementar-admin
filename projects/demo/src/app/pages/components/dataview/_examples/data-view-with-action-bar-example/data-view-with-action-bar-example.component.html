@@ -1,0 +1,20 @@
+<emr-data-view hoverRows [columnDefs]="columnDefs" [data]="data">
+  <emr-data-view-action-bar #dataViewActionBar="emrDataViewActionBar" *emrDataViewActionBar="let row">
+    <button mat-stroked-button (click)="share(row)">Share</button>
+    <button mat-icon-button [matMenuTriggerFor]="menu"
+            (menuOpened)="dataViewActionBar.api.setForceVisible(true)"
+            (menuClosed)="dataViewActionBar.api.setForceVisible(false)">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </emr-data-view-action-bar>
+</emr-data-view>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item>
+    <mat-icon>share</mat-icon>
+    <span>Share</span>
+  </a>
+  <a mat-menu-item>
+    <mat-icon>delete</mat-icon>
+    <span>Delete</span>
+  </a>
+</mat-menu>

@@ -24,6 +24,9 @@ import {
 import {
   DataViewCustomCellRenderersExampleComponent
 } from '../_examples/data-view-custom-cell-renderers-example/data-view-custom-cell-renderers-example.component';
+import {
+  DataViewWithActionBarExampleComponent
+} from '../_examples/data-view-with-action-bar-example/data-view-with-action-bar-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -39,7 +42,8 @@ import {
     DataViewWithPaginationExampleComponent,
     DataViewWithSortingExampleComponent,
     DataViewHlHeaderExampleComponent,
-    DataViewCustomCellRenderersExampleComponent
+    DataViewCustomCellRenderersExampleComponent,
+    DataViewWithActionBarExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
