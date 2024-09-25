@@ -1,0 +1,10 @@
+@for (color of colors(); track color) {
+  <div class="color"
+       [style.--emr-brand-colors-item-color]="color"
+       [class.is-selected]="_selectedColor === color"
+       (click)="selectColor(color)">
+    @if (_selectedColor === color) {
+      &#10003;
+    }
+  </div>
+}

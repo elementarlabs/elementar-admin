@@ -219,6 +219,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/color-picker/color-picker.module').then(m => m.ColorPickerModule)
       },
       {
+        path: 'components/brand-colors',
+        loadChildren: () => import('./components/brand-colors/brand-colors.module').then(m => m.BrandColorsModule)
+      },
+      {
         path: 'components/upload',
         loadChildren: () => import('./components/upload/upload.module').then(m => m.UploadModule)
       },

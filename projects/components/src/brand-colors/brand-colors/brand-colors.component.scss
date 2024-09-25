@@ -1,0 +1,14 @@
+:host {
+  @apply flex flex-wrap gap-3.5;
+
+  .color {
+    --emr-brand-colors-item-color: transparent;
+    @apply size-6 rounded-full transition-all relative bg-[var(--emr-brand-colors-item-color)];
+    @apply hover:scale-105 cursor-pointer text-white flex items-center justify-center font-bold;
+
+    &.is-selected {
+      @apply outline-offset-2 outline-[var(--emr-brand-colors-item-color)];
+      @apply outline;
+    }
+  }
+}

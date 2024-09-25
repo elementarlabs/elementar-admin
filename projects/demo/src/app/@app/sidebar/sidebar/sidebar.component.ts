@@ -414,6 +414,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Brand Colors',
+          link: '/pages/components/brand-colors'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Divider',
           link: '/pages/components/divider'
         },
