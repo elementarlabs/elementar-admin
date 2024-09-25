@@ -30,6 +30,7 @@ class AngularNodeView extends NodeView<Type<AngularNodeViewComponent>, Editor, A
     const props: NodeViewProps = {
       editor: this.editor,
       node: this.node,
+      // @ts-ignore
       decorations: this.decorations,
       selected: false,
       extension: this.extension,
@@ -111,9 +112,9 @@ class AngularNodeView extends NodeView<Type<AngularNodeViewComponent>, Editor, A
       const oldDecorations = this.decorations;
       this.node = node;
       this.decorations = decorations;
-
       return this.options.update({
         oldNode,
+        // @ts-ignore
         oldDecorations,
         newNode: node,
         newDecorations: decorations,
@@ -155,6 +156,7 @@ export const AngularNodeViewRenderer = (
   ViewComponent: Type<AngularNodeViewComponent>,
   options: Partial<AngularNodeViewRendererOptions>,
 ): NodeViewRenderer => {
+  // @ts-ignore
   return (props: NodeViewRendererProps) => {
     return new AngularNodeView(ViewComponent, props, options);
   };
