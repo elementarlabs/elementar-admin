@@ -11,4 +11,8 @@
       @apply outline;
     }
   }
+
+  &.is-disabled {
+    @apply pointer-events-none opacity-60;
+  }
 }

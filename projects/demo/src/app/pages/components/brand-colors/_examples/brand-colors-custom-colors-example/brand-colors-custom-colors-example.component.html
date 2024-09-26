@@ -1,4 +1,5 @@
-<emr-brand-colors [selectedColor]="selectedColor"
+<emr-brand-colors [colors]="colors"
+                  [selectedColor]="selectedColor"
                   (colorChange)="onColorChange($event)"/>
 
 <p class="mt-8">Selected color: {{ selectedColor }}</p>

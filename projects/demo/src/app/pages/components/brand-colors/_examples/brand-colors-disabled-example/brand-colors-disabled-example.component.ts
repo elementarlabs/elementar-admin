@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { BrandColorsComponent } from '@elementar/components/brand-colors';
 
 @Component({
-  selector: 'app-basic-brand-colors-example',
+  selector: 'app-brand-colors-disabled-example',
   standalone: true,
   imports: [
     BrandColorsComponent
   ],
-  templateUrl: './basic-brand-colors-example.component.html',
-  styleUrl: './basic-brand-colors-example.component.scss'
+  templateUrl: './brand-colors-disabled-example.component.html',
+  styleUrl: './brand-colors-disabled-example.component.scss'
 })
-export class BasicBrandColorsExampleComponent {
+export class BrandColorsDisabledExampleComponent {
   selectedColor = '#08b0fe';
 
   onColorChange(color: string): void {
