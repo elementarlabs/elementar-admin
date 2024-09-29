@@ -295,6 +295,10 @@ const routes: Routes = [
         loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
       },
       {
+        path: 'account/notifications',
+        loadComponent: () => import('./account/notifications/notifications.component').then(m => m.NotificationsComponent)
+      },
+      {
         path: 'account/settings',
         loadChildren: () => import('./account/settings/settings.module').then(m => m.SettingsModule)
       },

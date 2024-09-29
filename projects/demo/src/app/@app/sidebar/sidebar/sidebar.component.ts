@@ -646,6 +646,12 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'Settings',
           link: '/pages/account/settings'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Notifications',
+          link: '/pages/account/notifications'
         }
       ]
     },

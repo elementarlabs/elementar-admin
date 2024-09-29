@@ -3,16 +3,16 @@
   <div class="flex items-center justify-between bg-neutral-200 text-sm dark:bg-neutral-900
               h-11 px-4 border-b dark:border-b-inverse">
     <div class="text-center text-neutral-700 font-semibold dark:text-neutral-100">Notifications</div>
-    <a routerLink="/notifications/all" class="font-medium text-sm text-primary hover:text-primary-500">View All</a>
+    <a routerLink="/account/notifications" class="font-medium text-sm text-primary hover:text-primary-500">View All</a>
   </div>
   <div class="h-[300px] overflow-y-auto">
     @for (notification of notifications; track notification) {
       @switch (notification.typeId) {
         @case ('mentioned-in-comment') {
           @defer {
-            <app-mentioned-in-comment [notification]="notification"></app-mentioned-in-comment>
+            <app-mentioned-in-comment [notification]="notification"/>
           } @placeholder (minimum 500ms) {
-            <ng-container [ngTemplateOutlet]="notificationSkeleton"></ng-container>
+            <ng-container [ngTemplateOutlet]="notificationSkeleton"/>
           }
         }
         @case ('invite-to-edit-files-in-folder') {
@@ -23,19 +23,19 @@
           }
         }
       }
-      <emr-h-divider></emr-h-divider>
+      <emr-h-divider/>
     } @empty {
-      asfasf
+      There are no notifications.
     }
   </div>
 </div>
 
 <ng-template #notificationSkeleton>
   <emr-skeleton class="flex gap-3 p-4">
-    <emr-skeleton-circle class="w-11 h-11"></emr-skeleton-circle>
+    <emr-skeleton-circle class="w-11 h-11"/>
     <div class="grow space-y-2">
-      <emr-skeleton-block class="h-16"></emr-skeleton-block>
-      <emr-skeleton-line class="w-20 h-3"></emr-skeleton-line>
+      <emr-skeleton-block class="h-16"/>
+      <emr-skeleton-line class="w-20 h-3"/>
     </div>
   </emr-skeleton>
 </ng-template>
