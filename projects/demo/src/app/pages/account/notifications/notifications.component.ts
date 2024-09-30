@@ -32,6 +32,11 @@ import {
 import {
   TertiaryColorsExampleComponent
 } from '../../customization/colors/_examples/tertiary-colors-example/tertiary-colors-example.component';
+import {
+  NotificationComponent,
+  NotificationDefDirective,
+  NotificationListComponent
+} from '@elementar/components/notifications';
 
 @Component({
   standalone: true,
@@ -48,7 +53,10 @@ import {
     PrimaryColorsExampleComponent,
     SecondaryColorsExampleComponent,
     SurfaceColorsExampleComponent,
-    TertiaryColorsExampleComponent
+    TertiaryColorsExampleComponent,
+    NotificationComponent,
+    NotificationListComponent,
+    NotificationDefDirective
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'

@@ -1,4 +1,4 @@
-export interface NotificationItem {
+export interface Notification {
   actor: {
     name: string;
     username: string;

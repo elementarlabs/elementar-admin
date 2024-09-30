@@ -5,7 +5,7 @@
     <ng-container matColumnDef="selection">
       <mat-header-cell *matHeaderCellDef>
         @if (loadingCellRenderers || loading()) {
-          <emr-skeleton-block class="size-6"></emr-skeleton-block>
+          <emr-skeleton-block class="size-6"/>
         } @else {
           <mat-checkbox (change)="$event ? toggleAllRows() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
@@ -15,7 +15,7 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
         @if (loadingCellRenderers || loading()) {
-          <emr-skeleton-block class="size-6 max-w-full"></emr-skeleton-block>
+          <emr-skeleton-block class="size-6 max-w-full"/>
         } @else {
           <mat-checkbox (click)="$event.stopPropagation()"
                         (change)="rowSelectionToggle($event, row)"
