@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { Notification } from '@app/header/_notifications/types';
 import {
   MentionedInCommentNotification
 } from '../notification-types/mentioned-in-comment/mentioned-in-comment.notification';
@@ -12,6 +11,7 @@ import {
 } from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
+import { Notification } from '../../../../../../../dual-tier/src/app/@app/header/_notifications/types';
 
 @Component({
   selector: 'app-header-notification-list',

@@ -7,7 +7,7 @@
   </div>
   <div class="h-[300px] overflow-y-auto">
     @for (notification of notifications; track notification) {
-      @switch (notification.typeId) {
+      @switch (notification.type) {
         @case ('mentioned-in-comment') {
           @defer {
             <app-mentioned-in-comment [notification]="notification"/>

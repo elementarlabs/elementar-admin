@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Notification } from '@demo/app/header/_notifications/types';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { IconComponent } from '@elementar/components/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
+import { Notification } from '@elementar/components/notifications';
 
 @Component({
   selector: 'app-invite-to-edit-files-in-folder',

@@ -2,9 +2,7 @@ import { AfterContentInit, Component, contentChildren, input, QueryList } from '
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
 import { RouterLink } from '@angular/router';
-import { NotificationItem } from '@app/header/_notifications/types';
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
-import { NotificationDefDirective } from '@elementar/components/notifications';
 
 @Component({
   selector: 'emr-notification-list',
@@ -24,10 +22,9 @@ import { NotificationDefDirective } from '@elementar/components/notifications';
   }
 })
 export class NotificationListComponent implements AfterContentInit{
-  defs = contentChildren(NotificationDefDirective)
-  notifications = input<NotificationItem[]>([]);
+  notifications = input<any[]>([]);
 
   ngAfterContentInit() {
-    console.log(this.defs());
+
   }
 }

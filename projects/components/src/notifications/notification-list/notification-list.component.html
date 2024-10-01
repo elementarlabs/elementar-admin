@@ -1,34 +1,36 @@
-@for (notification of notifications(); track notification) {
+<!--@for (notification of notifications(); track notification) {-->
 
 
-<!--  @switch (notification.typeId) {-->
-<!--    @case ('mentioned-in-comment') {-->
-<!--      @defer {-->
-<!--        <app-mentioned-in-comment [notification]="notification"/>-->
-<!--      } @placeholder (minimum 500ms) {-->
-<!--        <ng-container [ngTemplateOutlet]="notificationSkeleton"/>-->
-<!--      }-->
-<!--    }-->
-<!--    @case ('invite-to-edit-files-in-folder') {-->
-<!--      @defer {-->
-<!--        <app-invite-to-edit-files-in-folder [notification]="notification"/>-->
-<!--        <ng-container ngComponentOutlet="" />-->
-<!--      } @placeholder (minimum 500ms) {-->
-<!--        <ng-container [ngTemplateOutlet]="notificationSkeleton"/>-->
-<!--      }-->
-<!--    }-->
-<!--  }-->
-  <emr-h-divider/>
-} @empty {
-  There are no notifications.
-}
+<!--&lt;!&ndash;  @switch (notification.typeId) {&ndash;&gt;-->
+<!--&lt;!&ndash;    @case ('mentioned-in-comment') {&ndash;&gt;-->
+<!--&lt;!&ndash;      @defer {&ndash;&gt;-->
+<!--&lt;!&ndash;        <app-mentioned-in-comment [notification]="notification"/>&ndash;&gt;-->
+<!--&lt;!&ndash;      } @placeholder (minimum 500ms) {&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-container [ngTemplateOutlet]="notificationSkeleton"/>&ndash;&gt;-->
+<!--&lt;!&ndash;      }&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;    @case ('invite-to-edit-files-in-folder') {&ndash;&gt;-->
+<!--&lt;!&ndash;      @defer {&ndash;&gt;-->
+<!--&lt;!&ndash;        <app-invite-to-edit-files-in-folder [notification]="notification"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-container ngComponentOutlet="" />&ndash;&gt;-->
+<!--&lt;!&ndash;      } @placeholder (minimum 500ms) {&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-container [ngTemplateOutlet]="notificationSkeleton"/>&ndash;&gt;-->
+<!--&lt;!&ndash;      }&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--  <emr-h-divider/>-->
+<!--} @empty {-->
+<!--  There are no notifications.-->
+<!--}-->
 
-<ng-template #notificationSkeleton>
-  <emr-skeleton class="flex gap-3 p-4">
-    <emr-skeleton-circle class="size-11"/>
-    <div class="grow space-y-2">
-      <emr-skeleton-block class="h-16"/>
-      <emr-skeleton-line class="w-20 h-3"/>
-    </div>
-  </emr-skeleton>
-</ng-template>
+<!--<ng-template #notificationSkeleton>-->
+<!--  <emr-skeleton class="flex gap-3 p-4">-->
+<!--    <emr-skeleton-circle class="size-11"/>-->
+<!--    <div class="grow space-y-2">-->
+<!--      <emr-skeleton-block class="h-16"/>-->
+<!--      <emr-skeleton-line class="w-20 h-3"/>-->
+<!--    </div>-->
+<!--  </emr-skeleton>-->
+<!--</ng-template>-->
+
+<ng-content/>

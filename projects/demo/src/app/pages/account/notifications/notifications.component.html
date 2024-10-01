@@ -2,9 +2,29 @@
   <div appPageContent>
     <h1>Notifications</h1>
     <emr-notification-list>
-      <ng-container emrNotificationDef="default">
-        <emr-notification/>
-      </ng-container>
+      @for (notification of notifications; track notification) {
+        @switch (notification.type) {
+          @case ('mentioned-in-comment') {
+            @defer {
+              <emr-notification [actorAvatarUrl]="notification.actor.avatarUrl"
+                                [actorName]="notification.actor.name"
+                                [actionIconName]="notification.actionIconName"
+                                [createdAt]="notification.createdAt"/>
+            } @placeholder (minimum 500ms) {
+              <ng-container [ngTemplateOutlet]="notificationSkeleton"/>
+            }
+          }
+        }
+      }
     </emr-notification-list>
   </div>
 </app-page>
+<ng-template #notificationSkeleton>
+  <emr-skeleton class="flex gap-3 p-4">
+    <emr-skeleton-circle class="size-11"/>
+    <div class="grow space-y-2">
+      <emr-skeleton-block class="h-16"/>
+      <emr-skeleton-line class="w-20 h-3"/>
+    </div>
+  </emr-skeleton>
+</ng-template>

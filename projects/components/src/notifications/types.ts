@@ -12,6 +12,7 @@ export interface Notification {
   entity: {
     content: any;
   },
-  typeId: string,
+  type: string,
   createdAt: string;
+  actionIconName?: string;
 }

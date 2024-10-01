@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { IconComponent } from '@elementar/components/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
-import { Notification } from '../../../../../../../../dual-tier/src/app/@app/header/_notifications/types';
+import { Notification } from '@elementar/components/notifications';
 
 @Component({
   selector: 'app-invite-to-edit-files-in-folder',
@@ -22,6 +22,5 @@ import { Notification } from '../../../../../../../../dual-tier/src/app/@app/hea
   styleUrl: './invite-to-edit-files-in-folder.notification.scss'
 })
 export class InviteToEditFilesInFolderNotification {
-  @Input()
-  notification: Notification;
+  notification = input.required<Notification>();
 }

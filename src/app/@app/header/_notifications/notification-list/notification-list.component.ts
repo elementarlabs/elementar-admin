@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { Notification } from '@app/header/_notifications/types';
 import {
   MentionedInCommentNotification
 } from '../notification-types/mentioned-in-comment/mentioned-in-comment.notification';
@@ -12,6 +11,7 @@ import {
 } from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
+import { Notification } from '@elementar/components/notifications';
 
 @Component({
   selector: 'app-header-notification-list',
@@ -45,7 +45,7 @@ export class NotificationListComponent {
       entity: {
         content: 'what did you say?'
       },
-      typeId: 'mentioned-in-comment',
+      type: 'mentioned-in-comment',
       createdAt: '1 hour ago'
     },
     {
@@ -64,7 +64,7 @@ export class NotificationListComponent {
           folderName: 'My New Project'
         }
       },
-      typeId: 'invite-to-edit-files-in-folder',
+      type: 'invite-to-edit-files-in-folder',
       createdAt: '2 hours ago'
     }
   ];

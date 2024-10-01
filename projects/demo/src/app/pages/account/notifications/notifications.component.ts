@@ -1,66 +1,76 @@
 import { Component } from '@angular/core';
-import {
-  ErrorColorsExampleComponent
-} from '../../customization/colors/_examples/error-colors-example/error-colors-example.component';
-import {
-  InverseColorsExampleComponent
-} from '../../customization/colors/_examples/inverse-colors-example/inverse-colors-example.component';
-import {
-  NeutralColorsExampleComponent
-} from '../../customization/colors/_examples/neutral-colors-example/neutral-colors-example.component';
-import {
-  NeutralVariantColorsExampleComponent
-} from '../../customization/colors/_examples/neutral-variant-colors-example/neutral-variant-colors-example.component';
-import {
-  OtherColorsExampleComponent
-} from '../../customization/colors/_examples/other-colors-example/other-colors-example.component';
-import {
-  OutlineColorsExampleComponent
-} from '../../customization/colors/_examples/outline-colors-example/outline-colors-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
-import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
-  PrimaryColorsExampleComponent
-} from '../../customization/colors/_examples/primary-colors-example/primary-colors-example.component';
-import {
-  SecondaryColorsExampleComponent
-} from '../../customization/colors/_examples/secondary-colors-example/secondary-colors-example.component';
-import {
-  SurfaceColorsExampleComponent
-} from '../../customization/colors/_examples/surface-colors-example/surface-colors-example.component';
-import {
-  TertiaryColorsExampleComponent
-} from '../../customization/colors/_examples/tertiary-colors-example/tertiary-colors-example.component';
-import {
+  Notification,
   NotificationComponent,
-  NotificationDefDirective,
   NotificationListComponent
 } from '@elementar/components/notifications';
+import {
+  InviteToEditFilesInFolderNotification
+} from '../../../@notifications/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
+import { MatCellDef } from '@angular/material/table';
+import {
+  MentionedInCommentNotification
+} from '@demo/app/header/_notifications/notification-types/mentioned-in-comment/mentioned-in-comment.notification';
+import { NgTemplateOutlet } from '@angular/common';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   standalone: true,
   imports: [
-    ErrorColorsExampleComponent,
-    InverseColorsExampleComponent,
-    NeutralColorsExampleComponent,
-    NeutralVariantColorsExampleComponent,
-    OtherColorsExampleComponent,
-    OutlineColorsExampleComponent,
     PageComponent,
     PageContentDirective,
-    PlaygroundComponent,
-    PrimaryColorsExampleComponent,
-    SecondaryColorsExampleComponent,
-    SurfaceColorsExampleComponent,
-    TertiaryColorsExampleComponent,
     NotificationComponent,
     NotificationListComponent,
-    NotificationDefDirective
+    InviteToEditFilesInFolderNotification,
+    MatCellDef,
+    MentionedInCommentNotification,
+    NgTemplateOutlet,
+    EmrSkeletonModule
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'
 })
 export class NotificationsComponent {
-
+  notifications: Notification[] = [
+    {
+      actor: {
+        name: 'Justin Hansen',
+        username: 'justin.hansen',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        name: 'Elma Johnson',
+        username: 'elma.johnson',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      entity: {
+        content: 'what did you say?'
+      },
+      actionIconName: 'comment',
+      type: 'mentioned-in-comment',
+      createdAt: '1 hour ago'
+    },
+    {
+      actor: {
+        name: 'Johnny Gladden',
+        username: 'johnny.gladden',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        name: 'Angela Naylor',
+        username: 'angela.naylor',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      actionIconName: 'folder',
+      entity: {
+        content: {
+          folderName: 'My New Project'
+        }
+      },
+      type: 'invite-to-edit-files-in-folder',
+      createdAt: '2 hours ago'
+    }
+  ];
 }
