@@ -64,7 +64,7 @@ export class DicebearComponent implements OnInit {
   clickable = input(false, {
     transform: booleanAttribute
   });
-  text = input<string>();
+  key = input<string>();
   preset = input<string>('identicon');
   alt = input<string>();
   presenceIndicator = input<'online' | 'offline' | null>(null);
@@ -79,7 +79,7 @@ export class DicebearComponent implements OnInit {
 
     const preset = presets[this.preset()];
     const avatar = createAvatar(preset.style, {
-      seed: this.text() || '',
+      seed: this.key() || '',
       ...preset.options
     });
     this.svg = avatar.toString().replace('viewboxMask', uuid());

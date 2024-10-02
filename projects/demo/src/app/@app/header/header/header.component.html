@@ -23,7 +23,7 @@
           <mat-icon>dark_mode</mat-icon>
         }
       </button>
-      <emr-dicebear text="PS" [clickable]="true"
+      <emr-dicebear key="PS" [clickable]="true"
                     [matMenuTriggerFor]="accountMenu" matTooltip="Account" class="size-10"/>
     </div>
   </div>
@@ -120,7 +120,7 @@
 
 <mat-menu xPosition="before" #accountMenu="matMenu">
   <div class="flex items-center px-4 pb-4 pt-2 gap-3">
-    <emr-dicebear text="PS" class="size-14"/>
+    <emr-dicebear key="PS" class="size-14"/>
     <div class="-mt-0.5">
       <div class="flex items-center gap-2">
         Pavel Salauyou

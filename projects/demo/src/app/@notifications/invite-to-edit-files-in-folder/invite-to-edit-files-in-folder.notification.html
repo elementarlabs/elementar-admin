@@ -1,8 +1,8 @@
-<a routerLink="/notifications/view" matRipple
-   class="flex py-4 px-4 hover:bg-neutral-100 dark:hover:bg-neutral-950">
+<div class="flex py-4">
   <div class="flex-shrink-0">
-    <div class="relative mt-1">
-      <emr-avatar text="PS" [src]="notification().actor.avatarUrl" class="size-10"></emr-avatar>
+    <div class="relative">
+      <emr-dicebear [key]="notification().actor.key"
+                    [src]="notification().actor.avatarUrl" class="size-10"/>
       <div class="flex absolute justify-center z-10 text-white items-center -right-0
                   -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-white dark:border-inverse">
         <mat-icon class="filled text-xs !h-[16px] !w-[11px]">folder</mat-icon>
@@ -25,4 +25,4 @@
     </div>
     <div class="text-xs font-medium text-secondary-700 dark:text-primary-400">{{ notification().createdAt }}</div>
   </div>
-</a>
+</div>

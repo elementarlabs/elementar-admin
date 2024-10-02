@@ -4,7 +4,7 @@ import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { IconComponent } from '@elementar/components/icon';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 import { Notification } from '@elementar/components/notifications';
 
 @Component({
@@ -16,7 +16,8 @@ import { Notification } from '@elementar/components/notifications';
     RouterLink,
     MatButton,
     IconComponent,
-    AvatarComponent
+    AvatarComponent,
+    DicebearComponent
   ],
   templateUrl: './invite-to-edit-files-in-folder.notification.html',
   styleUrl: './invite-to-edit-files-in-folder.notification.scss'

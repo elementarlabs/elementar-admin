@@ -1,8 +1,9 @@
-import { AfterContentInit, Component, contentChildren, input, QueryList } from '@angular/core';
+import { AfterContentInit, Component, contentChildren, input, QueryList, TemplateRef } from '@angular/core';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
 import { RouterLink } from '@angular/router';
-import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
+import { NotificationDefDirective } from '@elementar/components/notifications';
 
 @Component({
   selector: 'emr-notification-list',
@@ -12,8 +13,7 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
     EmrSkeletonModule,
     HDividerComponent,
     RouterLink,
-    NgTemplateOutlet,
-    NgComponentOutlet
+    NgTemplateOutlet
   ],
   templateUrl: './notification-list.component.html',
   styleUrl: './notification-list.component.scss',
@@ -21,10 +21,25 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
     'class': 'emr-notification-list'
   }
 })
-export class NotificationListComponent implements AfterContentInit{
+export class NotificationListComponent implements AfterContentInit {
+  defs = contentChildren(NotificationDefDirective);
   notifications = input<any[]>([]);
 
-  ngAfterContentInit() {
+  protected _initialized = false;
+  protected _defsMap = new Map<string, TemplateRef<any>>();
 
+  ngAfterContentInit() {
+    this.defs().forEach((def: NotificationDefDirective) => {
+      this._defsMap.set(def.emrNotificationDef(), def.templateRef);
+    });
+    this._initialized = true;
+  }
+
+  getNotificationTemplate(type: string): TemplateRef<any> {
+    if (!this._defsMap.has(type)) {
+      throw new Error(`Invalid type "${type}" for notification def`);
+    }
+
+    return this._defsMap.get(type) as TemplateRef<any>;
   }
 }
