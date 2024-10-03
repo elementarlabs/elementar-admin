@@ -13,14 +13,13 @@
     <div class="text-neutral-500 font-normal text-sm mb-1 dark:text-neutral-400">
       <span class="font-semibold text-neutral-900 dark:text-white">{{ notification().actor.name }}</span>
       invited you to edit files in the folder
-      <span class="font-medium text-primary hover:text-primary-500 cursor-pointer
-                   dark:text-tertiary-300 dark:hover:text-tertiary-400">
+      <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
         {{ notification().entity.content['folderName'] }}
       </span>
     </div>
     <div>
       <div class="border rounded-lg px-3 py-2 flex items-center gap-2 w-max dark:border-neutral-500">
-        <mat-icon class="filled text-primary dark:text-tertiary-300">folder</mat-icon>
+        <mat-icon class="filled text-primary">folder</mat-icon>
         <span class="text-xs">{{ notification().entity.content['folderName'] }}</span>
       </div>
     </div>

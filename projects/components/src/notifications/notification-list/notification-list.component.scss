@@ -9,3 +9,7 @@
     }
   }
 }
+
+:host-context(html.dark) {
+  --emr-notification-is-new-bg: theme('colors.neutral.800');
+}
