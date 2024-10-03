@@ -1,12 +1,12 @@
 export interface Notification {
   actor: {
-    key: string | number; // unique key of actor
+    id: string | number; // unique key of actor
     name: string;
     username: string;
     avatarUrl?: string;
   },
   notifier: {
-    key: string | number; // unique key of notifier
+    id: string | number; // unique key of notifier
     name: string;
     username: string;
     avatarUrl?: string;
@@ -16,4 +16,5 @@ export interface Notification {
   },
   type: string,
   createdAt: string;
+  isNew?: boolean;
 }

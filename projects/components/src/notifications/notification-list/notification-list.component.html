@@ -1,8 +1,10 @@
 @if (_initialized) {
   @for (notification of notifications(); track notification; let last = $last) {
     @defer {
-      <ng-container [ngTemplateOutlet]="getNotificationTemplate(notification.type)"
-                    [ngTemplateOutletContext]="{ $implicit: notification }" />
+      <div class="notification">
+        <ng-container [ngTemplateOutlet]="getNotificationTemplate(notification.type)"
+                      [ngTemplateOutletContext]="{ $implicit: notification }" />
+      </div>
     } @placeholder (minimum 500ms) {
       <ng-container [ngTemplateOutlet]="notificationSkeleton"/>
     }

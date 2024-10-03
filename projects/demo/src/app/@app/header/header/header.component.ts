@@ -9,13 +9,19 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { NotificationListComponent } from '@demo/app/header/_notifications/notification-list/notification-list.component';
 import { AssistantSearchComponent } from '@demo/app/header/_assistant-search/assistant-search.component';
 import { EmrPopoverModule } from '@elementar/components/popover';
 import { IconComponent } from '@elementar/components/icon';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
+import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
+import {
+  MentionedInCommentNotification
+} from '../../../@notifications/mentioned-in-comment/mentioned-in-comment.notification';
+import {
+  InviteToEditFilesInFolderNotification
+} from '../../../@notifications/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 
 @Component({
   selector: 'app-header',
@@ -35,13 +41,16 @@ import { DicebearComponent } from '@elementar/components/avatar';
     MatDivider,
     MatButton,
     MatTooltip,
-    NotificationListComponent,
     EmrPopoverModule,
     RouterLink,
     AssistantSearchComponent,
     IconComponent,
     MatAnchor,
-    SoundEffectDirective
+    SoundEffectDirective,
+    NotificationDefDirective,
+    NotificationListComponent,
+    MentionedInCommentNotification,
+    InviteToEditFilesInFolderNotification
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -55,6 +64,49 @@ export class HeaderComponent {
 
   @Input()
   sidebarHidden = false;
+
+  notifications: Notification[] = [
+    {
+      actor: {
+        id: 1,
+        name: 'Justin Hansen',
+        username: 'justin.hansen',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        id: 2,
+        name: 'Elma Johnson',
+        username: 'elma.johnson',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      entity: {
+        content: 'what did you say?'
+      },
+      type: 'mentionedInComment',
+      createdAt: '1 hour ago'
+    },
+    {
+      actor: {
+        id: 3,
+        name: 'Johnny Gladden',
+        username: 'johnny.gladden',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        id: 4,
+        name: 'Angela Naylor',
+        username: 'angela.naylor',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      entity: {
+        content: {
+          folderName: 'My New Project'
+        }
+      },
+      type: 'inviteToEditFilesInFolder',
+      createdAt: '2 hours ago'
+    }
+  ];
 
   toggleSidebar(): void {
     if (!this.sidebarHidden) {

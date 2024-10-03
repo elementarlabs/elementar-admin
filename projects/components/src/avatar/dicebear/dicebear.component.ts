@@ -64,7 +64,7 @@ export class DicebearComponent implements OnInit {
   clickable = input(false, {
     transform: booleanAttribute
   });
-  key = input<string>();
+  key = input<any>();
   preset = input<string>('identicon');
   alt = input<string>();
   presenceIndicator = input<'online' | 'offline' | null>(null);

@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '@elementar/components/icon';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { DicebearComponent } from '@elementar/components/avatar';
 import { Notification } from '@elementar/components/notifications';
 
 @Component({
@@ -14,7 +14,7 @@ import { Notification } from '@elementar/components/notifications';
     MatRipple,
     RouterLink,
     IconComponent,
-    AvatarComponent
+    DicebearComponent
   ],
   templateUrl: './mentioned-in-comment.notification.html',
   styleUrl: './mentioned-in-comment.notification.scss'

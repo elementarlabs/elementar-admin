@@ -3,7 +3,7 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   Notification, NotificationDefDirective,
-  NotificationListComponent
+  NotificationListComponent, NotificationStateDirective
 } from '@elementar/components/notifications';
 import {
   InviteToEditFilesInFolderNotification
@@ -28,7 +28,8 @@ import {
     EmrSkeletonModule,
     DicebearComponent,
     NotificationDefDirective,
-    MentionedInCommentNotification
+    MentionedInCommentNotification,
+    NotificationStateDirective
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'
@@ -37,13 +38,55 @@ export class NotificationsComponent {
   notifications: Notification[] = [
     {
       actor: {
-        key: 1,
+        id: 1,
         name: 'Justin Hansen',
         username: 'justin.hansen',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
       notifier: {
-        key: 2,
+        id: 2,
+        name: 'Elma Johnson',
+        username: 'elma.johnson',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      entity: {
+        content: 'what did you say?'
+      },
+      isNew: true,
+      type: 'mentionedInComment',
+      createdAt: '1 hour ago'
+    },
+    {
+      actor: {
+        id: 3,
+        name: 'Johnny Gladden',
+        username: 'johnny.gladden',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        id: 4,
+        name: 'Angela Naylor',
+        username: 'angela.naylor',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      entity: {
+        content: {
+          folderName: 'My New Project'
+        }
+      },
+      isNew: true,
+      type: 'inviteToEditFilesInFolder',
+      createdAt: '2 hours ago'
+    },
+    {
+      actor: {
+        id: 1,
+        name: 'Justin Hansen',
+        username: 'justin.hansen',
+        avatarUrl: 'https://avatar.iran.liara.run/public'
+      },
+      notifier: {
+        id: 2,
         name: 'Elma Johnson',
         username: 'elma.johnson',
         avatarUrl: 'https://avatar.iran.liara.run/public'
@@ -54,26 +97,5 @@ export class NotificationsComponent {
       type: 'mentionedInComment',
       createdAt: '1 hour ago'
     },
-    {
-      actor: {
-        key: 1,
-        name: 'Johnny Gladden',
-        username: 'johnny.gladden',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
-      },
-      notifier: {
-        key: 2,
-        name: 'Angela Naylor',
-        username: 'angela.naylor',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
-      },
-      entity: {
-        content: {
-          folderName: 'My New Project'
-        }
-      },
-      type: 'inviteToEditFilesInFolder',
-      createdAt: '2 hours ago'
-    }
   ];
 }

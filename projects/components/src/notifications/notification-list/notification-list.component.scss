@@ -1,3 +1,11 @@
 :host {
+  --emr-notification-is-new-bg: theme('colors.primary.50');
+
   @apply block;
+
+  .notification {
+    &:has(.is-new) {
+      @apply bg-[var(--emr-notification-is-new-bg)];
+    }
+  }
 }
