@@ -1,18 +1,22 @@
 @if (_initialized) {
-  @for (notification of notifications(); track notification; let last = $last) {
-    @defer {
-      <div class="notification">
-        <ng-container [ngTemplateOutlet]="getNotificationTemplate(notification.type)"
-                      [ngTemplateOutletContext]="{ $implicit: notification }" />
-      </div>
-    } @placeholder (minimum 500ms) {
-      <ng-container [ngTemplateOutlet]="notificationSkeleton"/>
+  <div class="divide-y dark:divide-neutral-600">
+    @for (notification of notifications(); track notification; let last = $last) {
+      @defer {
+        <div class="notification">
+          <ng-container [ngTemplateOutlet]="getNotificationTemplate(notification.type)"
+                        [ngTemplateOutletContext]="{ $implicit: notification }" />
+          @if (controlsDef()) {
+            <div class="controls">
+              <ng-container [ngTemplateOutlet]="controlsTpl"
+                            [ngTemplateOutletContext]="{ $implicit: notification }" />
+            </div>
+          }
+        </div>
+      } @placeholder (minimum 500ms) {
+        <ng-container [ngTemplateOutlet]="notificationSkeleton"/>
+      }
     }
-
-    @if (!last) {
-      <emr-h-divider/>
-    }
-  }
+  </div>
 }
 
 <ng-template #notificationSkeleton>

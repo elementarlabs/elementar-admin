@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
-  Notification, NotificationDefDirective,
+  Notification, NotificationControlsDefDirective, NotificationDefDirective,
   NotificationListComponent, NotificationPropsDirective,
 } from '@elementar/components/notifications';
 import {
@@ -15,6 +15,9 @@ import { DicebearComponent } from '@elementar/components/avatar';
 import {
   MentionedInCommentNotification
 } from '../../../@notifications/mentioned-in-comment/mentioned-in-comment.notification';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { MatIconButton } from '@angular/material/button';
 
 @Component({
   standalone: true,
@@ -29,7 +32,13 @@ import {
     DicebearComponent,
     NotificationDefDirective,
     MentionedInCommentNotification,
-    NotificationPropsDirective
+    NotificationPropsDirective,
+    MatIcon,
+    NotificationControlsDefDirective,
+    MatMenu,
+    MatMenuItem,
+    MatIconButton,
+    MatMenuTrigger
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'

@@ -1,9 +1,17 @@
-import { AfterContentInit, Component, contentChildren, input, QueryList, TemplateRef } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  contentChild,
+  contentChildren,
+  input,
+  QueryList,
+  TemplateRef
+} from '@angular/core';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
 import { RouterLink } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
-import { NotificationDefDirective } from '@elementar/components/notifications';
+import { NotificationControlsDefDirective, NotificationDefDirective } from '@elementar/components/notifications';
 
 @Component({
   selector: 'emr-notification-list',
@@ -22,11 +30,17 @@ import { NotificationDefDirective } from '@elementar/components/notifications';
   }
 })
 export class NotificationListComponent implements AfterContentInit {
-  defs = contentChildren(NotificationDefDirective);
+  readonly defs = contentChildren(NotificationDefDirective);
+  readonly controlsDef = contentChild(NotificationControlsDefDirective);
+
   notifications = input<any[]>([]);
 
   protected _initialized = false;
   protected _defsMap = new Map<string, TemplateRef<any>>();
+
+  get controlsTpl(): TemplateRef<any> {
+    return this.controlsDef()?.templateRef as TemplateRef<any>;
+  }
 
   ngAfterContentInit() {
     this.defs().forEach((def: NotificationDefDirective) => {

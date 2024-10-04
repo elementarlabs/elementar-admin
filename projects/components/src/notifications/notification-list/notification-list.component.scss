@@ -1,12 +1,20 @@
 :host {
-  --emr-notification-is-new-bg: theme('colors.primary.50');
+  --emr-notification-is-new-bg: theme('colors.primary.100');
+  --emr-notification-padding: theme('padding.5');
+  --emr-notification-gap: theme('gap.4');
 
   @apply block;
 
   .notification {
+    @apply p-[var(--emr-notification-padding)] flex gap-[var(--emr-notification-gap)] relative;
+
     &:has(.is-new) {
       @apply bg-[var(--emr-notification-is-new-bg)];
     }
+  }
+
+  .controls {
+    @apply relative -end-2;
   }
 }
 
