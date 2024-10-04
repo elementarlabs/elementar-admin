@@ -3,7 +3,7 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   Notification, NotificationDefDirective,
-  NotificationListComponent, NotificationStateDirective
+  NotificationListComponent, NotificationPropsDirective,
 } from '@elementar/components/notifications';
 import {
   InviteToEditFilesInFolderNotification
@@ -29,7 +29,7 @@ import {
     DicebearComponent,
     NotificationDefDirective,
     MentionedInCommentNotification,
-    NotificationStateDirective
+    NotificationPropsDirective
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'

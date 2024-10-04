@@ -1,19 +1,20 @@
 import { booleanAttribute, Directive, input } from '@angular/core';
 
 @Directive({
-  selector: '[emrNotificationState]',
-  exportAs: 'emrNotificationState',
+  selector: '[emrNotificationProps]',
+  exportAs: 'emrNotificationProps',
   standalone: true,
   host: {
-    'class': 'emr-notification-state',
+    'class': 'emr-notification-props',
     '[class.is-new]': 'isNew()',
+    '[class.read]': 'read()',
   }
 })
-export class NotificationStateDirective {
+export class NotificationPropsDirective {
   isNew = input(false, {
     transform: booleanAttribute
   });
-  isRead = input(false, {
+  read = input(false, {
     transform: booleanAttribute
   });
 }
