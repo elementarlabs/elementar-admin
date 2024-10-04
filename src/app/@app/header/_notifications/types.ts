@@ -1,4 +1,4 @@
-export interface NotificationItem {
+export interface Notification {
   actor: {
     name: string;
     username: string;
@@ -12,6 +12,6 @@ export interface NotificationItem {
   entity: {
     content: any;
   },
-  typeId: string,
+  type: string,
   createdAt: string;
 }

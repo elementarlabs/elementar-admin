@@ -11,7 +11,7 @@ import {
 } from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
-import { Notification } from '../../../../../../../dual-tier/src/app/@app/header/_notifications/types';
+import { Notification } from '../types';
 
 @Component({
   selector: 'app-header-notification-list',
@@ -45,7 +45,7 @@ export class NotificationListComponent {
       entity: {
         content: 'what did you say?'
       },
-      typeId: 'mentioned-in-comment',
+      type: 'mentioned-in-comment',
       createdAt: '1 hour ago'
     },
     {
@@ -64,7 +64,7 @@ export class NotificationListComponent {
           folderName: 'My New Project'
         }
       },
-      typeId: 'invite-to-edit-files-in-folder',
+      type: 'invite-to-edit-files-in-folder',
       createdAt: '2 hours ago'
     }
   ];

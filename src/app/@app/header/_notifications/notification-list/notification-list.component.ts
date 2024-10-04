@@ -3,15 +3,15 @@ import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
-import {
-  MentionedInCommentNotification
-} from '../notification-types/mentioned-in-comment/mentioned-in-comment.notification';
-import {
-  InviteToEditFilesInFolderNotification
-} from '../notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { HDividerComponent } from '@elementar/components/divider';
-import { Notification } from '@elementar/components/notifications';
+import { Notification } from '@app/header/_notifications/types';
+import {
+  MentionedInCommentNotification
+} from '@app/header/_notifications/notification-types/mentioned-in-comment/mentioned-in-comment.notification';
+import {
+  InviteToEditFilesInFolderNotification
+} from '@app/header/_notifications/notification-types/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 
 @Component({
   selector: 'app-header-notification-list',
@@ -20,11 +20,11 @@ import { Notification } from '@elementar/components/notifications';
     RouterLink,
     MatIcon,
     MatRipple,
-    MentionedInCommentNotification,
-    InviteToEditFilesInFolderNotification,
     EmrSkeletonModule,
     NgTemplateOutlet,
-    HDividerComponent
+    HDividerComponent,
+    MentionedInCommentNotification,
+    InviteToEditFilesInFolderNotification
   ],
   templateUrl: './notification-list.component.html',
   styleUrl: './notification-list.component.scss'

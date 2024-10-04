@@ -4,7 +4,7 @@ import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import { IconComponent } from '@elementar/components/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
-import { Notification } from '@elementar/components/notifications';
+import { Notification } from '@app/header/_notifications/types';
 
 @Component({
   selector: 'app-mentioned-in-comment',
