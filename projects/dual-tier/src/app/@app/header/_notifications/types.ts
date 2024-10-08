@@ -9,7 +9,7 @@ export interface Notification {
     username: string;
     avatarUrl?: string;
   },
-  entity: {
+  payload: {
     content: any;
   },
   typeId: string,

@@ -15,6 +15,6 @@
     <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
         &#64;{{ notification().notifier.username }}
       </span>
-    {{ notification().entity.content }}</div>
+    {{ notification().payload['content'] }}</div>
   <div class="text-xs font-medium text-secondary-700 dark:text-primary-400">{{ notification().createdAt }}</div>
 </div>

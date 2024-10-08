@@ -79,7 +79,7 @@ export class HeaderComponent {
         username: 'elma.johnson',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
-      entity: {
+      payload: {
         content: 'what did you say?'
       },
       type: 'mentionedInComment',
@@ -98,10 +98,8 @@ export class HeaderComponent {
         username: 'angela.naylor',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
-      entity: {
-        content: {
-          folderName: 'My New Project'
-        }
+      payload: {
+        folderName: 'My New Project'
       },
       type: 'inviteToEditFilesInFolder',
       createdAt: '2 hours ago'

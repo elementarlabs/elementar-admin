@@ -58,7 +58,7 @@ export class NotificationsComponent {
         username: 'elma.johnson',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
-      entity: {
+      payload: {
         content: 'what did you say?'
       },
       isNew: true,
@@ -78,10 +78,8 @@ export class NotificationsComponent {
         username: 'angela.naylor',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
-      entity: {
-        content: {
-          folderName: 'My New Project'
-        }
+      payload: {
+        folderName: 'My New Project'
       },
       isNew: true,
       type: 'inviteToEditFilesInFolder',
@@ -100,7 +98,7 @@ export class NotificationsComponent {
         username: 'elma.johnson',
         avatarUrl: 'https://avatar.iran.liara.run/public'
       },
-      entity: {
+      payload: {
         content: 'what did you say?'
       },
       type: 'mentionedInComment',

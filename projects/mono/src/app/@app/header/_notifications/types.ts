@@ -9,8 +9,8 @@ export interface Notification {
     username: string;
     avatarUrl?: string;
   },
-  entity: {
-    content: any;
+  payload: {
+    folderName: string;
   },
   type: string,
   createdAt: string;

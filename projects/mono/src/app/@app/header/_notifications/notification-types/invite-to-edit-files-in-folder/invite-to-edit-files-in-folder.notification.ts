@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { IconComponent } from '@elementar/components/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
-import { Notification } from '../../../../../../../../dual-tier/src/app/@app/header/_notifications/types';
+import { Notification } from '@app/header/_notifications/types';
 
 @Component({
   selector: 'app-invite-to-edit-files-in-folder',
