@@ -16,12 +16,7 @@ import { SoundEffectDirective, ThemeManagerService } from '@elementar/components
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
-import {
-  MentionedInCommentNotification
-} from '../../../@notifications/mentioned-in-comment/mentioned-in-comment.notification';
-import {
-  InviteToEditFilesInFolderNotification
-} from '../../../@notifications/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
+import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/shared/notifications';
 
 @Component({
   selector: 'app-header',

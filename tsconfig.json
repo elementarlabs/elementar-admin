@@ -5,6 +5,9 @@
       "@elementar/components/*": [
         "./projects/components/src/*"
       ],
+      "@elementar/shared/*": [
+        "./projects/shared/src/lib/*"
+      ],
       "@demo/shared/*": [
         "./projects/demo/src/app/@shared/*"
       ],
