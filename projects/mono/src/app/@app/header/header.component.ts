@@ -9,7 +9,6 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { AssistantSearchComponent } from '@app/header/_assistant-search/assistant-search.component';
 import { EmrPopoverModule } from '@elementar/components/popover';
 import { IconComponent } from '@elementar/components/icon';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
@@ -38,7 +37,6 @@ import { Notification, NotificationDefDirective, NotificationListComponent } fro
     MatTooltip,
     EmrPopoverModule,
     RouterLink,
-    AssistantSearchComponent,
     IconComponent,
     MatAnchor,
     SoundEffectDirective,
