@@ -4,7 +4,7 @@
       <button mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
       </button>
-      <app-assistant-search></app-assistant-search>
+      <app-assistant-search/>
     </div>
     <div class="ms-auto flex items-center gap-3">
       <a mat-stroked-button href="https://github.com/elementarlabs/elementar-admin" target="_blank">Github</a>
@@ -23,7 +23,7 @@
           <mat-icon>dark_mode</mat-icon>
         }
       </button>
-      <emr-dicebear text="PS" [clickable]="true" [matMenuTriggerFor]="accountMenu"
+      <emr-dicebear key="PS" [clickable]="true" [matMenuTriggerFor]="accountMenu"
                   matTooltip="Account" class="w-10 h-10"/>
     </div>
   </div>
@@ -33,9 +33,10 @@
   <div class="w-80">
     <a routerLink="/" mat-menu-item>
       <div class="flex items-center gap-3 my-3">
-        <div class="w-14 h-14 border border-neutral-400 dark:border-inverse rounded-lg flex-none flex items-center justify-center">
-          <img src="assets/applications/file-storage.svg" alt="File Storage" class="w-8 h-8 dark:hidden">
-          <img src="assets/applications/file-storage-dark.svg" alt="File Storage" class="w-8 h-8 hidden dark:block">
+        <div class="size-14 border border-neutral-400 dark:border-inverse rounded-lg flex-none flex items-center justify-center">
+          <img ngSrc="assets/applications/file-storage.svg" alt="File Storage" class="size-8 dark:hidden" fill>
+          <img ngSrc="assets/applications/file-storage-dark.svg" alt="File Storage"
+               class="w-8 h-8 hidden dark:block" fill>
         </div>
         <div class="-mt-0.5">
           <div>File Storage</div>
@@ -114,7 +115,28 @@
 
 <ng-template #notificationsPopover>
   <emr-popover class="overflow-hidden">
-    <app-header-notification-list/>
+    <div class="w-[360px] text-base list-none bg-white dark:border-inverse
+            shadow-lg dark:divide-inverse dark:bg-surface-container">
+      <div class="flex items-center justify-between bg-neutral-200 text-sm dark:bg-neutral-900
+              h-11 px-4 border-b dark:border-b-inverse">
+        <div class="text-center text-neutral-700 font-semibold dark:text-neutral-100">Notifications</div>
+        <a routerLink="/pages/account/notifications" class="font-medium text-sm text-primary hover:text-tertiary">View All</a>
+      </div>
+      <div class="h-[300px] overflow-y-auto">
+        @if (notifications.length > 0) {
+          <emr-notification-list [notifications]="notifications">
+            <ng-template emrNotificationDef="mentionedInComment" let-notification>
+              <app-mentioned-in-comment [notification]="notification" class="px-4"/>
+            </ng-template>
+            <ng-template emrNotificationDef="inviteToEditFilesInFolder" let-notification>
+              <app-invite-to-edit-files-in-folder [notification]="notification" class="px-4"/>
+            </ng-template>
+          </emr-notification-list>
+        } @else {
+          There are no notifications.
+        }
+      </div>
+    </div>
   </emr-popover>
 </ng-template>
 

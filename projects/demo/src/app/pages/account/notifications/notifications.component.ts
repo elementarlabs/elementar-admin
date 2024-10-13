@@ -5,19 +5,14 @@ import {
   Notification, NotificationControlsDefDirective, NotificationDefDirective,
   NotificationListComponent, NotificationPropsDirective,
 } from '@elementar/components/notifications';
-import {
-  InviteToEditFilesInFolderNotification
-} from '../../../@notifications/invite-to-edit-files-in-folder/invite-to-edit-files-in-folder.notification';
 import { MatCellDef } from '@angular/material/table';
 import { NgTemplateOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { DicebearComponent } from '@elementar/components/avatar';
-import {
-  MentionedInCommentNotification
-} from '../../../@notifications/mentioned-in-comment/mentioned-in-comment.notification';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';
+import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/shared/notifications';
 
 @Component({
   standalone: true,
@@ -25,12 +20,12 @@ import { MatIconButton } from '@angular/material/button';
     PageComponent,
     PageContentDirective,
     NotificationListComponent,
-    InviteToEditFilesInFolderNotification,
     MatCellDef,
     NgTemplateOutlet,
     EmrSkeletonModule,
     DicebearComponent,
     NotificationDefDirective,
+    InviteToEditFilesInFolderNotification,
     MentionedInCommentNotification,
     NotificationPropsDirective,
     MatIcon,

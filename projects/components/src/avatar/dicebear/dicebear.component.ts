@@ -4,9 +4,9 @@ import {
   forwardRef,
   input, OnInit
 } from '@angular/core';
-import { ULT_AVATAR_ACCESSOR } from '../avatar.properties';
+import { AVATAR_ACCESSOR } from '../avatar.properties';
 import { createAvatar } from '@dicebear/core';
-import { identicon, initials, thumbs } from '@dicebear/collection';
+import { identicon, initials } from '@dicebear/collection';
 import { SafeHtmlPipe } from '@elementar/components/core';
 import { v7 as uuid } from 'uuid';
 
@@ -44,7 +44,7 @@ const presets: {[prop: string]: Preset} = {
   styleUrls: ['./dicebear.component.scss'],
   providers: [
     {
-      provide: ULT_AVATAR_ACCESSOR,
+      provide: AVATAR_ACCESSOR,
       useExisting: forwardRef(() => DicebearComponent),
       multi: true
     }
@@ -70,7 +70,7 @@ export class DicebearComponent implements OnInit {
   presenceIndicator = input<'online' | 'offline' | null>(null);
 
   protected imageLoaded: boolean;
-  svg = '';
+  protected svg = '';
 
   ngOnInit() {
     if (this.src()) {

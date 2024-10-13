@@ -7,7 +7,7 @@ import {
   OnChanges, OnInit,
   SimpleChanges
 } from '@angular/core';
-import { ULT_AVATAR_ACCESSOR } from '../avatar.properties';
+import { AVATAR_ACCESSOR } from '../avatar.properties';
 
 const alreadyLoadedImages: string[] = [];
 
@@ -19,7 +19,7 @@ const alreadyLoadedImages: string[] = [];
   styleUrls: ['./avatar.component.scss'],
   providers: [
     {
-      provide: ULT_AVATAR_ACCESSOR,
+      provide: AVATAR_ACCESSOR,
       useExisting: forwardRef(() => AvatarComponent),
       multi: true
     }
