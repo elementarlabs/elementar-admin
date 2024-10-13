@@ -7,7 +7,7 @@ import { DicebearComponent } from '@elementar/components/avatar';
 import { Notification } from '@elementar/components/notifications';
 
 @Component({
-  selector: 'app-mentioned-in-comment',
+  selector: 'emr-mentioned-in-comment',
   standalone: true,
   imports: [
     MatIcon,

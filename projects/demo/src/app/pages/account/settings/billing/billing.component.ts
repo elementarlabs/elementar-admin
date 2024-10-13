@@ -8,10 +8,6 @@ import {
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { CurrentPlanWidgetComponent } from '@demo/shared/widgets/current-plan-widget/current-plan-widget.component';
-import {
-  PaymentInformationWidgetComponent
-} from '@demo/shared/widgets/payment-information-widget/payment-information-widget.component';
 import {
   MatCell,
   MatCellDef,
@@ -24,6 +20,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
+import { CurrentPlanWidgetComponent, PaymentInformationWidgetComponent } from '@elementar/shared/widgets';
 
 const TABLE_DATA = [
   {

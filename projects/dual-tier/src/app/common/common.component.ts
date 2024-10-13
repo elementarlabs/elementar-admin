@@ -13,8 +13,8 @@ import { HDividerComponent } from '@elementar/components/divider';
 import { IconComponent } from '@elementar/components/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { MatTooltip } from '@angular/material/tooltip';
-import { HeaderComponent } from '../@app/header/header/header.component';
 import { SidebarComponent } from '../@app/sidebar/sidebar.component';
+import { HeaderComponent } from '../@app/header/header.component';
 
 @Component({
   selector: 'app-common',

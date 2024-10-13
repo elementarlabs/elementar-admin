@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UpgradeNowComponent } from '@demo/app/sidebar/_upgrade-now/upgrade-now.component';
+import { UpgradeNowComponent } from '@elementar/shared/sidebar';
 
 @Component({
   selector: 'app-sidebar-upgrade-now-example',

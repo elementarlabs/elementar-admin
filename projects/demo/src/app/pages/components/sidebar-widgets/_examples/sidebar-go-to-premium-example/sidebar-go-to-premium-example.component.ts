@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { GoToPremiumComponent } from '@demo/app/sidebar/_go-to-premium/go-to-premium.component';
+import { GoToPremiumComponent } from '@elementar/shared/sidebar';
 
 @Component({
-  selector: 'app-sidebar-go-to-premium-example',
+  selector: 'emr-sidebar-go-to-premium-example',
   standalone: true,
   imports: [
     GoToPremiumComponent

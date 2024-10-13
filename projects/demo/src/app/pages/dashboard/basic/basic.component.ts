@@ -6,19 +6,16 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { MatCheckbox } from '@angular/material/checkbox';
 import {
-  TotalSubscribersWidgetComponent
-} from '@demo/shared/widgets/total-subscribers-widget/total-subscribers-widget.component';
-import { AvgOpenRateWidgetComponent } from '@demo/shared/widgets/avg-open-rate-widget/avg-open-rate-widget.component';
-import { AvgClickRateWidgetComponent } from '@demo/shared/widgets/avg-click-rate-widget/avg-click-rate-widget.component';
-import { UniqueVisitorsWidgetComponent } from '@demo/shared/widgets/unique-visitors-widget/unique-visitors-widget.component';
-import { TotalTasksWidgetComponent } from '@demo/shared/widgets/total-tasks-widget/total-tasks-widget.component';
-import { TotalProjectsWidgetComponent } from '@demo/shared/widgets/total-projects-widget/total-projects-widget.component';
-import { EventsWidgetComponent } from '@demo/shared/widgets/events-widget/events-widget.component';
-import { TeamWidgetComponent } from '@demo/shared/widgets/team-widget/team-widget.component';
-import {
-  TasksInProgressWidgetComponent
-} from '@demo/shared/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component';
-import { TodosWidgetComponent } from '@demo/shared/widgets/todos-widget/todos-widget.component';
+  AvgClickRateWidgetComponent,
+  AvgOpenRateWidgetComponent,
+  EventsWidgetComponent,
+  TasksInProgressWidgetComponent,
+  TeamWidgetComponent, TodosWidgetComponent,
+  TotalProjectsWidgetComponent,
+  TotalSubscribersWidgetComponent,
+  TotalTasksWidgetComponent,
+  UniqueVisitorsWidgetComponent
+} from '@elementar/shared/widgets';
 
 @Component({
   standalone: true,

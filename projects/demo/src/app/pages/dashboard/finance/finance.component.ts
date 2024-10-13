@@ -1,18 +1,4 @@
 import { Component } from '@angular/core';
-import { AvgClickRateWidgetComponent } from '@demo/shared/widgets/avg-click-rate-widget/avg-click-rate-widget.component';
-import { AvgOpenRateWidgetComponent } from '@demo/shared/widgets/avg-open-rate-widget/avg-open-rate-widget.component';
-import { EventsWidgetComponent } from '@demo/shared/widgets/events-widget/events-widget.component';
-import {
-  TasksInProgressWidgetComponent
-} from '@demo/shared/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component';
-import { TeamWidgetComponent } from '@demo/shared/widgets/team-widget/team-widget.component';
-import { TodosWidgetComponent } from '@demo/shared/widgets/todos-widget/todos-widget.component';
-import { TotalProjectsWidgetComponent } from '@demo/shared/widgets/total-projects-widget/total-projects-widget.component';
-import {
-  TotalSubscribersWidgetComponent
-} from '@demo/shared/widgets/total-subscribers-widget/total-subscribers-widget.component';
-import { TotalTasksWidgetComponent } from '@demo/shared/widgets/total-tasks-widget/total-tasks-widget.component';
-import { UniqueVisitorsWidgetComponent } from '@demo/shared/widgets/unique-visitors-widget/unique-visitors-widget.component';
 import { DecimalPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -20,13 +6,25 @@ import { IconComponent } from '@elementar/components/icon';
 import { MatRipple } from '@angular/material/core';
 import { RouterLink } from '@angular/router';
 import {
-  Transaction,
-  TransactionsWidgetComponent
-} from '@demo/shared/widgets/transactions-widget/transactions-widget.component';
+  AvgClickRateWidgetComponent,
+  AvgOpenRateWidgetComponent,
+  EventsWidgetComponent,
+  TasksInProgressWidgetComponent,
+  TeamWidgetComponent,
+  TodosWidgetComponent, TotalProjectsWidgetComponent,
+  TotalSubscribersWidgetComponent, TotalTasksWidgetComponent, Transaction,
+  TransactionsWidgetComponent, UniqueVisitorsWidgetComponent
+} from '@elementar/shared/widgets';
 
 @Component({
   standalone: true,
   imports: [
+    DecimalPipe,
+    MatButton,
+    MatIcon,
+    IconComponent,
+    MatRipple,
+    RouterLink,
     AvgClickRateWidgetComponent,
     AvgOpenRateWidgetComponent,
     EventsWidgetComponent,
@@ -37,12 +35,6 @@ import {
     TotalSubscribersWidgetComponent,
     TotalTasksWidgetComponent,
     UniqueVisitorsWidgetComponent,
-    DecimalPipe,
-    MatButton,
-    MatIcon,
-    IconComponent,
-    MatRipple,
-    RouterLink,
     TransactionsWidgetComponent
   ],
   templateUrl: './finance.component.html',

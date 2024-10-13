@@ -8,7 +8,7 @@ import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar
 import { Notification } from '@elementar/components/notifications';
 
 @Component({
-  selector: 'app-invite-to-edit-files-in-folder',
+  selector: 'emr-invite-to-edit-files-in-folder',
   standalone: true,
   imports: [
     MatIcon,

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '@app/header/header/header.component';
 import {
   LayoutBodyComponent,
   LayoutComponent,
   LayoutHeaderComponent,
   LayoutSidebarComponent
 } from '@elementar/components/layout';
-import { SidebarComponent } from '@app/sidebar/sidebar/sidebar.component';
+import { HeaderComponent } from '@app/header/header.component';
+import { SidebarComponent } from '@app/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-common',
@@ -15,11 +15,11 @@ import { SidebarComponent } from '@app/sidebar/sidebar/sidebar.component';
   imports: [
     RouterOutlet,
     HeaderComponent,
+    SidebarComponent,
     LayoutBodyComponent,
     LayoutComponent,
     LayoutHeaderComponent,
-    LayoutSidebarComponent,
-    SidebarComponent
+    LayoutSidebarComponent
   ],
   templateUrl: './common.component.html',
   styleUrl: './common.component.scss'
