@@ -546,6 +546,38 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
+      key: 'shared',
+      type: 'group',
+      icon: 'grid_view',
+      name: 'Shared',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Widgets',
+          link: '/pages/shared/widgets'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Skeleton',
+          link: '/pages/shared/skeleton'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Sidebar',
+          link: '/pages/shared/sidebar'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Notifications',
+          link: '/pages/shared/notifications'
+        },
+      ],
+    },
+    {
       key: 'micro-charts',
       type: 'group',
       icon: 'leaderboard',
