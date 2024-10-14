@@ -1,5 +1,3 @@
 :host {
-  display: block;
-  width: max-content;
-  height: 215px;
+  @apply block w-max;
 }
