@@ -20,9 +20,9 @@ import {
   VisitorInsightsWidgetComponent
 } from '@elementar/shared/widgets';
 import {
-  DashboardCardsSkeletonWidgetComponent,
-  DashboardChartSkeletonWidgetComponent,
-  DashboardSkeletonWidgetComponent
+  DashboardCardsSkeletonComponent,
+  DashboardChartWidgetSkeletonComponent,
+  DashboardStatsWidgetSkeletonComponent
 } from '@elementar/shared/skeleton';
 
 @Component({
@@ -50,9 +50,9 @@ import {
     VisitorInsightsWidgetComponent,
     TodaySalesWidgetComponent,
     ExchangeWidgetComponent,
-    DashboardSkeletonWidgetComponent,
-    DashboardChartSkeletonWidgetComponent,
-    DashboardCardsSkeletonWidgetComponent,
+    DashboardCardsSkeletonComponent,
+    DashboardChartWidgetSkeletonComponent,
+    DashboardStatsWidgetSkeletonComponent,
     CustomerSatisfactionWidgetComponent
   ],
   templateUrl: './ecommerce.component.html',

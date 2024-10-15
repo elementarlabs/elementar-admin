@@ -30,6 +30,18 @@ import {
   TasksInProgressExampleComponent
 } from '../_examples/tasks-in-progress-example/tasks-in-progress-example.component';
 import { TeamExampleComponent } from '../_examples/team-example/team-example.component';
+import { TodaySalesExampleComponent } from '../_examples/today-sales-example/today-sales-example.component';
+import { TodosExampleComponent } from '../_examples/todos-example/todos-example.component';
+import { TotalProjectsExampleComponent } from '../_examples/total-projects-example/total-projects-example.component';
+import { TotalRevenueExampleComponent } from '../_examples/total-revenue-example/total-revenue-example.component';
+import {
+  TotalSubscribersExampleComponent
+} from '../_examples/total-subscribers-example/total-subscribers-example.component';
+import { TotalTasksExampleComponent } from '../_examples/total-tasks-example/total-tasks-example.component';
+import { TransactionsExampleComponent } from '../_examples/transactions-example/transactions-example.component';
+import { UniqueVisitorsExampleComponent } from '../_examples/unique-visitors-example/unique-visitors-example.component';
+import { VisitDurationExampleComponent } from '../_examples/visit-duration-example/visit-duration-example.component';
+import { VisitInsightsExampleComponent } from '../_examples/visit-insights-example/visit-insights-example.component';
 
 @Component({
   standalone: true,
@@ -51,7 +63,17 @@ import { TeamExampleComponent } from '../_examples/team-example/team-example.com
     RecentActivityExampleComponent,
     SiteVisitorsExampleComponent,
     TasksInProgressExampleComponent,
-    TeamExampleComponent
+    TeamExampleComponent,
+    TodaySalesExampleComponent,
+    TodosExampleComponent,
+    TotalProjectsExampleComponent,
+    TotalRevenueExampleComponent,
+    TotalSubscribersExampleComponent,
+    TotalTasksExampleComponent,
+    TransactionsExampleComponent,
+    UniqueVisitorsExampleComponent,
+    VisitDurationExampleComponent,
+    VisitInsightsExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
