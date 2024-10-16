@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { NotificationsRoutingModule } from './notifications-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
