@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  width: max-content;
+  width: 240px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,6 @@
   overflow: hidden;
   background: linear-gradient(to right, rgb(241, 142, 156), rgb(253, 186, 116));
   text-align: center;
-  box-shadow: theme('boxShadow.lg');
-  margin: 0 auto;
 }
 
 :host:before {
