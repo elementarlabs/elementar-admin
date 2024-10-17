@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UpgradeToProComponent } from '@elementar/shared/sidebar';
+import { UpgradeToProComponent } from '@elementar/store/sidebar';
 
 @Component({
   selector: 'emr-sidebar-upgrade-to-pro-example',

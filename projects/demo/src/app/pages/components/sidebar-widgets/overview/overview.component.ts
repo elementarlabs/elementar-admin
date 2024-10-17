@@ -19,7 +19,7 @@ import {
   UpgradeNowComponent,
   UpgradeToProComponent,
   UsedSpaceComponent
-} from '@elementar/shared/sidebar';
+} from '@elementar/store/sidebar';
 
 @Component({
   standalone: true,

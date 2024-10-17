@@ -20,7 +20,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-import { CurrentPlanWidgetComponent, PaymentInformationWidgetComponent } from '@elementar/shared/widgets';
+import { CurrentPlanWidgetComponent, PaymentInformationWidgetComponent } from '@elementar/store/widgets';
 
 const TABLE_DATA = [
   {

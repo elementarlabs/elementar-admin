@@ -9,7 +9,7 @@ import {
   TotalSubscribersWidgetComponent,
   TotalTasksWidgetComponent,
   UniqueVisitorsWidgetComponent
-} from '@elementar/shared/widgets';
+} from '@elementar/store/widgets';
 
 @Component({
   selector: 'app-main',

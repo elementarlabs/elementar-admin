@@ -12,7 +12,7 @@ import { DicebearComponent } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/shared/notifications';
+import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 
 @Component({
   standalone: true,

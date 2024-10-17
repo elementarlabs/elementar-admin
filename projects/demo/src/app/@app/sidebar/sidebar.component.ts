@@ -15,7 +15,7 @@ import {
 } from '@elementar/components/sidebar';
 import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 import { MatIconButton } from '@angular/material/button';
-import { ToolbarComponent } from '@elementar/shared/sidebar';
+import { ToolbarComponent } from '@elementar/store/sidebar';
 
 @Component({
   selector: 'app-sidebar',
@@ -546,34 +546,34 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'shared',
+      key: 'store',
       type: 'group',
-      icon: 'grid_view',
-      name: 'Shared',
+      icon: 'hard_drive',
+      name: 'Store',
       children: [
         {
           key: uuid(),
           type: 'link',
           name: 'Widgets',
-          link: '/pages/shared/widgets'
+          link: '/pages/store/widgets'
         },
         {
           key: uuid(),
           type: 'link',
           name: 'Skeleton',
-          link: '/pages/shared/skeleton'
+          link: '/pages/store/skeleton'
         },
         {
           key: uuid(),
           type: 'link',
           name: 'Sidebar',
-          link: '/pages/shared/sidebar'
+          link: '/pages/store/sidebar'
         },
         {
           key: uuid(),
           type: 'link',
           name: 'Notifications',
-          link: '/pages/shared/notifications'
+          link: '/pages/store/notifications'
         },
       ],
     },

@@ -14,7 +14,7 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
 } from '@elementar/components/sidebar';
-import { ToolbarComponent } from '@elementar/shared/sidebar';
+import { ToolbarComponent } from '@elementar/store/sidebar';
 
 @Component({
   selector: 'app-sidebar',

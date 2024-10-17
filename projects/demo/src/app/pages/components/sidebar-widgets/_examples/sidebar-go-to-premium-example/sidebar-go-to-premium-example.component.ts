@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoToPremiumComponent } from '@elementar/shared/sidebar';
+import { GoToPremiumComponent } from '@elementar/store/sidebar';
 
 @Component({
   selector: 'emr-sidebar-go-to-premium-example',

@@ -303,8 +303,8 @@ const routes: Routes = [
         loadChildren: () => import('./account/settings/settings.module').then(m => m.SettingsModule)
       },
       {
-        path: 'shared',
-        loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
+        path: 'store',
+        loadChildren: () => import('./store/store.module').then(m => m.StoreModule)
       },
       {
         path: 'file-manager',

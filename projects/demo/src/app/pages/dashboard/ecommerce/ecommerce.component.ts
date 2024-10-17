@@ -18,12 +18,12 @@ import {
   TotalSubscribersWidgetComponent,
   VisitDurationWidgetComponent,
   VisitorInsightsWidgetComponent
-} from '@elementar/shared/widgets';
+} from '@elementar/store/widgets';
 import {
   DashboardCardsSkeletonComponent,
   DashboardChartWidgetSkeletonComponent,
   DashboardStatsWidgetSkeletonComponent
-} from '@elementar/shared/skeleton';
+} from '@elementar/store/skeleton';
 
 @Component({
   selector: 'app-ecommerce',

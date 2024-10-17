@@ -14,9 +14,9 @@ import { IconComponent } from '@elementar/components/icon';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/shared/notifications';
+import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
-import { AssistantSearchComponent } from '@elementar/shared/header';
+import { AssistantSearchComponent } from '@elementar/store/header';
 
 @Component({
   selector: 'app-header',

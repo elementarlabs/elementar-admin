@@ -14,7 +14,7 @@ import {
   TodosWidgetComponent, TotalProjectsWidgetComponent,
   TotalSubscribersWidgetComponent, TotalTasksWidgetComponent, Transaction,
   TransactionsWidgetComponent, UniqueVisitorsWidgetComponent
-} from '@elementar/shared/widgets';
+} from '@elementar/store/widgets';
 
 @Component({
   standalone: true,

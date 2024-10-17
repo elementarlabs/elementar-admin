@@ -5,7 +5,7 @@ import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
 import { MatButton } from '@angular/material/button';
-import { ToolbarAComponent } from '@elementar/shared/sidebar';
+import { ToolbarAComponent } from '@elementar/store/sidebar';
 import { OrderByPipe } from '@elementar/components/core';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 
