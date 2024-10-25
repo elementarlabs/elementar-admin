@@ -13,6 +13,7 @@ import {
 import { PaginatedTabsExampleComponent } from '../_examples/paginated-tabs-example/paginated-tabs-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { SortableTabsExampleComponent } from '../_examples/sortable-tabs-example/sortable-tabs-example.component';
 
 @Component({
   standalone: true,
@@ -24,7 +25,8 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
     TabsWithHeadersOnTheBottomExampleComponent,
     PaginatedTabsExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    SortableTabsExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

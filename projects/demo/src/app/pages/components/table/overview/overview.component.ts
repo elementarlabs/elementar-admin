@@ -22,6 +22,7 @@ import {
 } from '../_examples/table-with-sticky-footer-example/table-with-sticky-footer-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { SortableTableExampleComponent } from '../_examples/sortable-table-example/sortable-table-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -37,7 +38,8 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
     TableWithStickyHeaderExampleComponent,
     TableWithStickyFooterExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    SortableTableExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
