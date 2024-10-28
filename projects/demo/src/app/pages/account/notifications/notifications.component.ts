@@ -3,7 +3,7 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   Notification, NotificationControlsDefDirective, NotificationDefDirective,
-  NotificationListComponent, NotificationPropsDirective,
+  NotificationListComponent, NotificationPropsDirective, NotificationSkeletonComponent,
 } from '@elementar/components/notifications';
 import { MatCellDef } from '@angular/material/table';
 import { NgTemplateOutlet } from '@angular/common';
@@ -33,7 +33,8 @@ import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification }
     MatMenu,
     MatMenuItem,
     MatIconButton,
-    MatMenuTrigger
+    MatMenuTrigger,
+    NotificationSkeletonComponent
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'
