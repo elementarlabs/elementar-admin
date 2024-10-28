@@ -11,7 +11,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { environment } from '../environments/environment';
 import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar/components/core';
 
-export function initializeApp() {
+export function appInitializer() {
   const envService = inject(EnvironmentService);
   const globalStore = inject(GlobalStore);
   return (): Promise<any> => new Promise((resolve, reject) => {
@@ -35,7 +35,7 @@ export const appConfig: ApplicationConfig = {
     },
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeApp,
+      useFactory: appInitializer,
       multi: true
     },
     {
