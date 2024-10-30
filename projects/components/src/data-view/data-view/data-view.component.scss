@@ -1,6 +1,7 @@
 :host {
+  --emr-data-view-bg: theme('colors.transparent');
   --mat-table-row-item-outline-width: 0;
-  --mat-table-background-color: transparent;
+  --mat-table-background-color: var(--emr-data-view-bg);
   --emr-content-fade-color: var(--emr-data-view-row-bg);
 
   .mat-mdc-cell {

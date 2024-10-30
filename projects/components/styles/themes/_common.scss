@@ -105,7 +105,6 @@
   --emr-on-background: #{mat.get-theme-color($m3-light-theme, neutral, 20)};
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
 
-  --mat-table-background-color: var(--emr-background);
   --mat-table-row-item-outline-color: theme('borderColor.DEFAULT');
 
   --emr-transition-transform: transform .15s linear;
@@ -226,7 +225,6 @@ html.dark {
   --emr-background: #{mat.get-theme-color($m3-dark-theme, neutral, 20)};
   --emr-on-background: #fff;
   --emr-inverse: #{mat.get-theme-color($m3-dark-theme, neutral, 50)};
-  --mat-table-background-color: var(--emr-background);
   --mat-table-row-item-outline-color: theme('colors.inverse');
   --emr-warn: theme('colors.red.500');
 

@@ -21,17 +21,17 @@
 }
 
 .mat-mdc-table {
-  --mat-table-background-color: theme('colors.background');
   --mat-table-row-item-outline-color: theme('colors.neutral.300');
 }
 
 .mat-mdc-row {
   &.cdk-drag-preview {
-    @apply bg-primary-50 w-full;
+    @apply bg-primary-50 w-full border-b-transparent;
 
     td {
       vertical-align: middle;
       height: inherit;
+      @apply border-b-transparent;
     }
   }
 }
