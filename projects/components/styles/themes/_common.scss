@@ -101,7 +101,7 @@
   --emr-error-950: #{mat.get-theme-color($m3-light-theme, error, 20)};
   --emr-error-1000: #{mat.get-theme-color($m3-light-theme, error, 10)};
 
-  --emr-background: #fff;
+  --emr-background: var(--mat-app-background-color);
   --emr-on-background: #{mat.get-theme-color($m3-light-theme, neutral, 20)};
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
 
