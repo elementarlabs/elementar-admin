@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require('tailwindcss/colors');
 module.exports = {
   darkMode: 'class',
   theme: {
@@ -15,6 +16,9 @@ module.exports = {
       fontFamily: {
         'sans': ['"Poppins"', ...defaultTheme.fontFamily.sans],
         'serif': ['Open Sans', ...defaultTheme.fontFamily.serif]
+      },
+      borderColor: {
+        DEFAULT: 'var(--emr-border)'
       },
       colors: {
         background: 'var(--emr-background)',

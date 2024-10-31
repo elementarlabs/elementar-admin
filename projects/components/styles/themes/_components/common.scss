@@ -1,5 +1,5 @@
 html {
-  @apply antialiased leading-tight min-h-screen;
+  @apply antialiased leading-tight min-h-screen bg-[var(--emr-background)];
 }
 
 body {

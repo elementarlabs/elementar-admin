@@ -7,7 +7,7 @@
   flex: none;
   cursor: pointer;
   user-select: none;
-  background-color: var(--emr-navigation-item-bg);
+  background-color: var(--emr-navigation-group-toggle-bg);
   min-height: var(--emr-navigation-item-height);
   padding: var(--emr-navigation-item-padding);
   font-size: var(--emr-navigation-item-font-size);
@@ -54,7 +54,7 @@
 
 :host(.is-active),
 :host(.is-active:hover) {
-  background-color: var(--emr-navigation-item-active-bg);
+  background-color: var(--emr-navigation-group-toggle-active-bg);
   color: var(--emr-navigation-item-active-color);
 }
 
