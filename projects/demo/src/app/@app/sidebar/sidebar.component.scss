@@ -9,7 +9,7 @@
   }
 
   .sidebar {
-    @apply bg-surface-container-low border-e border-e-neutral-300;
+    @apply bg-surface-container-low border-e border-e-surface-container-highest;
 
     &.compact:hover {
       @apply shadow-lg;
@@ -55,6 +55,10 @@
 
 :host-context(html.dark) {
   .sidebar {
-    @apply bg-neutral-950 border-e-inverse;
+    emr-sidebar-nav {
+      --emr-navigation-item-hover-bg: theme('colors.neutral.700');
+      --emr-navigation-nested-item-hover-bg: theme('colors.neutral.800');
+      --emr-navigation-group-tree-lines-color: theme('colors.neutral.700');
+    }
   }
 }

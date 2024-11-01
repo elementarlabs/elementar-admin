@@ -77,21 +77,6 @@
   }
 }
 
-.emr-navigation[theme="simple"] {
-  --emr-navigation-item-height: theme('height.11');
-  --emr-navigation-items-gap: theme('gap.0');
-  --emr-navigation-item-hover-bg: none;
-  --emr-navigation-item-active-bg: none;
-  --emr-navigation-nested-item-height: theme('height.11');
-  --emr-navigation-nested-item-hover-bg: none;
-  --emr-navigation-nested-item-active-bg: none;
-  --emr-navigation-item-color: theme('textColor.secondary.500');
-  --emr-navigation-item-active-color: theme('textColor.primary.DEFAULT');
-  --emr-navigation-nested-item-color: theme('textColor.secondary.500');
-  --emr-navigation-item-icon-color: theme('colors.secondary.600');
-  --emr-navigation-item-active-icon-color: theme('colors.primary.DEFAULT');
-}
-
 html.dark {
   --emr-navigation-item-color: theme('colors.neutral.300');
   --emr-navigation-item-icon-color: theme('colors.neutral.400');
@@ -103,25 +88,17 @@ html.dark {
   --emr-navigation-item-active-icon-color: theme('colors.neutral.950');
   --emr-navigation-heading-color: theme('colors.neutral.200');
   --emr-navigation-nested-item-color: theme('textColor.neutral.300');
-  --emr-navigation-nested-item-active-color: theme('colors.neutral.100');
   --emr-navigation-nested-item-hover-bg: theme('colors.neutral.700');
-  --emr-navigation-nested-item-active-bg: theme('colors.neutral.700');
   --emr-navigation-nested-item-hover-color: theme('colors.neutral.100');
   --emr-navigation-divider-bg: theme('borderColor.inverse');
   --emr-navigation-group-tree-lines-color: theme('borderColor.inverse');
+  --emr-navigation-group-toggle-active-bg: theme('colors.neutral.300');
+  --emr-navigation-group-toggle-hover-bg: theme('colors.neutral.800');
 
   .emr-navigation[data-theme="secondary"] {
     .emr-navigation-item.is-active {
       --emr-navigation-item-border-color: theme('colors.neutral.400');
       --emr-navigation-item-active-color: theme('colors.primary.300');
     }
-  }
-
-  .emr-navigation[theme="simple"] {
-    --emr-navigation-item-color: theme('textColor.neutral.500');
-    --emr-navigation-nested-item-color: theme('textColor.neutral.500');
-    --emr-navigation-item-icon-color: theme('colors.neutral.400');
-    --emr-navigation-item-active-icon-color: theme('colors.primary.300');
-    --emr-navigation-item-active-color: theme('colors.primary.300');
   }
 }
