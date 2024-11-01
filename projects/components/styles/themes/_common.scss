@@ -101,9 +101,8 @@
   --emr-error-950: #{mat.get-theme-color($m3-light-theme, error, 20)};
   --emr-error-1000: #{mat.get-theme-color($m3-light-theme, error, 10)};
 
-  --emr-background: var(--mat-app-background-color);
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
-  --emr-border: theme('colors.neutral.400');
+  --emr-border: var(--emr-neutral-400);
 
   --mat-table-row-item-outline-color: theme('borderColor.DEFAULT');
   --emr-transition-transform: transform .15s linear;
@@ -219,9 +218,14 @@ html.dark {
   --emr-inverse: #{mat.get-theme-color($m3-dark-theme, neutral, 50)};
   --mat-table-row-item-outline-color: theme('colors.inverse');
   --emr-warn: theme('colors.red.500');
-  --emr-border: theme('colors.neutral.600');
+  --emr-border: var(--emr-neutral-600);
 
   @include mat.all-component-colors($m3-dark-theme);
   @include mat.system-level-colors($m3-dark-theme);
   @include mat.system-level-typography($m3-dark-theme);
+}
+
+:root {
+  --emr-background: var(--mat-app-background-color);
+  --emr-on-background: var(--mat-app-text-color);
 }
