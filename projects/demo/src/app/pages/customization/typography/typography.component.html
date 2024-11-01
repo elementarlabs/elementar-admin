@@ -1,18 +1,4 @@
-<div class="p-10 w-8/12">
-  <emr-alert variant="secondary">
-    <emr-alert-title>There are two ways to add typography to a page:</emr-alert-title>
-    <ul class="text-tiny">
-      <li>1. Add css class <code><strong>mat-typography</strong></code> to apply material typography</li>
-      <li>2. Add css classes <code><strong>prose max-w-full</strong></code> to apply Tailwind typography</li>
-    </ul>
-  </emr-alert>
-</div>
-<div class="pb-10 pe-10 ps-10 w-8/12 {{ typographyClass }}">
-  <mat-button-toggle-group name="typographyClass" [(ngModel)]="typographyClass" class="mb-10">
-    <mat-button-toggle value="mat-typography">Material</mat-button-toggle>
-    <mat-button-toggle value="prose max-w-full">Tailwind</mat-button-toggle>
-  </mat-button-toggle-group>
-
+<div class="p-10 w-8/12 mat-typography">
   <h1>Typography</h1>
   <div>
     <h2>Customizing Typography</h2>
@@ -41,8 +27,8 @@
     </p>
   </div>
 
-  <h4>Inline text elements</h4>
-  <div class="border dark:border-inverse p-7 rounded-xl">
+  <h4 class="mat-title-large">Inline text elements</h4>
+  <div class="border p-7 rounded-xl">
     <div class="bd-example">
       <p>You can use the mark tag to
         <mark>highlight</mark> text.

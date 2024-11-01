@@ -14,7 +14,6 @@ module.exports = {
         'md': '15px'
       },
       fontFamily: {
-        'sans': ['"Poppins"', ...defaultTheme.fontFamily.sans],
         'serif': ['Open Sans', ...defaultTheme.fontFamily.serif]
       },
       borderColor: {
