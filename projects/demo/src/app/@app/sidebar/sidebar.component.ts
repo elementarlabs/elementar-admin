@@ -56,32 +56,6 @@ export class SidebarComponent implements OnInit {
 
   navItems: NavigationItem[] = [
     {
-      key: 'customization',
-      type: 'group',
-      name: 'Customization',
-      icon: 'tune',
-      children: [
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Colors',
-          link: '/pages/customization/colors'
-        },
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Themes',
-          link: '/pages/customization/themes'
-        },
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Typography',
-          link: '/pages/customization/typography'
-        }
-      ]
-    },
-    {
       key: 'dashboard',
       type: 'group',
       name: 'Dashboard',
@@ -108,9 +82,35 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'headingComponents',
+      key: 'theme',
+      type: 'group',
+      name: 'Theme',
+      icon: 'tune',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Colors',
+          link: '/pages/customization/colors'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Prebuilt Themes',
+          link: '/pages/customization/themes'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Typography',
+          link: '/pages/customization/typography'
+        }
+      ]
+    },
+    {
+      key: 'headingFeatures',
       type: 'heading',
-      name: 'Components'
+      name: 'Features'
     },
     {
       key: 'navigation',

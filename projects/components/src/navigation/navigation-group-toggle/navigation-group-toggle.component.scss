@@ -55,7 +55,7 @@
 :host(.is-active),
 :host(.is-active:hover) {
   background-color: var(--emr-navigation-group-toggle-active-bg);
-  color: var(--emr-navigation-item-active-color);
+  color: var(--emr-navigation-group-toggle-active-color);
 }
 
 :host:not(.is-active):hover .icon {
@@ -63,7 +63,7 @@
 }
 
 :host(.is-active) .icon {
-  color: var(--emr-navigation-item-active-icon-color);
+  color: var(--emr-navigation-group-toggle-active-color);
 }
 
 :host(.is-active) .toggle {

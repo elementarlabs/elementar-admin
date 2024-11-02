@@ -40,6 +40,7 @@
   --emr-navigation-group-menu-padding-start: 0;
   --emr-navigation-group-toggle-bg: theme('colors.transparent');
   --emr-navigation-group-toggle-active-bg: theme('colors.neutral.200');
+  --emr-navigation-group-toggle-active-color: var(--emr-navigation-item-active-color);
   --emr-navigation-nested-item-bg: theme('colors.transparent');
   --emr-navigation-nested-item-height: theme('height.10');
   --emr-navigation-nested-item-padding: 0 theme('padding.4');
@@ -92,7 +93,8 @@ html.dark {
   --emr-navigation-nested-item-hover-color: theme('colors.neutral.100');
   --emr-navigation-divider-bg: theme('borderColor.inverse');
   --emr-navigation-group-tree-lines-color: theme('borderColor.inverse');
-  --emr-navigation-group-toggle-active-bg: theme('colors.neutral.300');
+  --emr-navigation-group-toggle-active-bg: theme('colors.neutral.800');
+  --emr-navigation-group-toggle-active-color: theme('colors.neutral.100');
   --emr-navigation-group-toggle-hover-bg: theme('colors.neutral.800');
 
   .emr-navigation[data-theme="secondary"] {
