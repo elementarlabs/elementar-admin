@@ -1,15 +1,16 @@
 <div class="flex items-center gap-2">
-  <div class="text-sm">Pavel Salauyou</div>
+  <div class="text-sm">{{ name }}</div>
   <div class="border flex items-center border-neutral-900 dark:border-neutral-200 h-5 leading-3 px-2
-                    rounded-full font-bold text-4xs uppercase text-neutral-500 dark:text-neutral-200">Free</div>
+                    rounded-full font-bold text-4xs uppercase text-neutral-500 dark:text-neutral-200">{{ subscription }}</div>
 </div>
-<div class="text-xs text-gray-500 mt-0.5 dark:text-gray-400">pavel.salauyou&#64;mail.com</div>
+<div class="text-xs text-gray-500 mt-0.5 dark:text-gray-400">{{ email }}</div>
 <div class="my-4">
-  <mat-divider/>
+  <emr-h-divider/>
 </div>
 <div class="ms-auto flex items-center gap-2.5">
-  <emr-avatar text="PS" src="https://avatar.iran.liara.run/public" class="size-12"></emr-avatar>
-  <div class="flex items-center rounded-full p-1 gap-[0.5] bg-neutral-200 dark:bg-neutral-700 hover:text-neutral-900">
+  <emr-dicebear key="PS" src="https://avatar.iran.liara.run/public" class="size-12"/>
+  <div class="flex items-center rounded-full p-1 gap-[0.5] bg-surface-container-high
+              dark:bg-surface-container-highest hover:text-on-surface">
     <button mat-icon-button matTooltip="Settings">
       <mat-icon>settings</mat-icon>
     </button>

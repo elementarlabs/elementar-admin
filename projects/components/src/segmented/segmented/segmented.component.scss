@@ -1,15 +1,15 @@
 :host {
   --emr-segmented-button-height: calc(theme('height.9'));
-  --emr-segmented-bg: theme('colors.neutral.200');
+  --emr-segmented-bg: theme('colors.surface-container');
   --emr-segmented-button-hover-bg: transparent;
   --emr-segmented-button-color: theme('colors.neutral.700');
-  --emr-segmented-button-hover-color: theme('colors.primary.650');
+  --emr-segmented-button-hover-color: theme('colors.on-surface');
   --emr-segmented-button-selected-color: theme('colors.primary.650');
   --emr-segmented-button-selected-bg: theme('colors.white');
   --emr-segmented-button-selected-shadow: theme('boxShadow.sm');
   --emr-segmented-padding: theme('padding.1');
-  --emr-segmented-border-radius: theme('borderRadius.lg');
-  --emr-segmented-button-border-radius: theme('borderRadius.lg');
+  --emr-segmented-border-radius: theme('borderRadius.full');
+  --emr-segmented-button-border-radius: theme('borderRadius.full');
   --emr-segmented-button-padding: 0 theme('padding.3');
   --emr-segmented-button-min-width: theme('width.12');
   --emr-segmented-button-font-size: theme('fontSize.tiny');
@@ -37,8 +37,7 @@
 }
 
 :host-context(html.dark) {
-  --emr-segmented-bg: theme('colors.neutral.700');
+  --emr-segmented-bg: theme('colors.surface-container-highest');
   --emr-segmented-button-color: theme('colors.neutral.300');
-  --emr-segmented-button-selected-bg: theme('colors.neutral.200');
-  --emr-segmented-button-hover-color: theme('colors.primary.300');
+  --emr-segmented-button-selected-bg: theme('colors.neutral.300');
 }
