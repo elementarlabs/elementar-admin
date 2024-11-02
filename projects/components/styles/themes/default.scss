@@ -10,8 +10,8 @@ $m3-light-theme: mat.define-theme((
     use-system-variables: true
   ),
   typography: (
-    brand-family: 'Open Sans',
-    plain-family: 'Open Sans',
+    brand-family: '"Open Sans", sans-serif',
+    plain-family: '"Open Sans", sans-serif',
     use-system-variables: true,
   ),
   density: (
@@ -27,8 +27,8 @@ $m3-dark-theme: mat.define-theme((
     use-system-variables: true
   ),
   typography: (
-    brand-family: 'Open Sans',
-    plain-family: 'Open Sans',
+    brand-family: '"Open Sans", sans-serif',
+    plain-family: '"Open Sans", sans-serif',
     use-system-variables: true,
   ),
   density: (
