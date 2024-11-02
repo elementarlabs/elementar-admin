@@ -1,7 +1,7 @@
 <div class="px-10 py-14">
   <div class="max-w-[1000px] mx-auto">
-    <section class="border dark:border-inverse rounded-2xl">
-      <div class="bg-neutral-100 dark:bg-neutral-700 h-48 rounded-t-2xl relative">
+    <section class="bg-surface-container-low rounded-2xl">
+      <div class="h-32 rounded-t-2xl relative">
         <div class="absolute start-10 size-44 border-4 border-background overflow-hidden
                 -bottom-2 translate-y-1/2 bg-tertiary-200 dark:bg-tertiary-400 rounded-full">
           <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="" class="bg-cover">
@@ -11,7 +11,7 @@
         <div class="flex h-full justify-between gap-10">
           <div>
             <div class="ms-48 flex gap-4">
-              <div class="bg-neutral-200 dark:bg-neutral-700 rounded-full size-max">
+              <div class="bg-neutral-300 dark:bg-neutral-700 rounded-full size-max">
                 <button mat-icon-button matTooltip="Send a message">
                   <mat-icon class="filled">mail</mat-icon>
                 </button>
@@ -38,51 +38,23 @@
             <div>
               <div class="text-sm text-neutral-500 dark:text-neutral-400">Languages</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>English:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Native</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 px-2 h-6 flex
-                            items-center gap-1 dark:bg-primary-200 dark:text-primary-800">
-                  <span>German:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Fluent</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>Spanish:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Basic</span>
-                </div>
+                @for (language of languages; track language) {
+                  <div class="w-max rounded-lg text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
+                    <span class="text-neutral-variant-600 dark:text-neutral-500">{{ language.name }}:</span>
+                    <span class="text-on-surface">{{ language.level }}</span>
+                  </div>
+                }
               </div>
             </div>
             <div class="mt-7">
               <div class="text-sm text-neutral-500 dark:text-neutral-400">Skills (13)</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>Typescript:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Good</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>Angular:</span>
-                  <span class="text-neutral-600">Good</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>CSS:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Medium</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>Rest API:</span>
-                  <span class="text-neutral-600">Good</span>
-                </div>
-                <div class="w-max rounded-lg text-xs bg-neutral-200 dark:bg-primary-200
-                            dark:text-primary-800 px-2 h-6 flex items-center gap-1">
-                  <span>NestJS:</span>
-                  <span class="text-neutral-600 dark:text-neutral-700">Medium</span>
-                </div>
+                @for (skill of skills; track skill) {
+                  <div class="w-max rounded-lg text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
+                    <span class="text-neutral-variant-600 dark:text-neutral-500">{{ skill.name }}:</span>
+                    <span class="text-on-surface">{{ skill.level }}</span>
+                  </div>
+                }
                 <div class="w-max text-xs px-2 h-6 flex items-center text-primary hover:text-tertiary cursor-pointer">+8 more</div>
               </div>
             </div>
@@ -92,16 +64,18 @@
     </section>
     <div class="mt-12 grid grid-cols-12 gap-20">
       <section class="col-span-8">
-        <div class="font-bold">About me</div>
-        <div class="text-md mt-5 leading-relaxed">
-          <ul>
-            <li>• 12+ years of software development experience</li>
-            <li>• Web-applications development (PHP 8+, Symfony 5, Angular 16+, Nest.js)</li>
-            <li>• Experience with databases (Mysql, MongoDB, Redis)</li>
-            <li>• Rich front-end development (Tailwindcss, HTML5, Angular, CSS 3, esbuild, Webpack, Rollup)</li>
-            <li>• Experience with many tools and methodologies (Git, JIRA)</li>
-            <li>• Amazon Web Services, Digitalocean Services</li>
-          </ul>
+        <div class="border rounded-2xl p-8">
+          <div class="font-bold">About me</div>
+          <div class="text-md mt-5 leading-relaxed">
+            <ul>
+              <li>• 12+ years of software development experience</li>
+              <li>• Web-applications development (PHP 8+, Symfony 5, Angular 16+, Nest.js)</li>
+              <li>• Experience with databases (Mysql, MongoDB, Redis)</li>
+              <li>• Rich front-end development (Tailwindcss, HTML5, Angular, CSS 3, esbuild, Webpack, Rollup)</li>
+              <li>• Experience with many tools and methodologies (Git, JIRA)</li>
+              <li>• Amazon Web Services, Digitalocean Services</li>
+            </ul>
+          </div>
         </div>
         <div class="mt-14">
           <div class="font-bold">Experience</div>

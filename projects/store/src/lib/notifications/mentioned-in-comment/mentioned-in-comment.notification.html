@@ -9,12 +9,12 @@
   </div>
 </div>
 <div class="grow">
-  <div class="text-neutral-500 font-normal text-sm mb-1.5 dark:text-neutral-400">
-    <span class="font-semibold text-neutral-900 dark:text-white">{{ notification().actor.name }}</span>
+  <div class="text-neutral-600 font-normal text-sm mb-1.5 dark:text-neutral-450">
+    <span class="font-semibold text-on-surface">{{ notification().actor.name }}</span>
     mentioned you in a comment:
     <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
         &#64;{{ notification().notifier.username }}
       </span>
     {{ notification().payload['content'] }}</div>
-  <div class="text-xs font-medium text-secondary-700 dark:text-primary-400">{{ notification().createdAt }}</div>
+  <div class="text-xs font-medium text-on-surface-variant">{{ notification().createdAt }}</div>
 </div>

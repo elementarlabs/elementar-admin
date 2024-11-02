@@ -44,6 +44,38 @@ export class TalentProfileComponent {
       occupation: 'Software engineer'
     }
   ];
+  languages = [
+    {
+      name: 'English',
+      level: 'Native'
+    },
+    {
+      name: 'German',
+      level: 'Fluent'
+    },
+    {
+      name: 'Spanish',
+      level: 'Basic'
+    }
+  ];
+  skills = [
+    {
+      name: 'Typescript',
+      level: 'Good'
+    },
+    {
+      name: 'Angular',
+      level: 'Medium'
+    },
+    {
+      name: 'Rest API',
+      level: 'Good'
+    },
+    {
+      name: 'NestJS',
+      level: 'Medium'
+    }
+  ];
 
   follow(): void {
     this.followed = true;
