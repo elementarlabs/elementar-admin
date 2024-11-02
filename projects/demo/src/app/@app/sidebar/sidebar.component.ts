@@ -108,6 +108,11 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
+      key: 'headingComponents',
+      type: 'heading',
+      name: 'Components'
+    },
+    {
       key: 'navigation',
       type: 'group',
       icon: 'menu',
@@ -546,6 +551,32 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
+      key: 'micro-charts',
+      type: 'group',
+      icon: 'leaderboard',
+      name: 'Micro Charts',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Line Chart',
+          link: '/pages/micro-charts/line-chart'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Bar Chart',
+          link: '/pages/micro-charts/bar-chart'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Pie Chart',
+          link: '/pages/micro-charts/pie-chart'
+        }
+      ]
+    },
+    {
       key: 'store',
       type: 'group',
       icon: 'hard_drive',
@@ -578,36 +609,15 @@ export class SidebarComponent implements OnInit {
       ],
     },
     {
-      key: 'micro-charts',
-      type: 'group',
-      icon: 'leaderboard',
-      name: 'Micro Charts',
-      children: [
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Line Chart',
-          link: '/pages/micro-charts/line-chart'
-        },
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Bar Chart',
-          link: '/pages/micro-charts/bar-chart'
-        },
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Pie Chart',
-          link: '/pages/micro-charts/pie-chart'
-        }
-      ]
+      key: 'headingPages',
+      type: 'heading',
+      name: 'Pages'
     },
     {
       key: 'auth',
       type: 'group',
       icon: 'lock',
-      name: 'Auth',
+      name: 'Authentication',
       children: [
         {
           key: uuid(),
