@@ -2,6 +2,9 @@
   @apply block h-full relative min-w-[var(--emr-sidebar-compact-width)];
 
   emr-sidebar-nav {
+    --emr-navigation-item-hover-bg: theme('colors.neutral.300');
+    --emr-navigation-group-toggle-active-bg: theme('colors.neutral.300');
+    --emr-navigation-nested-item-hover-bg: theme('colors.neutral.300');
     --emr-navigation-group-tree-lines-color: theme('colors.neutral.300');
   }
 
@@ -53,7 +56,8 @@
 :host-context(html.dark) {
   .sidebar {
     emr-sidebar-nav {
-      --emr-navigation-item-hover-bg: theme('colors.neutral.700');
+      --emr-navigation-item-hover-bg: theme('colors.neutral.800');
+      --emr-navigation-group-toggle-active-bg: theme('colors.neutral.800');
       --emr-navigation-nested-item-hover-bg: theme('colors.neutral.800');
       --emr-navigation-group-tree-lines-color: theme('colors.neutral.700');
     }
