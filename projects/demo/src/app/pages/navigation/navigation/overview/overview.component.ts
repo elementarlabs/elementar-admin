@@ -20,6 +20,9 @@ import {
 } from '../_examples/navigation-secondary-theme-example/navigation-secondary-theme-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import {
+  NavigationWithBadgesExampleComponent
+} from '../_examples/navigation-with-badges-example/navigation-with-badges-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -33,7 +36,8 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
     NavigationWithNestedMenuExampleComponent,
     NavigationSecondaryThemeExampleComponent,
     PageComponent,
-    PageContentDirective
+    PageContentDirective,
+    NavigationWithBadgesExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

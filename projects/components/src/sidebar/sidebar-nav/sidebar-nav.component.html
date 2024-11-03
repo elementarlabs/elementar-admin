@@ -14,6 +14,9 @@
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
             }
             {{ navItem.name }}
+            @if (navItem.badge) {
+              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+            }
             <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
           </emr-navigation-group-toggle>
           <emr-navigation-group-menu [key]="navItem.key">
@@ -21,10 +24,18 @@
               @if (childItem.type === 'link') {
                 <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.key">
                   {{ childItem.name }}
+                  @if (childItem.badge) {
+                    <div emrNavigationItemBadge>
+                      <span matBadge>{{ childItem.badge }}</span>
+                    </div>
+                  }
                 </a>
               } @else {
                 <emr-navigation-item [key]="childItem.key">
                   {{ childItem.name }}
+                  @if (childItem.badge) {
+                    <span emrNavigationItemBadge>{{ childItem.badge }}</span>
+                  }
                 </emr-navigation-item>
               }
             }
@@ -38,6 +49,9 @@
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
             }
             {{ navItem.name }}
+            @if (navItem.badge) {
+              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+            }
           </a>
         } @else {
           <emr-navigation-item [key]="navItem.key">
@@ -45,6 +59,9 @@
               <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
             }
             {{ navItem.name }}
+            @if (navItem.badge) {
+              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+            }
           </emr-navigation-item>
         }
       }

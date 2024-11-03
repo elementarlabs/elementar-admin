@@ -229,6 +229,7 @@ export class SidebarComponent implements OnInit {
       type: 'group',
       icon: 'grid_view',
       name: 'Components',
+      badge: 23,
       children: [
         {
           key: uuid(),

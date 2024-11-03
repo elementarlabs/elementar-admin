@@ -7,5 +7,6 @@ export * from './navigation-group-menu/navigation-group-menu.component';
 export * from './navigation-group-toggle/navigation-group-toggle.component';
 export * from './navigation-item-icon.directive';
 export * from './navigation-group-toggle-icon.directive';
+export * from './navigation-item-badge.directive';
 export * from './model';
 export * from './navigation.module';

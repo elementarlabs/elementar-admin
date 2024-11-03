@@ -21,6 +21,14 @@
     @apply overflow-hidden overflow-ellipsis;
   }
 
+  .badge {
+    &:empty {
+      @apply hidden;
+    }
+
+    @apply inline-flex flex-none rounded-full h-5 items-center justify-center min-w-5 text-2xs px-1.5 bg-surface-tint text-on-primary;
+  }
+
   .icon {
     display: inline-flex;
     align-items: center;

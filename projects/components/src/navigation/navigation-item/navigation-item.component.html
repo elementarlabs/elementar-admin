@@ -1,7 +1,12 @@
 <div class="inner" matRipple>
   <div class="icon">
-    <ng-content select="[emrNavigationItemIcon]"></ng-content>
-    <ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
+    <ng-content select="[emrNavigationItemIcon]"/>
+    @if (iconRef) {
+      <ng-container [ngTemplateOutlet]="iconRef.templateRef"/>
+    }
   </div>
-  <span class="text grow"><ng-content></ng-content></span>
+  <span class="text grow"><ng-content/></span>
+  <div class="badge">
+    <ng-content select="[emrNavigationItemBadge]"/>
+  </div>
 </div>

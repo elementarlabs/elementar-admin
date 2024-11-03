@@ -10,6 +10,8 @@ import { NavigationGroupMenuComponent } from './navigation-group-menu/navigation
 import { NavigationItemIconDirective } from './navigation-item-icon.directive';
 import { NavigationGroupToggleIconDirective } from './navigation-group-toggle-icon.directive';
 import { MatRipple } from '@angular/material/core';
+import { MatBadge } from '@angular/material/badge';
+import { NavigationItemBadgeDirective } from '@elementar/components/navigation/navigation-item-badge.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MatRipple } from '@angular/material/core';
   ],
   imports: [
     CommonModule,
-    MatRipple
+    MatRipple,
+    MatBadge,
+    NavigationItemBadgeDirective
   ],
   exports: [
     NavigationComponent,

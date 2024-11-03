@@ -1,8 +1,11 @@
-<div class="icon"><ng-content select="[emrNavigationItemIcon]"></ng-content></div>
-<span class="text grow"><ng-content></ng-content></span>
+<div class="icon"><ng-content select="[emrNavigationItemIcon]"/></div>
+<span class="text grow"><ng-content/></span>
+<div class="badge">
+  <ng-content select="[emrNavigationItemBadge]"/>
+</div>
 <div class="toggle">
-  <ng-content select="[emrNavigationGroupToggleIcon]"></ng-content>
+  <ng-content select="[emrNavigationGroupToggleIcon]"/>
   @if (iconRef) {
-    <ng-container [ngTemplateOutlet]="iconRef.templateRef"></ng-container>
+    <ng-container [ngTemplateOutlet]="iconRef.templateRef"/>
   }
 </div>

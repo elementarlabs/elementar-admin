@@ -6,4 +6,5 @@ export interface NavigationItem {
   children?: NavigationItem[];
   link?: string;
   [prop: string]: any;
+  badge?: string | number;
 }
