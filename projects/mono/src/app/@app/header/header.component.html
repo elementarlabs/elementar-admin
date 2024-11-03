@@ -8,13 +8,13 @@
     </div>
     <div class="ms-auto flex items-center gap-6">
       <div class="flex items-center gap-4">
-        <div class="w-max border border-neutral-300 dark:border-inverse rounded-full">
+        <div class="w-max border border-neutral-300  rounded-full">
           <button mat-icon-button matTooltip="Notifications"
                   [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
             <mat-icon matBadge="4">notifications</mat-icon>
           </button>
         </div>
-        <div class="w-max border border-neutral-300 dark:border-inverse rounded-full">
+        <div class="w-max border border-neutral-300  rounded-full">
           <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
                   emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
             @if (_themeManager.getColorScheme() === 'light') {

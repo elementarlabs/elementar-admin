@@ -1,4 +1,4 @@
-<div class="border dark:border-inverse rounded-lg relative mb-14 mt-4">
+<div class="border  rounded-lg relative mb-14 mt-4">
   <div class="p-7">
     @defer {
       <ng-content></ng-content>
@@ -8,16 +8,16 @@
   </div>
   @if (showSource) {
     @if (exampleLoading) {
-      <div class="border-t dark:border-t-neutral-600 text-sm p-4">Loading...</div>
+      <div class="border-t text-sm p-4">Loading...</div>
     } @else {
-      <div class="border-t dark:border-t-neutral-600">
+      <div class="border-t">
         <markdown #markdownRef [data]="src" class="playground-markdown"
                   [clipboardButtonTemplate]="clipboardButtonTemplate"></markdown>
       </div>
     }
   }
 
-  <div class="border-t h-12 dark:border-t-neutral-600 relative flex items-center justify-center
+  <div class="border-t h-12 relative flex items-center justify-center
               gap-1 px-2 text-center bg-neutral-200 rounded-b-lg dark:bg-neutral-700">
     @if (showSource) {
       <div class="flex items-center gap-2 absolute start-3 top-1/2 -translate-y-1/2">

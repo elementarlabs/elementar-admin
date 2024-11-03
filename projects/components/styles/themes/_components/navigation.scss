@@ -58,6 +58,7 @@
   --emr-navigation-group-active-bg: transparent;
   --emr-navigation-group-border-radius: 0;
   --emr-navigation-group-tree-lines-color: theme('borderColor.DEFAULT');
+  --emr-navigation-heading-text-align: start;
 }
 
 .emr-navigation > * + .emr-navigation-heading {
@@ -91,8 +92,6 @@ html.dark {
   --emr-navigation-nested-item-color: theme('textColor.neutral.300');
   --emr-navigation-nested-item-hover-bg: theme('colors.neutral.700');
   --emr-navigation-nested-item-hover-color: theme('colors.neutral.100');
-  --emr-navigation-divider-bg: theme('borderColor.inverse');
-  --emr-navigation-group-tree-lines-color: theme('borderColor.inverse');
   --emr-navigation-group-toggle-active-bg: theme('colors.neutral.800');
   --emr-navigation-group-toggle-active-color: theme('colors.neutral.100');
   --emr-navigation-group-toggle-hover-bg: theme('colors.neutral.800');

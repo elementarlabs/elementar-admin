@@ -1,6 +1,6 @@
 <emr-panel>
   <emr-panel-header class="px-10 h-16">
-    <div class="border-b dark:border-b-inverse h-full flex items-center justify-between">
+    <div class="border-b h-full flex items-center justify-between">
       <div class="flex items-center gap-7">
         <div class="text-lg font-bold">Posts</div>
         <emr-v-divider></emr-v-divider>
@@ -13,7 +13,7 @@
           </emr-segmented>
           <emr-v-divider></emr-v-divider>
           <input type="text" placeholder="Search..."
-                 class="border-b h-10 w-96 text-sm bg-transparent dark:border-b-inverse outline-0 focus-within:border-neutral-950">
+                 class="border-b h-10 w-96 text-sm bg-transparent outline-0 focus-within:border-neutral-950">
         } @else {
           <div class="text-sm">Checked <span class="font-bold">{{ selectedRows.length }}</span></div>
           <emr-v-divider></emr-v-divider>
@@ -68,7 +68,7 @@
       </emr-data-view>
     </div>
   </emr-panel-body>
-  <emr-panel-footer class="px-10 h-20 flex items-center justify-center border-t dark:border-t-inverse">
+  <emr-panel-footer class="px-10 h-20 flex items-center justify-center border-t">
     <mat-paginator #paginator pageSize="20" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </emr-panel-footer>
 </emr-panel>

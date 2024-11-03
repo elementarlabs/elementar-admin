@@ -10,7 +10,7 @@
 }
 
 <ng-template #suggestionDropdown>
-  <emr-suggestions class="rounded-b-3xl border-t dark:border-t-neutral-600 w-[600px] dark:bg-neutral-700 p-4 space-y-4">
+  <emr-suggestions class="rounded-b-3xl border-t w-[600px] dark:bg-neutral-700 p-4 space-y-4">
     <emr-suggestion-block heading="Recently Viewed">
       <emr-suggestion (click)="close()">
         <mat-icon emrSuggestionIcon>tune</mat-icon>
@@ -23,11 +23,11 @@
     </emr-suggestion-block>
     <emr-suggestion-block heading="Users">
       <emr-suggestion>
-        <emr-avatar text="PS" emrSuggestionThumb></emr-avatar>
+        <emr-avatar text="PS" emrSuggestionThumb/>
         Pavel Salauyou
       </emr-suggestion>
       <emr-suggestion>
-        <emr-avatar src="https://avatar.iran.liara.run/public" text="JJ" emrSuggestionThumb></emr-avatar>
+        <emr-avatar src="https://avatar.iran.liara.run/public" text="JJ" emrSuggestionThumb/>
         Jessica Jones
       </emr-suggestion>
     </emr-suggestion-block>

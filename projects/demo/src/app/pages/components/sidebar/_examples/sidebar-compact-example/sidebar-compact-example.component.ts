@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   SidebarBodyComponent, SidebarCompactViewModeDirective,
   SidebarComponent,
-  SidebarFooterComponent,
+  SidebarFooterComponent, SidebarFullViewModeDirective,
   SidebarHeaderComponent,
   SidebarNavComponent
 } from '@elementar/components/sidebar';
@@ -22,7 +22,8 @@ import { v7 as uuid } from 'uuid';
     MatSlideToggle,
     FormsModule,
     SidebarBodyComponent,
-    SidebarCompactViewModeDirective
+    SidebarCompactViewModeDirective,
+    SidebarFullViewModeDirective
   ],
   templateUrl: './sidebar-compact-example.component.html',
   styleUrl: './sidebar-compact-example.component.scss'

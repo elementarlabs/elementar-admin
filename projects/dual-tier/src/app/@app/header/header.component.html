@@ -1,5 +1,5 @@
 <div class="h-20 w-full px-10 bg-background">
-  <div class="h-full flex items-center border-b dark:border-b-neutral-600 gap-7">
+  <div class="h-full flex items-center border-b gap-7">
     <div class="flex items-center gap-3 -ms-3">
       <button mat-icon-button (click)="toggleSidebar()">
         <mat-icon>menu</mat-icon>
@@ -27,10 +27,9 @@
 
 <ng-template #notificationsPopover>
   <emr-popover class="overflow-hidden">
-    <div class="w-[360px] text-base list-none bg-white dark:border-inverse
+    <div class="w-[360px] text-base list-none bg-white
             shadow-lg dark:divide-inverse dark:bg-surface-container">
-      <div class="flex items-center justify-between bg-neutral-200 text-sm dark:bg-neutral-900
-              h-11 px-4 border-b dark:border-b-inverse">
+      <div class="flex items-center justify-between bg-neutral-200 text-sm dark:bg-neutral-900 h-11 px-4 border-b">
         <div class="text-center text-neutral-700 font-semibold dark:text-neutral-100">Notifications</div>
         <a routerLink="/pages/account/notifications" class="font-medium text-sm text-primary hover:text-tertiary">View All</a>
       </div>

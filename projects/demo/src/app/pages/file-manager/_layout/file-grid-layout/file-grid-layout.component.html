@@ -1,4 +1,4 @@
-<div class="border-b dark:border-inverse pb-px" [formGroup]="form">
+<div class="border-b  pb-px" [formGroup]="form">
   <div class="w-max group flex items-center">
     <div class="flex items-center gap-1 cursor-pointer" (click)="sort()">
       <span class="text-md font-medium">{{ groupByName }}</span>
@@ -38,14 +38,14 @@
               Share
             </button>
             <button class="size-9 flex items-center justify-center bg-white dark:bg-neutral-700
-                           hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse border-t border-b border-e"
+                           hover:bg-neutral-100 dark:hover:bg-neutral-600  border-t border-b border-e"
                     (click)="copyLink($event, file)" matTooltip="Copy Link" matTooltipPosition="above">
               <mat-icon>link</mat-icon>
             </button>
             <button #optionsTrigger="matMenuTrigger" [matMenuTriggerFor]="fileOptionsMenu"
                     matTooltip="More Options" matTooltipPosition="above"
                     class="size-9 flex items-center justify-center bg-white dark:bg-neutral-700
-                           hover:bg-neutral-100 dark:hover:bg-neutral-600 dark:border-inverse border-t border-b border-e rounded-e">
+                           hover:bg-neutral-100 dark:hover:bg-neutral-600  border-t border-b border-e rounded-e">
               <mat-icon>more_vert</mat-icon>
             </button>
           </div>

@@ -2,15 +2,15 @@
   <mat-slide-toggle [(ngModel)]="compact">Compact</mat-slide-toggle>
 </div>
 <div class="h-[600px] relative mt-10">
-  <emr-sidebar [compact]="compact" class="border dark:border-inverse">
-    <emr-sidebar-header class="border-b dark:border-b-inverse">
+  <emr-sidebar [compact]="compact" class="border">
+    <emr-sidebar-header class="border-b">
       <div emrSidebarCompactViewMode class="h-20 flex items-center px-7 text-primary font-bold">El</div>
       <div emrSidebarFullViewMode class="h-20 flex items-center px-7 text-primary font-bold">Elementar</div>
     </emr-sidebar-header>
     <emr-sidebar-body>
       <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
     </emr-sidebar-body>
-    <emr-sidebar-footer class="border-t dark:border-t-inverse">
+    <emr-sidebar-footer class="border-t">
       <div emrSidebarCompactViewMode class="h-20 flex items-center justify-center text-sm">
         2024
       </div>

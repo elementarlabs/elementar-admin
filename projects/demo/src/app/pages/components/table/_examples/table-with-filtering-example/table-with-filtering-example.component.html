@@ -2,7 +2,7 @@
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
 </mat-form-field>
-<div class="border dark:border-inverse rounded-lg overflow-hidden">
+<div class="border  rounded-lg overflow-hidden">
   <table mat-table [dataSource]="dataSource" class="not-mat-typography">
     <!-- Position Column -->
     <ng-container matColumnDef="position">

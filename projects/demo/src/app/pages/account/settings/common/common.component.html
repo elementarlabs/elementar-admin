@@ -1,6 +1,6 @@
 <emr-layout-body>
   <emr-layout>
-    <emr-layout-sidebar class="border-r dark:border-r-neutral-600 w-[300px] py-7 px-5">
+    <emr-layout-sidebar class="border-r w-[300px] py-7 px-5">
       <emr-navigation [activeKey]="activeLinkId" theme="secondary">
         @for (navItem of navItems; track navItem) {
           <a [routerLink]="navItem.link" emr-navigation-item [key]="navItem.link">{{ navItem.name }}</a>

@@ -1,13 +1,13 @@
 <emr-thumbnail-maker #thumbnailMaker="emrThumbnailMaker" src="/assets/thumbnail-maker/photo1.jpeg"
-                     class="border dark:border-inverse rounded-xl"></emr-thumbnail-maker>
+                     class="border  rounded-xl"></emr-thumbnail-maker>
 <div class="mt-10">
   <button mat-flat-button (click)="makeThumbnail(thumbnailMaker)">Make thumbnail</button>
 </div>
 
 @if (thumbnail) {
   <div class="mt-2 flex items-start gap-10 flex-wrap">
-    <img [src]="thumbnail" alt="" class="border dark:border-inverse">
-    <img [src]="thumbnail" alt="" class="border dark:border-inverse rounded-xl size-40">
-    <img [src]="thumbnail" alt="" class="border dark:border-inverse rounded-full size-40">
+    <img [src]="thumbnail" alt="" class="border ">
+    <img [src]="thumbnail" alt="" class="border  rounded-xl size-40">
+    <img [src]="thumbnail" alt="" class="border  rounded-full size-40">
   </div>
 }

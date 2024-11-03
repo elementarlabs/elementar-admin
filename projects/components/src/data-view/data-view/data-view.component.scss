@@ -134,10 +134,6 @@
 }
 
 :host-context(html.dark) {
-  .mat-mdc-row.mdc-data-table__row:not(.is-selected) {
-    border-color: theme('borderColor.inverse') !important;
-  }
-
   ::ng-deep {
     .mdc-data-table__header-cell {
       --emr-skeleton-from-bg: theme('colors.neutral.700/60');
