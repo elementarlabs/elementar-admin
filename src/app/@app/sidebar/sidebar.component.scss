@@ -2,7 +2,7 @@
   @apply block h-full relative;
 
   .sidebar {
-    @apply bg-neutral-100 border-e border-e-neutral-200;
+    @apply bg-surface-container-low border-e;
   }
 
   .header {
@@ -24,11 +24,5 @@
     @apply flex items-center justify-center;
     --emr-sidebar-footer-padding: theme('padding.6') theme('padding.7');
     --emr-sidebar-footer-compact-padding: theme('padding.3') theme('padding.7');
-  }
-}
-
-:host-context(html.dark) {
-  .sidebar {
-    @apply bg-neutral-900 border-e-inverse;
   }
 }
