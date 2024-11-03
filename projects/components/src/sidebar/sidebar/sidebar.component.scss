@@ -42,10 +42,8 @@
       }
 
       .emr-navigation-item {
-        @apply justify-center;
-
         .inner {
-          @apply gap-0;
+          @apply justify-center gap-0;
         }
 
         .icon {

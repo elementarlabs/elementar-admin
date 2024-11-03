@@ -23,10 +23,6 @@
     transition: all .2s;
   }
 
-  &:has(.icon:not(:empty)) .icon {
-    margin-left: -4px;
-  }
-
   .text {
     @apply overflow-hidden overflow-ellipsis;
   }
@@ -130,7 +126,3 @@
     display: none;
   }
 }
-
-//:host:has(.icon:not(:empty)) {
-//  padding-inline-start: var(--emr-navigation-item-has-icon-padding-start);
-//}

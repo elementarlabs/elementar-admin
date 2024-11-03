@@ -3,19 +3,23 @@
 </div>
 <div class="h-[600px] relative mt-10">
   <emr-sidebar [compact]="compact" class="border">
-    <emr-sidebar-header class="border-b">
-      <div emrSidebarCompactViewMode class="h-20 flex items-center px-7 text-primary font-bold">El</div>
-      <div emrSidebarFullViewMode class="h-20 flex items-center px-7 text-primary font-bold">Elementar</div>
+    <emr-sidebar-header class="border-b font-bold">
+      <div class="h-20 flex items-center px-7 text-primary">
+        <div emrSidebarCompactViewMode>El</div>
+        <div emrSidebarFullViewMode>Elementar</div>
+      </div>
     </emr-sidebar-header>
     <emr-sidebar-body>
       <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
     </emr-sidebar-body>
     <emr-sidebar-footer class="border-t">
-      <div emrSidebarCompactViewMode class="h-20 flex items-center justify-center text-sm">
-        2024
-      </div>
-      <div emrSidebarFullViewMode class="h-20 flex px-7 whitespace-nowrap items-center text-sm">
-        Copyright &copy; 2024
+      <div class="h-20 flex items-center whitespace-nowrap justify-center text-sm">
+        <div emrSidebarFullViewMode>
+          Copyright &copy; 2024
+        </div>
+        <div emrSidebarCompactViewMode>
+          2024
+        </div>
       </div>
     </emr-sidebar-footer>
   </emr-sidebar>
