@@ -66,13 +66,13 @@ export class HeaderComponent {
         id: 1,
         name: 'Justin Hansen',
         username: 'justin.hansen',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/5.svg'
       },
       notifier: {
         id: 2,
         name: 'Elma Johnson',
         username: 'elma.johnson',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/2.svg'
       },
       payload: {
         content: 'what did you say?'
@@ -85,13 +85,13 @@ export class HeaderComponent {
         id: 3,
         name: 'Johnny Gladden',
         username: 'johnny.gladden',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/6.svg'
       },
       notifier: {
         id: 4,
         name: 'Angela Naylor',
         username: 'angela.naylor',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/3.svg'
       },
       payload: {
         folderName: 'My New Project'

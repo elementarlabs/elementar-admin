@@ -46,13 +46,13 @@ export class NotificationsComponent {
         id: 1,
         name: 'Justin Hansen',
         username: 'justin.hansen',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/6.svg'
       },
       notifier: {
         id: 2,
         name: 'Elma Johnson',
         username: 'elma.johnson',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/4.svg'
       },
       payload: {
         content: 'what did you say?'
@@ -66,13 +66,13 @@ export class NotificationsComponent {
         id: 3,
         name: 'Johnny Gladden',
         username: 'johnny.gladden',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/3.svg'
       },
       notifier: {
         id: 4,
         name: 'Angela Naylor',
         username: 'angela.naylor',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/1.svg'
       },
       payload: {
         folderName: 'My New Project'
@@ -86,13 +86,13 @@ export class NotificationsComponent {
         id: 1,
         name: 'Justin Hansen',
         username: 'justin.hansen',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/7.svg'
       },
       notifier: {
         id: 2,
         name: 'Elma Johnson',
         username: 'elma.johnson',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/8.svg'
       },
       payload: {
         content: 'what did you say?'

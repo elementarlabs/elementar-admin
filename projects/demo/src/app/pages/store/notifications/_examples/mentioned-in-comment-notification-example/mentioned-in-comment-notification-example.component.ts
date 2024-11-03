@@ -21,13 +21,13 @@ export class MentionedInCommentNotificationExampleComponent {
         id: 1,
         name: 'Justin Hansen',
         username: 'justin.hansen',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/5.svg'
       },
       notifier: {
         id: 2,
         name: 'Elma Johnson',
         username: 'elma.johnson',
-        avatarUrl: 'https://avatar.iran.liara.run/public'
+        avatarUrl: 'assets/avatars/6.svg'
       },
       payload: {
         content: 'what did you say?'
