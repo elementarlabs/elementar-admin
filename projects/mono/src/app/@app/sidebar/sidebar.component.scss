@@ -5,14 +5,10 @@
   --emr-navigation-item-active-icon-color: theme('colors.primary.800');
   --emr-navigation-items-gap: theme('gap.2');
 
+  @apply h-full flex flex-col w-[300px] bg-white overflow-y-auto overflow-x-hidden;
+
   .logo {
     @apply font-extrabold text-xl text-neutral-950 mx-12 hover:text-tertiary;
-  }
-
-  @apply block h-full p-0 rounded-e-xl;
-
-  .inner {
-    @apply h-full flex flex-col w-[300px] bg-white overflow-y-auto overflow-x-hidden;
   }
 
   .header {
@@ -35,7 +31,5 @@
     @apply text-neutral-200 hover:text-tertiary;
   }
 
-  .inner {
-    @apply bg-neutral-900;
-  }
+  @apply bg-surface-container;
 }
