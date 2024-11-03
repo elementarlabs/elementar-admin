@@ -3,10 +3,10 @@
   --emr-notification-padding: theme('padding.5');
   --emr-notification-gap: theme('gap.4');
 
-  @apply block;
+  @apply flex flex-col;
 
   .notification {
-    @apply p-[var(--emr-notification-padding)] flex gap-[var(--emr-notification-gap)] relative;
+    @apply relative bg-surface-container-low rounded-xl;
 
     &:has(.is-new) {
       @apply bg-[var(--emr-notification-is-new-bg)];
@@ -14,7 +14,13 @@
   }
 
   .controls {
-    @apply relative -end-2;
+    @apply absolute end-2 top-2;
+  }
+
+  &:has(.controls:not(:empty)) {
+    .notification {
+      @apply pe-7;
+    }
   }
 }
 
