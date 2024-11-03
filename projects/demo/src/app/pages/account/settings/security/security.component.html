@@ -18,7 +18,7 @@
               }
             </div>
           </div>
-          <button mat-stroked-button class="stroked-alt">
+          <button mat-stroked-button>
             <mat-icon>edit</mat-icon>Edit
           </button>
         </div>
@@ -30,7 +30,7 @@
             <div>Password</div>
             <div class="mt-2 text-neutral-500">Set a unique password to protect your account.</div>
           </div>
-          <button mat-stroked-button class="stroked-alt">Change Password</button>
+          <button mat-stroked-button>Change Password</button>
         </div>
       </div>
       <emr-h-divider/>
@@ -43,7 +43,7 @@
           @if (securityProfile.mfaConfigured) {
             <mat-slide-toggle [(ngModel)]="securityProfile.mfaEnabled"></mat-slide-toggle>
           } @else {
-            <button mat-stroked-button class="stroked-alt" (click)="setup2stepVerification()">Setup</button>
+            <button mat-stroked-button (click)="setup2stepVerification()">Setup</button>
           }
         </div>
       </div>
