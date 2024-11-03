@@ -24,7 +24,6 @@ import { AvatarComponent } from '@elementar/components/avatar';
 @Component({
   selector: 'emr-assistant-search',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatIcon,
     CdkOverlayOrigin,

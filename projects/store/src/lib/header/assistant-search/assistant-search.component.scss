@@ -14,14 +14,7 @@
   }
 
   input {
-    position: absolute;
-    inset: 0;
-    border-radius: theme('borderRadius.full');
-    padding-left: theme('padding.12');
-    background: theme('colors.neutral.200');
-    z-index: 0;
-    outline: none;
-    @apply text-md placeholder-neutral-500;
+    @apply text-md placeholder-neutral-500 outline-none bg-surface-container ps-12 rounded-full absolute inset-0 z-[0];
   }
 
   &.has-dropdown {

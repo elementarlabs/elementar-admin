@@ -20,7 +20,7 @@
 <div class="flex flex-wrap gap-x-5 gap-y-8 mt-8">
   @for (file of files(); track file) {
     <div class="rounded group/file">
-      <div class="bg-surface-container-low hover:bg-surface-container-high size-[260px] group/thumbnail
+      <div class="bg-surface-container hover:bg-surface-container-high size-[260px] group/thumbnail
                   flex items-center justify-center rounded-lg cursor-pointer relative select-none" matRipple>
         @if (selectionModel.isSelected(file.id)) {
           <div class="absolute w-[3px] rounded-s-lg bg-primary start-0 top-0 bottom-0 z-[1]"></div>

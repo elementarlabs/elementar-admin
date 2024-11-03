@@ -8,8 +8,8 @@
   --emr-skeleton-line-width: theme('width.full');
   --emr-skeleton-line-border-radius: theme('borderRadius.full');
   --emr-skeleton-circle-size: theme('spacing.14');
-  --emr-skeleton-from-bg: theme('colors.neutral.100/80');
-  --emr-skeleton-from-to: theme('colors.neutral.200/70');
+  --emr-skeleton-from-bg: theme('colors.neutral.200/80');
+  --emr-skeleton-from-to: theme('colors.neutral.300/70');
 }
 
 @keyframes emr-skeleton-loading {
