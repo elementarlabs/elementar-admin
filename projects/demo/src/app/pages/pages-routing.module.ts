@@ -79,10 +79,6 @@ const routes: Routes = [
         loadChildren: () => import('./components/sidebar/sidebar.module').then(m => m.SidebarModule)
       },
       {
-        path: 'components/sidebar-widgets',
-        loadChildren: () => import('./components/sidebar-widgets/sidebar-widgets.module').then(m => m.SidebarWidgetsModule)
-      },
-      {
         path: 'components/bottom-sheet',
         loadChildren: () => import('./components/bottom-sheet/bottom-sheet.module').then(m => m.BottomSheetModule)
       },

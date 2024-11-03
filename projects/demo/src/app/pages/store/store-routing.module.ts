@@ -11,8 +11,8 @@ const routes: Routes = [
     loadChildren: () => import('./skeleton/skeleton.module').then(m => m.SkeletonModule)
   },
   {
-    path: 'sidebar',
-    loadChildren: () => import('./sidebar/sidebar.module').then(m => m.SidebarModule)
+    path: 'sidebar-widgets',
+    loadChildren: () => import('./sidebar-widgets/sidebar.module').then(m => m.SidebarModule)
   },
   {
     path: 'notifications',

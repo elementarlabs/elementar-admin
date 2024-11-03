@@ -522,12 +522,6 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
-          name: 'Sidebar Widgets',
-          link: '/pages/components/sidebar-widgets'
-        },
-        {
-          key: uuid(),
-          type: 'link',
           name: 'Confirm',
           link: '/pages/components/confirm'
         },
@@ -598,8 +592,8 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
-          name: 'Sidebar',
-          link: '/pages/store/sidebar'
+          name: 'Sidebar Widgets',
+          link: '/pages/store/sidebar-widgets'
         },
         {
           key: uuid(),
