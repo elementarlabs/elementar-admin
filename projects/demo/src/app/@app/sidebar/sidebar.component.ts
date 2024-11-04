@@ -609,6 +609,20 @@ export class SidebarComponent implements OnInit {
       name: 'Pages'
     },
     {
+      key: 'applications',
+      type: 'group',
+      icon: 'apps',
+      name: 'Applications',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Messenger',
+          link: '/pages/applications/messenger'
+        }
+      ]
+    },
+    {
       key: 'auth',
       type: 'group',
       icon: 'lock',

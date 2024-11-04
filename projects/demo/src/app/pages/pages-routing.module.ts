@@ -311,6 +311,10 @@ const routes: Routes = [
         loadChildren: () => import('./pricing/pricing.module').then(m => m.PricingModule)
       },
       {
+        path: 'applications',
+        loadChildren: () => import('./applications/applications.module').then(m => m.ApplicationsModule)
+      },
+      {
         path: 'micro-charts',
         loadChildren: () => import('./micro-charts/micro-charts.module').then(m => m.MicroChartsModule)
       },
