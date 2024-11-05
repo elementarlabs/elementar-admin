@@ -5,6 +5,7 @@ import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification }
 import { RouterLink } from '@angular/router';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'emr-notifications-popover',
@@ -19,7 +20,8 @@ import { MatIcon } from '@angular/material/icon';
     MatButton,
     MatAnchor,
     MatIcon,
-    MatIconButton
+    MatIconButton,
+    MatRipple
   ],
   templateUrl: './notifications-popover.component.html',
   styleUrl: './notifications-popover.component.css'
