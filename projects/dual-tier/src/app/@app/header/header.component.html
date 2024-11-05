@@ -26,29 +26,7 @@
 </div>
 
 <ng-template #notificationsPopover>
-  <emr-popover class="overflow-hidden">
-    <div class="w-[360px] text-base list-none bg-white
-            shadow-lg dark:divide-inverse dark:bg-surface-container">
-      <div class="flex items-center justify-between bg-neutral-200 text-sm dark:bg-neutral-900 h-11 px-4 border-b">
-        <div class="text-center text-neutral-700 font-semibold dark:text-neutral-100">Notifications</div>
-        <a routerLink="/pages/account/notifications" class="font-medium text-sm text-primary hover:text-tertiary">View All</a>
-      </div>
-      <div class="h-[300px] overflow-y-auto">
-        @if (notifications.length > 0) {
-          <emr-notification-list [notifications]="notifications">
-            <ng-template emrNotificationDef="mentionedInComment" let-notification>
-              <emr-mentioned-in-comment [notification]="notification" class="px-4"/>
-            </ng-template>
-            <ng-template emrNotificationDef="inviteToEditFilesInFolder" let-notification>
-              <emr-invite-to-edit-files-in-folder [notification]="notification" class="px-4"/>
-            </ng-template>
-          </emr-notification-list>
-        } @else {
-          There are no notifications.
-        }
-      </div>
-    </div>
-  </emr-popover>
+  <emr-notifications-popover/>
 </ng-template>
 
 <mat-menu xPosition="before" #accountMenu="matMenu">

@@ -1,0 +1,31 @@
+<emr-popover class="overflow-hidden">
+  <div class="w-[360px] text-base list-none bg-surface-container shadow-lg dark:divide-inverse">
+    <div class="flex items-center justify-between bg-surface-container-highest text-sm h-12 px-4">
+      <div class="text-center text-neutral-700 font-semibold dark:text-neutral-100">Notifications</div>
+      <button mat-icon-button class="-me-1">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+    <div class="h-[300px] overflow-y-auto">
+      @if (notifications.length > 0) {
+        <emr-notification-list [notifications]="notifications" class="p-3 gap-3">
+          <ng-template emrNotificationDef="mentionedInComment" let-notification>
+            @defer {
+              <emr-mentioned-in-comment [notification]="notification" class="bg-surface-container-lowest rounded-xl shadow-sm p-4"/>
+            }
+          </ng-template>
+          <ng-template emrNotificationDef="inviteToEditFilesInFolder" let-notification>
+            @defer {
+              <emr-invite-to-edit-files-in-folder [notification]="notification" class="bg-surface-container-lowest shadow-sm rounded-xl p-4"/>
+            }
+          </ng-template>
+        </emr-notification-list>
+        <div class="px-4 mb-2">
+          <a routerLink="/pages/account/notifications" mat-button class="w-full">View all</a>
+        </div>
+      } @else {
+        There are no notifications.
+      }
+    </div>
+  </div>
+</emr-popover>

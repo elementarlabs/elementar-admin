@@ -16,6 +16,7 @@ import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
 import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
+import { NotificationsPopoverComponent } from '@elementar/store/header';
 
 @Component({
   selector: 'app-header',
@@ -43,7 +44,8 @@ import { Notification, NotificationDefDirective, NotificationListComponent } fro
     InviteToEditFilesInFolderNotification,
     MentionedInCommentNotification,
     NotificationDefDirective,
-    NotificationListComponent
+    NotificationListComponent,
+    NotificationsPopoverComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
