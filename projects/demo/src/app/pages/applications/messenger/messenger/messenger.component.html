@@ -19,9 +19,14 @@
       </button>
     </div>
     <div class="grow relative">
-      <div class="py-4 absolute inset-0">
+      <div class="py-4 absolute inset-0 space-y-4">
         @for (message of messages; track message) {
-          <div class="border rounded-2xl p-2 cursor-pointer hover:bg-surface-bright">
+          <div class="border relative rounded-2xl p-2 cursor-pointer hover:bg-surface-bright [&.selected]:bg-surface-bright group"
+               [class.selected]="selectedMessageId === message.id" (click)="selectMessage(message)">
+            @if (message.unreadMessagesCount > 0) {
+              <div class="size-5 text-xs bg-red-500 text-white font-medium inline-flex items-center
+                        justify-center absolute end-2 top-2 rounded-full flex-none">2</div>
+            }
             <div class="flex items-center gap-3">
               <emr-dicebear class="size-11" [key]="message.sender.id" [src]="message.sender.avatarUrl"/>
               <div class="min-w-0">
@@ -34,12 +39,14 @@
                 <div class="text-tiny whitespace-nowrap text-ellipsis overflow-hidden">
                   {{ message.title }}
                 </div>
-                <div class="text-tiny whitespace-nowrap text-ellipsis overflow-hidden text-neutral-500">
+                <div class="text-tiny whitespace-nowrap text-ellipsis mt-0.5 overflow-hidden text-neutral-500">
                   You: {{ message.lastMessage }}
                 </div>
               </div>
-              <div>
-                1
+              <div class="hidden group-hover:block">
+                <button mat-icon-button>
+                  <mat-icon>star</mat-icon>
+                </button>
               </div>
             </div>
           </div>
@@ -49,10 +56,10 @@
   </div>
 </section>
 <main class="flex flex-col">
-  <div class="max-w-full pb-4 flex justify-between border-b gap-4">
+  <div class="max-w-full min-w-0 pb-4 flex justify-between border-b gap-4">
     <div class="overflow-hidden min-w-0 w-[400px]">
-      <div class="font-bold text-2xl whitespace-nowrap text-ellipsis overflow-hidden">Alejandra Cubides Gonzalez</div>
-      <div class="text-neutral-600 text-sm mt-1 whitespace-nowrap text-ellipsis overflow-hidden max-w-full">
+      <div class="font-bold min-w-0 text-2xl whitespace-nowrap text-ellipsis overflow-hidden">Alejandra Cubides Gonzalez</div>
+      <div class="text-neutral-600 min-w-0 text-sm mt-1 whitespace-nowrap text-ellipsis overflow-hidden max-w-full">
         Looking for an Angular expert to upgrade angular project to the latest version
       </div>
     </div>
@@ -67,7 +74,8 @@
           <mat-icon>calendar_clock</mat-icon>
         </button>
       </div>
-      <div class="border rounded-full w-max h-max">
+      <div class="border rounded-full w-max h-max [&.sidebar-active]:border-on-surface"
+           [class.sidebar-active]="sidebarActive" (click)="toggleSidebar()">
         <button mat-icon-button>
           <mat-icon>dock_to_left</mat-icon>
         </button>
@@ -83,8 +91,10 @@
     </div>
   </div>
 </main>
-<aside class="sidebar">
-  <div class="h-full rounded-3xl bg-surface-container-low p-5">
-    asfasfasf
-  </div>
-</aside>
+@if (sidebarActive) {
+  <aside class="sidebar">
+    <div class="h-full rounded-3xl bg-surface-container-low p-5">
+      asfasfasf
+    </div>
+  </aside>
+}

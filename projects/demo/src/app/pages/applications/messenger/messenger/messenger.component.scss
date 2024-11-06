@@ -1,5 +1,7 @@
 :host {
-  @apply grid h-full py-5 px-10 grid-cols-[312px_1fr_312px] gap-10;
+  @apply grid h-full py-5 px-10 grid-cols-[312px_1fr] gap-10;
 
-
+  &:has(.sidebar) {
+    @apply grid-cols-[312px_1fr_312px];
+  }
 }
