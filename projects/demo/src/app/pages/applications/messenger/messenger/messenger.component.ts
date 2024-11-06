@@ -4,6 +4,29 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { DicebearComponent } from '@elementar/components/avatar';
 import { DatePipe } from '@angular/common';
+import { MatTooltip } from '@angular/material/tooltip';
+import {
+  CommentEditorBubbleMenuComponent,
+  CommentEditorCommandBlockquoteDirective,
+  CommentEditorCommandBoldDirective,
+  CommentEditorCommandBulletListDirective,
+  CommentEditorCommandCodeBlockDirective,
+  CommentEditorCommandCodeDirective,
+  CommentEditorCommandDirective,
+  CommentEditorCommandEditLinkDirective,
+  CommentEditorCommandImageDirective,
+  CommentEditorCommandItalicDirective,
+  CommentEditorCommandLinkDirective,
+  CommentEditorCommandOrderedListDirective,
+  CommentEditorCommandStrikeDirective,
+  CommentEditorCommandToggleToolbarDirective,
+  CommentEditorCommandUnsetLinkDirective,
+  CommentEditorCommandYoutubeDirective,
+  CommentEditorComponent,
+  CommentEditorDividerComponent,
+  CommentEditorFooterBarComponent,
+  CommentEditorToolbarComponent
+} from '@elementar/components/comment-editor';
 
 interface MessengerMessage {
   content: string;
@@ -31,7 +54,28 @@ interface MessengerThread {
     MatIcon,
     MatIconButton,
     DicebearComponent,
-    DatePipe
+    DatePipe,
+    MatTooltip,
+    CommentEditorComponent,
+    CommentEditorFooterBarComponent,
+    CommentEditorToolbarComponent,
+    CommentEditorBubbleMenuComponent,
+    CommentEditorCommandDirective,
+    CommentEditorCommandBoldDirective,
+    CommentEditorDividerComponent,
+    CommentEditorCommandItalicDirective,
+    CommentEditorCommandStrikeDirective,
+    CommentEditorCommandBulletListDirective,
+    CommentEditorCommandOrderedListDirective,
+    CommentEditorCommandBlockquoteDirective,
+    CommentEditorCommandCodeBlockDirective,
+    CommentEditorCommandImageDirective,
+    CommentEditorCommandYoutubeDirective,
+    CommentEditorCommandEditLinkDirective,
+    CommentEditorCommandUnsetLinkDirective,
+    CommentEditorCommandLinkDirective,
+    CommentEditorCommandCodeDirective,
+    CommentEditorCommandToggleToolbarDirective
   ],
   templateUrl: './messenger.component.html',
   styleUrl: './messenger.component.scss'

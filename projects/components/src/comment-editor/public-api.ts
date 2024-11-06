@@ -2,6 +2,7 @@ export * from './comment-editor/comment-editor.component';
 export * from './comment-editor-divider/comment-editor-divider.component';
 export * from './comment-editor-toolbar/comment-editor-toolbar.component';
 export * from './comment-editor-bubble-menu/comment-editor-bubble-menu.component';
+export * from './comment-editor-footer-bar/comment-editor-footer-bar.component';
 export * from './_commands/comment-editor-command.directive';
 export * from './_commands/comment-editor-command-bold.directive';
 export * from './_commands/comment-editor-command-italic.directive';

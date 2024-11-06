@@ -4,4 +4,8 @@
   &:has(.sidebar) {
     @apply grid-cols-[312px_1fr_312px];
   }
+
+  emr-comment-editor {
+    --emr-comment-editor-content-max-height: 160px;
+  }
 }

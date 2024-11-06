@@ -74,6 +74,7 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   protected showToolbar = false;
   protected fullView = false;
 
+  contentMaxHeight = input<number>();
   buttonCancelLabel = input<string>('Cancel');
   buttonSendLabel = input<string>('Send');
   placeholder = input('Write something …');

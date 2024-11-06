@@ -1,5 +1,8 @@
 :host {
-  @apply relative block overflow-hidden bg-neutral-50;
+  --emr-comment-editor-bg: theme('colors.surface-bright');
+  --emr-comment-editor-content-max-height: 9999px;
+
+  @apply relative block overflow-hidden bg-[var(--emr-comment-editor-bg)];
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;
@@ -18,7 +21,7 @@
   }
 
   .content {
-    @apply absolute h-14 inset-0;
+    @apply absolute h-14 inset-0 max-h-[var(--emr-comment-editor-content-max-height)] overflow-y-auto;
 
     ::ng-deep {
       .tiptap {

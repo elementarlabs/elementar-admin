@@ -17,12 +17,9 @@ import {
   CommentEditorCommandUnsetLinkDirective,
   CommentEditorCommandYoutubeDirective,
   CommentEditorComponent,
-  CommentEditorDividerComponent,
+  CommentEditorDividerComponent, CommentEditorFooterBarComponent,
   CommentEditorToolbarComponent
 } from '@elementar/components/comment-editor';
-import {
-  CommentEditorFooterBarComponent
-} from '@elementar/components/comment-editor/comment-editor-footer-bar/comment-editor-footer-bar.component';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
