@@ -26,6 +26,9 @@ import {
 import {
   CommentEditorCustomButtonLabelsExampleComponent
 } from '../_examples/comment-editor-custom-button-labels-example/comment-editor-custom-button-labels-example.component';
+import {
+  CommentEditorWithMaxContentHeightExampleComponent
+} from '../_examples/comment-editor-with-max-content-height-example/comment-editor-with-max-content-height-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -41,7 +44,8 @@ import {
     CommentEditorWithUploadErrorExampleComponent,
     CommentEditorWithCustomIconsExampleComponent,
     CommentEditorCancelButtonAlwaysVisibleExampleComponent,
-    CommentEditorCustomButtonLabelsExampleComponent
+    CommentEditorCustomButtonLabelsExampleComponent,
+    CommentEditorWithMaxContentHeightExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

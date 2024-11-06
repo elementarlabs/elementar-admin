@@ -21,7 +21,7 @@
   }
 
   .content {
-    @apply absolute h-14 inset-0 max-h-[var(--emr-comment-editor-content-max-height)] overflow-y-auto;
+    @apply absolute h-14 inset-0;
 
     ::ng-deep {
       .tiptap {
@@ -79,7 +79,7 @@
 
   &.full-view {
     .content {
-      @apply static h-auto min-h-12;
+      @apply static h-auto min-h-12 max-h-[var(--emr-comment-editor-content-max-height)] overflow-y-auto;
     }
   }
 

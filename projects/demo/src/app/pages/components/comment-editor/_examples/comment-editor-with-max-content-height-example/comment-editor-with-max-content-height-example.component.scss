@@ -1,0 +1,7 @@
+:host {
+  @apply block;
+
+  emr-comment-editor {
+    --emr-comment-editor-content-max-height: 100px;
+  }
+}
