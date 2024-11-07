@@ -619,6 +619,12 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'Messenger',
           link: '/pages/applications/messenger'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'File Manager',
+          link: '/pages/applications/file-manager'
         }
       ]
     },
@@ -703,20 +709,6 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'Notifications',
           link: '/pages/account/notifications'
-        }
-      ]
-    },
-    {
-      key: 'file-manager',
-      type: 'group',
-      icon: 'backup',
-      name: 'File Manager',
-      children: [
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Overview',
-          link: '/pages/file-manager'
         }
       ]
     },
