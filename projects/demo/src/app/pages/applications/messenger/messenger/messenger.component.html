@@ -28,7 +28,8 @@
                         justify-center absolute end-2 top-2 rounded-full flex-none">{{ thread.unreadMessagesCount }}</div>
             }
             <div class="flex items-center gap-3">
-              <emr-dicebear class="size-11" [key]="thread.sender.id" [src]="thread.sender.avatarUrl"/>
+              <emr-dicebear class="size-11" [key]="thread.sender.id"
+                            [presenceIndicator]="thread.sender.presenceIndicator" [src]="thread.sender.avatarUrl"/>
               <div class="min-w-0">
                 <div class="font-bold whitespace-nowrap text-ellipsis overflow-hidden">{{ thread.sender.name }}</div>
                 <time class="text-xs text-neutral-600">{{ thread.createdAt | date }}</time>
@@ -172,7 +173,8 @@
       </div>
 
       <div class="flex items-center flex-col justify-center gap-4 py-5">
-        <emr-dicebear class="size-32" [key]="selectedThread.sender.id" [src]="selectedThread.sender.avatarUrl"/>
+        <emr-dicebear class="size-32" [presenceIndicator]="selectedThread.sender.presenceIndicator"
+                      [key]="selectedThread.sender.id" [src]="selectedThread.sender.avatarUrl"/>
         <div class="text-center">
           <div class="font-bold whitespace-nowrap text-ellipsis overflow-hidden">{{ selectedThread.sender.name }}</div>
           <time class="text-xs text-neutral-600">{{ selectedThread.createdAt | date }}</time>

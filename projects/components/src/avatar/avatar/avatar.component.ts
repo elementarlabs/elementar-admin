@@ -7,7 +7,7 @@ import {
   OnChanges, OnInit,
   SimpleChanges
 } from '@angular/core';
-import { AVATAR_ACCESSOR } from '../avatar.properties';
+import { AVATAR_ACCESSOR, AvatarPresenceIndicator } from '../types';
 
 const alreadyLoadedImages: string[] = [];
 
@@ -41,7 +41,7 @@ export class AvatarComponent implements OnInit, OnChanges {
   text = input<string>();
   alt = input<string>();
   automaticColor = input<string>();
-  presenceIndicator = input<'online' | 'offline' | null>(null);
+  presenceIndicator = input<AvatarPresenceIndicator>(null);
 
   protected imageLoaded: boolean;
 

@@ -66,5 +66,9 @@
     &.is-offline {
       background: var(--emr-avatar-presence-indicator-offline-bg);
     }
+
+    &.is-away {
+      background: var(--emr-avatar-presence-indicator-away-bg);
+    }
   }
 }

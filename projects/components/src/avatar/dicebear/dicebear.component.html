@@ -5,7 +5,8 @@
 @if (presenceIndicator()) {
   <div class="presence-indicator"
        [class.is-online]="presenceIndicator() === 'online'"
-       [class.is-offline]="presenceIndicator() === 'offline'"></div>
+       [class.is-offline]="presenceIndicator() === 'offline'"
+       [class.is-away]="presenceIndicator() === 'away'"></div>
 }
 
 @if (!src() && svg) {
