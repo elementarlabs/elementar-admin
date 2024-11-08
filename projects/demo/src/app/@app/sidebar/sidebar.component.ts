@@ -811,9 +811,17 @@ export class SidebarComponent implements OnInit {
 
   private _activateLink() {
     const activeLink = this.navItemLinks.find(
-      navItem =>
-        navItem.link === this.location.path() ||
-        (this.location.path() !== '/' && this.location.path().includes(navItem.link as string))
+      navItem => {
+        if (navItem.link === this.location.path()) {
+          return true;
+        }
+
+        if (navItem.type === 'group') {
+          return (this.location.path() !== '/' && this.location.path().includes(navItem.link as string));
+        }
+
+        return false;
+      }
     );
 
     if (activeLink) {
