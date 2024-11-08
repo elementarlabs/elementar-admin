@@ -35,10 +35,13 @@ import {
   MatExpansionPanelTitle,
   MatExpansionPanelHeader
 } from '@angular/material/expansion';
+import { MatDivider } from '@angular/material/divider';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 interface MessengerMessage {
   id: any;
-  content: string;
+  content: any;
+  type: 'default' | 'attachment' | string;
   sender: {
     avatarUrl: string;
     name: string;
@@ -110,7 +113,11 @@ interface MessengerMember {
     MatExpansionPanelTitle,
     MatExpansionPanelDescription,
     MatExpansionPanelHeader,
-    MatButton
+    MatButton,
+    MatDivider,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger
   ],
   templateUrl: './messenger.component.html',
   styleUrl: './messenger.component.scss'
@@ -149,6 +156,7 @@ export class MessengerComponent {
       messages: [
         {
           id: 1,
+          type: 'default',
           sender: {
             avatarUrl: '',
             name: 'Alejandra Cubides',
@@ -161,6 +169,7 @@ export class MessengerComponent {
         },
         {
           id: 2,
+          type: 'default',
           sender: {
             avatarUrl: '',
             name: 'Pavel Salauyou',
@@ -173,6 +182,7 @@ export class MessengerComponent {
         },
         {
           id: 3,
+          type: 'default',
           sender: {
             avatarUrl: '',
             name: 'Pavel Salauyou',
@@ -185,6 +195,7 @@ export class MessengerComponent {
         },
         {
           id: 4,
+          type: 'default',
           sender: {
             avatarUrl: '',
             name: 'Alejandra Cubides',
@@ -197,6 +208,7 @@ export class MessengerComponent {
         },
         {
           id: 4,
+          type: 'default',
           sender: {
             avatarUrl: '',
             name: 'Alejandra Cubides',
@@ -204,6 +216,26 @@ export class MessengerComponent {
             presenceIndicator: 'away'
           },
           content: `What’s your day-to-day like in the new role?`,
+          createdAt: new Date(),
+          isDelivered: false
+        },
+        {
+          id: 5,
+          type: 'attachment',
+          sender: {
+            avatarUrl: '',
+            name: 'Alejandra Cubides',
+            id: 1,
+            presenceIndicator: 'away'
+          },
+          content: {
+            fileName: 'Terms & Conditions',
+            fileType: 'pdf',
+            pagesCount: 12,
+            fileSize: '11MB',
+            downloadLink: '',
+            iconUrl: '/assets/file/pdf1.svg'
+          },
           createdAt: new Date(),
           isDelivered: false
         },
@@ -254,6 +286,10 @@ export class MessengerComponent {
 
   toggleSidebar() {
     this.sidebarActive = !this.sidebarActive;
+  }
+
+  isNeedToShowTimeSeparator(messages: MessengerMessage[], index: number): boolean {
+    return false;
   }
 
   isInnerMessage(messages: MessengerMessage[], index: number): boolean {

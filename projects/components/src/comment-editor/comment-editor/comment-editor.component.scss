@@ -1,5 +1,5 @@
 :host {
-  --emr-comment-editor-bg: theme('colors.surface-bright');
+  --emr-comment-editor-bg: transparent;
   --emr-comment-editor-content-max-height: 9999px;
 
   @apply relative block overflow-hidden bg-[var(--emr-comment-editor-bg)];
@@ -99,8 +99,4 @@
       @apply bg-neutral-200 dark:bg-neutral-650 dark:text-neutral-200;
     }
   }
-}
-
-:host-context(html.dark) {
-  @apply bg-neutral-800;
 }

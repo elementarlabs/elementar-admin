@@ -2,9 +2,23 @@
   <div class="flex justify-between">
     <h2 class="text-3xl">Messages</h2>
     <div class="border rounded-full w-max">
-      <button mat-icon-button>
+      <button mat-icon-button [matMenuTriggerFor]="messengerMenu">
         <mat-icon>more_horiz</mat-icon>
       </button>
+      <mat-menu #messengerMenu="matMenu">
+        <button mat-menu-item>
+          <span>Start a new conversation</span>
+        </button>
+        <button mat-menu-item>
+          <span>Messenger settings</span>
+        </button>
+        <button mat-menu-item>
+          <span>Out of office</span>
+        </button>
+        <button mat-menu-item>
+          <span>Shortcut keys</span>
+        </button>
+      </mat-menu>
     </div>
   </div>
   <div class="grow bg-surface-container-low flex flex-col rounded-3xl p-4">
@@ -90,8 +104,9 @@
     <div class="py-10 min-h-full px-7 flex flex-col justify-end">
       @for (message of selectedThread.messages; track message; let index = $index) {
         @let isInner = isInnerMessage(selectedThread.messages, index);
+<!--        @let showTimeSeparator = isNeedToShowTimeSeparator(selectedThread.messages, index);-->
 
-        <div class="flex items-start gap-3 p-3 rounded-3xl hover:bg-surface-container relative">
+        <div class="flex items-start gap-3 p-3 rounded-3xl hover:bg-surface-container-low relative group">
           @if (!isInner) {
             <emr-dicebear class="size-11" [key]="message.sender.id"
                           [presenceIndicator]="message.sender.presenceIndicator"
@@ -111,15 +126,48 @@
               </div>
             }
 
-            <div class="text-sm font-normal [&.is-inner]:ps-14"
-                 [class.is-inner]="isInner" [innerHTML]="message.content | safeHtml"></div>
+            <div class="text-sm font-normal [&.is-inner]:ps-14" [class.is-inner]="isInner">
+              @switch (message.type) {
+                @case ('attachment') {
+                  <div class="flex items-start w-max rounded-2xl p-3 gap-3 bg-surface-container group-hover:bg-surface-container-highest">
+                    <div>
+                      <div class="flex items-center gap-2 text-xs font-medium text-on-surface pb-2">
+                        @if (message.content.iconUrl) {
+                          <img [src]="message.content.iconUrl" alt="" class="size-5">
+                        }
+                        {{ message.content.fileName }}
+                     </div>
+                      <div class="flex text-xs font-normal text-neutral-600 dark:text-neutral-500 gap-2">
+                      {{ message.content.pagesCount }} Pages
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="self-center" width="3" height="4" viewBox="0 0 3 4" fill="none">
+                       <circle cx="1.5" cy="2" r="1.5" fill="#6B7280"></circle>
+                      </svg>
+                      {{ message.content.fileSize }}
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="self-center" width="3" height="4" viewBox="0 0 3 4" fill="none">
+                       <circle cx="1.5" cy="2" r="1.5" fill="#6B7280"></circle>
+                      </svg>
+                      <div class="uppercase">{{ message.content.fileType }}</div>
+                    </div>
+                    </div>
+                    <div class="inline-flex self-center items-center">
+                      <button mat-icon-button>
+                        <mat-icon>download</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                }
+                @default {
+                  <div [innerHTML]="message.content | safeHtml"></div>
+                }
+              }
+            </div>
           </div>
         </div>
       }
     </div>
   </div>
   <div class="px-10">
-    <emr-comment-editor #editor class="border shadow-sm rounded-2xl">
+    <emr-comment-editor fullViewMode #editor class="border shadow-sm rounded-2xl">
       <emr-comment-editor-toolbar>
         <button mat-icon-button matTooltip="Bold"
                 emrCommentEditorCommand emrCommentEditorCommandBold>
@@ -184,12 +232,17 @@
         </button>
       </emr-comment-editor-bubble-menu>
       <emr-comment-editor-footer-bar>
-        @if (editor.api.isEditorActivated()) {
-          <button mat-icon-button matTooltip="Toggle Toolbar"
-                  emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
-            <mat-icon>title</mat-icon>
-          </button>
-        }
+        <button mat-icon-button emrCommentEditorCommand emrCommentEditorCommandToggleToolbar>
+          <mat-icon>title</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Attach File"
+                emrCommentEditorCommand>
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Emoji"
+                emrCommentEditorCommand>
+          <mat-icon>sentiment_satisfied</mat-icon>
+        </button>
       </emr-comment-editor-footer-bar>
     </emr-comment-editor>
   </div>
