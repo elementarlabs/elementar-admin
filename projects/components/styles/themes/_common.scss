@@ -117,6 +117,10 @@
   @include mat.system-level-typography($m3-light-theme);
 }
 
+html {
+  @apply font-sans;
+}
+
 html.dark {
   --emr-neutral-0: #{mat.get-theme-color($m3-dark-theme, neutral, 100)};
   --emr-neutral-50: #{mat.get-theme-color($m3-dark-theme, neutral, 99)};

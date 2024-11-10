@@ -14,7 +14,7 @@ module.exports = {
         'md': '15px'
       },
       fontFamily: {
-        'serif': ['Open Sans', ...defaultTheme.fontFamily.serif]
+        'sans': ['Open Sans', ...defaultTheme.fontFamily.sans]
       },
       borderColor: {
         DEFAULT: 'var(--emr-border)'
