@@ -100,11 +100,17 @@
       </div>
     </div>
   </div>
-  <div class="grow overflow-y-auto">
-    <div class="py-10 min-h-full px-7 flex flex-col justify-end">
+  <div class="grow relative" emrImageViewer>
+    <div class="py-10 min-h-full px-7 absolute inset-0 overflow-y-auto">
       @for (message of selectedThread.messages; track message; let index = $index) {
         @let isInner = isInnerMessage(selectedThread.messages, index);
-<!--        @let showTimeSeparator = isNeedToShowTimeSeparator(selectedThread.messages, index);-->
+        @let showTimeSeparator = isNeedToShowTimeSeparator(selectedThread.messages, index);
+
+        @if (showTimeSeparator) {
+          <div class="px-3 py-6">
+            <emr-h-divider>{{ message.createdAt | date }}</emr-h-divider>
+          </div>
+        }
 
         <div class="flex items-start gap-3 p-3 rounded-3xl hover:bg-surface-container-low relative group">
           @if (!isInner) {
@@ -155,6 +161,10 @@
                       </button>
                     </div>
                   </div>
+                }
+                @case ('image') {
+                  <img [src]="message.content.src" alt=""
+                       emrImageViewerPicture [sourceUrl]="message.content.src" class="max-w-96 rounded-2xl cursor-pointer">
                 }
                 @default {
                   <div [innerHTML]="message.content | safeHtml"></div>

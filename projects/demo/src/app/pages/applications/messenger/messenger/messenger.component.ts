@@ -37,6 +37,8 @@ import {
 } from '@angular/material/expansion';
 import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { ImageViewerDirective, ImageViewerPictureDirective } from '@elementar/components/image-viewer';
+import { HDividerComponent, VDividerComponent } from '@elementar/components/divider';
 
 interface MessengerMessage {
   id: any;
@@ -81,6 +83,7 @@ interface MessengerMember {
   selector: 'app-messenger',
   standalone: true,
   imports: [
+    ImageViewerPictureDirective,
     MatInput,
     MatIcon,
     MatIconButton,
@@ -117,7 +120,11 @@ interface MessengerMember {
     MatDivider,
     MatMenu,
     MatMenuItem,
-    MatMenuTrigger
+    MatMenuTrigger,
+    ImageViewerPictureDirective,
+    ImageViewerDirective,
+    VDividerComponent,
+    HDividerComponent
   ],
   templateUrl: './messenger.component.html',
   styleUrl: './messenger.component.scss'
@@ -152,7 +159,7 @@ export class MessengerComponent {
       unreadMessagesCount: 2,
       title: 'Looking for an Angular expert to upgrade angular project to the latest version',
       lastMessage: 'Angular itself is easy to upgrade, most problems arise with third-party libraries and deprecated code.',
-      createdAt: new Date(),
+      createdAt: new Date('Nov 09, 2024'),
       messages: [
         {
           id: 1,
@@ -164,7 +171,7 @@ export class MessengerComponent {
             presenceIndicator: 'away'
           },
           content: `Hey! How’s work going for you these days?`,
-          createdAt: new Date(),
+          createdAt: new Date('Nov 09, 2024'),
           isDelivered: true
         },
         {
@@ -177,7 +184,7 @@ export class MessengerComponent {
             presenceIndicator: 'online'
           },
           content: `It’s been pretty good, actually. I just started a new position in project management, so I’m still learning the ropes. What about you?`,
-          createdAt: new Date(),
+          createdAt: new Date('Nov 09, 2024'),
           isDelivered: false
         },
         {
@@ -190,7 +197,7 @@ export class MessengerComponent {
             presenceIndicator: 'online'
           },
           content: `What about you?`,
-          createdAt: new Date(),
+          createdAt: new Date('Nov 09, 2024'),
           isDelivered: false
         },
         {
@@ -239,6 +246,21 @@ export class MessengerComponent {
           createdAt: new Date(),
           isDelivered: false
         },
+        {
+          id: 5,
+          type: 'image',
+          sender: {
+            avatarUrl: '',
+            name: 'Alejandra Cubides',
+            id: 1,
+            presenceIndicator: 'away'
+          },
+          content: {
+            src: '/assets/image/image.jpg'
+          },
+          createdAt: new Date(),
+          isDelivered: false
+        },
       ]
     },
     {
@@ -254,7 +276,28 @@ export class MessengerComponent {
       title: 'Looking for an Angular expert to upgrade angular project to the latest version',
       lastMessage: 'Angular itself is easy to upgrade, most problems arise with third-party libraries and deprecated code.',
       createdAt: new Date(),
-      messages: [],
+      messages: [
+        {
+          id: 5,
+          type: 'attachment',
+          sender: {
+            avatarUrl: '',
+            name: 'Alejandra Cubides',
+            id: 1,
+            presenceIndicator: 'away'
+          },
+          content: {
+            fileName: 'Terms & Conditions',
+            fileType: 'pdf',
+            pagesCount: 12,
+            fileSize: '11MB',
+            downloadLink: '',
+            iconUrl: '/assets/file/pdf1.svg'
+          },
+          createdAt: new Date(),
+          isDelivered: false
+        },
+      ],
       members: [
         {
           avatarUrl: '',
@@ -289,7 +332,17 @@ export class MessengerComponent {
   }
 
   isNeedToShowTimeSeparator(messages: MessengerMessage[], index: number): boolean {
-    return false;
+    if (index === 0) {
+      return false;
+    }
+
+    const prevMessage = messages[index - 1];
+    const currentMessage = messages[index];
+    const prevCreatedAt = new Date(prevMessage.createdAt);
+    prevCreatedAt.setHours(0);
+    const currentCreatedAt = new Date(currentMessage.createdAt);
+    currentCreatedAt.setHours(0);
+    return prevCreatedAt.getTime() !== currentCreatedAt.getTime();
   }
 
   isInnerMessage(messages: MessengerMessage[], index: number): boolean {
