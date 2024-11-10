@@ -5,7 +5,7 @@
 # Modern Angular UI Components & Admin Panel, based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
 <a target="_blank" href="https://elementarui.com">
-  <img src="https://elementarui.com/assets/elementar-admin-github-preview.png">
+  <img src="https://demo.elementarui.com/assets/preview.png">
 </a>
 
 ## Key features
