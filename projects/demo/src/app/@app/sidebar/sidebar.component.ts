@@ -625,6 +625,12 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'File Manager',
           link: '/pages/applications/file-manager'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Kanban Board',
+          link: '/pages/applications/kanban-board'
         }
       ]
     },

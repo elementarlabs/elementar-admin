@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'file-manager',
     loadChildren: () => import('./file-manager/file-manager.module').then(m => m.FileManagerModule),
+  },
+  {
+    path: 'kanban-board',
+    loadChildren: () => import('./kanban-board/kanban-board.module').then(m => m.KanbanBoardModule),
   }
 ];
 
