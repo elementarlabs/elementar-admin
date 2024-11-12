@@ -27,6 +27,9 @@ import {
 import {
   DataViewWithActionBarExampleComponent
 } from '../_examples/data-view-with-action-bar-example/data-view-with-action-bar-example.component';
+import {
+  DataViewFilterDataExampleComponent
+} from '../_examples/data-view-filter-data-example/data-view-filter-data-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -43,7 +46,8 @@ import {
     DataViewWithSortingExampleComponent,
     DataViewHlHeaderExampleComponent,
     DataViewCustomCellRenderersExampleComponent,
-    DataViewWithActionBarExampleComponent
+    DataViewWithActionBarExampleComponent,
+    DataViewFilterDataExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

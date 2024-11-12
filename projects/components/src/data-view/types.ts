@@ -1,5 +1,13 @@
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
+export interface DataView {
+  api: DataViewAPI;
+}
+
+export interface DataViewAPI {
+  search(value: string): void;
+}
+
 export interface DataViewColumnDef {
   name: string;
   dataField: string;

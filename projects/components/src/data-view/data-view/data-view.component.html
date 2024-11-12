@@ -1,6 +1,7 @@
 <mat-table #table [dataSource]="dataSource()"
            matSort [matSortDisabled]="!withSorting()"
-           (matSortChange)="sortChange($event)" class="table">
+           (matSortChange)="sortChange($event)" class="table"
+           [class.hidden]="(_emptyDataRef() || _emptyFilterResults()) && dataSource().filteredData.length === 0">
   @if (withSelection()) {
     <ng-container matColumnDef="selection">
       <mat-header-cell *matHeaderCellDef>
@@ -67,8 +68,15 @@
       }
     </mat-cell>
   </ng-container>
-
   <mat-header-row *matHeaderRowDef="displayedColumns(); sticky: stickyHeader()"/>
   <mat-row *matRowDef="let row; columns: displayedColumns()" class="data-view-row"
            [class.is-selected]="selection.isSelected(row)"/>
 </mat-table>
+
+@if ((_emptyDataRef() || _emptyFilterResults()) && dataSource().filteredData.length === 0) {
+  @if (hasFilterValue) {
+    <ng-container [ngTemplateOutlet]="emptyFilterResultsTemplateRef"/>
+  } @else {
+    <ng-container [ngTemplateOutlet]="emptyTemplateRef"/>
+  }
+}
