@@ -6,15 +6,22 @@ import { MatIcon } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
 import { EmrPanelModule } from '@elementar/components/panel';
 import {
-  DataViewActionBarComponent, DataViewActionBarDirective,
+  DataView,
+  DataViewActionBarComponent, DataViewActionBarDirective, DataViewAPI,
   DataViewCellRenderer,
   DataViewColumnDef,
-  DataViewComponent,
+  DataViewComponent, DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective,
   DataViewRowSelectionEvent
 } from '@elementar/components/data-view';
 import { VDividerComponent } from '@elementar/components/divider';
 import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import {
+  BlockStateActionsComponent,
+  BlockStateComponent,
+  BlockStateContentComponent, BlockStateIconComponent,
+  BlockStateImageComponent
+} from '@elementar/components/block-state';
 
 export interface User {
   id: string;
@@ -50,7 +57,14 @@ export interface Post {
     DataViewActionBarDirective,
     MatMenu,
     MatMenuItem,
-    MatMenuTrigger
+    MatMenuTrigger,
+    BlockStateComponent,
+    DataViewEmptyDataDirective,
+    BlockStateContentComponent,
+    DataViewEmptyFilterResultsDirective,
+    BlockStateImageComponent,
+    BlockStateIconComponent,
+    BlockStateActionsComponent
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
@@ -101,6 +115,7 @@ export class PostListComponent implements OnInit {
       component: () => import('../_renderers/dv-date-renderer/dv-date-renderer.component').then(c => c.DvDateRendererComponent)
     }
   ];
+  search = '';
 
   ngOnInit() {
     this._httpClient

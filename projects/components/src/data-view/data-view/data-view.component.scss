@@ -4,6 +4,12 @@
   --mat-table-background-color: var(--emr-data-view-bg);
   --emr-content-fade-color: var(--emr-data-view-row-bg);
 
+  @apply block h-full;
+
+  mat-table {
+    @apply h-full;
+  }
+
   .mat-mdc-cell {
     @apply bg-[var(--emr-data-view-row-bg)];
 

@@ -2,7 +2,7 @@ import {
   booleanAttribute,
   ChangeDetectorRef,
   Component,
-  computed, contentChild,
+  computed, contentChild, effect,
   inject, Injector,
   input,
   OnInit,
@@ -15,10 +15,11 @@ import {
   MatColumnDef,
   MatHeaderCell, MatHeaderCellDef,
   MatHeaderRow,
-  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
+  MatHeaderRowDef, MatNoDataRow, MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import {
+  DataViewAPI,
   DataViewCellRenderer,
   DataViewColumnDef,
   DataViewRowSelectionEvent
@@ -31,6 +32,7 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
+import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
 
 @Component({
   selector: 'emr-data-view',
@@ -54,7 +56,8 @@ import { MatIconButton } from '@angular/material/button';
     NgComponentOutlet,
     NgTemplateOutlet,
     MatIcon,
-    MatIconButton
+    MatIconButton,
+    MatNoDataRow
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
@@ -65,6 +68,8 @@ import { MatIconButton } from '@angular/material/button';
   }
 })
 export class DataViewComponent<T> implements OnInit {
+  protected _emptyDataRef = contentChild(DataViewEmptyDataDirective);
+  protected _emptyFilterResults = contentChild(DataViewEmptyFilterResultsDirective);
   private _cdr = inject(ChangeDetectorRef);
   private _matTable = viewChild<MatTable<T>>('table');
   private _matSort = viewChild<MatSort>(MatSort);
@@ -118,6 +123,7 @@ export class DataViewComponent<T> implements OnInit {
   loading = input(false, {
     transform: booleanAttribute
   });
+  search = input<string>('');
 
   protected injector = inject(Injector);
   protected selection = new SelectionModel<T>(true, []);
@@ -129,8 +135,36 @@ export class DataViewComponent<T> implements OnInit {
   readonly allRowsSelectionChanged = output<boolean>();
   readonly sortChanged = output<Sort>();
 
+  get api(): DataViewAPI {
+    return {
+      search: (value: string): void => {
+        this.dataSource().filter = value.trim().toLowerCase();
+      }
+    }
+  }
+
   get actionBarTemplateRef(): TemplateRef<any> | undefined {
     return this._actionBarRef()?.templateRef;
+  }
+
+  protected get emptyTemplateRef(): TemplateRef<any> {
+    return this._emptyDataRef()?.templateRef as TemplateRef<any>;
+  }
+
+  protected get emptyFilterResultsTemplateRef(): TemplateRef<any> {
+    return this._emptyFilterResults()?.templateRef as TemplateRef<any>;
+  }
+
+  protected get hasFilterValue(): boolean {
+    return !!this.search().trim();
+  }
+
+  constructor() {
+    effect(() => {
+      this.dataSource().filter = this.search().trim().toLowerCase();
+    }, {
+      allowSignalWrites: true
+    });
   }
 
   ngOnInit() {
