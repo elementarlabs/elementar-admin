@@ -6,10 +6,10 @@
         <emr-v-divider/>
         @if (selectedRows.length === 0) {
           <emr-segmented [(ngModel)]="status" theme="simple">
-            <emr-segmented-button value="all">All</emr-segmented-button>
-            <emr-segmented-button value="published">Published</emr-segmented-button>
-            <emr-segmented-button value="scheduled">Scheduled</emr-segmented-button>
-            <emr-segmented-button value="draft">Drafts</emr-segmented-button>
+            <button emr-segmented-button value="all">All</button>
+            <button emr-segmented-button value="published">Published</button>
+            <button emr-segmented-button value="scheduled">Scheduled</button>
+            <button emr-segmented-button value="draft">Drafts</button>
           </emr-segmented>
           <emr-v-divider/>
           <input type="text" placeholder="Search..." [(ngModel)]="search"
@@ -41,6 +41,7 @@
                    [paginator]="paginator"
                    [cellRenderers]="cellRenderers"
                    [search]="search"
+                   hoverRows
                    withSelection
                    stickyHeader
                    withSorting

@@ -1,4 +1,10 @@
 :host {
+  --emr-data-view-row-bg: var(--emr-background);
+  --emr-data-view-hl-header-row-bg: theme('colors.neutral.200');
+  --emr-data-view-hl-header-margin: theme('margin.1') 0;
+  --emr-data-view-sticky-header-top: 0;
+  --emr-data-view-selected-border-color: theme('colors.primary.DEFAULT');
+  --emr-data-view-row-hover-bg: theme('colors.surface-container');
   --emr-data-view-bg: theme('colors.transparent');
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: var(--emr-data-view-bg);
@@ -140,6 +146,9 @@
 }
 
 :host-context(html.dark) {
+  --emr-data-view-hl-header-row-bg: theme('colors.neutral.900');
+  --emr-data-view-row-hover-bg: theme('colors.surface-container-low');
+
   ::ng-deep {
     .mdc-data-table__header-cell {
       --emr-skeleton-from-bg: theme('colors.neutral.700/60');

@@ -1,7 +1,7 @@
 :host {
   --emr-segmented-button-height: calc(theme('height.9'));
   --emr-segmented-bg: theme('colors.surface-container');
-  --emr-segmented-button-hover-bg: transparent;
+  --emr-segmented-button-hover-bg: theme('colors.surface-container-highest');
   --emr-segmented-button-color: theme('colors.neutral.700');
   --emr-segmented-button-hover-color: theme('colors.on-surface');
   --emr-segmented-button-selected-color: theme('colors.primary.650');
@@ -37,7 +37,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-segmented-bg: theme('colors.surface-container-highest');
   --emr-segmented-button-color: theme('colors.neutral.300');
   --emr-segmented-button-selected-bg: theme('colors.neutral.300');
 }
