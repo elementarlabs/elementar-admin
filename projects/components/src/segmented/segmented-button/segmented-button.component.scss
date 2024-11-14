@@ -38,6 +38,7 @@
 }
 
 :host(.is-selected) {
+  @apply pointer-events-none;
   @apply bg-[var(--emr-segmented-button-selected-bg)];
   @apply text-[var(--emr-segmented-button-selected-color)];
   box-shadow: var(--emr-segmented-button-selected-shadow);
