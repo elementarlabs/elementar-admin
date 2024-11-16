@@ -1,0 +1,7 @@
+:host {
+  @apply block;
+
+  .widget {
+    @apply border rounded-2xl overflow-hidden;
+  }
+}

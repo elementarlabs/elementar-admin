@@ -1,0 +1,20 @@
+@if (_initialized) {
+  <mat-grid-list cols="4" rowHeight="1:1">
+<!--    @for (widget of widgets(); track widget.id) {-->
+<!--      <mat-grid-tile class="widget" [colspan]="widget.columns">-->
+<!--        <ng-container [ngTemplateOutlet]="getTemplateRefByType(widget.type)"-->
+<!--                      [ngTemplateOutletContext]="{ $implicit: widget }"/>-->
+<!--      </mat-grid-tile>-->
+<!--    }-->
+    <div class="grid grid-cols-4 gap-6">
+      @for (widget of widgets(); track widget.id) {
+        <div class="col-span-{{ widget.columns }}">
+          <div class="widget">
+            <ng-container [ngTemplateOutlet]="getTemplateRefByType(widget.type)"
+                          [ngTemplateOutletContext]="{ $implicit: widget }"/>
+          </div>
+        </div>
+      }
+    </div>
+  </mat-grid-list>
+}

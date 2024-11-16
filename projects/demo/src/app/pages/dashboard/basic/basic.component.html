@@ -2,36 +2,70 @@
   <div class="flex items-center justify-between">
     <h1 class="text-lg font-bold">Dashboard</h1>
   </div>
-  <div class="grid grid-cols-4 gap-6">
-    <div class="col-span-1">
-      <emr-total-subscribers-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-avg-open-rate-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-avg-click-rate-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-unique-visitors-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-total-tasks-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-total-projects-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-events-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-1">
-      <emr-team-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-2">
-      <emr-tasks-in-progress-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-    <div class="col-span-2">
-      <emr-todos-widget class="border rounded-xl overflow-hidden"/>
-    </div>
-  </div>
+
+  <emr-dashboard [widgets]="widgets">
+    <ng-template emrDashboardWidgetDef="total-subscribers-widget">
+      <emr-total-subscribers-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="avg-open-rate-widget">
+      <emr-avg-open-rate-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="emr-avg-click-rate-widget">
+      <emr-avg-click-rate-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="unique-visitors-widget">
+      <emr-unique-visitors-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="total-tasks-widget">
+      <emr-total-tasks-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="total-projects-widget">
+      <emr-total-projects-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="events-widget">
+      <emr-events-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="emr-team-widget">
+      <emr-team-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="tasks-in-progress-widget">
+      <emr-tasks-in-progress-widget/>
+    </ng-template>
+    <ng-template emrDashboardWidgetDef="todos-widget">
+      <emr-todos-widget/>
+    </ng-template>
+  </emr-dashboard>
+
+<!--  <div class="grid grid-cols-4 gap-6">-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-total-subscribers-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-avg-open-rate-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-avg-click-rate-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-unique-visitors-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-total-tasks-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-total-projects-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-events-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-1">-->
+<!--      <emr-team-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-2">-->
+<!--      <emr-tasks-in-progress-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--    <div class="col-span-2">-->
+<!--      <emr-todos-widget class="border rounded-xl overflow-hidden"/>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>

@@ -16,6 +16,7 @@ import {
   TotalTasksWidgetComponent,
   UniqueVisitorsWidgetComponent
 } from '@elementar/store/widgets';
+import { DashboardComponent, DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
 
 @Component({
   standalone: true,
@@ -41,10 +42,19 @@ import {
     EventsWidgetComponent,
     TeamWidgetComponent,
     TasksInProgressWidgetComponent,
-    TodosWidgetComponent
+    TodosWidgetComponent,
+    DashboardComponent,
+    DashboardWidgetDefDirective
   ],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss'
 })
 export class BasicComponent {
+  widgets: DashboardWidget[] = [
+    {
+      id: 1,
+      type: 'total-subscribers-widget',
+      columns: 1
+    }
+  ];
 }
