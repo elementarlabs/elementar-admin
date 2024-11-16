@@ -13,7 +13,7 @@
     <div class="text-xs">Exchange</div>
     <div class="text-sm">1 {{ currencyFrom }}={{ currentConversionRate }} {{ currencyTo }}</div>
   </div>
-  <div class="rounded-xl bg-neutral-100 dark:bg-neutral-900 p-3 mt-2" [formGroup]="form">
+  <div class="rounded-xl bg-surface-container p-3 mt-2" [formGroup]="form">
     <div class="relative h-10">
       <input type="number" min="0" placeholder="You sell" formControlName="from"
              class="h-full w-full text-sm placeholder:text-sm bg-transparent
@@ -22,13 +22,13 @@
     </div>
     <div class="relative z-[1]">
       <div class="absolute start-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-max">
-        <button class="size-9 bg-secondary-200 dark:bg-secondary-600 dark:hover:bg-secondary-700
-                       hover:bg-secondary-300 rounded-full flex items-center justify-center cursor-pointer"
+        <button class="size-9 bg-surface-variant hover:bg-surface-container-highest rounded-full
+                       flex items-center justify-center cursor-pointer"
                 matRipple (click)="toggleCurrencies()">
           <mat-icon>swap_vert</mat-icon>
         </button>
       </div>
-      <mat-divider></mat-divider>
+      <mat-divider/>
     </div>
     <div class="relative h-10">
       <input type="number" min="0" placeholder="You get" formControlName="to"

@@ -1,4 +1,4 @@
-<div class="flex gap-5 h-full p-10">
+<div class="flex gap-5 h-full p-10" cdkDropListGroup>
   @for (column of columns; track column) {
     <div class="flex flex-col gap-3">
       <div class="h-7 flex gap-2 items-center justify-between flex-none">
@@ -12,9 +12,13 @@
           <mat-icon>add</mat-icon>
         </button>
       </div>
-      <div class="bg-surface-container grow overflow-y-auto w-72 flex-none rounded-2xl p-3 flex flex-col gap-3">
+      <div class="bg-surface-container-low grow overflow-y-auto w-72 flex-none rounded-2xl p-3 flex flex-col gap-3"
+           cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="drop($event)">
         @for (item of column.items; track item) {
-          <div class="bg-surface-bright rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest">
+          <div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
+               cdkDrag [cdkDragData]="item">
+            <div class="bg-surface-container-highest rounded-2xl p-3 shadow-sm cursor-pointer min-h-20"
+                 *cdkDragPlaceholder></div>
             <div class="font-medium text-sm">{{ item.name }}</div>
             <div class="flex items-center justify-between mt-3.5">
               <emr-dicebear [key]="item.assignee.id" class="size-7"/>
@@ -25,4 +29,15 @@
       </div>
     </div>
   }
+  <div class="flex flex-col gap-3 w-14">
+    <div class="h-7 flex items-center justify-center flex-none">
+      <button mat-icon-button>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+    <div class="bg-surface-container-low hover:bg-surface-container grow overflow-y-auto w-full
+                flex-none rounded-2xl p-3 flex items-center justify-center me-10 cursor-pointer">
+      <mat-icon>add</mat-icon>
+    </div>
+  </div>
 </div>
