@@ -9,11 +9,18 @@
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: var(--emr-data-view-bg);
   --emr-content-fade-color: var(--emr-data-view-row-bg);
+  --emr-data-view-header-bg: var(--emr-background);
 
   @apply block h-full;
 
   mat-table {
     @apply h-full pb-3;
+  }
+
+  ::ng-deep {
+    .mat-mdc-header-row {
+      background: var(--emr-data-view-header-bg);
+    }
   }
 
   .mat-mdc-cell {
@@ -148,7 +155,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-data-view-hl-header-row-bg: theme('colors.neutral.900');
   --emr-data-view-row-hover-bg: theme('colors.surface-container-low');
 
   ::ng-deep {
