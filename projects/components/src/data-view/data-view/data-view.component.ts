@@ -65,6 +65,7 @@ import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from 
     'class': 'emr-data-view',
     '[class.highlight-header]': 'highlightHeader()',
     '[class.hover-rows]': 'hoverRows()',
+    '[class.is-loading]': 'loading()',
   }
 })
 export class DataViewComponent<T> implements OnInit {
