@@ -30,6 +30,9 @@ import {
 import {
   DataViewFilterDataExampleComponent
 } from '../_examples/data-view-filter-data-example/data-view-filter-data-example.component';
+import {
+  DataViewLoadingStateExampleComponent
+} from '../_examples/data-view-loading-state-example/data-view-loading-state-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -47,7 +50,8 @@ import {
     DataViewHlHeaderExampleComponent,
     DataViewCustomCellRenderersExampleComponent,
     DataViewWithActionBarExampleComponent,
-    DataViewFilterDataExampleComponent
+    DataViewFilterDataExampleComponent,
+    DataViewLoadingStateExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

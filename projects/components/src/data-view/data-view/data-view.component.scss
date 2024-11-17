@@ -79,6 +79,14 @@
     }
   }
 
+  &.is-loading {
+    .data-view-row {
+      .cell-action-bar {
+        @apply hidden;
+      }
+    }
+  }
+
   ::ng-deep {
     .header-cell,
     .cell {
