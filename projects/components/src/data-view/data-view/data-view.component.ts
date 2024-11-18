@@ -91,6 +91,9 @@ export class DataViewComponent<T> implements OnInit {
   stickyHeader = input(false, {
     transform: booleanAttribute
   });
+  isFiltered = input(false, {
+    transform: booleanAttribute
+  });
   hoverRows = input(false, {
     transform: booleanAttribute
   });
