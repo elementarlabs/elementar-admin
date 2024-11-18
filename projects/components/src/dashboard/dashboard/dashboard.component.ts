@@ -2,6 +2,7 @@ import { AfterContentInit, Component, contentChildren, input, TemplateRef } from
 import { DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { NgTemplateOutlet } from '@angular/common';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   selector: 'emr-dashboard',
@@ -10,7 +11,8 @@ import { NgTemplateOutlet } from '@angular/common';
   imports: [
     MatGridList,
     MatGridTile,
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    EmrSkeletonModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

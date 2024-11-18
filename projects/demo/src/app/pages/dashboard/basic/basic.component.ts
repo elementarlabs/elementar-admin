@@ -17,6 +17,7 @@ import {
   UniqueVisitorsWidgetComponent
 } from '@elementar/store/widgets';
 import { DashboardComponent, DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
+import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   standalone: true,
@@ -44,7 +45,8 @@ import { DashboardComponent, DashboardWidget, DashboardWidgetDefDirective } from
     TasksInProgressWidgetComponent,
     TodosWidgetComponent,
     DashboardComponent,
-    DashboardWidgetDefDirective
+    DashboardWidgetDefDirective,
+    EmrSkeletonModule
   ],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss'
@@ -55,6 +57,51 @@ export class BasicComponent {
       id: 1,
       type: 'total-subscribers-widget',
       columns: 1
+    },
+    {
+      id: 2,
+      type: 'avg-open-rate-widget',
+      columns: 1
+    },
+    {
+      id: 3,
+      type: 'emr-avg-click-rate-widget',
+      columns: 1
+    },
+    {
+      id: 4,
+      type: 'unique-visitors-widget',
+      columns: 1
+    },
+    {
+      id: 5,
+      type: 'total-tasks-widget',
+      columns: 1
+    },
+    {
+      id: 6,
+      type: 'total-projects-widget',
+      columns: 1
+    },
+    {
+      id: 7,
+      type: 'events-widget',
+      columns: 1
+    },
+    {
+      id: 8,
+      type: 'team-widget',
+      columns: 1
+    },
+    {
+      id: 9,
+      type: 'tasks-in-progress-widget',
+      columns: 2
+    },
+    {
+      id: 10,
+      type: 'todos-widget',
+      columns: 2
     }
   ];
 }

@@ -6,5 +6,5 @@ import { Directive, inject, input, TemplateRef } from '@angular/core';
 })
 export class DashboardWidgetDefDirective {
   readonly templateRef = inject(TemplateRef);
-  emrDashboardWidgetDef = input.required<string>()
+  emrDashboardWidgetDef = input.required<string>();
 }
