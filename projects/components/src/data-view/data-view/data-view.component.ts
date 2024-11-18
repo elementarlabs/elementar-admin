@@ -91,6 +91,9 @@ export class DataViewComponent<T> implements OnInit {
   stickyHeader = input(false, {
     transform: booleanAttribute
   });
+  isFiltered = input(false, {
+    transform: booleanAttribute
+  });
   hoverRows = input(false, {
     transform: booleanAttribute
   });
@@ -144,6 +147,12 @@ export class DataViewComponent<T> implements OnInit {
     }
   }
 
+  get noFilteredResults(): boolean {
+    return !!(this._emptyDataRef() || this._emptyFilterResults()) &&
+      ((this.dataSource().filteredData.length === 0 && !this.isFiltered()) || (this.dataSource().data.length === 0 && this.isFiltered()))
+    ;
+  }
+
   get actionBarTemplateRef(): TemplateRef<any> | undefined {
     return this._actionBarRef()?.templateRef;
   }
@@ -157,7 +166,7 @@ export class DataViewComponent<T> implements OnInit {
   }
 
   protected get hasFilterValue(): boolean {
-    return !!this.search().trim();
+    return !!this.search().trim() || this.isFiltered();
   }
 
   constructor() {
