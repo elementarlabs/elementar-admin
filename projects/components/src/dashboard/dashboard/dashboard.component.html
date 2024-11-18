@@ -1,14 +1,12 @@
 @if (_initialized) {
-  <mat-grid-list cols="4" rowHeight="1:1">
-    <div class="grid grid-cols-4 gap-6">
-      @for (widget of widgets(); track widget.id) {
-        <div class="col-span-{{ widget.columns }}">
-          <div class="widget">
-            <ng-container [ngTemplateOutlet]="getTemplateRefByType(widget.type)"
-                          [ngTemplateOutletContext]="{ $implicit: widget }"/>
-          </div>
+  <div class="grid grid-cols-4 gap-6">
+    @for (widget of widgets(); track widget.id) {
+      <div class="col-span-{{ widget.columns }}">
+        <div class="widget">
+          <ng-container [ngTemplateOutlet]="getTemplateRefByType(widget.type)"
+                        [ngTemplateOutletContext]="{ $implicit: widget }"/>
         </div>
-      }
-    </div>
-  </mat-grid-list>
+      </div>
+    }
+  </div>
 }

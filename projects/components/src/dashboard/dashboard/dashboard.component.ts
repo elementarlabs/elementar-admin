@@ -1,6 +1,5 @@
 import { AfterContentInit, Component, contentChildren, input, TemplateRef } from '@angular/core';
 import { DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
-import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { NgTemplateOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
@@ -9,8 +8,6 @@ import { EmrSkeletonModule } from '@elementar/components/skeleton';
   exportAs: 'emrDashboard',
   standalone: true,
   imports: [
-    MatGridList,
-    MatGridTile,
     NgTemplateOutlet,
     EmrSkeletonModule
   ],
