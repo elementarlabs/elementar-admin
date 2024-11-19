@@ -36,3 +36,5 @@ export interface DataViewCellRendererComponent {
 export interface DataViewActionBarAPI {
   setForceVisible: (visible: boolean) => void;
 }
+
+export type DataViewRowModelType = 'clientSide' | 'serverSide';
