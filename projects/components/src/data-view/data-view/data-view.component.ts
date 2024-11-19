@@ -15,13 +15,13 @@ import {
   MatColumnDef,
   MatHeaderCell, MatHeaderCellDef,
   MatHeaderRow,
-  MatHeaderRowDef, MatNoDataRow, MatRow, MatRowDef, MatTable, MatTableDataSource
+  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import {
   DataViewAPI,
   DataViewCellRenderer,
-  DataViewColumnDef,
+  DataViewColumnDef, DataViewRowModelType,
   DataViewRowSelectionEvent
 } from '../types';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -30,8 +30,6 @@ import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 import { EmrSkeletonModule } from '../../skeleton';
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
-import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
 import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
 
 @Component({
@@ -55,9 +53,6 @@ import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from 
     EmrSkeletonModule,
     NgComponentOutlet,
     NgTemplateOutlet,
-    MatIcon,
-    MatIconButton,
-    MatNoDataRow
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
@@ -85,13 +80,11 @@ export class DataViewComponent<T> implements OnInit {
   highlightHeader = input(false, {
     transform: booleanAttribute
   });
+  rowModelType = input<DataViewRowModelType>('clientSide');
   withSorting = input(false, {
     transform: booleanAttribute
   });
   stickyHeader = input(false, {
-    transform: booleanAttribute
-  });
-  isFiltered = input(false, {
     transform: booleanAttribute
   });
   hoverRows = input(false, {
@@ -149,7 +142,8 @@ export class DataViewComponent<T> implements OnInit {
 
   get noFilteredResults(): boolean {
     return !!(this._emptyDataRef() || this._emptyFilterResults()) &&
-      ((this.dataSource().filteredData.length === 0 && !this.isFiltered()) || (this.dataSource().data.length === 0 && this.isFiltered()))
+      ((this.dataSource().filteredData.length === 0 && this.rowModelType() === 'clientSide') ||
+        (this.dataSource().data.length === 0 && this.rowModelType() === 'serverSide'))
     ;
   }
 
@@ -166,12 +160,14 @@ export class DataViewComponent<T> implements OnInit {
   }
 
   protected get hasFilterValue(): boolean {
-    return !!this.search().trim() || this.isFiltered();
+    return !!this.search().trim();
   }
 
   constructor() {
     effect(() => {
-      this.dataSource().filter = this.search().trim().toLowerCase();
+      if (this.rowModelType() === 'clientSide') {
+        this.dataSource().filter = this.search().trim().toLowerCase();
+      }
     }, {
       allowSignalWrites: true
     });
