@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
 import { MatPaginator } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
 
 export interface PeriodicElement {
   name: string;
@@ -66,4 +67,8 @@ export class DataViewWithSortingExampleComponent {
     }
   ];
   data = DATA;
+
+  onSortChange(event: Sort): void {
+    console.log(event);
+  }
 }

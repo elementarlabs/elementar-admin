@@ -1,5 +1,8 @@
 <emr-data-view [columnDefs]="columnDefs" [data]="data"
-               [paginator]="paginator" withSelection withSorting></emr-data-view>
+               [paginator]="paginator"
+               withSelection
+               withSorting
+               (sortChange)="onSortChange($event)"></emr-data-view>
 <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
                aria-label="Select page of periodic elements" class="pt-3">
