@@ -32,6 +32,10 @@ import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
 import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
 
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
 @Component({
   selector: 'emr-data-view',
   exportAs: 'emrDataView',
@@ -110,9 +114,25 @@ export class DataViewComponent<T> implements OnInit {
       dataSource.paginator = this.paginator() as MatPaginator;
     }
 
-    if (this.withSorting()) {
+    if (this.withSorting() && this.rowModelType() === 'clientSide') {
       dataSource.sort = this._matSort() as MatSort;
     }
+
+    dataSource.sortingDataAccessor = (item: any, property) => {
+      const columnDef = this.columnDefs().find(colDef => colDef.dataField === property);
+
+      if (columnDef) {
+        if (columnDef.valueGetter) {
+          return columnDef.valueGetter(item[property]);
+        }
+      }
+
+      switch (property) {
+        default: {
+          return item[property];
+        }
+      }
+    };
 
     return dataSource;
   });
@@ -130,7 +150,7 @@ export class DataViewComponent<T> implements OnInit {
   readonly rowSelectionChanged = output<DataViewRowSelectionEvent<T>>();
   readonly selectionChanged = output<T[]>();
   readonly allRowsSelectionChanged = output<boolean>();
-  readonly sortChanged = output<Sort>();
+  readonly sortChange = output<Sort>();
 
   get api(): DataViewAPI {
     return {
@@ -205,25 +225,22 @@ export class DataViewComponent<T> implements OnInit {
     return this.cellRenderersMap.get(dataRenderer);
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected(): boolean {
     const numSelected = this.selection.selected.length;
     const numRows = this.data().length;
     return numSelected === numRows;
   }
 
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows(): void {
     if (this.isAllSelected()) {
       this.selection.clear();
       this.selectionChanged.emit([]);
       this.allRowsSelectionChanged.emit(false);
-      return;
+    } else {
+      this.selection.select(...this.data());
+      this.selectionChanged.emit(this.data());
+      this.allRowsSelectionChanged.emit(true);
     }
-
-    this.selection.select(...this.data());
-    this.selectionChanged.emit(this.data());
-    this.allRowsSelectionChanged.emit(true);
   }
 
   rowSelectionToggle(event: MatCheckboxChange, row: T): void {
@@ -241,7 +258,7 @@ export class DataViewComponent<T> implements OnInit {
     this.selectionChanged.emit(this.selection.selected);
   }
 
-  protected sortChange(event: Sort) {
-    this.sortChanged.emit(event);
+  protected onSortChange(event: Sort): void {
+    this.sortChange.emit(event);
   }
 }

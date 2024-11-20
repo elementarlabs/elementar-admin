@@ -14,6 +14,7 @@ export interface DataViewColumnDef {
   dataRenderer?: string;
   visible: boolean;
   width?: string;
+  valueGetter?: (value: any) => any;
 }
 
 export interface DataViewRowSelectionEvent<T> {

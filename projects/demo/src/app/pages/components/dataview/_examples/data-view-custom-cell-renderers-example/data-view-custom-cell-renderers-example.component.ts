@@ -36,7 +36,10 @@ export class DataViewCustomCellRenderersExampleComponent implements OnInit {
       dataField: 'id',
       dataRenderer: 'user',
       visible: true,
-      width: '300px'
+      width: '300px',
+      valueGetter: value => {
+        return value.name;
+      }
     },
     {
       name: 'Enabled',
