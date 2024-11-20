@@ -1,19 +1,26 @@
-import { AfterContentInit, Component, contentChildren, input, TemplateRef } from '@angular/core';
+import { AfterContentInit, Component, forwardRef, input, OnInit } from '@angular/core';
 import {
   DashboardWidgetConfig,
-  DashboardWidgetComponent,
-  DashboardWidgetDefDirective
-} from '@elementar/components/dashboard';
-import { NgTemplateOutlet } from '@angular/common';
+  DashboardWidgetComponent, DASHBOARD
+} from '../types';
+import { AsyncPipe, NgComponentOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
+import { WidgetSkeletonComponent } from '@elementar/components/dashboard/widget-skeleton/widget-skeleton.component';
 
 @Component({
   selector: 'emr-dashboard',
   exportAs: 'emrDashboard',
   standalone: true,
   imports: [
-    NgTemplateOutlet,
-    EmrSkeletonModule
+    EmrSkeletonModule,
+    NgComponentOutlet,
+    AsyncPipe
+  ],
+  providers: [
+    {
+      provide: DASHBOARD,
+      useExisting: forwardRef(() => DashboardComponent),
+    }
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -21,22 +28,45 @@ import { EmrSkeletonModule } from '@elementar/components/skeleton';
     'class': 'emr-dashboard'
   }
 })
-export class DashboardComponent implements AfterContentInit {
-  private _widgetDefs = contentChildren(DashboardWidgetDefDirective);
+export class DashboardComponent implements OnInit, AfterContentInit {
   protected _initialized = false;
-  protected _map = new Map<string, TemplateRef<any>>();
+  protected _skeletonMap = new Map<string, any>();
+  protected _componentsMap = new Map<string, any>();
 
   components = input<DashboardWidgetComponent[]>([]);
   widgets = input<DashboardWidgetConfig[]>([]);
 
-  ngAfterContentInit() {
-    this._widgetDefs().forEach(widgetDef => {
-      this._map.set(widgetDef.emrDashboardWidgetDef(), widgetDef.templateRef);
+  protected _allLoaded = false;
+  protected _loadedWidgetsCount = 0;
+
+  ngOnInit() {
+    if (this.components().length === 0) {
+      return;
+    }
+
+    this.components().forEach(componentDef => {
+      this._skeletonMap.set(componentDef.type, componentDef.skeleton);
     });
-    this._initialized = true;
+    this.components().forEach(async (componentDef, index: number) => {
+      this._componentsMap.set(componentDef.type, componentDef.component());
+    });
+
+    // this._initialized = true;
   }
 
-  getTemplateRefByType(type: string): TemplateRef<any> {
-    return this._map.get(type) as TemplateRef<any>;
+  ngAfterContentInit() {
+  }
+
+  getSkeletonComponent(type: string): any {
+    return this._skeletonMap.get(type) || WidgetSkeletonComponent;
+  }
+
+  getWidgetComponent(type: string) {
+    return this._componentsMap.get(type);
+  }
+
+  setWidgetLoaded(id: any) {
+    this._loadedWidgetsCount++;
+    this._allLoaded = this._loadedWidgetsCount === this.widgets().length;
   }
 }

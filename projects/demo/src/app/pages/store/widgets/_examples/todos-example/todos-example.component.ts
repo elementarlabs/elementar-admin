@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { TodosWidgetComponent } from '@elementar/store/widgets';
+import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'app-todos-example',
@@ -11,5 +12,4 @@ import { TodosWidgetComponent } from '@elementar/store/widgets';
   styleUrl: './todos-example.component.scss'
 })
 export class TodosExampleComponent {
-
 }

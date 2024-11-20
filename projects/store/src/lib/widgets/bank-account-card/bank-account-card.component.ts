@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
+import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-bank-account-card',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './bank-account-card.component.html',
   styleUrl: './bank-account-card.component.scss'
 })
-export class BankAccountCardComponent {
+export class BankAccountCardComponent implements OnInit {
+  private _dashboard = inject<any>(DASHBOARD, { optional: true });
 
+  widget = input<DashboardWidgetConfig>();
+
+  ngOnInit() {
+    if (this._dashboard && this.widget()) {
+      this._dashboard.setWidgetLoaded(this.widget()?.id);
+    }
+  }
 }

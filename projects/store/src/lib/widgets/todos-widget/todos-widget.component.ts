@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import {
@@ -19,6 +19,7 @@ import {
   CdkDropList,
   moveItemInArray
 } from '@angular/cdk/drag-drop';
+import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
 
 export interface TodoTask {
   name: string;
@@ -68,6 +69,18 @@ const DATA: TodoTask[] = [
   styleUrl: './todos-widget.component.scss'
 })
 export class TodosWidgetComponent {
+  private _dashboard = inject<any>(DASHBOARD, { optional: true });
+
+  widget = input<DashboardWidgetConfig>();
+
+  ngOnInit() {
+    if (this._dashboard && this.widget()) {
+      setTimeout(() => {
+        this._dashboard.setWidgetLoaded(this.widget()?.id);
+      }, 2000);
+    }
+  }
+
   displayedColumns: string[] = ['drag', 'select', 'position', 'name', 'assignee', 'priority'];
   dataSource = new MatTableDataSource<TodoTask>(DATA);
   selection = new SelectionModel<TodoTask>(true, []);

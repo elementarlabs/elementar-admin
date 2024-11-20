@@ -1,12 +1,16 @@
-@if (_initialized) {
-  <div class="grid grid-cols-4 gap-6">
-    @for (widget of widgets(); track widget.id) {
-      <div class="col-span-{{ widget.columns }}">
-        <div class="widget">
-          <ng-container [ngTemplateOutlet]="getTemplateRefByType(widget.type)"
-                        [ngTemplateOutletContext]="{ $implicit: widget }"/>
-        </div>
+<div class="grid grid-cols-4 gap-6">
+  @for (widget of widgets(); track widget.id) {
+    <div class="col-span-{{ widget.columns }}">
+      <div class="widget" [class.hidden]="!_allLoaded">
+        <ng-container [ngComponentOutlet]="getWidgetComponent(widget.type) | async"
+                      [ngComponentOutletInputs]="{ widget }"/>
       </div>
-    }
-  </div>
-}
+
+      @if (!_allLoaded) {
+        <div class="widget p-5">
+          <ng-container [ngComponentOutlet]="getSkeletonComponent(widget.type)"/>
+        </div>
+      }
+    </div>
+  }
+</div>

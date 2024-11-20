@@ -86,7 +86,7 @@ export class BasicComponent {
     },
     {
       id: 3,
-      type: 'emr-avg-click-rate-widget',
+      type: 'avg-click-rate-widget',
       columns: 1
     },
     {

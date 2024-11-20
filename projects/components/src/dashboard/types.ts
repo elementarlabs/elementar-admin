@@ -1,4 +1,5 @@
 import { ComponentType } from '@angular/cdk/overlay';
+import { InjectionToken } from '@angular/core';
 
 export interface DashboardWidgetComponent {
   type: string;
@@ -11,3 +12,5 @@ export interface DashboardWidgetConfig {
   type: string;
   columns: number;
 }
+
+export const DASHBOARD = new InjectionToken('DASHBOARD');
