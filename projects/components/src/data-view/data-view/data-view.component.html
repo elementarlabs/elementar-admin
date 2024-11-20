@@ -1,7 +1,8 @@
-<mat-table [dataSource]="dataSource()"
-           matSort
-           [matSortDisabled]="!withSorting()"
-           (matSortChange)="onSortChange($event)" class="table"
+<mat-table matSort
+           [dataSource]="dataSource()"
+           [matSortDisabled]="!withSorting() || (loading() && rowModelType() === 'serverSide')"
+           (matSortChange)="onSortChange($event)"
+           class="table"
            [class.hidden]="noFilteredResults">
   @if (withSelection()) {
     <ng-container matColumnDef="selection">
