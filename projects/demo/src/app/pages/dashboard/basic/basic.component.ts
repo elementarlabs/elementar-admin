@@ -1,58 +1,79 @@
 import { Component } from '@angular/core';
-import { MatAnchor, MatButton, MatFabButton, MatIconButton, MatMiniFabButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/divider';
-import { MatIcon } from '@angular/material/icon';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatOption, MatSelect } from '@angular/material/select';
-import { MatCheckbox } from '@angular/material/checkbox';
-import {
-  AvgClickRateWidgetComponent,
-  AvgOpenRateWidgetComponent,
-  EventsWidgetComponent,
-  TasksInProgressWidgetComponent,
-  TeamWidgetComponent, TodosWidgetComponent,
-  TotalProjectsWidgetComponent,
-  TotalSubscribersWidgetComponent,
-  TotalTasksWidgetComponent,
-  UniqueVisitorsWidgetComponent
-} from '@elementar/store/widgets';
-import { DashboardComponent, DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
+import { DashboardComponent, DashboardWidgetConfig, DashboardWidgetComponent } from '@elementar/components/dashboard';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   standalone: true,
   imports: [
-    MatMiniFabButton,
-    MatDivider,
-    MatLabel,
-    MatIcon,
-    MatFabButton,
-    MatIconButton,
-    MatButton,
-    MatAnchor,
-    MatFormField,
-    MatSelect,
-    MatCheckbox,
-    MatOption,
-    TotalSubscribersWidgetComponent,
-    AvgOpenRateWidgetComponent,
-    AvgClickRateWidgetComponent,
-    UniqueVisitorsWidgetComponent,
-    TotalTasksWidgetComponent,
-    TotalProjectsWidgetComponent,
-    EventsWidgetComponent,
-    TeamWidgetComponent,
-    TasksInProgressWidgetComponent,
-    TodosWidgetComponent,
     DashboardComponent,
-    DashboardWidgetDefDirective,
     EmrSkeletonModule
   ],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss'
 })
 export class BasicComponent {
-  widgets: DashboardWidget[] = [
+  components: DashboardWidgetComponent[] = [
+    {
+      type: 'total-subscribers-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/total-subscribers-widget/total-subscribers-widget.component').then(c => c.TotalSubscribersWidgetComponent)
+    },
+    {
+      type: 'avg-open-rate-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/avg-open-rate-widget/avg-open-rate-widget.component').then(c => c.AvgOpenRateWidgetComponent)
+    },
+    {
+      type: 'avg-click-rate-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/avg-click-rate-widget/avg-click-rate-widget.component').then(c => c.AvgClickRateWidgetComponent)
+    },
+    {
+      type: 'unique-visitors-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/unique-visitors-widget/unique-visitors-widget.component').then(c => c.UniqueVisitorsWidgetComponent)
+    },
+    {
+      type: 'total-tasks-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/total-tasks-widget/total-tasks-widget.component').then(c => c.TotalTasksWidgetComponent)
+    },
+    {
+      type: 'total-projects-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/total-projects-widget/total-projects-widget.component').then(c => c.TotalProjectsWidgetComponent)
+    },
+    {
+      type: 'events-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/events-widget/events-widget.component').then(c => c.EventsWidgetComponent)
+    },
+    {
+      type: 'team-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/team-widget/team-widget.component').then(c => c.TeamWidgetComponent)
+    },
+    {
+      type: 'tasks-in-progress-widget',
+      component: () =>
+        import('@elementar/store/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component').then(c => c.TasksInProgressWidgetComponent)
+    },
+    {
+      type: 'todos-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/todos-widget/todos-widget.component').then(c => c.TodosWidgetComponent)
+    }
+  ];
+  widgets: DashboardWidgetConfig[] = [
     {
       id: 1,
       type: 'total-subscribers-widget',

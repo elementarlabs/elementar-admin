@@ -1,5 +1,9 @@
 import { AfterContentInit, Component, contentChildren, input, TemplateRef } from '@angular/core';
-import { DashboardWidget, DashboardWidgetDefDirective } from '@elementar/components/dashboard';
+import {
+  DashboardWidgetConfig,
+  DashboardWidgetComponent,
+  DashboardWidgetDefDirective
+} from '@elementar/components/dashboard';
 import { NgTemplateOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
@@ -22,7 +26,8 @@ export class DashboardComponent implements AfterContentInit {
   protected _initialized = false;
   protected _map = new Map<string, TemplateRef<any>>();
 
-  widgets = input<DashboardWidget[]>([]);
+  components = input<DashboardWidgetComponent[]>([]);
+  widgets = input<DashboardWidgetConfig[]>([]);
 
   ngAfterContentInit() {
     this._widgetDefs().forEach(widgetDef => {

@@ -2,37 +2,38 @@
   <div class="flex items-center justify-between">
     <h1 class="text-lg font-bold">Dashboard</h1>
   </div>
-  <emr-dashboard [widgets]="widgets">
-    <ng-template emrDashboardWidgetDef="total-subscribers-widget">
-      <emr-total-subscribers-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="avg-open-rate-widget">
-      <emr-avg-open-rate-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="emr-avg-click-rate-widget">
-      <emr-avg-click-rate-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="unique-visitors-widget">
-      <emr-unique-visitors-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="total-tasks-widget">
-      <emr-total-tasks-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="total-projects-widget">
-      <emr-total-projects-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="events-widget">
-      <emr-events-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="team-widget">
-      <emr-team-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="tasks-in-progress-widget">
-      <emr-tasks-in-progress-widget/>
-    </ng-template>
-    <ng-template emrDashboardWidgetDef="todos-widget">
-      <emr-todos-widget/>
-    </ng-template>
+  <emr-dashboard [components]="components" [widgets]="widgets">
+
+<!--    <ng-template emrDashboardWidgetDef="total-subscribers-widget">-->
+<!--      <emr-total-subscribers-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="avg-open-rate-widget">-->
+<!--      <emr-avg-open-rate-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="emr-avg-click-rate-widget">-->
+<!--      <emr-avg-click-rate-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="unique-visitors-widget">-->
+<!--      <emr-unique-visitors-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="total-tasks-widget">-->
+<!--      <emr-total-tasks-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="total-projects-widget">-->
+<!--      <emr-total-projects-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="events-widget">-->
+<!--      <emr-events-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="team-widget">-->
+<!--      <emr-team-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="tasks-in-progress-widget">-->
+<!--      <emr-tasks-in-progress-widget/>-->
+<!--    </ng-template>-->
+<!--    <ng-template emrDashboardWidgetDef="todos-widget">-->
+<!--      <emr-todos-widget/>-->
+<!--    </ng-template>-->
   </emr-dashboard>
 
 <!--  <div class="grid grid-cols-4 gap-6">-->
