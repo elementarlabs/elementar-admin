@@ -1,7 +1,14 @@
-import { AfterContentInit, Component, forwardRef, input, OnInit } from '@angular/core';
 import {
-  DashboardWidgetConfig,
-  DashboardWidgetComponent, DASHBOARD
+  AfterContentInit,
+  Component,
+  forwardRef,
+  input,
+  OnInit,
+  signal
+} from '@angular/core';
+import {
+  Widget,
+  DASHBOARD, WidgetConfig
 } from '../types';
 import { AsyncPipe, NgComponentOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
@@ -28,45 +35,39 @@ import { WidgetSkeletonComponent } from '@elementar/components/dashboard/widget-
     'class': 'emr-dashboard'
   }
 })
-export class DashboardComponent implements OnInit, AfterContentInit {
-  protected _initialized = false;
+export class DashboardComponent implements OnInit {
   protected _skeletonMap = new Map<string, any>();
   protected _componentsMap = new Map<string, any>();
 
-  components = input<DashboardWidgetComponent[]>([]);
-  widgets = input<DashboardWidgetConfig[]>([]);
+  configs = input<WidgetConfig[]>([]);
+  widgets = input<Widget[]>([]);
 
-  protected _allLoaded = false;
-  protected _loadedWidgetsCount = 0;
+  protected _allLoaded = signal(false);
+  protected _loadedWidgetsCount = signal(0);
 
   ngOnInit() {
-    if (this.components().length === 0) {
+    if (this.configs().length === 0) {
       return;
     }
 
-    this.components().forEach(componentDef => {
-      this._skeletonMap.set(componentDef.type, componentDef.skeleton);
+    this.configs().forEach(config => {
+      this._skeletonMap.set(config.type, config.skeleton);
     });
-    this.components().forEach(async (componentDef, index: number) => {
-      this._componentsMap.set(componentDef.type, componentDef.component());
+    this.configs().forEach(async (config, index: number) => {
+      this._componentsMap.set(config.type, config.component());
     });
-
-    // this._initialized = true;
   }
 
-  ngAfterContentInit() {
-  }
-
-  getSkeletonComponent(type: string): any {
+  protected getSkeletonComponent(type: string): any {
     return this._skeletonMap.get(type) || WidgetSkeletonComponent;
   }
 
-  getWidgetComponent(type: string) {
+  protected getWidgetComponent(type: string) {
     return this._componentsMap.get(type);
   }
 
-  setWidgetLoaded(id: any) {
-    this._loadedWidgetsCount++;
-    this._allLoaded = this._loadedWidgetsCount === this.widgets().length;
+  markWidgetAsLoaded(id: any) {
+    this._loadedWidgetsCount.set(this._loadedWidgetsCount() + 1);
+    this._allLoaded.set(this._loadedWidgetsCount() === this.widgets().length);
   }
 }

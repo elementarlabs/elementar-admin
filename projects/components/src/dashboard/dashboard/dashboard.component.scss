@@ -1,7 +1,16 @@
 :host {
   @apply block;
 
+  .dashgrid {
+    @apply grid grid-cols-12 gap-6;
+  }
+
   .widget {
     @apply border rounded-2xl h-full overflow-hidden;
+  }
+
+  .skeleton {
+    --emr-dashboard-widget-skeleton-min-height: 100px;
+    @apply p-5 min-h-[var(--emr-dashboard-widget-skeleton-min-height)];
   }
 }

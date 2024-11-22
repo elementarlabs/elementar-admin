@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardComponent, DashboardWidgetConfig, DashboardWidgetComponent } from '@elementar/components/dashboard';
+import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/dashboard';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
@@ -12,7 +12,7 @@ import { EmrSkeletonModule } from '@elementar/components/skeleton';
   styleUrl: './basic.component.scss'
 })
 export class BasicComponent {
-  components: DashboardWidgetComponent[] = [
+  configs: WidgetConfig[] = [
     {
       type: 'total-subscribers-widget',
       skeleton: null,
@@ -73,56 +73,74 @@ export class BasicComponent {
         import('@elementar/store/widgets/todos-widget/todos-widget.component').then(c => c.TodosWidgetComponent)
     }
   ];
-  widgets: DashboardWidgetConfig[] = [
+  widgets: Widget[] = [
     {
       id: 1,
       type: 'total-subscribers-widget',
-      columns: 1
+      columns: 3
     },
     {
       id: 2,
       type: 'avg-open-rate-widget',
-      columns: 1
+      columns: 3
     },
     {
       id: 3,
       type: 'avg-click-rate-widget',
-      columns: 1
+      columns: 3
     },
     {
       id: 4,
       type: 'unique-visitors-widget',
-      columns: 1
+      columns: 3
     },
     {
       id: 5,
       type: 'total-tasks-widget',
-      columns: 1
+      columns: 3,
+      skeleton: {
+        minHeight: '260px',
+      }
     },
     {
       id: 6,
       type: 'total-projects-widget',
-      columns: 1
+      columns: 3,
+      skeleton: {
+        minHeight: '260px',
+      }
     },
     {
       id: 7,
       type: 'events-widget',
-      columns: 1
+      columns: 3,
+      skeleton: {
+        minHeight: '260px',
+      }
     },
     {
       id: 8,
       type: 'team-widget',
-      columns: 1
+      columns: 3,
+      skeleton: {
+        minHeight: '260px',
+      }
     },
     {
       id: 9,
       type: 'tasks-in-progress-widget',
-      columns: 2
+      columns: 6,
+      skeleton: {
+        minHeight: '400px',
+      }
     },
     {
       id: 10,
       type: 'todos-widget',
-      columns: 2
+      columns: 6,
+      skeleton: {
+        minHeight: '400px',
+      }
     }
   ];
 }

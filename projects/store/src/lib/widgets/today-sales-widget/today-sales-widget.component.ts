@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
+import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-today-sales-widget',
@@ -15,13 +15,13 @@ import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboar
   styleUrl: './today-sales-widget.component.scss'
 })
 export class TodaySalesWidgetComponent implements OnInit {
-  private _dashboard = inject<any>(DASHBOARD, { optional: true });
+  private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });
 
-  widget = input<DashboardWidgetConfig>();
+  widget = input<Widget>();
 
   ngOnInit() {
     if (this._dashboard && this.widget()) {
-      this._dashboard.setWidgetLoaded(this.widget()?.id);
+      this._dashboard.markWidgetAsLoaded(this.widget()?.id);
     }
   }
 }

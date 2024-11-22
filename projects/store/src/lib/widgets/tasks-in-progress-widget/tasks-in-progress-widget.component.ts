@@ -2,7 +2,7 @@ import { Component, inject, input, OnInit } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
-import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
+import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-tasks-in-progress-widget',
@@ -17,13 +17,13 @@ import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboar
   styleUrl: './tasks-in-progress-widget.component.scss'
 })
 export class TasksInProgressWidgetComponent implements OnInit {
-  private _dashboard = inject<any>(DASHBOARD, { optional: true });
+  private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });
 
-  widget = input<DashboardWidgetConfig>();
+  widget = input<Widget>();
 
   ngOnInit() {
     if (this._dashboard && this.widget()) {
-      this._dashboard.setWidgetLoaded(this.widget()?.id);
+      this._dashboard.markWidgetAsLoaded(this.widget()?.id);
     }
   }
 }

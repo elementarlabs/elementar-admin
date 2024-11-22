@@ -19,7 +19,7 @@ import {
   CdkDropList,
   moveItemInArray
 } from '@angular/cdk/drag-drop';
-import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
+import { Dashboard, DASHBOARD, Widget, WidgetComponent } from '@elementar/components/dashboard';
 
 export interface TodoTask {
   name: string;
@@ -68,16 +68,14 @@ const DATA: TodoTask[] = [
   templateUrl: './todos-widget.component.html',
   styleUrl: './todos-widget.component.scss'
 })
-export class TodosWidgetComponent {
-  private _dashboard = inject<any>(DASHBOARD, { optional: true });
+export class TodosWidgetComponent implements WidgetComponent {
+  private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });
 
-  widget = input<DashboardWidgetConfig>();
+  widget = input<Widget>();
 
   ngOnInit() {
     if (this._dashboard && this.widget()) {
-      setTimeout(() => {
-        this._dashboard.setWidgetLoaded(this.widget()?.id);
-      }, 2000);
+      this._dashboard.markWidgetAsLoaded(this.widget()?.id);
     }
   }
 

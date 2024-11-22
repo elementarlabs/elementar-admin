@@ -12,60 +12,62 @@
       </mat-form-field>
     </div>
   </div>
-  @defer {
-    <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-3">
-        <emr-total-revenue-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-3">
-        <emr-site-visitors-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-3">
-        <emr-visit-duration-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-6">
-        <emr-purchases-by-channels-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-6">
-        <emr-visitor-insights-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-8">
-        <emr-today-sales-widget class="rounded-xl border "/>
-      </div>
-    </div>
-    <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-3">
-        <emr-exchange-widget class="rounded-xl border "/>
-      </div>
-      <div class="col-span-4">
-        <emr-customer-satisfaction-widget class="rounded-xl border "/>
-      </div>
-    </div>
-  } @placeholder (minimum 1s) {
-    <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-3">
-        <emr-dashboard-stats-widget-skeleton/>
-      </div>
-      <div class="col-span-3">
-        <emr-dashboard-stats-widget-skeleton/>
-      </div>
-      <div class="col-span-3">
-        <emr-dashboard-stats-widget-skeleton/>
-      </div>
-      <div class="col-span-6">
-        <emr-dashboard-chart-widget-skeleton/>
-      </div>
-      <div class="col-span-6">
-        <emr-dashboard-chart-widget-skeleton/>
-      </div>
-      <div class="col-span-8">
-        <emr-dashboard-cards-skeleton/>
-      </div>
-    </div>
-    <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-3">
-      </div>
-    </div>
-  }
+  <emr-dashboard [configs]="configs" [widgets]="widgets"></emr-dashboard>
+
+<!--  @defer {-->
+<!--    <div class="grid grid-cols-12 gap-6">-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-total-revenue-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-site-visitors-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-visit-duration-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-6">-->
+<!--        <emr-purchases-by-channels-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-6">-->
+<!--        <emr-visitor-insights-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-8">-->
+<!--        <emr-today-sales-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="grid grid-cols-12 gap-6">-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-exchange-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--      <div class="col-span-4">-->
+<!--        <emr-customer-satisfaction-widget class="rounded-xl border "/>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  } @placeholder (minimum 1s) {-->
+<!--    <div class="grid grid-cols-12 gap-6">-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-dashboard-stats-widget-skeleton/>-->
+<!--      </div>-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-dashboard-stats-widget-skeleton/>-->
+<!--      </div>-->
+<!--      <div class="col-span-3">-->
+<!--        <emr-dashboard-stats-widget-skeleton/>-->
+<!--      </div>-->
+<!--      <div class="col-span-6">-->
+<!--        <emr-dashboard-chart-widget-skeleton/>-->
+<!--      </div>-->
+<!--      <div class="col-span-6">-->
+<!--        <emr-dashboard-chart-widget-skeleton/>-->
+<!--      </div>-->
+<!--      <div class="col-span-8">-->
+<!--        <emr-dashboard-cards-skeleton/>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="grid grid-cols-12 gap-6">-->
+<!--      <div class="col-span-3">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  }-->
 </div>
 <mat-date-range-picker #picker/>

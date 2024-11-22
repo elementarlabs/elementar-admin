@@ -1,4 +1,4 @@
-import { afterNextRender, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { afterNextRender, Component, ElementRef, inject, input, ViewChild } from '@angular/core';
 import { ThemeManagerService } from '@elementar/components/core';
 import * as echarts from 'echarts/core';
 import {
@@ -12,6 +12,7 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { LineChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
+import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-visitor-insights-widget',
@@ -24,6 +25,9 @@ export class VisitorInsightsWidgetComponent {
   private _elementRef = inject(ElementRef);
   private _themeManager = inject(ThemeManagerService);
   private _observer: ResizeObserver;
+  private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });
+
+  widget = input<Widget>();
 
   @ViewChild('chartRef', { read: ElementRef, static: true })
   private _chartRef: ElementRef;
@@ -99,6 +103,10 @@ export class VisitorInsightsWidgetComponent {
       chart.setOption(option);
       this._observer = new ResizeObserver(() => chart.resize());
       this._observer.observe(this._elementRef.nativeElement);
+
+      if (this._dashboard && this.widget()) {
+        this._dashboard.markWidgetAsLoaded(this.widget()?.id);
+      }
     });
   }
 

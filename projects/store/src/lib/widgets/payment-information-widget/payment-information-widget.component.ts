@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboard';
+import { DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-payment-information-widget',
@@ -16,11 +16,11 @@ import { DASHBOARD, DashboardWidgetConfig } from '@elementar/components/dashboar
 export class PaymentInformationWidgetComponent implements OnInit {
   private _dashboard = inject<any>(DASHBOARD, { optional: true });
 
-  widget = input<DashboardWidgetConfig>();
+  widget = input<Widget>();
 
   ngOnInit() {
     if (this._dashboard && this.widget()) {
-      this._dashboard.setWidgetLoaded(this.widget()?.id);
+      this._dashboard.markWidgetAsLoaded(this.widget()?.id);
     }
   }
 }

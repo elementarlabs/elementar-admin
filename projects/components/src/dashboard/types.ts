@@ -1,16 +1,26 @@
-import { ComponentType } from '@angular/cdk/overlay';
-import { InjectionToken } from '@angular/core';
+import { InjectionToken, InputSignal } from '@angular/core';
 
-export interface DashboardWidgetComponent {
-  type: string;
-  skeleton?: ComponentType<any> | null;
-  component: () => Promise<ComponentType<any>>;
+export interface Dashboard {
+  markWidgetAsLoaded(id: any): void;
 }
 
-export interface DashboardWidgetConfig {
+export interface WidgetComponent {
+  widget: InputSignal<Widget | undefined>;
+}
+
+export interface WidgetConfig {
+  type: string;
+  skeleton?: any;
+  component: () => Promise<any>;
+}
+
+export interface Widget {
   id: any;
   type: string;
   columns: number;
+  skeleton?: {
+    minHeight: string;
+  }
 }
 
 export const DASHBOARD = new InjectionToken('DASHBOARD');
