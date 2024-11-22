@@ -21,7 +21,8 @@ import { WidgetSkeletonComponent } from '@elementar/components/dashboard/widget-
   imports: [
     EmrSkeletonModule,
     NgComponentOutlet,
-    AsyncPipe
+    AsyncPipe,
+    WidgetSkeletonComponent
   ],
   providers: [
     {
@@ -59,7 +60,7 @@ export class DashboardComponent implements OnInit {
   }
 
   protected getSkeletonComponent(type: string): any {
-    return this._skeletonMap.get(type) || WidgetSkeletonComponent;
+    return this._skeletonMap.get(type);
   }
 
   protected getWidgetComponent(type: string) {
