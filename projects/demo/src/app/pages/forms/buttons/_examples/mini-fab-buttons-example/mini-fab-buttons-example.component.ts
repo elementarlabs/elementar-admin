@@ -3,13 +3,13 @@ import { MatIcon } from '@angular/material/icon';
 import { MatMiniFabButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-mini-fab-buttons-example',
-    imports: [
-        MatIcon,
-        MatMiniFabButton
-    ],
-    templateUrl: './mini-fab-buttons-example.component.html',
-    styleUrl: './mini-fab-buttons-example.component.scss'
+  selector: 'app-mini-fab-buttons-example',
+  imports: [
+    MatIcon,
+    MatMiniFabButton
+  ],
+  templateUrl: './mini-fab-buttons-example.component.html',
+  styleUrl: './mini-fab-buttons-example.component.scss'
 })
 export class MiniFabButtonsExampleComponent {
 

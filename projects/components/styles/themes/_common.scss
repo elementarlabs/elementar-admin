@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'material-symbols/outlined';
+@use 'material-symbols/outlined';
 
 :root {
   --emr-neutral: #{mat.get-theme-color($m3-light-theme, neutral, 60)};

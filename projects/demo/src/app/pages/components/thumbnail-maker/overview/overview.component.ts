@@ -11,17 +11,17 @@ import {
 } from '../_examples/thumbnail-maker-with-file-select-example/thumbnail-maker-with-file-select-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        BasicThumbnailMakerComponent,
-        ThumbnailMakerWithHelperTextExampleComponent,
-        ThumbnailMakerWithFileSelectExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  selector: 'app-overview',
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    BasicThumbnailMakerComponent,
+    ThumbnailMakerWithHelperTextExampleComponent,
+    ThumbnailMakerWithFileSelectExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

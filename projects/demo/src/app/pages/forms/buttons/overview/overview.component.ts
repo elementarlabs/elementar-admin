@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
-import { MatAnchor, MatButton, MatFabButton, MatIconButton, MatMiniFabButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
-import {
-  SimpleAutocompleteExampleComponent
-} from '../../autocomplete/_examples/simple-autocomplete-example/simple-autocomplete-example.component';
 import { BasicButtonsExampleComponent } from '../_examples/basic-buttons-example/basic-buttons-example.component';
 import { RaisedButtonsExampleComponent } from '../_examples/raised-buttons-example/raised-buttons-example.component';
 import { StrokedButtonsExampleComponent } from '../_examples/stroked-buttons-example/stroked-buttons-example.component';
@@ -29,35 +24,28 @@ import {
 } from '../_examples/buttons-extended-fab-example/buttons-extended-fab-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        PlaygroundComponent,
-        MatButton,
-        MatAnchor,
-        MatIconButton,
-        MatIcon,
-        MatFabButton,
-        MatMiniFabButton,
-        EmrScrollSpyModule,
-        SimpleAutocompleteExampleComponent,
-        BasicButtonsExampleComponent,
-        RaisedButtonsExampleComponent,
-        StrokedButtonsExampleComponent,
-        FlatButtonsExampleComponent,
-        IconButtonsExampleComponent,
-        FabButtonsExampleComponent,
-        MiniFabButtonsExampleComponent,
-        ButtonLoadingExampleComponent,
-        EmrBreadcrumbsModule,
-        RouterLink,
-        PageComponent,
-        PageContentDirective,
-        PageAsideDirective,
-        ButtonsWithInteractiveDisabledExampleComponent,
-        ButtonsExtendedFabExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  selector: 'app-overview',
+  imports: [
+    PlaygroundComponent,
+    EmrScrollSpyModule,
+    BasicButtonsExampleComponent,
+    RaisedButtonsExampleComponent,
+    StrokedButtonsExampleComponent,
+    FlatButtonsExampleComponent,
+    IconButtonsExampleComponent,
+    FabButtonsExampleComponent,
+    MiniFabButtonsExampleComponent,
+    ButtonLoadingExampleComponent,
+    EmrBreadcrumbsModule,
+    RouterLink,
+    PageComponent,
+    PageContentDirective,
+    PageAsideDirective,
+    ButtonsWithInteractiveDisabledExampleComponent,
+    ButtonsExtendedFabExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

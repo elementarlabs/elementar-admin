@@ -3,12 +3,12 @@ import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
-    imports: [
-        DashboardComponent,
-        EmrSkeletonModule
-    ],
-    templateUrl: './basic.component.html',
-    styleUrl: './basic.component.scss'
+  imports: [
+    DashboardComponent,
+    EmrSkeletonModule
+  ],
+  templateUrl: './basic.component.html',
+  styleUrl: './basic.component.scss'
 })
 export class BasicComponent {
   configs: WidgetConfig[] = [

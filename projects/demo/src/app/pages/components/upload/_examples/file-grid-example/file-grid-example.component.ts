@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import { File } from '../file-list-example/file-list-example.component';
 import { FilesGridComponent, GridFileComponent } from '@elementar/components/upload';
 
 @Component({
-    selector: 'app-file-grid-example',
-    imports: [
-        MatIcon,
-        FilesGridComponent,
-        GridFileComponent
-    ],
-    templateUrl: './file-grid-example.component.html',
-    styleUrl: './file-grid-example.component.scss'
+  selector: 'app-file-grid-example',
+  imports: [
+    FilesGridComponent,
+    GridFileComponent
+  ],
+  templateUrl: './file-grid-example.component.html',
+  styleUrl: './file-grid-example.component.scss'
 })
 export class FileGridExampleComponent {
   fileList: File[] = [

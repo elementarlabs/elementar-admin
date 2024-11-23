@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDivider } from '@angular/material/divider';
@@ -34,16 +34,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-    selector: 'app-table-with-pagination-example',
-    imports: [
-        MatTableModule,
-        MatPaginatorModule,
-        MatDivider,
-    ],
-    templateUrl: './table-with-pagination-example.component.html',
-    styleUrl: './table-with-pagination-example.component.scss'
+  selector: 'app-table-with-pagination-example',
+  imports: [
+    MatTableModule,
+    MatPaginatorModule
+  ],
+  templateUrl: './table-with-pagination-example.component.html',
+  styleUrl: './table-with-pagination-example.component.scss'
 })
-export class TableWithPaginationExampleComponent {
+export class TableWithPaginationExampleComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 

@@ -15,19 +15,19 @@ import {
 import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/dashboard';
 
 @Component({
-    selector: 'app-ecommerce',
-    imports: [
-        MatDateRangeInput,
-        MatEndDate,
-        MatStartDate,
-        MatDateRangePicker,
-        MatDatepickerToggle,
-        MatFormField,
-        MatSuffix,
-        DashboardComponent
-    ],
-    templateUrl: './ecommerce.component.html',
-    styleUrl: './ecommerce.component.scss'
+  selector: 'app-ecommerce',
+  imports: [
+    MatDateRangeInput,
+    MatEndDate,
+    MatStartDate,
+    MatDateRangePicker,
+    MatDatepickerToggle,
+    MatFormField,
+    MatSuffix,
+    DashboardComponent
+  ],
+  templateUrl: './ecommerce.component.html',
+  styleUrl: './ecommerce.component.scss'
 })
 export class EcommerceComponent {
   configs: WidgetConfig[] = [

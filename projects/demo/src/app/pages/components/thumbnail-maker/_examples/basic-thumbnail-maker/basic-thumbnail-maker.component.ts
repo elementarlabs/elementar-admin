@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { ThumbnailMakerComponent } from '@elementar/components/thumbnail-maker';
-import { MatDivider } from '@angular/material/divider';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-basic-thumbnail-maker',
-    imports: [
-        ThumbnailMakerComponent,
-        MatDivider,
-        MatButton
-    ],
-    templateUrl: './basic-thumbnail-maker.component.html',
-    styleUrl: './basic-thumbnail-maker.component.scss'
+  selector: 'app-basic-thumbnail-maker',
+  imports: [
+    ThumbnailMakerComponent,
+    MatButton
+  ],
+  templateUrl: './basic-thumbnail-maker.component.html',
+  styleUrl: './basic-thumbnail-maker.component.scss'
 })
 export class BasicThumbnailMakerComponent {
   thumbnail = '';
