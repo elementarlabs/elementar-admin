@@ -17,22 +17,23 @@ import { Color } from '../helpers/color';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'emr-color-picker',
-  exportAs: 'emrColorPicker',
-  templateUrl: './color-picker.component.html',
-  styleUrls: ['color-picker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ColorPickerComponent),
-      multi: true
-    }
-  ],
-  host: {
-    'class': 'emr-color-picker',
-    '[class.is-disabled]': 'disabled',
-  }
+    selector: 'emr-color-picker',
+    exportAs: 'emrColorPicker',
+    templateUrl: './color-picker.component.html',
+    styleUrls: ['color-picker.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => ColorPickerComponent),
+            multi: true
+        }
+    ],
+    host: {
+        'class': 'emr-color-picker',
+        '[class.is-disabled]': 'disabled',
+    },
+    standalone: false
 })
 export class ColorPickerComponent implements OnInit, ControlValueAccessor {
   @Input()

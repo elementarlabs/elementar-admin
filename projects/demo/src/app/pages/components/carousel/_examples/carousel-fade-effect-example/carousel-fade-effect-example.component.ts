@@ -10,7 +10,6 @@ import {
 
 @Component({
   selector: 'app-carousel-fade-effect-example',
-  standalone: true,
   imports: [
     CarouselCardComponent,
     CarouselComponent,

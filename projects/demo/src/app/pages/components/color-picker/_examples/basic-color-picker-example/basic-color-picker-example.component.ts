@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-color-picker-example',
-  standalone: true,
   imports: [
-    EmrColorPickerModule,
-    FormsModule
+      EmrColorPickerModule,
+      FormsModule
   ],
   templateUrl: './basic-color-picker-example.component.html',
   styleUrl: './basic-color-picker-example.component.scss'

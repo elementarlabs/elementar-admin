@@ -11,18 +11,17 @@ export interface NavItem {
 }
 
 @Component({
-  selector: 'app-common',
-  standalone: true,
-  imports: [
-    EmrNavigationModule,
-    LayoutBodyComponent,
-    LayoutComponent,
-    LayoutSidebarComponent,
-    RouterLink,
-    RouterOutlet
-  ],
-  templateUrl: './common.component.html',
-  styleUrl: './common.component.scss'
+    selector: 'app-common',
+    imports: [
+        EmrNavigationModule,
+        LayoutBodyComponent,
+        LayoutComponent,
+        LayoutSidebarComponent,
+        RouterLink,
+        RouterOutlet
+    ],
+    templateUrl: './common.component.html',
+    styleUrl: './common.component.scss'
 })
 export class CommonComponent implements OnInit {
   router = inject(Router);

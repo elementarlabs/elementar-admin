@@ -35,7 +35,6 @@ const DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-data-view-with-sorting-example',
-  standalone: true,
   imports: [
     DataViewComponent,
     MatPaginator

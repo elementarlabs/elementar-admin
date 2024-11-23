@@ -12,24 +12,23 @@ import {
 } from '@angular/material/card';
 
 @Component({
-  selector: 'app-card-overlay-with-translate-example',
-  standalone: true,
-  imports: [
-    AvatarComponent,
-    CardOverlayComponent,
-    CardOverlayContainerDirective,
-    MatButton,
-    MatCard,
-    MatCardActions,
-    MatCardAvatar,
-    MatCardContent,
-    MatCardHeader,
-    MatCardImage,
-    MatCardSubtitle,
-    MatCardTitle
-  ],
-  templateUrl: './card-overlay-with-translate-example.component.html',
-  styleUrl: './card-overlay-with-translate-example.component.scss'
+    selector: 'app-card-overlay-with-translate-example',
+    imports: [
+        AvatarComponent,
+        CardOverlayComponent,
+        CardOverlayContainerDirective,
+        MatButton,
+        MatCard,
+        MatCardActions,
+        MatCardAvatar,
+        MatCardContent,
+        MatCardHeader,
+        MatCardImage,
+        MatCardSubtitle,
+        MatCardTitle
+    ],
+    templateUrl: './card-overlay-with-translate-example.component.html',
+    styleUrl: './card-overlay-with-translate-example.component.scss'
 })
 export class CardOverlayWithTranslateExampleComponent {
 

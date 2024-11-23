@@ -1,5 +1,4 @@
 import { Component, computed, DestroyRef, ElementRef, inject, Renderer2 } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
 import { IMAGE_VIEWER_PICTURE_DATA, IMAGE_VIEWER_PICTURE_REF } from '../types';
 import { MatIcon } from '@angular/material/icon';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
@@ -10,10 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'emr-image-viewer',
   exportAs: 'emrImageViewer',
-  standalone: true,
   imports: [
-    MatButton,
-    MatIconButton,
     MatIcon,
     MatProgressSpinner,
     NgTemplateOutlet

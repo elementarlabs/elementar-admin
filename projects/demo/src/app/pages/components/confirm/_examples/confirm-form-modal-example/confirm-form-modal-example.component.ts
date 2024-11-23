@@ -4,14 +4,13 @@ import { DialogWithConfirmationComponent } from '../dialog-with-confirmation/dia
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-confirm-form-modal-example',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatDialogModule
-  ],
-  templateUrl: './confirm-form-modal-example.component.html',
-  styleUrl: './confirm-form-modal-example.component.scss'
+    selector: 'app-confirm-form-modal-example',
+    imports: [
+        MatButton,
+        MatDialogModule
+    ],
+    templateUrl: './confirm-form-modal-example.component.html',
+    styleUrl: './confirm-form-modal-example.component.scss'
 })
 export class ConfirmFormModalExampleComponent {
   private _dialog = inject(MatDialog);

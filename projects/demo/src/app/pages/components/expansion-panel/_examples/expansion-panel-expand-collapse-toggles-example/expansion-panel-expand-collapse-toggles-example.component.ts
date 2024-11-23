@@ -13,26 +13,25 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
-  selector: 'app-expansion-panel-expand-collapse-toggles-example',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatExpansionPanel,
-    MatAccordion,
-    MatExpansionPanelTitle,
-    MatExpansionPanelDescription,
-    MatIcon,
-    MatFormField,
-    MatInput,
-    MatDatepickerModule,
-    MatLabel,
-    MatExpansionPanelHeader
-  ],
-  templateUrl: './expansion-panel-expand-collapse-toggles-example.component.html',
-  styleUrl: './expansion-panel-expand-collapse-toggles-example.component.scss',
-  providers: [
-    provideNativeDateAdapter()
-  ]
+    selector: 'app-expansion-panel-expand-collapse-toggles-example',
+    imports: [
+        MatButton,
+        MatExpansionPanel,
+        MatAccordion,
+        MatExpansionPanelTitle,
+        MatExpansionPanelDescription,
+        MatIcon,
+        MatFormField,
+        MatInput,
+        MatDatepickerModule,
+        MatLabel,
+        MatExpansionPanelHeader
+    ],
+    templateUrl: './expansion-panel-expand-collapse-toggles-example.component.html',
+    styleUrl: './expansion-panel-expand-collapse-toggles-example.component.scss',
+    providers: [
+        provideNativeDateAdapter()
+    ]
 })
 export class ExpansionPanelExpandCollapseTogglesExampleComponent {
   @ViewChild(MatAccordion)

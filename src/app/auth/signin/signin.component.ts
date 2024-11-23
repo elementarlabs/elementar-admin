@@ -7,21 +7,20 @@ import { MatIcon } from '@angular/material/icon';
 import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
-  selector: 'app-signin',
-  standalone: true,
-  imports: [
-    RouterLink,
-    MatButton,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    MatIcon,
-    MatIconButton,
-    MatSuffix,
-    HDividerComponent
-  ],
-  templateUrl: './signin.component.html',
-  styleUrl: './signin.component.scss'
+    selector: 'app-signin',
+    imports: [
+        RouterLink,
+        MatButton,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatIcon,
+        MatIconButton,
+        MatSuffix,
+        HDividerComponent
+    ],
+    templateUrl: './signin.component.html',
+    styleUrl: './signin.component.scss'
 })
 export class SigninComponent {
 

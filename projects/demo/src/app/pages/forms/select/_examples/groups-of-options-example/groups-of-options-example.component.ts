@@ -15,7 +15,6 @@ interface PokemonGroup {
 
 @Component({
   selector: 'app-groups-of-options-example',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatSelect,

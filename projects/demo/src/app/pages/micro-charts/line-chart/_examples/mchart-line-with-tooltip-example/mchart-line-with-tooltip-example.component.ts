@@ -8,7 +8,6 @@ import {
 
 @Component({
   selector: 'app-mchart-line-with-tooltip-example',
-  standalone: true,
   imports: [
     MchartLineComponent,
     MchartTooltipTitleComponent,

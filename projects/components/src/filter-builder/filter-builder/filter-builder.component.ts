@@ -22,14 +22,15 @@ import {
 } from '../types';
 
 @Component({
-  selector: 'emr-filter-builder',
-  exportAs: 'emrFilterBuilder',
-  templateUrl: './filter-builder.component.html',
-  styleUrl: './filter-builder.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'emr-filter-builder'
-  }
+    selector: 'emr-filter-builder',
+    exportAs: 'emrFilterBuilder',
+    templateUrl: './filter-builder.component.html',
+    styleUrl: './filter-builder.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'emr-filter-builder'
+    },
+    standalone: false
 })
 export class FilterBuilderComponent implements OnInit, AfterViewInit {
   protected _cdr = inject(ChangeDetectorRef);

@@ -6,18 +6,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-tooltip-with-a-custom-position-example',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
-  templateUrl: './tooltip-with-a-custom-position-example.component.html',
-  styleUrl: './tooltip-with-a-custom-position-example.component.scss'
+    selector: 'app-tooltip-with-a-custom-position-example',
+    imports: [
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatTooltipModule,
+    ],
+    templateUrl: './tooltip-with-a-custom-position-example.component.html',
+    styleUrl: './tooltip-with-a-custom-position-example.component.scss'
 })
 export class TooltipWithACustomPositionExampleComponent {
   positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];

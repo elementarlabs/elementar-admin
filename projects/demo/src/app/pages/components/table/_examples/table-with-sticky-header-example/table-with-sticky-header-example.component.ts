@@ -23,14 +23,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-sticky-header-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    CurrencyPipe
-  ],
-  templateUrl: './table-with-sticky-header-example.component.html',
-  styleUrl: './table-with-sticky-header-example.component.scss'
+    selector: 'app-table-with-sticky-header-example',
+    imports: [
+        MatTableModule,
+        CurrencyPipe
+    ],
+    templateUrl: './table-with-sticky-header-example.component.html',
+    styleUrl: './table-with-sticky-header-example.component.scss'
 })
 export class TableWithStickyHeaderExampleComponent {
   displayedColumns = ['position', 'name', 'weight', 'symbol'];

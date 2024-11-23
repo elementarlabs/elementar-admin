@@ -10,22 +10,21 @@ import { OrderByPipe } from '@elementar/components/core';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
-  imports: [
-    MatIcon,
-    RouterLink,
-    EmrNavigationModule,
-    MatRipple,
-    OrderByPipe,
-    MatButton,
-    ToolbarAComponent
-  ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
-  host: {
-    'class': 'sidebar'
-  }
+    selector: 'app-sidebar',
+    imports: [
+        MatIcon,
+        RouterLink,
+        EmrNavigationModule,
+        MatRipple,
+        OrderByPipe,
+        MatButton,
+        ToolbarAComponent
+    ],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss',
+    host: {
+        'class': 'sidebar'
+    }
 })
 export class SidebarComponent {
   router = inject(Router);

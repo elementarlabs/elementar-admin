@@ -9,18 +9,17 @@ import {
 } from '../_examples/marquee-pause-on-hover-example/marquee-pause-on-hover-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicMarqueeExampleComponent,
-    MarqueeReverseExampleComponent,
-    MarqueePauseOnHoverExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicMarqueeExampleComponent,
+        MarqueeReverseExampleComponent,
+        MarqueePauseOnHoverExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

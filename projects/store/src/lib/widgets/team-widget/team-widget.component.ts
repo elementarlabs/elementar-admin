@@ -5,15 +5,14 @@ import { AvatarComponent } from '@elementar/components/avatar';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-team-widget',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatIconButton,
-    AvatarComponent
-  ],
-  templateUrl: './team-widget.component.html',
-  styleUrl: './team-widget.component.scss'
+    selector: 'emr-team-widget',
+    imports: [
+        MatIcon,
+        MatIconButton,
+        AvatarComponent
+    ],
+    templateUrl: './team-widget.component.html',
+    styleUrl: './team-widget.component.scss'
 })
 export class TeamWidgetComponent implements OnInit {
   private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });

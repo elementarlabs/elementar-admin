@@ -5,18 +5,17 @@ import { isPlatformServer } from '@angular/common';
 import { CdkScrollable } from '@angular/cdk/overlay';
 
 @Component({
-  selector: 'emr-layout-body',
-  exportAs: 'emrLayoutBody',
-  standalone: true,
-  imports: [],
-  templateUrl: './layout-body.component.html',
-  styleUrl: './layout-body.component.scss',
-  hostDirectives: [
-    CdkScrollable
-  ],
-  host: {
-    'class': 'emr-layout-body emr-scroll-lg'
-  }
+    selector: 'emr-layout-body',
+    exportAs: 'emrLayoutBody',
+    imports: [],
+    templateUrl: './layout-body.component.html',
+    styleUrl: './layout-body.component.scss',
+    hostDirectives: [
+        CdkScrollable
+    ],
+    host: {
+        'class': 'emr-layout-body emr-scroll-lg'
+    }
 })
 export class LayoutBodyComponent implements OnInit {
   private _router = inject(Router);

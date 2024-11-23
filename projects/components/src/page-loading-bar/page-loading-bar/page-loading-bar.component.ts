@@ -1,5 +1,4 @@
 import { booleanAttribute, ChangeDetectorRef, Component, DestroyRef, inject, input, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { Subscription, timer } from 'rxjs';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
@@ -9,9 +8,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'emr-page-loading-bar',
   exportAs: 'emrPageLoadingBar',
-  standalone: true,
   imports: [
-    NgIf,
     MatProgressBar
   ],
   templateUrl: './page-loading-bar.component.html',

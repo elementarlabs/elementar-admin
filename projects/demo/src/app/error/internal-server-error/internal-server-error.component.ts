@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-internal-server-error',
-  standalone: true,
   imports: [
     MatAnchor,
     RouterLink,

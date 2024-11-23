@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[emrIncidentsToggleIcon]'
+    selector: '[emrIncidentsToggleIcon]',
+    standalone: false
 })
 export class IncidentsToggleIconDirective {
 }

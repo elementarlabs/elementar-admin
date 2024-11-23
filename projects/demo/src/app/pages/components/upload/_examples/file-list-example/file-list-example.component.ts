@@ -13,14 +13,13 @@ export interface File {
 }
 
 @Component({
-  selector: 'app-file-list-example',
-  standalone: true,
-  imports: [
-    EmrUploadModule,
-    MatIcon
-  ],
-  templateUrl: './file-list-example.component.html',
-  styleUrl: './file-list-example.component.scss'
+    selector: 'app-file-list-example',
+    imports: [
+        EmrUploadModule,
+        MatIcon
+    ],
+    templateUrl: './file-list-example.component.html',
+    styleUrl: './file-list-example.component.scss'
 })
 export class FileListExampleComponent {
   fileList: File[] = [

@@ -5,19 +5,18 @@ import { MatInput } from '@angular/material/input';
 import { PasswordStrengthModule } from '@elementar/components/password-strength';
 
 @Component({
-  selector: 'app-password-toggle-visibility-example',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    PasswordStrengthModule,
-    ReactiveFormsModule,
-    MatSuffix
-  ],
-  templateUrl: './password-toggle-visibility-example.component.html',
-  styleUrl: './password-toggle-visibility-example.component.scss'
+    selector: 'app-password-toggle-visibility-example',
+    imports: [
+        FormsModule,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        PasswordStrengthModule,
+        ReactiveFormsModule,
+        MatSuffix
+    ],
+    templateUrl: './password-toggle-visibility-example.component.html',
+    styleUrl: './password-toggle-visibility-example.component.scss'
 })
 export class PasswordToggleVisibilityExampleComponent {
   password = new FormControl('');

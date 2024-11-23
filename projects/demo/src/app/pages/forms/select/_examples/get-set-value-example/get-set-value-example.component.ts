@@ -4,7 +4,6 @@ import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-get-set-value-example',
-  standalone: true,
   imports: [
     MatFormField,
     MatSelect,

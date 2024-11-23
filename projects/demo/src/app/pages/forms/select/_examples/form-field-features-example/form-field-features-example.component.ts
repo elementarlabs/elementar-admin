@@ -11,7 +11,6 @@ interface Animal {
 
 @Component({
   selector: 'app-form-field-features-example',
-  standalone: true,
   imports: [
     MatFormField,
     MatSelect,

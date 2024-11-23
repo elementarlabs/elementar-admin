@@ -3,13 +3,12 @@ import { DataViewCellRendererComponent } from '@elementar/components/data-view';
 import { IconComponent } from '@elementar/components/icon';
 
 @Component({
-  selector: 'app-enabled-cell',
-  standalone: true,
-  imports: [
-    IconComponent
-  ],
-  templateUrl: './enabled-cell.renderer.html',
-  styleUrl: './enabled-cell.renderer.scss'
+    selector: 'app-enabled-cell',
+    imports: [
+        IconComponent
+    ],
+    templateUrl: './enabled-cell.renderer.html',
+    styleUrl: './enabled-cell.renderer.scss'
 })
 export class EnabledCellRenderer implements DataViewCellRendererComponent {
   element = input();

@@ -7,14 +7,15 @@ import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 
 @Component({
-  selector: 'emr-navigation',
-  exportAs: 'emrNavigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  providers: [NavigationApiService],
-  host: {
-    class: 'emr-navigation'
-  }
+    selector: 'emr-navigation',
+    exportAs: 'emrNavigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss'],
+    providers: [NavigationApiService],
+    host: {
+        class: 'emr-navigation'
+    },
+    standalone: false
 })
 export class NavigationComponent {
   readonly api = inject(NavigationApiService);

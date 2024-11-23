@@ -4,14 +4,15 @@ import { BreadcrumbSeparatorDefDirective } from '../breadcrumb-separator-def.dir
 import { BreadcrumbActiveItemDefDirective } from '../breadcrumb-active-item-def.directive';
 
 @Component({
-  selector: 'emr-breadcrumbs',
-  exportAs: 'emrBreadcrumbs',
-  templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss'],
-  host: {
-    'class': 'emr-breadcrumbs',
-    '[class.last-item-as-link]': 'lastItemAsLink()'
-  }
+    selector: 'emr-breadcrumbs',
+    exportAs: 'emrBreadcrumbs',
+    templateUrl: './breadcrumbs.component.html',
+    styleUrls: ['./breadcrumbs.component.scss'],
+    host: {
+        'class': 'emr-breadcrumbs',
+        '[class.last-item-as-link]': 'lastItemAsLink()'
+    },
+    standalone: false
 })
 export class BreadcrumbsComponent {
   itemRef = contentChild.required(BreadcrumbItemDefDirective, {

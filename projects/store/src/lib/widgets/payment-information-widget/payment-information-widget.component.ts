@@ -4,14 +4,13 @@ import { RouterLink } from '@angular/router';
 import { DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-payment-information-widget',
-  standalone: true,
-  imports: [
-    MatButton,
-    RouterLink
-  ],
-  templateUrl: './payment-information-widget.component.html',
-  styleUrl: './payment-information-widget.component.scss'
+    selector: 'emr-payment-information-widget',
+    imports: [
+        MatButton,
+        RouterLink
+    ],
+    templateUrl: './payment-information-widget.component.html',
+    styleUrl: './payment-information-widget.component.scss'
 })
 export class PaymentInformationWidgetComponent implements OnInit {
   private _dashboard = inject<any>(DASHBOARD, { optional: true });

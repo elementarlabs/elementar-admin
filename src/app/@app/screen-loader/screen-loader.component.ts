@@ -11,12 +11,11 @@ import { getState } from '@ngrx/signals';
 import { GlobalState, GlobalStore } from '@elementar/components/core';
 
 @Component({
-  selector: 'app-screen-loader',
-  standalone: true,
-  imports: [],
-  templateUrl: './screen-loader.component.html',
-  styleUrl: './screen-loader.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-screen-loader',
+    imports: [],
+    templateUrl: './screen-loader.component.html',
+    styleUrl: './screen-loader.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScreenLoaderComponent {
   private _globalStore = inject(GlobalStore);

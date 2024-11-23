@@ -4,14 +4,13 @@ import { RouterLink } from '@angular/router';
 import { DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-current-plan-widget',
-  standalone: true,
-  imports: [
-    MatButton,
-    RouterLink
-  ],
-  templateUrl: './current-plan-widget.component.html',
-  styleUrl: './current-plan-widget.component.scss'
+    selector: 'emr-current-plan-widget',
+    imports: [
+        MatButton,
+        RouterLink
+    ],
+    templateUrl: './current-plan-widget.component.html',
+    styleUrl: './current-plan-widget.component.scss'
 })
 export class CurrentPlanWidgetComponent implements OnInit {
   private _dashboard = inject<any>(DASHBOARD, { optional: true });

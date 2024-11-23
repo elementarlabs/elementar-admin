@@ -5,7 +5,6 @@ import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-number-input-custom-controls-example',
-  standalone: true,
   imports: [
     MatFormField,
     EmrNumberInputModule,

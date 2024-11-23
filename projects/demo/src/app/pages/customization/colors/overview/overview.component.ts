@@ -22,27 +22,26 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    BasicDividerExampleComponent,
-    MatDivider,
-    PlaygroundComponent,
-    PrimaryColorsExampleComponent,
-    SecondaryColorsExampleComponent,
-    TertiaryColorsExampleComponent,
-    ErrorColorsExampleComponent,
-    SurfaceColorsExampleComponent,
-    OutlineColorsExampleComponent,
-    InverseColorsExampleComponent,
-    NeutralColorsExampleComponent,
-    NeutralVariantColorsExampleComponent,
-    OtherColorsExampleComponent,
-    PageComponent,
-    PageContentDirective
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        BasicDividerExampleComponent,
+        MatDivider,
+        PlaygroundComponent,
+        PrimaryColorsExampleComponent,
+        SecondaryColorsExampleComponent,
+        TertiaryColorsExampleComponent,
+        ErrorColorsExampleComponent,
+        SurfaceColorsExampleComponent,
+        OutlineColorsExampleComponent,
+        InverseColorsExampleComponent,
+        NeutralColorsExampleComponent,
+        NeutralVariantColorsExampleComponent,
+        OtherColorsExampleComponent,
+        PageComponent,
+        PageContentDirective
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

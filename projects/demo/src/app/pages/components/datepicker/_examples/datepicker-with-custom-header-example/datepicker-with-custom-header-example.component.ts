@@ -7,7 +7,6 @@ import { CustomHeaderComponent } from '../custom-header/custom-header.component'
 
 @Component({
   selector: 'app-datepicker-with-custom-header-example',
-  standalone: true,
   imports: [
     MatInputModule,
     MatFormFieldModule,

@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
+import { MentionedInCommentNotification } from '@elementar/store/notifications';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
 
 @Component({
   selector: 'app-mentioned-in-comment-notification-example',
-  standalone: true,
   imports: [
-    InviteToEditFilesInFolderNotification,
     NotificationDefDirective,
     NotificationListComponent,
     MentionedInCommentNotification

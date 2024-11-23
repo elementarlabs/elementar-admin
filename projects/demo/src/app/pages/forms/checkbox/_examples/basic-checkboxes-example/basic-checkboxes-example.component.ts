@@ -11,14 +11,13 @@ export interface Task {
 }
 
 @Component({
-  selector: 'app-basic-checkboxes-example',
-  standalone: true,
-  imports: [
-    MatCheckbox,
-    FormsModule
-  ],
-  templateUrl: './basic-checkboxes-example.component.html',
-  styleUrl: './basic-checkboxes-example.component.scss'
+    selector: 'app-basic-checkboxes-example',
+    imports: [
+        MatCheckbox,
+        FormsModule
+    ],
+    templateUrl: './basic-checkboxes-example.component.html',
+    styleUrl: './basic-checkboxes-example.component.scss'
 })
 export class BasicCheckboxesExampleComponent {
   task: Task = {

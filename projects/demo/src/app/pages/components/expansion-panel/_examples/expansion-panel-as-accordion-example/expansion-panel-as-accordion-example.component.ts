@@ -13,27 +13,26 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
-  selector: 'app-expansion-panel-as-accordion-example',
-  standalone: true,
-  imports: [
-    MatExpansionPanelHeader,
-    MatAccordion,
-    MatExpansionPanel,
-    MatIcon,
-    MatFormField,
-    MatInput,
-    MatButton,
-    MatDatepickerModule,
-    MatExpansionPanelActionRow,
-    MatLabel,
-    MatExpansionPanelTitle,
-    MatExpansionPanelDescription
-  ],
-  templateUrl: './expansion-panel-as-accordion-example.component.html',
-  styleUrl: './expansion-panel-as-accordion-example.component.scss',
-  providers: [
-    provideNativeDateAdapter()
-  ]
+    selector: 'app-expansion-panel-as-accordion-example',
+    imports: [
+        MatExpansionPanelHeader,
+        MatAccordion,
+        MatExpansionPanel,
+        MatIcon,
+        MatFormField,
+        MatInput,
+        MatButton,
+        MatDatepickerModule,
+        MatExpansionPanelActionRow,
+        MatLabel,
+        MatExpansionPanelTitle,
+        MatExpansionPanelDescription
+    ],
+    templateUrl: './expansion-panel-as-accordion-example.component.html',
+    styleUrl: './expansion-panel-as-accordion-example.component.scss',
+    providers: [
+        provideNativeDateAdapter()
+    ]
 })
 export class ExpansionPanelAsAccordionExampleComponent {
   step = 0;

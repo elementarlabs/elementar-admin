@@ -17,13 +17,12 @@ const DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-data-view-hl-header-example',
-  standalone: true,
-  imports: [
-    DataViewComponent
-  ],
-  templateUrl: './data-view-hl-header-example.component.html',
-  styleUrl: './data-view-hl-header-example.component.scss'
+    selector: 'app-data-view-hl-header-example',
+    imports: [
+        DataViewComponent
+    ],
+    templateUrl: './data-view-hl-header-example.component.html',
+    styleUrl: './data-view-hl-header-example.component.scss'
 })
 export class DataViewHlHeaderExampleComponent {
   columnDefs: DataViewColumnDef[] = [

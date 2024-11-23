@@ -35,26 +35,25 @@ import {
 } from '../_examples/data-view-loading-state-example/data-view-loading-state-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    BasicContentFadeExampleComponent,
-    ContentFadeCustomWidthExampleComponent,
-    PlaygroundComponent,
-    BasicDataviewExampleComponent,
-    DataviewWithSelectionExampleComponent,
-    DataViewWithPaginationExampleComponent,
-    DataViewWithSortingExampleComponent,
-    DataViewHlHeaderExampleComponent,
-    DataViewCustomCellRenderersExampleComponent,
-    DataViewWithActionBarExampleComponent,
-    DataViewFilterDataExampleComponent,
-    DataViewLoadingStateExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        BasicContentFadeExampleComponent,
+        ContentFadeCustomWidthExampleComponent,
+        PlaygroundComponent,
+        BasicDataviewExampleComponent,
+        DataviewWithSelectionExampleComponent,
+        DataViewWithPaginationExampleComponent,
+        DataViewWithSortingExampleComponent,
+        DataViewHlHeaderExampleComponent,
+        DataViewCustomCellRenderersExampleComponent,
+        DataViewWithActionBarExampleComponent,
+        DataViewFilterDataExampleComponent,
+        DataViewLoadingStateExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

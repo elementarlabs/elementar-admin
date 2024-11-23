@@ -9,20 +9,19 @@ import {
 import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
-  selector: 'app-basic-suggestions-example',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatIcon,
-    SuggestionBlockComponent,
-    SuggestionComponent,
-    SuggestionIconDirective,
-    SuggestionThumbDirective,
-    SuggestionsComponent,
-    AvatarComponent
-  ],
-  templateUrl: './basic-suggestions-example.component.html',
-  styleUrl: './basic-suggestions-example.component.scss'
+    selector: 'app-basic-suggestions-example',
+    imports: [
+        MatButton,
+        MatIcon,
+        SuggestionBlockComponent,
+        SuggestionComponent,
+        SuggestionIconDirective,
+        SuggestionThumbDirective,
+        SuggestionsComponent,
+        AvatarComponent
+    ],
+    templateUrl: './basic-suggestions-example.component.html',
+    styleUrl: './basic-suggestions-example.component.scss'
 })
 export class BasicSuggestionsExampleComponent {
 }

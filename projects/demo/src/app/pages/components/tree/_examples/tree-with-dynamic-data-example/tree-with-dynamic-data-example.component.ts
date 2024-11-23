@@ -127,16 +127,15 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
 }
 
 @Component({
-  selector: 'app-tree-with-dynamic-data-example',
-  standalone: true,
-  imports: [
-    MatTreeModule,
-    MatButtonModule,
-    MatIconModule,
-    MatProgressBarModule
-  ],
-  templateUrl: './tree-with-dynamic-data-example.component.html',
-  styleUrl: './tree-with-dynamic-data-example.component.scss'
+    selector: 'app-tree-with-dynamic-data-example',
+    imports: [
+        MatTreeModule,
+        MatButtonModule,
+        MatIconModule,
+        MatProgressBarModule
+    ],
+    templateUrl: './tree-with-dynamic-data-example.component.html',
+    styleUrl: './tree-with-dynamic-data-example.component.scss'
 })
 export class TreeWithDynamicDataExampleComponent {
   constructor(database: DynamicDatabase) {

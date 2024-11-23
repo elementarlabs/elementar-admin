@@ -9,7 +9,6 @@ import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({
   selector: 'app-mchart-pie-with-tooltip-example',
-  standalone: true,
   imports: [
     MchartPieComponent,
     ShuffleArrayPipe,

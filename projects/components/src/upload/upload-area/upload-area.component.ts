@@ -10,15 +10,16 @@ import {
 import { UploadFileSelectedEvent } from '../properties';
 
 @Component({
-  selector: 'emr-upload-area',
-  exportAs: 'emrUploadArea',
-  templateUrl: './upload-area.component.html',
-  styleUrls: ['./upload-area.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'emr-upload-area',
-    '[class.is-drop-active]': 'isDropActive'
-  }
+    selector: 'emr-upload-area',
+    exportAs: 'emrUploadArea',
+    templateUrl: './upload-area.component.html',
+    styleUrls: ['./upload-area.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'emr-upload-area',
+        '[class.is-drop-active]': 'isDropActive'
+    },
+    standalone: false
 })
 export class UploadAreaComponent {
   protected _renderer = inject(Renderer2);

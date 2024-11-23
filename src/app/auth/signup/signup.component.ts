@@ -7,20 +7,19 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
-  selector: 'app-signup',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatSuffix,
-    RouterLink,
-    ReactiveFormsModule,
-    HDividerComponent
-  ],
-  templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+    selector: 'app-signup',
+    imports: [
+        MatButton,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        MatSuffix,
+        RouterLink,
+        ReactiveFormsModule,
+        HDividerComponent
+    ],
+    templateUrl: './signup.component.html',
+    styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
   private _formBuilder = inject(FormBuilder);

@@ -36,15 +36,14 @@ interface ExampleFlatNode {
 }
 
 @Component({
-  selector: 'app-basic-tree-example',
-  standalone: true,
-  imports: [
-    MatTreeModule,
-    MatButtonModule,
-    MatIconModule
-  ],
-  templateUrl: './basic-tree-example.component.html',
-  styleUrl: './basic-tree-example.component.scss'
+    selector: 'app-basic-tree-example',
+    imports: [
+        MatTreeModule,
+        MatButtonModule,
+        MatIconModule
+    ],
+    templateUrl: './basic-tree-example.component.html',
+    styleUrl: './basic-tree-example.component.scss'
 })
 export class BasicTreeExampleComponent {
   private _transformer = (node: FoodNode, level: number) => {

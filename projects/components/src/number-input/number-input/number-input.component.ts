@@ -26,19 +26,20 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'emr-number-input',
-  exportAs: 'emrNumberInput',
-  templateUrl: './number-input.component.html',
-  styleUrl: './number-input.component.scss',
-  providers: [
-    {
-      provide: MatFormFieldControl,
-      useExisting: NumberInputComponent
-    }
-  ],
-  host: {
-    'class': 'emr-number-input'
-  }
+    selector: 'emr-number-input',
+    exportAs: 'emrNumberInput',
+    templateUrl: './number-input.component.html',
+    styleUrl: './number-input.component.scss',
+    providers: [
+        {
+            provide: MatFormFieldControl,
+            useExisting: NumberInputComponent
+        }
+    ],
+    host: {
+        'class': 'emr-number-input'
+    },
+    standalone: false
 })
 export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy, DoCheck {
   private _elementRef = inject(ElementRef);

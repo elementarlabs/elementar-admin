@@ -27,7 +27,6 @@ import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-comment-editor-with-full-view-mode-example',
-  standalone: true,
   imports: [
     CommentEditorComponent,
     SafeHtmlPipe,

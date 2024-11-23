@@ -1,14 +1,15 @@
 import { booleanAttribute, Component, ElementRef, EventEmitter, inject, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'emr-expand',
-  exportAs: 'emrExpand',
-  templateUrl: './expand.component.html',
-  styleUrl: './expand.component.scss',
-  host: {
-    'class': 'emr-expand',
-    '[class.is-expanded]': 'expanded'
-  }
+    selector: 'emr-expand',
+    exportAs: 'emrExpand',
+    templateUrl: './expand.component.html',
+    styleUrl: './expand.component.scss',
+    host: {
+        'class': 'emr-expand',
+        '[class.is-expanded]': 'expanded'
+    },
+    standalone: false
 })
 export class ExpandComponent {
   private _elementRef = inject(ElementRef);

@@ -1,13 +1,12 @@
 import { Component, inject, input } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import {
-  MatCell,
-  MatCellDef,
+  MatCell, MatCellDef,
   MatColumnDef,
   MatHeaderCell, MatHeaderCellDef,
-  MatHeaderRow,
-  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
+  MatHeaderRow, MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -44,26 +43,24 @@ const DATA: TodoTask[] = [
 
 @Component({
   selector: 'emr-todos-widget',
-  standalone: true,
   imports: [
     MatButton,
     MatIcon,
-    MatIconButton,
     MatCell,
-    MatCellDef,
     MatCheckbox,
     MatColumnDef,
     MatHeaderCell,
     MatHeaderRow,
-    MatHeaderRowDef,
     MatRow,
-    MatRowDef,
     MatTable,
-    MatHeaderCellDef,
     CdkDropList,
     CdkDrag,
     CdkDragHandle,
-    CdkDragPlaceholder
+    CdkDragPlaceholder,
+    MatCellDef,
+    MatHeaderCellDef,
+    MatHeaderRowDef,
+    MatRowDef
   ],
   templateUrl: './todos-widget.component.html',
   styleUrl: './todos-widget.component.scss'

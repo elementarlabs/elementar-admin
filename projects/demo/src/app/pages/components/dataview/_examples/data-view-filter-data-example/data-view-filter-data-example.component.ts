@@ -30,21 +30,20 @@ const DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-data-view-filter-data-example',
-  standalone: true,
-  imports: [
-    DataViewComponent,
-    BlockStateComponent,
-    BlockStateContentComponent,
-    BlockStateIconComponent,
-    DataViewEmptyFilterResultsDirective,
-    MatIcon,
-    MatFormField,
-    FormsModule,
-    MatInput
-  ],
-  templateUrl: './data-view-filter-data-example.component.html',
-  styleUrl: './data-view-filter-data-example.component.scss'
+    selector: 'app-data-view-filter-data-example',
+    imports: [
+        DataViewComponent,
+        BlockStateComponent,
+        BlockStateContentComponent,
+        BlockStateIconComponent,
+        DataViewEmptyFilterResultsDirective,
+        MatIcon,
+        MatFormField,
+        FormsModule,
+        MatInput
+    ],
+    templateUrl: './data-view-filter-data-example.component.html',
+    styleUrl: './data-view-filter-data-example.component.scss'
 })
 export class DataViewFilterDataExampleComponent {
   columnDefs: DataViewColumnDef[] = [

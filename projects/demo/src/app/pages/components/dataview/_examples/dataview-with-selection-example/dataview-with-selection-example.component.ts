@@ -20,7 +20,6 @@ const DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-dataview-with-selection-example',
-  standalone: true,
   imports: [
     DataViewComponent,
     JsonPipe,

@@ -4,17 +4,16 @@ import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-menu-with-icons-example',
-  standalone: true,
-  imports: [
-    MatMenu,
-    MatMenuTrigger,
-    MatIcon,
-    MatIconButton,
-    MatMenuItem
-  ],
-  templateUrl: './menu-with-icons-example.component.html',
-  styleUrl: './menu-with-icons-example.component.scss'
+    selector: 'app-menu-with-icons-example',
+    imports: [
+        MatMenu,
+        MatMenuTrigger,
+        MatIcon,
+        MatIconButton,
+        MatMenuItem
+    ],
+    templateUrl: './menu-with-icons-example.component.html',
+    styleUrl: './menu-with-icons-example.component.scss'
 })
 export class MenuWithIconsExampleComponent {
 

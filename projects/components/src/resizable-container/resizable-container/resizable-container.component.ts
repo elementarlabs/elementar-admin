@@ -17,13 +17,14 @@ import { DOCUMENT } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'emr-resizable-container',
-  exportAs: 'emrResizableContainer',
-  templateUrl: './resizable-container.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'emr-resizable-container'
-  }
+    selector: 'emr-resizable-container',
+    exportAs: 'emrResizableContainer',
+    templateUrl: './resizable-container.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'emr-resizable-container'
+    },
+    standalone: false
 })
 export class ResizableContainerComponent implements OnInit {
   private _renderer = inject(Renderer2);

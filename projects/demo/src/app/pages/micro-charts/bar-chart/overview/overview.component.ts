@@ -22,21 +22,20 @@ import {
 } from '../_examples/mchart-bar-with-tooltip-example/mchart-bar-with-tooltip-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    MchartBarBasicExampleComponent,
-    MchartBarCustomRadiusExampleComponent,
-    MchartBarWithBarHighlightExampleComponent,
-    MchartBarResponsiveExampleComponent,
-    MchartBarFillGradientExampleComponent,
-    MchartBarWithTooltipExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        MchartBarBasicExampleComponent,
+        MchartBarCustomRadiusExampleComponent,
+        MchartBarWithBarHighlightExampleComponent,
+        MchartBarResponsiveExampleComponent,
+        MchartBarFillGradientExampleComponent,
+        MchartBarWithTooltipExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

@@ -9,7 +9,6 @@ import {
 
 @Component({
   selector: 'app-block-state-with-actions-example',
-  standalone: true,
   imports: [
     BlockStateComponent,
     BlockStateContentComponent,

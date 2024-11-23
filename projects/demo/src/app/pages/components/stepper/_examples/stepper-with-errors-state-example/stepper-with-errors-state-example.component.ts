@@ -7,24 +7,23 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-stepper-with-errors-state-example',
-  standalone: true,
-  imports: [
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
-    },
-  ],
-  templateUrl: './stepper-with-errors-state-example.component.html',
-  styleUrl: './stepper-with-errors-state-example.component.scss'
+    selector: 'app-stepper-with-errors-state-example',
+    imports: [
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    providers: [
+        {
+            provide: STEPPER_GLOBAL_OPTIONS,
+            useValue: { showError: true },
+        },
+    ],
+    templateUrl: './stepper-with-errors-state-example.component.html',
+    styleUrl: './stepper-with-errors-state-example.component.scss'
 })
 export class StepperWithErrorsStateExampleComponent {
   firstFormGroup = this._formBuilder.group({

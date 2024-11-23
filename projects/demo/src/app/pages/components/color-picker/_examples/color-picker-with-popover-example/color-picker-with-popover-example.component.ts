@@ -3,7 +3,6 @@ import { EmrColorPickerModule } from '@elementar/components/color-picker';
 
 @Component({
   selector: 'app-color-picker-with-popover-example',
-  standalone: true,
   imports: [
     EmrColorPickerModule
   ],

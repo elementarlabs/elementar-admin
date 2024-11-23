@@ -8,21 +8,20 @@ import { ThemePalette } from '@angular/material/core';
 import { MatDivider } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-configurable-spinner-example',
-  standalone: true,
-  imports: [
-    MatCard,
-    MatCardContent,
-    MatRadioGroup,
-    MatRadioButton,
-    FormsModule,
-    MatSlider,
-    MatSliderThumb,
-    MatProgressSpinner,
-    MatDivider
-  ],
-  templateUrl: './configurable-spinner-example.component.html',
-  styleUrl: './configurable-spinner-example.component.scss'
+    selector: 'app-configurable-spinner-example',
+    imports: [
+        MatCard,
+        MatCardContent,
+        MatRadioGroup,
+        MatRadioButton,
+        FormsModule,
+        MatSlider,
+        MatSliderThumb,
+        MatProgressSpinner,
+        MatDivider
+    ],
+    templateUrl: './configurable-spinner-example.component.html',
+    styleUrl: './configurable-spinner-example.component.scss'
 })
 export class ConfigurableSpinnerExampleComponent {
   color: ThemePalette = 'primary';

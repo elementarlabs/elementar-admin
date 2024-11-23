@@ -5,15 +5,14 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-total-subscribers-widget',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatRipple,
-    MatTooltip
-  ],
-  templateUrl: './total-subscribers-widget.component.html',
-  styleUrl: './total-subscribers-widget.component.scss'
+    selector: 'emr-total-subscribers-widget',
+    imports: [
+        MatIcon,
+        MatRipple,
+        MatTooltip
+    ],
+    templateUrl: './total-subscribers-widget.component.html',
+    styleUrl: './total-subscribers-widget.component.scss'
 })
 export class TotalSubscribersWidgetComponent implements OnInit {
   private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });

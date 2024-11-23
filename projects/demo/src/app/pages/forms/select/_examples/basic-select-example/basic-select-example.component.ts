@@ -10,12 +10,10 @@ interface Food {
 
 @Component({
   selector: 'app-basic-select-example',
-  standalone: true,
   imports: [
     MatFormField,
     MatSelect,
     MatOption,
-    MatInput,
     MatLabel
   ],
   templateUrl: './basic-select-example.component.html',

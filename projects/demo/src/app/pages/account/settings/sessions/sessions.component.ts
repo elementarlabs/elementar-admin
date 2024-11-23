@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { DatePipe } from '@angular/common';
 import {
   MatCell,
-  MatCellDef,
   MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderCell,
   MatHeaderRow,
-  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
+  MatRow, MatTable, MatTableDataSource
 } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 
 const WEB_BROWSERS_TABLE_DATA = [
   {
@@ -103,23 +98,14 @@ const DEVICES_TABLE_DATA = [
 ];
 
 @Component({
-  standalone: true,
   imports: [
     MatButton,
-    MatIcon,
-    MatSlideToggle,
-    DatePipe,
     MatCell,
-    MatCellDef,
     MatColumnDef,
     MatHeaderCell,
     MatHeaderRow,
-    MatHeaderRowDef,
-    MatPaginator,
     MatRow,
-    MatRowDef,
     MatTable,
-    MatHeaderCellDef
   ],
   templateUrl: './sessions.component.html',
   styleUrl: './sessions.component.scss'

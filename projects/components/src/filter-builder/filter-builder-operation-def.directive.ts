@@ -3,7 +3,8 @@ import { FilterBuilderOperationNameDirective } from './filter-builder-operation-
 import { FilterBuilderOperationIconDirective } from './filter-builder-operation-icon.directive';
 
 @Directive({
-  selector: '[emrFilterBuilderOperationDef]'
+    selector: '[emrFilterBuilderOperationDef]',
+    standalone: false
 })
 export class FilterBuilderOperationDefDirective {
   @Input('emrFilterBuilderOperationDef')

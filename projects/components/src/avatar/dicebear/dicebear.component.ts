@@ -39,26 +39,25 @@ const presets: {[prop: string]: Preset} = {
 };
 
 @Component({
-  selector: 'emr-dicebear,[emr-dicebear]',
-  exportAs: 'emrDicebear',
-  templateUrl: './dicebear.component.html',
-  styleUrls: ['./dicebear.component.scss'],
-  providers: [
-    {
-      provide: AVATAR_ACCESSOR,
-      useExisting: forwardRef(() => DicebearComponent),
-      multi: true
+    selector: 'emr-dicebear,[emr-dicebear]',
+    exportAs: 'emrDicebear',
+    templateUrl: './dicebear.component.html',
+    styleUrls: ['./dicebear.component.scss'],
+    providers: [
+        {
+            provide: AVATAR_ACCESSOR,
+            useExisting: forwardRef(() => DicebearComponent),
+            multi: true
+        }
+    ],
+    imports: [
+        SafeHtmlPipe
+    ],
+    host: {
+        'class': 'emr-avatar emr-dicebear',
+        '[class.is-clickable]': 'clickable()',
+        '[class.has-loaded-image]': 'src() && imageLoaded',
     }
-  ],
-  standalone: true,
-  imports: [
-    SafeHtmlPipe
-  ],
-  host: {
-    'class': 'emr-avatar emr-dicebear',
-    '[class.is-clickable]': 'clickable()',
-    '[class.has-loaded-image]': 'src() && imageLoaded',
-  }
 })
 export class DicebearComponent implements OnInit {
   src = input<string>();

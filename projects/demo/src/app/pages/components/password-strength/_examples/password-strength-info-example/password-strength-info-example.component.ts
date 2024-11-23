@@ -5,19 +5,18 @@ import { MatInput } from '@angular/material/input';
 import { PasswordStrengthModule } from '@elementar/components/password-strength';
 
 @Component({
-  selector: 'app-password-strength-info-example',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    PasswordStrengthModule,
-    ReactiveFormsModule,
-    MatHint
-  ],
-  templateUrl: './password-strength-info-example.component.html',
-  styleUrl: './password-strength-info-example.component.scss'
+    selector: 'app-password-strength-info-example',
+    imports: [
+        FormsModule,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        PasswordStrengthModule,
+        ReactiveFormsModule,
+        MatHint
+    ],
+    templateUrl: './password-strength-info-example.component.html',
+    styleUrl: './password-strength-info-example.component.scss'
 })
 export class PasswordStrengthInfoExampleComponent {
   password = new FormControl('');

@@ -4,16 +4,15 @@ import { EmrUploadModule, UploadFileSelectedEvent, UploadTriggerDirective } from
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-basic-upload-example',
-  standalone: true,
-  imports: [
-    MatButton,
-    EmrUploadModule,
-    JsonPipe,
-    UploadTriggerDirective
-  ],
-  templateUrl: './basic-upload-example.component.html',
-  styleUrl: './basic-upload-example.component.scss'
+    selector: 'app-basic-upload-example',
+    imports: [
+        MatButton,
+        EmrUploadModule,
+        JsonPipe,
+        UploadTriggerDirective
+    ],
+    templateUrl: './basic-upload-example.component.html',
+    styleUrl: './basic-upload-example.component.scss'
 })
 export class BasicUploadExampleComponent {
   files: any = [];

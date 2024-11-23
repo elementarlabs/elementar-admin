@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 import { MchartPieComponent } from '@elementar/components/micro-chart';
 
 @Component({
   selector: 'app-mchart-pie-with-legend-example',
-  standalone: true,
   imports: [
-    ShuffleArrayPipe,
     MchartPieComponent
   ],
   templateUrl: './mchart-pie-with-legend-example.component.html',

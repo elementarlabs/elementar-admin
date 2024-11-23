@@ -5,7 +5,6 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-bottom-sheet-example',
-  standalone: true,
   imports: [
     MatNavList,
     MatListItemTitle,

@@ -6,18 +6,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-stepper-header-position-example',
-  standalone: true,
-  imports: [
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  templateUrl: './stepper-header-position-example.component.html',
-  styleUrl: './stepper-header-position-example.component.scss'
+    selector: 'app-stepper-header-position-example',
+    imports: [
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    templateUrl: './stepper-header-position-example.component.html',
+    styleUrl: './stepper-header-position-example.component.scss'
 })
 export class StepperHeaderPositionExampleComponent {
   firstFormGroup = this._formBuilder.group({

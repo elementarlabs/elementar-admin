@@ -4,13 +4,12 @@ import {
 } from '@elementar/store/skeleton';
 
 @Component({
-  selector: 'app-dashboard-chart-example',
-  standalone: true,
-  imports: [
-    DashboardChartWidgetSkeletonComponent
-  ],
-  templateUrl: './dashboard-chart-example.component.html',
-  styleUrl: './dashboard-chart-example.component.scss'
+    selector: 'app-dashboard-chart-example',
+    imports: [
+        DashboardChartWidgetSkeletonComponent
+    ],
+    templateUrl: './dashboard-chart-example.component.html',
+    styleUrl: './dashboard-chart-example.component.scss'
 })
 export class DashboardChartExampleComponent {
 

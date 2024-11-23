@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BasicBadgesExampleComponent } from '../../badge/_examples/basic-badges-example/basic-badges-example.component';
 import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import {
   BasicBottomSheetExampleComponent
@@ -9,9 +8,7 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
   selector: 'app-overview',
-  standalone: true,
   imports: [
-    BasicBadgesExampleComponent,
     PlaygroundComponent,
     BasicBottomSheetExampleComponent,
     PageComponent,

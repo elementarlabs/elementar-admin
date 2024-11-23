@@ -4,15 +4,14 @@ import { MatDivider } from '@angular/material/divider';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'app-basic-thumbnail-maker',
-  standalone: true,
-  imports: [
-    ThumbnailMakerComponent,
-    MatDivider,
-    MatButton
-  ],
-  templateUrl: './basic-thumbnail-maker.component.html',
-  styleUrl: './basic-thumbnail-maker.component.scss'
+    selector: 'app-basic-thumbnail-maker',
+    imports: [
+        ThumbnailMakerComponent,
+        MatDivider,
+        MatButton
+    ],
+    templateUrl: './basic-thumbnail-maker.component.html',
+    styleUrl: './basic-thumbnail-maker.component.scss'
 })
 export class BasicThumbnailMakerComponent {
   thumbnail = '';

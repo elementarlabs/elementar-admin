@@ -4,14 +4,15 @@ import { ScrollSpyNavComponent } from '../scroll-spy-nav/scroll-spy-nav.componen
 import { SCROLL_SPY_NAV } from '../types';
 
 @Component({
-  selector: 'emr-scroll-spy-on,[emr-scroll-spy-on]',
-  exportAs: 'emrScrollSpyOn',
-  templateUrl: './scroll-spy-on.component.html',
-  styleUrl: './scroll-spy-on.component.scss',
-  host: {
-    'class': 'emr-scroll-spy-on',
-    '[class.is-active]': 'isActive'
-  }
+    selector: 'emr-scroll-spy-on,[emr-scroll-spy-on]',
+    exportAs: 'emrScrollSpyOn',
+    templateUrl: './scroll-spy-on.component.html',
+    styleUrl: './scroll-spy-on.component.scss',
+    host: {
+        'class': 'emr-scroll-spy-on',
+        '[class.is-active]': 'isActive'
+    },
+    standalone: false
 })
 export class ScrollSpyOnComponent implements OnInit {
   private _parent = inject<ScrollSpyNavComponent>(SCROLL_SPY_NAV);

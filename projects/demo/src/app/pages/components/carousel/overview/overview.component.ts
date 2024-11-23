@@ -12,19 +12,18 @@ import {
 } from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    BasicBadgesExampleComponent,
-    PlaygroundComponent,
-    BasicCarouselExampleComponent,
-    CarouselControlsCustomPositionExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    CarouselFadeEffectExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        BasicBadgesExampleComponent,
+        PlaygroundComponent,
+        BasicCarouselExampleComponent,
+        CarouselControlsCustomPositionExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        CarouselFadeEffectExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

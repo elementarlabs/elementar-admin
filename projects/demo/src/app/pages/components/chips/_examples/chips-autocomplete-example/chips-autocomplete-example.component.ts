@@ -15,24 +15,23 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-chips-autocomplete-example',
-  standalone: true,
-  imports: [
-    MatAutocomplete,
-    MatOption,
-    ReactiveFormsModule,
-    MatChipInput,
-    MatAutocompleteTrigger,
-    MatChipRemove,
-    MatIcon,
-    MatFormField,
-    MatChipGrid,
-    MatChipRow,
-    MatLabel,
-    AsyncPipe
-  ],
-  templateUrl: './chips-autocomplete-example.component.html',
-  styleUrl: './chips-autocomplete-example.component.scss'
+    selector: 'app-chips-autocomplete-example',
+    imports: [
+        MatAutocomplete,
+        MatOption,
+        ReactiveFormsModule,
+        MatChipInput,
+        MatAutocompleteTrigger,
+        MatChipRemove,
+        MatIcon,
+        MatFormField,
+        MatChipGrid,
+        MatChipRow,
+        MatLabel,
+        AsyncPipe
+    ],
+    templateUrl: './chips-autocomplete-example.component.html',
+    styleUrl: './chips-autocomplete-example.component.scss'
 })
 export class ChipsAutocompleteExampleComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];

@@ -16,20 +16,19 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import { SortableTabsExampleComponent } from '../_examples/sortable-tabs-example/sortable-tabs-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicTabsExampleComponent,
-    TabsWithAlignedLabelsExampleComponent,
-    TabsWithCustomLabelTemplateExampleComponent,
-    TabsWithHeadersOnTheBottomExampleComponent,
-    PaginatedTabsExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    SortableTabsExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PlaygroundComponent,
+        BasicTabsExampleComponent,
+        TabsWithAlignedLabelsExampleComponent,
+        TabsWithCustomLabelTemplateExampleComponent,
+        TabsWithHeadersOnTheBottomExampleComponent,
+        PaginatedTabsExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        SortableTabsExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

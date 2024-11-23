@@ -7,7 +7,6 @@ import { DateAdapter, MAT_DATE_FORMATS, MatDateFormats } from '@angular/material
 
 @Component({
   selector: 'app-custom-header',
-  standalone: true,
   imports: [
     MatIcon,
     MatIconButton

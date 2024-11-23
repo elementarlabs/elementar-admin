@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { MatListModule } from '@angular/material/list';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { BottomSheetExampleComponent } from '../bottom-sheet-example/bottom-sheet-example.component';
 
 @Component({
   selector: 'app-basic-bottom-sheet-example',
-  standalone: true,
   imports: [
     MatButton
   ],

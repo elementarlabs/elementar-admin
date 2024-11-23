@@ -7,20 +7,19 @@ import { map, Observable, startWith } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-auto-highlight-first-person-example',
-  standalone: true,
-  imports: [
-    MatAutocomplete,
-    MatOption,
-    MatFormField,
-    MatInput,
-    MatAutocompleteTrigger,
-    AsyncPipe,
-    MatLabel,
-    ReactiveFormsModule
-  ],
-  templateUrl: './auto-highlight-first-person-example.component.html',
-  styleUrl: './auto-highlight-first-person-example.component.scss'
+    selector: 'app-auto-highlight-first-person-example',
+    imports: [
+        MatAutocomplete,
+        MatOption,
+        MatFormField,
+        MatInput,
+        MatAutocompleteTrigger,
+        AsyncPipe,
+        MatLabel,
+        ReactiveFormsModule
+    ],
+    templateUrl: './auto-highlight-first-person-example.component.html',
+    styleUrl: './auto-highlight-first-person-example.component.scss'
 })
 export class AutoHighlightFirstPersonExampleComponent {
   myControl = new FormControl('');

@@ -7,17 +7,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponentExampleComponent } from '../snackbar-component-example/snackbar-component-example.component';
 
 @Component({
-  selector: 'app-snackbar-with-custom-component-example',
-  standalone: true,
-  imports: [
-    MatFormField,
-    FormsModule,
-    MatInput,
-    MatButton,
-    MatLabel
-  ],
-  templateUrl: './snackbar-with-custom-component-example.component.html',
-  styleUrl: './snackbar-with-custom-component-example.component.scss'
+    selector: 'app-snackbar-with-custom-component-example',
+    imports: [
+        MatFormField,
+        FormsModule,
+        MatInput,
+        MatButton,
+        MatLabel
+    ],
+    templateUrl: './snackbar-with-custom-component-example.component.html',
+    styleUrl: './snackbar-with-custom-component-example.component.scss'
 })
 export class SnackbarWithCustomComponentExampleComponent {
   durationInSeconds = 5;

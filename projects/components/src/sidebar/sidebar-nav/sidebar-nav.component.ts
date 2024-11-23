@@ -6,18 +6,17 @@ import { RouterLink } from '@angular/router';
 import { MatBadge } from '@angular/material/badge';
 
 @Component({
-  selector: 'emr-sidebar-nav',
-  standalone: true,
-  imports: [
-    EmrNavigationModule,
-    MatIcon,
-    OrderByPipe,
-    RouterLink,
-    NavigationItemBadgeDirective,
-    MatBadge
-  ],
-  templateUrl: './sidebar-nav.component.html',
-  styleUrl: './sidebar-nav.component.scss'
+    selector: 'emr-sidebar-nav',
+    imports: [
+        EmrNavigationModule,
+        MatIcon,
+        OrderByPipe,
+        RouterLink,
+        NavigationItemBadgeDirective,
+        MatBadge
+    ],
+    templateUrl: './sidebar-nav.component.html',
+    styleUrl: './sidebar-nav.component.scss'
 })
 export class SidebarNavComponent<T extends NavigationItem> {
   activeKey = input();

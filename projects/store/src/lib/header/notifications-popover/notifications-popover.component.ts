@@ -3,13 +3,12 @@ import { Notification, NotificationDefDirective, NotificationListComponent } fro
 import { EmrPopoverModule } from '@elementar/components/popover';
 import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 import { RouterLink } from '@angular/router';
-import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
+import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'emr-notifications-popover',
-  standalone: true,
   imports: [
     EmrPopoverModule,
     InviteToEditFilesInFolderNotification,
@@ -17,7 +16,6 @@ import { MatRipple } from '@angular/material/core';
     NotificationDefDirective,
     NotificationListComponent,
     RouterLink,
-    MatButton,
     MatAnchor,
     MatIcon,
     MatIconButton,

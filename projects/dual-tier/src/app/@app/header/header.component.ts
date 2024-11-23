@@ -19,41 +19,40 @@ import { Notification, NotificationDefDirective, NotificationListComponent } fro
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elementar/store/header';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatIconButton,
-    AsyncPipe,
-    MatFormField,
-    MatInput,
-    MatPrefix,
-    MatBadge,
-    MatMenu,
-    MatMenuTrigger,
-    MatMenuItem,
-    DicebearComponent,
-    MatDivider,
-    MatButton,
-    MatTooltip,
-    NotificationListComponent,
-    EmrPopoverModule,
-    RouterLink,
-    AssistantSearchComponent,
-    IconComponent,
-    MatAnchor,
-    SoundEffectDirective,
-    InviteToEditFilesInFolderNotification,
-    MentionedInCommentNotification,
-    NotificationDefDirective,
-    NotificationListComponent,
-    NotificationsPopoverComponent
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  host: {
-    'class': 'block w-full h-full'
-  }
+    selector: 'app-header',
+    imports: [
+        MatIcon,
+        MatIconButton,
+        AsyncPipe,
+        MatFormField,
+        MatInput,
+        MatPrefix,
+        MatBadge,
+        MatMenu,
+        MatMenuTrigger,
+        MatMenuItem,
+        DicebearComponent,
+        MatDivider,
+        MatButton,
+        MatTooltip,
+        NotificationListComponent,
+        EmrPopoverModule,
+        RouterLink,
+        AssistantSearchComponent,
+        IconComponent,
+        MatAnchor,
+        SoundEffectDirective,
+        InviteToEditFilesInFolderNotification,
+        MentionedInCommentNotification,
+        NotificationDefDirective,
+        NotificationListComponent,
+        NotificationsPopoverComponent
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    host: {
+        'class': 'block w-full h-full'
+    }
 })
 export class HeaderComponent {
   protected _themeManager = inject(ThemeManagerService);

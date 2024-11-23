@@ -5,7 +5,6 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
 
 @Component({
   selector: 'app-number-input-min-max-example',
-  standalone: true,
   imports: [
     MatFormField,
     EmrNumberInputModule,

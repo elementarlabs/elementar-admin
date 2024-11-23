@@ -6,17 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    EmrAlertModule,
-    FormsModule,
-    MatButtonToggleGroup,
-    MatButtonToggle
-  ],
-  templateUrl: './typography.component.html',
-  styleUrl: './typography.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        EmrAlertModule,
+        FormsModule,
+        MatButtonToggleGroup,
+        MatButtonToggle
+    ],
+    templateUrl: './typography.component.html',
+    styleUrl: './typography.component.scss'
 })
 export class TypographyComponent {
   typographyClass = 'mat-typography';

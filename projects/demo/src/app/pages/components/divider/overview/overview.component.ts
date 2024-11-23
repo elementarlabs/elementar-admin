@@ -8,16 +8,15 @@ import {
 } from '../_examples/divider-horizontal-and-vertical-example/divider-horizontal-and-vertical-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicDividerExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    DividerHorizontalAndVerticalExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PlaygroundComponent,
+        BasicDividerExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        DividerHorizontalAndVerticalExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

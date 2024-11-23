@@ -8,18 +8,17 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicUploadExampleComponent,
-    UploadAreaExampleComponent,
-    FileListExampleComponent,
-    FileGridExampleComponent,
-    PageComponent,
-    PageContentDirective
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PlaygroundComponent,
+        BasicUploadExampleComponent,
+        UploadAreaExampleComponent,
+        FileListExampleComponent,
+        FileGridExampleComponent,
+        PageComponent,
+        PageContentDirective
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

@@ -5,19 +5,18 @@ import { MatInput } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-simple-autocomplete-example',
-  standalone: true,
-  imports: [
-    MatAutocomplete,
-    MatAutocompleteTrigger,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatOption,
-    ReactiveFormsModule
-  ],
-  templateUrl: './simple-autocomplete-example.component.html',
-  styleUrl: './simple-autocomplete-example.component.scss'
+    selector: 'app-simple-autocomplete-example',
+    imports: [
+        MatAutocomplete,
+        MatAutocompleteTrigger,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        MatOption,
+        ReactiveFormsModule
+    ],
+    templateUrl: './simple-autocomplete-example.component.html',
+    styleUrl: './simple-autocomplete-example.component.scss'
 })
 export class SimpleAutocompleteExampleComponent {
   myControl = new FormControl('');

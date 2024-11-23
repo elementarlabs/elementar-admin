@@ -8,19 +8,18 @@ import { HeaderComponent } from '@demo/app/header/header.component';
 import { SidebarComponent } from '@demo/app/sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-layout-header-example',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    LayoutBodyComponent,
-    LayoutComponent,
-    LayoutHeaderComponent,
-    LayoutSidebarComponent,
-    RouterOutlet,
-    SidebarComponent
-  ],
-  templateUrl: './layout-header-example.component.html',
-  styleUrl: './layout-header-example.component.scss'
+    selector: 'app-layout-header-example',
+    imports: [
+        HeaderComponent,
+        LayoutBodyComponent,
+        LayoutComponent,
+        LayoutHeaderComponent,
+        LayoutSidebarComponent,
+        RouterOutlet,
+        SidebarComponent
+    ],
+    templateUrl: './layout-header-example.component.html',
+    styleUrl: './layout-header-example.component.scss'
 })
 export class LayoutHeaderExampleComponent {
 

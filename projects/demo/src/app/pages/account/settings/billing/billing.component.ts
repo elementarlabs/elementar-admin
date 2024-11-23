@@ -1,22 +1,13 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import {
-  MatAccordion,
-  MatExpansionPanel,
-  MatExpansionPanelDescription,
-  MatExpansionPanelHeader, MatExpansionPanelTitle
-} from '@angular/material/expansion';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
+
 import { MatButton } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
 import {
   MatCell,
-  MatCellDef,
   MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderCell,
   MatHeaderRow,
-  MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableDataSource
+  MatRow, MatTable, MatTableDataSource
 } from '@angular/material/table';
-import { MatDivider } from '@angular/material/divider';
 import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
@@ -88,30 +79,17 @@ const TABLE_DATA = [
   },
 ];
 @Component({
-  standalone: true,
   imports: [
-    MatAccordion,
-    MatExpansionPanel,
-    MatExpansionPanelDescription,
-    MatExpansionPanelHeader,
-    MatExpansionPanelTitle,
-    MatSlideToggle,
     MatButton,
-    RouterLink,
     CurrentPlanWidgetComponent,
     PaymentInformationWidgetComponent,
     MatCell,
-    MatCellDef,
     MatColumnDef,
-    MatDivider,
     MatHeaderCell,
     MatHeaderRow,
-    MatHeaderRowDef,
     MatPaginator,
     MatRow,
-    MatRowDef,
     MatTable,
-    MatHeaderCellDef,
     DatePipe,
     MatIcon
   ],

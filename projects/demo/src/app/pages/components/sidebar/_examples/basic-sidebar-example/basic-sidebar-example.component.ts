@@ -10,17 +10,16 @@ import { NavigationItem } from '@elementar/components/navigation';
 import { v7 as uuid } from 'uuid';
 
 @Component({
-  selector: 'app-basic-sidebar-example',
-  standalone: true,
-  imports: [
-    SidebarComponent,
-    SidebarHeaderComponent,
-    SidebarNavComponent,
-    SidebarFooterComponent,
-    SidebarBodyComponent
-  ],
-  templateUrl: './basic-sidebar-example.component.html',
-  styleUrl: './basic-sidebar-example.component.scss'
+    selector: 'app-basic-sidebar-example',
+    imports: [
+        SidebarComponent,
+        SidebarHeaderComponent,
+        SidebarNavComponent,
+        SidebarFooterComponent,
+        SidebarBodyComponent
+    ],
+    templateUrl: './basic-sidebar-example.component.html',
+    styleUrl: './basic-sidebar-example.component.scss'
 })
 export class BasicSidebarExampleComponent {
   navItems: NavigationItem[] = [

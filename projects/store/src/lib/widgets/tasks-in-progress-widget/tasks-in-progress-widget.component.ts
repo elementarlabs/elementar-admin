@@ -5,16 +5,15 @@ import { AvatarComponent } from '@elementar/components/avatar';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-tasks-in-progress-widget',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatIcon,
-    MatIconButton,
-    AvatarComponent
-  ],
-  templateUrl: './tasks-in-progress-widget.component.html',
-  styleUrl: './tasks-in-progress-widget.component.scss'
+    selector: 'emr-tasks-in-progress-widget',
+    imports: [
+        MatButton,
+        MatIcon,
+        MatIconButton,
+        AvatarComponent
+    ],
+    templateUrl: './tasks-in-progress-widget.component.html',
+    styleUrl: './tasks-in-progress-widget.component.scss'
 })
 export class TasksInProgressWidgetComponent implements OnInit {
   private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });

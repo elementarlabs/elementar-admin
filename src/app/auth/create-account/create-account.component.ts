@@ -9,23 +9,22 @@ import { EmrPhoneInputModule, phoneValidator } from '@elementar/components/phone
 import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
-  selector: 'app-create-account',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatButton,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule,
-    RouterLink,
-    PasswordStrengthModule,
-    EmrPhoneInputModule,
-    MatError,
-    HDividerComponent
-  ],
-  templateUrl: './create-account.component.html',
-  styleUrl: './create-account.component.scss'
+    selector: 'app-create-account',
+    imports: [
+        FormsModule,
+        MatButton,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule,
+        RouterLink,
+        PasswordStrengthModule,
+        EmrPhoneInputModule,
+        MatError,
+        HDividerComponent
+    ],
+    templateUrl: './create-account.component.html',
+    styleUrl: './create-account.component.scss'
 })
 export class CreateAccountComponent {
   private _formBuilder = inject(FormBuilder);

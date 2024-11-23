@@ -4,7 +4,6 @@ import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({
   selector: 'app-mchart-pie-value-on-slices-example',
-  standalone: true,
   imports: [
     MchartPieComponent,
     ShuffleArrayPipe

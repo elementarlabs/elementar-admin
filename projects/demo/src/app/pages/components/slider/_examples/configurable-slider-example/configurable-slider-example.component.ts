@@ -7,18 +7,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
-  selector: 'app-configurable-slider-example',
-  standalone: true,
-  imports: [
-    MatDivider,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatCheckboxModule,
-    MatSliderModule,
-  ],
-  templateUrl: './configurable-slider-example.component.html',
-  styleUrl: './configurable-slider-example.component.scss'
+    selector: 'app-configurable-slider-example',
+    imports: [
+        MatDivider,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatCheckboxModule,
+        MatSliderModule,
+    ],
+    templateUrl: './configurable-slider-example.component.html',
+    styleUrl: './configurable-slider-example.component.scss'
 })
 export class ConfigurableSliderExampleComponent {
   disabled = false;

@@ -1,21 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { EmrPinInputModule } from '@elementar/components/pin-input';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-password-reset',
-  standalone: true,
   imports: [
     FormsModule,
     MatButton,
-    MatFormField,
-    MatInput,
-    MatLabel,
     RouterLink,
     ReactiveFormsModule,
     EmrPinInputModule,
@@ -29,7 +23,6 @@ export class PasswordResetComponent {
   pin = new FormControl('', [Validators.required]);
 
   resendCode(): void {
-
   }
 
   continue() {

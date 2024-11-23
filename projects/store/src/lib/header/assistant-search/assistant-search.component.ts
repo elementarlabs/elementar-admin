@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   inject,
@@ -8,7 +7,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { CdkConnectedOverlay, CdkOverlayOrigin, Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
@@ -23,11 +22,8 @@ import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'emr-assistant-search',
-  standalone: true,
   imports: [
     MatIcon,
-    CdkOverlayOrigin,
-    CdkConnectedOverlay,
     SuggestionsComponent,
     SuggestionBlockComponent,
     SuggestionComponent,

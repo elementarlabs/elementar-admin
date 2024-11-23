@@ -15,11 +15,10 @@ import { CanvasRenderer } from 'echarts/renderers';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-visitor-insights-widget',
-  standalone: true,
-  imports: [],
-  templateUrl: './visitor-insights-widget.component.html',
-  styleUrl: './visitor-insights-widget.component.scss'
+    selector: 'emr-visitor-insights-widget',
+    imports: [],
+    templateUrl: './visitor-insights-widget.component.html',
+    styleUrl: './visitor-insights-widget.component.scss'
 })
 export class VisitorInsightsWidgetComponent {
   private _elementRef = inject(ElementRef);

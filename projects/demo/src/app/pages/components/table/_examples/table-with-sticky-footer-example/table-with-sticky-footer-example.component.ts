@@ -10,14 +10,13 @@ export interface Transaction {
 }
 
 @Component({
-  selector: 'app-table-with-sticky-footer-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    CurrencyPipe
-  ],
-  templateUrl: './table-with-sticky-footer-example.component.html',
-  styleUrl: './table-with-sticky-footer-example.component.scss'
+    selector: 'app-table-with-sticky-footer-example',
+    imports: [
+        MatTableModule,
+        CurrencyPipe
+    ],
+    templateUrl: './table-with-sticky-footer-example.component.html',
+    styleUrl: './table-with-sticky-footer-example.component.scss'
 })
 export class TableWithStickyFooterExampleComponent {
   displayedColumns = ['item', 'cost'];

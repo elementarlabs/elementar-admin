@@ -4,12 +4,10 @@ import { LayoutComponent } from '@elementar/components/layout';
 import { LayoutBodyComponent } from '@elementar/components/layout';
 import { LayoutSidebarComponent } from '@elementar/components/layout';
 import { LayoutHeaderComponent } from '@elementar/components/layout';
-import { LayoutTopbarComponent } from '@elementar/components/layout';
 import { HeaderComponent } from '@demo/app/header/header.component';
 import { SidebarComponent } from '@demo/app/sidebar/sidebar.component';
 
 @Component({
-  standalone: true,
   imports: [
     RouterOutlet,
     HeaderComponent,
@@ -18,7 +16,6 @@ import { SidebarComponent } from '@demo/app/sidebar/sidebar.component';
     LayoutBodyComponent,
     LayoutSidebarComponent,
     LayoutHeaderComponent,
-    LayoutTopbarComponent
   ],
   templateUrl: './common.component.html'
 })

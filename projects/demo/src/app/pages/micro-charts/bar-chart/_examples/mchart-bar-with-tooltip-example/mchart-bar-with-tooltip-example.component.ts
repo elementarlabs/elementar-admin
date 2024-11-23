@@ -7,17 +7,16 @@ import {
 } from '@elementar/components/micro-chart';
 
 @Component({
-  selector: 'app-mchart-bar-with-tooltip-example',
-  standalone: true,
-  imports: [
-    MchartBarComponent,
-    ShuffleArrayPipe,
-    MchartTooltipBodyComponent,
-    MchartTooltipComponent,
-    MchartTooltipTitleComponent
-  ],
-  templateUrl: './mchart-bar-with-tooltip-example.component.html',
-  styleUrl: './mchart-bar-with-tooltip-example.component.scss'
+    selector: 'app-mchart-bar-with-tooltip-example',
+    imports: [
+        MchartBarComponent,
+        ShuffleArrayPipe,
+        MchartTooltipBodyComponent,
+        MchartTooltipComponent,
+        MchartTooltipTitleComponent
+    ],
+    templateUrl: './mchart-bar-with-tooltip-example.component.html',
+    styleUrl: './mchart-bar-with-tooltip-example.component.scss'
 })
 export class MchartBarWithTooltipExampleComponent {
 }

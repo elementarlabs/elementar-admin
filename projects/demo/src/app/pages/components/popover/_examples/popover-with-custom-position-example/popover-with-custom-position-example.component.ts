@@ -6,19 +6,18 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
-  selector: 'app-popover-with-custom-position-example',
-  standalone: true,
-  imports: [
-    MatButton,
-    EmrPopoverModule,
-    MatFormField,
-    MatLabel,
-    MatSelect,
-    ReactiveFormsModule,
-    MatOption
-  ],
-  templateUrl: './popover-with-custom-position-example.component.html',
-  styleUrl: './popover-with-custom-position-example.component.scss'
+    selector: 'app-popover-with-custom-position-example',
+    imports: [
+        MatButton,
+        EmrPopoverModule,
+        MatFormField,
+        MatLabel,
+        MatSelect,
+        ReactiveFormsModule,
+        MatOption
+    ],
+    templateUrl: './popover-with-custom-position-example.component.html',
+    styleUrl: './popover-with-custom-position-example.component.scss'
 })
 export class PopoverWithCustomPositionExampleComponent {
   positionOptions: PopoverPosition[] = [

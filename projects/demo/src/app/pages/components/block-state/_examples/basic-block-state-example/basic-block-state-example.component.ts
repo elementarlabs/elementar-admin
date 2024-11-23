@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import {
-  BlockStateComponent, BlockStateContentComponent,
-  BlockStateImageComponent,
+  BlockStateComponent,
+  BlockStateContentComponent,
   BlockStateTitleComponent
 } from '@elementar/components/block-state';
 
 @Component({
   selector: 'app-basic-block-state-example',
-  standalone: true,
   imports: [
     BlockStateComponent,
-    BlockStateImageComponent,
     BlockStateTitleComponent,
     BlockStateContentComponent
   ],

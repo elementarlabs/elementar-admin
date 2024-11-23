@@ -11,20 +11,19 @@ export interface User {
 }
 
 @Component({
-  selector: 'app-separate-controls-and-display-values-example',
-  standalone: true,
-  imports: [
-    MatFormField,
-    AsyncPipe,
-    MatAutocomplete,
-    MatAutocompleteTrigger,
-    ReactiveFormsModule,
-    MatOption,
-    MatInput,
-    MatLabel
-  ],
-  templateUrl: './separate-controls-and-display-values-example.component.html',
-  styleUrl: './separate-controls-and-display-values-example.component.scss'
+    selector: 'app-separate-controls-and-display-values-example',
+    imports: [
+        MatFormField,
+        AsyncPipe,
+        MatAutocomplete,
+        MatAutocompleteTrigger,
+        ReactiveFormsModule,
+        MatOption,
+        MatInput,
+        MatLabel
+    ],
+    templateUrl: './separate-controls-and-display-values-example.component.html',
+    styleUrl: './separate-controls-and-display-values-example.component.scss'
 })
 export class SeparateControlsAndDisplayValuesExampleComponent {
   myControl = new FormControl<string | User>('');

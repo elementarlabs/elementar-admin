@@ -17,28 +17,27 @@ import {
 } from '@elementar/store/widgets';
 
 @Component({
-  standalone: true,
-  imports: [
-    DecimalPipe,
-    MatButton,
-    MatIcon,
-    IconComponent,
-    MatRipple,
-    RouterLink,
-    AvgClickRateWidgetComponent,
-    AvgOpenRateWidgetComponent,
-    EventsWidgetComponent,
-    TasksInProgressWidgetComponent,
-    TeamWidgetComponent,
-    TodosWidgetComponent,
-    TotalProjectsWidgetComponent,
-    TotalSubscribersWidgetComponent,
-    TotalTasksWidgetComponent,
-    UniqueVisitorsWidgetComponent,
-    TransactionsWidgetComponent
-  ],
-  templateUrl: './finance.component.html',
-  styleUrl: './finance.component.scss'
+    imports: [
+        DecimalPipe,
+        MatButton,
+        MatIcon,
+        IconComponent,
+        MatRipple,
+        RouterLink,
+        AvgClickRateWidgetComponent,
+        AvgOpenRateWidgetComponent,
+        EventsWidgetComponent,
+        TasksInProgressWidgetComponent,
+        TeamWidgetComponent,
+        TodosWidgetComponent,
+        TotalProjectsWidgetComponent,
+        TotalSubscribersWidgetComponent,
+        TotalTasksWidgetComponent,
+        UniqueVisitorsWidgetComponent,
+        TransactionsWidgetComponent
+    ],
+    templateUrl: './finance.component.html',
+    styleUrl: './finance.component.scss'
 })
 export class FinanceComponent {
   totalBalance = 2136;

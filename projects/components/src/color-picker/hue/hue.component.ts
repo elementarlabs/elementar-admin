@@ -12,11 +12,12 @@ import { BaseComponent } from '../base.component';
 import { Color } from '../helpers/color';
 
 @Component({
-  selector: 'emr-hue',
-  exportAs: 'emrHue',
-  templateUrl: './hue.component.html',
-  styleUrls: ['./hue.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'emr-hue',
+    exportAs: 'emrHue',
+    templateUrl: './hue.component.html',
+    styleUrls: ['./hue.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class HueComponent extends BaseComponent implements OnChanges {
   @ViewChild('pointer', { static: true })

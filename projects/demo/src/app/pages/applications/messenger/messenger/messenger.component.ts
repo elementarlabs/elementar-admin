@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -81,7 +81,6 @@ interface MessengerMember {
 
 @Component({
   selector: 'app-messenger',
-  standalone: true,
   imports: [
     ImageViewerPictureDirective,
     MatInput,
@@ -114,16 +113,13 @@ interface MessengerMember {
     MatExpansionPanel,
     MatAccordion,
     MatExpansionPanelTitle,
-    MatExpansionPanelDescription,
     MatExpansionPanelHeader,
     MatButton,
-    MatDivider,
     MatMenu,
     MatMenuItem,
     MatMenuTrigger,
     ImageViewerPictureDirective,
     ImageViewerDirective,
-    VDividerComponent,
     HDividerComponent
   ],
   templateUrl: './messenger.component.html',

@@ -3,17 +3,16 @@ import { AngularNodeViewComponent } from '../angular-node-view.component';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'emr-image-uploading-placeholder',
-  standalone: true,
-  imports: [
-    MatProgressSpinner
-  ],
-  templateUrl: './image-uploading-placeholder.component.html',
-  styleUrl: './image-uploading-placeholder.component.scss',
-  host: {
-    'class': 'emr-image-uploading-placeholder',
-    '[class.selected]': 'selected'
-  }
+    selector: 'emr-image-uploading-placeholder',
+    imports: [
+        MatProgressSpinner
+    ],
+    templateUrl: './image-uploading-placeholder.component.html',
+    styleUrl: './image-uploading-placeholder.component.scss',
+    host: {
+        'class': 'emr-image-uploading-placeholder',
+        '[class.selected]': 'selected'
+    }
 })
 export class ImageUploadingPlaceholderComponent extends AngularNodeViewComponent implements OnInit, OnDestroy {
   protected src: string;

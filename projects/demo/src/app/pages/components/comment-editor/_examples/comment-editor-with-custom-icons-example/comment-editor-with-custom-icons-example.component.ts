@@ -21,7 +21,6 @@ import {
   CommentEditorCommandToggleToolbarDirective,
   CommentEditorFooterBarComponent
 } from '@elementar/components/comment-editor';
-import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SafeHtmlPipe } from '@elementar/components/core';
@@ -29,7 +28,6 @@ import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-comment-editor-with-custom-icons-example',
-  standalone: true,
   imports: [
     CommentEditorDividerComponent,
     CommentEditorCommandBlockquoteDirective,
@@ -43,7 +41,6 @@ import { IconComponent } from '@elementar/components/icon';
     CommentEditorCommandStrikeDirective,
     CommentEditorCommandYoutubeDirective,
     CommentEditorComponent,
-    MatIcon,
     MatIconButton,
     MatTooltip,
     SafeHtmlPipe,

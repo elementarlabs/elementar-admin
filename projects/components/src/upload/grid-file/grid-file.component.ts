@@ -5,16 +5,15 @@ import { EmrGaugeModule } from '../../gauge';
 import { UploadFileState } from '../properties';
 
 @Component({
-  selector: 'emr-grid-file',
-  exportAs: 'emrGridFile',
-  standalone: true,
-  imports: [
-    MatIcon,
-    EmrGaugeModule,
-    MatIconButton
-  ],
-  templateUrl: './grid-file.component.html',
-  styleUrl: './grid-file.component.scss'
+    selector: 'emr-grid-file',
+    exportAs: 'emrGridFile',
+    imports: [
+        MatIcon,
+        EmrGaugeModule,
+        MatIconButton
+    ],
+    templateUrl: './grid-file.component.html',
+    styleUrl: './grid-file.component.scss'
 })
 export class GridFileComponent {
   @Input()

@@ -1,13 +1,14 @@
 import { Component, ElementRef, inject, Input, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'emr-panel-header',
-  exportAs: 'emrPanelHeader',
-  templateUrl: './panel-header.component.html',
-  styleUrls: ['./panel-header.component.scss'],
-  host: {
-    'class': 'emr-panel-header'
-  }
+    selector: 'emr-panel-header',
+    exportAs: 'emrPanelHeader',
+    templateUrl: './panel-header.component.html',
+    styleUrls: ['./panel-header.component.scss'],
+    host: {
+        'class': 'emr-panel-header'
+    },
+    standalone: false
 })
 export class PanelHeaderComponent implements OnDestroy {
   private _elementRef = inject(ElementRef);

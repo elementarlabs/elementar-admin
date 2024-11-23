@@ -2,13 +2,14 @@ import { booleanAttribute, Component, ElementRef, inject, Input, Renderer2 } fro
 import { AnnouncementType } from '../types';
 
 @Component({
-  selector: 'emr-announcement',
-  exportAs: 'emrAnnouncement',
-  templateUrl: './announcement.component.html',
-  styleUrl: './announcement.component.scss',
-  host: {
-    'class': 'emr-announcement'
-  }
+    selector: 'emr-announcement',
+    exportAs: 'emrAnnouncement',
+    templateUrl: './announcement.component.html',
+    styleUrl: './announcement.component.scss',
+    host: {
+        'class': 'emr-announcement'
+    },
+    standalone: false
 })
 export class AnnouncementComponent {
   private _elementRef = inject(ElementRef);

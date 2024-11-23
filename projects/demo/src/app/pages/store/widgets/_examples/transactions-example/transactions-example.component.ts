@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { Transaction, TransactionsWidgetComponent } from '@elementar/store/widgets';
 
 @Component({
-  selector: 'app-transactions-example',
-  standalone: true,
-  imports: [
-    TransactionsWidgetComponent
-  ],
-  templateUrl: './transactions-example.component.html',
-  styleUrl: './transactions-example.component.scss'
+    selector: 'app-transactions-example',
+    imports: [
+        TransactionsWidgetComponent
+    ],
+    templateUrl: './transactions-example.component.html',
+    styleUrl: './transactions-example.component.scss'
 })
 export class TransactionsExampleComponent {
   transactions: Transaction[] = [

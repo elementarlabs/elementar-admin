@@ -24,15 +24,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-fixed-columns-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatIconModule,
-    MatIconButton
-  ],
-  templateUrl: './table-with-fixed-columns-example.component.html',
-  styleUrl: './table-with-fixed-columns-example.component.scss'
+    selector: 'app-table-with-fixed-columns-example',
+    imports: [
+        MatTableModule,
+        MatIconModule,
+        MatIconButton
+    ],
+    templateUrl: './table-with-fixed-columns-example.component.html',
+    styleUrl: './table-with-fixed-columns-example.component.scss'
 })
 export class TableWithFixedColumnsExampleComponent {
   displayedColumns = [

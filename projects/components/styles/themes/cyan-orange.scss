@@ -1,18 +1,21 @@
 @use '@angular/material' as mat;
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 $m3-light-theme: mat.define-theme((
   color: (
     theme-type: light,
     primary: mat.$cyan-palette,
     tertiary: mat.$orange-palette,
-    use-system-variables: true
+    use-system-variables: true,
+    system-variables-prefix: sys,
   ),
   typography: (
     brand-family: '"Open Sans", sans-serif',
     plain-family: '"Open Sans", sans-serif',
     use-system-variables: true,
+    system-variables-prefix: sys,
   ),
   density: (
     scale: 0,
@@ -24,12 +27,14 @@ $m3-dark-theme: mat.define-theme((
     theme-type: dark,
     primary: mat.$cyan-palette,
     tertiary: mat.$orange-palette,
-    use-system-variables: true
+    use-system-variables: true,
+    system-variables-prefix: sys,
   ),
   typography: (
     brand-family: '"Open Sans", sans-serif',
     plain-family: '"Open Sans", sans-serif',
     use-system-variables: true,
+    system-variables-prefix: sys,
   ),
   density: (
     scale: 0,

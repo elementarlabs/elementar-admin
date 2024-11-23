@@ -17,28 +17,27 @@ import { SidebarComponent } from '../@app/sidebar/sidebar.component';
 import { HeaderComponent } from '../@app/header/header.component';
 
 @Component({
-  selector: 'app-common',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    LayoutBodyComponent,
-    LayoutComponent,
-    LayoutHeaderComponent,
-    LayoutSidebarComponent,
-    SidebarComponent,
-    AvatarComponent,
-    EmrPanelModule,
-    EmrTabPanelModule,
-    HDividerComponent,
-    IconComponent,
-    MatTab,
-    MatTabGroup,
-    MatTooltip,
-    RouterLink
-  ],
-  templateUrl: './common.component.html',
-  styleUrl: './common.component.scss'
+    selector: 'app-common',
+    imports: [
+        RouterOutlet,
+        HeaderComponent,
+        LayoutBodyComponent,
+        LayoutComponent,
+        LayoutHeaderComponent,
+        LayoutSidebarComponent,
+        SidebarComponent,
+        AvatarComponent,
+        EmrPanelModule,
+        EmrTabPanelModule,
+        HDividerComponent,
+        IconComponent,
+        MatTab,
+        MatTabGroup,
+        MatTooltip,
+        RouterLink
+    ],
+    templateUrl: './common.component.html',
+    styleUrl: './common.component.scss'
 })
 export class CommonComponent {
 

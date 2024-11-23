@@ -24,14 +24,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-selection-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatCheckboxModule
-  ],
-  templateUrl: './table-with-selection-example.component.html',
-  styleUrl: './table-with-selection-example.component.scss'
+    selector: 'app-table-with-selection-example',
+    imports: [
+        MatTableModule,
+        MatCheckboxModule
+    ],
+    templateUrl: './table-with-selection-example.component.html',
+    styleUrl: './table-with-selection-example.component.scss'
 })
 export class TableWithSelectionExampleComponent {
   displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];

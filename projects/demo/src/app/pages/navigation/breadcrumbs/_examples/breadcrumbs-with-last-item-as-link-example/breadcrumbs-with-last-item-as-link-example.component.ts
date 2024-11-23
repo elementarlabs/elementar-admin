@@ -3,15 +3,14 @@ import { BreadcrumbItemIconDirective, EmrBreadcrumbsModule } from '@elementar/co
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-breadcrumbs-with-last-item-as-link-example',
-  standalone: true,
-  imports: [
-    EmrBreadcrumbsModule,
-    BreadcrumbItemIconDirective,
-    MatIcon
-  ],
-  templateUrl: './breadcrumbs-with-last-item-as-link-example.component.html',
-  styleUrl: './breadcrumbs-with-last-item-as-link-example.component.scss'
+    selector: 'app-breadcrumbs-with-last-item-as-link-example',
+    imports: [
+        EmrBreadcrumbsModule,
+        BreadcrumbItemIconDirective,
+        MatIcon
+    ],
+    templateUrl: './breadcrumbs-with-last-item-as-link-example.component.html',
+    styleUrl: './breadcrumbs-with-last-item-as-link-example.component.scss'
 })
 export class BreadcrumbsWithLastItemAsLinkExampleComponent {
 

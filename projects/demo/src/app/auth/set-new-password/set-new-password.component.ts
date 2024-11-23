@@ -9,23 +9,22 @@ import { MatInput } from '@angular/material/input';
 import { PasswordStrengthModule } from '@elementar/components/password-strength';
 
 @Component({
-  selector: 'app-set-new-password',
-  standalone: true,
-  imports: [
-    MatIcon,
-    RouterLink,
-    EmrPinInputModule,
-    FormsModule,
-    MatButton,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule,
-    PasswordStrengthModule,
-    MatHint
-  ],
-  templateUrl: './set-new-password.component.html',
-  styleUrl: './set-new-password.component.scss'
+    selector: 'app-set-new-password',
+    imports: [
+        MatIcon,
+        RouterLink,
+        EmrPinInputModule,
+        FormsModule,
+        MatButton,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule,
+        PasswordStrengthModule,
+        MatHint
+    ],
+    templateUrl: './set-new-password.component.html',
+    styleUrl: './set-new-password.component.scss'
 })
 export class SetNewPasswordComponent {
   private _router = inject(Router);

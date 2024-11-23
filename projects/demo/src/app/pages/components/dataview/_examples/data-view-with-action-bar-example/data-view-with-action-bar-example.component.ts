@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import {
   DataViewActionBarComponent,
-  DataViewActionBarDirective,
   DataViewColumnDef,
   DataViewComponent
 } from '@elementar/components/data-view';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { DicebearComponent } from '@elementar/components/avatar';
-import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 export interface PeriodicElement {
@@ -28,15 +25,11 @@ const DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-data-view-with-action-bar-example',
-  standalone: true,
   imports: [
     DataViewComponent,
-    DataViewActionBarDirective,
     MatButton,
     MatIconButton,
     MatIcon,
-    DicebearComponent,
-    MatDivider,
     MatMenu,
     MatMenuItem,
     MatMenuTrigger,

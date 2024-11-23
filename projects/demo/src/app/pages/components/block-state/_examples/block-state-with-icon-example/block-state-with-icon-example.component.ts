@@ -8,7 +8,6 @@ import {
 
 @Component({
   selector: 'app-block-state-with-icon-example',
-  standalone: true,
   imports: [
     BlockStateComponent,
     BlockStateContentComponent,

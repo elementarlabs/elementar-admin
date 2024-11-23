@@ -5,15 +5,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-configurable-snackbar-example',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    MatButtonModule
-  ],
-  templateUrl: './configurable-snackbar-example.component.html',
-  styleUrl: './configurable-snackbar-example.component.scss'
+    selector: 'app-configurable-snackbar-example',
+    imports: [
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule
+    ],
+    templateUrl: './configurable-snackbar-example.component.html',
+    styleUrl: './configurable-snackbar-example.component.scss'
 })
 export class ConfigurableSnackbarExampleComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';

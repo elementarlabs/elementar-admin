@@ -24,7 +24,6 @@ import {
 import {
   PurchasesByChannelsExampleComponent
 } from '../_examples/purchases-by-channels-example/purchases-by-channels-example.component';
-import { RecentActivityExampleComponent } from '../_examples/recent-activity-example/recent-activity-example.component';
 import { SiteVisitorsExampleComponent } from '../_examples/site-visitors-example/site-visitors-example.component';
 import {
   TasksInProgressExampleComponent
@@ -44,7 +43,6 @@ import { VisitDurationExampleComponent } from '../_examples/visit-duration-examp
 import { VisitInsightsExampleComponent } from '../_examples/visit-insights-example/visit-insights-example.component';
 
 @Component({
-  standalone: true,
   imports: [
     PageComponent,
     PageContentDirective,
@@ -60,7 +58,6 @@ import { VisitInsightsExampleComponent } from '../_examples/visit-insights-examp
     MyInvestmentsExampleComponent,
     PaymentInformationExampleComponent,
     PurchasesByChannelsExampleComponent,
-    RecentActivityExampleComponent,
     SiteVisitorsExampleComponent,
     TasksInProgressExampleComponent,
     TeamExampleComponent,

@@ -1,22 +1,12 @@
 import { Component } from '@angular/core';
-import { MatDivider } from '@angular/material/divider';
-import { AsyncPipe } from '@angular/common';
-import { MatBadge } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { MatTooltip } from '@angular/material/tooltip';
+import { MatButton } from '@angular/material/button';
 import { DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
   selector: 'emr-sidebar-toolbar-a',
-  standalone: true,
   imports: [
-    MatDivider,
-    AsyncPipe,
-    MatBadge,
     MatIcon,
-    MatIconButton,
-    MatTooltip,
     MatButton,
     DicebearComponent
   ],

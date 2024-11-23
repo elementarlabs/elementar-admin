@@ -7,23 +7,22 @@ import { MatIconButton } from '@angular/material/button';
 import { ThumbnailMakerApi } from '../types';
 
 @Component({
-  selector: 'emr-thumbnail-maker',
-  exportAs: 'emrThumbnailMaker',
-  standalone: true,
-  imports: [
-    MatSlider,
-    MatSliderThumb,
-    FormsModule,
-    DragImageDirective,
-    MatIcon,
-    MatIconButton
-  ],
-  templateUrl: './thumbnail-maker.component.html',
-  styleUrl: './thumbnail-maker.component.scss',
-  host: {
-    'class': 'emr-thumbnail-maker',
-    '[class.loading]': 'loading'
-  }
+    selector: 'emr-thumbnail-maker',
+    exportAs: 'emrThumbnailMaker',
+    imports: [
+        MatSlider,
+        MatSliderThumb,
+        FormsModule,
+        DragImageDirective,
+        MatIcon,
+        MatIconButton
+    ],
+    templateUrl: './thumbnail-maker.component.html',
+    styleUrl: './thumbnail-maker.component.scss',
+    host: {
+        'class': 'emr-thumbnail-maker',
+        '[class.loading]': 'loading'
+    }
 })
 export class ThumbnailMakerComponent {
   private _content = viewChild.required<ElementRef>('content');

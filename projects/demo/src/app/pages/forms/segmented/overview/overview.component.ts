@@ -15,20 +15,19 @@ import {
 } from '../_examples/segmented-icons-only-example/segmented-icons-only-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicSegmentedExampleComponent,
-    SegmentedSizesExampleComponent,
-    SegmentedDisabledExampleComponent,
-    SegmentedWithIconsExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    SegmentedIconsOnlyExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        BasicSegmentedExampleComponent,
+        SegmentedSizesExampleComponent,
+        SegmentedDisabledExampleComponent,
+        SegmentedWithIconsExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        SegmentedIconsOnlyExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

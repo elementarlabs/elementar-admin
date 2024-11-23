@@ -8,16 +8,15 @@ import {
 } from '../_examples/confirm-form-modal-example/confirm-form-modal-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicConfirmExampleComponent,
-    ConfirmFormModalExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicConfirmExampleComponent,
+        ConfirmFormModalExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

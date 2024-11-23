@@ -16,18 +16,17 @@ import {
 } from '../_examples/block-state-with-actions-example/block-state-with-actions-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicBlockStateExampleComponent,
-    BlockStateWithImageExampleComponent,
-    BlockStateWithIconExampleComponent,
-    BlockStateWithActionsExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicBlockStateExampleComponent,
+        BlockStateWithImageExampleComponent,
+        BlockStateWithIconExampleComponent,
+        BlockStateWithActionsExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

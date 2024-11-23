@@ -8,22 +8,21 @@ import {
 import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } from '../types';
 
 @Component({
-  selector: 'emr-carousel',
-  exportAs: 'emrCarousel',
-  standalone: true,
-  imports: [],
-  providers: [
-    {
-      provide: CAROUSEL,
-      useExisting: CarouselComponent
+    selector: 'emr-carousel',
+    exportAs: 'emrCarousel',
+    imports: [],
+    providers: [
+        {
+            provide: CAROUSEL,
+            useExisting: CarouselComponent
+        }
+    ],
+    templateUrl: './carousel.component.html',
+    styleUrl: './carousel.component.scss',
+    host: {
+        'class': 'emr-carousel',
+        '[class.fade]': 'fade()',
     }
-  ],
-  templateUrl: './carousel.component.html',
-  styleUrl: './carousel.component.scss',
-  host: {
-    'class': 'emr-carousel',
-    '[class.fade]': 'fade()',
-  }
 })
 export class CarouselComponent {
   private _content = viewChild<ElementRef>('content');

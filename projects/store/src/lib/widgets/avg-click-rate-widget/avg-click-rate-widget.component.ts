@@ -5,15 +5,14 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-avg-click-rate-widget',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatRipple,
-    MatTooltip
-  ],
-  templateUrl: './avg-click-rate-widget.component.html',
-  styleUrl: './avg-click-rate-widget.component.scss'
+    selector: 'emr-avg-click-rate-widget',
+    imports: [
+        MatIcon,
+        MatRipple,
+        MatTooltip
+    ],
+    templateUrl: './avg-click-rate-widget.component.html',
+    styleUrl: './avg-click-rate-widget.component.scss'
 })
 export class AvgClickRateWidgetComponent implements OnInit {
   private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });

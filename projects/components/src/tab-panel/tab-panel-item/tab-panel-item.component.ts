@@ -5,17 +5,18 @@ import { TAB_PANEL_NAV } from '../types';
 import { MatRipple } from '@angular/material/core';
 
 @Component({
-  selector: 'emr-tab-panel-item',
-  exportAs: 'emrTabPanelItem',
-  templateUrl: './tab-panel-item.component.html',
-  styleUrls: ['tab-panel-item.component.scss'],
-  hostDirectives: [
-    MatRipple
-  ],
-  host: {
-    'class': 'emr-tab-panel-item',
-    '[class.is-active]': 'api.isActive(this.for)',
-  }
+    selector: 'emr-tab-panel-item',
+    exportAs: 'emrTabPanelItem',
+    templateUrl: './tab-panel-item.component.html',
+    styleUrls: ['tab-panel-item.component.scss'],
+    hostDirectives: [
+        MatRipple
+    ],
+    host: {
+        'class': 'emr-tab-panel-item',
+        '[class.is-active]': 'api.isActive(this.for)',
+    },
+    standalone: false
 })
 export class TabPanelItemComponent {
   readonly api = inject(TabPanelApiService);

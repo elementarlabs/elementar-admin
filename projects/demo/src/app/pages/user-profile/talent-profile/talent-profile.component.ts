@@ -12,18 +12,17 @@ interface Person {
 }
 
 @Component({
-  standalone: true,
-  imports: [
-    MatButton,
-    MatIcon,
-    MatIconButton,
-    MatTooltip,
-    IconComponent,
-    MatAnchor,
-    AvatarComponent
-  ],
-  templateUrl: './talent-profile.component.html',
-  styleUrl: './talent-profile.component.scss'
+    imports: [
+        MatButton,
+        MatIcon,
+        MatIconButton,
+        MatTooltip,
+        IconComponent,
+        MatAnchor,
+        AvatarComponent
+    ],
+    templateUrl: './talent-profile.component.html',
+    styleUrl: './talent-profile.component.scss'
 })
 export class TalentProfileComponent {
   followed = false;

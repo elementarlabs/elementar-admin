@@ -16,18 +16,17 @@ import {
 } from '../_examples/image-viewer-with-title-example/image-viewer-with-title-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    BasicFilterBuilderExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicImageViewerExampleComponent,
-    ImageViewerWithCaptionAndDescriptionExampleComponent,
-    ImageViewerWithTitleExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        BasicFilterBuilderExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicImageViewerExampleComponent,
+        ImageViewerWithCaptionAndDescriptionExampleComponent,
+        ImageViewerWithTitleExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

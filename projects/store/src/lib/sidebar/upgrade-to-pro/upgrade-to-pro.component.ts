@@ -4,16 +4,15 @@ import { MatIcon } from '@angular/material/icon';
 import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
-  selector: 'emr-sidebar-upgrade-to-pro',
-  exportAs: 'appSidebarUpgradeToPro',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatIcon,
-    AvatarComponent
-  ],
-  templateUrl: './upgrade-to-pro.component.html',
-  styleUrl: './upgrade-to-pro.component.scss'
+    selector: 'emr-sidebar-upgrade-to-pro',
+    exportAs: 'appSidebarUpgradeToPro',
+    imports: [
+        MatButton,
+        MatIcon,
+        AvatarComponent
+    ],
+    templateUrl: './upgrade-to-pro.component.html',
+    styleUrl: './upgrade-to-pro.component.scss'
 })
 export class UpgradeToProComponent {
 

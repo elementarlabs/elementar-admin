@@ -24,14 +24,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-sort-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatSortModule
-  ],
-  templateUrl: './table-with-sort-example.component.html',
-  styleUrl: './table-with-sort-example.component.scss'
+    selector: 'app-table-with-sort-example',
+    imports: [
+        MatTableModule,
+        MatSortModule
+    ],
+    templateUrl: './table-with-sort-example.component.html',
+    styleUrl: './table-with-sort-example.component.scss'
 })
 export class TableWithSortExampleComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];

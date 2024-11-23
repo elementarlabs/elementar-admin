@@ -17,19 +17,18 @@ export interface Fruit {
 }
 
 @Component({
-  selector: 'app-chips-with-input-example',
-  standalone: true,
-  imports: [
-    MatLabel,
-    MatFormField,
-    MatChipGrid,
-    MatChipInput,
-    MatIcon,
-    MatChipRemove,
-    MatChipRow
-  ],
-  templateUrl: './chips-with-input-example.component.html',
-  styleUrl: './chips-with-input-example.component.scss'
+    selector: 'app-chips-with-input-example',
+    imports: [
+        MatLabel,
+        MatFormField,
+        MatChipGrid,
+        MatChipInput,
+        MatIcon,
+        MatChipRemove,
+        MatChipRow
+    ],
+    templateUrl: './chips-with-input-example.component.html',
+    styleUrl: './chips-with-input-example.component.scss'
 })
 export class ChipsWithInputExampleComponent {
   addOnBlur = true;

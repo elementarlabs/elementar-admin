@@ -20,20 +20,19 @@ import {
 } from '../_examples/used-space-widget-example/used-space-widget-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    GoToPremiumWidgetExampleComponent,
-    ToolbarWidgetExampleComponent,
-    ToolbarAWidgetExampleComponent,
-    UpgradeNowWidgetExampleComponent,
-    UpgradeToProWidgetExampleComponent,
-    UsedSpaceWidgetExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        GoToPremiumWidgetExampleComponent,
+        ToolbarWidgetExampleComponent,
+        ToolbarAWidgetExampleComponent,
+        UpgradeNowWidgetExampleComponent,
+        UpgradeToProWidgetExampleComponent,
+        UsedSpaceWidgetExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

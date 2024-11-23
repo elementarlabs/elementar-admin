@@ -23,27 +23,26 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatInput,
-    MatAutocompleteTrigger,
-    MatAutocomplete,
-    MatOption,
-    ReactiveFormsModule,
-    PlaygroundComponent,
-    MatLabel,
-    AsyncPipe,
-    AutocompleteFilterExampleComponent,
-    SimpleAutocompleteExampleComponent,
-    SeparateControlsAndDisplayValuesExampleComponent,
-    AutoHighlightFirstPersonExampleComponent,
-    OptionGroupsExampleComponent,
-    PageComponent,
-    PageContentDirective
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        MatFormField,
+        MatInput,
+        MatAutocompleteTrigger,
+        MatAutocomplete,
+        MatOption,
+        ReactiveFormsModule,
+        PlaygroundComponent,
+        MatLabel,
+        AsyncPipe,
+        AutocompleteFilterExampleComponent,
+        SimpleAutocompleteExampleComponent,
+        SeparateControlsAndDisplayValuesExampleComponent,
+        AutoHighlightFirstPersonExampleComponent,
+        OptionGroupsExampleComponent,
+        PageComponent,
+        PageContentDirective
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
   myControl = new FormControl('');

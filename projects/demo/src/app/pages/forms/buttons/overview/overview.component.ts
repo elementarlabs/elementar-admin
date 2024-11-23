@@ -29,36 +29,35 @@ import {
 } from '../_examples/buttons-extended-fab-example/buttons-extended-fab-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    MatButton,
-    MatAnchor,
-    MatIconButton,
-    MatIcon,
-    MatFabButton,
-    MatMiniFabButton,
-    EmrScrollSpyModule,
-    SimpleAutocompleteExampleComponent,
-    BasicButtonsExampleComponent,
-    RaisedButtonsExampleComponent,
-    StrokedButtonsExampleComponent,
-    FlatButtonsExampleComponent,
-    IconButtonsExampleComponent,
-    FabButtonsExampleComponent,
-    MiniFabButtonsExampleComponent,
-    ButtonLoadingExampleComponent,
-    EmrBreadcrumbsModule,
-    RouterLink,
-    PageComponent,
-    PageContentDirective,
-    PageAsideDirective,
-    ButtonsWithInteractiveDisabledExampleComponent,
-    ButtonsExtendedFabExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        MatButton,
+        MatAnchor,
+        MatIconButton,
+        MatIcon,
+        MatFabButton,
+        MatMiniFabButton,
+        EmrScrollSpyModule,
+        SimpleAutocompleteExampleComponent,
+        BasicButtonsExampleComponent,
+        RaisedButtonsExampleComponent,
+        StrokedButtonsExampleComponent,
+        FlatButtonsExampleComponent,
+        IconButtonsExampleComponent,
+        FabButtonsExampleComponent,
+        MiniFabButtonsExampleComponent,
+        ButtonLoadingExampleComponent,
+        EmrBreadcrumbsModule,
+        RouterLink,
+        PageComponent,
+        PageContentDirective,
+        PageAsideDirective,
+        ButtonsWithInteractiveDisabledExampleComponent,
+        ButtonsExtendedFabExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

@@ -17,21 +17,20 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-basic',
-  standalone: true,
-  imports: [
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    MatButton,
-    FormsModule,
-    MatInput,
-    MatFormField,
-    MatLabel
-  ],
-  templateUrl: './basic.dialog.html',
-  styleUrl: './basic.dialog.scss'
+    selector: 'app-basic',
+    imports: [
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
+        MatButton,
+        FormsModule,
+        MatInput,
+        MatFormField,
+        MatLabel
+    ],
+    templateUrl: './basic.dialog.html',
+    styleUrl: './basic.dialog.scss'
 })
 export class BasicDialog {
   constructor(

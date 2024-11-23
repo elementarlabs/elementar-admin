@@ -8,16 +8,15 @@ import {
 } from '../_examples/rail-nav-customization-example/rail-nav-customization-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicRailNavExampleComponent,
-    RailNavCustomizationExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicRailNavExampleComponent,
+        RailNavCustomizationExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

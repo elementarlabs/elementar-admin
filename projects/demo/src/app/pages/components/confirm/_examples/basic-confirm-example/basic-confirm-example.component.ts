@@ -4,13 +4,12 @@ import { ConfirmManager } from '@elementar/components/confirm';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-basic-confirm-example',
-  standalone: true,
-  imports: [
-    MatButton
-  ],
-  templateUrl: './basic-confirm-example.component.html',
-  styleUrl: './basic-confirm-example.component.scss'
+    selector: 'app-basic-confirm-example',
+    imports: [
+        MatButton
+    ],
+    templateUrl: './basic-confirm-example.component.html',
+    styleUrl: './basic-confirm-example.component.scss'
 })
 export class BasicConfirmExampleComponent {
   private _snackBar = inject(MatSnackBar);

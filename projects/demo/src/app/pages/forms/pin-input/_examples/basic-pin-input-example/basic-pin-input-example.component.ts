@@ -3,15 +3,13 @@ import { EmrPinInputModule } from '@elementar/components/pin-input';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-basic-pin-input-example',
-  standalone: true,
-  imports: [
-    EmrPinInputModule,
-    FormsModule
-
-  ],
-  templateUrl: './basic-pin-input-example.component.html',
-  styleUrl: './basic-pin-input-example.component.scss'
+    selector: 'app-basic-pin-input-example',
+    imports: [
+        EmrPinInputModule,
+        FormsModule
+    ],
+    templateUrl: './basic-pin-input-example.component.html',
+    styleUrl: './basic-pin-input-example.component.scss'
 })
 export class BasicPinInputExampleComponent {
   value = '';

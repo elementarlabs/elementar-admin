@@ -15,14 +15,15 @@ import { Color } from '../helpers/color';
 import { BaseComponent } from '../base.component';
 
 @Component({
-  selector: 'emr-saturation',
-  exportAs: 'emrSaturation',
-  templateUrl: './saturation.component.html',
-  styleUrls: ['./saturation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'emr-saturation'
-  }
+    selector: 'emr-saturation',
+    exportAs: 'emrSaturation',
+    templateUrl: './saturation.component.html',
+    styleUrls: ['./saturation.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'emr-saturation'
+    },
+    standalone: false
 })
 export class SaturationComponent extends BaseComponent {
   @Input()

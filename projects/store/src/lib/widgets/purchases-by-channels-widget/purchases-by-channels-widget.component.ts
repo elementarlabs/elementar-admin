@@ -1,7 +1,4 @@
 import { afterNextRender, Component, ElementRef, inject, input, OnDestroy, ViewChild } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { MatRipple } from '@angular/material/core';
-import { MatTooltip } from '@angular/material/tooltip';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import {
@@ -18,11 +15,7 @@ import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-purchases-by-channels-widget',
-  standalone: true,
   imports: [
-    MatIcon,
-    MatRipple,
-    MatTooltip
   ],
   templateUrl: './purchases-by-channels-widget.component.html',
   styleUrl: './purchases-by-channels-widget.component.scss'

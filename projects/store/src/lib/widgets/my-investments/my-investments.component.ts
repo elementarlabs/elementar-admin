@@ -1,18 +1,15 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
-import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { MatList, MatListItem } from '@angular/material/list';
 import { DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
   selector: 'emr-my-investments',
-  standalone: true,
   imports: [
     MatIcon,
     MatRipple,
-    MatTooltip,
     RouterLink,
     MatListItem,
     MatList

@@ -3,15 +3,14 @@ import { CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk
 import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-sortable-tabs-example',
-  standalone: true,
-  imports: [
-    CdkDrag,
-    CdkDropList,
-    MatTabsModule
-  ],
-  templateUrl: './sortable-tabs-example.component.html',
-  styleUrl: './sortable-tabs-example.component.scss'
+    selector: 'app-sortable-tabs-example',
+    imports: [
+        CdkDrag,
+        CdkDropList,
+        MatTabsModule
+    ],
+    templateUrl: './sortable-tabs-example.component.html',
+    styleUrl: './sortable-tabs-example.component.scss'
 })
 export class SortableTabsExampleComponent {
   protected tabs = ['One', 'Two', 'Three', 'Four', 'Five'];

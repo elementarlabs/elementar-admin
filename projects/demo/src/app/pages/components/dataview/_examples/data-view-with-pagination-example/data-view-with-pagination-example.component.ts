@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
-import { JsonPipe } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 
 export interface PeriodicElement {
@@ -35,10 +34,8 @@ const DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-data-view-with-pagination-example',
-  standalone: true,
   imports: [
     DataViewComponent,
-    JsonPipe,
     MatPaginator
   ],
   templateUrl: './data-view-with-pagination-example.component.html',

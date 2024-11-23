@@ -27,7 +27,6 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 
 @Component({
   selector: 'app-comment-editor-with-max-content-height-example',
-  standalone: true,
   imports: [
     CommentEditorBubbleMenuComponent,
     CommentEditorCommandBlockquoteDirective,

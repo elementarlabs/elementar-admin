@@ -6,19 +6,18 @@ import { MatIconButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-clear-button-example',
-  standalone: true,
-  imports: [
-    MatFormField,
-    FormsModule,
-    MatIcon,
-    MatIconButton,
-    MatInput,
-    MatLabel,
-    MatSuffix
-  ],
-  templateUrl: './clear-button-example.component.html',
-  styleUrl: './clear-button-example.component.scss'
+    selector: 'app-clear-button-example',
+    imports: [
+        MatFormField,
+        FormsModule,
+        MatIcon,
+        MatIconButton,
+        MatInput,
+        MatLabel,
+        MatSuffix
+    ],
+    templateUrl: './clear-button-example.component.html',
+    styleUrl: './clear-button-example.component.scss'
 })
 export class ClearButtonExampleComponent {
   value = 'Clear me';

@@ -18,21 +18,20 @@ export const _filter = (opt: string[], value: string): string[] => {
 };
 
 @Component({
-  selector: 'app-option-groups-example',
-  standalone: true,
-  imports: [
-    MatFormField,
-    ReactiveFormsModule,
-    MatAutocompleteTrigger,
-    MatAutocomplete,
-    MatOptgroup,
-    MatOption,
-    AsyncPipe,
-    MatInput,
-    MatLabel
-  ],
-  templateUrl: './option-groups-example.component.html',
-  styleUrl: './option-groups-example.component.scss'
+    selector: 'app-option-groups-example',
+    imports: [
+        MatFormField,
+        ReactiveFormsModule,
+        MatAutocompleteTrigger,
+        MatAutocomplete,
+        MatOptgroup,
+        MatOption,
+        AsyncPipe,
+        MatInput,
+        MatLabel
+    ],
+    templateUrl: './option-groups-example.component.html',
+    styleUrl: './option-groups-example.component.scss'
 })
 export class OptionGroupsExampleComponent {
   stateForm = this._formBuilder.group({

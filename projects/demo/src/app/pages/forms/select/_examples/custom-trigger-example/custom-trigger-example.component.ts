@@ -4,7 +4,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-trigger-example',
-  standalone: true,
   imports: [
     MatSelect,
     MatLabel,

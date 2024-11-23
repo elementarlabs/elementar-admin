@@ -12,11 +12,9 @@ import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar/components/core';
-import { IconComponent } from '@elementar/components/icon';
 
 @Component({
   selector: 'app-file-grid-layout',
-  standalone: true,
   imports: [
     MatOption,
     MatSelect,
@@ -32,8 +30,7 @@ import { IconComponent } from '@elementar/components/icon';
     MatMenuItem,
     MatMenu,
     MatTooltip,
-    FormatFileSizePipe,
-    IconComponent
+    FormatFileSizePipe
   ],
   templateUrl: './file-grid-layout.component.html',
   styleUrl: './file-grid-layout.component.scss'

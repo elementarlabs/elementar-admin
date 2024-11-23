@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { VDividerComponent } from '@elementar/components/divider';
 import { AvatarComponent } from '@elementar/components/avatar';
 
 @Component({
-  standalone: true,
   imports: [
     MatButton,
     MatIcon,
-    VDividerComponent,
     AvatarComponent
   ],
   templateUrl: './my-profile.component.html',

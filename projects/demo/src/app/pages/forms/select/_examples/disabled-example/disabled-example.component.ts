@@ -7,7 +7,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-disabled-example',
-  standalone: true,
   imports: [
     MatCheckbox,
     MatFormField,

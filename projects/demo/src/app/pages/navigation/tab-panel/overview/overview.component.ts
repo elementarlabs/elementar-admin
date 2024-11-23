@@ -11,18 +11,17 @@ import {
 } from '../_examples/tab-panel-compact-example/tab-panel-compact-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    TabPanelWithPanelsInsideExampleComponent,
-    BasicTabPanelExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    TabPanelCompactExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        TabPanelWithPanelsInsideExampleComponent,
+        BasicTabPanelExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        TabPanelCompactExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

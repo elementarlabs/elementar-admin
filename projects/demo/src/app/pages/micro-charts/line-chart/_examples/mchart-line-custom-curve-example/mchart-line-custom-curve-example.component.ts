@@ -3,14 +3,13 @@ import { MchartLineComponent } from '@elementar/components/micro-chart';
 import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({
-  selector: 'app-mchart-line-custom-curve-example',
-  standalone: true,
-  imports: [
-    MchartLineComponent,
-    ShuffleArrayPipe
-  ],
-  templateUrl: './mchart-line-custom-curve-example.component.html',
-  styleUrl: './mchart-line-custom-curve-example.component.scss'
+    selector: 'app-mchart-line-custom-curve-example',
+    imports: [
+        MchartLineComponent,
+        ShuffleArrayPipe
+    ],
+    templateUrl: './mchart-line-custom-curve-example.component.html',
+    styleUrl: './mchart-line-custom-curve-example.component.scss'
 })
 export class MchartLineCustomCurveExampleComponent {
 

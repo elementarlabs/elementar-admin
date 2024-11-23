@@ -7,17 +7,16 @@ import { BasicDialog } from '../basic/basic.dialog';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-basic-dialog-example',
-  standalone: true,
-  imports: [
-    MatLabel,
-    FormsModule,
-    MatFormField,
-    MatButton,
-    MatInput
-  ],
-  templateUrl: './basic-dialog-example.component.html',
-  styleUrl: './basic-dialog-example.component.scss'
+    selector: 'app-basic-dialog-example',
+    imports: [
+        MatLabel,
+        FormsModule,
+        MatFormField,
+        MatButton,
+        MatInput
+    ],
+    templateUrl: './basic-dialog-example.component.html',
+    styleUrl: './basic-dialog-example.component.scss'
 })
 export class BasicDialogExampleComponent {
   animal: string;

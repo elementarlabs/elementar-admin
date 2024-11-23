@@ -6,16 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { HDividerComponent } from '@elementar/components/divider';
 
 @Component({
-  standalone: true,
-  imports: [
-    MatButton,
-    MatIcon,
-    MatSlideToggle,
-    FormsModule,
-    HDividerComponent
-  ],
-  templateUrl: './security.component.html',
-  styleUrl: './security.component.scss'
+    imports: [
+        MatButton,
+        MatIcon,
+        MatSlideToggle,
+        FormsModule,
+        HDividerComponent
+    ],
+    templateUrl: './security.component.html',
+    styleUrl: './security.component.scss'
 })
 export class SecurityComponent {
   securityProfile = {

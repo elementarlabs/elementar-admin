@@ -3,11 +3,12 @@ import { ALERT } from './alert.properties';
 import { AlertComponent } from './alert/alert.component';
 
 @Directive({
-  selector: '[emrAlertClose]',
-  exportAs: 'emrAlertClose',
-  host: {
-    'class': 'emr-alert-close'
-  }
+    selector: '[emrAlertClose]',
+    exportAs: 'emrAlertClose',
+    host: {
+        'class': 'emr-alert-close'
+    },
+    standalone: false
 })
 export class AlertCloseDirective {
   private _alert = inject<AlertComponent>(ALERT);

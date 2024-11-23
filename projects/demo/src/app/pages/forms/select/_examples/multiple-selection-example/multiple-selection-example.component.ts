@@ -5,7 +5,6 @@ import { MatLabel } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-multiple-selection-example',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatSelect,

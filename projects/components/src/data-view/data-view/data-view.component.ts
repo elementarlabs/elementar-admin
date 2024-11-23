@@ -34,35 +34,34 @@ import { DataViewActionBarDirective } from '@elementar/components/data-view/data
 import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
 
 @Component({
-  selector: 'emr-data-view',
-  exportAs: 'emrDataView',
-  standalone: true,
-  imports: [
-    MatCell,
-    MatCellDef,
-    MatCheckbox,
-    MatColumnDef,
-    MatHeaderCell,
-    MatHeaderRow,
-    MatHeaderRowDef,
-    MatRow,
-    MatRowDef,
-    MatTable,
-    MatHeaderCellDef,
-    MatSort,
-    MatSortHeader,
-    EmrSkeletonModule,
-    NgComponentOutlet,
-    NgTemplateOutlet,
-  ],
-  templateUrl: './data-view.component.html',
-  styleUrl: './data-view.component.scss',
-  host: {
-    'class': 'emr-data-view',
-    '[class.highlight-header]': 'highlightHeader()',
-    '[class.hover-rows]': 'hoverRows()',
-    '[class.is-loading]': 'loading()',
-  }
+    selector: 'emr-data-view',
+    exportAs: 'emrDataView',
+    imports: [
+        MatCell,
+        MatCellDef,
+        MatCheckbox,
+        MatColumnDef,
+        MatHeaderCell,
+        MatHeaderRow,
+        MatHeaderRowDef,
+        MatRow,
+        MatRowDef,
+        MatTable,
+        MatHeaderCellDef,
+        MatSort,
+        MatSortHeader,
+        EmrSkeletonModule,
+        NgComponentOutlet,
+        NgTemplateOutlet,
+    ],
+    templateUrl: './data-view.component.html',
+    styleUrl: './data-view.component.scss',
+    host: {
+        'class': 'emr-data-view',
+        '[class.highlight-header]': 'highlightHeader()',
+        '[class.hover-rows]': 'hoverRows()',
+        '[class.is-loading]': 'loading()',
+    }
 })
 export class DataViewComponent<T> implements OnInit, DataView {
   protected _emptyDataRef = contentChild(DataViewEmptyDataDirective);

@@ -12,7 +12,6 @@ interface PricingPlan {
 }
 
 @Component({
-  standalone: true,
   imports: [
     MatIcon,
     MatButton,

@@ -13,18 +13,17 @@ import {
 } from '../_examples/card-overlay-with-blur-example/card-overlay-with-blur-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicCardOverlayExampleComponent,
-    CardOverlayWithTranslateExampleComponent,
-    CardOverlayWithBlurExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicCardOverlayExampleComponent,
+        CardOverlayWithTranslateExampleComponent,
+        CardOverlayWithBlurExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

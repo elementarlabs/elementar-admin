@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import {
   BlockStateComponent,
-  BlockStateContentComponent, BlockStateImageComponent,
-  BlockStateTitleComponent
+  BlockStateContentComponent,
+  BlockStateImageComponent,
 } from '@elementar/components/block-state';
 
 @Component({
   selector: 'app-block-state-with-image-example',
-  standalone: true,
   imports: [
     BlockStateComponent,
     BlockStateContentComponent,
-    BlockStateTitleComponent,
-    BlockStateImageComponent,
-    MatIcon
+    BlockStateImageComponent
   ],
   templateUrl: './block-state-with-image-example.component.html',
   styleUrl: './block-state-with-image-example.component.scss'

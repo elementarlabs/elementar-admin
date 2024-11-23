@@ -6,18 +6,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-stepper-label-bottom-position-example',
-  standalone: true,
-  imports: [
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  templateUrl: './stepper-label-bottom-position-example.component.html',
-  styleUrl: './stepper-label-bottom-position-example.component.scss'
+    selector: 'app-stepper-label-bottom-position-example',
+    imports: [
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    templateUrl: './stepper-label-bottom-position-example.component.html',
+    styleUrl: './stepper-label-bottom-position-example.component.scss'
 })
 export class StepperLabelBottomPositionExampleComponent {
   firstFormGroup = this._formBuilder.group({

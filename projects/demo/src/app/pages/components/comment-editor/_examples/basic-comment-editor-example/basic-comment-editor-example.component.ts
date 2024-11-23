@@ -24,11 +24,9 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { UploadTriggerDirective } from '@elementar/components/upload';
 
 @Component({
   selector: 'app-basic-comment-editor-example',
-  standalone: true,
   imports: [
     CommentEditorComponent,
     CommentEditorDividerComponent,
@@ -45,7 +43,6 @@ import { UploadTriggerDirective } from '@elementar/components/upload';
     CommentEditorCommandOrderedListDirective,
     CommentEditorCommandBlockquoteDirective,
     CommentEditorCommandCodeBlockDirective,
-    UploadTriggerDirective,
     CommentEditorCommandImageDirective,
     CommentEditorCommandYoutubeDirective,
     CommentEditorToolbarComponent,

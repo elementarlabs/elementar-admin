@@ -13,22 +13,21 @@ import {
 } from '@elementar/components/command-bar';
 
 @Component({
-  selector: 'app-basic-command-bar-example',
-  standalone: true,
-  imports: [
-    MatCheckbox,
-    FormsModule,
-    MatFormField,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    ReactiveFormsModule,
-    CommandBarDividerComponent,
-    CommandBarComponent,
-    CommandBarCommandComponent
-  ],
-  templateUrl: './basic-command-bar-example.component.html',
-  styleUrl: './basic-command-bar-example.component.scss'
+    selector: 'app-basic-command-bar-example',
+    imports: [
+        MatCheckbox,
+        FormsModule,
+        MatFormField,
+        MatLabel,
+        MatOption,
+        MatSelect,
+        ReactiveFormsModule,
+        CommandBarDividerComponent,
+        CommandBarComponent,
+        CommandBarCommandComponent
+    ],
+    templateUrl: './basic-command-bar-example.component.html',
+    styleUrl: './basic-command-bar-example.component.scss'
 })
 export class BasicCommandBarExampleComponent implements OnInit {
   private _destroyRef = inject(DestroyRef);

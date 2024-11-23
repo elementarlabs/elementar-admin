@@ -25,22 +25,21 @@ import {
 } from '../_examples/navigation-with-badges-example/navigation-with-badges-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicNavigationExampleComponent,
-    NavigationWithHeadingExampleComponent,
-    NavigationWithDividerExampleComponent,
-    NavigationWithIconsExampleComponent,
-    NavigationWithNestedMenuExampleComponent,
-    NavigationSecondaryThemeExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    NavigationWithBadgesExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        BasicNavigationExampleComponent,
+        NavigationWithHeadingExampleComponent,
+        NavigationWithDividerExampleComponent,
+        NavigationWithIconsExampleComponent,
+        NavigationWithNestedMenuExampleComponent,
+        NavigationSecondaryThemeExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        NavigationWithBadgesExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

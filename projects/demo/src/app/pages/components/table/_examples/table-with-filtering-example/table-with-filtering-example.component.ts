@@ -24,15 +24,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-filtering-example',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule
-  ],
-  templateUrl: './table-with-filtering-example.component.html',
-  styleUrl: './table-with-filtering-example.component.scss'
+    selector: 'app-table-with-filtering-example',
+    imports: [
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule
+    ],
+    templateUrl: './table-with-filtering-example.component.html',
+    styleUrl: './table-with-filtering-example.component.scss'
 })
 export class TableWithFilteringExampleComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];

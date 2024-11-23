@@ -12,21 +12,20 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'emr-youtube',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatButton,
-    MatDialogActions,
-    MatDialogContent,
-    MatDialogTitle,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule
-  ],
-  templateUrl: './youtube.dialog.html',
-  styleUrl: './youtube.dialog.scss'
+    selector: 'emr-youtube',
+    imports: [
+        FormsModule,
+        MatButton,
+        MatDialogActions,
+        MatDialogContent,
+        MatDialogTitle,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule
+    ],
+    templateUrl: './youtube.dialog.html',
+    styleUrl: './youtube.dialog.scss'
 })
 export class YoutubeDialog {
   private _dialogRef = inject(MatDialogRef);

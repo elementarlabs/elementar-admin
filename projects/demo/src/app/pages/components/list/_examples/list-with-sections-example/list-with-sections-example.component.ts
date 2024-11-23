@@ -16,21 +16,20 @@ export interface Section {
 }
 
 @Component({
-  selector: 'app-list-with-sections-example',
-  standalone: true,
-  imports: [
-    MatListSubheaderCssMatStyler,
-    MatList,
-    MatDivider,
-    MatIcon,
-    MatListItemIcon,
-    MatListItem,
-    DatePipe,
-    MatListItemTitle,
-    MatListItemLine
-  ],
-  templateUrl: './list-with-sections-example.component.html',
-  styleUrl: './list-with-sections-example.component.scss'
+    selector: 'app-list-with-sections-example',
+    imports: [
+        MatListSubheaderCssMatStyler,
+        MatList,
+        MatDivider,
+        MatIcon,
+        MatListItemIcon,
+        MatListItem,
+        DatePipe,
+        MatListItemTitle,
+        MatListItemLine
+    ],
+    templateUrl: './list-with-sections-example.component.html',
+    styleUrl: './list-with-sections-example.component.scss'
 })
 export class ListWithSectionsExampleComponent {
   folders: Section[] = [

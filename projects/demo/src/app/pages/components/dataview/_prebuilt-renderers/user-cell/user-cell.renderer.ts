@@ -4,15 +4,14 @@ import { InitialsPipe } from '@elementar/components/core';
 import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
-  selector: 'app-user-cell',
-  standalone: true,
-  imports: [
-    InitialsPipe,
-    AvatarComponent,
-    DicebearComponent
-  ],
-  templateUrl: './user-cell.renderer.html',
-  styleUrl: './user-cell.renderer.scss'
+    selector: 'app-user-cell',
+    imports: [
+        InitialsPipe,
+        AvatarComponent,
+        DicebearComponent
+    ],
+    templateUrl: './user-cell.renderer.html',
+    styleUrl: './user-cell.renderer.scss'
 })
 export class UserCellRenderer implements DataViewCellRendererComponent {
   element = input<any>();

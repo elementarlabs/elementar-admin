@@ -7,18 +7,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-configurable-paginator-example',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatSlideToggleModule,
-    MatPaginatorModule,
-    JsonPipe,
-  ],
-  templateUrl: './configurable-paginator-example.component.html',
-  styleUrl: './configurable-paginator-example.component.scss'
+    selector: 'app-configurable-paginator-example',
+    imports: [
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatSlideToggleModule,
+        MatPaginatorModule,
+        JsonPipe,
+    ],
+    templateUrl: './configurable-paginator-example.component.html',
+    styleUrl: './configurable-paginator-example.component.scss'
 })
 export class ConfigurablePaginatorExampleComponent {
   length = 50;

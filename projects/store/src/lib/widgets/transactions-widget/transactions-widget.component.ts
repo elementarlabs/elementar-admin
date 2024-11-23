@@ -24,14 +24,13 @@ export interface Transaction {
 }
 
 @Component({
-  selector: 'emr-transactions-widget',
-  standalone: true,
-  imports: [
-    MatIcon,
-    RouterLink
-  ],
-  templateUrl: './transactions-widget.component.html',
-  styleUrl: './transactions-widget.component.scss'
+    selector: 'emr-transactions-widget',
+    imports: [
+        MatIcon,
+        RouterLink
+    ],
+    templateUrl: './transactions-widget.component.html',
+    styleUrl: './transactions-widget.component.scss'
 })
 export class TransactionsWidgetComponent {
   transactions = input<Transaction[]>([]);

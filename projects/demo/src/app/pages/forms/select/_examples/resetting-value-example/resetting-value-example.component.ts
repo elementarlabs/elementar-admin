@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
 import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-resetting-value-example',
-  standalone: true,
   imports: [
     MatFormField,
-    MatInput,
     MatSelect,
     MatOption,
     MatLabel

@@ -19,19 +19,18 @@ import {
 } from '../_examples/breadcrumbs-with-last-item-as-link-example/breadcrumbs-with-last-item-as-link-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicBreadcrumbsExampleComponent,
-    BreadcrumbsWithDatasourceExampleComponent,
-    BreadcrumbsWithIconsExampleComponent,
-    BreadcrumbsWithTitlesExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    BreadcrumbsWithLastItemAsLinkExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PlaygroundComponent,
+        BasicBreadcrumbsExampleComponent,
+        BreadcrumbsWithDatasourceExampleComponent,
+        BreadcrumbsWithIconsExampleComponent,
+        BreadcrumbsWithTitlesExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        BreadcrumbsWithLastItemAsLinkExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

@@ -12,22 +12,21 @@ import { MatButton } from '@angular/material/button';
 import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
-  selector: 'app-card-footer-loading-example',
-  standalone: true,
-  imports: [
-    MatCardHeader,
-    MatCard,
-    MatCardContent,
-    MatDivider,
-    MatCardActions,
-    MatButton,
-    MatCardFooter,
-    MatProgressBar,
-    MatCardTitle,
-    MatCardSubtitle
-  ],
-  templateUrl: './card-footer-loading-example.component.html',
-  styleUrl: './card-footer-loading-example.component.scss'
+    selector: 'app-card-footer-loading-example',
+    imports: [
+        MatCardHeader,
+        MatCard,
+        MatCardContent,
+        MatDivider,
+        MatCardActions,
+        MatButton,
+        MatCardFooter,
+        MatProgressBar,
+        MatCardTitle,
+        MatCardSubtitle
+    ],
+    templateUrl: './card-footer-loading-example.component.html',
+    styleUrl: './card-footer-loading-example.component.scss'
 })
 export class CardFooterLoadingExampleComponent {
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog

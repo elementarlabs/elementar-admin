@@ -7,17 +7,16 @@ import { DashboardChartExampleComponent } from '../_examples/dashboard-chart-exa
 import { DashboardExampleComponent } from '../_examples/dashboard-example/dashboard-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    DashboardCardsExampleComponent,
-    DashboardChartExampleComponent,
-    DashboardExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        DashboardCardsExampleComponent,
+        DashboardChartExampleComponent,
+        DashboardExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

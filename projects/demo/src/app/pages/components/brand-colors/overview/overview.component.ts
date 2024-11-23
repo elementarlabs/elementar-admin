@@ -16,18 +16,17 @@ import {
 } from '../_examples/brand-colors-disabled-example/brand-colors-disabled-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    PageComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    BasicBrandColorsExampleComponent,
-    BrandColorsCustomColorsExampleComponent,
-    BrandColorsAsFormControlExampleComponent,
-    BrandColorsDisabledExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        PageComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        BasicBrandColorsExampleComponent,
+        BrandColorsCustomColorsExampleComponent,
+        BrandColorsAsFormControlExampleComponent,
+        BrandColorsDisabledExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

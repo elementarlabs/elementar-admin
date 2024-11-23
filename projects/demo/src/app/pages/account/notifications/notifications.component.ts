@@ -5,25 +5,18 @@ import {
   Notification, NotificationControlsDefDirective, NotificationDefDirective,
   NotificationListComponent, NotificationPropsDirective, NotificationSkeletonComponent,
 } from '@elementar/components/notifications';
-import { MatCellDef } from '@angular/material/table';
-import { NgTemplateOutlet } from '@angular/common';
 import { EmrSkeletonModule } from '@elementar/components/skeleton';
-import { DicebearComponent } from '@elementar/components/avatar';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';
 import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 
 @Component({
-  standalone: true,
   imports: [
     PageComponent,
     PageContentDirective,
     NotificationListComponent,
-    MatCellDef,
-    NgTemplateOutlet,
     EmrSkeletonModule,
-    DicebearComponent,
     NotificationDefDirective,
     InviteToEditFilesInFolderNotification,
     MentionedInCommentNotification,
@@ -33,8 +26,7 @@ import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification }
     MatMenu,
     MatMenuItem,
     MatIconButton,
-    MatMenuTrigger,
-    NotificationSkeletonComponent
+    MatMenuTrigger
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'

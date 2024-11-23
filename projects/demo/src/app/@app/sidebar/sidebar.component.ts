@@ -18,32 +18,31 @@ import { MatIconButton } from '@angular/material/button';
 import { ToolbarComponent } from '@elementar/store/sidebar';
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
-  imports: [
-    MatIcon,
-    RouterLink,
-    EmrNavigationModule,
-    MatRipple,
-    ToolbarComponent,
-    OrderByPipe,
-    SidebarBodyComponent,
-    SidebarCompactViewModeDirective,
-    SidebarFullViewModeDirective,
-    EmrSidebarComponent,
-    SidebarFooterComponent,
-    SidebarHeaderComponent,
-    SidebarNavComponent,
-    AvatarComponent,
-    DicebearComponent,
-    MatIconButton
-  ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
-  host: {
-    'class': 'sidebar',
-    '[class.compact]': 'compact'
-  }
+    selector: 'app-sidebar',
+    imports: [
+        MatIcon,
+        RouterLink,
+        EmrNavigationModule,
+        MatRipple,
+        ToolbarComponent,
+        OrderByPipe,
+        SidebarBodyComponent,
+        SidebarCompactViewModeDirective,
+        SidebarFullViewModeDirective,
+        EmrSidebarComponent,
+        SidebarFooterComponent,
+        SidebarHeaderComponent,
+        SidebarNavComponent,
+        AvatarComponent,
+        DicebearComponent,
+        MatIconButton
+    ],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss',
+    host: {
+        'class': 'sidebar',
+        '[class.compact]': 'compact'
+    }
 })
 export class SidebarComponent implements OnInit {
   router = inject(Router);

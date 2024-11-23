@@ -8,21 +8,20 @@ import { EmrPinInputModule } from '@elementar/components/pin-input';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-password-reset',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatButton,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    RouterLink,
-    ReactiveFormsModule,
-    EmrPinInputModule,
-    MatIcon
-  ],
-  templateUrl: './password-reset.component.html',
-  styleUrl: './password-reset.component.scss'
+    selector: 'app-password-reset',
+    imports: [
+        FormsModule,
+        MatButton,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        RouterLink,
+        ReactiveFormsModule,
+        EmrPinInputModule,
+        MatIcon
+    ],
+    templateUrl: './password-reset.component.html',
+    styleUrl: './password-reset.component.scss'
 })
 export class PasswordResetComponent {
   private _router = inject(Router);

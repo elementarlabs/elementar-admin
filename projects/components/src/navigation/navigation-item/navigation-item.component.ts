@@ -9,14 +9,15 @@ import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
 
 @Component({
-  selector: 'emr-navigation-item,[emr-navigation-item]',
-  exportAs: 'emrNavigationItem',
-  templateUrl: './navigation-item.component.html',
-  styleUrls: ['./navigation-item.component.scss'],
-  host: {
-    'class': 'emr-navigation-item',
-    '[class.is-active]': 'forceActive || active'
-  }
+    selector: 'emr-navigation-item,[emr-navigation-item]',
+    exportAs: 'emrNavigationItem',
+    templateUrl: './navigation-item.component.html',
+    styleUrls: ['./navigation-item.component.scss'],
+    host: {
+        'class': 'emr-navigation-item',
+        '[class.is-active]': 'forceActive || active'
+    },
+    standalone: false
 })
 export class NavigationItemComponent {
   private _api = inject(NavigationApiService);

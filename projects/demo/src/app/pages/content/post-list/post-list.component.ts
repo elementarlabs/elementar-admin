@@ -41,33 +41,32 @@ export interface Post {
 }
 
 @Component({
-  standalone: true,
-  imports: [
-    EmrPanelModule,
-    DataViewComponent,
-    MatPaginator,
-    FormsModule,
-    MatButton,
-    MatIcon,
-    VDividerComponent,
-    MatIconButton,
-    SegmentedButtonComponent,
-    SegmentedComponent,
-    DataViewActionBarComponent,
-    DataViewActionBarDirective,
-    MatMenu,
-    MatMenuItem,
-    MatMenuTrigger,
-    BlockStateComponent,
-    DataViewEmptyDataDirective,
-    BlockStateContentComponent,
-    DataViewEmptyFilterResultsDirective,
-    BlockStateImageComponent,
-    BlockStateIconComponent,
-    BlockStateActionsComponent
-  ],
-  templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.scss'
+    imports: [
+        EmrPanelModule,
+        DataViewComponent,
+        MatPaginator,
+        FormsModule,
+        MatButton,
+        MatIcon,
+        VDividerComponent,
+        MatIconButton,
+        SegmentedButtonComponent,
+        SegmentedComponent,
+        DataViewActionBarComponent,
+        DataViewActionBarDirective,
+        MatMenu,
+        MatMenuItem,
+        MatMenuTrigger,
+        BlockStateComponent,
+        DataViewEmptyDataDirective,
+        BlockStateContentComponent,
+        DataViewEmptyFilterResultsDirective,
+        BlockStateImageComponent,
+        BlockStateIconComponent,
+        BlockStateActionsComponent
+    ],
+    templateUrl: './post-list.component.html',
+    styleUrl: './post-list.component.scss'
 })
 export class PostListComponent implements OnInit {
   private _httpClient = inject(HttpClient);

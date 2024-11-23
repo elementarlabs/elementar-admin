@@ -9,22 +9,21 @@ import { RouterLink } from '@angular/router';
 import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
-  imports: [
-    DicebearComponent,
-    EmrPanelModule,
-    EmrTabPanelModule,
-    HDividerComponent,
-    IconComponent,
-    MatTab,
-    MatTabGroup,
-    MatTooltip,
-    RouterLink,
-    AvatarComponent
-  ],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+    selector: 'app-sidebar',
+    imports: [
+        DicebearComponent,
+        EmrPanelModule,
+        EmrTabPanelModule,
+        HDividerComponent,
+        IconComponent,
+        MatTab,
+        MatTabGroup,
+        MatTooltip,
+        RouterLink,
+        AvatarComponent
+    ],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
 

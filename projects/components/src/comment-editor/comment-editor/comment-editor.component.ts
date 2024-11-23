@@ -28,25 +28,19 @@ import Code from '@tiptap/extension-code';
 import History from '@tiptap/extension-history';
 import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 import { DOCUMENT } from '@angular/common';
 import { EmrUploadModule } from '@elementar/components/upload';
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
-import { MatTooltip } from '@angular/material/tooltip';
 import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-editor/types';
 
 @Component({
   selector: 'emr-comment-editor',
   exportAs: 'emrCommentEditor',
-  standalone: true,
   imports: [
-    MatIconButton,
-    MatIcon,
     MatButton,
-    EmrUploadModule,
-    MatTooltip
+    EmrUploadModule
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',

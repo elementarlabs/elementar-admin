@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
 import {
   MatAccordion,
   MatExpansionPanel,
@@ -11,10 +9,7 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-cookie',
-  standalone: true,
   imports: [
-    MatButton,
-    MatIcon,
     MatAccordion,
     MatExpansionPanel,
     MatExpansionPanelDescription,

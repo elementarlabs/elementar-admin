@@ -28,7 +28,6 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 
 @Component({
   selector: 'app-comment-editor-custom-button-labels-example',
-  standalone: true,
   imports: [
     CommentEditorBubbleMenuComponent,
     CommentEditorCommandBlockquoteDirective,

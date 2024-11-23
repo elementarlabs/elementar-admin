@@ -23,24 +23,23 @@ import {
 import { AvatarDicebearExampleComponent } from '../_examples/avatar-dicebear-example/avatar-dicebear-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicAvatarExampleComponent,
-    AvatarSizesExampleComponent,
-    AvatarWithImagesExampleComponent,
-    AvatarWithIconsExampleComponent,
-    GroupedAvatarsExampleComponent,
-    GroupedAndTotalAvatarsExampleComponent,
-    AvatarPresenceIndicatorExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    AvatarAutomaticColorExampleComponent,
-    AvatarDicebearExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        BasicAvatarExampleComponent,
+        AvatarSizesExampleComponent,
+        AvatarWithImagesExampleComponent,
+        AvatarWithIconsExampleComponent,
+        GroupedAvatarsExampleComponent,
+        GroupedAndTotalAvatarsExampleComponent,
+        AvatarPresenceIndicatorExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        AvatarAutomaticColorExampleComponent,
+        AvatarDicebearExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

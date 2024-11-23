@@ -8,7 +8,6 @@ import { MatIconButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-carousel-controls-custom-position-example',
-  standalone: true,
   imports: [
     CarouselCardComponent,
     CarouselComponent,

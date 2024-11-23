@@ -25,24 +25,23 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import { SortableTableExampleComponent } from '../_examples/sortable-table-example/sortable-table-example.component';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    PlaygroundComponent,
-    BasicTableExampleComponent,
-    TableWithPaginationExampleComponent,
-    TableWithSortExampleComponent,
-    TableWithFilteringExampleComponent,
-    TableWithSelectionExampleComponent,
-    TableWithFixedColumnsExampleComponent,
-    TableWithStickyHeaderExampleComponent,
-    TableWithStickyFooterExampleComponent,
-    PageComponent,
-    PageContentDirective,
-    SortableTableExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    imports: [
+        PlaygroundComponent,
+        BasicTableExampleComponent,
+        TableWithPaginationExampleComponent,
+        TableWithSortExampleComponent,
+        TableWithFilteringExampleComponent,
+        TableWithSelectionExampleComponent,
+        TableWithFixedColumnsExampleComponent,
+        TableWithStickyHeaderExampleComponent,
+        TableWithStickyFooterExampleComponent,
+        PageComponent,
+        PageContentDirective,
+        SortableTableExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

@@ -8,17 +8,16 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-  selector: 'emr-exchange-widget',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatDivider,
-    MatRipple,
-    MatButton,
-    ReactiveFormsModule
-  ],
-  templateUrl: './exchange-widget.component.html',
-  styleUrl: './exchange-widget.component.scss'
+    selector: 'emr-exchange-widget',
+    imports: [
+        MatIcon,
+        MatDivider,
+        MatRipple,
+        MatButton,
+        ReactiveFormsModule
+    ],
+    templateUrl: './exchange-widget.component.html',
+    styleUrl: './exchange-widget.component.scss'
 })
 export class ExchangeWidgetComponent implements OnInit {
   private _fb = inject(FormBuilder);

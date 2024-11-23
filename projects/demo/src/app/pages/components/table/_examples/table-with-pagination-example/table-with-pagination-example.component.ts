@@ -34,15 +34,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-table-with-pagination-example',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatPaginatorModule,
-    MatDivider,
-  ],
-  templateUrl: './table-with-pagination-example.component.html',
-  styleUrl: './table-with-pagination-example.component.scss'
+    selector: 'app-table-with-pagination-example',
+    imports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatDivider,
+    ],
+    templateUrl: './table-with-pagination-example.component.html',
+    styleUrl: './table-with-pagination-example.component.scss'
 })
 export class TableWithPaginationExampleComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];

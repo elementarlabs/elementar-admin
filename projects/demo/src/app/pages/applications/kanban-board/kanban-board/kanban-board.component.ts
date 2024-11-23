@@ -19,19 +19,18 @@ interface TaskPriority {
 }
 
 @Component({
-  selector: 'app-kanban-board',
-  standalone: true,
-  imports: [
-    MatIcon,
-    DicebearComponent,
-    MatIconButton,
-    CdkDropList,
-    CdkDropListGroup,
-    CdkDrag,
-    CdkDragPlaceholder
-  ],
-  templateUrl: './kanban-board.component.html',
-  styleUrl: './kanban-board.component.scss'
+    selector: 'app-kanban-board',
+    imports: [
+        MatIcon,
+        DicebearComponent,
+        MatIconButton,
+        CdkDropList,
+        CdkDropListGroup,
+        CdkDrag,
+        CdkDragPlaceholder
+    ],
+    templateUrl: './kanban-board.component.html',
+    styleUrl: './kanban-board.component.scss'
 })
 export class KanbanBoardComponent {
   priorities: TaskPriority[] = [

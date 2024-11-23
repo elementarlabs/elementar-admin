@@ -8,7 +8,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-basic-datepicker-example',
-  standalone: true,
   imports: [
     MatInputModule,
     MatFormFieldModule,

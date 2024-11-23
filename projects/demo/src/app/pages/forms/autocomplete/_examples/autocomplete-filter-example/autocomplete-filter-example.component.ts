@@ -7,20 +7,19 @@ import { map, Observable, startWith } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-autocomplete-filter-example',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatInput,
-    MatAutocomplete,
-    MatOption,
-    MatAutocompleteTrigger,
-    ReactiveFormsModule,
-    MatLabel,
-    AsyncPipe
-  ],
-  templateUrl: './autocomplete-filter-example.component.html',
-  styleUrl: './autocomplete-filter-example.component.scss'
+    selector: 'app-autocomplete-filter-example',
+    imports: [
+        MatFormField,
+        MatInput,
+        MatAutocomplete,
+        MatOption,
+        MatAutocompleteTrigger,
+        ReactiveFormsModule,
+        MatLabel,
+        AsyncPipe
+    ],
+    templateUrl: './autocomplete-filter-example.component.html',
+    styleUrl: './autocomplete-filter-example.component.scss'
 })
 export class AutocompleteFilterExampleComponent {
   myControl = new FormControl('');

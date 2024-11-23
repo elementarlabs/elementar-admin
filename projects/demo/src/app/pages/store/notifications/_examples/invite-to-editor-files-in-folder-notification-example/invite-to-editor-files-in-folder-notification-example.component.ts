@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
+import { InviteToEditFilesInFolderNotification } from '@elementar/store/notifications';
 import { NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
 
 @Component({
   selector: 'app-invite-to-editor-files-in-folder-notification-example',
-  standalone: true,
   imports: [
     InviteToEditFilesInFolderNotification,
-    MentionedInCommentNotification,
     NotificationDefDirective,
     NotificationListComponent
   ],

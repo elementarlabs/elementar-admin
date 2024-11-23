@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { MchartBarComponent, MchartLineComponent } from '@elementar/components/micro-chart';
+import { MchartBarComponent } from '@elementar/components/micro-chart';
 import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({
   selector: 'app-mchart-bar-basic-example',
-  standalone: true,
   imports: [
-    MchartBarComponent,
-    MchartLineComponent,
-    ShuffleArrayPipe
+      MchartBarComponent,
+      ShuffleArrayPipe
   ],
   templateUrl: './mchart-bar-basic-example.component.html',
   styleUrl: './mchart-bar-basic-example.component.scss'

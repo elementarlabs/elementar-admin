@@ -12,13 +12,14 @@ import { BaseComponent } from '../base.component';
 import { Color } from '../helpers/color';
 
 @Component({
-  selector: 'emr-alpha',
-  exportAs: 'emrAlpha',
-  templateUrl: './alpha.component.html',
-  styleUrls: ['./alpha.component.scss'],
-  host: {
-    'class': 'emr-alpha'
-  }
+    selector: 'emr-alpha',
+    exportAs: 'emrAlpha',
+    templateUrl: './alpha.component.html',
+    styleUrls: ['./alpha.component.scss'],
+    host: {
+        'class': 'emr-alpha'
+    },
+    standalone: false
 })
 export class AlphaComponent extends BaseComponent implements OnChanges {
   @Input()

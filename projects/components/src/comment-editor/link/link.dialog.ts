@@ -12,21 +12,20 @@ import { MatInput } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'emr-link',
-  standalone: true,
-  imports: [
-    MatButton,
-    MatDialogActions,
-    MatDialogContent,
-    MatDialogTitle,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  templateUrl: './link.dialog.html',
-  styleUrl: './link.dialog.scss'
+    selector: 'emr-link',
+    imports: [
+        MatButton,
+        MatDialogActions,
+        MatDialogContent,
+        MatDialogTitle,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule,
+        FormsModule
+    ],
+    templateUrl: './link.dialog.html',
+    styleUrl: './link.dialog.scss'
 })
 export class LinkDialog {
   private _dialogRef = inject(MatDialogRef);

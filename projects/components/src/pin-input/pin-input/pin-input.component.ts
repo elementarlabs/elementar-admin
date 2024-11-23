@@ -21,21 +21,22 @@ import { PinInputDirective } from '../pin-input.directive';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
-  selector: 'emr-pin-input',
-  exportAs: 'emrPinInput',
-  templateUrl: './pin-input.component.html',
-  styleUrl: './pin-input.component.scss',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PinInputComponent),
-      multi: true
-    }
-  ],
-  host: {
-    'class': 'emr-pin-input',
-    '[class.is-disabled]': 'disabled',
-  }
+    selector: 'emr-pin-input',
+    exportAs: 'emrPinInput',
+    templateUrl: './pin-input.component.html',
+    styleUrl: './pin-input.component.scss',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => PinInputComponent),
+            multi: true
+        }
+    ],
+    host: {
+        'class': 'emr-pin-input',
+        '[class.is-disabled]': 'disabled',
+    },
+    standalone: false
 })
 export class PinInputComponent implements ControlValueAccessor, OnInit {
   private _fb = inject(FormBuilder);

@@ -1,13 +1,14 @@
 import { Component, ElementRef, inject, Input } from '@angular/core';
 
 @Component({
-  selector: 'emr-panel-footer',
-  exportAs: 'emrPanelFooter',
-  templateUrl: './panel-footer.component.html',
-  styleUrls: ['./panel-footer.component.scss'],
-  host: {
-    'class': 'emr-panel-footer'
-  }
+    selector: 'emr-panel-footer',
+    exportAs: 'emrPanelFooter',
+    templateUrl: './panel-footer.component.html',
+    styleUrls: ['./panel-footer.component.scss'],
+    host: {
+        'class': 'emr-panel-footer'
+    },
+    standalone: false
 })
 export class PanelFooterComponent {
   private _elementRef = inject(ElementRef);

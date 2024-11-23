@@ -6,18 +6,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-basic-stepper-example',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    MatStepperModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  templateUrl: './basic-stepper-example.component.html',
-  styleUrl: './basic-stepper-example.component.scss'
+    selector: 'app-basic-stepper-example',
+    imports: [
+        MatButtonModule,
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    templateUrl: './basic-stepper-example.component.html',
+    styleUrl: './basic-stepper-example.component.scss'
 })
 export class BasicStepperExampleComponent {
   private _formBuilder = inject(FormBuilder);

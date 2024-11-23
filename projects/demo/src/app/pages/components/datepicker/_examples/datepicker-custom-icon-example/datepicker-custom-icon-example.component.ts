@@ -9,7 +9,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-datepicker-custom-icon-example',
-  standalone: true,
   imports: [
     MatInputModule,
     MatFormFieldModule,

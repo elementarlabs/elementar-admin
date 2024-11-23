@@ -6,16 +6,15 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { SidebarCompactExampleComponent } from '../_examples/sidebar-compact-example/sidebar-compact-example.component';
 
 @Component({
-  standalone: true,
-  imports: [
-    BasicSidebarExampleComponent,
-    PageContentDirective,
-    PlaygroundComponent,
-    PageComponent,
-    SidebarCompactExampleComponent
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    imports: [
+        BasicSidebarExampleComponent,
+        PageContentDirective,
+        PlaygroundComponent,
+        PageComponent,
+        SidebarCompactExampleComponent
+    ],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 
