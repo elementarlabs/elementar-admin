@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar/components/data-view';
 import { JsonPipe } from '@angular/common';
+import { MatButton } from '@angular/material/button';
 
 export interface PeriodicElement {
   name: string;
@@ -22,7 +23,8 @@ const DATA: PeriodicElement[] = [
   standalone: true,
   imports: [
     DataViewComponent,
-    JsonPipe
+    JsonPipe,
+    MatButton
   ],
   templateUrl: './dataview-with-selection-example.component.html',
   styleUrl: './dataview-with-selection-example.component.scss'

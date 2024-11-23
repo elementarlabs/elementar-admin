@@ -19,6 +19,7 @@ import {
 } from '@angular/material/table';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import {
+  DataView,
   DataViewAPI,
   DataViewCellRenderer,
   DataViewColumnDef, DataViewRowModelType,
@@ -31,10 +32,6 @@ import { EmrSkeletonModule } from '../../skeleton';
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
 import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
-
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-}
 
 @Component({
   selector: 'emr-data-view',
@@ -67,7 +64,7 @@ function compare(a: number | string, b: number | string, isAsc: boolean) {
     '[class.is-loading]': 'loading()',
   }
 })
-export class DataViewComponent<T> implements OnInit {
+export class DataViewComponent<T> implements OnInit, DataView {
   protected _emptyDataRef = contentChild(DataViewEmptyDataDirective);
   protected _emptyFilterResults = contentChild(DataViewEmptyFilterResultsDirective);
   private _cdr = inject(ChangeDetectorRef);
@@ -156,6 +153,12 @@ export class DataViewComponent<T> implements OnInit {
     return {
       search: (value: string): void => {
         this.dataSource().filter = value.trim().toLowerCase();
+      },
+      selectAll: (): void => {
+        this._selectAll();
+      },
+      unselectAll: (): void => {
+        this._unselectAll();
       }
     }
   }
@@ -226,20 +229,14 @@ export class DataViewComponent<T> implements OnInit {
   }
 
   isAllSelected(): boolean {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.data().length;
-    return numSelected === numRows;
+    return this.selection.selected.length === this.data().length;
   }
 
   toggleAllRows(): void {
     if (this.isAllSelected()) {
-      this.selection.clear();
-      this.selectionChanged.emit([]);
-      this.allRowsSelectionChanged.emit(false);
+      this._unselectAll();
     } else {
-      this.selection.select(...this.data());
-      this.selectionChanged.emit(this.data());
-      this.allRowsSelectionChanged.emit(true);
+      this._selectAll();
     }
   }
 
@@ -260,5 +257,17 @@ export class DataViewComponent<T> implements OnInit {
 
   protected onSortChange(event: Sort): void {
     this.sortChange.emit(event);
+  }
+
+  private _selectAll(): void {
+    this.selection.select(...this.data());
+    this.selectionChanged.emit(this.data());
+    this.allRowsSelectionChanged.emit(true);
+  }
+
+  private _unselectAll(): void {
+    this.selection.clear();
+    this.selectionChanged.emit([]);
+    this.allRowsSelectionChanged.emit(false);
   }
 }

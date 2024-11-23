@@ -6,6 +6,8 @@ export interface DataView {
 
 export interface DataViewAPI {
   search(value: string): void;
+  selectAll(): void;
+  unselectAll(): void;
 }
 
 export interface DataViewColumnDef {

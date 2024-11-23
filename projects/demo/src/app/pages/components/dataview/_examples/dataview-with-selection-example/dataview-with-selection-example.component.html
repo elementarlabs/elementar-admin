@@ -1,4 +1,10 @@
-<emr-data-view [columnDefs]="columnDefs"
+<div class="mb-10 flex gap-3">
+  <button mat-stroked-button (click)="dataView.api.selectAll()">Select All</button>
+  <button mat-stroked-button (click)="dataView.api.unselectAll()">Unselect All</button>
+</div>
+
+<emr-data-view #dataView="emrDataView"
+               [columnDefs]="columnDefs"
                [data]="data"
                withSelection
                (rowSelectionChanged)="rowSelectionChanged($event)"
