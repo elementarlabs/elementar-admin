@@ -325,7 +325,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard'
+        redirectTo: 'pages/dashboard/basic'
       }
     ]
   }
