@@ -3,9 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { MatRipple } from '@angular/material/core';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
-import { OrderByPipe } from '@elementar/components/core';
 import { v7 as uuid } from 'uuid';
 import {
   SidebarBodyComponent,
@@ -13,36 +11,33 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarFooterComponent, SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent
 } from '@elementar/components/sidebar';
-import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
+import { DicebearComponent } from '@elementar/components/avatar';
 import { MatIconButton } from '@angular/material/button';
 import { ToolbarComponent } from '@elementar/store/sidebar';
 
 @Component({
-    selector: 'app-sidebar',
-    imports: [
-        MatIcon,
-        RouterLink,
-        EmrNavigationModule,
-        MatRipple,
-        ToolbarComponent,
-        OrderByPipe,
-        SidebarBodyComponent,
-        SidebarCompactViewModeDirective,
-        SidebarFullViewModeDirective,
-        EmrSidebarComponent,
-        SidebarFooterComponent,
-        SidebarHeaderComponent,
-        SidebarNavComponent,
-        AvatarComponent,
-        DicebearComponent,
-        MatIconButton
-    ],
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.scss',
-    host: {
-        'class': 'sidebar',
-        '[class.compact]': 'compact'
-    }
+  selector: 'app-sidebar',
+  imports: [
+    MatIcon,
+    RouterLink,
+    EmrNavigationModule,
+    ToolbarComponent,
+    SidebarBodyComponent,
+    SidebarCompactViewModeDirective,
+    SidebarFullViewModeDirective,
+    EmrSidebarComponent,
+    SidebarFooterComponent,
+    SidebarHeaderComponent,
+    SidebarNavComponent,
+    DicebearComponent,
+    MatIconButton
+  ],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss',
+  host: {
+    'class': 'sidebar',
+    '[class.compact]': 'compact'
+  }
 })
 export class SidebarComponent implements OnInit {
   router = inject(Router);

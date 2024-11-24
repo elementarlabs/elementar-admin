@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
 import {
-  MAT_DIALOG_DATA,
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle
@@ -12,16 +10,15 @@ import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-dialog-with-confirmation',
-    imports: [
-        MatDialogTitle,
-        MatDialogContent,
-        MatDialogActions,
-        MatDialogClose,
-        MatButton,
-    ],
-    templateUrl: './dialog-with-confirmation.component.html',
-    styleUrl: './dialog-with-confirmation.component.scss'
+  selector: 'app-dialog-with-confirmation',
+  imports: [
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatButton,
+  ],
+  templateUrl: './dialog-with-confirmation.component.html',
+  styleUrl: './dialog-with-confirmation.component.scss'
 })
 export class DialogWithConfirmationComponent {
   private _snackBar = inject(MatSnackBar);

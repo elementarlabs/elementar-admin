@@ -1,23 +1,19 @@
 import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import { JsonPipe } from '@angular/common';
 import {
   EmrFilterBuilderModule,
   FilterBuilderFieldDef,
   FilterBuilderGroup
 } from '@elementar/components/filter-builder';
-import { IconComponent } from '@elementar/components/icon';
 
 @Component({
-    selector: 'app-basic-filter-builder-example',
-    imports: [
-        MatIcon,
-        EmrFilterBuilderModule,
-        IconComponent,
-        JsonPipe
-    ],
-    templateUrl: './basic-filter-builder-example.component.html',
-    styleUrl: './basic-filter-builder-example.component.scss'
+  selector: 'app-basic-filter-builder-example',
+  imports: [
+    EmrFilterBuilderModule,
+    JsonPipe
+  ],
+  templateUrl: './basic-filter-builder-example.component.html',
+  styleUrl: './basic-filter-builder-example.component.scss'
 })
 export class BasicFilterBuilderExampleComponent {
   value: FilterBuilderGroup[] = [

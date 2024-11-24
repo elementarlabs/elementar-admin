@@ -1,17 +1,14 @@
 import { Component, input } from '@angular/core';
 import { DataViewCellRendererComponent, DataViewColumnDef } from '@elementar/components/data-view';
-import { InitialsPipe } from '@elementar/components/core';
-import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
+import { DicebearComponent } from '@elementar/components/avatar';
 
 @Component({
-    selector: 'app-user-cell',
-    imports: [
-        InitialsPipe,
-        AvatarComponent,
-        DicebearComponent
-    ],
-    templateUrl: './user-cell.renderer.html',
-    styleUrl: './user-cell.renderer.scss'
+  selector: 'app-user-cell',
+  imports: [
+    DicebearComponent
+  ],
+  templateUrl: './user-cell.renderer.html',
+  styleUrl: './user-cell.renderer.scss'
 })
 export class UserCellRenderer implements DataViewCellRendererComponent {
   element = input<any>();

@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  BasicFilterBuilderExampleComponent
-} from '../../filter-builder/_examples/basic-filter-builder-example/basic-filter-builder-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
@@ -16,17 +13,16 @@ import {
 } from '../_examples/image-viewer-with-title-example/image-viewer-with-title-example.component';
 
 @Component({
-    imports: [
-        BasicFilterBuilderExampleComponent,
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        BasicImageViewerExampleComponent,
-        ImageViewerWithCaptionAndDescriptionExampleComponent,
-        ImageViewerWithTitleExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    BasicImageViewerExampleComponent,
+    ImageViewerWithCaptionAndDescriptionExampleComponent,
+    ImageViewerWithTitleExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

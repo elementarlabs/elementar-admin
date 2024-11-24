@@ -1,7 +1,6 @@
 import { Component, inject, Input, input, InputSignal, OnInit, output } from '@angular/core';
 import { File, FileSelectedEvent } from '../../types';
-import { MatOptgroup, MatOption } from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
+import { MatOption } from '@angular/material/autocomplete';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
@@ -17,9 +16,7 @@ import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar/compone
   selector: 'app-file-grid-layout',
   imports: [
     MatOption,
-    MatSelect,
     ReactiveFormsModule,
-    MatOptgroup,
     MatIcon,
     MatIconButton,
     MatDivider,

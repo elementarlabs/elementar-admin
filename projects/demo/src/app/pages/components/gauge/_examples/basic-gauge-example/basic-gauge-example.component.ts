@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { EmrGaugeModule } from '@elementar/components/gauge';
 
 @Component({
-    selector: 'app-basic-gauge-example',
-    imports: [
-        EmrGaugeModule
-    ],
-    templateUrl: './basic-gauge-example.component.html',
-    styleUrl: './basic-gauge-example.component.scss'
+  selector: 'app-basic-gauge-example',
+  imports: [
+    EmrGaugeModule
+  ],
+  templateUrl: './basic-gauge-example.component.html',
+  styleUrl: './basic-gauge-example.component.scss'
 })
 export class BasicGaugeExampleComponent {
 

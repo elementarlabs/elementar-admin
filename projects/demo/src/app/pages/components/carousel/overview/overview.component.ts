@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BasicBadgesExampleComponent } from '../../badge/_examples/basic-badges-example/basic-badges-example.component';
 import { PlaygroundComponent } from '@demo/meta/playground/playground.component';
 import { BasicCarouselExampleComponent } from '../_examples/basic-carousel-example/basic-carousel-example.component';
 import {
@@ -12,18 +11,17 @@ import {
 } from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        BasicBadgesExampleComponent,
-        PlaygroundComponent,
-        BasicCarouselExampleComponent,
-        CarouselControlsCustomPositionExampleComponent,
-        PageComponent,
-        PageContentDirective,
-        CarouselFadeEffectExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  selector: 'app-overview',
+  imports: [
+    PlaygroundComponent,
+    BasicCarouselExampleComponent,
+    CarouselControlsCustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    CarouselFadeEffectExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 
