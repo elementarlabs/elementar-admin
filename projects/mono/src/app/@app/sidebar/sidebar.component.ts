@@ -3,28 +3,24 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { MatRipple } from '@angular/material/core';
-import { MatButton } from '@angular/material/button';
 import { ToolbarAComponent } from '@elementar/store/sidebar';
 import { OrderByPipe } from '@elementar/components/core';
 import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
 
 @Component({
-    selector: 'app-sidebar',
-    imports: [
-        MatIcon,
-        RouterLink,
-        EmrNavigationModule,
-        MatRipple,
-        OrderByPipe,
-        MatButton,
-        ToolbarAComponent
-    ],
-    templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.scss',
-    host: {
-        'class': 'sidebar'
-    }
+  selector: 'app-sidebar',
+  imports: [
+    MatIcon,
+    RouterLink,
+    EmrNavigationModule,
+    OrderByPipe,
+    ToolbarAComponent
+  ],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss',
+  host: {
+    'class': 'sidebar'
+  }
 })
 export class SidebarComponent {
   router = inject(Router);

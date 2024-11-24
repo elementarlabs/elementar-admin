@@ -37,13 +37,3 @@ $m3-dark-theme: mat.define-theme((
     scale: 0,
   ),
 ));
-
-@use "_common";
-@use "_components";
-
-@include mat.elevation-classes();
-@include mat.app-background();
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

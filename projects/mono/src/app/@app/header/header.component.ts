@@ -1,56 +1,38 @@
 import { Component, inject, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
-import { AsyncPipe } from '@angular/common';
-import { MatFormField, MatPrefix } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
-import { RouterLink } from '@angular/router';
 import { EmrPopoverModule } from '@elementar/components/popover';
-import { IconComponent } from '@elementar/components/icon';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
-import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
+import { Notification } from '@elementar/components/notifications';
 import { NotificationsPopoverComponent } from '@elementar/store/header';
 
 @Component({
-    selector: 'app-header',
-    imports: [
-        MatIcon,
-        MatIconButton,
-        AsyncPipe,
-        MatFormField,
-        MatInput,
-        MatPrefix,
-        MatBadge,
-        MatMenu,
-        MatMenuTrigger,
-        MatMenuItem,
-        DicebearComponent,
-        MatDivider,
-        MatButton,
-        MatTooltip,
-        EmrPopoverModule,
-        RouterLink,
-        IconComponent,
-        MatAnchor,
-        SoundEffectDirective,
-        InviteToEditFilesInFolderNotification,
-        MentionedInCommentNotification,
-        NotificationDefDirective,
-        NotificationListComponent,
-        NotificationsPopoverComponent
-    ],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss',
-    host: {
-        'class': 'block w-full h-full'
-    }
+  selector: 'app-header',
+  imports: [
+    MatIcon,
+    MatIconButton,
+    MatBadge,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem,
+    DicebearComponent,
+    MatDivider,
+    MatTooltip,
+    EmrPopoverModule,
+    SoundEffectDirective,
+    NotificationsPopoverComponent
+  ],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
+  host: {
+    'class': 'block w-full h-full'
+  }
 })
 export class HeaderComponent {
   protected _themeManager = inject(ThemeManagerService);
