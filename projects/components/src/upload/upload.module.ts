@@ -6,20 +6,18 @@ import { FileComponent } from './file/file.component';
 import { FileControlComponent } from './file-control/file-control.component';
 
 @NgModule({
-  declarations: [
-    UploadAreaComponent,
-    FileListComponent,
-    FileComponent,
-    FileControlComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    UploadAreaComponent,
-    FileListComponent,
-    FileComponent,
-    FileControlComponent
-  ]
+    imports: [
+        CommonModule,
+        UploadAreaComponent,
+        FileListComponent,
+        FileComponent,
+        FileControlComponent
+    ],
+    exports: [
+        UploadAreaComponent,
+        FileListComponent,
+        FileComponent,
+        FileControlComponent
+    ]
 })
 export class EmrUploadModule { }

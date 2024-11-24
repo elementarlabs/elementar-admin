@@ -2,6 +2,7 @@ import { Component, ContentChild, HostListener, inject, Input } from '@angular/c
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationGroupToggleIconDirective } from '../navigation-group-toggle-icon.directive';
 import { MatRipple } from '@angular/material/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
     selector: 'emr-navigation-group-toggle',
@@ -15,7 +16,7 @@ import { MatRipple } from '@angular/material/core';
         class: 'emr-navigation-group-toggle',
         '[class.is-active]': 'active'
     },
-    standalone: false
+    imports: [NgTemplateOutlet]
 })
 export class NavigationGroupToggleComponent {
   readonly api = inject(NavigationApiService);

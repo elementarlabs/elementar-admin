@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./file-control.component.scss'],
     host: {
         'class': 'emr-file-control'
-    },
-    standalone: false
+    }
 })
 export class FileControlComponent {
 }

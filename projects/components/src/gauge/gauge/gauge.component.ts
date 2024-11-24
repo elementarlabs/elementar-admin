@@ -12,8 +12,7 @@ import {
     styleUrls: ['./gauge.component.scss'],
     host: {
         'class': 'emr-gauge'
-    },
-    standalone: false
+    }
 })
 export class GaugeComponent implements OnInit {
   value = input(0, {

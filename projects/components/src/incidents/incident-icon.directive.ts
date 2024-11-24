@@ -5,8 +5,7 @@ import { Directive } from '@angular/core';
     exportAs: 'emrIncidentIcon',
     host: {
         'class': 'emr-incident-icon'
-    },
-    standalone: false
+    }
 })
 export class IncidentIconDirective {
 }

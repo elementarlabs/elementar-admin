@@ -13,35 +13,33 @@ import { TabPanelBodyComponent } from './tab-panel-body/tab-panel-body.component
 import { TabPanelCustomItemComponent } from './tab-panel-custom-item/tab-panel-custom-item.component';
 
 @NgModule({
-  declarations: [
-    TabPanelComponent,
-    TabPanelHeaderComponent,
-    TabPanelFooterComponent,
-    TabPanelItemComponent,
-    TabPanelNavComponent,
-    TabPanelItemTextComponent,
-    TabPanelAsideComponent,
-    TabPanelBodyComponent,
-    TabPanelCustomItemComponent,
-    TabPanelAsideContentDirective,
-    TabPanelItemIconDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    TabPanelComponent,
-    TabPanelHeaderComponent,
-    TabPanelFooterComponent,
-    TabPanelItemComponent,
-    TabPanelNavComponent,
-    TabPanelItemTextComponent,
-    TabPanelAsideComponent,
-    TabPanelBodyComponent,
-    TabPanelCustomItemComponent,
-    TabPanelAsideContentDirective,
-    TabPanelItemIconDirective
-  ]
+    imports: [
+        CommonModule,
+        TabPanelComponent,
+        TabPanelHeaderComponent,
+        TabPanelFooterComponent,
+        TabPanelItemComponent,
+        TabPanelNavComponent,
+        TabPanelItemTextComponent,
+        TabPanelAsideComponent,
+        TabPanelBodyComponent,
+        TabPanelCustomItemComponent,
+        TabPanelAsideContentDirective,
+        TabPanelItemIconDirective
+    ],
+    exports: [
+        TabPanelComponent,
+        TabPanelHeaderComponent,
+        TabPanelFooterComponent,
+        TabPanelItemComponent,
+        TabPanelNavComponent,
+        TabPanelItemTextComponent,
+        TabPanelAsideComponent,
+        TabPanelBodyComponent,
+        TabPanelCustomItemComponent,
+        TabPanelAsideContentDirective,
+        TabPanelItemIconDirective
+    ]
 })
 export class EmrTabPanelModule {
 }

@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./skeleton-circle.component.scss'],
     host: {
         'class': 'emr-skeleton-item emr-skeleton-circle'
-    },
-    standalone: false
+    }
 })
 export class SkeletonCircleComponent {
 }

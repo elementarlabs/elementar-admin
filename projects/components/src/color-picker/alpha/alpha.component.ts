@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { Color } from '../helpers/color';
+import { NgStyle } from '@angular/common';
 
 @Component({
     selector: 'emr-alpha',
@@ -19,7 +20,7 @@ import { Color } from '../helpers/color';
     host: {
         'class': 'emr-alpha'
     },
-    standalone: false
+    imports: [NgStyle]
 })
 export class AlphaComponent extends BaseComponent implements OnChanges {
   @Input()

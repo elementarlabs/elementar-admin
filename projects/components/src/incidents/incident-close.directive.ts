@@ -5,8 +5,7 @@ import { Directive } from '@angular/core';
     exportAs: 'emrIncidentClose',
     host: {
         'class': 'emr-incident-close'
-    },
-    standalone: false
+    }
 })
 export class IncidentCloseDirective {
 }

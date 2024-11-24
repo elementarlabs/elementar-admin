@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./breadcrumb-item.component.scss'],
     host: {
         class: 'emr-breadcrumb-item'
-    },
-    standalone: false
+    }
 })
 export class BreadcrumbItemComponent {
 }

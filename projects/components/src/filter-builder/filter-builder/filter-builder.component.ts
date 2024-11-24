@@ -11,7 +11,7 @@ import {
   QueryList,
   ViewChildren
 } from '@angular/core';
-import { isPlatformServer } from '@angular/common';
+import { isPlatformServer, NgTemplateOutlet } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
 import {
   FilterBuilderCondition,
@@ -20,6 +20,16 @@ import {
   FilterBuilderGroup,
   FilterBuilderItemType
 } from '../types';
+import { MatIcon } from '@angular/material/icon';
+import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
+import { MenuOptionGroupDirective } from '../../core/directives/menu-option-group.directive';
+import { FormsModule } from '@angular/forms';
+import { MatOption } from '@angular/material/autocomplete';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { MatSelect } from '@angular/material/select';
+import { AutoFocusDirective } from '../../core/directives/auto-focus.directive';
+import { FocusElementDirective } from '../../core/directives/focus-element.directive';
+import { FilterBuilderOperationNameDirective } from '../filter-builder-operation-name.directive';
 
 @Component({
     selector: 'emr-filter-builder',
@@ -30,7 +40,7 @@ import {
     host: {
         'class': 'emr-filter-builder'
     },
-    standalone: false
+    imports: [MatIcon, MatMenuTrigger, MatMenu, MenuOptionGroupDirective, FormsModule, MatOption, MatMenuItem, NgTemplateOutlet, MatFormField, MatSelect, AutoFocusDirective, FocusElementDirective, MatInput, FilterBuilderOperationDefDirective, FilterBuilderOperationNameDirective]
 })
 export class FilterBuilderComponent implements OnInit, AfterViewInit {
   protected _cdr = inject(ChangeDetectorRef);

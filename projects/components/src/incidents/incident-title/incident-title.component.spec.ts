@@ -8,8 +8,8 @@ describe('IncidentTitleComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IncidentTitleComponent]
-    });
+    imports: [IncidentTitleComponent]
+});
     fixture = TestBed.createComponent(IncidentTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

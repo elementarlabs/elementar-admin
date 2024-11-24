@@ -5,8 +5,7 @@ import { Directive } from '@angular/core';
     exportAs: 'emrAlertTitle',
     host: {
         'class': 'emr-alert-title'
-    },
-    standalone: false
+    }
 })
 export class AlertTitleDirective {
 }

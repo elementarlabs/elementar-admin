@@ -7,8 +7,7 @@ import { Component, ElementRef, inject, Input, SimpleChanges } from '@angular/co
     styleUrls: ['./color-picker-thumbnail.component.scss'],
     host: {
         'class': 'emr-color-picker-thumbnail'
-    },
-    standalone: false
+    }
 })
 export class ColorPickerThumbnailComponent {
   private _elementRef = inject(ElementRef);

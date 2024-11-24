@@ -7,8 +7,7 @@ import { Component, ElementRef, inject, Input, OnDestroy } from '@angular/core';
     styleUrls: ['./panel-header.component.scss'],
     host: {
         'class': 'emr-panel-header'
-    },
-    standalone: false
+    }
 })
 export class PanelHeaderComponent implements OnDestroy {
   private _elementRef = inject(ElementRef);

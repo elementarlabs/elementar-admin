@@ -18,8 +18,7 @@ import { UploadFileSelectedEvent } from '../properties';
     host: {
         'class': 'emr-upload-area',
         '[class.is-drop-active]': 'isDropActive'
-    },
-    standalone: false
+    }
 })
 export class UploadAreaComponent {
   protected _renderer = inject(Renderer2);

@@ -6,20 +6,18 @@ import { PanelBodyComponent } from './panel-body/panel-body.component';
 import { PanelFooterComponent } from './panel-footer/panel-footer.component';
 
 @NgModule({
-  declarations: [
-    PanelComponent,
-    PanelHeaderComponent,
-    PanelBodyComponent,
-    PanelFooterComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    PanelComponent,
-    PanelHeaderComponent,
-    PanelBodyComponent,
-    PanelFooterComponent
-  ]
+    imports: [
+        CommonModule,
+        PanelComponent,
+        PanelHeaderComponent,
+        PanelBodyComponent,
+        PanelFooterComponent
+    ],
+    exports: [
+        PanelComponent,
+        PanelHeaderComponent,
+        PanelBodyComponent,
+        PanelFooterComponent
+    ]
 })
 export class EmrPanelModule { }

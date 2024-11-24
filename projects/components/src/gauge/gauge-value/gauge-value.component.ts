@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./gauge-value.component.scss'],
     host: {
         'class': 'emr-gauge-value'
-    },
-    standalone: false
+    }
 })
 export class GaugeValueComponent {
 }

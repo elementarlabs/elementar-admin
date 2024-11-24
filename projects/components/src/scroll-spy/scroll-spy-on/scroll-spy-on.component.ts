@@ -11,8 +11,7 @@ import { SCROLL_SPY_NAV } from '../types';
     host: {
         'class': 'emr-scroll-spy-on',
         '[class.is-active]': 'isActive'
-    },
-    standalone: false
+    }
 })
 export class ScrollSpyOnComponent implements OnInit {
   private _parent = inject<ScrollSpyNavComponent>(SCROLL_SPY_NAV);

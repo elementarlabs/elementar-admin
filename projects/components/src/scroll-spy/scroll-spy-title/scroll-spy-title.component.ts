@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrl: './scroll-spy-title.component.scss',
     host: {
         'class': 'emr-scroll-spy-title'
-    },
-    standalone: false
+    }
 })
 export class ScrollSpyTitleComponent {
 

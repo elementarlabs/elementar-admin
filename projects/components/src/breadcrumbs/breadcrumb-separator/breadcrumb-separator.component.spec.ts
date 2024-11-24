@@ -8,8 +8,8 @@ describe('BreadcrumbSeparatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BreadcrumbSeparatorComponent ]
-    })
+    imports: [BreadcrumbSeparatorComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(BreadcrumbSeparatorComponent);

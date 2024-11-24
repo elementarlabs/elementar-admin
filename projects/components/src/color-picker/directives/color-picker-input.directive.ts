@@ -1,10 +1,7 @@
 import { Directive, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 
-@Directive({
-    selector: '[inputChange]',
-    standalone: false
-})
+@Directive({ selector: '[inputChange]' })
 export class ColorPickerInputDirective {
     @Input()
     public min: string;

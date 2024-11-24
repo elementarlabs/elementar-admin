@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./tab-panel-header.component.scss'],
     host: {
         'class': 'emr-tab-panel-header'
-    },
-    standalone: false
+    }
 })
 export class TabPanelHeaderComponent {
 }

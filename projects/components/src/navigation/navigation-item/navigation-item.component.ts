@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
+import { MatRipple } from '@angular/material/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
     selector: 'emr-navigation-item,[emr-navigation-item]',
@@ -17,7 +19,7 @@ import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
         'class': 'emr-navigation-item',
         '[class.is-active]': 'forceActive || active'
     },
-    standalone: false
+    imports: [MatRipple, NgTemplateOutlet]
 })
 export class NavigationItemComponent {
   private _api = inject(NavigationApiService);

@@ -13,6 +13,7 @@ import {
 import { ALERT, AlertVariant } from '../alert.properties';
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import { AlertIconDirective } from '../alert-icon.directive';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
     selector: 'emr-alert',
@@ -29,7 +30,7 @@ import { AlertIconDirective } from '../alert-icon.directive';
         'class': 'emr-alert',
         '[class.is-bordered]': 'bordered',
     },
-    standalone: false
+    imports: [NgIf, NgTemplateOutlet]
 })
 export class AlertComponent implements  OnInit {
   private _renderer = inject(Renderer2);

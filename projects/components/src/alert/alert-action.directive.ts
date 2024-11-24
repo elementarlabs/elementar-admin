@@ -7,8 +7,7 @@ import { MatRipple } from "@angular/material/core";
     host: {
         'class': 'emr-alert-action'
     },
-    hostDirectives: [MatRipple],
-    standalone: false
+    hostDirectives: [MatRipple]
 })
 export class AlertActionDirective {
 }

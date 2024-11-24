@@ -1,9 +1,6 @@
 import { Directive } from '@angular/core';
 
-@Directive({
-    selector: '[emrIncidentButton]',
-    standalone: false
-})
+@Directive({ selector: '[emrIncidentButton]' })
 export class IncidentButtonDirective {
 
   constructor() { }

@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./popover.component.scss'],
     host: {
         'class': 'emr-popover'
-    },
-    standalone: false
+    }
 })
 export class PopoverComponent {
 }

@@ -2,8 +2,7 @@ import { Directive, ElementRef, inject } from '@angular/core';
 
 @Directive({
     selector: '[emrPopoverOrigin]',
-    exportAs: 'emrPopoverOrigin',
-    standalone: false
+    exportAs: 'emrPopoverOrigin'
 })
 export class PopoverOriginDirective {
   private _elementRef = inject(ElementRef);

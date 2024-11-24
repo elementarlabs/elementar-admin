@@ -7,8 +7,7 @@ import { Component, ElementRef, inject, Input } from '@angular/core';
     styleUrls: ['./panel-footer.component.scss'],
     host: {
         'class': 'emr-panel-footer'
-    },
-    standalone: false
+    }
 })
 export class PanelFooterComponent {
   private _elementRef = inject(ElementRef);

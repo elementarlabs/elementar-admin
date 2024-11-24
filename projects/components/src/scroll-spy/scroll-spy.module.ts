@@ -6,20 +6,18 @@ import { ScrollSpyTitleComponent } from './scroll-spy-title/scroll-spy-title.com
 import { ScrollSpyContainerDirective } from './scroll-spy-container.directive';
 
 @NgModule({
-  declarations: [
-    ScrollSpyNavComponent,
-    ScrollSpyOnComponent,
-    ScrollSpyTitleComponent,
-    ScrollSpyContainerDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    ScrollSpyNavComponent,
-    ScrollSpyOnComponent,
-    ScrollSpyTitleComponent,
-    ScrollSpyContainerDirective
-  ]
+    imports: [
+        CommonModule,
+        ScrollSpyNavComponent,
+        ScrollSpyOnComponent,
+        ScrollSpyTitleComponent,
+        ScrollSpyContainerDirective
+    ],
+    exports: [
+        ScrollSpyNavComponent,
+        ScrollSpyOnComponent,
+        ScrollSpyTitleComponent,
+        ScrollSpyContainerDirective
+    ]
 })
 export class EmrScrollSpyModule { }

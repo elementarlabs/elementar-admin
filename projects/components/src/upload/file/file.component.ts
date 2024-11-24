@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { UploadFileState } from '../properties';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'emr-file',
@@ -9,7 +10,7 @@ import { UploadFileState } from '../properties';
     host: {
         'class': 'emr-file'
     },
-    standalone: false
+    imports: [NgIf]
 })
 export class FileComponent {
   @Input()

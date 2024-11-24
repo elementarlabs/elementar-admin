@@ -28,8 +28,7 @@ import { PositionManager } from '../overlay';
     host: {
         class: 'emr-popover-trigger-for',
         '[class.emr-popover-trigger-for--is-open]': 'api.isOpen()',
-    },
-    standalone: false
+    }
 })
 export class PopoverTriggerForDirective implements  OnDestroy {
   private _overlay = inject(Overlay);

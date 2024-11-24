@@ -29,8 +29,7 @@ import { ScrollSpyOnComponent } from '../scroll-spy-on/scroll-spy-on.component';
     ],
     host: {
         'class': 'emr-scroll-spy-nav'
-    },
-    standalone: false
+    }
 })
 export class ScrollSpyNavComponent implements AfterContentInit {
   private _document = inject(DOCUMENT);

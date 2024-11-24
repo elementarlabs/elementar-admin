@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./navigation-divider.component.scss'],
     host: {
         class: 'emr-navigation-divider'
-    },
-    standalone: false
+    }
 })
 export class NavigationDividerComponent {
 }

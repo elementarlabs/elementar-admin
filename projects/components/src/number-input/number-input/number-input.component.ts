@@ -24,6 +24,8 @@ import { NumberInputPrefixDirective } from '../number-input-prefix.directive';
 import { NumberInputSuffixDirective } from '../number-input-suffix.directive';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
+import { MatRipple } from '@angular/material/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
     selector: 'emr-number-input',
@@ -39,7 +41,7 @@ import { Subject } from 'rxjs';
     host: {
         'class': 'emr-number-input'
     },
-    standalone: false
+    imports: [MatRipple, NgTemplateOutlet]
 })
 export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy, DoCheck {
   private _elementRef = inject(ElementRef);

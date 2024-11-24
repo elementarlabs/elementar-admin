@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrl: './timeline-header.component.scss',
     host: {
         'class': 'emr-timeline-header'
-    },
-    standalone: false
+    }
 })
 export class TimelineHeaderComponent {
 

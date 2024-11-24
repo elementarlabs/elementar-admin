@@ -6,20 +6,18 @@ import { SkeletonLineComponent } from './skeleton-line/skeleton-line.component';
 import { SkeletonBlockComponent } from './skeleton-block/skeleton-block.component';
 
 @NgModule({
-  declarations: [
-    SkeletonComponent,
-    SkeletonCircleComponent,
-    SkeletonLineComponent,
-    SkeletonBlockComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    SkeletonComponent,
-    SkeletonCircleComponent,
-    SkeletonLineComponent,
-    SkeletonBlockComponent
-  ]
+    imports: [
+        CommonModule,
+        SkeletonComponent,
+        SkeletonCircleComponent,
+        SkeletonLineComponent,
+        SkeletonBlockComponent
+    ],
+    exports: [
+        SkeletonComponent,
+        SkeletonCircleComponent,
+        SkeletonLineComponent,
+        SkeletonBlockComponent
+    ]
 })
 export class EmrSkeletonModule { }

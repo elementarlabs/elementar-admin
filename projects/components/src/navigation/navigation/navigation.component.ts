@@ -14,8 +14,7 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
     providers: [NavigationApiService],
     host: {
         class: 'emr-navigation'
-    },
-    standalone: false
+    }
 })
 export class NavigationComponent {
   readonly api = inject(NavigationApiService);

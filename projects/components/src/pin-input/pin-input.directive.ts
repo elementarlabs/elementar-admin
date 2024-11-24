@@ -9,10 +9,7 @@ import {
   Renderer2
 } from '@angular/core';
 
-@Directive({
-    selector: '[emrPinInput]',
-    standalone: false
-})
+@Directive({ selector: '[emrPinInput]' })
 export class PinInputDirective implements OnInit {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);

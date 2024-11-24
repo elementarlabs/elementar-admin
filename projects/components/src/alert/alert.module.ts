@@ -7,22 +7,20 @@ import { AlertIconDirective } from './alert-icon.directive';
 import { AlertActionDirective } from './alert-action.directive';
 
 @NgModule({
-  declarations: [
-    AlertComponent,
-    AlertCloseDirective,
-    AlertTitleDirective,
-    AlertIconDirective,
-    AlertActionDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    AlertComponent,
-    AlertCloseDirective,
-    AlertTitleDirective,
-    AlertIconDirective,
-    AlertActionDirective
-  ]
+    imports: [
+        CommonModule,
+        AlertComponent,
+        AlertCloseDirective,
+        AlertTitleDirective,
+        AlertIconDirective,
+        AlertActionDirective
+    ],
+    exports: [
+        AlertComponent,
+        AlertCloseDirective,
+        AlertTitleDirective,
+        AlertIconDirective,
+        AlertActionDirective
+    ]
 })
 export class EmrAlertModule { }

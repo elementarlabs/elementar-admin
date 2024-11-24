@@ -14,8 +14,7 @@ import { TAB_PANEL_ASIDE } from '../types';
     ],
     host: {
         'class': 'emr-tab-panel-aside'
-    },
-    standalone: false
+    }
 })
 export class TabPanelAsideComponent {
   nextId = 0;

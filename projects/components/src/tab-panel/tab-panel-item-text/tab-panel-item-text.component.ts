@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./tab-panel-item-text.component.scss'],
     host: {
         'class': 'emr-tab-panel-item-text'
-    },
-    standalone: false
+    }
 })
 export class TabPanelItemTextComponent {
 }

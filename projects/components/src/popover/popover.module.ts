@@ -5,18 +5,16 @@ import { PopoverTriggerForDirective } from './popover-trigger-for.directive';
 import { PopoverOriginDirective } from './popover-origin.directive';
 
 @NgModule({
-  declarations: [
-    PopoverComponent,
-    PopoverTriggerForDirective,
-    PopoverOriginDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    PopoverComponent,
-    PopoverTriggerForDirective,
-    PopoverOriginDirective
-  ]
+    imports: [
+        CommonModule,
+        PopoverComponent,
+        PopoverTriggerForDirective,
+        PopoverOriginDirective
+    ],
+    exports: [
+        PopoverComponent,
+        PopoverTriggerForDirective,
+        PopoverOriginDirective
+    ]
 })
 export class EmrPopoverModule { }

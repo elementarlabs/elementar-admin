@@ -4,16 +4,14 @@ import { GaugeComponent } from './gauge/gauge.component';
 import { GaugeValueComponent } from './gauge-value/gauge-value.component';
 
 @NgModule({
-  declarations: [
-    GaugeComponent,
-    GaugeValueComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    GaugeComponent,
-    GaugeValueComponent
-  ]
+    imports: [
+        CommonModule,
+        GaugeComponent,
+        GaugeValueComponent
+    ],
+    exports: [
+        GaugeComponent,
+        GaugeValueComponent
+    ]
 })
 export class EmrGaugeModule { }

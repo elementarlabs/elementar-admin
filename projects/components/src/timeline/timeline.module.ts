@@ -10,28 +10,26 @@ import { TimelineTitleComponent } from './timeline-title/timeline-title.componen
 import { TimelineItemIndicatorDirective } from './timeline-item-indicator.directive';
 
 @NgModule({
-  declarations: [
-    TimelineComponent,
-    TimelineHeaderComponent,
-    TimelineItemComponent,
-    TimelineAttributesComponent,
-    TimelineDescriptionComponent,
-    TimelineTimestampComponent,
-    TimelineTitleComponent,
-    TimelineItemIndicatorDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    TimelineComponent,
-    TimelineHeaderComponent,
-    TimelineItemComponent,
-    TimelineAttributesComponent,
-    TimelineDescriptionComponent,
-    TimelineTimestampComponent,
-    TimelineTitleComponent,
-    TimelineItemIndicatorDirective
-  ]
+    imports: [
+        CommonModule,
+        TimelineComponent,
+        TimelineHeaderComponent,
+        TimelineItemComponent,
+        TimelineAttributesComponent,
+        TimelineDescriptionComponent,
+        TimelineTimestampComponent,
+        TimelineTitleComponent,
+        TimelineItemIndicatorDirective
+    ],
+    exports: [
+        TimelineComponent,
+        TimelineHeaderComponent,
+        TimelineItemComponent,
+        TimelineAttributesComponent,
+        TimelineDescriptionComponent,
+        TimelineTimestampComponent,
+        TimelineTitleComponent,
+        TimelineItemIndicatorDirective
+    ]
 })
 export class EmrTimelineModule { }

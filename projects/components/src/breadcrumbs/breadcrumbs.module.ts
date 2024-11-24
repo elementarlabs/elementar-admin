@@ -8,24 +8,22 @@ import { BreadcrumbSeparatorDefDirective } from './breadcrumb-separator-def.dire
 import { BreadcrumbActiveItemDefDirective } from './breadcrumb-active-item-def.directive';
 
 @NgModule({
-  declarations: [
-    BreadcrumbsComponent,
-    BreadcrumbItemComponent,
-    BreadcrumbSeparatorComponent,
-    BreadcrumbSeparatorDefDirective,
-    BreadcrumbItemDefDirective,
-    BreadcrumbActiveItemDefDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    BreadcrumbsComponent,
-    BreadcrumbItemComponent,
-    BreadcrumbSeparatorComponent,
-    BreadcrumbSeparatorDefDirective,
-    BreadcrumbItemDefDirective,
-    BreadcrumbActiveItemDefDirective
-  ]
+    imports: [
+        CommonModule,
+        BreadcrumbsComponent,
+        BreadcrumbItemComponent,
+        BreadcrumbSeparatorComponent,
+        BreadcrumbSeparatorDefDirective,
+        BreadcrumbItemDefDirective,
+        BreadcrumbActiveItemDefDirective
+    ],
+    exports: [
+        BreadcrumbsComponent,
+        BreadcrumbItemComponent,
+        BreadcrumbSeparatorComponent,
+        BreadcrumbSeparatorDefDirective,
+        BreadcrumbItemDefDirective,
+        BreadcrumbActiveItemDefDirective
+    ]
 })
 export class EmrBreadcrumbsModule { }

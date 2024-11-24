@@ -15,8 +15,7 @@ import { MatRipple } from '@angular/material/core';
     host: {
         'class': 'emr-tab-panel-item',
         '[class.is-active]': 'api.isActive(this.for)',
-    },
-    standalone: false
+    }
 })
 export class TabPanelItemComponent {
   readonly api = inject(TabPanelApiService);

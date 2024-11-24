@@ -8,8 +8,7 @@ import { booleanAttribute, Component, ElementRef, EventEmitter, inject, Input, O
     host: {
         'class': 'emr-expand',
         '[class.is-expanded]': 'expanded'
-    },
-    standalone: false
+    }
 })
 export class ExpandComponent {
   private _elementRef = inject(ElementRef);

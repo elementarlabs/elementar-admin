@@ -13,34 +13,32 @@ import { MatSelect } from '@angular/material/select';
 import { AutoFocusDirective, FocusElementDirective, MenuOptionGroupDirective } from '@elementar/components/core';
 
 @NgModule({
-  declarations: [
-    FilterBuilderComponent,
-    FilterBuilderOperationDefDirective,
-    FilterBuilderOperationNameDirective,
-    FilterBuilderOperationIconDirective
-  ],
-  imports: [
-    CommonModule,
-    MatMenu,
-    MatOption,
-    MatMenuTrigger,
-    MatMenuItem,
-    MenuOptionGroupDirective,
-    FormsModule,
-    MatIcon,
-    MatInput,
-    MatFormField,
-    AutoFocusDirective,
-    FocusElementDirective,
-    MatSelect,
-    MatAutocompleteTrigger,
-    MatAutocomplete
-  ],
-  exports: [
-    FilterBuilderComponent,
-    FilterBuilderOperationDefDirective,
-    FilterBuilderOperationNameDirective,
-    FilterBuilderOperationIconDirective
-  ]
+    imports: [
+        CommonModule,
+        MatMenu,
+        MatOption,
+        MatMenuTrigger,
+        MatMenuItem,
+        MenuOptionGroupDirective,
+        FormsModule,
+        MatIcon,
+        MatInput,
+        MatFormField,
+        AutoFocusDirective,
+        FocusElementDirective,
+        MatSelect,
+        MatAutocompleteTrigger,
+        MatAutocomplete,
+        FilterBuilderComponent,
+        FilterBuilderOperationDefDirective,
+        FilterBuilderOperationNameDirective,
+        FilterBuilderOperationIconDirective
+    ],
+    exports: [
+        FilterBuilderComponent,
+        FilterBuilderOperationDefDirective,
+        FilterBuilderOperationNameDirective,
+        FilterBuilderOperationIconDirective
+    ]
 })
 export class EmrFilterBuilderModule { }

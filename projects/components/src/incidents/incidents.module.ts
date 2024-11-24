@@ -14,36 +14,34 @@ import { IncidentIconDirective } from './incident-icon.directive';
 import { IncidentCloseDirective } from './incident-close.directive';
 
 @NgModule({
-  declarations: [
-    IncidentsComponent,
-    IncidentsBarComponent,
-    IncidentsListComponent,
-    IncidentComponent,
-    IncidentTitleComponent,
-    IncidentDetailsComponent,
-    IncidentButtonDirective,
-    IncidentsTitleComponent,
-    IncidentsDescriptionComponent,
-    IncidentsToggleIconDirective,
-    IncidentIconDirective,
-    IncidentCloseDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    IncidentsComponent,
-    IncidentsBarComponent,
-    IncidentsListComponent,
-    IncidentComponent,
-    IncidentTitleComponent,
-    IncidentDetailsComponent,
-    IncidentButtonDirective,
-    IncidentsTitleComponent,
-    IncidentsDescriptionComponent,
-    IncidentsToggleIconDirective,
-    IncidentIconDirective,
-    IncidentCloseDirective
-  ]
+    imports: [
+        CommonModule,
+        IncidentsComponent,
+        IncidentsBarComponent,
+        IncidentsListComponent,
+        IncidentComponent,
+        IncidentTitleComponent,
+        IncidentDetailsComponent,
+        IncidentButtonDirective,
+        IncidentsTitleComponent,
+        IncidentsDescriptionComponent,
+        IncidentsToggleIconDirective,
+        IncidentIconDirective,
+        IncidentCloseDirective
+    ],
+    exports: [
+        IncidentsComponent,
+        IncidentsBarComponent,
+        IncidentsListComponent,
+        IncidentComponent,
+        IncidentTitleComponent,
+        IncidentDetailsComponent,
+        IncidentButtonDirective,
+        IncidentsTitleComponent,
+        IncidentsDescriptionComponent,
+        IncidentsToggleIconDirective,
+        IncidentIconDirective,
+        IncidentCloseDirective
+    ]
 })
 export class EmrIncidentsModule { }

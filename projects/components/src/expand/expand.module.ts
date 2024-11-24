@@ -4,16 +4,14 @@ import { ExpandComponent } from './expand/expand.component';
 import { ExpandButtonComponent } from './expand-button/expand-button.component';
 
 @NgModule({
-  declarations: [
-    ExpandComponent,
-    ExpandButtonComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    ExpandComponent,
-    ExpandButtonComponent
-  ]
+    imports: [
+        CommonModule,
+        ExpandComponent,
+        ExpandButtonComponent
+    ],
+    exports: [
+        ExpandComponent,
+        ExpandButtonComponent
+    ]
 })
 export class EmrExpandModule { }

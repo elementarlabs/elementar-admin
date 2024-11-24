@@ -14,33 +14,31 @@ import { MatBadge } from '@angular/material/badge';
 import { NavigationItemBadgeDirective } from '@elementar/components/navigation/navigation-item-badge.directive';
 
 @NgModule({
-  declarations: [
-    NavigationComponent,
-    NavigationItemComponent,
-    NavigationHeadingComponent,
-    NavigationDividerComponent,
-    NavigationGroupComponent,
-    NavigationGroupToggleComponent,
-    NavigationGroupMenuComponent,
-    NavigationItemIconDirective,
-    NavigationGroupToggleIconDirective
-  ],
-  imports: [
-    CommonModule,
-    MatRipple,
-    MatBadge,
-    NavigationItemBadgeDirective
-  ],
-  exports: [
-    NavigationComponent,
-    NavigationItemComponent,
-    NavigationHeadingComponent,
-    NavigationDividerComponent,
-    NavigationGroupComponent,
-    NavigationGroupToggleComponent,
-    NavigationGroupMenuComponent,
-    NavigationItemIconDirective,
-    NavigationGroupToggleIconDirective
-  ]
+    imports: [
+        CommonModule,
+        MatRipple,
+        MatBadge,
+        NavigationItemBadgeDirective,
+        NavigationComponent,
+        NavigationItemComponent,
+        NavigationHeadingComponent,
+        NavigationDividerComponent,
+        NavigationGroupComponent,
+        NavigationGroupToggleComponent,
+        NavigationGroupMenuComponent,
+        NavigationItemIconDirective,
+        NavigationGroupToggleIconDirective
+    ],
+    exports: [
+        NavigationComponent,
+        NavigationItemComponent,
+        NavigationHeadingComponent,
+        NavigationDividerComponent,
+        NavigationGroupComponent,
+        NavigationGroupToggleComponent,
+        NavigationGroupMenuComponent,
+        NavigationItemIconDirective,
+        NavigationGroupToggleIconDirective
+    ]
 })
 export class EmrNavigationModule { }

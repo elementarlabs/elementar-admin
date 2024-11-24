@@ -14,8 +14,7 @@ import { TabPanelAsideComponent } from './tab-panel-aside/tab-panel-aside.compon
 
 @Directive({
     selector: '[emrTabPanelAsideContent]',
-    exportAs: 'emrTabPanelAsideContent',
-    standalone: false
+    exportAs: 'emrTabPanelAsideContent'
 })
 export class TabPanelAsideContentDirective implements OnInit {
   private _aside = inject<TabPanelAsideComponent>(TAB_PANEL_ASIDE, { optional: true });

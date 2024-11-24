@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { animate, keyframes, style, transition, trigger, useAnimation} from '@angular/animations';
 import { shake } from '../animations';
 import { PasswordStrengthComponent } from '../password-strength/password-strength.component';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'emr-password-strength-info',
@@ -42,7 +43,7 @@ import { PasswordStrengthComponent } from '../password-strength/password-strengt
             transition(':enter', useAnimation(shake)),
         ]),
     ],
-    standalone: false
+    imports: [MatIcon]
 })
 export class PasswordStrengthInfoComponent implements OnInit {
   @Input()

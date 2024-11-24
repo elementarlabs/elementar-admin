@@ -9,8 +9,7 @@ import {
     styleUrls: ['./navigation-group.component.scss'],
     host: {
         class: 'emr-navigation-group'
-    },
-    standalone: false
+    }
 })
 export class NavigationGroupComponent {
 }

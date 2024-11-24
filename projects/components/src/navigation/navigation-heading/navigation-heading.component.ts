@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./navigation-heading.component.scss'],
     host: {
         class: 'emr-navigation-heading'
-    },
-    standalone: false
+    }
 })
 export class NavigationHeadingComponent {
 }

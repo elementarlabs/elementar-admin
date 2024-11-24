@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./skeleton-block.component.scss'],
     host: {
         'class': 'emr-skeleton-item emr-skeleton-block'
-    },
-    standalone: false
+    }
 })
 export class SkeletonBlockComponent {
 }

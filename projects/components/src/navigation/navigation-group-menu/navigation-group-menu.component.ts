@@ -19,8 +19,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     host: {
         'class': 'emr-navigation-group-menu',
         '[class.is-active]': 'active'
-    },
-    standalone: false
+    }
 })
 export class NavigationGroupMenuComponent implements AfterContentInit {
   readonly api = inject(NavigationApiService);

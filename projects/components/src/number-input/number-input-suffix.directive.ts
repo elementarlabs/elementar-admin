@@ -2,8 +2,7 @@ import { Directive, inject, TemplateRef } from '@angular/core';
 
 @Directive({
     selector: '[emrNumberInputSuffix]',
-    exportAs: 'emrNumberInputSuffix',
-    standalone: false
+    exportAs: 'emrNumberInputSuffix'
 })
 export class NumberInputSuffixDirective {
   readonly templateRef = inject(TemplateRef);

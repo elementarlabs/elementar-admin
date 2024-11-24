@@ -27,8 +27,7 @@ import { ColorPickerPosition } from './properties';
     exportAs: 'emrColorPickerTriggerFor',
     host: {
         'class': 'emr-color-picker-trigger-for'
-    },
-    standalone: false
+    }
 })
 export class ColorPickerTriggerForDirective {
   @Input('emrColorPickerTriggerFor')

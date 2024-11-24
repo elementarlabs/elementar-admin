@@ -8,8 +8,7 @@ import { booleanAttribute, Component, Input } from '@angular/core';
     host: {
         'class': 'emr-panel',
         '[class.is-absolute]': 'absolute'
-    },
-    standalone: false
+    }
 })
 export class PanelComponent {
   @Input({ transform: booleanAttribute })

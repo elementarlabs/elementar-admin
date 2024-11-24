@@ -15,6 +15,9 @@ import { ColorPickerControl } from '../helpers/control';
 import { UltColorPickerChangeFormat } from '../properties';
 import { Color } from '../helpers/color';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SaturationComponent } from '../saturation/saturation.component';
+import { HueComponent } from '../hue/hue.component';
+import { AlphaComponent } from '../alpha/alpha.component';
 
 @Component({
     selector: 'emr-color-picker',
@@ -33,7 +36,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
         'class': 'emr-color-picker',
         '[class.is-disabled]': 'disabled',
     },
-    standalone: false
+    imports: [SaturationComponent, HueComponent, AlphaComponent]
 })
 export class ColorPickerComponent implements OnInit, ControlValueAccessor {
   @Input()

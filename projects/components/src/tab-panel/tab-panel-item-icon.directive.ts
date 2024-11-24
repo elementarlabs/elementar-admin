@@ -5,8 +5,7 @@ import { Directive } from '@angular/core';
     exportAs: 'emrTabPanelItemIcon',
     host: {
         'class': 'emr-tab-panel-item-icon'
-    },
-    standalone: false
+    }
 })
 export class TabPanelItemIconDirective {
 }

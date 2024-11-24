@@ -16,6 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, UntypedFormControl, ValidatorF
 import { Criteria } from '../enum';
 import { PasswordStrengthValidator } from '../validator';
 import { RegExpValidator } from '../validator/regexp.class';
+import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
     selector: 'emr-password-strength',
@@ -37,7 +38,7 @@ import { RegExpValidator } from '../validator/regexp.class';
         '[class.strong]': 'isStrong',
         '[class.very-strong]': 'isVeryStrong',
     },
-    standalone: false
+    imports: [MatProgressBar]
 })
 export class PasswordStrengthComponent implements OnInit, OnChanges, AfterContentChecked, ControlValueAccessor {
   @Input()

@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./panel-body.component.scss'],
     host: {
         'class': 'emr-panel-body'
-    },
-    standalone: false
+    }
 })
 export class PanelBodyComponent {
 }

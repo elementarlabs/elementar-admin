@@ -17,24 +17,22 @@ import {
 export { RegExpValidator } from './validator/regexp.class';
 
 @NgModule({
-  declarations: [
-    PasswordStrengthComponent,
-    PasswordStrengthInfoComponent,
-    PassToggleVisibilityComponent
-  ],
-  imports: [
-    CommonModule,
-    MatProgressBarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatRippleModule
-  ],
-  exports: [
-    PasswordStrengthComponent,
-    PasswordStrengthInfoComponent,
-    PassToggleVisibilityComponent
-  ]
+    imports: [
+        CommonModule,
+        MatProgressBarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatRippleModule,
+        PasswordStrengthComponent,
+        PasswordStrengthInfoComponent,
+        PassToggleVisibilityComponent
+    ],
+    exports: [
+        PasswordStrengthComponent,
+        PasswordStrengthInfoComponent,
+        PassToggleVisibilityComponent
+    ]
 })
 export class PasswordStrengthModule {
 }

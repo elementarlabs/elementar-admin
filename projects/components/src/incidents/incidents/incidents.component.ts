@@ -17,8 +17,7 @@ import { INCIDENTS } from '../properties';
     host: {
         'class': 'emr-incidents',
         '[class.is-visible]': 'isVisible',
-    },
-    standalone: false
+    }
 })
 export class IncidentsComponent {
   isVisible = false;

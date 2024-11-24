@@ -7,18 +7,16 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    PinInputComponent,
-    PinInputDirective
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormField,
-    MatInput
-  ],
-  exports: [
-    PinInputComponent
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatFormField,
+        MatInput,
+        PinInputComponent,
+        PinInputDirective
+    ],
+    exports: [
+        PinInputComponent
+    ]
 })
 export class EmrPinInputModule { }

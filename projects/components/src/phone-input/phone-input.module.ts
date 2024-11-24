@@ -12,27 +12,25 @@ import { SearchPipe } from './search.pipe';
 import { IconComponent } from '../icon';
 
 @NgModule({
-  declarations: [
-    PhoneInputComponent,
-    SearchPipe
-  ],
-  imports: [
-    CommonModule,
-    MatDivider,
-    MatInput,
-    MatMenu,
-    MatMenuItem,
-    MatRipple,
-    ReactiveFormsModule,
-    FormsModule,
-    MatMenuTrigger,
-    MatButton,
-    MatFormField,
-    MatIcon,
-    IconComponent
-  ],
-  exports: [
-    PhoneInputComponent
-  ]
+    imports: [
+        CommonModule,
+        MatDivider,
+        MatInput,
+        MatMenu,
+        MatMenuItem,
+        MatRipple,
+        ReactiveFormsModule,
+        FormsModule,
+        MatMenuTrigger,
+        MatButton,
+        MatFormField,
+        MatIcon,
+        IconComponent,
+        PhoneInputComponent,
+        SearchPipe
+    ],
+    exports: [
+        PhoneInputComponent
+    ]
 })
 export class EmrPhoneInputModule { }

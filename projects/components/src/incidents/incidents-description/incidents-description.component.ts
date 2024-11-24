@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./incidents-description.component.scss'],
     host: {
         'class': 'emr-incidents-description'
-    },
-    standalone: false
+    }
 })
 export class IncidentsDescriptionComponent {
 }

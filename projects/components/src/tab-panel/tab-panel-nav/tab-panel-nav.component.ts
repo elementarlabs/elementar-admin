@@ -14,8 +14,7 @@ import { TAB_PANEL_NAV } from '../types';
     ],
     host: {
         'class': 'emr-tab-panel-nav'
-    },
-    standalone: false
+    }
 })
 export class TabPanelNavComponent {
   nextId = 0;

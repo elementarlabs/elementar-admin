@@ -16,8 +16,7 @@ import { Color } from '../helpers/color';
     exportAs: 'emrHue',
     templateUrl: './hue.component.html',
     styleUrls: ['./hue.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HueComponent extends BaseComponent implements OnChanges {
   @ViewChild('pointer', { static: true })

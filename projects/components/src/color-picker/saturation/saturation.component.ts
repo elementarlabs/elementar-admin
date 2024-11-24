@@ -22,8 +22,7 @@ import { BaseComponent } from '../base.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'class': 'emr-saturation'
-    },
-    standalone: false
+    }
 })
 export class SaturationComponent extends BaseComponent {
   @Input()

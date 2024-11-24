@@ -9,8 +9,7 @@ import { Component, input } from '@angular/core';
         'class': 'emr-skeleton',
         '[class.is-direction-row]': 'direction() === "row"',
         '[class.is-direction-col]': 'direction() === "col"',
-    },
-    standalone: false
+    }
 })
 export class SkeletonComponent {
   direction = input<'row' | 'col'>('row');

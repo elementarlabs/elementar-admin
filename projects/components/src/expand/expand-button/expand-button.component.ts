@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrl: './expand-button.component.scss',
     host: {
         'class': 'emr-expand-button'
-    },
-    standalone: false
+    }
 })
 export class ExpandButtonComponent {
 }

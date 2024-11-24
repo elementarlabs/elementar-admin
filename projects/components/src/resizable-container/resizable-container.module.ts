@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ResizableContainerComponent } from './resizable-container/resizable-container.component';
 
 @NgModule({
-  declarations: [
-    ResizableContainerComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    ResizableContainerComponent
-  ]
+    imports: [
+        CommonModule,
+        ResizableContainerComponent
+    ],
+    exports: [
+        ResizableContainerComponent
+    ]
 })
 export class EmrResizableContainerModule { }

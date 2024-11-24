@@ -10,25 +10,23 @@ import { MatSuffix } from '@angular/material/form-field';
 import { MatRipple } from '@angular/material/core';
 
 @NgModule({
-  declarations: [
-    NumberInputComponent,
-    IncreaseControlDirective,
-    DecreaseControlDirective,
-    NumberInputPrefixDirective,
-    NumberInputSuffixDirective
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatSuffix,
-    MatRipple
-  ],
-  exports: [
-    NumberInputComponent,
-    IncreaseControlDirective,
-    DecreaseControlDirective,
-    NumberInputPrefixDirective,
-    NumberInputSuffixDirective
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatSuffix,
+        MatRipple,
+        NumberInputComponent,
+        IncreaseControlDirective,
+        DecreaseControlDirective,
+        NumberInputPrefixDirective,
+        NumberInputSuffixDirective
+    ],
+    exports: [
+        NumberInputComponent,
+        IncreaseControlDirective,
+        DecreaseControlDirective,
+        NumberInputPrefixDirective,
+        NumberInputSuffixDirective
+    ]
 })
 export class EmrNumberInputModule { }

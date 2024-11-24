@@ -13,8 +13,7 @@ import { TabPanelApiService } from '../tab-panel-api.service';
         'class': 'emr-tab-panel',
         '[class.is-hide-content-if-tab-not-selected]': 'hideContentIfTabNotSelected',
         '[class.is-compact]': 'compact()',
-    },
-    standalone: false
+    }
 })
 export class TabPanelComponent {
   readonly api = inject(TabPanelApiService);

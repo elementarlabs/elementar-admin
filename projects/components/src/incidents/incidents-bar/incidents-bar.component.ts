@@ -9,8 +9,7 @@ import { IncidentsComponent } from '../incidents/incidents.component';
     styleUrls: ['./incidents-bar.component.scss'],
     host: {
         'class': 'emr-incidents-bar'
-    },
-    standalone: false
+    }
 })
 export class IncidentsBarComponent {
   private _parent = inject<IncidentsComponent>(INCIDENTS, { optional: true });

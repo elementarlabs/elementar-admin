@@ -5,8 +5,7 @@ import { TabPanelApiService } from '../tab-panel-api.service';
     selector: 'emr-tab-panel-custom-item',
     exportAs: 'emrTabPanelCustomItem',
     templateUrl: './tab-panel-custom-item.component.html',
-    styleUrl: './tab-panel-custom-item.component.scss',
-    standalone: false
+    styleUrl: './tab-panel-custom-item.component.scss'
 })
 export class TabPanelCustomItemComponent {
   readonly api = inject(TabPanelApiService);

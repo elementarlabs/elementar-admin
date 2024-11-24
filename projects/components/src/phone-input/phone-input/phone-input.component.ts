@@ -17,17 +17,10 @@ import {
   ViewChild,
   booleanAttribute, inject,
 } from '@angular/core';
-import {
-  FormGroupDirective,
-  NG_VALIDATORS,
-  NgControl,
-  NgForm
-} from '@angular/forms';
-import {
-  ErrorStateMatcher
-} from '@angular/material/core';
+import { FormGroupDirective, NG_VALIDATORS, NgControl, NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ErrorStateMatcher, MatRipple } from '@angular/material/core';
 import { MatFormFieldControl } from '@angular/material/form-field';
-import { MatMenu } from '@angular/material/menu';
+import { MatMenu, MatMenuTrigger, MatMenuItem } from '@angular/material/menu';
 import {
   AsYouType,
   CountryCode as CC,
@@ -40,29 +33,35 @@ import { CountryCode, Examples } from '../data/country-code';
 import { Country } from '../model/country.model';
 import { PhoneNumberFormat } from '../model/phone-number-format.model';
 import { phoneValidator } from '../phone.validator';
+import { IconComponent } from '../../icon/icon/icon.component';
+import { NgIf, NgClass } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { MatDivider } from '@angular/material/divider';
+import { MatInput } from '@angular/material/input';
+import { SearchPipe } from '../search.pipe';
 
 @Component({
-  selector: 'emr-phone-input',
-  exportAs: 'emrPhoneInput',
-  templateUrl: './phone-input.component.html',
-  styleUrls: ['./phone-input.component.scss'],
-  providers: [
-    CountryCode,
-    {
-      provide: MatFormFieldControl,
-      useExisting: PhoneInputComponent
+    selector: 'emr-phone-input',
+    exportAs: 'emrPhoneInput',
+    templateUrl: './phone-input.component.html',
+    styleUrls: ['./phone-input.component.scss'],
+    providers: [
+        CountryCode,
+        {
+            provide: MatFormFieldControl,
+            useExisting: PhoneInputComponent
+        },
+        {
+            provide: NG_VALIDATORS,
+            useValue: phoneValidator,
+            multi: true,
+        },
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        'class': 'emr-phone-input'
     },
-    {
-      provide: NG_VALIDATORS,
-      useValue: phoneValidator,
-      multi: true,
-    },
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'class': 'emr-phone-input'
-  },
-  standalone: false
+    imports: [MatRipple, MatMenuTrigger, IconComponent, NgIf, MatIcon, MatMenu, ReactiveFormsModule, FormsModule, MatMenuItem, NgClass, MatDivider, MatInput, SearchPipe]
 })
 export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   private ngControl = inject(NgControl, { optional: true });

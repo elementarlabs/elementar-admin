@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['file-list.component.scss'],
     host: {
         'class': 'emr-file-list'
-    },
-    standalone: false
+    }
 })
 export class FileListComponent {
 }

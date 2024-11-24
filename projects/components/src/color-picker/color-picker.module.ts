@@ -12,25 +12,23 @@ import { AlphaComponent } from './alpha/alpha.component';
 import { ColorPickerInputDirective } from './directives/color-picker-input.directive';
 
 @NgModule({
-  declarations: [
-    ColorPickerComponent,
-    ColorPickerTriggerForDirective,
-    ColorPickerInputDirective,
-    ColorPickerThumbnailComponent,
-    ChunksPipe,
-    ReversePipe,
-    SaturationComponent,
-    HueComponent,
-    AlphaComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    ColorPickerComponent,
-    ColorPickerThumbnailComponent,
-    ColorPickerTriggerForDirective
-  ]
+    imports: [
+        CommonModule,
+        ColorPickerComponent,
+        ColorPickerTriggerForDirective,
+        ColorPickerInputDirective,
+        ColorPickerThumbnailComponent,
+        ChunksPipe,
+        ReversePipe,
+        SaturationComponent,
+        HueComponent,
+        AlphaComponent
+    ],
+    exports: [
+        ColorPickerComponent,
+        ColorPickerThumbnailComponent,
+        ColorPickerTriggerForDirective
+    ]
 })
 export class EmrColorPickerModule {
 }

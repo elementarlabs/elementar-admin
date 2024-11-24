@@ -23,8 +23,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         'class': 'emr-resizable-container'
-    },
-    standalone: false
+    }
 })
 export class ResizableContainerComponent implements OnInit {
   private _renderer = inject(Renderer2);

@@ -9,16 +9,11 @@ import {
   QueryList,
   ViewChildren
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  NG_VALUE_ACCESSOR,
-  Validators
-} from '@angular/forms';
+import { ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators, ReactiveFormsModule } from '@angular/forms';
 import { PinInputDirective } from '../pin-input.directive';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 
 @Component({
     selector: 'emr-pin-input',
@@ -36,7 +31,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
         'class': 'emr-pin-input',
         '[class.is-disabled]': 'disabled',
     },
-    standalone: false
+    imports: [ReactiveFormsModule, MatFormField, MatInput, PinInputDirective]
 })
 export class PinInputComponent implements ControlValueAccessor, OnInit {
   private _fb = inject(FormBuilder);

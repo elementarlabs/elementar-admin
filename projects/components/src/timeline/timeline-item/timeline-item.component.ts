@@ -1,5 +1,6 @@
 import { Component, ContentChild } from '@angular/core';
 import { TimelineItemIndicatorDirective } from '../timeline-item-indicator.directive';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
     selector: 'emr-timeline-item',
@@ -9,7 +10,7 @@ import { TimelineItemIndicatorDirective } from '../timeline-item-indicator.direc
     host: {
         'class': 'emr-timeline-item'
     },
-    standalone: false
+    imports: [NgTemplateOutlet]
 })
 export class TimelineItemComponent {
   @ContentChild(TimelineItemIndicatorDirective)
