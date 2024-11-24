@@ -1,48 +1,46 @@
 @use '@angular/material' as mat;
+@use "_common" with (
+  $m3-light-theme: mat.define-theme((
+    color: (
+      theme-type: light,
+      primary: mat.$red-palette,
+      tertiary: mat.$rose-palette,
+      use-system-variables: true,
+      system-variables-prefix: sys,
+    ),
+    typography: (
+      brand-family: '"Open Sans", sans-serif',
+      plain-family: '"Open Sans", sans-serif',
+      use-system-variables: true,
+      system-variables-prefix: sys,
+    ),
+    density: (
+      scale: 0,
+    )
+  )),
+  $m3-dark-theme: mat.define-theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$rose-palette,
+      tertiary: mat.$red-palette,
+      use-system-variables: true,
+      system-variables-prefix: sys,
+    ),
+    typography: (
+      brand-family: '"Open Sans", sans-serif',
+      plain-family: '"Open Sans", sans-serif',
+      use-system-variables: true,
+      system-variables-prefix: sys,
+    ),
+    density: (
+      scale: 0,
+    )
+  ))
+);
+@use "_components";
 
 @include mat.elevation-classes();
 @include mat.app-background();
-
-$m3-light-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$red-palette,
-    tertiary: mat.$rose-palette,
-    use-system-variables: true,
-    system-variables-prefix: sys,
-  ),
-  typography: (
-    brand-family: '"Open Sans", sans-serif',
-    plain-family: '"Open Sans", sans-serif',
-    use-system-variables: true,
-    system-variables-prefix: sys,
-  ),
-  density: (
-    scale: 0,
-  )
-));
-
-$m3-dark-theme: mat.define-theme((
-  color: (
-    theme-type: dark,
-    primary: mat.$rose-palette,
-    tertiary: mat.$red-palette,
-    use-system-variables: true,
-    system-variables-prefix: sys,
-  ),
-  typography: (
-    brand-family: '"Open Sans", sans-serif',
-    plain-family: '"Open Sans", sans-serif',
-    use-system-variables: true,
-    system-variables-prefix: sys,
-  ),
-  density: (
-    scale: 0,
-  )
-));
-
-@import "_common";
-@import "_components";
 
 @tailwind base;
 @tailwind components;

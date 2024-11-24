@@ -1,6 +1,44 @@
 @use '@angular/material' as mat;
 @use 'material-symbols/outlined';
 
+$m3-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+    use-system-variables: true,
+    system-variables-prefix: sys,
+  ),
+  typography: (
+    brand-family: '"Open Sans", sans-serif',
+    plain-family: '"Open Sans", sans-serif',
+    use-system-variables: true,
+    system-variables-prefix: sys,
+  ),
+  density: (
+    scale: 0,
+  ),
+)) !default;
+
+$m3-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+    use-system-variables: true,
+    system-variables-prefix: sys,
+  ),
+  typography: (
+    brand-family: '"Open Sans", sans-serif',
+    plain-family: '"Open Sans", sans-serif',
+    use-system-variables: true,
+    system-variables-prefix: sys,
+  ),
+  density: (
+    scale: 0,
+  ),
+)) !default;
+
 :root {
   --emr-neutral: #{mat.get-theme-color($m3-light-theme, neutral, 60)};
   --emr-neutral-0: #{mat.get-theme-color($m3-light-theme, neutral, 100)};
