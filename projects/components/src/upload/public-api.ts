@@ -6,4 +6,4 @@ export * from './files-grid/files-grid.component';
 export * from './grid-file/grid-file.component';
 export * from './upload-trigger.directive';
 export * from './properties';
-export * from './upload.module';
+

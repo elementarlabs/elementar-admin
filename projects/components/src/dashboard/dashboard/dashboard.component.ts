@@ -11,29 +11,27 @@ import {
   DASHBOARD, WidgetConfig
 } from '../types';
 import { AsyncPipe, NgComponentOutlet } from '@angular/common';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { WidgetSkeletonComponent } from '@elementar/components/dashboard/widget-skeleton/widget-skeleton.component';
 
 @Component({
-    selector: 'emr-dashboard',
-    exportAs: 'emrDashboard',
-    imports: [
-        EmrSkeletonModule,
-        NgComponentOutlet,
-        AsyncPipe,
-        WidgetSkeletonComponent
-    ],
-    providers: [
-        {
-            provide: DASHBOARD,
-            useExisting: forwardRef(() => DashboardComponent),
-        }
-    ],
-    templateUrl: './dashboard.component.html',
-    styleUrl: './dashboard.component.scss',
-    host: {
-        'class': 'emr-dashboard'
+  selector: 'emr-dashboard',
+  exportAs: 'emrDashboard',
+  imports: [
+    NgComponentOutlet,
+    AsyncPipe,
+    WidgetSkeletonComponent
+  ],
+  providers: [
+    {
+      provide: DASHBOARD,
+      useExisting: forwardRef(() => DashboardComponent),
     }
+  ],
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss',
+  host: {
+    'class': 'emr-dashboard'
+  }
 })
 export class DashboardComponent implements OnInit {
   protected _skeletonMap = new Map<string, any>();

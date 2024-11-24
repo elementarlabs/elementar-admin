@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
-import { EmrPanelModule } from '@elementar/components/panel';
 import {
   DataView,
   DataViewActionBarComponent, DataViewActionBarDirective, DataViewAPI,
@@ -22,6 +21,7 @@ import {
   BlockStateContentComponent, BlockStateIconComponent,
   BlockStateImageComponent
 } from '@elementar/components/block-state';
+import { PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
 
 export interface User {
   id: string;
@@ -42,7 +42,6 @@ export interface Post {
 
 @Component({
   imports: [
-    EmrPanelModule,
     DataViewComponent,
     MatPaginator,
     FormsModule,
@@ -62,6 +61,8 @@ export interface Post {
     BlockStateContentComponent,
     DataViewEmptyFilterResultsDirective,
     BlockStateIconComponent,
+    PanelHeaderComponent,
+    PanelComponent,
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'

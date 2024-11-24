@@ -30,7 +30,7 @@ import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
 import { MatButton } from '@angular/material/button';
 import { DOCUMENT } from '@angular/common';
-import { EmrUploadModule } from '@elementar/components/upload';
+
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
 import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-editor/types';
@@ -39,8 +39,7 @@ import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-
   selector: 'emr-comment-editor',
   exportAs: 'emrCommentEditor',
   imports: [
-    MatButton,
-    EmrUploadModule
+    MatButton
   ],
   templateUrl: './comment-editor.component.html',
   styleUrl: './comment-editor.component.scss',

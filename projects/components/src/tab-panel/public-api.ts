@@ -1,4 +1,4 @@
-export * from './tab-panel.module';
+
 export * from './tab-panel/tab-panel.component';
 export * from './tab-panel-header/tab-panel-header.component';
 export * from './tab-panel-footer/tab-panel-footer.component';

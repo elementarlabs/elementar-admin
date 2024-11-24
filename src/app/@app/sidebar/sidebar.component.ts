@@ -2,7 +2,7 @@ import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
+import { NavigationItem } from '@elementar/components/navigation';
 import {
   SidebarBodyComponent,
   SidebarComponent as EmrSidebarComponent,

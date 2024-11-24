@@ -16,21 +16,21 @@ import { AlertIconDirective } from '../alert-icon.directive';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
-    selector: 'emr-alert',
-    exportAs: 'emrAlert',
-    templateUrl: './alert.component.html',
-    styleUrls: ['./alert.component.scss'],
-    providers: [
-        {
-            provide: ALERT,
-            useExisting: AlertComponent
-        }
-    ],
-    host: {
-        'class': 'emr-alert',
-        '[class.is-bordered]': 'bordered',
-    },
-    imports: [NgIf, NgTemplateOutlet]
+  selector: 'emr-alert',
+  exportAs: 'emrAlert',
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.scss'],
+  providers: [
+    {
+      provide: ALERT,
+      useExisting: AlertComponent
+    }
+  ],
+  host: {
+    'class': 'emr-alert',
+    '[class.is-bordered]': 'bordered',
+  },
+  imports: [NgIf, NgTemplateOutlet]
 })
 export class AlertComponent implements  OnInit {
   private _renderer = inject(Renderer2);

@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { EmrNumberInputModule } from '@elementar/components/number-input';
 import { MatIcon } from '@angular/material/icon';
+import {
+  DecreaseControlDirective,
+  IncreaseControlDirective,
+  NumberInputComponent
+} from '@elementar/components/number-input';
 
 @Component({
   selector: 'app-number-input-custom-controls-example',
   imports: [
     MatFormField,
-    EmrNumberInputModule,
     MatIcon,
-    MatLabel
+    MatLabel,
+    DecreaseControlDirective,
+    IncreaseControlDirective,
+    NumberInputComponent
   ],
   templateUrl: './number-input-custom-controls-example.component.html',
   styleUrl: './number-input-custom-controls-example.component.scss'

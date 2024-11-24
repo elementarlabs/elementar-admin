@@ -6,8 +6,6 @@ import {
   LayoutHeaderComponent,
   LayoutSidebarComponent
 } from '@elementar/components/layout';
-import { EmrPanelModule } from '@elementar/components/panel';
-import { EmrTabPanelModule } from '@elementar/components/tab-panel';
 import { SidebarComponent } from '../@app/sidebar/sidebar.component';
 import { HeaderComponent } from '../@app/header/header.component';
 
@@ -20,9 +18,7 @@ import { HeaderComponent } from '../@app/header/header.component';
     LayoutComponent,
     LayoutHeaderComponent,
     LayoutSidebarComponent,
-    SidebarComponent,
-    EmrPanelModule,
-    EmrTabPanelModule
+    SidebarComponent
   ],
   templateUrl: './common.component.html',
   styleUrl: './common.component.scss'

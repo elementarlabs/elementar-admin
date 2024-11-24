@@ -9,4 +9,4 @@ export * from './navigation-item-icon.directive';
 export * from './navigation-group-toggle-icon.directive';
 export * from './navigation-item-badge.directive';
 export * from './model';
-export * from './navigation.module';
+

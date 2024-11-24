@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { EmrUploadModule, UploadFileSelectedEvent } from '@elementar/components/upload';
+import { UploadAreaComponent, UploadFileSelectedEvent } from '@elementar/components/upload';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-upload-area-example',
   imports: [
-    EmrUploadModule,
-    JsonPipe
+    JsonPipe,
+    UploadAreaComponent
   ],
   templateUrl: './upload-area-example.component.html',
   styleUrl: './upload-area-example.component.scss'

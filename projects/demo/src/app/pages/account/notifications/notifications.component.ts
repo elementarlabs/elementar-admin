@@ -3,9 +3,8 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   Notification, NotificationControlsDefDirective, NotificationDefDirective,
-  NotificationListComponent, NotificationPropsDirective, NotificationSkeletonComponent,
+  NotificationListComponent, NotificationPropsDirective,
 } from '@elementar/components/notifications';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';
@@ -16,7 +15,6 @@ import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification }
     PageComponent,
     PageContentDirective,
     NotificationListComponent,
-    EmrSkeletonModule,
     NotificationDefDirective,
     InviteToEditFilesInFolderNotification,
     MentionedInCommentNotification,

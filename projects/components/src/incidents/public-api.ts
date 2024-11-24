@@ -10,4 +10,4 @@ export * from './incidents-description/incidents-description.component';
 export * from './incidents-toggle-icon.directive';
 export * from './incident-icon.directive';
 export * from './incident-close.directive';
-export * from './incidents.module';
+

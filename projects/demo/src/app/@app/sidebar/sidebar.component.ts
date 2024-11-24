@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
+import { NavigationItem } from '@elementar/components/navigation';
 import { v7 as uuid } from 'uuid';
 import {
   SidebarBodyComponent,
@@ -20,7 +20,6 @@ import { ToolbarComponent } from '@elementar/store/sidebar';
   imports: [
     MatIcon,
     RouterLink,
-    EmrNavigationModule,
     ToolbarComponent,
     SidebarBodyComponent,
     SidebarCompactViewModeDirective,

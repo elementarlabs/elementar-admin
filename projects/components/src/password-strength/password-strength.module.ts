@@ -16,23 +16,4 @@ import {
 // validator
 export { RegExpValidator } from './validator/regexp.class';
 
-@NgModule({
-    imports: [
-        CommonModule,
-        MatProgressBarModule,
-        MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        MatRippleModule,
-        PasswordStrengthComponent,
-        PasswordStrengthInfoComponent,
-        PassToggleVisibilityComponent
-    ],
-    exports: [
-        PasswordStrengthComponent,
-        PasswordStrengthInfoComponent,
-        PassToggleVisibilityComponent
-    ]
-})
-export class PasswordStrengthModule {
-}
+

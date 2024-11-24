@@ -6,12 +6,13 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { EmrPopoverModule } from '@elementar/components/popover';
+
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
 import { Notification } from '@elementar/components/notifications';
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elementar/store/header';
+import { PopoverTriggerForDirective } from '../../../../projects/components/src/popover/popover-trigger-for.directive';
 
 @Component({
   selector: 'app-header',
@@ -26,13 +27,13 @@ import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elemen
     MatDivider,
     MatButton,
     MatTooltip,
-    EmrPopoverModule,
+    PopoverTriggerForDirective,
     RouterLink,
     AssistantSearchComponent,
     MatAnchor,
     SoundEffectDirective,
     NotificationsPopoverComponent
-  ],
+],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   host: {

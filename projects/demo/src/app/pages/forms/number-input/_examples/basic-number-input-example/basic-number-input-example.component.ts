@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { EmrNumberInputModule } from '@elementar/components/number-input';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { NumberInputComponent } from '@elementar/components/number-input';
 
 @Component({
   selector: 'app-basic-number-input-example',
   imports: [
-    EmrNumberInputModule,
     MatFormField,
-    MatLabel
+    MatLabel,
+    NumberInputComponent
   ],
   templateUrl: './basic-number-input-example.component.html',
   styleUrl: './basic-number-input-example.component.scss'

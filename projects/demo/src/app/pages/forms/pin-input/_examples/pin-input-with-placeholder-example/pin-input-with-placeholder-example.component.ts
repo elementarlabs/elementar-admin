@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { EmrPinInputModule } from '@elementar/components/pin-input';
 import { FormsModule } from '@angular/forms';
+import { PinInputComponent } from '@elementar/components/pin-input';
 
 @Component({
-    selector: 'app-pin-input-with-placeholder-example',
-    imports: [
-        EmrPinInputModule,
-        FormsModule
-    ],
-    templateUrl: './pin-input-with-placeholder-example.component.html',
-    styleUrl: './pin-input-with-placeholder-example.component.scss'
+  selector: 'app-pin-input-with-placeholder-example',
+  imports: [
+    FormsModule,
+    PinInputComponent
+  ],
+  templateUrl: './pin-input-with-placeholder-example.component.html',
+  styleUrl: './pin-input-with-placeholder-example.component.scss'
 })
 export class PinInputWithPlaceholderExampleComponent {
   value = '';

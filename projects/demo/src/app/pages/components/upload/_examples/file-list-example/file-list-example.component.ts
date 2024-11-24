@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { EmrUploadModule } from '@elementar/components/upload';
 import { MatIcon } from '@angular/material/icon';
+import { FileComponent, FileListComponent } from '@elementar/components/upload';
 
 export interface File {
   name: string,
@@ -15,8 +15,9 @@ export interface File {
 @Component({
   selector: 'app-file-list-example',
   imports: [
-    EmrUploadModule,
-    MatIcon
+    MatIcon,
+    FileComponent,
+    FileListComponent
   ],
   templateUrl: './file-list-example.component.html',
   styleUrl: './file-list-example.component.scss'

@@ -5,16 +5,27 @@ import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { ToolbarAComponent } from '@elementar/store/sidebar';
 import { OrderByPipe } from '@elementar/components/core';
-import { EmrNavigationModule, NavigationItem } from '@elementar/components/navigation';
+import {
+  NavigationComponent,
+  NavigationGroupComponent,
+  NavigationGroupMenuComponent,
+  NavigationGroupToggleComponent, NavigationHeadingComponent,
+  NavigationItem, NavigationItemComponent
+} from '@elementar/components/navigation';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
     MatIcon,
     RouterLink,
-    EmrNavigationModule,
     OrderByPipe,
-    ToolbarAComponent
+    ToolbarAComponent,
+    NavigationGroupToggleComponent,
+    NavigationGroupMenuComponent,
+    NavigationItemComponent,
+    NavigationGroupComponent,
+    NavigationHeadingComponent,
+    NavigationComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

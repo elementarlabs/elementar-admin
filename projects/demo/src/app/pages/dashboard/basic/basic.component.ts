@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/dashboard';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
 
 @Component({
   imports: [
-    DashboardComponent,
-    EmrSkeletonModule
+    DashboardComponent
   ],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss'

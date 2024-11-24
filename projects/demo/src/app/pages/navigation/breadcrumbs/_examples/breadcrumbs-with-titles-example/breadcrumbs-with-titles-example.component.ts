@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
 import {
-  BreadcrumbItemIconDirective,
-  BreadcrumbTitleComponent,
-  EmrBreadcrumbsModule
+  BreadcrumbItemComponent,
+  BreadcrumbItemIconDirective, BreadcrumbsComponent, BreadcrumbSeparatorComponent,
+  BreadcrumbTitleComponent
 } from '@elementar/components/breadcrumbs';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-    selector: 'app-breadcrumbs-with-titles-example',
-    imports: [
-        BreadcrumbItemIconDirective,
-        EmrBreadcrumbsModule,
-        MatIcon,
-        BreadcrumbTitleComponent
-    ],
-    templateUrl: './breadcrumbs-with-titles-example.component.html',
-    styleUrl: './breadcrumbs-with-titles-example.component.scss'
+  selector: 'app-breadcrumbs-with-titles-example',
+  imports: [
+    BreadcrumbItemIconDirective,
+    MatIcon,
+    BreadcrumbTitleComponent,
+    BreadcrumbSeparatorComponent,
+    BreadcrumbItemComponent,
+    BreadcrumbsComponent
+  ],
+  templateUrl: './breadcrumbs-with-titles-example.component.html',
+  styleUrl: './breadcrumbs-with-titles-example.component.scss'
 })
 export class BreadcrumbsWithTitlesExampleComponent {
 

@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { EmrNumberInputModule } from '@elementar/components/number-input';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NumberInputComponent } from '@elementar/components/number-input';
 
 @Component({
   selector: 'app-number-input-min-max-example',
   imports: [
     MatFormField,
-    EmrNumberInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatLabel
+    MatLabel,
+    NumberInputComponent
   ],
   templateUrl: './number-input-min-max-example.component.html',
   styleUrl: './number-input-min-max-example.component.scss'

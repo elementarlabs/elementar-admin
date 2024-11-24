@@ -6,7 +6,7 @@ import {
   input,
   TemplateRef
 } from '@angular/core';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
+
 import { NgTemplateOutlet } from '@angular/common';
 import {
   Notification,
@@ -18,13 +18,12 @@ import {
   selector: 'emr-notification-list',
   exportAs: 'emrNotificationList',
   imports: [
-    EmrSkeletonModule,
     NgTemplateOutlet
   ],
   templateUrl: './notification-list.component.html',
   styleUrl: './notification-list.component.scss',
   host: {
-      'class': 'emr-notification-list'
+    'class': 'emr-notification-list'
   }
 })
 export class NotificationListComponent<T extends Notification> implements AfterContentInit {

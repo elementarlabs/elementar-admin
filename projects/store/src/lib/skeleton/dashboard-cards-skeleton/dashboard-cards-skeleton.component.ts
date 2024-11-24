@@ -1,13 +1,15 @@
 import { Component, input, numberAttribute } from '@angular/core';
-import { EmrSkeletonModule } from '@elementar/components/skeleton';
+import { SkeletonBlockComponent, SkeletonComponent, SkeletonLineComponent } from '@elementar/components/skeleton';
 
 @Component({
-    selector: 'emr-dashboard-cards-skeleton',
-    imports: [
-        EmrSkeletonModule
-    ],
-    templateUrl: './dashboard-cards-skeleton.component.html',
-    styleUrl: './dashboard-cards-skeleton.component.css'
+  selector: 'emr-dashboard-cards-skeleton',
+  imports: [
+    SkeletonBlockComponent,
+    SkeletonLineComponent,
+    SkeletonComponent
+  ],
+  templateUrl: './dashboard-cards-skeleton.component.html',
+  styleUrl: './dashboard-cards-skeleton.component.css'
 })
 export class DashboardCardsSkeletonComponent {
   count = input(2, {

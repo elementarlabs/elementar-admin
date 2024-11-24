@@ -6,4 +6,4 @@ export * from './breadcrumb-item-def.directive';
 export * from './breadcrumb-separator-def.directive';
 export * from './breadcrumb-active-item-def.directive';
 export * from './breadcrumb-item-icon.directive';
-export * from './breadcrumbs.module';
+

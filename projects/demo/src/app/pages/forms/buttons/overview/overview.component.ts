@@ -10,12 +10,10 @@ import {
   MiniFabButtonsExampleComponent
 } from '../_examples/mini-fab-buttons-example/mini-fab-buttons-example.component';
 import { ButtonLoadingExampleComponent } from '../_examples/button-loading-example/button-loading-example.component';
-import { EmrBreadcrumbsModule } from '@elementar/components/breadcrumbs';
 import { RouterLink } from '@angular/router';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import { PageAsideDirective } from '@demo/meta/page/page-aside.directive';
-import { EmrScrollSpyModule } from '@elementar/components/scroll-spy';
 import {
   ButtonsWithInteractiveDisabledExampleComponent
 } from '../_examples/buttons-with-interactive-disabled-example/buttons-with-interactive-disabled-example.component';
@@ -27,7 +25,6 @@ import {
   selector: 'app-overview',
   imports: [
     PlaygroundComponent,
-    EmrScrollSpyModule,
     BasicButtonsExampleComponent,
     RaisedButtonsExampleComponent,
     StrokedButtonsExampleComponent,
@@ -36,7 +33,6 @@ import {
     FabButtonsExampleComponent,
     MiniFabButtonsExampleComponent,
     ButtonLoadingExampleComponent,
-    EmrBreadcrumbsModule,
     RouterLink,
     PageComponent,
     PageContentDirective,
