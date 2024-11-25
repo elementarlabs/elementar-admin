@@ -16,15 +16,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { environment } from '../environments/environment';
 import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar/components/core';
 
-export function appInitializer() {
-  const envService = inject(EnvironmentService);
-  const globalStore = inject(GlobalStore);
-  return (): Promise<any> => new Promise((resolve, reject) => {
-    globalStore.setPageTitle(envService.getValue('pageTitle'));
-    resolve(true);
-  });
-}
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -34,7 +25,14 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideNativeDateAdapter(),
-    provideAppInitializer(appInitializer()),
+    provideAppInitializer(() => {
+      const envService = inject(EnvironmentService);
+      const globalStore = inject(GlobalStore);
+      return new Promise((resolve, reject) => {
+        globalStore.setPageTitle(envService.getValue('pageTitle'));
+        resolve(true);
+      });
+    }),
     {
       provide: ENVIRONMENT,
       useValue: environment

@@ -1,4 +1,9 @@
-import { APP_INITIALIZER, ApplicationConfig, inject, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  inject,
+  provideAppInitializer,
+  provideZoneChangeDetection
+} from '@angular/core';
 import { provideRouter, TitleStrategy, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -11,15 +16,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { environment } from '../environments/environment';
 import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar/components/core';
 
-export function appInitializer() {
-  const envService = inject(EnvironmentService);
-  const globalStore = inject(GlobalStore);
-  return (): Promise<any> => new Promise((resolve, reject) => {
-    globalStore.setPageTitle(envService.getValue('pageTitle'));
-    resolve(true);
-  });
-}
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -29,14 +25,17 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideNativeDateAdapter(),
+    provideAppInitializer(() => {
+      const envService = inject(EnvironmentService);
+      const globalStore = inject(GlobalStore);
+      return new Promise((resolve, reject) => {
+        globalStore.setPageTitle(envService.getValue('pageTitle'));
+        resolve(true);
+      });
+    }),
     {
       provide: ENVIRONMENT,
       useValue: environment
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true
     },
     {
       provide: TitleStrategy,

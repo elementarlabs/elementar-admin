@@ -6,15 +6,13 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-
-import { PasswordStrengthComponent } from '../../../../projects/components/src/password-strength/password-strength/password-strength.component';
+import { PasswordStrengthComponent } from '@elementar/components/password-strength';
 
 @Component({
   selector: 'app-set-new-password',
   imports: [
     MatIcon,
     RouterLink,
-    EmrPinInputModule,
     FormsModule,
     MatButton,
     MatFormField,
@@ -22,7 +20,7 @@ import { PasswordStrengthComponent } from '../../../../projects/components/src/p
     MatLabel,
     ReactiveFormsModule,
     PasswordStrengthComponent
-],
+  ],
   templateUrl: './set-new-password.component.html',
   styleUrl: './set-new-password.component.scss'
 })

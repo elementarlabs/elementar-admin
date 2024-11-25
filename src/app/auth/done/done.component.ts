@@ -6,17 +6,16 @@ import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-done',
-    imports: [
-        EmrPinInputModule,
-        FormsModule,
-        MatButton,
-        MatIcon,
-        RouterLink,
-        MatAnchor
-    ],
-    templateUrl: './done.component.html',
-    styleUrl: './done.component.scss'
+  selector: 'app-done',
+  imports: [
+    FormsModule,
+    MatButton,
+    MatIcon,
+    RouterLink,
+    MatAnchor
+  ],
+  templateUrl: './done.component.html',
+  styleUrl: './done.component.scss'
 })
 export class DoneComponent {
 

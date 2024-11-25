@@ -14,7 +14,6 @@ import { ToolbarComponent } from '@elementar/store/sidebar';
   selector: 'app-sidebar',
   imports: [
     RouterLink,
-    EmrNavigationModule,
     SidebarBodyComponent,
     EmrSidebarComponent,
     SidebarFooterComponent,

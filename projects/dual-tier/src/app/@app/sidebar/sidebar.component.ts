@@ -6,13 +6,14 @@ import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
 import {
+  TabPanelAsideComponent,
   TabPanelAsideContentDirective,
   TabPanelBodyComponent, TabPanelComponent,
-  TabPanelCustomItemComponent, TabPanelHeaderComponent,
+  TabPanelCustomItemComponent, TabPanelFooterComponent, TabPanelHeaderComponent,
   TabPanelItemComponent,
   TabPanelNavComponent
 } from '@elementar/components/tab-panel';
-import { PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
 
 @Component({
   selector: 'app-sidebar',
@@ -33,7 +34,11 @@ import { PanelComponent, PanelHeaderComponent } from '@elementar/components/pane
     TabPanelComponent,
     TabPanelAsideContentDirective,
     PanelHeaderComponent,
-    PanelComponent
+    PanelComponent,
+    PanelBodyComponent,
+    TabPanelAsideComponent,
+    TabPanelAsideContentDirective,
+    TabPanelFooterComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
