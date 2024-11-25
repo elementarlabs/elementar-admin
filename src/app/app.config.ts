@@ -1,4 +1,9 @@
-import { APP_INITIALIZER, ApplicationConfig, inject, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  inject,
+  provideAppInitializer,
+  provideZoneChangeDetection
+} from '@angular/core';
 import { provideRouter, TitleStrategy, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -29,14 +34,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideNativeDateAdapter(),
+    provideAppInitializer(appInitializer()),
     {
       provide: ENVIRONMENT,
       useValue: environment
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true
     },
     {
       provide: TitleStrategy,
