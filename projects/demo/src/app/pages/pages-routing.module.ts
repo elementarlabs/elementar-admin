@@ -7,6 +7,11 @@ const routes: Routes = [
     loadComponent: () => import('./common/common.component').then(c => c.CommonComponent),
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
+      },
+      {
         path: 'customization',
         loadChildren: () => import('./customization/customization.module').then(m => m.CustomizationModule)
       },
@@ -321,11 +326,6 @@ const routes: Routes = [
       {
         path: 'service-pages',
         loadChildren: () => import('./service-pages/service-pages.module').then(m => m.ServicePagesModule)
-      },
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'pages/dashboard/basic'
       }
     ]
   }
