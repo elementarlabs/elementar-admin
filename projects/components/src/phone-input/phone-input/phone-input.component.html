@@ -7,7 +7,9 @@
     [disabled]="disabled"
     (menuOpened)="menuSearchInput?.nativeElement?.focus()">
     <emr-icon [name]="'circle-flags:' + selectedCountry.flagClass.toLowerCase()" class="flag-icon" />
-    <span class="country-selector-code" *ngIf="selectedCountry?.dialCode">+{{ selectedCountry.dialCode }}</span>
+    @if (selectedCountry && selectedCountry.dialCode) {
+      <span class="country-selector-code">+{{ selectedCountry.dialCode }}</span>
+    }
     <mat-icon class="font-icon text-lg text-neutral-500 relative -top-px">expand_more</mat-icon>
   </button>
   <mat-menu #menu="matMenu" class="w-[320px]">

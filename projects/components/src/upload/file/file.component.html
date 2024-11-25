@@ -8,10 +8,18 @@
   <ng-container>
     @if (size || (state === 'uploading' && progress)) {
       <div class="info">
-        <span class="uppercase" *ngIf="size">{{ size }}</span>
-        <ng-container *ngIf="size && progress">, </ng-container>
-        <ng-container *ngIf="progress">{{ progress }}%</ng-container>
-        <ng-container *ngIf="remainingTime"> {{ remainingTime }}</ng-container>
+        @if (size) {
+          <span class="uppercase">{{ size }}</span>
+        }
+        @if (size && progress) {
+          ,
+        }
+        @if (progress) {
+          {{ progress }}%
+        }
+        @if (remainingTime) {
+          {{ remainingTime }}
+        }
       </div>
     }
     @if (progress) {

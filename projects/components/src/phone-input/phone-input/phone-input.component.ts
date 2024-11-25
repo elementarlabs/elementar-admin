@@ -34,7 +34,7 @@ import { Country } from '../model/country.model';
 import { PhoneNumberFormat } from '../model/phone-number-format.model';
 import { phoneValidator } from '../phone.validator';
 import { IconComponent } from '../../icon/icon/icon.component';
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatDivider } from '@angular/material/divider';
 import { MatInput } from '@angular/material/input';
@@ -61,7 +61,7 @@ import { SearchPipe } from '../search.pipe';
     host: {
         'class': 'emr-phone-input'
     },
-    imports: [MatRipple, MatMenuTrigger, IconComponent, NgIf, MatIcon, MatMenu, ReactiveFormsModule, FormsModule, MatMenuItem, NgClass, MatDivider, MatInput, SearchPipe]
+    imports: [MatRipple, MatMenuTrigger, IconComponent, MatIcon, MatMenu, ReactiveFormsModule, FormsModule, MatMenuItem, NgClass, MatDivider, MatInput, SearchPipe]
 })
 export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   private ngControl = inject(NgControl, { optional: true });
@@ -155,7 +155,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   phoneNumber?: string = '';
   allCountries: Country[] = [];
   preferredCountriesInDropDown: Country[] = [];
-  selectedCountry!: Country;
+  selectedCountry: Country;
   numberInstance?: PhoneNumber;
   value?: any;
   searchCriteria?: string;

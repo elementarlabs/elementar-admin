@@ -1,6 +1,8 @@
 <div class="thumbnail">
   <ng-content select="[emrAlertIcon]"></ng-content>
-  <ng-container [ngTemplateOutlet]="iconRef.templateRef" *ngIf="iconRef"></ng-container>
+  @if (iconRef) {
+    <ng-container [ngTemplateOutlet]="iconRef.templateRef"></ng-container>
+  }
 </div>
 <div class="content">
   <div class="title">
