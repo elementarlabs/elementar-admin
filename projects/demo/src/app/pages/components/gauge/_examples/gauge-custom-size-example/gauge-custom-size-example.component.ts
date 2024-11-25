@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { EmrGaugeModule } from '@elementar/components/gauge';
+import { GaugeComponent, GaugeValueComponent } from '@elementar/components/gauge';
 
 @Component({
   selector: 'app-gauge-custom-size-example',
   imports: [
-    EmrGaugeModule
+    GaugeComponent,
+    GaugeValueComponent
   ],
   templateUrl: './gauge-custom-size-example.component.html',
   styleUrl: './gauge-custom-size-example.component.scss'

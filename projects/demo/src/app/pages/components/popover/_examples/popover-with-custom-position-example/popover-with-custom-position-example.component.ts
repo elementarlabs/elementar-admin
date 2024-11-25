@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { EmrPopoverModule, PopoverPosition } from '@elementar/components/popover';
+import { PopoverComponent, PopoverPosition, PopoverTriggerForDirective } from '@elementar/components/popover';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption, MatSelect } from '@angular/material/select';
 
 @Component({
-    selector: 'app-popover-with-custom-position-example',
-    imports: [
-        MatButton,
-        EmrPopoverModule,
-        MatFormField,
-        MatLabel,
-        MatSelect,
-        ReactiveFormsModule,
-        MatOption
-    ],
-    templateUrl: './popover-with-custom-position-example.component.html',
-    styleUrl: './popover-with-custom-position-example.component.scss'
+  selector: 'app-popover-with-custom-position-example',
+  imports: [
+    MatButton,
+    MatFormField,
+    MatLabel,
+    MatSelect,
+    ReactiveFormsModule,
+    MatOption,
+    PopoverComponent,
+    PopoverTriggerForDirective
+  ],
+  templateUrl: './popover-with-custom-position-example.component.html',
+  styleUrl: './popover-with-custom-position-example.component.scss'
 })
 export class PopoverWithCustomPositionExampleComponent {
   positionOptions: PopoverPosition[] = [

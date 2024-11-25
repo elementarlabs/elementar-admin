@@ -5,7 +5,7 @@ import { LayoutHeaderComponent } from '@elementar/components/layout';
 import { LayoutSidebarComponent } from '@elementar/components/layout';
 import { LayoutFooterComponent } from '@elementar/components/layout';
 import { LayoutTopbarComponent } from '@elementar/components/layout';
-import { EmrAnnouncementModule } from '@elementar/components/announcement';
+import { AnnouncementComponent } from '@elementar/components/announcement';
 
 @Component({
   selector: 'app-layout-with-nested-layouts-example',
@@ -16,7 +16,7 @@ import { EmrAnnouncementModule } from '@elementar/components/announcement';
     LayoutSidebarComponent,
     LayoutFooterComponent,
     LayoutTopbarComponent,
-    EmrAnnouncementModule
+    AnnouncementComponent
   ],
   templateUrl: './layout-with-nested-layouts-example.component.html',
   styleUrl: './layout-with-nested-layouts-example.component.scss'

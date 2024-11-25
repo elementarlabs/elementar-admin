@@ -5,12 +5,12 @@ import { MatBadge } from '@angular/material/badge';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
-import { EmrPopoverModule } from '@elementar/components/popover';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
 import { LayoutApiService } from '@elementar/components/layout';
 import { DicebearComponent } from '@elementar/components/avatar';
 import { Notification } from '@elementar/components/notifications';
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elementar/store/header';
+import { PopoverTriggerForDirective } from '@elementar/components/popover';
 
 @Component({
   selector: 'app-header',
@@ -25,10 +25,10 @@ import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elemen
     MatDivider,
     MatButton,
     MatTooltip,
-    EmrPopoverModule,
     AssistantSearchComponent,
     SoundEffectDirective,
-    NotificationsPopoverComponent
+    NotificationsPopoverComponent,
+    PopoverTriggerForDirective
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

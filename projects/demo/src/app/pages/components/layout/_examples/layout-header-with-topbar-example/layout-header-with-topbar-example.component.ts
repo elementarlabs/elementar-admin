@@ -3,7 +3,7 @@ import { LayoutBodyComponent } from '@elementar/components/layout';
 import { LayoutComponent } from '@elementar/components/layout';
 import { LayoutHeaderComponent } from '@elementar/components/layout';
 import { LayoutTopbarComponent } from '@elementar/components/layout';
-import { EmrAnnouncementModule } from '@elementar/components/announcement';
+import { AnnouncementComponent } from '@elementar/components/announcement';
 
 @Component({
   selector: 'app-layout-header-with-topbar-example',
@@ -12,7 +12,7 @@ import { EmrAnnouncementModule } from '@elementar/components/announcement';
     LayoutComponent,
     LayoutHeaderComponent,
     LayoutTopbarComponent,
-    EmrAnnouncementModule
+    AnnouncementComponent
   ],
   templateUrl: './layout-header-with-topbar-example.component.html',
   styleUrl: './layout-header-with-topbar-example.component.scss'

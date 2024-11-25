@@ -20,6 +20,12 @@ import {
 import {
   ButtonsExtendedFabExampleComponent
 } from '../_examples/buttons-extended-fab-example/buttons-extended-fab-example.component';
+import { ScrollSpyNavComponent, ScrollSpyOnComponent, ScrollSpyTitleComponent } from '@elementar/components/scroll-spy';
+import {
+  BreadcrumbItemComponent,
+  BreadcrumbsComponent,
+  BreadcrumbSeparatorComponent
+} from '@elementar/components/breadcrumbs';
 
 @Component({
   selector: 'app-overview',
@@ -38,7 +44,13 @@ import {
     PageContentDirective,
     PageAsideDirective,
     ButtonsWithInteractiveDisabledExampleComponent,
-    ButtonsExtendedFabExampleComponent
+    ButtonsExtendedFabExampleComponent,
+    ScrollSpyNavComponent,
+    ScrollSpyTitleComponent,
+    ScrollSpyOnComponent,
+    BreadcrumbItemComponent,
+    BreadcrumbSeparatorComponent,
+    BreadcrumbsComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

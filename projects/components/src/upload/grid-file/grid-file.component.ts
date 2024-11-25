@@ -1,19 +1,20 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { EmrGaugeModule } from '../../gauge';
 import { UploadFileState } from '../properties';
+import { GaugeComponent, GaugeValueComponent } from '@elementar/components/gauge';
 
 @Component({
-    selector: 'emr-grid-file',
-    exportAs: 'emrGridFile',
-    imports: [
-        MatIcon,
-        EmrGaugeModule,
-        MatIconButton
-    ],
-    templateUrl: './grid-file.component.html',
-    styleUrl: './grid-file.component.scss'
+  selector: 'emr-grid-file',
+  exportAs: 'emrGridFile',
+  imports: [
+    MatIcon,
+    MatIconButton,
+    GaugeValueComponent,
+    GaugeComponent
+  ],
+  templateUrl: './grid-file.component.html',
+  styleUrl: './grid-file.component.scss'
 })
 export class GridFileComponent {
   @Input()

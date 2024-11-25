@@ -21,7 +21,12 @@ import {
   BlockStateContentComponent, BlockStateIconComponent,
   BlockStateImageComponent
 } from '@elementar/components/block-state';
-import { PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
+import {
+  PanelBodyComponent,
+  PanelComponent,
+  PanelFooterComponent,
+  PanelHeaderComponent
+} from '@elementar/components/panel';
 
 export interface User {
   id: string;
@@ -63,6 +68,8 @@ export interface Post {
     BlockStateIconComponent,
     PanelHeaderComponent,
     PanelComponent,
+    PanelFooterComponent,
+    PanelBodyComponent,
   ],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'

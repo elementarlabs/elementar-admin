@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import {
-  EmrFilterBuilderModule,
+  FilterBuilderComponent,
   FilterBuilderFieldDef,
   FilterBuilderGroup
 } from '@elementar/components/filter-builder';
@@ -9,8 +9,8 @@ import {
 @Component({
   selector: 'app-basic-filter-builder-example',
   imports: [
-    EmrFilterBuilderModule,
-    JsonPipe
+    JsonPipe,
+    FilterBuilderComponent
   ],
   templateUrl: './basic-filter-builder-example.component.html',
   styleUrl: './basic-filter-builder-example.component.scss'

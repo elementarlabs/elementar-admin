@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { AlertActionDirective, AlertCloseDirective, AlertComponent } from '@elementar/components/alert';
+import {
+  AlertActionDirective,
+  AlertCloseDirective,
+  AlertComponent,
+  AlertTitleDirective
+} from '@elementar/components/alert';
 
 @Component({
   selector: 'app-alert-actions-example',
@@ -8,7 +13,8 @@ import { AlertActionDirective, AlertCloseDirective, AlertComponent } from '@elem
     MatIcon,
     AlertActionDirective,
     AlertCloseDirective,
-    AlertComponent
+    AlertComponent,
+    AlertTitleDirective
   ],
   templateUrl: './alert-actions-example.component.html',
   styleUrl: './alert-actions-example.component.scss'
