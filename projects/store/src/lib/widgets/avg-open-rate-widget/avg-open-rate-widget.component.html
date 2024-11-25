@@ -1,4 +1,4 @@
-<div class="relative overflow-hidden group">
+<div class="relative overflow-hidden group h-full">
   <div class="flex gap-5 p-6">
     <div class="rounded-lg bg-amber-500 w-12 h-12 flex items-center justify-center text-white">
       <mat-icon>drafts</mat-icon>
@@ -14,10 +14,11 @@
       </div>
     </div>
   </div>
-  <button matRipple matTooltip="View all open rates"
-          class="cursor-pointer absolute right-0 hover:bg-neutral-200 dark:bg-neutral-700
-                 dark:hover:bg-neutral-600 top-0 bottom-0 w-10 bg-neutral-100 flex
+  <div class="absolute right-0 top-0 bottom-0">
+    <button matRipple matTooltip="View all open rates"
+            class="cursor-pointer  hover:bg-surface-container w-10 h-full flex
                  items-center justify-center invisible group-hover:visible">
-    <mat-icon>arrow_right_alt</mat-icon>
-  </button>
+      <mat-icon>arrow_right_alt</mat-icon>
+    </button>
+  </div>
 </div>

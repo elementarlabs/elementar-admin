@@ -7,15 +7,15 @@ import {
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-    selector: 'emr-total-tasks-widget',
-    templateUrl: './total-tasks-widget.component.html',
-    imports: [
-        MchartTooltipBodyComponent,
-        MchartTooltipComponent,
-        MchartTooltipTitleComponent,
-        MchartLineComponent
-    ],
-    styleUrl: './total-tasks-widget.component.scss'
+  selector: 'emr-total-tasks-widget',
+  templateUrl: './total-tasks-widget.component.html',
+  imports: [
+    MchartTooltipBodyComponent,
+    MchartTooltipComponent,
+    MchartTooltipTitleComponent,
+    MchartLineComponent
+  ],
+  styleUrl: './total-tasks-widget.component.scss'
 })
 export class TotalTasksWidgetComponent implements OnInit {
   data = [47, 54, 38, 24, 65, 37];
