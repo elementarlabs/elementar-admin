@@ -1,14 +1,14 @@
 import {
   booleanAttribute,
   Component,
-  ContentChild,
   ElementRef,
   EventEmitter,
   inject,
   Input,
   OnInit,
   Output,
-  Renderer2
+  Renderer2,
+  contentChild, TemplateRef
 } from '@angular/core';
 import { ALERT, AlertVariant } from '../alert.properties';
 import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
@@ -36,8 +36,7 @@ export class AlertComponent implements  OnInit {
   private _renderer = inject(Renderer2);
   private _elementRef = inject(ElementRef);
 
-  @ContentChild(AlertIconDirective)
-  iconRef!: AlertIconDirective;
+  readonly iconRef = contentChild(AlertIconDirective);
 
   @Input() data: any;
   @Input()
@@ -79,6 +78,10 @@ export class AlertComponent implements  OnInit {
 
   ngOnInit() {
     this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-alert-variant', this._variant);
+  }
+
+  protected get iconRefTemplate(): TemplateRef<any> {
+    return this.iconRef()?.templateRef as TemplateRef<any>;
   }
 
   private _close() {

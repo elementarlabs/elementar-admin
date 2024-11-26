@@ -1,9 +1,10 @@
 import {
   booleanAttribute,
-  Component, ContentChild, ElementRef,
+  Component, ElementRef,
   HostListener,
   inject,
-  Input
+  Input,
+  contentChild, TemplateRef
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
@@ -25,8 +26,7 @@ export class NavigationItemComponent {
   private _api = inject(NavigationApiService);
   private _elementRef = inject(ElementRef);
 
-  @ContentChild(NavigationItemIconDirective)
-  iconRef!: NavigationItemIconDirective;
+  readonly iconRef = contentChild(NavigationItemIconDirective);
 
   get api() {
     return {
@@ -55,5 +55,9 @@ export class NavigationItemComponent {
 
   get _hostElement(): ElementRef {
     return this._elementRef;
+  }
+
+  protected get iconRefTemplate(): TemplateRef<any> {
+    return this.iconRef()?.templateRef as TemplateRef<any>;
   }
 }

@@ -3,11 +3,11 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ContentChildren, DestroyRef,
+  DestroyRef,
   inject,
   NgZone,
   PLATFORM_ID,
-  QueryList
+  contentChildren
 } from '@angular/core';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
 import { debounceTime, fromEvent } from 'rxjs';
@@ -39,8 +39,7 @@ export class ScrollSpyNavComponent implements AfterContentInit {
   private _threshold = 10;
   private _destroyRef = inject(DestroyRef);
 
-  @ContentChildren(ScrollSpyOnComponent)
-  private _items: QueryList<any>;
+  readonly _items = contentChildren(ScrollSpyOnComponent);
 
   activeId: string;
 
@@ -91,7 +90,7 @@ export class ScrollSpyNavComponent implements AfterContentInit {
   }
 
   private _findActiveItem() {
-    for (let item of this._items) {
+    for (let item of this._items()) {
       const targetElement = this._document.querySelector('#' + item.targetId) as HTMLElement;
 
       if (targetElement) {

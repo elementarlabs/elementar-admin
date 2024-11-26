@@ -5,7 +5,7 @@
     [matMenuTriggerFor]="menu"
     class="country-selector"
     [disabled]="disabled"
-    (menuOpened)="menuSearchInput?.nativeElement?.focus()">
+    (menuOpened)="menuSearchInput()?.nativeElement?.focus()">
     <emr-icon [name]="'circle-flags:' + selectedCountry.flagClass.toLowerCase()" class="flag-icon" />
     @if (selectedCountry && selectedCountry.dialCode) {
       <span class="country-selector-code">+{{ selectedCountry.dialCode }}</span>

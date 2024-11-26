@@ -1,12 +1,13 @@
 import {
   AfterContentInit,
-  ChangeDetectorRef, ContentChildren, DestroyRef,
+  ChangeDetectorRef, DestroyRef,
   Directive,
   EventEmitter,
   forwardRef,
   inject,
   OnInit,
-  Output, QueryList,
+  Output,
+  contentChildren
 } from '@angular/core';
 import {
   MAT_OPTION_PARENT_COMPONENT,
@@ -47,8 +48,7 @@ export class MenuOptionGroupDirective implements MatOptionParentComponent, OnIni
 
   private _value: any;
 
-  @ContentChildren(MatOption, { descendants: true })
-  options: QueryList<MatOption>;
+  readonly options = contentChildren(MatOption, { descendants: true });
 
   private _initialized = new Subject();
 
@@ -56,13 +56,10 @@ export class MenuOptionGroupDirective implements MatOptionParentComponent, OnIni
   readonly valueChange: EventEmitter<any> = new EventEmitter<any>();
 
   readonly optionSelectionChanges: Observable<MatOptionSelectionChange> = defer(() => {
-    const options = this.options;
+    const options = this.options();
 
     if (options) {
-      return options.changes.pipe(
-        startWith(options),
-        switchMap(() => merge(...options.map(option => option.onSelectionChange))),
-      );
+      return merge(...options.map(option => option.onSelectionChange));
     }
 
     return this._initialized.pipe(switchMap(() => this.optionSelectionChanges));
@@ -89,7 +86,7 @@ export class MenuOptionGroupDirective implements MatOptionParentComponent, OnIni
       .pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe((res: MatOptionSelectionChange) => {
         this._value = res.source.value;
-        this.options.forEach(option => {
+        this.options().forEach(option => {
           if (option.value !== this._value) {
             option.setInactiveStyles();
             option.deselect(false);
@@ -102,12 +99,13 @@ export class MenuOptionGroupDirective implements MatOptionParentComponent, OnIni
   }
 
   private _selectOptionByValue() {
-    if (!this.options) {
+    const options = this.options();
+    if (!options) {
       return;
     }
 
-    this.options.forEach(option => option.setInactiveStyles());
-    this.options.forEach(option => {
+    options.forEach(option => option.setInactiveStyles());
+    options.forEach(option => {
       option.deselect(false);
 
       if (option.value === this._value) {

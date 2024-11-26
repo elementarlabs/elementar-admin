@@ -1,10 +1,10 @@
-<ng-content select="emr-timeline-timestamp"></ng-content>
+<ng-content select="emr-timeline-timestamp"/>
 
-@if (indicatorRef) {
+@if (indicatorRef()) {
   <div class="relative flex justify-center after:absolute after:start-1/2 after:w-px after:-translate-x-[0.5px] line">
     <div class="relative custom-indicator">
       <div class="w-max relative z-[1]">
-        <ng-container [ngTemplateOutlet]="indicatorRef.templateRef"></ng-container>
+        <ng-container [ngTemplateOutlet]="indicatorTemplateRef"></ng-container>
       </div>
     </div>
   </div>

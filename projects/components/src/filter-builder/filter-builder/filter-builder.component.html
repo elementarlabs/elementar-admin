@@ -171,11 +171,11 @@
               <div [hidden]="!isOperationAllowedForCondition(item['value'][0], operation.id)">
                 <mat-option [value]="operation.id">
                   <div class="flex items-center gap-3">
-                    @if (operation.operationIcon) {
-                      <ng-template [ngTemplateOutlet]="operation.operationIcon.templateRef"></ng-template>
+                    @if (operation.operationIcon()) {
+                      <ng-template [ngTemplateOutlet]="operationIconTemplateRef(operation)"></ng-template>
                     }
                     <div>
-                      <ng-template [ngTemplateOutlet]="operation.operationName.templateRef"></ng-template>
+                      <ng-template [ngTemplateOutlet]="operationNameTemplateRef(operation)"></ng-template>
                     </div>
                   </div>
                 </mat-option>

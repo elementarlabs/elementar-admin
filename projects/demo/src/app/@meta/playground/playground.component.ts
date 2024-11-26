@@ -1,4 +1,4 @@
-import { Component, inject, input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, inject, input, ViewEncapsulation, viewChild } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
@@ -29,8 +29,7 @@ export class PlaygroundComponent {
   cssSrc: string;
   alreadyLoaded = false;
 
-  @ViewChild('markdownRef')
-  private _markdownRef: any;
+  readonly _markdownRef = viewChild<any>('markdownRef');
 
   showSource = false;
   currentTab = 'html';
@@ -60,7 +59,7 @@ export class PlaygroundComponent {
   }
 
   contentCopy(): void {
-    const text = this._markdownRef.element.nativeElement.querySelector('pre code').innerText;
+    const text = this._markdownRef().element.nativeElement.querySelector('pre code').innerText;
     navigator.clipboard.writeText(text);
     this._snackBar.open('Source code has been copied to your clipboard', '', {
       duration: 3000

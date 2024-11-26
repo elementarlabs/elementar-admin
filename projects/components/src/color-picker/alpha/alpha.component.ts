@@ -6,21 +6,21 @@ import {
   Input,
   OnChanges,
   Output, Renderer2, SimpleChanges,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { Color } from '../helpers/color';
 import { NgStyle } from '@angular/common';
 
 @Component({
-    selector: 'emr-alpha',
-    exportAs: 'emrAlpha',
-    templateUrl: './alpha.component.html',
-    styleUrls: ['./alpha.component.scss'],
-    host: {
-        'class': 'emr-alpha'
-    },
-    imports: [NgStyle]
+  selector: 'emr-alpha',
+  exportAs: 'emrAlpha',
+  templateUrl: './alpha.component.html',
+  styleUrls: ['./alpha.component.scss'],
+  host: {
+    'class': 'emr-alpha'
+  },
+  imports: [NgStyle]
 })
 export class AlphaComponent extends BaseComponent implements OnChanges {
   @Input()
@@ -29,8 +29,7 @@ export class AlphaComponent extends BaseComponent implements OnChanges {
   @Output()
   readonly colorChange = new EventEmitter<Color>();
 
-  @ViewChild('pointer', { static: true })
-  pointer: ElementRef;
+  readonly pointer = viewChild.required<ElementRef>('pointer');
 
   @Input({ transform: booleanAttribute })
   isVertical = false;
@@ -51,7 +50,7 @@ export class AlphaComponent extends BaseComponent implements OnChanges {
     this.changePointerPosition(alpha);
     const hsva = this.color.getHsva();
     const newColor = new Color().setHsva(hsva.hue, hsva.saturation, hsva.value, alpha);
-    this._renderer.setStyle(this.pointer.nativeElement, 'backgroundColor', newColor.toRgbaString());
+    this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', newColor.toRgbaString());
     this.colorChange.emit(newColor);
   }
 
@@ -67,14 +66,14 @@ export class AlphaComponent extends BaseComponent implements OnChanges {
   private changePointerPosition(alpha: number): void {
     const x = alpha * 100;
     const orientation = this.isVertical ? 'top' : 'left';
-    this._renderer.setStyle(this.pointer.nativeElement, orientation, `${x}%`);
+    this._renderer.setStyle(this.pointer().nativeElement, orientation, `${x}%`);
   }
 
   private _setPointerBgColor() {
     const hsva = this.color.getHsva();
     const newColor = new Color().setHsva(hsva.hue, hsva.saturation, hsva.value, hsva.alpha);
     this._renderer.setStyle(
-      this.pointer.nativeElement.querySelector('.pointer-bg'), 'backgroundColor', newColor.toRgbaString()
+      this.pointer().nativeElement.querySelector('.pointer-bg'), 'backgroundColor', newColor.toRgbaString()
     );
   }
 }

@@ -2,10 +2,10 @@ import {
   AfterContentInit,
   ChangeDetectorRef,
   Component,
-  ContentChildren, DestroyRef,
+  DestroyRef,
   inject,
   Input,
-  QueryList
+  contentChildren
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
@@ -26,8 +26,7 @@ export class NavigationGroupMenuComponent implements AfterContentInit {
   private _cdr = inject(ChangeDetectorRef);
   private _destroyRef = inject(DestroyRef);
 
-  @ContentChildren(NavigationItemComponent, { descendants: true, emitDistinctChangesOnly: true })
-  private _items!: QueryList<NavigationItemComponent>;
+  readonly _items = contentChildren(NavigationItemComponent, { descendants: true });
 
   @Input()
   key: any;
@@ -48,7 +47,7 @@ export class NavigationGroupMenuComponent implements AfterContentInit {
   }
 
   private _detectGroupIsActive() {
-    const isGroupActive = this._items.filter(
+    const isGroupActive = this._items().filter(
       itemComponent => this.api.isItemActive(itemComponent.key)
     ).length > 0;
 

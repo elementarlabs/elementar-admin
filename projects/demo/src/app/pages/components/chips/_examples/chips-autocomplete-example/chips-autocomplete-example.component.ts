@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import {
   MatAutocomplete,
   MatAutocompleteSelectedEvent,
@@ -15,23 +15,23 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-chips-autocomplete-example',
-    imports: [
-        MatAutocomplete,
-        MatOption,
-        ReactiveFormsModule,
-        MatChipInput,
-        MatAutocompleteTrigger,
-        MatChipRemove,
-        MatIcon,
-        MatFormField,
-        MatChipGrid,
-        MatChipRow,
-        MatLabel,
-        AsyncPipe
-    ],
-    templateUrl: './chips-autocomplete-example.component.html',
-    styleUrl: './chips-autocomplete-example.component.scss'
+  selector: 'app-chips-autocomplete-example',
+  imports: [
+    MatAutocomplete,
+    MatOption,
+    ReactiveFormsModule,
+    MatChipInput,
+    MatAutocompleteTrigger,
+    MatChipRemove,
+    MatIcon,
+    MatFormField,
+    MatChipGrid,
+    MatChipRow,
+    MatLabel,
+    AsyncPipe
+  ],
+  templateUrl: './chips-autocomplete-example.component.html',
+  styleUrl: './chips-autocomplete-example.component.scss'
 })
 export class ChipsAutocompleteExampleComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -40,8 +40,7 @@ export class ChipsAutocompleteExampleComponent {
   fruits: string[] = ['Lemon'];
   allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
-  @ViewChild('fruitInput')
-  fruitInput: ElementRef<HTMLInputElement>;
+  readonly fruitInput = viewChild.required<ElementRef<HTMLInputElement>>('fruitInput');
 
   announcer = inject(LiveAnnouncer);
 
@@ -62,7 +61,6 @@ export class ChipsAutocompleteExampleComponent {
 
     // Clear the input value
     event.chipInput!.clear();
-
     this.fruitCtrl.setValue(null);
   }
 
@@ -77,13 +75,12 @@ export class ChipsAutocompleteExampleComponent {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.fruits.push(event.option.viewValue);
-    this.fruitInput.nativeElement.value = '';
+    this.fruitInput().nativeElement.value = '';
     this.fruitCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
   }
 }

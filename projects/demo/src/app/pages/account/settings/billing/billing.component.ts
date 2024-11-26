@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, viewChild } from '@angular/core';
 
 import { MatButton } from '@angular/material/button';
 import {
-  MatCell,
+  MatCell, MatCellDef,
   MatColumnDef,
-  MatHeaderCell,
-  MatHeaderRow,
-  MatRow, MatTable, MatTableDataSource
+  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
@@ -91,7 +91,11 @@ const TABLE_DATA = [
     MatRow,
     MatTable,
     DatePipe,
-    MatIcon
+    MatIcon,
+    MatHeaderRowDef,
+    MatRowDef,
+    MatCellDef,
+    MatHeaderCellDef
   ],
   templateUrl: './billing.component.html',
   styleUrl: './billing.component.scss'
@@ -107,10 +111,9 @@ export class BillingComponent implements AfterViewInit {
     city: 'London'
   };
 
-  @ViewChild('paginator')
-  paginator: MatPaginator;
+  readonly paginator = viewChild.required<MatPaginator>('paginator');
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator();
   }
 }

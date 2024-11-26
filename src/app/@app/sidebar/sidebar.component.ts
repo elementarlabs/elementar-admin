@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, viewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
@@ -33,8 +33,7 @@ export class SidebarComponent implements OnInit {
   height: string | null = '200px';
   compact = false;
 
-  @ViewChild('navigation', { static: true })
-  navigation!: any;
+  readonly navigation = viewChild.required<any>('navigation');
 
   navItems: NavigationItem[] = [
     {

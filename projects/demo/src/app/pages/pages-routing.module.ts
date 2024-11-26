@@ -9,15 +9,15 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard'
-      },
-      {
-        path: 'customization',
-        loadChildren: () => import('./customization/customization.module').then(m => m.CustomizationModule)
+        redirectTo: 'pages/dashboard/basic'
       },
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'customization',
+        loadChildren: () => import('./customization/customization.module').then(m => m.CustomizationModule)
       },
       {
         path: 'forms/autocomplete',

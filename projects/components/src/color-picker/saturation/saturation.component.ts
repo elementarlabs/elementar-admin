@@ -9,20 +9,20 @@ import {
   Output,
   Renderer2,
   SimpleChanges,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { Color } from '../helpers/color';
 import { BaseComponent } from '../base.component';
 
 @Component({
-    selector: 'emr-saturation',
-    exportAs: 'emrSaturation',
-    templateUrl: './saturation.component.html',
-    styleUrls: ['./saturation.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        'class': 'emr-saturation'
-    }
+  selector: 'emr-saturation',
+  exportAs: 'emrSaturation',
+  templateUrl: './saturation.component.html',
+  styleUrls: ['./saturation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-saturation'
+  }
 })
 export class SaturationComponent extends BaseComponent {
   @Input()
@@ -34,8 +34,7 @@ export class SaturationComponent extends BaseComponent {
   @Output()
   readonly colorChange = new EventEmitter<Color>(false);
 
-  @ViewChild('pointer', { static: true })
-  pointer: ElementRef;
+  readonly pointer = viewChild.required<ElementRef>('pointer');
 
   private _renderer = inject(Renderer2);
 
@@ -73,19 +72,20 @@ export class SaturationComponent extends BaseComponent {
     const color = this.color.getHsva();
     const newColor = new Color().setHsva(hsva.hue, saturation, bright, color.alpha);
     const pointerColor = new Color().setHsva(hsva.hue, saturation, bright, color.alpha);
-    this._renderer.setStyle(this.pointer.nativeElement, 'backgroundColor', pointerColor.toRgbString());
+    this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', pointerColor.toRgbString());
     this.colorChange.emit(newColor);
   }
 
   private changePointerPosition(x: number, y: number): void {
-    this._renderer.setStyle(this.pointer.nativeElement, 'top', `${100 - y}%`);
-    this._renderer.setStyle(this.pointer.nativeElement, 'left', `${x}%`);
+    const pointer = this.pointer();
+    this._renderer.setStyle(pointer.nativeElement, 'top', `${100 - y}%`);
+    this._renderer.setStyle(pointer.nativeElement, 'left', `${x}%`);
   }
 
   private _setPointerBgColor() {
     const hsva = this.hue.getHsva();
     const color = this.color.getHsva();
     const newColor = new Color().setHsva(hsva.hue, color.saturation, color.value);
-    this._renderer.setStyle(this.pointer.nativeElement, 'backgroundColor', newColor.toRgbString());
+    this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', newColor.toRgbString());
   }
 }

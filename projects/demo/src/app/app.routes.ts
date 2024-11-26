@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'pages/dashboard/basic',
+    pathMatch: 'full'
+  },
+  {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
@@ -12,11 +17,6 @@ export const routes: Routes = [
   {
     path: 'error',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorModule)
-  },
-  {
-    path: '',
-    redirectTo: 'pages',
-    pathMatch: 'full'
   },
   {
     path: '**',

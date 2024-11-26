@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
@@ -38,8 +38,7 @@ export class SidebarComponent {
   location = inject(Location);
   height: string | null = '200px';
 
-  @ViewChild('navigation', { static: true })
-  navigation!: any;
+  readonly navigation = viewChild.required<any>('navigation');
 
   navItems: NavigationItem[] = [
     {

@@ -10,7 +10,7 @@ import {
   numberAttribute,
   OnInit,
   Renderer2,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { fromEvent, throttleTime } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
@@ -36,13 +36,13 @@ export class ResizableContainerComponent implements OnInit {
   private _maxWidth: number;
   private _clientX: number;
 
-  @ViewChild('handler', { static: true }) handlerRef: ElementRef;
+  readonly handlerRef = viewChild.required<ElementRef>('handler');
 
   @Input({ transform: numberAttribute }) minWidth = 0;
 
   ngOnInit() {
     this._ngZone.runOutsideAngular(() => {
-      fromEvent<MouseEvent>(this.handlerRef.nativeElement, 'mousedown')
+      fromEvent<MouseEvent>(this.handlerRef().nativeElement, 'mousedown')
         .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe((event: MouseEvent) => {
           this._resizing = true;

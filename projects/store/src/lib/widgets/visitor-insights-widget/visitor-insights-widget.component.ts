@@ -1,4 +1,4 @@
-import { afterNextRender, Component, ElementRef, inject, input, ViewChild } from '@angular/core';
+import { afterNextRender, Component, ElementRef, inject, input, viewChild } from '@angular/core';
 import { ThemeManagerService } from '@elementar/components/core';
 import * as echarts from 'echarts/core';
 import {
@@ -28,8 +28,7 @@ export class VisitorInsightsWidgetComponent {
 
   widget = input<Widget>();
 
-  @ViewChild('chartRef', { read: ElementRef, static: true })
-  private _chartRef: ElementRef;
+  readonly _chartRef = viewChild.required('chartRef', { read: ElementRef });
 
   constructor() {
     afterNextRender(() => {
@@ -98,7 +97,7 @@ export class VisitorInsightsWidgetComponent {
           }
         ]
       };
-      const chart = echarts.init(this._chartRef.nativeElement, this._themeManager.getPreferredColorScheme());
+      const chart = echarts.init(this._chartRef().nativeElement, this._themeManager.getPreferredColorScheme());
       chart.setOption(option);
       this._observer = new ResizeObserver(() => chart.resize());
       this._observer.observe(this._elementRef.nativeElement);

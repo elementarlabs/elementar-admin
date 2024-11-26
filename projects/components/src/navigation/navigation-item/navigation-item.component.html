@@ -1,8 +1,8 @@
 <div class="inner" matRipple>
   <div class="icon">
     <ng-content select="[emrNavigationItemIcon]"/>
-    @if (iconRef) {
-      <ng-container [ngTemplateOutlet]="iconRef.templateRef"/>
+    @if (iconRef()) {
+      <ng-container [ngTemplateOutlet]="iconRefTemplate"/>
     }
   </div>
   <span class="text grow"><ng-content/></span>

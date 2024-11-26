@@ -6,21 +6,20 @@ import {
   Input,
   OnChanges,
   Output, Renderer2, SimpleChanges,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { Color } from '../helpers/color';
 
 @Component({
-    selector: 'emr-hue',
-    exportAs: 'emrHue',
-    templateUrl: './hue.component.html',
-    styleUrls: ['./hue.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'emr-hue',
+  exportAs: 'emrHue',
+  templateUrl: './hue.component.html',
+  styleUrls: ['./hue.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HueComponent extends BaseComponent implements OnChanges {
-  @ViewChild('pointer', { static: true })
-  pointer: ElementRef;
+  readonly pointer = viewChild.required<ElementRef>('pointer');
 
   @Input()
   hue: Color;
@@ -55,7 +54,7 @@ export class HueComponent extends BaseComponent implements OnChanges {
     const newColor = new Color().setHsva(hue, color.saturation, color.value, color.alpha);
     const newHueColor = new Color().setHsva(hue, 100, 100, color.alpha);
     const pointerHueColor = new Color().setHsva(hue, 100, 100, color.alpha);
-    this._renderer.setStyle(this.pointer.nativeElement, 'backgroundColor', pointerHueColor.toRgbString());
+    this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', pointerHueColor.toRgbString());
     this.hueChange.emit(newHueColor);
     this.colorChange.emit(newColor);
   }
@@ -66,7 +65,7 @@ export class HueComponent extends BaseComponent implements OnChanges {
   private changePointerPosition(hue: number): void {
     const x = hue / 360 * 100;
     const orientation = this.isVertical ? 'top' : 'left';
-    this._renderer.setStyle(this.pointer.nativeElement, orientation, `${x}%`);
+    this._renderer.setStyle(this.pointer().nativeElement, orientation, `${x}%`);
   }
 
   private _setPointerBgColor() {
@@ -75,6 +74,6 @@ export class HueComponent extends BaseComponent implements OnChanges {
     // const orientation = this.isVertical ? 'top' : 'left';
     // const color = this.color.getHsva();
     const newHueColor = new Color().setHsva(hsva.hue, 100, 100);
-    this._renderer.setStyle(this.pointer.nativeElement, 'backgroundColor', newHueColor.toRgbString());
+    this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', newHueColor.toRgbString());
   }
 }

@@ -1,21 +1,19 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   effect,
   ElementRef,
   inject,
   Input,
-  ViewChild
+  viewChild
 } from '@angular/core';
 import { getState } from '@ngrx/signals';
 import { GlobalState, GlobalStore } from '@elementar/components/core';
 
 @Component({
-    selector: 'app-screen-loader',
-    imports: [],
-    templateUrl: './screen-loader.component.html',
-    styleUrl: './screen-loader.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-screen-loader',
+  imports: [],
+  templateUrl: './screen-loader.component.html',
+  styleUrl: './screen-loader.component.scss'
 })
 export class ScreenLoaderComponent {
   private _globalStore = inject(GlobalStore);
@@ -29,8 +27,7 @@ export class ScreenLoaderComponent {
   @Input()
   loadingText: string;
 
-  @ViewChild('loader', { static: true })
-  private _loaderElement: ElementRef;
+  readonly _loaderElement = viewChild.required<ElementRef>('loader');
 
   constructor() {
     const initialState = getState<GlobalState>(this._globalStore);
@@ -50,13 +47,13 @@ export class ScreenLoaderComponent {
   }
 
   private _show(): void {
-    const loaderEl = this._loaderElement.nativeElement as HTMLElement;
+    const loaderEl = this._loaderElement().nativeElement as HTMLElement;
     loaderEl.style['visibility'] = 'visible';
     loaderEl.style['zIndex'] = '9999999';
   }
 
   private _hide(): void {
-    const loaderEl = this._loaderElement.nativeElement as HTMLElement;
+    const loaderEl = this._loaderElement().nativeElement as HTMLElement;
     loaderEl.style['visibility'] = 'hidden';
     loaderEl.style['zIndex'] = '-9999999';
   }

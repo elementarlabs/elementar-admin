@@ -5,7 +5,7 @@
 </div>
 <div class="toggle">
   <ng-content select="[emrNavigationGroupToggleIcon]"/>
-  @if (iconRef) {
-    <ng-container [ngTemplateOutlet]="iconRef.templateRef"/>
+  @if (iconRef()) {
+    <ng-container [ngTemplateOutlet]="iconRefTemplate"/>
   }
 </div>

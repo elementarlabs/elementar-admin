@@ -1,7 +1,8 @@
 import {
   afterNextRender,
-  Component, ContentChildren, ElementRef,
-  inject, Input, QueryList, Renderer2
+  Component, ElementRef,
+  inject, Input, Renderer2,
+  contentChildren
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
@@ -21,8 +22,7 @@ export class NavigationComponent {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
 
-  @ContentChildren(NavigationItemComponent, { descendants: true })
-  private _items!: QueryList<NavigationItemComponent>;
+  readonly _items = contentChildren(NavigationItemComponent, { descendants: true });
 
   @Input()
   set theme(theme: string) {
@@ -32,7 +32,7 @@ export class NavigationComponent {
   constructor() {
     // scroll to the active item if it is not visible in the viewport
     afterNextRender(() => {
-      this._items.forEach((item: NavigationItemComponent) => {
+      this._items().forEach((item: NavigationItemComponent) => {
         if (item.active) {
           let parentElement = this._elementRef.nativeElement.parentNode || null;
           const itemElement = item._hostElement.nativeElement as HTMLElement;

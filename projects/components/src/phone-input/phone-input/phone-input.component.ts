@@ -14,8 +14,8 @@ import {
   Optional,
   Output,
   Self,
-  ViewChild,
   booleanAttribute, inject,
+  viewChild
 } from '@angular/core';
 import { FormGroupDirective, NG_VALIDATORS, NgControl, NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ErrorStateMatcher, MatRipple } from '@angular/material/core';
@@ -70,14 +70,11 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
 
   static nextId = 0;
 
-  @ViewChild(MatMenu)
-  matMenu!: MatMenu;
+  readonly matMenu = viewChild.required(MatMenu);
 
-  @ViewChild('menuSearchInput', { static: false })
-  menuSearchInput?: ElementRef<HTMLInputElement>;
+  readonly menuSearchInput = viewChild<ElementRef<HTMLInputElement>>('menuSearchInput');
 
-  @ViewChild('focusable', { static: false })
-  focusable!: ElementRef;
+  readonly focusable = viewChild.required<ElementRef>('focusable');
 
   @HostBinding()
   id = `emr-phone-input-${PhoneInputComponent.nextId++}`;
