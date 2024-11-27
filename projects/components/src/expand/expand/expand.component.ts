@@ -1,34 +1,40 @@
-import { booleanAttribute, Component, ElementRef, EventEmitter, inject, Input, Output } from '@angular/core';
+import { booleanAttribute, Component, effect, ElementRef, inject, input, output } from '@angular/core';
 
 @Component({
-    selector: 'emr-expand',
-    exportAs: 'emrExpand',
-    templateUrl: './expand.component.html',
-    styleUrl: './expand.component.scss',
-    host: {
-        'class': 'emr-expand',
-        '[class.is-expanded]': 'expanded'
-    }
+  selector: 'emr-expand',
+  exportAs: 'emrExpand',
+  templateUrl: './expand.component.html',
+  styleUrl: './expand.component.scss',
+  host: {
+    'class': 'emr-expand',
+    '[class.is-expanded]': '_expanded'
+  }
 })
 export class ExpandComponent {
   private _elementRef = inject(ElementRef);
 
-  @Input({ transform: booleanAttribute })
-  expanded = false;
+  expanded = input(false, {
+    transform: booleanAttribute
+  });
+  color = input('');
+  expandLabel = input('Show more');
+  collapseLabel = input('Show less');
+  showButtonIfExpanded = input(false, {
+    transform: booleanAttribute
+  });
+  height = input<string>('');
 
-  @Input()
-  set color(color: string) {
-    (this._elementRef.nativeElement as HTMLElement).style.setProperty('--emr-expand-fade-color', color, 'important');
+  expandedChange = output<boolean>();
+
+  protected _expanded = false;
+
+  constructor() {
+    effect(() => {
+      this._expanded = this.expanded();
+      (this._elementRef.nativeElement as HTMLElement).style.setProperty('--emr-expand-fade-color', this.color(), 'important');
+      (this._elementRef.nativeElement as HTMLElement).style.setProperty('--emr-expand-expanded-height', this.height(), 'important');
+    });
   }
-
-  @Input()
-  expandLabel = 'Expand';
-
-  @Input()
-  collapseLabel = 'Collapse';
-
-  @Output()
-  expandedChange = new EventEmitter<boolean>();
 
   get api() {
     return {
@@ -39,17 +45,17 @@ export class ExpandComponent {
   }
 
   private _toggle() {
-    this.expanded = !this.expanded;
-    this.expandedChange.emit(this.expanded);
+    this._expanded = !this._expanded;
+    this.expandedChange.emit(this._expanded);
   }
 
   private _expand() {
-    this.expanded = true;
-    this.expandedChange.emit(this.expanded);
+    this._expanded = true;
+    this.expandedChange.emit(this._expanded);
   }
 
   private _collapse() {
-    this.expanded = false;
-    this.expandedChange.emit(this.expanded);
+    this._expanded = false;
+    this.expandedChange.emit(this._expanded);
   }
 }
