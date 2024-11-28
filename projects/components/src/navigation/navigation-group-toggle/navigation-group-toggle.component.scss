@@ -58,6 +58,7 @@
 :host(:hover) {
   background-color: var(--emr-navigation-item-hover-bg);
   color: var(--emr-navigation-item-hover-color);
+  transition: background-color .2s;
 }
 
 :host(.is-active),

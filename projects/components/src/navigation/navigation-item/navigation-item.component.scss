@@ -20,7 +20,12 @@
     color: var(--emr-navigation-item-color);
     gap: var(--emr-navigation-item-gap);
     border: var(--emr-navigation-item-border-width) solid var(--emr-navigation-item-border-color);
-    transition: all .2s;
+  }
+
+  &:hover {
+    .inner {
+      transition: background-color .2s;
+    }
   }
 
   .text {
