@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { DicebearComponent } from '@elementar/components/avatar';
-import { MatIconButton } from '@angular/material/button';
+import {
+  AvatarComponent,
+  AvatarGroupComponent,
+  AvatarTotalComponent,
+  DicebearComponent
+} from '@elementar/components/avatar';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import {
   CdkDrag,
   CdkDragDrop, CdkDragPlaceholder,
@@ -10,6 +15,8 @@ import {
   moveItemInArray,
   transferArrayItem
 } from '@angular/cdk/drag-drop';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
+import { MatRipple } from '@angular/material/core';
 
 interface TaskPriority {
   id: any;
@@ -20,15 +27,23 @@ interface TaskPriority {
 
 @Component({
     selector: 'app-kanban-board',
-    imports: [
-        MatIcon,
-        DicebearComponent,
-        MatIconButton,
-        CdkDropList,
-        CdkDropListGroup,
-        CdkDrag,
-        CdkDragPlaceholder
-    ],
+  imports: [
+    MatIcon,
+    DicebearComponent,
+    MatIconButton,
+    CdkDropList,
+    CdkDropListGroup,
+    CdkDrag,
+    CdkDragPlaceholder,
+    PanelComponent,
+    PanelHeaderComponent,
+    PanelBodyComponent,
+    AvatarComponent,
+    AvatarGroupComponent,
+    AvatarTotalComponent,
+    MatButton,
+    MatRipple,
+  ],
     templateUrl: './kanban-board.component.html',
     styleUrl: './kanban-board.component.scss'
 })
@@ -131,6 +146,13 @@ export class KanbanBoardComponent {
       id: 1,
       name: 'Done',
       color: '#22c55e',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
       items: [
       ]
     },
