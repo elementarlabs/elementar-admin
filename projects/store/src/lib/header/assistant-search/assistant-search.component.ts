@@ -32,7 +32,7 @@ import { AvatarComponent } from '@elementar/components/avatar';
     SuggestionThumbDirective,
     FormsModule,
     MatIconButton,
-    AvatarComponent
+    AvatarComponent,
   ],
   templateUrl: './assistant-search.component.html',
   styleUrl: './assistant-search.component.scss',

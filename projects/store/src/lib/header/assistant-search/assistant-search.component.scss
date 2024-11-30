@@ -1,20 +1,12 @@
 :host {
-  display: flex;
-  align-items: center;
-  gap: theme('gap.4');
-  padding-inline-start: theme('padding.3');
-  height: theme('height.11');
-  width: 600px;
-  position: relative;
-
-  .search-icon {
-    z-index: 1;
-    position: relative;
-    color: theme('colors.neutral.500');
-  }
+  @apply flex items-center gap-4 ps-3 h-11 relative w-[600px];
 
   input {
     @apply text-md placeholder-neutral-500 outline-none bg-surface-container ps-12 rounded-full absolute inset-0 z-[0];
+  }
+
+  .search-icon {
+    @apply relative z-[1] text-on-surface-variant;
   }
 
   &.has-dropdown {
@@ -25,7 +17,7 @@
       border-top-right-radius: theme('borderRadius.3xl');
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      background: theme('colors.white');
+      @apply bg-surface-container-lowest;
     }
   }
 }
@@ -36,6 +28,6 @@
   }
 
   input {
-    @apply text-neutral-200 bg-neutral-700 placeholder-neutral-400;
+    @apply bg-surface-container-high placeholder-neutral-400;
   }
 }

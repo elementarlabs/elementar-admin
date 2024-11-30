@@ -8,6 +8,8 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { AVATAR_ACCESSOR, AvatarPresenceIndicator } from '../types';
+import { NgOptimizedImage } from '@angular/common';
+import { SafeHtmlPipe } from '@elementar/components/core';
 
 const alreadyLoadedImages: string[] = [];
 
@@ -24,6 +26,9 @@ const alreadyLoadedImages: string[] = [];
       multi: true
     }
   ],
+  imports: [
+    NgOptimizedImage
+  ],
   host: {
     'class': 'emr-avatar',
     '[class.is-clickable]': 'clickable()',
@@ -34,13 +39,13 @@ const alreadyLoadedImages: string[] = [];
 export class AvatarComponent implements OnInit, OnChanges {
   private _elementRef = inject(ElementRef);
 
-  src = input<string>();
+  src = input<string>('');
   clickable = input(false, {
     transform: booleanAttribute
   });
-  text = input<string>();
-  alt = input<string>();
-  automaticColor = input<string>();
+  text = input('');
+  alt = input('');
+  automaticColor = input();
   presenceIndicator = input<AvatarPresenceIndicator>(null);
 
   protected imageLoaded: boolean;

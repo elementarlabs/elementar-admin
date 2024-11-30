@@ -1,13 +1,13 @@
-@if (showDivider) {
+@if (showDivider()) {
   <div class="my-4 px-2">
-    <mat-divider></mat-divider>
+    <mat-divider/>
   </div>
 }
 
-@if (heading) {
-  <div class="heading">{{ heading }}</div>
+@if (heading()) {
+  <div class="heading">{{ heading() }}</div>
 }
 
-<div class="content" [class.is-inline]="inline">
-  <ng-content></ng-content>
+<div class="content" [class.is-inline]="inline()">
+  <ng-content/>
 </div>

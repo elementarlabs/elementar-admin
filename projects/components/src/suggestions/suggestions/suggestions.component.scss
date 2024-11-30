@@ -1,5 +1,18 @@
 :host {
-  display: block;
-  background: var(--emr-suggestions-bg);
-  overflow-y: auto;
+  --emr-suggestions-bg: theme('colors.surface-container-lowest');
+  --emr-suggestion-block-heading-color: theme('colors.on-surface');
+  --emr-suggestion-block-font-size: theme('fontSize.xs');
+  --emr-suggestion-block-font-weight: theme('fontWeight.semibold');
+  --emr-suggestion-block-content-padding: theme('padding.2') 0;
+  --emr-suggestion-height: theme('height.11');
+  --emr-suggestion-padding: 0 theme('padding.2');
+  --emr-suggestion-hover-bg: theme('colors.surface-container-low');
+  --emr-suggestion-border-radius: theme('borderRadius.full');
+
+  @apply block overflow-y-auto bg-[var(--emr-suggestions-bg)];
+}
+
+:host-context(html.dark) {
+  --emr-suggestions-bg: theme('colors.surface-container-high');
+  --emr-suggestion-hover-bg: theme('colors.surface-bright');
 }
