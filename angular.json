@@ -35,13 +35,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-            ],
+            "scripts": [],
             "server": "src/main.server.ts",
-            "prerender": true,
             "ssr": {
-              "entry": "server.ts"
-            }
+              "entry": "src/server.ts"
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {
@@ -189,10 +188,10 @@
               "node_modules/prismjs/components/prism-typescript.min.js"
             ],
             "server": "projects/demo/src/main.server.ts",
-            "prerender": true,
             "ssr": {
-              "entry": "projects/demo/server.ts"
-            }
+              "entry": "projects/demo/src/server.ts"
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {
@@ -308,10 +307,10 @@
             ],
             "scripts": [],
             "server": "projects/mono/src/main.server.ts",
-            "prerender": true,
             "ssr": {
-              "entry": "projects/mono/server.ts"
-            }
+              "entry": "projects/mono/src/server.ts"
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {
@@ -409,10 +408,10 @@
             ],
             "scripts": [],
             "server": "projects/dual-tier/src/main.server.ts",
-            "prerender": true,
             "ssr": {
-              "entry": "projects/dual-tier/server.ts"
-            }
+              "entry": "projects/dual-tier/src/server.ts"
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {
