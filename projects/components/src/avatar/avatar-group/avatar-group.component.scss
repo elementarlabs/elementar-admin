@@ -1,17 +1,18 @@
 :host {
-  flex: none;
-  display: flex;
-  position: relative;
-  align-items: center;
-}
+  --emr-avatar-group-item-offset: theme('spacing[2.5]');
+  --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
+  
+  @apply flex-none flex relative items-center;
 
-:host ::ng-deep * + * {
-  margin-left: calc(var(--emr-avatar-group-item-offset) * -1);
-}
+  ::ng-deep {
+    * + * {
+      margin-left: calc(var(--emr-avatar-group-item-offset) * -1);
+    }
 
-:host ::ng-deep .emr-avatar,
-:host ::ng-deep .emr-avatar-total {
-  border: var(--emr-avatar-group-item-border);
-  z-index: 0;
+    .emr-avatar,
+    .emr-avatar-total {
+      border: var(--emr-avatar-group-item-border);
+      z-index: 0;
+    }
+  }
 }
-

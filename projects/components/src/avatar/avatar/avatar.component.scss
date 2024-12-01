@@ -11,8 +11,6 @@
   --emr-avatar-presence-indicator-offline-bg: theme('colors.neutral.300');
   --emr-avatar-presence-indicator-away-bg: theme('colors.yellow.400');
   --emr-avatar-presence-indicator-outline: theme('colors.white') solid 2px;
-  --emr-avatar-group-item-offset: theme('spacing[2.5]');
-  --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
   --emr-avatar-inner-border: inset 0 0 2px theme('borderColor.DEFAULT');
 
   font-weight: var(--emr-avatar-font-weight);

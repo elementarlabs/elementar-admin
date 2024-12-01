@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard/basic',
+    redirectTo: 'basic',
   },
   {
     path: 'basic',
