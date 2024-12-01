@@ -1,7 +1,7 @@
 :host {
   --emr-avatar-group-item-offset: theme('spacing[2.5]');
   --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
-  
+
   @apply flex-none flex relative items-center;
 
   ::ng-deep {
