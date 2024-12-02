@@ -17,6 +17,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
 import { MatRipple } from '@angular/material/core';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
 
 interface TaskPriority {
   id: any;
@@ -26,7 +27,7 @@ interface TaskPriority {
 }
 
 @Component({
-    selector: 'app-kanban-board',
+  selector: 'app-kanban-board',
   imports: [
     MatIcon,
     DicebearComponent,
@@ -34,7 +35,6 @@ interface TaskPriority {
     CdkDropList,
     CdkDropListGroup,
     CdkDrag,
-    CdkDragPlaceholder,
     PanelComponent,
     PanelHeaderComponent,
     PanelBodyComponent,
@@ -43,9 +43,11 @@ interface TaskPriority {
     AvatarTotalComponent,
     MatButton,
     MatRipple,
+    SegmentedButtonComponent,
+    SegmentedComponent,
   ],
-    templateUrl: './kanban-board.component.html',
-    styleUrl: './kanban-board.component.scss'
+  templateUrl: './kanban-board.component.html',
+  styleUrl: './kanban-board.component.scss'
 })
 export class KanbanBoardComponent {
   priorities: TaskPriority[] = [

@@ -1,6 +1,6 @@
 :host {
-  .board-container {
-    @apply absolute inset-0 overflow-auto flex gap-5 px-10 pb-5;
+  .cdk-drag-placeholder {
+    @apply opacity-60;
   }
 }
 

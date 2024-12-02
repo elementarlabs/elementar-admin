@@ -1,9 +1,15 @@
 <emr-panel class="h-full">
   <emr-panel-header class="h-16">
     <div class="h-full flex items-center justify-between px-10">
-      <div class="font-bold">Tasks</div>
-      <div class="flex items-center gap-2">
-        <button mat-button>
+      <div class="flex items-center gap-4">
+        <div class="font-bold">Tasks</div>
+      </div>
+      <div class="flex items-center gap-4">
+        <emr-segmented selectedValue="assignedToMe">
+          <button emr-segmented-button value="all">All</button>
+          <button emr-segmented-button value="assignedToMe">Assigned to me</button>
+        </emr-segmented>
+        <button mat-stroked-button>
           <mat-icon>add</mat-icon>Invite
         </button>
         <emr-avatar-group>
@@ -19,7 +25,7 @@
     </div>
   </emr-panel-header>
   <emr-panel-body class="relative">
-    <div class="h-full board-container" cdkDropListGroup>
+    <div class="h-full absolute inset-0 overflow-auto flex gap-5 px-10" cdkDropListGroup>
       <div class="grid grid-flow-col auto-cols-max gap-5">
         @for (column of columns; track column) {
           <div class="h-full pb-5">
@@ -40,8 +46,6 @@
                 @for (item of column.items; track item) {
                   <div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
                        cdkDrag [cdkDragData]="item" matRipple>
-                    <div class="bg-surface-container-highest rounded-2xl p-3 shadow-sm cursor-pointer min-h-20"
-                         *cdkDragPlaceholder></div>
                     <div class="font-medium text-sm">{{ item.name }}</div>
                     <div class="flex items-center justify-between mt-3.5">
                       <emr-dicebear [key]="item.assignee.id" class="size-7"/>
