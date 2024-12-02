@@ -99,6 +99,136 @@ export class KanbanBoardComponent {
             name: 'Pavel Salauyou'
           },
           priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
         }
       ]
     },
