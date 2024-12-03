@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, AfterViewInit, Component, ElementRef, inject, Renderer2, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {
   AvatarComponent,
@@ -18,6 +18,8 @@ import {
 import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
 import { MatRipple } from '@angular/material/core';
 import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
+import { marked } from 'marked';
+import Renderer = marked.Renderer;
 
 interface TaskPriority {
   id: any;
@@ -47,9 +49,16 @@ interface TaskPriority {
     SegmentedComponent,
   ],
   templateUrl: './kanban-board.component.html',
-  styleUrl: './kanban-board.component.scss'
+  styleUrl: './kanban-board.component.scss',
+  // host: {
+  //   'class': 'has-vertical-scroll',
+  // }
 })
 export class KanbanBoardComponent {
+  private _headerContainer = viewChild.required('headerContainer', { read: ElementRef });
+  private _scrollContainer = viewChild.required('scrollContainer', { read: ElementRef });
+  private _renderer = inject(Renderer2);
+
   priorities: TaskPriority[] = [
     {
       id: 1,
@@ -289,6 +298,7 @@ export class KanbanBoardComponent {
       ]
     },
   ];
+  protected _hasVerticalScroll = false;
 
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
@@ -301,5 +311,12 @@ export class KanbanBoardComponent {
         event.currentIndex,
       );
     }
+  }
+
+  onScroll(event: Event) {
+    const target = event.target as HTMLElement;
+    const headerContainerElement = this._headerContainer().nativeElement as HTMLElement;
+    this._renderer.setStyle(headerContainerElement, 'transform', `translate(-${target.scrollLeft}px, 0)`);
+    this._hasVerticalScroll = target.scrollTop > 0;
   }
 }

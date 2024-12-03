@@ -24,27 +24,36 @@
       </div>
     </div>
   </emr-panel-header>
-  <emr-panel-body class="relative">
-    <div class="h-full absolute inset-0 overflow-auto flex gap-5 px-10" cdkDropListGroup>
-      <div class="grid grid-flow-col auto-cols-max gap-5">
-        @for (column of columns; track column) {
-          <div class="h-full pb-5">
-            <div class="flex flex-col gap-3 h-full">
-              <div class="h-10 flex gap-2 items-center justify-between flex-none sticky top-0 z-[1] bg-background">
-                <div class="flex gap-2 items-center uppercase text-sm">
-                  @if (column.color) {
-                    <div class="size-3 rounded-full" [style.background-color]="column.color"></div>
-                  }
-                  {{ column.name }} ({{ column.items.length }})
-                </div>
-                <button mat-icon-button>
-                  <mat-icon>add</mat-icon>
-                </button>
+  <emr-panel-body>
+    <emr-panel class="h-full">
+      <emr-panel-header class="overflow-hidden px-10">
+        <div class="flex flex-nowrap gap-5 h-full items-center header-container" #headerContainer>
+          @for (column of columns; track column) {
+            <div class="h-full w-[var(--emr-kanban-board-col-width)] flex gap-2 items-center
+                        justify-between flex-none [&.has-vertical-scroll]:border-b"
+                 [class.has-vertical-scroll]="_hasVerticalScroll">
+              <div class="flex gap-2 items-center uppercase text-sm">
+                @if (column.color) {
+                  <div class="size-3 rounded-full" [style.background-color]="column.color"></div>
+                }
+                {{ column.name }} ({{ column.items.length }})
               </div>
-              <div class="bg-surface-container-low grow w-72 flex-none rounded-2xl p-3 flex flex-col gap-3"
+              <button mat-icon-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+      </emr-panel-header>
+      <emr-panel-body class="relative overflow-hidden">
+        <div #scrollContainer class="h-full absolute overflow-auto inset-0 flex gap-5 px-10 items-baseline"
+             (scroll)="onScroll($event)">
+          <div class="flex gap-5 flex-nowrap pb-5" cdkDropListGroup>
+            @for (column of columns; track column) {
+              <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 flex flex-col gap-3"
                    cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="drop($event)">
                 @for (item of column.items; track item) {
-                  <div class="bg-surface-container-lowest rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
+                  <div class="bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
                        cdkDrag [cdkDragData]="item" matRipple>
                     <div class="font-medium text-sm">{{ item.name }}</div>
                     <div class="flex items-center justify-between mt-3.5">
@@ -54,10 +63,10 @@
                   </div>
                 }
               </div>
-            </div>
+            }
           </div>
-        }
-      </div>
-    </div>
+        </div>
+      </emr-panel-body>
+    </emr-panel>
   </emr-panel-body>
 </emr-panel>

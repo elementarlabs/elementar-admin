@@ -1,4 +1,11 @@
 :host {
+  --emr-kanban-board-col-width: theme('width.72');
+  --header-translate-x: translate(0, 0);
+
+  //.header-container {
+  //  transform: var(--header-translate-x);
+  //}
+
   .cdk-drag-placeholder {
     @apply opacity-60;
   }
