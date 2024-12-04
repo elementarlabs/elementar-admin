@@ -39,3 +39,13 @@ input.emr-number-input-no-spinners::-webkit-inner-spin-button {
 input[type=number].emr-number-input-no-spinners {
   -moz-appearance: textfield;
 }
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}

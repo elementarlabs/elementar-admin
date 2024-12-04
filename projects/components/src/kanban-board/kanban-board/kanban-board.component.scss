@@ -1,0 +1,11 @@
+:host {
+  --emr-kanban-board-col-width: theme('width.72');
+  --emr-kanban-board-padding-x: theme('padding.10');
+  --emr-kanban-board-column-gap: theme('gap.5');
+
+  @apply h-full;
+
+  .cdk-drag-placeholder {
+    @apply opacity-60;
+  }
+}

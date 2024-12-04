@@ -1,25 +1,19 @@
-import { afterNextRender, AfterViewInit, Component, ElementRef, inject, Renderer2, viewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {
   AvatarComponent,
   AvatarGroupComponent,
-  AvatarTotalComponent,
-  DicebearComponent
+  AvatarTotalComponent, DicebearComponent
 } from '@elementar/components/avatar';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import {
-  CdkDrag,
-  CdkDragDrop, CdkDragPlaceholder,
-  CdkDropList,
-  CdkDropListGroup,
-  moveItemInArray,
-  transferArrayItem
-} from '@angular/cdk/drag-drop';
 import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
-import { MatRipple } from '@angular/material/core';
 import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
-import { marked } from 'marked';
-import Renderer = marked.Renderer;
+import {
+  KanbanBoardComponent as KanbanBoard,
+  KanbanColumn,
+  KanbanItem,
+  KanbanItemDefDirective
+} from '@elementar/components/kanban-board';
 
 interface TaskPriority {
   id: any;
@@ -28,15 +22,23 @@ interface TaskPriority {
   type: string;
 }
 
+interface TaskItem extends KanbanItem {
+  reporter: {
+    id: any;
+    name: string;
+  },
+  assignee: {
+    id: any;
+    name: string;
+  },
+  priority: TaskPriority
+}
+
 @Component({
   selector: 'app-kanban-board',
   imports: [
     MatIcon,
-    DicebearComponent,
     MatIconButton,
-    CdkDropList,
-    CdkDropListGroup,
-    CdkDrag,
     PanelComponent,
     PanelHeaderComponent,
     PanelBodyComponent,
@@ -44,21 +46,16 @@ interface TaskPriority {
     AvatarGroupComponent,
     AvatarTotalComponent,
     MatButton,
-    MatRipple,
     SegmentedButtonComponent,
     SegmentedComponent,
+    KanbanBoard,
+    KanbanItemDefDirective,
+    DicebearComponent
   ],
   templateUrl: './kanban-board.component.html',
-  styleUrl: './kanban-board.component.scss',
-  // host: {
-  //   'class': 'has-vertical-scroll',
-  // }
+  styleUrl: './kanban-board.component.scss'
 })
 export class KanbanBoardComponent {
-  private _headerContainer = viewChild.required('headerContainer', { read: ElementRef });
-  private _scrollContainer = viewChild.required('scrollContainer', { read: ElementRef });
-  private _renderer = inject(Renderer2);
-
   priorities: TaskPriority[] = [
     {
       id: 1,
@@ -79,7 +76,7 @@ export class KanbanBoardComponent {
       color: '#e74c3c'
     }
   ];
-  columns = [
+  columns: KanbanColumn<TaskItem>[] = [
     {
       id: 1,
       name: 'To Do',
@@ -298,25 +295,4 @@ export class KanbanBoardComponent {
       ]
     },
   ];
-  protected _hasVerticalScroll = false;
-
-  drop(event: CdkDragDrop<any[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-  }
-
-  onScroll(event: Event) {
-    const target = event.target as HTMLElement;
-    const headerContainerElement = this._headerContainer().nativeElement as HTMLElement;
-    this._renderer.setStyle(headerContainerElement, 'transform', `translate(-${target.scrollLeft}px, 0)`);
-    this._hasVerticalScroll = target.scrollTop > 0;
-  }
 }
