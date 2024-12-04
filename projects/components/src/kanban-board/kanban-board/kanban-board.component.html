@@ -13,7 +13,7 @@
             <mat-icon>add</mat-icon>
           </button>
 
-          @if (_hasVerticalScroll) {
+          @if (_hasVerticalScroll()) {
             <div class="h-px bg-surface-container absolute bottom-0 start-0 end-0"></div>
           }
         </div>
@@ -26,7 +26,7 @@
       <div class="flex gap-[var(--emr-kanban-board-column-gap)] flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
         @for (column of columns(); track column) {
           <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 flex flex-col gap-3"
-               cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="drop($event)">
+               cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="onDropped($event)">
             @for (item of column.items; track item) {
               <div class="bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
                    cdkDrag [cdkDragData]="item" matRipple>
