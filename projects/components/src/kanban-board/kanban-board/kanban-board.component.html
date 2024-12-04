@@ -23,9 +23,9 @@
   <emr-panel-body class="relative overflow-hidden">
     <div #scrollContainer class="h-full absolute overflow-auto inset-0 flex gap-[var(--emr-kanban-board-column-gap)] px-[var(--emr-kanban-board-padding-x)] items-baseline"
          (scroll)="onScroll($event)">
-      <div class="flex gap-[var(--emr-kanban-board-column-gap)] flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
+      <div class="flex gap-[var(--emr-kanban-board-column-gap)] min-h-full flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
         @for (column of columns(); track column) {
-          <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 flex flex-col gap-3"
+          <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 min-h-full flex flex-col gap-3"
                cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="onDropped($event)">
             @for (item of column.items; track item) {
               <div class="bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
