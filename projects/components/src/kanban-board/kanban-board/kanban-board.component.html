@@ -1,7 +1,7 @@
 <emr-panel class="h-full">
   <emr-panel-header class="overflow-hidden px-[var(--emr-kanban-board-padding-x)]">
     <div class="flex flex-nowrap gap-[var(--emr-kanban-board-column-gap)] h-full items-center header-container" #headerContainer>
-      @for (column of columns(); track column) {
+      @for (column of columns(); track column; let index = $index) {
         <div class="h-full w-[var(--emr-kanban-board-col-width)] relative flex gap-2 items-center justify-between flex-none">
           <div class="flex gap-2 items-center uppercase text-sm">
             @if (column.color) {
@@ -9,27 +9,48 @@
             }
             {{ column.name }} ({{ column.items.length }})
           </div>
-          <button mat-icon-button>
-            <mat-icon>add</mat-icon>
-          </button>
+          <div class="flex gap-0.5 items-center">
+            <button mat-icon-button (click)="itemAdd.emit()">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="columnMenu">
+              <mat-icon>more_horizontal</mat-icon>
+            </button>
+          </div>
 
           @if (_hasVerticalScroll()) {
             <div class="h-px bg-surface-container absolute bottom-0 start-0 end-0"></div>
           }
+
+          <mat-menu #columnMenu="matMenu">
+            <button mat-menu-item (click)="columnEdit.emit(column)">
+              <mat-icon>share</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="columnDelete.emit({ column, index })">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
         </div>
       }
     </div>
   </emr-panel-header>
   <emr-panel-body class="relative overflow-hidden">
-    <div #scrollContainer class="h-full absolute overflow-auto inset-0 flex gap-[var(--emr-kanban-board-column-gap)] px-[var(--emr-kanban-board-padding-x)] items-baseline"
+    <div #scrollContainer class="scroll-container h-full absolute overflow-auto inset-0 flex gap-[var(--emr-kanban-board-column-gap)] px-[var(--emr-kanban-board-padding-x)] items-baseline"
          (scroll)="onScroll($event)">
-      <div class="flex gap-[var(--emr-kanban-board-column-gap)] min-h-full flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
+      <div #scrollContainerContent class="flex gap-[var(--emr-kanban-board-column-gap)] min-h-full flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
         @for (column of columns(); track column) {
           <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 min-h-full flex flex-col gap-3"
                cdkDropList [cdkDropListData]="column.items" (cdkDropListDropped)="onDropped($event)">
             @for (item of column.items; track item) {
-              <div class="bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
-                   cdkDrag [cdkDragData]="item" matRipple>
+              <div #element
+                   class="bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
+                   cdkDrag [cdkDragData]="item" matRipple
+                   (click)="itemClick.emit(item)"
+                   (cdkDragStarted)="onDragStarted($event, element)"
+                   (cdkDragMoved)="onDragMoved($event)"
+                   (cdkDragEnded)="onDragEnded($event)">
                 <ng-container [ngTemplateOutlet]="_itemTplDef().templateRef"
                               [ngTemplateOutletContext]="{ $implicit: item, column }"/>
               </div>

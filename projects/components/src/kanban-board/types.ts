@@ -10,7 +10,7 @@ export interface KanbanItem {
   position: number;
 }
 
-export interface KanbanItemMovedEvent {
+export interface KanbanItemSortedEvent {
   previousIndex: number;
   currentIndex: number;
 }

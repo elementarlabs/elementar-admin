@@ -8,4 +8,10 @@
   .cdk-drag-placeholder {
     @apply opacity-60;
   }
+
+  &.is-dragging-active {
+    .scroll-container {
+      @apply transition-all;
+    }
+  }
 }
