@@ -294,5 +294,54 @@ export class KanbanBoardComponent {
       items: [
       ]
     },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
+    {
+      id: 1,
+      name: 'Custom',
+      color: '#2d22c5',
+      items: [
+      ]
+    },
   ];
 }

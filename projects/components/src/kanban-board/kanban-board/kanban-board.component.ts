@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   contentChild,
   ElementRef,
@@ -31,6 +32,8 @@ import { KanbanItemDefDirective } from '@elementar/components/kanban-board/kanba
 import { NgTemplateOutlet } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { After } from 'node:v8';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'emr-kanban-board',
@@ -58,7 +61,7 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
     '[class.is-dragging-active]': 'isDraggingActive'
   }
 })
-export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanItem> {
+export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanItem> implements AfterViewInit {
   private _elementRef = inject(ElementRef)
   protected _itemTplDef = contentChild.required(KanbanItemDefDirective);
   private _headerContainer = viewChild.required('headerContainer', { read: ElementRef });
@@ -79,8 +82,32 @@ export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanIte
   readonly itemSorted = output<KanbanItemSortedEvent>();
   readonly itemTransferred = output<KanbanItemTransferredEvent<K>>();
 
+  private _startContainerXOffset = 0;
+  private _itemXOffset = 0;
   private _itemWidth = 0;
   protected isDraggingActive = false;
+
+  ngAfterViewInit() {
+    // fromEvent(this._scrollContainerContent().nativeElement, 'mousedown')
+    //   .subscribe((event: any) => {
+    //     console.log(event.target);
+    //   })
+    // ;
+  }
+
+  protected itemMousedown(event: MouseEvent) {
+    const scrollContainerElement = this._scrollContainer().nativeElement as HTMLElement;
+    let targetElement = event.target as Element;
+
+    if (!targetElement.classList.contains('kanban-item')) {
+      targetElement = targetElement.closest('.kanban-item') as HTMLElement;
+    }
+
+    const targetRect = targetElement.getBoundingClientRect();
+    this._startContainerXOffset = targetRect.x - scrollContainerElement.getBoundingClientRect().x;
+    this._itemXOffset = event.clientX - targetRect.x;
+    this._itemWidth = targetRect.width;
+  }
 
   onDropped(event: CdkDragDrop<K[]>) {
     this.itemDropped.emit(event);
@@ -115,43 +142,28 @@ export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanIte
   }
 
   onDragStarted(event: CdkDragStart, element: HTMLElement) {
-    console.log(event);
-    const sourceRect = (event.source.element.nativeElement as HTMLElement).getBoundingClientRect();
-    const targetRect = (event.event.target  as HTMLElement).getBoundingClientRect();
-    console.log(targetRect);
-    // console.log(event.event);
-    // console.log(sourceRect);
-    console.log(element);
-
-    this._itemWidth = sourceRect.width;
     this.isDraggingActive = true;
   }
 
   onDragMoved(event: CdkDragMove<K>) {
     const scrollContainer = this._scrollContainer().nativeElement as HTMLElement;
     const scrollContainerWidth = scrollContainer.getBoundingClientRect().width;
-    // console.log(event.delta);
-    // console.log(event.distance.x);
-    // console.log(event.pointerPosition.x);
-    // console.log(scrollContainer.getBoundingClientRect().x);
-    //
-    // const scrollContainerOffsetX = event.pointerPosition.x - scrollContainer.getBoundingClientRect().x;
-    // const itemOffsetXEnd = scrollContainerOffsetX + this._itemWidth + 100;
-    //
-    // console.log(itemOffsetXEnd);
-    //
-    // if (itemOffsetXEnd >= scrollContainerWidth) {
-    //   console.log(itemOffsetXEnd, scrollContainerWidth);
-    //   const scrollContainer = this._scrollContainer().nativeElement as HTMLElement;
-    //   // scrollContainer.scrollLeft = scrollContainer.scrollWidth - scrollContainerWidth;
-    //
-    //   scrollContainer.scroll({
-    //     left: scrollContainer.scrollWidth - scrollContainerWidth,
-    //     behavior: 'smooth'
-    //   })
-    // }
+    const itemOffsetXStart = this._startContainerXOffset + event.distance.x;
+    const itemOffsetXEnd = this._startContainerXOffset + event.distance.x + this._itemWidth;
 
-    // const scrollDeltaX = scrollContainer.scrollWidth - scrollContainer.getBoundingClientRect().width - scrollContainer.scrollLeft;
+    console.log(itemOffsetXStart, itemOffsetXEnd);
+
+    if (itemOffsetXEnd >= scrollContainerWidth) {
+      scrollContainer.scroll({
+        left: scrollContainer.scrollLeft + this._itemWidth * 2,
+        behavior: 'smooth'
+      });
+    } else if (itemOffsetXStart <= 0 && scrollContainer.scrollLeft > 0) {
+      scrollContainer.scroll({
+        left: scrollContainer.scrollLeft - this._itemWidth * 2,
+        behavior: 'smooth'
+      });
+    }
   }
 
   onDragEnded(event: CdkDragEnd) {
