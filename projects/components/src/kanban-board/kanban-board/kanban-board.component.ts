@@ -86,6 +86,7 @@ export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanIte
   private _itemXOffset = 0;
   private _itemWidth = 0;
   protected isDraggingActive = false;
+  private _autoScrollStarted = false;
 
   ngAfterViewInit() {
     // fromEvent(this._scrollContainerContent().nativeElement, 'mousedown')
@@ -146,23 +147,32 @@ export class KanbanBoardComponent<T extends KanbanColumn<K>, K extends KanbanIte
   }
 
   onDragMoved(event: CdkDragMove<K>) {
+    const space = 100;
     const scrollContainer = this._scrollContainer().nativeElement as HTMLElement;
     const scrollContainerWidth = scrollContainer.getBoundingClientRect().width;
     const itemOffsetXStart = this._startContainerXOffset + event.distance.x;
     const itemOffsetXEnd = this._startContainerXOffset + event.distance.x + this._itemWidth;
 
-    console.log(itemOffsetXStart, itemOffsetXEnd);
-
-    if (itemOffsetXEnd >= scrollContainerWidth) {
-      scrollContainer.scroll({
-        left: scrollContainer.scrollLeft + this._itemWidth * 2,
-        behavior: 'smooth'
-      });
-    } else if (itemOffsetXStart <= 0 && scrollContainer.scrollLeft > 0) {
-      scrollContainer.scroll({
-        left: scrollContainer.scrollLeft - this._itemWidth * 2,
-        behavior: 'smooth'
-      });
+    if (!this._autoScrollStarted) {
+      if (itemOffsetXEnd + space >= scrollContainerWidth) {
+        this._autoScrollStarted = true;
+        scrollContainer.scroll({
+          left: scrollContainer.scrollLeft + this._itemWidth * 2,
+          behavior: 'smooth'
+        });
+        setTimeout(() => {
+          this._autoScrollStarted = false;
+        }, 500);
+      } else if (itemOffsetXStart <= space && scrollContainer.scrollLeft > 0) {
+        this._autoScrollStarted = true;
+        scrollContainer.scroll({
+          left: scrollContainer.scrollLeft - this._itemWidth * 2,
+          behavior: 'smooth'
+        });
+        setTimeout(() => {
+          this._autoScrollStarted = false;
+        }, 500);
+      }
     }
   }
 

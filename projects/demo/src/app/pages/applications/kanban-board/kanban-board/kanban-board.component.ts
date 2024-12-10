@@ -185,63 +185,11 @@ export class KanbanBoardComponent {
             name: 'Pavel Salauyou'
           },
           priority: this.priorities[2]
-        },
-        {
-          name: 'Fix UI bug',
-          position: 1,
-          reporter: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          assignee: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          priority: this.priorities[2]
-        },
-        {
-          name: 'Fix UI bug',
-          position: 1,
-          reporter: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          assignee: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          priority: this.priorities[2]
-        },
-        {
-          name: 'Fix UI bug',
-          position: 1,
-          reporter: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          assignee: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          priority: this.priorities[2]
-        },
-        {
-          name: 'Fix UI bug',
-          position: 1,
-          reporter: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          assignee: {
-            id: 1,
-            name: 'Pavel Salauyou'
-          },
-          priority: this.priorities[2]
         }
       ]
     },
     {
-      id: 1,
+      id: 2,
       name: 'In Progress',
       color: '#a855f7',
       items: [
@@ -261,7 +209,7 @@ export class KanbanBoardComponent {
       ]
     },
     {
-      id: 1,
+      id: 3,
       name: 'Under Review',
       color: '#eab308',
       items: [
@@ -277,71 +225,74 @@ export class KanbanBoardComponent {
             name: 'Pavel Salauyou'
           },
           priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
+        },
+        {
+          name: 'Fix UI bug',
+          position: 1,
+          reporter: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          assignee: {
+            id: 1,
+            name: 'Pavel Salauyou'
+          },
+          priority: this.priorities[2]
         }
       ]
     },
     {
-      id: 1,
+      id: 4,
       name: 'Done',
       color: '#22c55e',
       items: [
       ]
     },
     {
-      id: 1,
+      id: 5,
       name: 'Custom',
       color: '#2d22c5',
       items: [
       ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
-    {
-      id: 1,
-      name: 'Custom',
-      color: '#2d22c5',
-      items: [
-      ]
-    },
+    }
   ];
 }
