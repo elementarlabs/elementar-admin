@@ -535,6 +535,12 @@ export class SidebarComponent implements OnInit {
           name: 'Comment Editor',
           link: '/pages/components/comment-editor'
         },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Text Editor',
+          link: '/pages/components/text-editor'
+        },
       ]
     },
     {

@@ -276,6 +276,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/marquee/marquee.module').then(m => m.MarqueeModule)
       },
       {
+        path: 'components/text-editor',
+        loadChildren: () => import('./components/text-editor/text-editor.module').then(m => m.TextEditorModule)
+      },
+      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },
