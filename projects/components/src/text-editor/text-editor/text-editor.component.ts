@@ -30,7 +30,7 @@ import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
-import { FloatingMenu } from '@tiptap/extension-floating-menu';
+// import { FloatingMenu } from '@tiptap/extension-floating-menu';
 import ImageUploadingPlaceholderExtension
   from '../extensions/image-uploading-placeholder';
 import Heading from '@tiptap/extension-heading';
@@ -60,15 +60,16 @@ export class TextEditorComponent {
   private _content = viewChild.required<ElementRef>('content');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
   private _imageBubbleMenu = viewChild.required<ElementRef>('imageBubbleMenu');
-  private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
+  // private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   protected _value = '';
   protected editor: Editor;
 
+  content = input('');
   contentMaxHeight = input<number>();
   placeholder = input('Write something …');
   imageUploadFn = input<(file: Blob) => Promise<string>>();
 
-  readonly valueChange = output<string>();
+  readonly contentChange = output<string>();
 
   get api(): TextEditorAPI {
     return {
@@ -169,10 +170,10 @@ export class TextEditorComponent {
           },
         })
       ],
-      content: '',
+      content: this.content(),
       onUpdate: ({ editor }) => {
         this._value = !editor.isEmpty ? editor.getHTML() : '';
-        this.valueChange.emit(this._value);
+        this.contentChange.emit(this._value);
       }
     });
     this._cdr.detectChanges();
