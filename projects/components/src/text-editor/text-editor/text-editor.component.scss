@@ -1,0 +1,92 @@
+:host {
+  --emr-text-editor-bg: transparent;
+  --emr-text-editor-content-max-height: 9999px;
+
+  @apply relative block overflow-hidden bg-[var(--emr-text-editor-bg)];
+
+  .floating-menu {
+    @apply shadow bg-white py-1.5 px-2 border rounded-full;
+
+    .button {
+      @apply hover:text-primary rounded-full;
+
+      mat-icon {
+        @apply size-6 text-xl leading-[1.25];
+      }
+
+      &:disabled {
+        @apply opacity-70 pointer-events-none;
+      }
+    }
+  }
+
+  .content {
+    // @apply absolute h-14 inset-0;
+
+    ::ng-deep {
+      .tiptap {
+        @apply p-4 min-h-10 focus:outline-none;
+
+        div[data-youtube-video] {
+          @apply cursor-move bg-neutral-100 p-6 flex items-center justify-center;
+
+          iframe {
+            @apply w-full aspect-video border-none block min-h-[200px] min-w-[200px] outline-none;
+          }
+
+          &.ProseMirror-selectednode iframe {
+            @apply outline outline-4 outline-tertiary transition-all;
+          }
+        }
+
+        img {
+          @apply block h-auto my-6 mx-0 max-w-full;
+
+          &.ProseMirror-selectednode {
+            @apply outline outline-4 outline-tertiary transition-all;
+          }
+        }
+
+        p.is-editor-empty:first-child::before {
+          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
+          content: attr(data-placeholder);
+        }
+
+        &.ProseMirror-focused {
+          p.is-editor-empty:first-child::before {
+            content: none;
+          }
+        }
+
+        p.is-empty::before {
+          content: attr(data-placeholder);
+          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
+        }
+      }
+
+      p,
+      pre {
+        &:first-child {
+          @apply mt-0;
+        }
+
+        &:last-child {
+          @apply mb-0;
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    @apply border-b h-14 px-3 flex items-center justify-between;
+  }
+
+  .button,
+  ::ng-deep .button {
+    @apply leading-[0];
+
+    &.active {
+      @apply bg-neutral-200 dark:bg-neutral-650 dark:text-neutral-200;
+    }
+  }
+}

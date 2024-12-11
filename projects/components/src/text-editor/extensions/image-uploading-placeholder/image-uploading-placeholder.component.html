@@ -1,0 +1,14 @@
+@if (src) {
+  <div class="flex items-center justify-center relative">
+    @if (error) {
+      <div class="absolute top-0 start-0 right-0 min-h-8 bg-error z-[2]
+                    text-on-error text-tiny flex items-center px-3">{{ error }}</div>
+    }
+    <div class="w-max absolute start-1/2 top-1/2 z-[1] -translate-y-1/2 -translate-x-1/2">
+      @if (!error) {
+        <mat-spinner></mat-spinner>
+      }
+    </div>
+    <img [src]="src" alt="" class="max-w-full opacity-70">
+  </div>
+}

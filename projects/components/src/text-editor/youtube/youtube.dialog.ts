@@ -13,6 +13,7 @@ import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'emr-youtube',
+  exportAs: 'emrYoutube',
   imports: [
     FormsModule,
     MatButton,

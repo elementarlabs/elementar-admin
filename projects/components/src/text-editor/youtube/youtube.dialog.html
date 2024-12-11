@@ -1,0 +1,28 @@
+<form class="w-[500px]" (ngSubmit)="onSubmit()">
+  <h3 class="mat-title-large" mat-dialog-title>
+    @if (isUpdate) {
+      Update Youtube
+    } @else {
+      Add Youtube
+    }
+  </h3>
+  <mat-dialog-content>
+    <div class="pt-4">
+      <mat-form-field class="w-full">
+        <mat-label>Paste Url</mat-label>
+        <input name="linkUrl" matInput [(ngModel)]="linkUrl">
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button>Cancel</button>
+    <button type="submit" mat-flat-button color="primary"
+            cdkFocusInitial [disabled]="!linkUrl.trim() || null">
+      @if (isUpdate) {
+        Save
+      } @else {
+        Add url
+      }
+    </button>
+  </mat-dialog-actions>
+</form>

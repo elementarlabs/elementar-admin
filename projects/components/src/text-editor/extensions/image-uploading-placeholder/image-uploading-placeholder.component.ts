@@ -4,6 +4,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'emr-image-uploading-placeholder',
+  exportAs: 'emrTextEditorUploadingPlaceholder',
   imports: [
     MatProgressSpinner
   ],

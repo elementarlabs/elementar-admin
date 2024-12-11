@@ -1,1 +1,29 @@
-<p>text-editor works!</p>
+<div class="toolbar">
+  <ng-content select="emr-text-editor-toolbar" />
+</div>
+<div #content class="content prose dark:prose-invert max-w-full"></div>
+<div class="footer">
+  <div class="flex items-center gap-0.5">
+    <ng-content select="emr-text-editor-footer-bar"/>
+  </div>
+</div>
+<div #imageBubbleMenu class="emr-text-editor-bubble-menu"></div>
+<div #bubbleMenu>
+  <ng-content select="emr-text-editor-bubble-menu"/>
+</div>
+<div #floatingMenu class="floating-menu">
+  @if (editor) {
+    floating
+<!--    <div class="flex items-center gap-1.5">-->
+<!--      <button class="button"-->
+<!--              [disabled]="isCommandDisabled('toggleCodeBlock')"-->
+<!--              [class.active]="editor && editor.isActive('codeBlock')"-->
+<!--              (click)="onButtonClick('toggleCodeBlock')">-->
+<!--        <mat-icon>code</mat-icon>-->
+<!--      </button>-->
+<!--      <button class="button">-->
+<!--        <mat-icon>image</mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
+  }
+</div>

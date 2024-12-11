@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, Inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
@@ -10,11 +9,12 @@ import {
 } from '@angular/material/dialog';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'emr-youtube',
+  selector: 'emr-link',
+  exportAs: 'emrLink',
   imports: [
-    FormsModule,
     MatButton,
     MatDialogActions,
     MatDialogContent,
@@ -22,12 +22,13 @@ import { MatInput } from '@angular/material/input';
     MatFormField,
     MatInput,
     MatLabel,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  templateUrl: './youtube.dialog.html',
-  styleUrl: './youtube.dialog.scss'
+  templateUrl: './link.dialog.html',
+  styleUrl: './link.dialog.scss'
 })
-export class YoutubeDialog {
+export class LinkDialog {
   private _dialogRef = inject(MatDialogRef);
   private _data = inject(MAT_DIALOG_DATA);
   linkUrl = this._data.linkUrl || '';
