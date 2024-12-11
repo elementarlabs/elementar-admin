@@ -6,9 +6,9 @@ export interface TextEditor {
 }
 
 export interface TextEditorAPI {
-  isCommandDisabled: (command: string) => boolean | null;
-  isActive: (command: string) => boolean | null;
-  runCommand: (command: string) => void;
+  isCommandDisabled: (command: string, options?: any) => boolean | null;
+  isActive: (command: string, options?: any) => boolean | null;
+  runCommand: (command: string, options?: any) => void;
   editor: () => Editor;
 }
 

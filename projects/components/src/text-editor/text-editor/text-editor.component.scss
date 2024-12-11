@@ -2,7 +2,11 @@
   --emr-text-editor-bg: transparent;
   --emr-text-editor-content-max-height: 9999px;
 
-  @apply relative block overflow-hidden bg-[var(--emr-text-editor-bg)];
+  @apply block;
+
+  &:not([class*="bg-"]) {
+    @apply bg-[var(--emr-text-editor-bg)];
+  }
 
   .floating-menu {
     @apply shadow bg-white py-1.5 px-2 border rounded-full;
@@ -21,11 +25,9 @@
   }
 
   .content {
-    // @apply absolute h-14 inset-0;
-
     ::ng-deep {
       .tiptap {
-        @apply p-4 min-h-10 focus:outline-none;
+        @apply p-6 min-h-10 focus:outline-none;
 
         div[data-youtube-video] {
           @apply cursor-move bg-neutral-100 p-6 flex items-center justify-center;
@@ -75,10 +77,6 @@
         }
       }
     }
-  }
-
-  .toolbar {
-    @apply border-b h-14 px-3 flex items-center justify-between;
   }
 
   .button,

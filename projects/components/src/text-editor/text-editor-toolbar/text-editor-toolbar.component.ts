@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './text-editor-toolbar.component.scss'
 })
 export class TextEditorToolbarComponent {
-
 }

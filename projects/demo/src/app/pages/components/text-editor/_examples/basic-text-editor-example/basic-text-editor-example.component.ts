@@ -7,7 +7,7 @@ import {
   TextEditorCommandCodeBlockDirective,
   TextEditorCommandCodeDirective,
   TextEditorCommandDirective,
-  TextEditorCommandEditLinkDirective,
+  TextEditorCommandEditLinkDirective, TextEditorCommandHeadingDirective, TextEditorCommandHorizontalRuleDirective,
   TextEditorCommandImageDirective,
   TextEditorCommandItalicDirective,
   TextEditorCommandLinkDirective,
@@ -46,7 +46,9 @@ import { MatTooltip } from '@angular/material/tooltip';
     TextEditorCommandEditLinkDirective,
     TextEditorCommandUnsetLinkDirective,
     TextEditorCommandLinkDirective,
-    TextEditorCommandCodeDirective
+    TextEditorCommandCodeDirective,
+    TextEditorCommandHeadingDirective,
+    TextEditorCommandHorizontalRuleDirective
   ],
   templateUrl: './basic-text-editor-example.component.html',
   styleUrl: './basic-text-editor-example.component.scss'

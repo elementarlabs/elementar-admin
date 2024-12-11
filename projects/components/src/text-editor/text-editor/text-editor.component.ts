@@ -33,6 +33,8 @@ import BubbleMenu from '@tiptap/extension-bubble-menu';
 import { FloatingMenu } from '@tiptap/extension-floating-menu';
 import ImageUploadingPlaceholderExtension
   from '../extensions/image-uploading-placeholder';
+import Heading from '@tiptap/extension-heading';
+import { HorizontalRule } from '@tiptap/extension-horizontal-rule';
 
 @Component({
   selector: 'emr-text-editor',
@@ -70,9 +72,9 @@ export class TextEditorComponent {
 
   get api(): TextEditorAPI {
     return {
-      isCommandDisabled: (command: string) => this.isCommandDisabled(command),
-      isActive: (command: string) => this.editor?.isActive(command),
-      runCommand: (command: string) => this._runCommand(command),
+      isCommandDisabled: (command: string, options?: any) => this.isCommandDisabled(command, options),
+      isActive: (command: string, options?: any) => this.editor?.isActive(command, options),
+      runCommand: (command: string, options?: any) => this._runCommand(command, options),
       editor: () => this.editor
     }
   }
@@ -81,32 +83,36 @@ export class TextEditorComponent {
     this._init();
   }
 
-  isCommandDisabled(command: string): boolean | null {
+  isCommandDisabled(command: string, options?: any): boolean | null {
     if (!this.editor) {
       return true;
     }
 
     const canFocus = this.editor.can().chain().focus() as any;
-    return !canFocus[command]().run() || null;
+    return !canFocus[command](options).run() || null;
   }
 
   ngOnDestroy() {
     this.editor?.destroy();
   }
 
-  private _runCommand(command: string): void {
+  private _runCommand(command: string, options?: any): void {
     if (!this.editor) {
       return;
     }
 
     const chainFocus = this.editor.chain().focus() as any;
-    chainFocus[command]().run();
+    chainFocus[command](options).run();
   }
 
   private _init(): void {
     this.editor = new Editor({
       element: this._content().nativeElement,
       extensions: [
+        Heading.configure({
+          levels: [1, 2, 3],
+        }),
+        HorizontalRule,
         Document,
         Paragraph,
         Text,
@@ -139,9 +145,9 @@ export class TextEditorComponent {
         Placeholder.configure({
           placeholder: this.placeholder()
         }),
-        FloatingMenu.configure({
-          element: this._floatingMenu().nativeElement
-        }),
+        // FloatingMenu.configure({
+        //   element: this._floatingMenu().nativeElement
+        // }),
         BubbleMenu.configure({
           element: this._imageBubbleMenu().nativeElement,
           shouldShow: ({ editor, view, state, oldState, from, to }) => {

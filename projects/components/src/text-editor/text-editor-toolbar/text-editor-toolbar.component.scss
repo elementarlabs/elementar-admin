@@ -1,3 +1,5 @@
 :host {
-  @apply flex items-center gap-0.5;
+  @apply gap-0.5 border-b h-14 px-3 flex items-center z-[1];
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
