@@ -4,19 +4,6 @@
 <div #bubbleMenu>
   <ng-content select="emr-text-editor-bubble-menu"/>
 </div>
-<!--<div #floatingMenu class="floating-menu">-->
-<!--  @if (editor) {-->
-<!--    floating-->
-<!--    <div class="flex items-center gap-1.5">-->
-<!--      <button class="button"-->
-<!--              [disabled]="isCommandDisabled('toggleCodeBlock')"-->
-<!--              [class.active]="editor && editor.isActive('codeBlock')"-->
-<!--              (click)="onButtonClick('toggleCodeBlock')">-->
-<!--        <mat-icon>code</mat-icon>-->
-<!--      </button>-->
-<!--      <button class="button">-->
-<!--        <mat-icon>image</mat-icon>-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  }-->
-<!--</div>-->
+<div #floatingMenu class="floating-menu">
+  <ng-content select="emr-text-editor-floating-menu"/>
+</div>

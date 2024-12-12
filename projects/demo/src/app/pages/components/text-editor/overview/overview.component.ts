@@ -5,6 +5,9 @@ import { PlaygroundComponent } from '@demo/meta/playground/playground.component'
 import {
   BasicTextEditorExampleComponent
 } from '../_examples/basic-text-editor-example/basic-text-editor-example.component';
+import {
+  TextEditorFloatingMenuExampleComponent
+} from '../_examples/text-editor-floating-menu-example/text-editor-floating-menu-example.component';
 
 @Component({
   selector: 'app-overview',
@@ -12,7 +15,8 @@ import {
     PageComponent,
     PageContentDirective,
     PlaygroundComponent,
-    BasicTextEditorExampleComponent
+    BasicTextEditorExampleComponent,
+    TextEditorFloatingMenuExampleComponent
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -30,7 +30,7 @@ import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
 import BubbleMenu from '@tiptap/extension-bubble-menu';
-// import { FloatingMenu } from '@tiptap/extension-floating-menu';
+import { FloatingMenu } from '@tiptap/extension-floating-menu';
 import ImageUploadingPlaceholderExtension
   from '../extensions/image-uploading-placeholder';
 import Heading from '@tiptap/extension-heading';
@@ -60,11 +60,12 @@ export class TextEditorComponent {
   private _content = viewChild.required<ElementRef>('content');
   private _bubbleMenu = viewChild.required<ElementRef>('bubbleMenu');
   private _imageBubbleMenu = viewChild.required<ElementRef>('imageBubbleMenu');
-  // private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
+  private _floatingMenu = viewChild.required<ElementRef>('floatingMenu');
   protected _value = '';
   protected editor: Editor;
 
   content = input('');
+  extensions = input([]);
   contentMaxHeight = input<number>();
   placeholder = input('Write something …');
   imageUploadFn = input<(file: Blob) => Promise<string>>();
@@ -107,69 +108,77 @@ export class TextEditorComponent {
   }
 
   private _init(): void {
+    const extensions = [
+      ...this.extensions(),
+      Heading.configure({
+        levels: [1, 2, 3],
+      }),
+      HorizontalRule,
+      Document,
+      Paragraph,
+      Text,
+      Bold,
+      Italic,
+      Strike,
+      Blockquote,
+      CodeBlock,
+      BulletList,
+      OrderedList,
+      ListItem,
+      Code,
+      History,
+      Dropcursor,
+      Youtube.configure({
+        controls: false,
+        nocookie: true,
+      }),
+      ImageUploadingPlaceholderExtension(this._injector, {
+        uploadFn: this.imageUploadFn(),
+      }),
+      Image.configure({
+        inline: true,
+        allowBase64: true
+      }),
+      Link.configure({
+        openOnClick: false,
+        defaultProtocol: 'https',
+      }),
+      Placeholder.configure({
+        placeholder: this.placeholder()
+      }),
+      // BubbleMenu.configure({
+      //   element: this._imageBubbleMenu().nativeElement,
+      //   shouldShow: ({ editor, view, state, oldState, from, to }) => {
+      //     // return editor.isActive('image');
+      //     return false;
+      //   },
+      // }),
+      BubbleMenu.configure({
+        element: this._bubbleMenu().nativeElement,
+        tippyOptions: {
+          appendTo: this._document.body,
+          zIndex: 999
+        },
+        shouldShow: ({ editor, view, state, oldState, from, to }) => {
+          return !editor.isActive('image') &&
+            !editor.isActive('youtube') &&
+            !editor.isActive('imageUploadingPlaceholder') &&
+            !editor.view.state.selection.empty;
+        },
+      })
+    ];
+
+    if (this._floatingMenu()) {
+      extensions.push(
+        FloatingMenu.configure({
+          element: this._floatingMenu().nativeElement
+        })
+      );
+    }
+
     this.editor = new Editor({
       element: this._content().nativeElement,
-      extensions: [
-        Heading.configure({
-          levels: [1, 2, 3],
-        }),
-        HorizontalRule,
-        Document,
-        Paragraph,
-        Text,
-        Bold,
-        Italic,
-        Strike,
-        Blockquote,
-        CodeBlock,
-        BulletList,
-        OrderedList,
-        ListItem,
-        Code,
-        History,
-        Dropcursor,
-        Youtube.configure({
-          controls: false,
-          nocookie: true,
-        }),
-        ImageUploadingPlaceholderExtension(this._injector, {
-          uploadFn: this.imageUploadFn(),
-        }),
-        Image.configure({
-          inline: true,
-          allowBase64: true
-        }),
-        Link.configure({
-          openOnClick: false,
-          defaultProtocol: 'https',
-        }),
-        Placeholder.configure({
-          placeholder: this.placeholder()
-        }),
-        // FloatingMenu.configure({
-        //   element: this._floatingMenu().nativeElement
-        // }),
-        BubbleMenu.configure({
-          element: this._imageBubbleMenu().nativeElement,
-          shouldShow: ({ editor, view, state, oldState, from, to }) => {
-            // return editor.isActive('image');
-            return false;
-          },
-        }),
-        BubbleMenu.configure({
-          element: this._bubbleMenu().nativeElement,
-          tippyOptions: {
-            appendTo: this._document.body,
-            zIndex: 999
-          },
-          shouldShow: ({ editor, view, state, oldState, from, to }) => {
-            return !editor.isActive('image') &&
-              !editor.isActive('youtube') &&
-              !editor.isActive('imageUploadingPlaceholder') &&
-              !editor.view.state.selection.empty;
-          },
-        })
-      ],
+      extensions,
       content: this.content(),
       onUpdate: ({ editor }) => {
         this._value = !editor.isEmpty ? editor.getHTML() : '';

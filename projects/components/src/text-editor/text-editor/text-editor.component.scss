@@ -1,6 +1,7 @@
 :host {
   --emr-text-editor-bg: transparent;
   --emr-text-editor-content-max-height: 9999px;
+  --emr-text-editor-content-padding: theme('padding.6');
 
   @apply block;
 
@@ -9,25 +10,15 @@
   }
 
   .floating-menu {
-    @apply shadow bg-white py-1.5 px-2 border rounded-full;
-
-    .button {
-      @apply hover:text-primary rounded-full;
-
-      mat-icon {
-        @apply size-6 text-xl leading-[1.25];
-      }
-
-      &:disabled {
-        @apply opacity-70 pointer-events-none;
-      }
+    &:empty {
+      @apply hidden;
     }
   }
 
   .content {
     ::ng-deep {
       .tiptap {
-        @apply p-6 min-h-10 focus:outline-none;
+        @apply p-[var(--emr-text-editor-content-padding)] min-h-full focus:outline-none;
 
         div[data-youtube-video] {
           @apply cursor-move bg-neutral-100 p-6 flex items-center justify-center;

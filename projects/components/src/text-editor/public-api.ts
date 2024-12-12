@@ -2,6 +2,7 @@ export * from './text-editor/text-editor.component';
 export * from './text-editor-toolbar/text-editor-toolbar.component';
 export * from './text-editor-divider/text-editor-divider.component';
 export * from './text-editor-bubble-menu/text-editor-bubble-menu.component';
+export * from './text-editor-floating-menu/text-editor-floating-menu.component';
 export * from './_commands/text-editor-command-blockquote.directive';
 export * from './_commands/text-editor-command-bold.directive';
 export * from './_commands/text-editor-command-bullet-list.directive';
