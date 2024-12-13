@@ -15,6 +15,12 @@
     }
   }
 
+  ::ng-deep {
+    .tippy-box {
+      max-width: 800px !important;
+    }
+  }
+
   .content {
     ::ng-deep {
       .tiptap {
