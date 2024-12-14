@@ -14,17 +14,21 @@ import {
 import {
   BlockStateWithActionsExampleComponent
 } from '../_examples/block-state-with-actions-example/block-state-with-actions-example.component';
+import {
+  BlockStateWithCustomIconExampleComponent
+} from '../_examples/block-state-with-custom-icon-example/block-state-with-custom-icon-example.component';
 
 @Component({
-    imports: [
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        BasicBlockStateExampleComponent,
-        BlockStateWithImageExampleComponent,
-        BlockStateWithIconExampleComponent,
-        BlockStateWithActionsExampleComponent
-    ],
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    BasicBlockStateExampleComponent,
+    BlockStateWithImageExampleComponent,
+    BlockStateWithIconExampleComponent,
+    BlockStateWithActionsExampleComponent,
+    BlockStateWithCustomIconExampleComponent
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })

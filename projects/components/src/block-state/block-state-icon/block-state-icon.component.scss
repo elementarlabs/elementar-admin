@@ -1,4 +1,5 @@
 :host {
+  --emr-icon-size: theme('size.24');
   @apply size-40 flex items-center justify-center p-8 bg-surface-container rounded-full mb-6;
 
   ::ng-deep {
