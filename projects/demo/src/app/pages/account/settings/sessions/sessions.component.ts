@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
-  MatCell,
+  MatCell, MatCellDef,
   MatColumnDef,
-  MatHeaderCell,
-  MatHeaderRow,
-  MatRow, MatTable, MatTableDataSource
+  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable, MatTableDataSource
 } from '@angular/material/table';
 
 const WEB_BROWSERS_TABLE_DATA = [
@@ -106,6 +106,10 @@ const DEVICES_TABLE_DATA = [
     MatHeaderRow,
     MatRow,
     MatTable,
+    MatCellDef,
+    MatHeaderCellDef,
+    MatRowDef,
+    MatHeaderRowDef,
   ],
   templateUrl: './sessions.component.html',
   styleUrl: './sessions.component.scss'
