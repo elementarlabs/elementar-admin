@@ -17,22 +17,22 @@ const defaultColors = [
 ];
 
 @Component({
-    selector: 'emr-brand-colors',
-    exportAs: 'emrBrandColors',
-    imports: [],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => BrandColorsComponent),
-            multi: true
-        }
-    ],
-    templateUrl: './brand-colors.component.html',
-    styleUrl: './brand-colors.component.scss',
-    host: {
-        'class': 'emr-brand-colors',
-        '[class.is-disabled]': 'disabled() || _disabled'
+  selector: 'emr-brand-colors',
+  exportAs: 'emrBrandColors',
+  imports: [],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => BrandColorsComponent),
+      multi: true
     }
+  ],
+  templateUrl: './brand-colors.component.html',
+  styleUrl: './brand-colors.component.scss',
+  host: {
+    'class': 'emr-brand-colors',
+    '[class.is-disabled]': 'disabled() || _disabled'
+  }
 })
 export class BrandColorsComponent implements ControlValueAccessor, OnChanges {
   private _cdr = inject(ChangeDetectorRef);
