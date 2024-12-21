@@ -4,7 +4,6 @@ import {
   BlockStateContentComponent,
   BlockStateIconComponent
 } from '@elementar/components/block-state';
-import { MatIcon } from '@angular/material/icon';
 import { IconComponent } from '@elementar/components/icon';
 
 @Component({
@@ -13,7 +12,6 @@ import { IconComponent } from '@elementar/components/icon';
     BlockStateComponent,
     BlockStateContentComponent,
     BlockStateIconComponent,
-    MatIcon,
     IconComponent
   ],
   templateUrl: './block-state-with-custom-icon-example.component.html',

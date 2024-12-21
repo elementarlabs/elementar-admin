@@ -310,6 +310,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Timepicker',
+          link: '/pages/components/timepicker'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Tabs',
           link: '/pages/components/tabs'
         },
