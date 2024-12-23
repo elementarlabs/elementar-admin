@@ -5,7 +5,7 @@ import {
   inject, Injector,
   input,
   OnDestroy, OnInit,
-  output,
+  output, PLATFORM_ID,
   viewChild
 } from '@angular/core';
 import { Editor } from '@tiptap/core';
@@ -29,7 +29,7 @@ import History from '@tiptap/extension-history';
 import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
 import { MatButton } from '@angular/material/button';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformServer } from '@angular/common';
 
 import ImageUploadingPlaceholderExtension
   from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
@@ -56,6 +56,7 @@ import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-
   }
 })
 export class CommentEditorComponent implements OnInit, OnDestroy {
+  private _platformId = inject(PLATFORM_ID);
   private _document = inject(DOCUMENT);
   private _cdr = inject(ChangeDetectorRef);
   private _injector = inject(Injector);
@@ -85,6 +86,10 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   readonly sent = output<string>();
   readonly canceled = output<void>();
 
+  ngOnInit() {
+    this._init();
+  }
+
   get api(): CommentEditorAPI {
     return {
       isCommandDisabled: (command: string) => this.isCommandDisabled(command),
@@ -95,10 +100,6 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
       toggleToolbar: () => this.toggleToolbar(),
       isEditorActivated: () => this.fullView || this.fullViewMode()
     }
-  }
-
-  ngOnInit() {
-    this._init();
   }
 
   isCommandDisabled(command: string): boolean | null {
@@ -156,6 +157,10 @@ export class CommentEditorComponent implements OnInit, OnDestroy {
   }
 
   private _init(): void {
+    if (isPlatformServer(this._platformId)) {
+      return;
+    }
+
     this.editor = new Editor({
       element: this._content().nativeElement,
       extensions: [
