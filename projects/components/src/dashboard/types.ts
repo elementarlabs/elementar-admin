@@ -21,6 +21,7 @@ export interface Widget {
   skeleton?: {
     minHeight: string;
   }
+  [propName: string]: any;
 }
 
 export const DASHBOARD = new InjectionToken('DASHBOARD');

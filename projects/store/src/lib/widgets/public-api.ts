@@ -23,3 +23,4 @@ export * from './transactions-widget/transactions-widget.component';
 export * from './unique-visitors-widget/unique-visitors-widget.component';
 export * from './visit-duration-widget/visit-duration-widget.component';
 export * from './visitor-insights-widget/visitor-insights-widget.component';
+export * from './explore-widget/explore-widget.component';

@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'finance',
     title: 'Finance Dashboard',
     loadComponent: () => import('./finance/finance.component').then(c => c.FinanceComponent)
+  },
+  {
+    path: 'explore',
+    title: 'Explore Dashboard',
+    loadComponent: () => import('./explore/explore.component').then(c => c.ExploreComponent)
   }
 ];
 
