@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   forwardRef,
   input,
@@ -11,7 +10,7 @@ import {
   DASHBOARD, WidgetConfig
 } from '../types';
 import { AsyncPipe, NgComponentOutlet } from '@angular/common';
-import { WidgetSkeletonComponent } from '@elementar/components/dashboard/widget-skeleton/widget-skeleton.component';
+import { WidgetSkeletonComponent } from '../widget-skeleton/widget-skeleton.component';
 
 @Component({
   selector: 'emr-dashboard',
@@ -54,6 +53,10 @@ export class DashboardComponent implements OnInit {
     this.configs().forEach(async (config, index: number) => {
       this._componentsMap.set(config.type, config.component());
     });
+  }
+
+  protected getWidgetConfig(type: string): WidgetConfig {
+    return this.configs().find(config => config.type === type) as WidgetConfig;
   }
 
   protected getSkeletonComponent(type: string): any {

@@ -1,0 +1,3 @@
+:host {
+  @apply flex w-full items-center justify-between mt-7 mb-2;
+}

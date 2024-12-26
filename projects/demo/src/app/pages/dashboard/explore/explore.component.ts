@@ -17,6 +17,13 @@ export class ExploreComponent {
       component: () =>
         import('@elementar/store/widgets/explore-widget/explore-widget.component').then(c => c.ExploreWidgetComponent)
     },
+    {
+      type: 'heading-widget',
+      skeleton: null,
+      plain: true,
+      component: () =>
+        import('@elementar/store/widgets/heading-widget/heading-widget.component').then(c => c.HeadingWidgetComponent)
+    },
   ];
   widgets: Widget[] = [
     {
@@ -60,12 +67,22 @@ export class ExploreComponent {
       description: 'Access popular guides & stories about automation.',
     },
     {
-      id: 4,
+      id: 5,
       type: 'explore-widget',
       columns: 4,
       iconName: 'leaderboard',
       title: 'Use Cases',
       description: 'Get inspired by all the ways you can automate.',
     },
+    {
+      id: 6,
+      type: 'heading-widget',
+      columns: 12,
+      title: 'Blog articles',
+      viewMore: {
+        name: 'Browse all',
+        link: '/pages/content/posts/list',
+      }
+    }
   ];
 }

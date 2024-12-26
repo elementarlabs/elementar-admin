@@ -5,7 +5,7 @@
     @apply grid grid-cols-12 gap-6;
   }
 
-  .widget {
+  .widget:not(.plain) {
     @apply border rounded-2xl h-full overflow-hidden;
   }
 

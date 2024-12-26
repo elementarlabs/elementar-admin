@@ -11,6 +11,7 @@ export interface WidgetComponent {
 export interface WidgetConfig {
   type: string;
   skeleton?: any;
+  plain?: boolean;
   component: () => Promise<any>;
 }
 
