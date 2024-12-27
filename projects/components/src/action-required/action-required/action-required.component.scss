@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+
+:host {
+  --emr-action-required-bg: theme('colors.error-container');
+  --emr-action-action-text-bg: theme('colors.error.200');
+  --emr-action-text-color: theme('colors.on-error-container');
+
+  @apply flex w-full rounded-3xl p-7 gap-8 items-center;
+  @apply bg-[var(--emr-action-required-bg)] text-[var(--emr-action-text-color)];
+
+  .action-text {
+    @apply flex bg-[var(--emr-action-action-text-bg)] p-3.5 rounded-2xl gap-1.5 items-center flex-none text-md;
+  }
+
+  .description {
+    @apply grow;
+  }
+
+  .button {
+    @apply flex-none;
+  }
+}
+
+:host-context(html.dark) {
+  --emr-action-action-text-bg: theme('colors.error.600');
+}

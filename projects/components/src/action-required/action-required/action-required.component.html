@@ -1,0 +1,9 @@
+<div class="action-text">
+  <mat-icon>{{ iconName() || 'error' }}</mat-icon>
+  {{ actionText() || 'Action Required' }}
+</div>
+<div class="description">{{ description() }}</div>
+<button mat-flat-button class="button" (click)="buttonClicked.emit()">
+  {{ buttonText() }}
+<!--  <mat-icon>arrow_forward</mat-icon>-->
+</button>

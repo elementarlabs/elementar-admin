@@ -24,8 +24,22 @@ export class ExploreComponent {
       component: () =>
         import('@elementar/store/widgets/heading-widget/heading-widget.component').then(c => c.HeadingWidgetComponent)
     },
+    {
+      type: 'action-required-widget',
+      skeleton: null,
+      plain: true,
+      component: () =>
+        import('@elementar/store/widgets/action-required-widget/action-required-widget.component').then(c => c.ActionRequiredWidgetComponent)
+    },
   ];
   widgets: Widget[] = [
+    {
+      id: 20,
+      type: 'action-required-widget',
+      columns: 12,
+      description: 'Please provide your company details to access our services seamlessly, whether forming a new company or adding existing information.',
+      buttonText: 'Fix the problem',
+    },
     {
       id: 1,
       type: 'explore-widget',

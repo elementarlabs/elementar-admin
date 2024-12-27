@@ -68,6 +68,10 @@ const routes: Routes = [
         loadChildren: () => import('./forms/number-input/number-input.module').then(m => m.NumberInputModule)
       },
       {
+        path: 'components/action-required',
+        loadChildren: () => import('./components/action-required/action-required.module').then(m => m.ActionRequiredModule)
+      },
+      {
         path: 'components/avatar',
         loadChildren: () => import('./components/avatar/avatar.module').then(m => m.AvatarModule)
       },

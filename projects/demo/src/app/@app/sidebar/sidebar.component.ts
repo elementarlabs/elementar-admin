@@ -232,6 +232,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Action Required',
+          link: '/pages/components/action-required'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Alert',
           link: '/pages/components/alert'
         },
