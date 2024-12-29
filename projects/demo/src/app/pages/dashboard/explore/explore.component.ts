@@ -31,6 +31,12 @@ export class ExploreComponent {
       component: () =>
         import('@elementar/store/widgets/action-required-widget/action-required-widget.component').then(c => c.ActionRequiredWidgetComponent)
     },
+    {
+      type: 'article-snippet-widget',
+      skeleton: null,
+      component: () =>
+        import('@elementar/store/widgets/article-snippet-widget/article-snippet-widget.component').then(c => c.ArticleSnippetWidgetComponent)
+    },
   ];
   widgets: Widget[] = [
     {
@@ -97,6 +103,54 @@ export class ExploreComponent {
         name: 'Browse all',
         link: '/pages/content/posts/list',
       }
-    }
+    },
+    {
+      id: 7,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: 'The Must-Have SEO Checklist for Developers For 2025',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
+    {
+      id: 8,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: 'Build a Distributed Task Scheduler Using RabbitMQ and Redis',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
+    {
+      id: 9,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: 'How to retrieve values from all types of HTML Inputs in JavaScript',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
+    {
+      id: 10,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: 'Mastering Async/Await and DOM Manipulation',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
+    {
+      id: 11,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: '20 senior Angular developer interview questions and answers',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
+    {
+      id: 12,
+      type: 'article-snippet-widget',
+      columns: 4,
+      title: 'Master clean code principles and best practices',
+      imagePreviewUrl: 'assets/widgets/article-snippet-preview.png',
+      publishedAt: new Date(),
+    },
   ];
 }

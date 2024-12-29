@@ -26,3 +26,4 @@ export * from './visitor-insights-widget/visitor-insights-widget.component';
 export * from './explore-widget/explore-widget.component';
 export * from './heading-widget/heading-widget.component';
 export * from './action-required-widget/action-required-widget.component';
+export * from './article-snippet-widget/article-snippet-widget.component';
