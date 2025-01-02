@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  DataViewActionBarComponent,
+  DataViewActionBarComponent, DataViewActionBarDirective,
   DataViewColumnDef,
   DataViewComponent
 } from '@elementar/components/data-view';
@@ -33,7 +33,8 @@ const DATA: PeriodicElement[] = [
     MatMenu,
     MatMenuItem,
     MatMenuTrigger,
-    DataViewActionBarComponent
+    DataViewActionBarComponent,
+    DataViewActionBarDirective
   ],
   templateUrl: './data-view-with-action-bar-example.component.html',
   styleUrl: './data-view-with-action-bar-example.component.scss'
