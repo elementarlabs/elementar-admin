@@ -3,8 +3,10 @@ import { CAROUSEL, CarouselInterface } from './types';
 
 @Directive({
   selector: '[emrCarouselPrevious]',
+  exportAs: 'emrCarouselPrevious',
   standalone: true,
   host: {
+    'class': 'emr-carousel-previous',
     '[attr.disabled]': '_carousel?.api.isPreviousDisabled() ? true : null'
   }
 })

@@ -1,11 +1,12 @@
 import { Directive, HostListener, inject, input, OnInit } from '@angular/core';
 import { CAROUSEL, CarouselInterface } from './types';
 
-
 @Directive({
   selector: '[emrCarouselNext]',
+  exportAs: 'emrCarouselNext',
   standalone: true,
   host: {
+    'class': 'emr-carousel-next',
     '[attr.disabled]': '_carousel?.api.isNextDisabled()  ? true : null'
   }
 })
