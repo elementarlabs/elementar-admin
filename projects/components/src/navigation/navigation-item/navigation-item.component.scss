@@ -23,6 +23,8 @@
   }
 
   &:hover {
+    @apply no-underline;
+
     .inner {
       transition: background-color .2s;
     }
@@ -89,6 +91,8 @@
 }
 
 :host(:hover) {
+  @apply no-underline;
+
   .inner {
     background-color: var(--emr-navigation-item-hover-bg);
     color: var(--emr-navigation-item-hover-color);
@@ -115,6 +119,8 @@
 }
 
 :host:not(.is-active):hover {
+  @apply no-underline;
+
   .icon {
     color: var(--emr-navigation-item-hover-icon-color);
   }

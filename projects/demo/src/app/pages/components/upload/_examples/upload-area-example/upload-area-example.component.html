@@ -1,4 +1,4 @@
-<emr-upload-area #uploadArea="emrUploadArea" (fileSelected)="onFileSelected($event)">
+<emr-upload-area #uploadArea="emrUploadArea" (fileSelected)="onFileSelected($event)" class="mb-5">
   @if (!uploadArea.api.isDropActive) {
     Drag & drop files here
   } @else {

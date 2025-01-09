@@ -1,17 +1,20 @@
 :host {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background: var(--emr-upload-area-bg);
-  padding: var(--emr-upload-area-padding);
-  border: var(--emr-upload-area-border);
-  border-radius: var(--emr-upload-area-border-radius);
-  color: var(--emr-upload-area-color);
-  font-size: var(--emr-upload-area-font-size);
-}
+  --emr-upload-area-bg: theme('colors.transparent');
+  --emr-upload-area-padding: theme('padding.10');
+  --emr-upload-area-border: theme('width.px') solid theme('borderColor.DEFAULT');
+  --emr-upload-area-border-radius: theme('borderRadius.2xl');
+  --emr-upload-area-font-size: theme('fontSize.sm');
+  --emr-upload-area-color: theme('colors.neutral.600');
+  --emr-upload-area-drop-active-border: theme('width.px') dashed theme('colors.primary.DEFAULT');
+  --emr-upload-area-drop-active-color: theme('colors.primary.DEFAULT');
 
-:host(.is-drop-active) {
-  border: var(--emr-upload-area-drop-active-border);
-  color: var(--emr-upload-area-drop-active-color);
+  @apply flex w-full items-center justify-center bg-[var(--emr-upload-area-bg)] p-[var(--emr-upload-area-padding)];
+  @apply rounded-[var(--emr-upload-area-border-radius)] text-[var(--emr-upload-area-color)];
+  border: var(--emr-upload-area-border);
+  font-size: var(--emr-upload-area-font-size);
+
+  &.is-drop-active {
+    border: var(--emr-upload-area-drop-active-border);
+    @apply text-[var(--emr-upload-area-drop-active-color)];
+  }
 }

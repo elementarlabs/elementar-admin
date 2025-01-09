@@ -1,47 +1,61 @@
 :host {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: var(--emr-file-padding);
+  --emr-file-padding: theme('padding.4') 0;
+  --emr-file-controls-gap: theme('gap[1.5]');
+  --emr-file-progress-margin: theme('margin.2') 0 0 0;
+  --emr-file-progress-bg: theme('colors.surface-container-high');
+  --emr-file-progress-height: theme('height.1');
+  --emr-file-progress-border-radius: theme('borderRadius.lg');
+  --emr-file-progress-bar-bg: theme('colors.primary.DEFAULT');
+  --emr-file-control-color: theme('colors.neutral.500');
+  --emr-file-control-hover-color: theme('colors.primary.DEFAULT');
+  --emr-file-control-font-size: theme('fontSize.xl');
+  --emr-file-name-font-size: theme('fontSize.sm');
+  --emr-file-info-font-size: theme('fontSize.xs');
+  --emr-file-info-color: theme('colors.neutral.500');
+  --emr-file-error-font-size: theme('fontSize.xs');
+  --emr-file-error-color: theme('colors.red.500');
+
+  @apply flex items-center w-full overflow-hidden overflow-ellipsis p-[var(--emr-file-padding)];
+
+  .name {
+    font-size: var(--emr-file-name-font-size);
+  }
+
+  .info {
+    font-size: var(--emr-file-info-font-size);
+    @apply text-[var(--emr-file-info-color)];
+  }
+
+  .content {
+    @apply min-w-0 grow;
+  }
+
+  .controls {
+    @apply flex items-center gap-[var(--emr-file-controls-gap)];
+  }
+
+  .progress {
+    background: var(--emr-file-progress-bg);
+    height: var(--emr-file-progress-height);
+    flex: none;
+    border-radius: var(--emr-file-progress-border-radius);
+    margin: var(--emr-file-progress-margin);
+  }
+
+  .progress-bar {
+    background: var(--emr-file-progress-bar-bg);
+    border-radius: var(--emr-file-progress-border-radius);
+    height: 100%;
+  }
+
+  .error {
+    font-size: var(--emr-file-error-font-size);
+    @apply text-[var(--emr-file-error-color)];
+  }
 }
 
-:host .name {
-  font-size: var(--emr-file-name-font-size);
-}
-
-:host .info {
-  font-size: var(--emr-file-info-font-size);
-  color: var(--emr-file-info-color);
-}
-
-:host .content {
-  flex-grow: 1;
-  min-width: 0;
-}
-
-:host .controls {
-  display: flex;
-  align-items: center;
-  gap: var(--emr-file-controls-gap);
-}
-
-:host .progress {
-  background: var(--emr-file-progress-bg);
-  height: var(--emr-file-progress-height);
-  flex: none;
-  border-radius: var(--emr-file-progress-border-radius);
-  margin: var(--emr-file-progress-margin);
-}
-
-:host .progress-bar {
-  background: var(--emr-file-progress-bar-bg);
-  border-radius: var(--emr-file-progress-border-radius);
-  height: 100%;
-}
-
-:host .error {
-  font-size: var(--emr-file-error-font-size);
-  color: var(--emr-file-error-color);
+:host-context(html.dark) {
+  --emr-file-error-color: theme('colors.red.300');
+  --emr-file-progress-bg: theme('colors.neutral.500');
+  --emr-file-control-hover-color: theme('colors.neutral.300');
 }

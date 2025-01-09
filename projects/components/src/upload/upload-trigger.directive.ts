@@ -7,7 +7,7 @@ import {
   input, output,
   Renderer2
 } from '@angular/core';
-import { UploadFileSelectedEvent } from './properties';
+import { UploadFileSelectedEvent } from './types';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 

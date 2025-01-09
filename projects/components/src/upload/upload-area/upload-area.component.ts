@@ -1,24 +1,22 @@
 import {
   booleanAttribute,
-  ChangeDetectionStrategy,
   Component,
   HostListener,
   inject, input,
   output,
   Renderer2
 } from '@angular/core';
-import { UploadFileSelectedEvent } from '../properties';
+import { UploadFileSelectedEvent } from '../types';
 
 @Component({
-    selector: 'emr-upload-area',
-    exportAs: 'emrUploadArea',
-    templateUrl: './upload-area.component.html',
-    styleUrls: ['./upload-area.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        'class': 'emr-upload-area',
-        '[class.is-drop-active]': 'isDropActive'
-    }
+  selector: 'emr-upload-area',
+  exportAs: 'emrUploadArea',
+  templateUrl: './upload-area.component.html',
+  styleUrl: './upload-area.component.scss',
+  host: {
+    'class': 'emr-upload-area',
+    '[class.is-drop-active]': 'isDropActive'
+  }
 })
 export class UploadAreaComponent {
   protected _renderer = inject(Renderer2);
