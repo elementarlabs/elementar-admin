@@ -1,15 +1,16 @@
 :host {
+  --emr-icon-size: theme('width.6');
   @apply inline-flex flex-none items-center justify-center leading-[0];
-}
 
-:host svg {
-  @apply flex-none;
-}
+  svg {
+    @apply flex-none;
+  }
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  @apply w-[var(--emr-icon-size)];
-}
+  &:not([class*="w-"]):not([class*="size-"]) {
+    @apply w-[var(--emr-icon-size)];
+  }
 
-:host:not([class*="h-"]):not([class*="size-"]) {
-  @apply h-[var(--emr-icon-size)];
+  &:not([class*="h-"]):not([class*="size-"]) {
+    @apply h-[var(--emr-icon-size)];
+  }
 }

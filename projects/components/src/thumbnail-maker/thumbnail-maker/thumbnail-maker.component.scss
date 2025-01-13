@@ -1,4 +1,7 @@
 :host {
+  --emr-thumbnail-width: 720px;
+  --emr-thumbnail-height: 460px;
+
   @apply block w-max overflow-hidden relative;
 
   .content {
@@ -19,7 +22,7 @@
   .controls {
     @apply my-3;
   }
-  
+
   &.loading {
     .image {
       @apply invisible relative -z-[1];

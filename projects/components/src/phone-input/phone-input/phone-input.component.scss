@@ -1,4 +1,7 @@
 :host {
+  --emr-phone-input-color: theme('colors.neutral.600');
+  --emr-phone-input-opacity: 0;
+
   @media print {
     --emr-phone-input-flag-display: none;
   }
@@ -74,4 +77,8 @@
     color: var(--emr-phone-input-color);
     padding-right: 0;
   }
+}
+
+:host-context(html.dark) {
+  --emr-phone-input-color: theme('colors.neutral.500');
 }

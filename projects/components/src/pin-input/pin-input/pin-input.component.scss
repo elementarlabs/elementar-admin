@@ -1,31 +1,32 @@
 :host {
-  display: block;
-  width: max-content;
-}
+  --emr-pin-input-width: theme('width.14');
+  --emr-pin-gap: theme('gap.4');
 
-:host .inputs {
-  display: flex;
-  align-items: center;
-  gap: var(--emr-pin-gap);
-}
+  @apply block w-max;
 
-:host .input {
-  flex: none;
-}
+  .inputs {
+    @apply flex items-center gap-[var(--emr-pin-gap)];
+  }
 
-:host ::ng-deep .mat-mdc-form-field {
-  width: var(--emr-pin-input-width) !important;
-}
+  .input {
+    @apply flex-none;
+  }
 
-:host ::ng-deep .mdc-text-field {
-  padding: 0;
+  ::ng-deep {
+    .mat-mdc-form-field {
+      width: var(--emr-pin-input-width) !important;
+    }
 
-}
+    .mdc-text-field {
+      @apply p-0;
+    }
 
-:host ::ng-deep .mat-mdc-input-element {
-  text-align: center;
-}
+    .mat-mdc-input-element {
+      @apply text-center;
+    }
 
-:host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
-  display: none;
+    .mat-mdc-form-field-subscript-wrapper {
+      @apply hidden;
+    }
+  }
 }

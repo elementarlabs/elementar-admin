@@ -1,4 +1,7 @@
 :host {
+  --emr-content-fade-color: var(--emr-background);
+  --emr-content-fade-width: 20%;
+
   @apply block relative;
 
   &.position-both,
