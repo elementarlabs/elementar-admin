@@ -1,14 +1,14 @@
 :host {
+  --emr-skeleton-circle-size: theme('spacing.14');
+
   animation: var(--emr-skeleton-item-animation);
-  display: inline-block;
-  flex: none;
-  border-radius: 50%;
-}
+  @apply inline-flex rounded-full flex-none;
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  width: var(--emr-skeleton-circle-size);
-}
+  &:not([class*="w-"]):not([class*="size-"]) {
+    width: var(--emr-skeleton-circle-size);
+  }
 
-:host:not([class*="h-"]):not([class*="size-"]) {
-  height: var(--emr-skeleton-circle-size);
+  &:not([class*="h-"]):not([class*="size-"]) {
+    height: var(--emr-skeleton-circle-size);
+  }
 }

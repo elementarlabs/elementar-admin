@@ -1,17 +1,20 @@
 :host {
+  --emr-skeleton-line-height: theme('height.5');
+  --emr-skeleton-line-width: theme('width.full');
+  --emr-skeleton-line-border-radius: theme('borderRadius.full');
+
   animation: var(--emr-skeleton-item-animation);
-  display: block;
-  flex: none;
-}
+  @apply block flex-none;
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  width: var(--emr-skeleton-line-width);
-}
+  &:not([class*="w-"]):not([class*="size-"]) {
+    width: var(--emr-skeleton-line-width);
+  }
 
-:host:not([class*="h-"]):not([class*="size-"]) {
-  height: var(--emr-skeleton-line-height);
-}
+  &:not([class*="h-"]):not([class*="size-"]) {
+    height: var(--emr-skeleton-line-height);
+  }
 
-:host:not([class*="rounded-"]) {
-  border-radius: var(--emr-skeleton-line-border-radius);
+  &:not([class*="rounded-"]) {
+    @apply rounded-[var(--emr-skeleton-line-border-radius)];
+  }
 }

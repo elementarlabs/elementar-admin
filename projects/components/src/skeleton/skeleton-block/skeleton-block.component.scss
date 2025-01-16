@@ -1,17 +1,19 @@
 :host {
+  --emr-skeleton-block-width: theme('width.full');
+  --emr-skeleton-block-height: theme('height.20');
+
   animation: var(--emr-skeleton-item-animation);
-  display: block;
-  flex: none;
-}
+  @apply block flex-none;
 
-:host:not([class*="rounded"]) {
-  border-radius: var(--emr-skeleton-item-border-radius);
-}
+  &:not([class*="w-"]):not([class*="size-"]) {
+    width: var(--emr-skeleton-block-width);
+  }
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  width: var(--emr-skeleton-block-width);
-}
+  &:not([class*="h-"]):not([class*="size-"]) {
+    height: var(--emr-skeleton-block-height);
+  }
 
-:host:not([class*="h-"]):not([class*="size-"]) {
-  height: var(--emr-skeleton-block-height);
+  &:not([class*="rounded"]) {
+    @apply rounded-[var(--emr-skeleton-item-border-radius)];
+  }
 }
