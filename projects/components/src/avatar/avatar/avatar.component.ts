@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   booleanAttribute,
   Component,
   ElementRef,
@@ -36,7 +37,7 @@ const alreadyLoadedImages: string[] = [];
     '[class.has-loaded-image]': 'src() && imageLoaded',
   }
 })
-export class AvatarComponent implements OnInit, OnChanges {
+export class AvatarComponent implements OnInit, OnChanges, AfterViewInit {
   private _elementRef = inject(ElementRef);
 
   src = input<string>('');
@@ -50,12 +51,20 @@ export class AvatarComponent implements OnInit, OnChanges {
 
   protected imageLoaded: boolean;
 
+  showText = false;
+
   ngOnInit() {
     if (!this.src()) {
       return;
     }
 
     this.imageLoaded = alreadyLoadedImages.includes(<string>this.src());
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.showText = true;
+    }, 0);
   }
 
   ngOnChanges(changes: SimpleChanges) {

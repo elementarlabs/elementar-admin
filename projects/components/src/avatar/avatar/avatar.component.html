@@ -9,21 +9,17 @@
        [class.is-away]="presenceIndicator() === 'away'"></div>
 }
 
-@if (text()) {
-  <svg
-    width="100%"
-    height="100%"
-    viewBox="0 0 250 250"
-    class="text">
+@if (text() && showText) {
+  <svg viewBox="0 0 50 50" class="text">
     <text
       x="50%"
       y="50%"
       alignment-baseline="central"
       text-anchor="middle"
       font-weight="inherit"
-      font-size="90"
+      font-size="20"
       fill="currentColor">{{ text() }}</text>
   </svg>
 }
 
-<ng-content select="mat-icon"/>
+<ng-content select="mat-icon,emr-icon"/>
