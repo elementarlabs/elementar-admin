@@ -1,4 +1,9 @@
 :host {
+  --emr-mchart-bar-bar-bg: theme('colors.primary.DEFAULT');
+  --emr-mchart-bar-bar-gradient-start-color: theme('colors.primary.500');
+  --emr-mchart-bar-bar-gradient-end-color: theme('colors.primary.DEFAULT');
+  --emr-mchart-bar-highlight-bg: theme('colors.neutral.200');
+
   @apply block overflow-hidden;
 
   svg {
@@ -38,4 +43,8 @@
       }
     }
   }
+}
+
+:host-context(html.dark) {
+  --emr-mchart-bar-highlight-bg: theme('colors.neutral.700');
 }

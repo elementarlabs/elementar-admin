@@ -1,10 +1,13 @@
 :host {
-  display: block;
-  overflow: hidden;
+  --emr-mchart-pie-stroke-color: theme('colors.background');
+  --emr-mchart-pie-legend-item-color: theme('colors.neutral.900');
+  --emr-mchart-pie-legend-item-hover-color: theme('colors.primary.DEFAULT');
+  --emr-mchart-pie-value-color: theme('colors.neutral.950');
+
+  @apply block overflow-hidden;
 
   svg {
-    width: 100%;
-    height: 100%;
+    @apply size-full;
   }
 
   &:has(.data-item.active) {
@@ -29,7 +32,7 @@
     }
 
     .legend-item {
-      cursor: pointer;
+      @apply cursor-pointer;
 
       &:hover {
         .legend-item-text {
@@ -42,4 +45,8 @@
       fill: var(--emr-mchart-pie-legend-item-color);
     }
   }
+}
+
+:host-context(html.dark) {
+  --emr-mchart-pie-legend-item-color: theme('colors.neutral.200');
 }
