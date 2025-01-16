@@ -1,4 +1,9 @@
 :host {
+  --emr-color-picker-thumbnail-bg: transparent;
+  --emr-color-picker-thumbnail-size: theme('width.8');
+  --emr-color-picker-thumbnail-border-radius: theme('borderRadius.full');
+  --emr-color-picker-thumbnail-border: 1px solid theme('colors.neutral.200');
+
   display: inline-block;
   position: relative;
   border-radius: var(--emr-color-picker-thumbnail-border-radius);
@@ -6,31 +11,32 @@
   height: var(--emr-color-picker-thumbnail-size);
   flex: none;
   border: var(--emr-color-picker-thumbnail-border);
+
+  &::before {
+    display: block;
+    content: '';
+    border-radius: inherit;
+    z-index: 0;
+    inset: 0;
+    position: absolute;
+    background-position: 0 0, 4px 4px;
+    background-size: 8px 8px;
+    background-image: repeating-linear-gradient(45deg,#dbdbdb 25%,transparent 25%,transparent 75%,#dbdbdb 75%,#dbdbdb),repeating-linear-gradient(45deg,#dbdbdb 25%,#fff 25%,#fff 75%,#dbdbdb 75%,#dbdbdb);
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    border-radius: inherit;
+    z-index: 1;
+    inset: 0;
+    position: absolute;
+    background: var(--emr-color-picker-thumbnail-bg);
+  }
+
+  &:active {
+    transition: var(--emr-transition-transform);
+    transform: scale(.97);
+  }
 }
 
-:host::before {
-  display: block;
-  content: '';
-  border-radius: inherit;
-  z-index: 0;
-  inset: 0;
-  position: absolute;
-  background-position: 0 0, 4px 4px;
-  background-size: 8px 8px;
-  background-image: repeating-linear-gradient(45deg,#dbdbdb 25%,transparent 25%,transparent 75%,#dbdbdb 75%,#dbdbdb),repeating-linear-gradient(45deg,#dbdbdb 25%,#fff 25%,#fff 75%,#dbdbdb 75%,#dbdbdb);
-}
-
-:host::after {
-  display: block;
-  content: '';
-  border-radius: inherit;
-  z-index: 1;
-  inset: 0;
-  position: absolute;
-  background: var(--emr-color-picker-thumbnail-bg);
-}
-
-:host(:active) {
-  transition: var(--emr-transition-transform);
-  transform: scale(.97);
-}
