@@ -1,7 +1,6 @@
 :host {
   --emr-skeleton-gap: theme('gap.4');
   --emr-skeleton-item-border-radius: theme('borderRadius.2xl');
-  --emr-skeleton-item-animation: emr-skeleton-loading 1s linear infinite alternate;
   --emr-skeleton-from-bg: theme('colors.neutral.200/80');
   --emr-skeleton-from-to: theme('colors.neutral.300/70');
 

@@ -3,7 +3,7 @@
   --emr-skeleton-line-width: theme('width.full');
   --emr-skeleton-line-border-radius: theme('borderRadius.full');
 
-  animation: var(--emr-skeleton-item-animation);
+  animation: emr-skeleton-loading 1s linear infinite alternate;
   @apply block flex-none;
 
   &:not([class*="w-"]):not([class*="size-"]) {
@@ -16,5 +16,15 @@
 
   &:not([class*="rounded-"]) {
     @apply rounded-[var(--emr-skeleton-line-border-radius)];
+  }
+
+  @keyframes emr-skeleton-loading {
+    0% {
+      background: var(--emr-skeleton-from-bg);
+    }
+
+    100% {
+      background: var(--emr-skeleton-from-to);
+    }
   }
 }
