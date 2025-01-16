@@ -1,27 +1,37 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex: none;
-  user-select: none;
+  --emr-gauge-value-color: theme('colors.neutral.700');
+  --emr-gauge-bg: theme('colors.neutral.300');
+  --emr-gauge-fill: theme('colors.primary.DEFAULT');
+  --emr-gauge-size: theme('width.20');
+
+  @apply flex flex-col items-center justify-center relative flex-none select-none;
+
+  &:not([class*="w-"]):not([class*="size-"]) {
+    width: var(--emr-gauge-size);
+  }
+
+  &:not([class*="h-"]):not([class*="size-"]) {
+    height: var(--emr-gauge-size);
+  }
+
+  .bg {
+    color: var(--emr-gauge-bg);
+  }
+
+  .fill {
+    transition: stroke-dasharray 1s ease 0s, stroke 1s ease 0s;
+    animation: emr-gauge-fill 1s ease forwards;
+    color: var(--emr-gauge-fill);
+  }
+
+  @keyframes emr-gauge-fill {
+    from {
+      stroke-dashoffset: 332;
+    }
+  }
 }
 
-:host:not([class*="w-"]):not([class*="size-"]) {
-  width: var(--emr-gauge-size);
-}
-
-:host:not([class*="h-"]):not([class*="size-"]) {
-  height: var(--emr-gauge-size);
-}
-
-:host .bg {
-  color: var(--emr-gauge-bg);
-}
-
-:host .fill {
-  transition: stroke-dasharray 1s ease 0s, stroke 1s ease 0s;
-  animation: emr-gauge-fill 1s ease forwards;
-  color: var(--emr-gauge-fill);
+:host-context(html.dark) {
+  --emr-gauge-value-color: theme('colors.neutral.300');
+  --emr-gauge-bg: theme('colors.neutral.600');
 }

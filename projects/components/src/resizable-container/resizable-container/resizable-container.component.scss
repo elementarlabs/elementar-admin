@@ -1,0 +1,15 @@
+:host {
+  @apply relative flex items-stretch overflow-hidden;
+
+  .content {
+    @apply grow h-full me-4;
+  }
+
+  .handler {
+    @apply absolute select-none border-s inset-y-0 bg-slate-50 end-0 hidden cursor-ew-resize items-center px-1 sm:flex;
+
+    > div {
+      @apply flex-none h-8 w-1.5 rounded-full bg-slate-400/80 hover:bg-slate-500/80;
+    }
+  }
+}
