@@ -7,7 +7,7 @@
   --emr-sidebar-body-compact-padding: theme('padding.3');
   --emr-sidebar-footer-padding: 0;
   --emr-sidebar-footer-compact-padding: 0;
-  
+
   @apply flex flex-col overflow-x-hidden h-full w-[var(--emr-sidebar-width)] transition-all;
 
   &.compact {
@@ -16,26 +16,29 @@
 
   &.compact:not(:hover) {
     @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
-    --emr-navigation-item-width: var(--emr-navigation-item-height);
-    --emr-navigation-item-padding: 0;
 
     ::ng-deep {
+      emr-navigation {
+        --emr-navigation-item-width: var(--emr-navigation-item-height);
+        --emr-navigation-item-padding: 0;
+      }
+
       .toggle,
       .badge {
         @apply hidden;
       }
 
-      .emr-navigation-heading {
+      emr-navigation-heading {
         @apply p-0 flex items-center text-4xs justify-center;
       }
 
-      .emr-navigation-group-menu {
+      emr-navigation-group-menu {
         &.is-active {
           @apply hidden;
         }
       }
 
-      .emr-navigation-group-toggle {
+      emr-navigation-group-toggle {
         @apply justify-center gap-0;
         --emr-navigation-group-toggle-has-icon-padding-end: 0;
 
@@ -50,7 +53,7 @@
         }
       }
 
-      .emr-navigation-item {
+      emr-navigation-item {
         .inner {
           @apply justify-center gap-0;
         }

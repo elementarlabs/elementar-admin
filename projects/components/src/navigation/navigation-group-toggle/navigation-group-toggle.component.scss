@@ -53,32 +53,34 @@
       display: none;
     }
   }
-}
 
-:host(:hover) {
-  background-color: var(--emr-navigation-item-hover-bg);
-  color: var(--emr-navigation-item-hover-color);
-  transition: background-color .2s;
-}
+  &:hover {
+    background-color: var(--emr-navigation-item-hover-bg);
+    color: var(--emr-navigation-item-hover-color);
+    transition: background-color .2s;
+  }
 
-:host(.is-active),
-:host(.is-active:hover) {
-  background-color: var(--emr-navigation-group-toggle-active-bg);
-  color: var(--emr-navigation-group-toggle-active-color);
-}
+  &.is-active,
+  &.is-active:hover {
+    background-color: var(--emr-navigation-group-toggle-active-bg);
+    color: var(--emr-navigation-group-toggle-active-color);
+  }
 
-:host:not(.is-active):hover .icon {
-  color: var(--emr-navigation-item-hover-icon-color);
-}
+  &:not(.is-active):hover .icon {
+    color: var(--emr-navigation-item-hover-icon-color);
+  }
 
-:host(.is-active) .icon {
-  color: var(--emr-navigation-group-toggle-active-color);
-}
+  &.is-active {
+    .icon {
+      color: var(--emr-navigation-group-toggle-active-color);
+    }
 
-:host(.is-active) .toggle {
-  transform: rotate(-180deg);
-}
+    .toggle {
+      transform: rotate(-180deg);
+    }
+  }
 
-:host:has(.toggle:not(:empty)) {
-  padding-inline-end: var(--emr-navigation-group-toggle-has-icon-padding-end);
+  &:has(.toggle:not(:empty)) {
+    padding-inline-end: var(--emr-navigation-group-toggle-has-icon-padding-end);
+  }
 }
