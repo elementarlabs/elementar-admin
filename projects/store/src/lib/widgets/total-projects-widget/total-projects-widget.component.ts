@@ -7,15 +7,15 @@ import {
 import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
 
 @Component({
-    selector: 'emr-total-projects-widget',
-    imports: [
-        MchartLineComponent,
-        MchartTooltipComponent,
-        MchartTooltipTitleComponent,
-        MchartTooltipBodyComponent
-    ],
-    templateUrl: './total-projects-widget.component.html',
-    styleUrl: './total-projects-widget.component.scss'
+  selector: 'emr-total-projects-widget',
+  imports: [
+    MchartLineComponent,
+    MchartTooltipComponent,
+    MchartTooltipTitleComponent,
+    MchartTooltipBodyComponent
+  ],
+  templateUrl: './total-projects-widget.component.html',
+  styleUrl: './total-projects-widget.component.scss'
 })
 export class TotalProjectsWidgetComponent implements OnInit {
   private _dashboard = inject<Dashboard>(DASHBOARD, { optional: true });

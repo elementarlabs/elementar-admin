@@ -1,75 +1,90 @@
 :host {
+  --emr-number-input-gap: theme('gap.2');
+  --emr-number-input-control-bg: none;
+  --emr-number-input-control-color: theme('colors.neutral.500');
+  --emr-number-input-control-hover-color: theme('colors.neutral.600');
+  --emr-number-input-control-active-color: theme('colors.neutral.700');
+  --emr-number-input-control-hover-bg: theme('colors.neutral.50');
+  --emr-number-input-control-active-bg: theme('colors.neutral.100');
+  --emr-number-input-control-font-size: theme('fontSize.2xl');
+  --emr-number-input-control-border-radius: theme('borderRadius.md');
+  --emr-number-input-suffix-gap: theme('gap.3');
+  --emr-number-input-control-size: theme('width.7');
+  --emr-number-input-control-border: none;
+
   display: flex;
   gap: var(--emr-number-input-gap);
-  /*opacity: 0;*/
-  /*transition: opacity 200ms;*/
-}
 
-/*:host.floating span {*/
-/*  opacity: 1;*/
-/*}*/
+  .input {
+    width: auto;
+    max-width: none;
+    flex-grow: 1;
+    min-width: 0;
+  }
 
-:host .input {
-  width: auto;
-  max-width: none;
-  flex-grow: 1;
-  min-width: 0;
-}
+  .input {
+    background: none;
+    outline: none;
+    color: currentColor;
+    font: inherit;
+    border: none;
+  }
 
-:host .input {
-  background: none;
-  outline: none;
-  color: currentColor;
-  font: inherit;
-  border: none;
-}
+  .input::-webkit-outer-spin-button,
+  .input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
 
-:host .input::-webkit-outer-spin-button,
-:host .input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
-}
+  .controls {
+    display: flex;
+    height: 100%;
+    gap: 0.375rem;
+    user-select: none;
+  }
 
-:host .controls {
-  display: flex;
-  height: 100%;
-  gap: 0.375rem;
-  user-select: none;
-}
+  .control {
+    cursor: pointer;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--emr-number-input-control-size);
+    height: var(--emr-number-input-control-size);
+    background: var(--emr-number-input-control-bg);
+    color: var(--emr-number-input-control-color);
+    font-size: var(--emr-number-input-control-font-size);
+    line-height: var(--emr-number-input-control-font-size);
+    border-radius: var(--emr-number-input-control-border-radius);
+    position: relative;
+    border: var(--emr-number-input-control-border);
+    top: 1px;
 
-:host .control {
-  cursor: pointer;
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--emr-number-input-control-size);
-  height: var(--emr-number-input-control-size);
-  background: var(--emr-number-input-control-bg);
-  color: var(--emr-number-input-control-color);
-  font-size: var(--emr-number-input-control-font-size);
-  line-height: var(--emr-number-input-control-font-size);
-  border-radius: var(--emr-number-input-control-border-radius);
-  position: relative;
-  border: var(--emr-number-input-control-border);
-  top: 1px;
+    span {
+      position: relative;
+      top: -1px;
+    }
 
-  ::ng-deep .mat-icon {
-    line-height: 24px;
+    ::ng-deep {
+      .mat-icon {
+        line-height: 24px;
+      }
+    }
+
+    &:hover {
+      background: var(--emr-number-input-control-hover-bg);
+      color: var(--emr-number-input-control-hover-color);
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      opacity: 0.65;
+    }
   }
 }
 
-:host .control span {
-  position: relative;
-  top: -1px;
-}
-
-:host .control:hover {
-  background: var(--emr-number-input-control-hover-bg);
-  color: var(--emr-number-input-control-hover-color);
-}
-
-:host .control[disabled] {
-  pointer-events: none;
-  opacity: 0.65;
+:host-context(html.dark) {
+  --emr-number-input-control-color: theme('colors.neutral.300');
+  --emr-number-input-control-hover-color: theme('colors.neutral.200');
+  --emr-number-input-control-hover-bg: theme('colors.neutral.500');
 }

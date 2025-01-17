@@ -1,4 +1,57 @@
 :host {
+  --emr-filter-builder-group-operations-gap: theme('gap.2');
+  --emr-filter-builder-group-operation-font-size: theme('fontSize.tiny');
+  --emr-filter-builder-group-operation-color: theme('colors.neutral.800');
+  --emr-filter-builder-group-operation-bg: theme('colors.transparent');
+  --emr-filter-builder-group-operation-font-weight: theme('fontWeight.normal');
+  --emr-filter-builder-group-operation-border-radius: theme('borderRadius.DEFAULT');
+  --emr-filter-builder-group-operation-bpadding: 0 theme('padding[2]');
+  --emr-filter-builder-group-operation-height: theme('height.7');
+  --emr-filter-builder-group-operation-hover-color: theme('colors.neutral.800');
+  --emr-filter-builder-group-operation-hover-bg: theme('colors.neutral.200');
+  --emr-filter-builder-group-operation-active-color: theme('colors.neutral.900');
+  --emr-filter-builder-group-operation-active-bg: theme('colors.neutral.300');
+  --emr-filter-builder-group-operation-border: 1px solid theme('colors.neutral.500');
+  --emr-filter-builder-group-add-color: theme('colors.primary.DEFAULT');
+  --emr-filter-builder-group-add-hover-color: theme('colors.primary.DEFAULT');
+  --emr-filter-builder-group-margin: 0;
+  --emr-filter-builder-group-padding: 0;
+  --emr-filter-builder-group-gap: theme('gap.4');
+  --emr-filter-builder-condition-gap: theme('gap.2');
+  --emr-filter-builder-condition-field-height: theme('height.7');
+  --emr-filter-builder-condition-field-font-size: theme('fontSize.tiny');
+  --emr-filter-builder-condition-field-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-field-bg: theme('colors.primary.300');
+  --emr-filter-builder-condition-field-font-weight: theme('fontWeight.normal');
+  --emr-filter-builder-condition-field-border-radius: theme('borderRadius.DEFAULT');
+  --emr-filter-builder-condition-field-bpadding: theme('padding[0.5]') theme('padding[2]');
+  --emr-filter-builder-condition-field-hover-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-field-hover-bg: theme('colors.primary.400');
+  --emr-filter-builder-condition-field-active-color: theme('colors.white');
+  --emr-filter-builder-condition-field-active-bg: theme('colors.primary.500');
+  --emr-filter-builder-condition-operation-height: theme('height.7');
+  --emr-filter-builder-condition-operation-font-size: theme('fontSize.tiny');
+  --emr-filter-builder-condition-operation-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-operation-bg: theme('colors.tertiary.300');
+  --emr-filter-builder-condition-operation-font-weight: theme('fontWeight.normal');
+  --emr-filter-builder-condition-operation-border-radius: theme('borderRadius.DEFAULT');
+  --emr-filter-builder-condition-operation-bpadding: theme('padding[0.5]') theme('padding[2]');
+  --emr-filter-builder-condition-operation-hover-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-operation-hover-bg: theme('colors.tertiary.400');
+  --emr-filter-builder-condition-operation-active-color: theme('colors.white');
+  --emr-filter-builder-condition-operation-active-bg: theme('colors.tertiary.500');
+  --emr-filter-builder-condition-value-height: theme('height.7');
+  --emr-filter-builder-condition-value-font-size: theme('fontSize.tiny');
+  --emr-filter-builder-condition-value-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-value-bg: theme('colors.gray.200');
+  --emr-filter-builder-condition-value-font-weight: theme('fontWeight.normal');
+  --emr-filter-builder-condition-value-border-radius: theme('borderRadius.DEFAULT');
+  --emr-filter-builder-condition-value-bpadding: theme('padding[0.5]') theme('padding[2]');
+  --emr-filter-builder-condition-value-hover-color: theme('colors.gray.800');
+  --emr-filter-builder-condition-value-hover-bg: theme('colors.gray.300');
+  --emr-filter-builder-condition-remove-color: theme('colors.red.500');
+  --emr-filter-builder-condition-remove-hover-color: theme('colors.red.600');
+
   display: block;
 
   ::ng-deep {
@@ -19,149 +72,157 @@
   .form-field-number {
     width: 140px;
   }
+
+  .group-operations {
+    gap: var(--emr-filter-builder-group-operations-gap);
+  }
+
+  .group {
+    margin: var(--emr-filter-builder-group-margin);
+    padding: var(--emr-filter-builder-group-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--emr-filter-builder-group-gap);
+  }
+
+  .group .group {
+    margin-left: theme('margin.4');
+  }
+
+  .icon:empty {
+    display: none;
+  }
+
+  .group-operation {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+    height: var(--emr-filter-builder-group-operation-height);
+    font-size: var(--emr-filter-builder-group-operation-font-size);
+    font-weight: var(--emr-filter-builder-group-operation-font-weight);
+    color: var(--emr-filter-builder-group-operation-color);
+    background: var(--emr-filter-builder-group-operation-bg);
+    border: var(--emr-filter-builder-group-operation-border);
+    border-radius: var(--emr-filter-builder-group-operation-border-radius);
+    padding: var(--emr-filter-builder-group-operation-bpadding);
+  }
+
+  .group-operation:hover {
+    color: var(--emr-filter-builder-group-operation-hover-color);
+    background: var(--emr-filter-builder-group-operation-hover-bg);
+  }
+
+  .group-operation:active,
+  .group-operation.active {
+    color: var(--emr-filter-builder-group-operation-active-color);
+    background: var(--emr-filter-builder-group-operation-active-bg);
+  }
+
+  .condition {
+    display: flex;
+    align-items: center;
+    gap: var(--emr-filter-builder-condition-gap);
+  }
+
+  .condition-field {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+    height: var(--emr-filter-builder-condition-field-height);
+    font-size: var(--emr-filter-builder-condition-field-font-size);
+    font-weight: var(--emr-filter-builder-condition-field-font-weight);
+    color: var(--emr-filter-builder-condition-field-color);
+    background: var(--emr-filter-builder-condition-field-bg);
+    border-radius: var(--emr-filter-builder-condition-field-border-radius);
+    padding: var(--emr-filter-builder-condition-field-bpadding);
+  }
+
+  .condition-field:hover {
+    color: var(--emr-filter-builder-condition-field-hover-color);
+    background: var(--emr-filter-builder-condition-field-hover-bg);
+  }
+
+  .add {
+    line-height: 0;
+    color: var(--emr-filter-builder-group-add-color);
+    cursor: pointer;
+  }
+
+  .add:hover {
+    color: var(--emr-filter-builder-group-add-hover-color);
+  }
+
+  .remove {
+    line-height: 0;
+    color: var(--emr-filter-builder-condition-remove-color);
+    cursor: pointer;
+  }
+
+  .remove:hover {
+    color: var(--emr-filter-builder-condition-remove-hover-color);
+  }
+
+  .condition-field:active,
+  .condition-field.active {
+    color: var(--emr-filter-builder-condition-field-active-color);
+    background: var(--emr-filter-builder-condition-field-active-bg);
+  }
+
+  .condition-operation {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+    height: var(--emr-filter-builder-condition-operation-height);
+    font-size: var(--emr-filter-builder-condition-operation-font-size);
+    font-weight: var(--emr-filter-builder-condition-operation-font-weight);
+    color: var(--emr-filter-builder-condition-operation-color);
+    background: var(--emr-filter-builder-condition-operation-bg);
+    border-radius: var(--emr-filter-builder-condition-operation-border-radius);
+    padding: var(--emr-filter-builder-condition-operation-bpadding);
+  }
+
+  .condition-operation:hover {
+    color: var(--emr-filter-builder-condition-operation-hover-color);
+    background: var(--emr-filter-builder-condition-operation-hover-bg);
+  }
+
+  .condition-operation:active,
+  .condition-operation.active {
+    color: var(--emr-filter-builder-condition-operation-active-color);
+    background: var(--emr-filter-builder-condition-operation-active-bg);
+  }
+
+  .condition-value {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+    height: var(--emr-filter-builder-condition-value-height);
+    font-size: var(--emr-filter-builder-condition-value-font-size);
+    font-weight: var(--emr-filter-builder-condition-value-font-weight);
+    color: var(--emr-filter-builder-condition-value-color);
+    background: var(--emr-filter-builder-condition-value-bg);
+    border-radius: var(--emr-filter-builder-condition-value-border-radius);
+    padding: var(--emr-filter-builder-condition-value-bpadding);
+  }
+
+  .condition-value:hover {
+    color: var(--emr-filter-builder-condition-value-hover-color);
+    background: var(--emr-filter-builder-condition-value-hover-bg);
+  }
 }
 
-:host .group-operations {
-  gap: var(--emr-filter-builder-group-operations-gap);
-}
-
-:host .group {
-  margin: var(--emr-filter-builder-group-margin);
-  padding: var(--emr-filter-builder-group-padding);
-  display: flex;
-  flex-direction: column;
-  gap: var(--emr-filter-builder-group-gap);
-}
-
-:host .group .group {
-  margin-left: theme('margin.4');
-}
-
-:host .icon:empty {
-  display: none;
-}
-
-:host .group-operation {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  user-select: none;
-  cursor: pointer;
-  height: var(--emr-filter-builder-group-operation-height);
-  font-size: var(--emr-filter-builder-group-operation-font-size);
-  font-weight: var(--emr-filter-builder-group-operation-font-weight);
-  color: var(--emr-filter-builder-group-operation-color);
-  background: var(--emr-filter-builder-group-operation-bg);
-  border: var(--emr-filter-builder-group-operation-border);
-  border-radius: var(--emr-filter-builder-group-operation-border-radius);
-  padding: var(--emr-filter-builder-group-operation-bpadding);
-}
-
-:host .group-operation:hover {
-  color: var(--emr-filter-builder-group-operation-hover-color);
-  background: var(--emr-filter-builder-group-operation-hover-bg);
-}
-
-:host .group-operation:active,
-:host .group-operation.active {
-  color: var(--emr-filter-builder-group-operation-active-color);
-  background: var(--emr-filter-builder-group-operation-active-bg);
-}
-
-:host .condition {
-  display: flex;
-  align-items: center;
-  gap: var(--emr-filter-builder-condition-gap);
-}
-
-:host .condition-field {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  user-select: none;
-  cursor: pointer;
-  height: var(--emr-filter-builder-condition-field-height);
-  font-size: var(--emr-filter-builder-condition-field-font-size);
-  font-weight: var(--emr-filter-builder-condition-field-font-weight);
-  color: var(--emr-filter-builder-condition-field-color);
-  background: var(--emr-filter-builder-condition-field-bg);
-  border-radius: var(--emr-filter-builder-condition-field-border-radius);
-  padding: var(--emr-filter-builder-condition-field-bpadding);
-}
-
-:host .condition-field:hover {
-  color: var(--emr-filter-builder-condition-field-hover-color);
-  background: var(--emr-filter-builder-condition-field-hover-bg);
-}
-
-:host .add {
-  line-height: 0;
-  color: var(--emr-filter-builder-group-add-color);
-  cursor: pointer;
-}
-
-:host .add:hover {
-  color: var(--emr-filter-builder-group-add-hover-color);
-}
-
-:host .remove {
-  line-height: 0;
-  color: var(--emr-filter-builder-condition-remove-color);
-  cursor: pointer;
-}
-
-:host .remove:hover {
-  color: var(--emr-filter-builder-condition-remove-hover-color);
-}
-
-:host .condition-field:active,
-:host .condition-field.active {
-  color: var(--emr-filter-builder-condition-field-active-color);
-  background: var(--emr-filter-builder-condition-field-active-bg);
-}
-
-:host .condition-operation {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  user-select: none;
-  cursor: pointer;
-  height: var(--emr-filter-builder-condition-operation-height);
-  font-size: var(--emr-filter-builder-condition-operation-font-size);
-  font-weight: var(--emr-filter-builder-condition-operation-font-weight);
-  color: var(--emr-filter-builder-condition-operation-color);
-  background: var(--emr-filter-builder-condition-operation-bg);
-  border-radius: var(--emr-filter-builder-condition-operation-border-radius);
-  padding: var(--emr-filter-builder-condition-operation-bpadding);
-}
-
-:host .condition-operation:hover {
-  color: var(--emr-filter-builder-condition-operation-hover-color);
-  background: var(--emr-filter-builder-condition-operation-hover-bg);
-}
-
-:host .condition-operation:active,
-:host .condition-operation.active {
-  color: var(--emr-filter-builder-condition-operation-active-color);
-  background: var(--emr-filter-builder-condition-operation-active-bg);
-}
-
-:host .condition-value {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  user-select: none;
-  cursor: pointer;
-  height: var(--emr-filter-builder-condition-value-height);
-  font-size: var(--emr-filter-builder-condition-value-font-size);
-  font-weight: var(--emr-filter-builder-condition-value-font-weight);
-  color: var(--emr-filter-builder-condition-value-color);
-  background: var(--emr-filter-builder-condition-value-bg);
-  border-radius: var(--emr-filter-builder-condition-value-border-radius);
-  padding: var(--emr-filter-builder-condition-value-bpadding);
-}
-
-:host .condition-value:hover {
-  color: var(--emr-filter-builder-condition-value-hover-color);
-  background: var(--emr-filter-builder-condition-value-hover-bg);
+:host-context(html.dark) {
+  --emr-filter-builder-group-operation-color: theme('colors.neutral.200');
+  --emr-filter-builder-group-operation-hover-bg: theme('colors.neutral.600');
+  --emr-filter-builder-group-operation-active-bg: theme('colors.neutral.650');
+  --emr-filter-builder-group-operation-hover-color: theme('colors.neutral.100');
+  --emr-filter-builder-group-operation-active-color: theme('colors.neutral.50');
 }

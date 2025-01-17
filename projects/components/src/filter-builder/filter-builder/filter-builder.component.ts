@@ -21,14 +21,12 @@ import {
 } from '../types';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuTrigger, MatMenu, MatMenuItem } from '@angular/material/menu';
-import { MenuOptionGroupDirective } from '../../core/directives/menu-option-group.directive';
 import { FormsModule } from '@angular/forms';
 import { MatOption } from '@angular/material/autocomplete';
 import { MatFormField, MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
-import { AutoFocusDirective } from '../../core/directives/auto-focus.directive';
-import { FocusElementDirective } from '../../core/directives/focus-element.directive';
 import { FilterBuilderOperationNameDirective } from '../filter-builder-operation-name.directive';
+import { AutoFocusDirective, FocusElementDirective, MenuOptionGroupDirective } from '@elementar/components/core';
 
 @Component({
   selector: 'emr-filter-builder',

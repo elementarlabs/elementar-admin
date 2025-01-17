@@ -1,3 +1,4 @@
+@use "@angular/cdk/overlay-prebuilt";
 @use '@angular/material' as mat;
 @use 'material-symbols/outlined';
 
@@ -286,4 +287,146 @@ html.dark {
   font-family: 'Material Symbols Outlined', serif;
   font-size: 24px;
   line-height: 1;
+}
+
+html {
+  @apply antialiased leading-tight min-h-screen bg-[var(--emr-background)] text-[var(--emr-on-background)];
+}
+
+body {
+  @apply min-h-screen font-sans;
+}
+
+.mdc-icon-button {
+  line-height: 0;
+}
+
+.mat-mdc-menu-panel {
+  max-width: none !important;
+}
+
+.emr-button-loading {
+  .mat-button-wrapper {
+    visibility: hidden;
+  }
+
+  .mat-mdc-progress-spinner {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+  }
+}
+
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+
+input.emr-number-input-no-spinners::-webkit-outer-spin-button,
+input.emr-number-input-no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number].emr-number-input-no-spinners {
+  -moz-appearance: textfield;
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar {
+  @apply bg-none w-[8px] h-[8px];
+}
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar-track {
+  @apply bg-neutral-200 rounded-sm;
+}
+
+body *:not(.emr-native-scroll)::-webkit-scrollbar-thumb {
+  @apply rounded-sm bg-neutral-300 hover:bg-neutral-400;
+}
+
+html.dark {
+  body *:not(.emr-native-scroll)::-webkit-scrollbar-track {
+    @apply bg-neutral-700;
+  }
+
+  body *:not(.emr-native-scroll)::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-neutral-600 hover:bg-neutral-500;
+  }
+}
+
+body .emr-scroll-lg::-webkit-scrollbar {
+  @apply w-[11px] h-[11px]
+}
+
+.emr-table {
+  @apply my-0 text-sm w-full;
+
+  th,
+  td {
+    @apply px-4 py-3 align-middle text-left;
+  }
+
+  th {
+    height: var(--mat-table-row-item-container-height);
+  }
+
+  td {
+    height: var(--mat-table-row-item-container-height);
+    border-top: 1px solid theme('borderColor.DEFAULT');
+  }
+
+  tr {
+    color: var(--mat-table-row-item-label-text-color);
+  }
+}
+
+.mat-mdc-table {
+  --mat-table-row-item-outline-color: theme('colors.neutral.300');
+}
+
+.mat-mdc-row {
+  &.cdk-drag-preview {
+    @apply bg-primary-50 w-full border-b-transparent;
+
+    td {
+      vertical-align: middle;
+      height: inherit;
+      @apply border-b-transparent;
+    }
+  }
+}
+
+.table-row-drag-placeholder {
+  @apply bg-primary-200 h-[var(--mat-table-row-item-container-height)];
+}
+
+html.dark {
+  .emr-table {
+    td {
+      height: var(--mat-table-row-item-container-height);
+    }
+  }
+
+  .mat-mdc-table {
+    --mat-table-row-item-outline-color: theme('colors.neutral.600');
+  }
+
+  .mat-mdc-row {
+    &.cdk-drag-preview {
+      @apply bg-neutral-700;
+    }
+  }
+
+  .table-row-drag-placeholder {
+    @apply bg-neutral-600;
+  }
 }
