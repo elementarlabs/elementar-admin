@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
-import { PopoverComponent } from '../../../../../components/src/popover/popover/popover.component';
+import { PopoverComponent } from '@elementar/components/popover';
 
 @Component({
   selector: 'emr-notifications-popover',
@@ -23,7 +23,7 @@ import { PopoverComponent } from '../../../../../components/src/popover/popover/
     MatRipple
 ],
   templateUrl: './notifications-popover.component.html',
-  styleUrl: './notifications-popover.component.css'
+  styleUrl: './notifications-popover.component.scss'
 })
 export class NotificationsPopoverComponent {
   notifications: Notification[] = [

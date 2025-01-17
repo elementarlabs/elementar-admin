@@ -37,7 +37,9 @@
 </div>
 
 <ng-template #notificationsPopover>
-  <emr-notifications-popover/>
+  @defer {
+    <emr-notifications-popover/>
+  }
 </ng-template>
 
 <mat-menu xPosition="before" #accountMenu="matMenu">
