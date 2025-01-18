@@ -38,7 +38,6 @@
     ),
   ))
 );
-@use "_components";
 
 @include mat.elevation-classes();
 @include mat.app-background();

@@ -76,12 +76,12 @@
   }
 
   &[data-theme="secondary"] {
-    --emr-navigation-item-border-radius: theme('borderRadius.full');
-    --emr-navigation-item-height: theme('height.11');
-    --emr-navigation-item-active-bg: theme('colors.background');
-
     ::ng-deep {
       .emr-navigation-item {
+        --emr-navigation-item-border-radius: theme('borderRadius.full');
+        --emr-navigation-item-height: theme('height.11');
+        --emr-navigation-item-active-bg: theme('colors.background');
+
         &.is-active {
           --emr-navigation-item-border-color: theme('colors.neutral.900');
         }
@@ -112,7 +112,7 @@
       .emr-navigation-item {
         &.is-active {
           --emr-navigation-item-border-color: theme('colors.neutral.400');
-          --emr-navigation-item-active-color: theme('colors.primary.300');
+          --emr-navigation-item-active-color: theme('colors.neutral.300');
         }
       }
     }
