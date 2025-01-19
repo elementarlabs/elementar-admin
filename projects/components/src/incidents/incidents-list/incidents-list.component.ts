@@ -3,13 +3,13 @@ import { IncidentsComponent } from '../incidents/incidents.component';
 import { INCIDENTS } from '../properties';
 
 @Component({
-    selector: 'emr-incidents-list',
-    exportAs: 'emr-incidents-list',
-    templateUrl: './incidents-list.component.html',
-    styleUrls: ['./incidents-list.component.scss'],
-    host: {
-        'class': 'emr-incidents-list'
-    }
+  selector: 'emr-incidents-list',
+  exportAs: 'emr-incidents-list',
+  templateUrl: './incidents-list.component.html',
+  styleUrl: './incidents-list.component.scss',
+  host: {
+    'class': 'emr-incidents-list'
+  }
 })
 export class IncidentsListComponent {
   private _parent = inject<IncidentsComponent>(INCIDENTS, { optional: true });

@@ -1,6 +1,5 @@
 import {
   booleanAttribute,
-  ChangeDetectionStrategy,
   Component,
   ContentChild,
   DoCheck,
@@ -28,20 +27,23 @@ import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-    selector: 'emr-number-input',
-    exportAs: 'emrNumberInput',
-    templateUrl: './number-input.component.html',
-    styleUrl: './number-input.component.scss',
-    providers: [
-        {
-            provide: MatFormFieldControl,
-            useExisting: NumberInputComponent
-        }
-    ],
-    host: {
-        'class': 'emr-number-input'
-    },
-    imports: [MatRipple, NgTemplateOutlet]
+  selector: 'emr-number-input',
+  exportAs: 'emrNumberInput',
+  imports: [
+    MatRipple,
+    NgTemplateOutlet
+  ],
+  templateUrl: './number-input.component.html',
+  styleUrl: './number-input.component.scss',
+  providers: [
+    {
+      provide: MatFormFieldControl,
+      useExisting: NumberInputComponent
+    }
+  ],
+  host: {
+    'class': 'emr-number-input'
+  }
 })
 export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy, DoCheck {
   private _elementRef = inject(ElementRef);

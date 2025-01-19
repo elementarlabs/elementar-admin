@@ -1,7 +1,6 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 export class PasswordStrengthValidator {
-
   isUndefinedOrEmpty(control: AbstractControl): any | undefined {
     if (!control || !control.value || control.value.length === 0) {
       return undefined;

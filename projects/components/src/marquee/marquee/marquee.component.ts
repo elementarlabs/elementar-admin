@@ -14,14 +14,13 @@ import {
 import { isPlatformServer } from '@angular/common';
 
 @Component({
-    selector: 'emr-marquee',
-    exportAs: 'emrMarquee',
-    imports: [],
-    templateUrl: './marquee.component.html',
-    styleUrl: './marquee.component.scss',
-    host: {
-        'class': 'emr-marquee'
-    }
+  selector: 'emr-marquee',
+  exportAs: 'emrMarquee',
+  templateUrl: './marquee.component.html',
+  styleUrl: './marquee.component.scss',
+  host: {
+    'class': 'emr-marquee'
+  }
 })
 export class MarqueeComponent implements AfterContentInit, OnChanges, OnDestroy {
   private _elementRef = inject(ElementRef);

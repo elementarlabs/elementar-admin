@@ -15,8 +15,11 @@ import { Color } from '../helpers/color';
   selector: 'emr-hue',
   exportAs: 'emrHue',
   templateUrl: './hue.component.html',
-  styleUrls: ['./hue.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './hue.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-hue',
+  }
 })
 export class HueComponent extends BaseComponent implements OnChanges {
   readonly pointer = viewChild.required<ElementRef>('pointer');

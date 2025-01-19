@@ -6,13 +6,13 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: 'emr-gauge',
-    exportAs: 'emrGauge',
-    templateUrl: './gauge.component.html',
-    styleUrls: ['./gauge.component.scss'],
-    host: {
-        'class': 'emr-gauge'
-    }
+  selector: 'emr-gauge',
+  exportAs: 'emrGauge',
+  templateUrl: './gauge.component.html',
+  styleUrl: './gauge.component.scss',
+  host: {
+    'class': 'emr-gauge'
+  }
 })
 export class GaugeComponent implements OnInit {
   value = input(0, {

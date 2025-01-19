@@ -4,8 +4,6 @@ import { COMMENT_EDITOR, COMMENT_EDITOR_BUBBLE_MENU, CommentEditor } from '@elem
 @Component({
   selector: 'emr-comment-editor-bubble-menu',
   exportAs: 'emrCommentEditorBubbleMenu',
-  imports: [
-  ],
   providers: [
     {
       provide: COMMENT_EDITOR_BUBBLE_MENU,
@@ -13,7 +11,10 @@ import { COMMENT_EDITOR, COMMENT_EDITOR_BUBBLE_MENU, CommentEditor } from '@elem
     }
   ],
   templateUrl: './comment-editor-bubble-menu.component.html',
-  styleUrl: './comment-editor-bubble-menu.component.scss'
+  styleUrl: './comment-editor-bubble-menu.component.scss',
+  host: {
+    'class': 'emr-comment-editor-bubble-menu',
+  }
 })
 export class CommentEditorBubbleMenuComponent {
   protected commentEditor = inject<CommentEditor>(COMMENT_EDITOR);

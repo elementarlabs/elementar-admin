@@ -12,15 +12,18 @@ import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-    selector: 'emr-navigation-item,[emr-navigation-item]',
-    exportAs: 'emrNavigationItem',
-    templateUrl: './navigation-item.component.html',
-    styleUrls: ['./navigation-item.component.scss'],
-    host: {
-        'class': 'emr-navigation-item',
-        '[class.is-active]': 'forceActive || active'
-    },
-    imports: [MatRipple, NgTemplateOutlet]
+  selector: 'emr-navigation-item,[emr-navigation-item]',
+  exportAs: 'emrNavigationItem',
+  imports: [
+    MatRipple,
+    NgTemplateOutlet
+  ],
+  templateUrl: './navigation-item.component.html',
+  styleUrl: './navigation-item.component.scss',
+  host: {
+    'class': 'emr-navigation-item',
+    '[class.is-active]': 'forceActive || active'
+  }
 })
 export class NavigationItemComponent {
   private _api = inject(NavigationApiService);

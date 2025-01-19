@@ -33,35 +33,48 @@ import { CountryCode, Examples } from '../data/country-code';
 import { Country } from '../model/country.model';
 import { PhoneNumberFormat } from '../model/phone-number-format.model';
 import { phoneValidator } from '../phone.validator';
-import { IconComponent } from '../../icon/icon/icon.component';
 import { NgClass } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatDivider } from '@angular/material/divider';
 import { MatInput } from '@angular/material/input';
 import { SearchPipe } from '../search.pipe';
+import { IconComponent } from '@elementar/components/icon';
 
 @Component({
-    selector: 'emr-phone-input',
-    exportAs: 'emrPhoneInput',
-    templateUrl: './phone-input.component.html',
-    styleUrls: ['./phone-input.component.scss'],
-    providers: [
-        CountryCode,
-        {
-            provide: MatFormFieldControl,
-            useExisting: PhoneInputComponent
-        },
-        {
-            provide: NG_VALIDATORS,
-            useValue: phoneValidator,
-            multi: true,
-        },
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        'class': 'emr-phone-input'
+  selector: 'emr-phone-input',
+  exportAs: 'emrPhoneInput',
+  templateUrl: './phone-input.component.html',
+  styleUrl: './phone-input.component.scss',
+  imports: [
+    MatRipple,
+    MatMenuTrigger,
+    IconComponent,
+    MatIcon,
+    MatMenu,
+    ReactiveFormsModule,
+    FormsModule,
+    MatMenuItem,
+    NgClass,
+    MatDivider,
+    MatInput,
+    SearchPipe
+  ],
+  providers: [
+    CountryCode,
+    {
+      provide: MatFormFieldControl,
+      useExisting: PhoneInputComponent
     },
-    imports: [MatRipple, MatMenuTrigger, IconComponent, MatIcon, MatMenu, ReactiveFormsModule, FormsModule, MatMenuItem, NgClass, MatDivider, MatInput, SearchPipe]
+    {
+      provide: NG_VALIDATORS,
+      useValue: phoneValidator,
+      multi: true,
+    },
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-phone-input'
+  }
 })
 export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   private ngControl = inject(NgControl, { optional: true });

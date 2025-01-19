@@ -18,7 +18,7 @@ import { BaseComponent } from '../base.component';
   selector: 'emr-saturation',
   exportAs: 'emrSaturation',
   templateUrl: './saturation.component.html',
-  styleUrls: ['./saturation.component.scss'],
+  styleUrl: './saturation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-saturation'

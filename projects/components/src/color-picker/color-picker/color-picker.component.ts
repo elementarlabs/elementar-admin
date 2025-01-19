@@ -20,23 +20,27 @@ import { HueComponent } from '../hue/hue.component';
 import { AlphaComponent } from '../alpha/alpha.component';
 
 @Component({
-    selector: 'emr-color-picker',
-    exportAs: 'emrColorPicker',
-    templateUrl: './color-picker.component.html',
-    styleUrls: ['color-picker.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => ColorPickerComponent),
-            multi: true
-        }
-    ],
-    host: {
-        'class': 'emr-color-picker',
-        '[class.is-disabled]': 'disabled',
-    },
-    imports: [SaturationComponent, HueComponent, AlphaComponent]
+  selector: 'emr-color-picker',
+  exportAs: 'emrColorPicker',
+  imports: [
+    SaturationComponent,
+    HueComponent,
+    AlphaComponent
+  ],
+  templateUrl: './color-picker.component.html',
+  styleUrl: './color-picker.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ColorPickerComponent),
+      multi: true
+    }
+  ],
+  host: {
+    'class': 'emr-color-picker',
+    '[class.is-disabled]': 'disabled',
+  }
 })
 export class ColorPickerComponent implements OnInit, ControlValueAccessor {
   @Input()

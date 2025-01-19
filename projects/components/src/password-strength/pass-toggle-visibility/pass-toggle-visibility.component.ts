@@ -4,11 +4,18 @@ import { MatRipple } from '@angular/material/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-    selector: 'emr-pass-toggle-visibility',
-    exportAs: 'emrPassToggleVisibility',
-    templateUrl: './pass-toggle-visibility.component.html',
-    styleUrls: ['./pass-toggle-visibility.component.scss'],
-    imports: [MatIconButton, MatRipple, MatIcon]
+  selector: 'emr-pass-toggle-visibility',
+  exportAs: 'emrPassToggleVisibility',
+  imports: [
+    MatIconButton,
+    MatRipple,
+    MatIcon
+  ],
+  templateUrl: './pass-toggle-visibility.component.html',
+  styleUrl: './pass-toggle-visibility.component.scss',
+  host: {
+    'class': 'emr-pass-toggle-visibility',
+  }
 })
 export class PassToggleVisibilityComponent {
   @Input()

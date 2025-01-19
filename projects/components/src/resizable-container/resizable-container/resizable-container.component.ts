@@ -21,7 +21,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   exportAs: 'emrResizableContainer',
   templateUrl: './resizable-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: 'resizable-container.component.scss',
+  styleUrl: './resizable-container.component.scss',
   host: {
     'class': 'emr-resizable-container'
   }

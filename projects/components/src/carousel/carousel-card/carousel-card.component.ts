@@ -12,7 +12,10 @@ import { CAROUSEL_CARD } from '../types';
     }
   ],
   templateUrl: './carousel-card.component.html',
-  styleUrl: './carousel-card.component.scss'
+  styleUrl: './carousel-card.component.scss',
+  host: {
+    'class': 'emr-carousel-card',
+  }
 })
 export class CarouselCardComponent {
   private _elementRef = inject(ElementRef);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,12 +19,12 @@ import { MatButtonModule } from '@angular/material/button';
     styleUrl: './stepper-header-position-example.component.scss'
 })
 export class StepperHeaderPositionExampleComponent {
+  private _formBuilder = inject(FormBuilder);
+
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
-
-  constructor(private _formBuilder: FormBuilder) {}
 }

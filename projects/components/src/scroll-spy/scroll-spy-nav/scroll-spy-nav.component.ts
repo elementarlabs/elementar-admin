@@ -16,20 +16,20 @@ import { SCROLL_SPY_NAV } from '../types';
 import { ScrollSpyOnComponent } from '../scroll-spy-on/scroll-spy-on.component';
 
 @Component({
-    selector: 'emr-scroll-spy-nav,[emr-scroll-spy-nav]',
-    exportAs: 'emrScrollSpyNav',
-    templateUrl: './scroll-spy-nav.component.html',
-    styleUrl: './scroll-spy-nav.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: SCROLL_SPY_NAV,
-            useExisting: ScrollSpyNavComponent
-        }
-    ],
-    host: {
-        'class': 'emr-scroll-spy-nav'
+  selector: 'emr-scroll-spy-nav,[emr-scroll-spy-nav]',
+  exportAs: 'emrScrollSpyNav',
+  templateUrl: './scroll-spy-nav.component.html',
+  styleUrl: './scroll-spy-nav.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: SCROLL_SPY_NAV,
+      useExisting: ScrollSpyNavComponent
     }
+  ],
+  host: {
+    'class': 'emr-scroll-spy-nav'
+  }
 })
 export class ScrollSpyNavComponent implements AfterContentInit {
   private _document = inject(DOCUMENT);

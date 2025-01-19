@@ -16,6 +16,7 @@ import { MatBadge } from '@angular/material/badge';
 
 @Component({
   selector: 'emr-sidebar-nav',
+  exportAs: 'emrSidebarNav',
   imports: [
     NavigationComponent,
     NavigationItemComponent,
@@ -33,7 +34,10 @@ import { MatBadge } from '@angular/material/badge';
     MatBadge
   ],
   templateUrl: './sidebar-nav.component.html',
-  styleUrl: './sidebar-nav.component.scss'
+  styleUrl: './sidebar-nav.component.scss',
+  host: {
+    'class': 'emr-sidebar-nav',
+  }
 })
 export class SidebarNavComponent<T extends NavigationItem> {
   activeKey = input();

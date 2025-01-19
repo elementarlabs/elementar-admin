@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'emr-mchart-tooltip-body',
-    exportAs: 'emrMchartTooltipBody',
-    imports: [],
-    templateUrl: './mchart-tooltip-body.component.html',
-    styleUrl: './mchart-tooltip-body.component.scss',
-    host: {
-        'class': 'emr-mchart-tooltip-body'
-    }
+  selector: 'emr-mchart-tooltip-body',
+  exportAs: 'emrMchartTooltipBody',
+  templateUrl: './mchart-tooltip-body.component.html',
+  styleUrl: './mchart-tooltip-body.component.scss',
+  host: {
+    'class': 'emr-mchart-tooltip-body'
+  }
 })
 export class MchartTooltipBodyComponent {
 

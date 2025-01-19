@@ -20,17 +20,16 @@ import { BaseChartTooltip } from '../base-chart.tooltip';
 let nextId = 0;
 
 @Component({
-    selector: 'emr-mchart-bar',
-    exportAs: 'emrMchartBar',
-    imports: [],
-    templateUrl: './mchart-bar.component.html',
-    styleUrl: './mchart-bar.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        'class': 'emr-mchart-bar',
-        '[class.fill-gradient]': 'fillGradient()',
-        '[class.with-tooltip]': '!!tooltip()',
-    }
+  selector: 'emr-mchart-bar',
+  exportAs: 'emrMchartBar',
+  templateUrl: './mchart-bar.component.html',
+  styleUrl: './mchart-bar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-mchart-bar',
+    '[class.fill-gradient]': 'fillGradient()',
+    '[class.with-tooltip]': '!!tooltip()',
+  }
 })
 export class MchartBarComponent extends BaseChartTooltip implements OnDestroy, AfterViewChecked {
   private _initialized = false;

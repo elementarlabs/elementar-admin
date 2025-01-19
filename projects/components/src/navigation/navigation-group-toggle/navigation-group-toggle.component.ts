@@ -5,18 +5,18 @@ import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-    selector: 'emr-navigation-group-toggle',
-    exportAs: 'emrNavigationGroupToggle',
-    templateUrl: './navigation-group-toggle.component.html',
-    styleUrls: ['./navigation-group-toggle.component.scss'],
-    hostDirectives: [
-        MatRipple
-    ],
-    host: {
-        class: 'emr-navigation-group-toggle',
-        '[class.is-active]': 'active'
-    },
-    imports: [NgTemplateOutlet]
+  selector: 'emr-navigation-group-toggle',
+  exportAs: 'emrNavigationGroupToggle',
+  imports: [NgTemplateOutlet],
+  templateUrl: './navigation-group-toggle.component.html',
+  styleUrl: './navigation-group-toggle.component.scss',
+  hostDirectives: [
+    MatRipple
+  ],
+  host: {
+    'class': 'emr-navigation-group-toggle',
+    '[class.is-active]': 'active'
+  }
 })
 export class NavigationGroupToggleComponent {
   readonly api = inject(NavigationApiService);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { map, Observable, startWith } from 'rxjs';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -18,22 +18,24 @@ export const _filter = (opt: string[], value: string): string[] => {
 };
 
 @Component({
-    selector: 'app-option-groups-example',
-    imports: [
-        MatFormField,
-        ReactiveFormsModule,
-        MatAutocompleteTrigger,
-        MatAutocomplete,
-        MatOptgroup,
-        MatOption,
-        AsyncPipe,
-        MatInput,
-        MatLabel
-    ],
-    templateUrl: './option-groups-example.component.html',
-    styleUrl: './option-groups-example.component.scss'
+  selector: 'app-option-groups-example',
+  imports: [
+    MatFormField,
+    ReactiveFormsModule,
+    MatAutocompleteTrigger,
+    MatAutocomplete,
+    MatOptgroup,
+    MatOption,
+    AsyncPipe,
+    MatInput,
+    MatLabel
+  ],
+  templateUrl: './option-groups-example.component.html',
+  styleUrl: './option-groups-example.component.scss'
 })
 export class OptionGroupsExampleComponent {
+  private _formBuilder = inject(FormBuilder);
+
   stateForm = this._formBuilder.group({
     stateGroup: '',
   });
@@ -136,8 +138,6 @@ export class OptionGroupsExampleComponent {
   ];
 
   stateGroupOptions: Observable<StateGroup[]>;
-
-  constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges.pipe(

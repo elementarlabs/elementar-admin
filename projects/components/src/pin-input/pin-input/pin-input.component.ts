@@ -15,22 +15,27 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-    selector: 'emr-pin-input',
-    exportAs: 'emrPinInput',
-    templateUrl: './pin-input.component.html',
-    styleUrl: './pin-input.component.scss',
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => PinInputComponent),
-            multi: true
-        }
-    ],
-    host: {
-        'class': 'emr-pin-input',
-        '[class.is-disabled]': 'disabled',
-    },
-    imports: [ReactiveFormsModule, MatFormField, MatInput, PinInputDirective]
+  selector: 'emr-pin-input',
+  exportAs: 'emrPinInput',
+  imports: [
+    ReactiveFormsModule,
+    MatFormField,
+    MatInput,
+    PinInputDirective
+  ],
+  templateUrl: './pin-input.component.html',
+  styleUrl: './pin-input.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PinInputComponent),
+      multi: true
+    }
+  ],
+  host: {
+    'class': 'emr-pin-input',
+    '[class.is-disabled]': 'disabled',
+  }
 })
 export class PinInputComponent implements ControlValueAccessor, OnInit {
   private _fb = inject(FormBuilder);

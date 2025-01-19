@@ -34,16 +34,15 @@ import { BaseChartTooltip } from '../base-chart.tooltip';
 let nextId = 0;
 
 @Component({
-    selector: 'emr-mchart-line',
-    exportAs: 'emrMchartLine',
-    imports: [],
-    templateUrl: './mchart-line.component.html',
-    styleUrl: './mchart-line.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    host: {
-        'class': 'emr-mchart-line',
-        '[class.fill-area-gradient]': 'fillAreaGradient()',
-    }
+  selector: 'emr-mchart-line',
+  exportAs: 'emrMchartLine',
+  templateUrl: './mchart-line.component.html',
+  styleUrl: './mchart-line.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-mchart-line',
+    '[class.fill-area-gradient]': 'fillAreaGradient()',
+  }
 })
 export class MchartLineComponent extends BaseChartTooltip implements OnDestroy, AfterViewChecked {
   private _initialized = false;

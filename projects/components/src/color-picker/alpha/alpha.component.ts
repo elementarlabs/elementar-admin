@@ -15,12 +15,12 @@ import { NgStyle } from '@angular/common';
 @Component({
   selector: 'emr-alpha',
   exportAs: 'emrAlpha',
+  imports: [NgStyle],
   templateUrl: './alpha.component.html',
-  styleUrls: ['./alpha.component.scss'],
+  styleUrl: './alpha.component.scss',
   host: {
     'class': 'emr-alpha'
-  },
-  imports: [NgStyle]
+  }
 })
 export class AlphaComponent extends BaseComponent implements OnChanges {
   @Input()

@@ -19,26 +19,27 @@ import { RegExpValidator } from '../validator/regexp.class';
 import { MatProgressBar } from '@angular/material/progress-bar';
 
 @Component({
-    selector: 'emr-password-strength',
-    exportAs: 'emrPasswordStrength',
-    templateUrl: './password-strength.component.html',
-    styleUrls: ['./password-strength.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => PasswordStrengthComponent),
-            multi: true
-        }
-    ],
-    host: {
-        '[class.low]': 'isLow',
-        '[class.weak]': 'isWeak',
-        '[class.medium]': 'isMedium',
-        '[class.strong]': 'isStrong',
-        '[class.very-strong]': 'isVeryStrong',
-    },
-    imports: [MatProgressBar]
+  selector: 'emr-password-strength',
+  exportAs: 'emrPasswordStrength',
+  imports: [MatProgressBar],
+  templateUrl: './password-strength.component.html',
+  styleUrl: './password-strength.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PasswordStrengthComponent),
+      multi: true
+    }
+  ],
+  host: {
+    'class': 'emr-password-strength',
+    '[class.low]': 'isLow',
+    '[class.weak]': 'isWeak',
+    '[class.medium]': 'isMedium',
+    '[class.strong]': 'isStrong',
+    '[class.very-strong]': 'isVeryStrong',
+  }
 })
 export class PasswordStrengthComponent implements OnInit, OnChanges, AfterContentChecked, ControlValueAccessor {
   @Input()

@@ -23,12 +23,12 @@ import { PopoverTrigger, PopoverPosition } from './types';
 import { PositionManager } from '../overlay';
 
 @Directive({
-    selector: '[emrPopoverTriggerFor]',
-    exportAs: 'emrPopoverTriggerFor',
-    host: {
-        class: 'emr-popover-trigger-for',
-        '[class.emr-popover-trigger-for--is-open]': 'api.isOpen()',
-    }
+  selector: '[emrPopoverTriggerFor]',
+  exportAs: 'emrPopoverTriggerFor',
+  host: {
+    'class': 'emr-popover-trigger-for',
+    '[class.emr-popover-trigger-for--is-open]': 'api.isOpen()',
+  }
 })
 export class PopoverTriggerForDirective implements  OnDestroy {
   private _overlay = inject(Overlay);
