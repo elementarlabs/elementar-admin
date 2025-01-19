@@ -71,7 +71,3 @@
     }
   }
 }
-
-body:has(emr-sidebar.compact) {
-  --emr-layout-sidebar-width: var(--emr-sidebar-width);
-}

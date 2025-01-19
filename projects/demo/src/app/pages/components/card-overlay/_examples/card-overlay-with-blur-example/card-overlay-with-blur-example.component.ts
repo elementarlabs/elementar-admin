@@ -12,23 +12,23 @@ import {
 } from '@angular/material/card';
 
 @Component({
-    selector: 'app-card-overlay-with-blur-example',
-    imports: [
-        AvatarComponent,
-        CardOverlayComponent,
-        CardOverlayContainerDirective,
-        MatButton,
-        MatCard,
-        MatCardActions,
-        MatCardAvatar,
-        MatCardContent,
-        MatCardHeader,
-        MatCardImage,
-        MatCardSubtitle,
-        MatCardTitle
-    ],
-    templateUrl: './card-overlay-with-blur-example.component.html',
-    styleUrl: './card-overlay-with-blur-example.component.scss'
+  selector: 'app-card-overlay-with-blur-example',
+  imports: [
+    AvatarComponent,
+    CardOverlayComponent,
+    CardOverlayContainerDirective,
+    MatButton,
+    MatCard,
+    MatCardActions,
+    MatCardAvatar,
+    MatCardContent,
+    MatCardHeader,
+    MatCardImage,
+    MatCardSubtitle,
+    MatCardTitle
+  ],
+  templateUrl: './card-overlay-with-blur-example.component.html',
+  styleUrl: './card-overlay-with-blur-example.component.scss'
 })
 export class CardOverlayWithBlurExampleComponent {
 

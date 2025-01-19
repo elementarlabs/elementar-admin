@@ -9,18 +9,18 @@ import { map, Observable } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
-    selector: 'app-stepper-responsive-example',
-    imports: [
-        MatStepperModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        AsyncPipe,
-    ],
-    templateUrl: './stepper-responsive-example.component.html',
-    styleUrl: './stepper-responsive-example.component.scss'
+  selector: 'app-stepper-responsive-example',
+  imports: [
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    AsyncPipe,
+  ],
+  templateUrl: './stepper-responsive-example.component.html',
+  styleUrl: './stepper-responsive-example.component.scss'
 })
 export class StepperResponsiveExampleComponent {
   private _formBuilder = inject(FormBuilder);
