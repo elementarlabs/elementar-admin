@@ -40,8 +40,8 @@
 
   .text {
     @apply z-0;
-    width: var(--emr-avatar-size);
-    height: var(--emr-avatar-size);
+    width: 100%;
+    height: 100%;
   }
 
   &.has-loaded-image {
