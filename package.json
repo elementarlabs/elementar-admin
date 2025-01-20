@@ -21,7 +21,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
-    "components:prod": "ng build components --configuration production",
+    "build:components:prod": "ng build components --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs",

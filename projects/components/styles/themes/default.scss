@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use "_common";
+@use "../_common";
 
 @include mat.elevation-classes();
 @include mat.app-background();
