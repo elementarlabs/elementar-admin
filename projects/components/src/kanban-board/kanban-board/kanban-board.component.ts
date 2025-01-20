@@ -32,8 +32,6 @@ import { KanbanItemDefDirective } from '@elementar/components/kanban-board/kanba
 import { NgTemplateOutlet } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { After } from 'node:v8';
-import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'emr-kanban-board',

@@ -1,6 +1,6 @@
 {
-  "name": "@elementar/components",
-  "description": "Elementar Admin - Free and open source Angular admin panel based on Material 3 and Tailwind",
+  "name": "@elementar-ui/components",
+  "description": "Elementar UI Components - Free and open source Angular UI components based on Material 3 and Tailwind",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -20,6 +20,14 @@
     "angular material components",
     "angular admin template"
   ],
+  "exports": {
+    ".": {
+      "sass": "./styles/_common.scss"
+    },
+    "./styles/default": {
+      "sass": "./styles/default.scss"
+    }
+  },
   "peerDependencies": {
     "@angular/common": "^18.1.2",
     "@angular/core": "^18.1.2",
