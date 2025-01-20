@@ -7,15 +7,15 @@ export interface Vegetable {
 }
 
 @Component({
-    selector: 'app-chips-drag-and-drop-example',
-    imports: [
-        MatChipSet,
-        CdkDropList,
-        MatChip,
-        CdkDrag
-    ],
-    templateUrl: './chips-drag-and-drop-example.component.html',
-    styleUrl: './chips-drag-and-drop-example.component.scss'
+  selector: 'app-chips-drag-and-drop-example',
+  imports: [
+    MatChipSet,
+    CdkDropList,
+    MatChip,
+    CdkDrag
+  ],
+  templateUrl: './chips-drag-and-drop-example.component.html',
+  styleUrl: './chips-drag-and-drop-example.component.scss'
 })
 export class ChipsDragAndDropExampleComponent {
   vegetables: Vegetable[] = [

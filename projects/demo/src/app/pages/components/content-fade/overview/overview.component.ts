@@ -13,17 +13,17 @@ import {
 } from '../_examples/content-fade-custom-position-example/content-fade-custom-position-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        PlaygroundComponent,
-        BasicContentFadeExampleComponent,
-        ContentFadeCustomWidthExampleComponent,
-        ContentFadeCustomPositionExampleComponent,
-        PageComponent,
-        PageContentDirective
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  selector: 'app-overview',
+  imports: [
+    PlaygroundComponent,
+    BasicContentFadeExampleComponent,
+    ContentFadeCustomWidthExampleComponent,
+    ContentFadeCustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

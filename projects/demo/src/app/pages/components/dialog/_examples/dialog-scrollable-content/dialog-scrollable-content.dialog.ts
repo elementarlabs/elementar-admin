@@ -3,16 +3,16 @@ import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } fr
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'app-dialog-scrollable-content',
-    imports: [
-        MatDialogActions,
-        MatButton,
-        MatDialogClose,
-        MatDialogContent,
-        MatDialogTitle
-    ],
-    templateUrl: './dialog-scrollable-content.dialog.html',
-    styleUrl: './dialog-scrollable-content.dialog.scss'
+  selector: 'app-dialog-scrollable-content',
+  imports: [
+    MatDialogActions,
+    MatButton,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle
+  ],
+  templateUrl: './dialog-scrollable-content.dialog.html',
+  styleUrl: './dialog-scrollable-content.dialog.scss'
 })
 export class DialogScrollableContentDialog {
 

@@ -14,12 +14,12 @@ export interface User {
 }
 
 @Component({
-    selector: 'app-data-view-custom-cell-renderers-example',
-    imports: [
-        DataViewComponent
-    ],
-    templateUrl: './data-view-custom-cell-renderers-example.component.html',
-    styleUrl: './data-view-custom-cell-renderers-example.component.scss'
+  selector: 'app-data-view-custom-cell-renderers-example',
+  imports: [
+      DataViewComponent
+  ],
+  templateUrl: './data-view-custom-cell-renderers-example.component.html',
+  styleUrl: './data-view-custom-cell-renderers-example.component.scss'
 })
 export class DataViewCustomCellRenderersExampleComponent implements OnInit {
   private _httpClient = inject(HttpClient);

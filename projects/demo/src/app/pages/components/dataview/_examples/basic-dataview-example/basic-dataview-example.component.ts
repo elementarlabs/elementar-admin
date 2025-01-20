@@ -17,12 +17,12 @@ const DATA: PeriodicElement[] = [
 ];
 
 @Component({
-    selector: 'app-basic-dataview-example',
-    imports: [
-        DataViewComponent
-    ],
-    templateUrl: './basic-dataview-example.component.html',
-    styleUrl: './basic-dataview-example.component.scss'
+  selector: 'app-basic-dataview-example',
+  imports: [
+      DataViewComponent
+  ],
+  templateUrl: './basic-dataview-example.component.html',
+  styleUrl: './basic-dataview-example.component.scss'
 })
 export class BasicDataviewExampleComponent {
   columnDefs: DataViewColumnDef[] = [
