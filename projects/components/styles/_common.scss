@@ -229,6 +229,10 @@ input.emr-number-input-no-spinners::-webkit-inner-spin-button {
   margin: 0;
 }
 
+code {
+  @apply text-primary;
+}
+
 input[type=number].emr-number-input-no-spinners {
   -moz-appearance: textfield;
 }

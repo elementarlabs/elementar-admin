@@ -12,7 +12,7 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './action-required.component.html',
   styleUrl: './action-required.component.scss',
   host: {
-    class: 'emr-action-required',
+    'class': 'emr-action-required',
   }
 })
 export class ActionRequiredComponent {
