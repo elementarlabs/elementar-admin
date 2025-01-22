@@ -15,21 +15,22 @@ import {
 } from '../_examples/chips-drag-and-drop-example/chips-drag-and-drop-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { StackedChipsExampleComponent } from '../_examples/stacked-chips-example/stacked-chips-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        PlaygroundComponent,
-        BasicChipsExampleComponent,
-        ChipsWithInputExampleComponent,
-        ChipsAutocompleteExampleComponent,
-        ChipsWithIconsExampleComponent,
-        ChipsDragAndDropExampleComponent,
-        PageComponent,
-        PageContentDirective
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  imports: [
+    PlaygroundComponent,
+    BasicChipsExampleComponent,
+    ChipsWithInputExampleComponent,
+    ChipsAutocompleteExampleComponent,
+    ChipsWithIconsExampleComponent,
+    ChipsDragAndDropExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    StackedChipsExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

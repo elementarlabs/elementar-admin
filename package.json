@@ -25,7 +25,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:elementar-admin": "node dist/elementar-admin/server/server.mjs",
-    "start:demo": "ng serve demo",
+    "start:demo": "ng serve --no-hmr demo",
     "build:demo": "ng build demo",
     "build:demo:prod": "ng build demo --configuration production",
     "serve:ssr:demo": "node dist/demo/server/server.mjs",
