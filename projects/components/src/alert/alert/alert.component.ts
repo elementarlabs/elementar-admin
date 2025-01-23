@@ -2,24 +2,22 @@ import {
   booleanAttribute,
   Component,
   ElementRef,
-  EventEmitter,
   inject,
   Input,
   OnInit,
-  Output,
   Renderer2,
-  contentChild, TemplateRef
+  contentChild, TemplateRef, input, numberAttribute, effect, output, OnChanges, SimpleChanges
 } from '@angular/core';
 import { ALERT, AlertVariant } from '../alert.properties';
-import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import { AlertIconDirective } from '../alert-icon.directive';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'emr-alert',
   exportAs: 'emrAlert',
+  imports: [NgTemplateOutlet],
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss'],
+  styleUrl: './alert.component.scss',
   providers: [
     {
       provide: ALERT,
@@ -28,56 +26,45 @@ import { NgTemplateOutlet } from '@angular/common';
   ],
   host: {
     'class': 'emr-alert',
-    '[class.is-bordered]': 'bordered',
-  },
-  imports: [NgTemplateOutlet]
+    '[class.is-bordered]': 'bordered()',
+  }
 })
-export class AlertComponent implements  OnInit {
+export class AlertComponent {
   private _renderer = inject(Renderer2);
   private _elementRef = inject(ElementRef);
-
   readonly iconRef = contentChild(AlertIconDirective);
 
-  @Input() data: any;
-  @Input()
-  set autoClose(value: NumberInput) {
-    clearTimeout(this._autoCloseTimeout);
-    value = coerceNumberProperty(value);
+  autoClose = input(null, {
+    transform: numberAttribute
+  });
+  bordered = input(false, {
+    transform: booleanAttribute
+  });
+  variant = input<AlertVariant>('default');
 
-    if (!value) {
-      return;
-    }
+  readonly closed = output<void>();
+  private _autoCloseTimeout: any = undefined;
 
-    clearTimeout(this._autoCloseTimeout);
-    this._autoCloseTimeout = setTimeout(() => {
-      this._close();
-    }, value);
+  constructor() {
+    effect(() => {
+      this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-alert-variant', this.variant());
+
+      clearTimeout(this._autoCloseTimeout);
+
+      if (!this.autoClose()) {
+        return;
+      }
+
+      this._autoCloseTimeout = setTimeout(() => {
+        this._close();
+      }, this.autoClose() as number);
+    });
   }
-  private _autoCloseTimeout: any;
-
-  @Input()
-  set variant(variant: AlertVariant) {
-    this._variant = variant;
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-alert-variant', this._variant);
-  }
-  get variant(): AlertVariant {
-    return this._variant;
-  }
-  private _variant: AlertVariant = 'default';
-
-  @Input({ transform: booleanAttribute })
-  bordered = false;
-
-  @Output() readonly closed = new EventEmitter<any>();
 
   get api() {
     return {
       close: () => this._close()
     };
-  }
-
-  ngOnInit() {
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-alert-variant', this._variant);
   }
 
   protected get iconRefTemplate(): TemplateRef<any> {
@@ -86,7 +73,6 @@ export class AlertComponent implements  OnInit {
 
   private _close() {
     clearTimeout(this._autoCloseTimeout);
-    this.closed.emit(this.data);
     this._elementRef.nativeElement.remove();
   }
 }

@@ -1,4 +1,4 @@
 import { InjectionToken } from '@angular/core';
 
 export const ALERT = new InjectionToken('Alert');
-export type AlertVariant = 'default' | 'positive' | 'informative' | 'negative' | 'notice' | string;
+export type AlertVariant = 'default' | 'secondary' | 'positive' | 'informative' | 'negative' | 'notice' | string;

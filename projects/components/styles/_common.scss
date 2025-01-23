@@ -233,10 +233,6 @@ input.emr-number-input-no-spinners::-webkit-inner-spin-button {
   margin: 0;
 }
 
-code {
-  @apply text-primary;
-}
-
 input[type=number].emr-number-input-no-spinners {
   -moz-appearance: textfield;
 }
@@ -291,6 +287,11 @@ input[type=number].emr-number-input-no-spinners {
 
 .table-row-drag-placeholder {
   @apply bg-primary-200 h-[var(--mat-table-row-item-container-height)];
+}
+
+code,
+.code {
+  @apply text-tiny inline-block px-1.5 border rounded-lg text-tertiary-600 border-tertiary-400 mx-0.5;
 }
 
 html {
@@ -421,6 +422,11 @@ html {
 
     .table-row-drag-placeholder {
       @apply bg-neutral-600;
+    }
+
+    code,
+    .code {
+      @apply text-tertiary-400 border-tertiary-300;
     }
 
     body {
