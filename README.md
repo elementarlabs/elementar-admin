@@ -5,7 +5,7 @@
 # Modern Angular UI Components & Admin Panel, based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
 <a target="_blank" href="https://elementarui.com">
-  <img src="https://demo.elementarui.com/assets/preview.png">
+  <img src="https://demo.elementarui.com/assets/preview-demo.png">
 </a>
 
 ## Key features
@@ -17,7 +17,7 @@
 
 ## What's included:
 
-- Angular 18+ & Typescript
+- Angular 19+ & Typescript
 - Tailwind 3+ & SCSS
 - High resolution
 - Flexibly configurable themes (3 themes included)
