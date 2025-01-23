@@ -18,5 +18,4 @@ export class ScreenLoaderComponent {
   opened = input(false, {
     transform: booleanAttribute
   });
-  message = input.required<string>();
 }
