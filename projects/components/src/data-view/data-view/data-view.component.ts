@@ -31,7 +31,12 @@ import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
 import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
-import { SkeletonBlockComponent, SkeletonCircleComponent, SkeletonLineComponent } from '@elementar/components/skeleton';
+import {
+  SkeletonBlockComponent,
+  SkeletonCircleComponent,
+  SkeletonComponent,
+  SkeletonLineComponent
+} from '@elementar/components/skeleton';
 
 @Component({
   selector: 'emr-data-view',
@@ -55,6 +60,7 @@ import { SkeletonBlockComponent, SkeletonCircleComponent, SkeletonLineComponent 
     MatCellDef,
     SkeletonLineComponent,
     SkeletonCircleComponent,
+    SkeletonComponent,
   ],
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss',
