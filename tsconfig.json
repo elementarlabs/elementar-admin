@@ -5,6 +5,9 @@
       "@elementar/components/*": [
         "./projects/components/src/*"
       ],
+      "@elementar-ui/components/*": [
+        "./projects/components/src/*"
+      ],
       "@elementar/store/*": [
         "./projects/store/src/lib/*"
       ],

@@ -559,6 +559,12 @@ export class SidebarComponent implements OnInit {
           name: 'Text Editor',
           link: '/pages/components/text-editor'
         },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Screen Loader',
+          link: '/pages/components/screen-loader'
+        },
       ]
     },
     {

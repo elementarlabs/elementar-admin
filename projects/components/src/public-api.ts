@@ -48,3 +48,4 @@ export * from './text-editor';
 export * from './thumbnail-maker';
 export * from './timeline';
 export * from './upload';
+export * from './screen-loader';

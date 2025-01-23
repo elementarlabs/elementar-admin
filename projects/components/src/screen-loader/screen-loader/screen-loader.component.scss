@@ -1,0 +1,17 @@
+:host {
+  --emr-screen-loader-bg: var(--emr-background);
+
+  @apply opacity-0 fixed inset-0 -z-[9999] flex items-center justify-center flex-col bg-[var(--emr-screen-loader-bg)];
+
+  &.is-opened {
+    @apply z-[9999] opacity-100;
+  }
+
+  .message {
+    @apply max-w-[600px] leading-snug text-center;
+  }
+
+  .progress-bar {
+    @apply w-64 mt-4;
+  }
+}

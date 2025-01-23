@@ -288,6 +288,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/text-editor/text-editor.module').then(m => m.TextEditorModule)
       },
       {
+        path: 'components/screen-loader',
+        loadChildren: () => import('./components/screen-loader/screen-loader.module').then(m => m.ScreenLoaderModule)
+      },
+      {
         path: 'navigation/breadcrumbs',
         loadChildren: () => import('./navigation/breadcrumbs/breadcrumbs.module').then(m => m.BreadcrumbsModule)
       },
