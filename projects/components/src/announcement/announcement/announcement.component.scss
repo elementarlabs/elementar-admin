@@ -1,5 +1,5 @@
 :host {
-  @apply ps-6 pe-3 h-11 cursor-pointer flex text-sm items-center justify-between;
+  @apply ps-5 pe-3 h-11 cursor-pointer flex text-sm items-center justify-between;
 
   &:has(.icon) {
     @apply ps-3.5;
@@ -17,7 +17,11 @@
     @apply inline-flex justify-center items-center opacity-70 hover:opacity-100;
   }
 
-  &[data-type="neutral"] {
+  &:has(.close) {
+    @apply pe-1.5;
+  }
+
+  &[data-variant="neutral"] {
     @apply bg-neutral-300 text-neutral-900;
 
     .icon {
@@ -25,7 +29,7 @@
     }
   }
 
-  &[data-type="informative"] {
+  &[data-variant="informative"] {
     @apply bg-primary-200 text-primary-900;
 
     .icon {
@@ -33,7 +37,7 @@
     }
   }
 
-  &[data-type="negative"] {
+  &[data-variant="negative"] {
     @apply bg-error-200 text-error-900;
 
     .icon {
@@ -41,7 +45,7 @@
     }
   }
 
-  &[data-type="positive"] {
+  &[data-variant="positive"] {
     @apply bg-lime-200 text-lime-900;
 
     .icon {
@@ -49,7 +53,7 @@
     }
   }
 
-  &[data-type="warning"] {
+  &[data-variant="warning"] {
     @apply bg-amber-200 text-amber-900;
 
     .icon {

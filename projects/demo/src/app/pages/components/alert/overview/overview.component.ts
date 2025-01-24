@@ -12,19 +12,24 @@ import {
 import { AlertActionsExampleComponent } from '../_examples/alert-actions-example/alert-actions-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
-    imports: [
-        PlaygroundComponent,
-        BasicAlertExampleComponent,
-        AlertVariantsExampleComponent,
-        AlertWithBorderExampleComponent,
-        AlertWithIconExampleComponent,
-        AlertWithTitleExampleComponent,
-        AlertActionsExampleComponent,
-        PageComponent,
-        PageContentDirective
-    ],
+  imports: [
+    PlaygroundComponent,
+    BasicAlertExampleComponent,
+    AlertVariantsExampleComponent,
+    AlertWithBorderExampleComponent,
+    AlertWithIconExampleComponent,
+    AlertWithTitleExampleComponent,
+    AlertActionsExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    MatTabGroup,
+    MatTab,
+    MatDivider
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })

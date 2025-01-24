@@ -1,13 +1,15 @@
 <div class="content">
-  @if (iconName) {
+  @if (iconName()) {
     <div class="icon">
-      <mat-icon class="font-icon">{{ iconName }}</mat-icon>
+      <mat-icon>{{ iconName() }}</mat-icon>
     </div>
   }
-  <ng-content></ng-content>
+  <ng-content/>
 </div>
-@if (closable) {
+@if (closable()) {
   <div class="close">
-    <mat-icon class="font-icon">close</mat-icon>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
 }

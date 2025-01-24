@@ -1,1 +1,1 @@
-export type AnnouncementType = 'neutral' | 'negative' | 'warning' | 'positive' | 'informative' | string;
+export type AnnouncementVariant = 'neutral' | 'negative' | 'warning' | 'positive' | 'informative' | string;

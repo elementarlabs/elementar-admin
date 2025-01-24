@@ -5,14 +5,16 @@ import { PlaygroundComponent } from '@demo/meta/playground/playground.component'
 import {
   BasicActionRequiredExampleComponent
 } from '../_examples/basic-action-required-example/basic-action-required-example.component';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-overview',
   imports: [
     PageComponent,
     PageContentDirective,
     PlaygroundComponent,
-    BasicActionRequiredExampleComponent
+    BasicActionRequiredExampleComponent,
+    MatTab,
+    MatTabGroup
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

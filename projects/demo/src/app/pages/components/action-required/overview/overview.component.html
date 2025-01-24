@@ -1,28 +1,28 @@
 <app-page>
   <div appPageContent>
-    <main class="mat-typography mb-10">
-      <h1>Action Required</h1>
+    <h1>Action Required</h1>
 
+    <main class="mb-10">
       <p>
         Introducing the Action Required component, a customizable and visually engaging block designed to highlight
         urgent messages for users. Built with Angular Material, this component ensures seamless integration into modern
         web applications while maintaining a consistent Material Design aesthetic.
       </p>
 
-      <p class="font-bold mt-7">
+      <div class="mt-6">
         Key Features:
-      </p>
+      </div>
 
-      <ul class="mb-7 list-disc ps-4 space-y-2">
-        <li>Immediate Attention: Draws user focus to critical tasks or information.</li>
+      <ul class="mb-7 list-disc ps-4 space-y-2 mt-3">
+        <li><strong>Immediate Attention</strong>: Draws user focus to critical tasks or information.</li>
         <li>
-          Customizable Styling: Adapt colors, typography, and icons to fit your app's theme.
+          <strong>Customizable Styling</strong>: Adapt colors, typography, and icons to fit your app's theme.
         </li>
         <li>
-          Responsive Design: Optimized for all devices, ensuring accessibility everywhere.
+          <strong>Responsive Design</strong>: Optimized for all devices, ensuring accessibility everywhere.
         </li>
         <li>
-          Developer-Friendly: Easy to implement and configure with Angular's robust framework.
+          <strong>Developer-Friendly</strong>: Easy to implement and configure with Angular's robust framework.
         </li>
       </ul>
 
@@ -42,69 +42,71 @@
       Properties for the <code class="code">emr-action-required</code> component.
     </p>
 
-    <div class="border rounded-xl shadow-sm overflow-hidden mt-6 mb-6">
-      <table class="emr-table not-mat-typography">
-        <thead>
-        <tr class="bg-neutral-200 dark:bg-neutral-700">
-          <th class="w-1/2">Prop</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>
-            <div>actionText</div>
-            <div class="text-xs text-neutral-500 mt-0.5">Indicates the type of event or action</div>
-          </td>
-          <td>string</td>
-          <td>Action Required</td>
-        </tr>
-        <tr>
-          <td>
-            <div>iconName</div>
-            <div class="text-xs text-neutral-500 mt-0.5">Custom icon</div>
-          </td>
-          <td>string</td>
-          <td>error</td>
-        </tr>
-        <tr>
-          <td>
-            <div>description<sup>*</sup></div>
-            <div class="text-xs text-neutral-500 mt-0.5">Full description of the event or action to be performed</div>
-          </td>
-          <td>string</td>
-          <td>&ndash;</td>
-        </tr>
-        <tr>
-          <td>
-            <div>buttonText<sup>*</sup></div>
-            <div class="text-xs text-neutral-500 mt-0.5">Text on the button</div>
-          </td>
-          <td>string</td>
-          <td>&ndash;</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>
-      Output events of the <code class="code">emr-action-required</code> component.
-    </p>
-    <div class="border rounded-xl shadow-sm overflow-hidden mt-6 mb-6">
-      <table class="emr-table not-mat-typography">
-        <thead>
-        <tr class="bg-neutral-200 dark:bg-neutral-700">
-          <th class="w-1/3">Event</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>buttonClicked</td>
-          <td>Executed when a button clicked</td>
-        </tr>
-      </table>
-    </div>
+    <mat-tab-group class="my-6">
+      <mat-tab label="Properties">
+        <div class="border rounded-xl shadow-sm overflow-hidden my-6">
+          <table class="emr-table not-mat-typography">
+            <thead>
+            <tr class="bg-neutral-200 dark:bg-neutral-700">
+              <th class="w-1/2">Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <div>actionText</div>
+                <div class="text-xs text-neutral-500 mt-0.5">Indicates the type of event or action</div>
+              </td>
+              <td>string</td>
+              <td>Action Required</td>
+            </tr>
+            <tr>
+              <td>
+                <div>iconName</div>
+                <div class="text-xs text-neutral-500 mt-0.5">Custom icon</div>
+              </td>
+              <td>string</td>
+              <td>error</td>
+            </tr>
+            <tr>
+              <td>
+                <div>description<sup>*</sup></div>
+                <div class="text-xs text-neutral-500 mt-0.5">Full description of the event or action to be performed</div>
+              </td>
+              <td>string</td>
+              <td>&ndash;</td>
+            </tr>
+            <tr>
+              <td>
+                <div>buttonText<sup>*</sup></div>
+                <div class="text-xs text-neutral-500 mt-0.5">Text on the button</div>
+              </td>
+              <td>string</td>
+              <td>&ndash;</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-tab>
+      <mat-tab label="Events">
+        <div class="border rounded-xl shadow-sm overflow-hidden my-6">
+          <table class="emr-table not-mat-typography">
+            <thead>
+            <tr class="bg-neutral-200 dark:bg-neutral-700">
+              <th class="w-1/3">Event</th>
+              <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>buttonClicked</td>
+              <td>Executed when a button clicked</td>
+            </tr>
+          </table>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </app-page>
