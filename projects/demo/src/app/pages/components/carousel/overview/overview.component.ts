@@ -11,7 +11,6 @@ import {
 } from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
 
 @Component({
-  selector: 'app-overview',
   imports: [
     PlaygroundComponent,
     BasicCarouselExampleComponent,

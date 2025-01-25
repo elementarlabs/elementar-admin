@@ -10,7 +10,6 @@ import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } 
 @Component({
   selector: 'emr-carousel',
   exportAs: 'emrCarousel',
-  imports: [],
   providers: [
     {
       provide: CAROUSEL,
@@ -25,7 +24,7 @@ import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } 
   }
 })
 export class CarouselComponent {
-  private _content = viewChild<ElementRef>('content');
+  private _content = viewChild.required<ElementRef>('content');
   private _cards = contentChildren<CarouselCardInterface>(CAROUSEL_CARD);
   private _index = 0;
 
@@ -60,7 +59,7 @@ export class CarouselComponent {
   }
 
   private _next(): void {
-    const contentElement = this._content()?.nativeElement as HTMLElement;
+    const contentElement = this._content().nativeElement as HTMLElement;
     const notVisibleCard = this._cards().find(
       (card: CarouselCardInterface, index: number) =>
         !this._visibleInParentViewport(contentElement, card.element) && index > this._index
