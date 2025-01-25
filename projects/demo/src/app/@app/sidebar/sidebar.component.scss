@@ -1,5 +1,5 @@
 :host {
-  @apply block h-full relative min-w-[74px];
+  @apply block h-full relative min-w-[var(--emr-layout-sidebar-compact-width)];
 
   ::ng-deep {
     emr-navigation {

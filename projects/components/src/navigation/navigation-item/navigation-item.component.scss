@@ -53,9 +53,11 @@
     color: var(--emr-navigation-nested-item-color);
   }
 
-  &:hover .inner {
-    background-color: var(--emr-navigation-nested-item-hover-bg);
-    color: var(--emr-navigation-nested-item-hover-color);
+  &:hover {
+    .inner {
+      background-color: var(--emr-navigation-nested-item-hover-bg);
+      color: var(--emr-navigation-nested-item-hover-color);
+    }
   }
 
   &.is-active .inner,
@@ -109,6 +111,8 @@
 
 :host {
   .icon {
+    position: relative;
+    left: -1px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

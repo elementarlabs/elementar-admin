@@ -1,4 +1,7 @@
 :host {
+  --emr-layout-sidebar-width: 300px;
+  --emr-layout-sidebar-compact-width: 84px;
+
   @apply block z-[101];
 
   &:has(.emr-sidebar.compact) {

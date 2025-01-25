@@ -37,6 +37,12 @@ export class SidebarCompactExampleComponent {
       icon: 'dashboard',
     },
     {
+      key: 'forms',
+      type: 'item',
+      icon: 'dns',
+      name: 'Forms'
+    },
+    {
       key: 'account',
       type: 'item',
       name: 'Account'

@@ -1,6 +1,6 @@
 :host {
-  --emr-sidebar-width: 300px;
-  --emr-sidebar-compact-width: 74px;
+  --emr-sidebar-width: var(--emr-layout-sidebar-width, 300px);
+  --emr-sidebar-compact-width: var(--emr-layout-sidebar-compact-width, 84px);
   --emr-sidebar-header-padding: 0;
   --emr-sidebar-header-compact-padding: 0;
   --emr-sidebar-body-padding: theme('padding.3');
@@ -18,18 +18,13 @@
     @apply w-[var(--emr-sidebar-compact-width)] overflow-hidden;
 
     ::ng-deep {
-      emr-navigation {
-        --emr-navigation-item-width: var(--emr-navigation-item-height);
-        --emr-navigation-item-padding: 0;
-      }
-
       .toggle,
       .badge {
         @apply hidden;
       }
 
       emr-navigation-heading {
-        @apply p-0 flex items-center text-4xs justify-center;
+        @apply flex text-4xs justify-center;
       }
 
       emr-navigation-group-menu {
@@ -39,7 +34,7 @@
       }
 
       emr-navigation-group-toggle {
-        @apply justify-center gap-0;
+        @apply gap-0;
         --emr-navigation-group-toggle-has-icon-padding-end: 0;
 
         .icon {
@@ -55,7 +50,7 @@
 
       emr-navigation-item {
         .inner {
-          @apply justify-center gap-0;
+          @apply gap-0;
         }
 
         .icon {
