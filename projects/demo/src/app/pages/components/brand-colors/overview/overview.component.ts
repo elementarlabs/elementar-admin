@@ -14,19 +14,22 @@ import {
 import {
   BrandColorsDisabledExampleComponent
 } from '../_examples/brand-colors-disabled-example/brand-colors-disabled-example.component';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
-    imports: [
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        BasicBrandColorsExampleComponent,
-        BrandColorsCustomColorsExampleComponent,
-        BrandColorsAsFormControlExampleComponent,
-        BrandColorsDisabledExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    BasicBrandColorsExampleComponent,
+    BrandColorsCustomColorsExampleComponent,
+    BrandColorsAsFormControlExampleComponent,
+    BrandColorsDisabledExampleComponent,
+    MatTab,
+    MatTabGroup
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

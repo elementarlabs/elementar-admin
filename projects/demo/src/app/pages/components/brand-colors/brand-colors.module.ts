@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { BrandColorsRoutingModule } from './brand-colors-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

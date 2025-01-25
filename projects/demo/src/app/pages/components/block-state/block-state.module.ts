@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { BlockStateRoutingModule } from './block-state-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [

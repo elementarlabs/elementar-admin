@@ -29,8 +29,8 @@ import {
     BlockStateWithActionsExampleComponent,
     BlockStateWithCustomIconExampleComponent
   ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 
