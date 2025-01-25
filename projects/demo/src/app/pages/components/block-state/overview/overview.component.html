@@ -1,8 +1,8 @@
 <app-page>
   <div appPageContent>
-    <div class="mat-typography mb-10">
-      <h1>Block state</h1>
+    <h1>Block state</h1>
 
+    <main class="mat-typography mb-10">
       <p>
         Got an empty page with no content to show? <strong>Block state</strong> has you covered!
         This handy Angular Material component lets you add custom messages, visuals, or placeholders to make those
@@ -13,13 +13,14 @@
         No more boring "nothing here" vibes—give your users a better experience with just a few lines of code.
       </p>
 
-      <ul class="list-disc ms-4">
+      <p class="font-bold">Key features:</p>
+      <ul class="list-disc ms-4 mt-3">
         <li>Super easy to set up and customize.</li>
         <li>Works great with Angular Material and Tailwind.</li>
         <li>Responsive and user-friendly right out of the box.</li>
         <li>Perfect for dashboards, lists and empty screens.</li>
       </ul>
-    </div>
+    </main>
 
     <h3 class="mat-title-large">Basic block state</h3>
     <emr-playground exampleUrl="_docs/components/block-state/_examples" exampleName="basic-block-state-example">
@@ -45,5 +46,26 @@
     <emr-playground exampleUrl="_docs/components/block-state/_examples" exampleName="block-state-with-actions-example">
       <app-block-state-with-actions-example/>
     </emr-playground>
+
+    <div class="space-y-7 mt-10">
+      <p>
+        <code class="code">emr-block-state</code> main block state component.
+      </p>
+      <p>
+        <code class="code">emr-block-state-actions</code> component - contains controls of a block state.
+      </p>
+      <p>
+        <code class="code">emr-block-state-content</code> component - contains content of a block state.
+      </p>
+      <p>
+        <code class="code">emr-block-state-icon</code> component - adds an icon to a block state.
+      </p>
+      <p>
+        <code class="code">emr-block-state-image</code> component - adds an image to a block state.
+      </p>
+      <p>
+        <code class="code">emr-block-state-title</code> component - adds a title to a block state.
+      </p>
+    </div>
   </div>
 </app-page>
