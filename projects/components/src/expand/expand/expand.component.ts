@@ -24,7 +24,7 @@ export class ExpandComponent {
   });
   height = input<string>('');
 
-  expandedChange = output<boolean>();
+  readonly expandedChange = output<boolean>();
 
   protected _expanded = false;
 

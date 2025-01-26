@@ -9,6 +9,8 @@ import {
 import {
   ExpandCustomButtonLabelsExampleComponent
 } from '../_examples/expand-custom-button-labels-example/expand-custom-button-labels-example.component';
+import { MatDivider } from '@angular/material/divider';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-overview',
@@ -18,7 +20,10 @@ import {
     PageComponent,
     PageContentDirective,
     ExpandShowButtonIfExpandedExampleComponent,
-    ExpandCustomButtonLabelsExampleComponent
+    ExpandCustomButtonLabelsExampleComponent,
+    MatDivider,
+    MatTab,
+    MatTabGroup
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
