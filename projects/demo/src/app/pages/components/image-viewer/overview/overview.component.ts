@@ -11,6 +11,7 @@ import {
 import {
   ImageViewerWithTitleExampleComponent
 } from '../_examples/image-viewer-with-title-example/image-viewer-with-title-example.component';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
   imports: [
@@ -19,7 +20,8 @@ import {
     PlaygroundComponent,
     BasicImageViewerExampleComponent,
     ImageViewerWithCaptionAndDescriptionExampleComponent,
-    ImageViewerWithTitleExampleComponent
+    ImageViewerWithTitleExampleComponent,
+    MatDivider
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'

@@ -7,6 +7,7 @@ import { ImageViewerPictureTitleDirective } from './image-viewer-picture-title.d
 
 @Directive({
   selector: '[emrImageViewerPicture]',
+  exportAs: 'emrImageViewerPicture',
   standalone: true,
   providers: [
     {
@@ -15,6 +16,7 @@ import { ImageViewerPictureTitleDirective } from './image-viewer-picture-title.d
     }
   ],
   host: {
+    'class': 'emr-image-viewer-picture',
     '(click)': 'onClick($event)'
   }
 })
@@ -23,6 +25,7 @@ export class ImageViewerPictureDirective {
   private _titleTplRef = contentChild(ImageViewerPictureTitleDirective);
   private _captionTplRef = contentChild(ImageViewerPictureCaptionDirective);
   private _descriptionTplRef = contentChild(ImageViewerPictureDescriptionDirective);
+
   sourceUrl = input.required<string>();
   caption = input<string>();
   title = input<string>();

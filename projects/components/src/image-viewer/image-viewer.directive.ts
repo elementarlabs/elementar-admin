@@ -1,5 +1,4 @@
-import { AfterContentInit, contentChildren, DestroyRef, Directive, inject, Injector } from '@angular/core';
-import { ImageViewerPictureDirective } from './image-viewer-picture.directive';
+import { DestroyRef, Directive, inject, Injector } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -9,10 +8,13 @@ import { IMAGE_VIEWER_PICTURE_DATA, IMAGE_VIEWER_PICTURE_REF, PictureOptions } f
 
 @Directive({
   selector: '[emrImageViewer]',
-  standalone: true
+  exportAs: 'emrImageViewer',
+  standalone: true,
+  host: {
+    'class': 'emr-image-viewer',
+  }
 })
-export class ImageViewerDirective implements AfterContentInit {
-  private _images = contentChildren(ImageViewerPictureDirective);
+export class ImageViewerDirective {
   private _overlay = inject(Overlay);
   private _injector = inject(Injector);
   private _destroyRef = inject(DestroyRef);
@@ -21,10 +23,6 @@ export class ImageViewerDirective implements AfterContentInit {
     return {
       open: (options: PictureOptions): PictureRef => this._open(options)
     }
-  }
-
-  ngAfterContentInit() {
-    // console.log(this._images());
   }
 
   private _open(options: PictureOptions): PictureRef {
