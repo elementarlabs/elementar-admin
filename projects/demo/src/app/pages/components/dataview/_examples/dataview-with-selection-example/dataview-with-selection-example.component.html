@@ -1,4 +1,11 @@
-<div class="mb-10 flex gap-3">
+<div class="mb-6">
+  <div class="mb-3">Variant:</div>
+  <mat-radio-group [(ngModel)]="variant" aria-label="Select an option" class="flex gap-5">
+    <mat-radio-button value="list">List</mat-radio-button>
+    <mat-radio-button value="table">Table</mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="mb-6 flex gap-3">
   <button mat-stroked-button (click)="dataView.api.selectAll()">Select All</button>
   <button mat-stroked-button (click)="dataView.api.unselectAll()">Unselect All</button>
 </div>
@@ -6,6 +13,7 @@
 <emr-data-view #dataView="emrDataView"
                [columnDefs]="columnDefs"
                [data]="data"
+               [variant]="variant()"
                withSelection
                (rowSelectionChanged)="rowSelectionChanged($event)"
                (selectionChanged)="selectionChanged($event)"

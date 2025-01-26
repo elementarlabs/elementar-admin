@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import {
   DataViewColumnDef,
   DataViewComponent,
@@ -13,6 +13,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatFormField } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 
 export interface PeriodicElement {
   name: string;
@@ -40,12 +41,15 @@ const DATA: PeriodicElement[] = [
     MatIcon,
     MatFormField,
     FormsModule,
-    MatInput
+    MatInput,
+    MatRadioButton,
+    MatRadioGroup
   ],
   templateUrl: './data-view-filter-data-example.component.html',
   styleUrl: './data-view-filter-data-example.component.scss'
 })
 export class DataViewFilterDataExampleComponent {
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',

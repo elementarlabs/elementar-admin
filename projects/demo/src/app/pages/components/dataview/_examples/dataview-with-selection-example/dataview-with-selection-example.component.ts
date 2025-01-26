@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar/components/data-view';
 import { JsonPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
@@ -23,12 +25,16 @@ const DATA: PeriodicElement[] = [
   imports: [
     DataViewComponent,
     JsonPipe,
-    MatButton
+    MatButton,
+    MatRadioButton,
+    MatRadioGroup,
+    FormsModule
   ],
   templateUrl: './dataview-with-selection-example.component.html',
   styleUrl: './dataview-with-selection-example.component.scss'
 })
 export class DataviewWithSelectionExampleComponent {
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',

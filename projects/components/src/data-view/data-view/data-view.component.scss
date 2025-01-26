@@ -94,6 +94,10 @@
       max-width: var(--emr-data-view-cell-width, auto);
     }
 
+    .cell {
+      @apply py-2;
+    }
+
     .header-cell-action-bar,
     .cell-action-bar {
       @apply absolute top-0 bottom-0 end-0 p-0;
@@ -158,6 +162,34 @@
     .mat-sort-header-pointer-middle {
       width: 1px;
       height: 1px;
+    }
+  }
+
+  &[data-view-variant="table"] {
+    --emr-data-view-hl-header-margin: 0;
+
+    .mat-mdc-header-row {
+      &::before {
+        height: theme('height.12');
+      }
+    }
+
+    .mat-mdc-row.mdc-data-table__row {
+      border: none !important;
+      @apply rounded-none h-auto;
+      border-top: theme('width.px') solid theme('borderColor.DEFAULT') !important;
+
+      & + .mdc-data-table__row {
+        @apply mt-0;
+      }
+    }
+
+    &.highlight-header {
+      .mat-mdc-row.mdc-data-table__row {
+        &:first-of-type {
+          border-top: none !important;
+        }
+      }
     }
   }
 }

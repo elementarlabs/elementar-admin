@@ -1,6 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, model, OnInit } from '@angular/core';
 import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
 import { HttpClient } from '@angular/common/http';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 export interface User {
   id: string | number;
@@ -16,7 +18,10 @@ export interface User {
 @Component({
   selector: 'app-data-view-custom-cell-renderers-example',
   imports: [
-      DataViewComponent
+    DataViewComponent,
+    MatRadioButton,
+    MatRadioGroup,
+    FormsModule
   ],
   templateUrl: './data-view-custom-cell-renderers-example.component.html',
   styleUrl: './data-view-custom-cell-renderers-example.component.scss'
@@ -24,6 +29,7 @@ export interface User {
 export class DataViewCustomCellRenderersExampleComponent implements OnInit {
   private _httpClient = inject(HttpClient);
 
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Id',

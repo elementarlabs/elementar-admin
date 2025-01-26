@@ -1,4 +1,14 @@
-<emr-data-view hoverRows [columnDefs]="columnDefs" [data]="data">
+<div class="mb-6">
+  <div class="mb-3">Variant:</div>
+  <mat-radio-group [(ngModel)]="variant" aria-label="Select an option" class="flex gap-5">
+    <mat-radio-button value="list">List</mat-radio-button>
+    <mat-radio-button value="table">Table</mat-radio-button>
+  </mat-radio-group>
+</div>
+<emr-data-view [columnDefs]="columnDefs"
+               [data]="data"
+               [variant]="variant()"
+               hoverRows>
   <emr-data-view-action-bar #dataViewActionBar="emrDataViewActionBar" *emrDataViewActionBar="let row">
     <button mat-stroked-button (click)="share(row)">Share</button>
     <button mat-icon-button [matMenuTriggerFor]="menu"

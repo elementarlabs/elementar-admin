@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
 import { MatPaginator } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
@@ -37,12 +39,16 @@ const DATA: PeriodicElement[] = [
   selector: 'app-data-view-with-sorting-example',
   imports: [
     DataViewComponent,
-    MatPaginator
+    MatPaginator,
+    MatRadioButton,
+    MatRadioGroup,
+    FormsModule
   ],
   templateUrl: './data-view-with-sorting-example.component.html',
   styleUrl: './data-view-with-sorting-example.component.scss'
 })
 export class DataViewWithSortingExampleComponent {
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',

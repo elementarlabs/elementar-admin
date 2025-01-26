@@ -2,11 +2,11 @@ import {
   booleanAttribute,
   ChangeDetectorRef,
   Component,
-  computed, contentChild, effect,
+  computed, contentChild, effect, ElementRef,
   inject, Injector,
   input,
   OnInit,
-  output, TemplateRef,
+  output, Renderer2, TemplateRef,
   viewChild
 } from '@angular/core';
 import {
@@ -72,13 +72,17 @@ import {
   }
 })
 export class DataViewComponent<T> implements OnInit, DataView {
+  private _cdr = inject(ChangeDetectorRef);
+  private _elementRef = inject(ElementRef);
+  private _renderer = inject(Renderer2);
+
   protected _emptyDataRef = contentChild(DataViewEmptyDataDirective);
   protected _emptyFilterResults = contentChild(DataViewEmptyFilterResultsDirective);
-  private _cdr = inject(ChangeDetectorRef);
+  protected _actionBarRef = contentChild<DataViewActionBarDirective>(DataViewActionBarDirective);
   private _matTable = viewChild<MatTable<T>>('table');
   private _matSort = viewChild<MatSort>(MatSort);
-  protected _actionBarRef = contentChild<DataViewActionBarDirective>(DataViewActionBarDirective);
 
+  variant = input<string>('list');
   paginator = input<MatPaginator>();
   columnDefs = input<DataViewColumnDef[]>([]);
   data = input<T[]>([]);
@@ -198,8 +202,8 @@ export class DataViewComponent<T> implements OnInit, DataView {
       if (this.rowModelType() === 'clientSide') {
         this.dataSource().filter = this.search().trim().toLowerCase();
       }
-    }, {
-      allowSignalWrites: true
+
+      this._renderer.setAttribute(this._elementRef.nativeElement, 'data-view-variant', this.variant());
     });
   }
 

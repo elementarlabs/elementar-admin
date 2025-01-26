@@ -1,7 +1,17 @@
+<div class="mb-6">
+  <div class="mb-3">Variant:</div>
+  <mat-radio-group [(ngModel)]="variant" aria-label="Select an option" class="flex gap-5">
+    <mat-radio-button value="list">List</mat-radio-button>
+    <mat-radio-button value="table">Table</mat-radio-button>
+  </mat-radio-group>
+</div>
 <mat-form-field class="w-full">
   <input matInput type="text" [(ngModel)]="search" placeholder="Search">
 </mat-form-field>
-<emr-data-view [columnDefs]="columnDefs" [data]="data" [search]="search">
+<emr-data-view [columnDefs]="columnDefs"
+               [data]="data"
+               [search]="search"
+               [variant]="variant()">
   <ng-template emrDataViewEmptyFilterResults>
     <emr-block-state>
       <emr-block-state-icon>

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
@@ -19,12 +21,16 @@ const DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-basic-dataview-example',
   imports: [
-      DataViewComponent
+    DataViewComponent,
+    MatRadioButton,
+    MatRadioGroup,
+    FormsModule
   ],
   templateUrl: './basic-dataview-example.component.html',
   styleUrl: './basic-dataview-example.component.scss'
 })
 export class BasicDataviewExampleComponent {
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',

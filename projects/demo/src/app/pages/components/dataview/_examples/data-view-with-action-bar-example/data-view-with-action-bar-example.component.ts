@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import {
   DataViewActionBarComponent, DataViewActionBarDirective,
   DataViewColumnDef,
@@ -7,6 +7,8 @@ import {
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
@@ -34,12 +36,16 @@ const DATA: PeriodicElement[] = [
     MatMenuItem,
     MatMenuTrigger,
     DataViewActionBarComponent,
-    DataViewActionBarDirective
+    DataViewActionBarDirective,
+    MatRadioButton,
+    MatRadioGroup,
+    FormsModule
   ],
   templateUrl: './data-view-with-action-bar-example.component.html',
   styleUrl: './data-view-with-action-bar-example.component.scss'
 })
 export class DataViewWithActionBarExampleComponent {
+  variant = model<'list' | 'table'>('list');
   columnDefs: DataViewColumnDef[] = [
     {
       name: 'Position',
