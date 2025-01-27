@@ -11,7 +11,6 @@ import { ContentFadePosition } from '../types';
 @Component({
   selector: 'emr-content-fade',
   exportAs: 'emrContentFade',
-  standalone: true,
   templateUrl: './content-fade.component.html',
   styleUrl: './content-fade.component.scss',
   host: {

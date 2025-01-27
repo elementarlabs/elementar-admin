@@ -291,7 +291,7 @@ input[type=number].emr-number-input-no-spinners {
 
 code,
 .code {
-  @apply text-tiny inline-block px-1.5 border rounded-lg text-tertiary-600 border-tertiary-400 mx-0.5;
+  @apply text-xs inline-block px-1.5 py-0.5 border rounded-lg text-tertiary-600 border-tertiary-400 mx-0.5;
 }
 
 html {
