@@ -5,10 +5,9 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 
-import { phoneValidator } from '@elementar/components/phone-input';
-import { HDividerComponent } from '@elementar/components/divider';
-import { PasswordStrengthComponent } from '../../../../projects/components/src/password-strength/password-strength/password-strength.component';
-import { PhoneInputComponent } from '../../../../projects/components/src/phone-input/phone-input/phone-input.component';
+import { PhoneInputComponent, phoneValidator } from '@elementar/components/phone-input';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
+import { PasswordStrengthComponent } from '@elementar/components/password-strength';
 
 @Component({
   selector: 'app-create-account',
@@ -22,7 +21,7 @@ import { PhoneInputComponent } from '../../../../projects/components/src/phone-i
     RouterLink,
     PasswordStrengthComponent,
     PhoneInputComponent,
-    HDividerComponent
+    HorizontalDividerComponent
 ],
   templateUrl: './create-account.component.html',
   styleUrl: './create-account.component.scss'
