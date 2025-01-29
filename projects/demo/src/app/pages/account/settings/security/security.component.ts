@@ -3,18 +3,18 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
-import { HDividerComponent } from '@elementar/components/divider';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
 
 @Component({
-    imports: [
-        MatButton,
-        MatIcon,
-        MatSlideToggle,
-        FormsModule,
-        HDividerComponent
-    ],
-    templateUrl: './security.component.html',
-    styleUrl: './security.component.scss'
+  imports: [
+    MatButton,
+    MatIcon,
+    MatSlideToggle,
+    FormsModule,
+    HorizontalDividerComponent
+  ],
+  templateUrl: './security.component.html',
+  styleUrl: './security.component.scss'
 })
 export class SecurityComponent {
   securityProfile = {

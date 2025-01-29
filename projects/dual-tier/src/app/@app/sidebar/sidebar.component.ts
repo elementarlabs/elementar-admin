@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HDividerComponent } from '@elementar/components/divider';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
 import { IconComponent } from '@elementar/components/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -19,7 +19,7 @@ import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@eleme
   selector: 'app-sidebar',
   imports: [
     DicebearComponent,
-    HDividerComponent,
+    HorizontalDividerComponent,
     IconComponent,
     MatTab,
     MatTabGroup,

@@ -14,7 +14,6 @@ import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 
 @Component({
-  selector: 'app-overview',
   imports: [
     PlaygroundComponent,
     BasicGaugeExampleComponent,

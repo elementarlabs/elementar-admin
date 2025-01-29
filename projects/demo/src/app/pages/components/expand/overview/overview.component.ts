@@ -9,11 +9,9 @@ import {
 import {
   ExpandCustomButtonLabelsExampleComponent
 } from '../_examples/expand-custom-button-labels-example/expand-custom-button-labels-example.component';
-import { MatDivider } from '@angular/material/divider';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
-  selector: 'app-overview',
   imports: [
     PlaygroundComponent,
     BasicExpandExampleComponent,
@@ -21,7 +19,6 @@ import { MatTab, MatTabGroup } from '@angular/material/tabs';
     PageContentDirective,
     ExpandShowButtonIfExpandedExampleComponent,
     ExpandCustomButtonLabelsExampleComponent,
-    MatDivider,
     MatTab,
     MatTabGroup
   ],

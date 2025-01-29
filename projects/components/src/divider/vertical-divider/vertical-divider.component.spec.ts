@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VDividerComponent } from './v-divider.component';
+import { VerticalDividerComponent } from './vertical-divider.component';
 
 describe('VDividerComponent', () => {
-  let component: VDividerComponent;
-  let fixture: ComponentFixture<VDividerComponent>;
+  let component: VerticalDividerComponent;
+  let fixture: ComponentFixture<VerticalDividerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VDividerComponent]
+      imports: [VerticalDividerComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(VDividerComponent);
+
+    fixture = TestBed.createComponent(VerticalDividerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

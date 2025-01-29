@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HDividerComponent } from './h-divider.component';
+import { HorizontalDividerComponent } from './horizontal-divider.component';
 
 describe('HDividerComponent', () => {
-  let component: HDividerComponent;
-  let fixture: ComponentFixture<HDividerComponent>;
+  let component: HorizontalDividerComponent;
+  let fixture: ComponentFixture<HorizontalDividerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HDividerComponent]
+      imports: [HorizontalDividerComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(HDividerComponent);
+
+    fixture = TestBed.createComponent(HorizontalDividerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

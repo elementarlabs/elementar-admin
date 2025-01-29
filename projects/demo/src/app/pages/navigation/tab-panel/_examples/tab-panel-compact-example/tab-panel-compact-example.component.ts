@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { IconComponent } from '@elementar/components/icon';
-import { HDividerComponent } from '@elementar/components/divider';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
 import { AvatarComponent } from '@elementar/components/avatar';
 import {
   TabPanelAsideComponent,
@@ -16,7 +16,7 @@ import {
   imports: [
     IconComponent,
     MatTooltip,
-    HDividerComponent,
+    HorizontalDividerComponent,
     AvatarComponent,
     TabPanelItemIconDirective,
     TabPanelItemComponent,

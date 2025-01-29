@@ -1,0 +1,17 @@
+:host {
+  @apply relative block;
+
+  .content {
+    &:empty {
+      @apply hidden;
+    }
+  }
+
+  &:not([class*="h-"]) {
+    @apply h-px;
+  }
+
+  &:not([class*="bg-"]) {
+    @apply bg-[var(--emr-border)];
+  }
+}

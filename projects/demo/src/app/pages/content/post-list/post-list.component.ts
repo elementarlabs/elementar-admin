@@ -12,7 +12,7 @@ import {
   DataViewComponent, DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective,
   DataViewRowSelectionEvent
 } from '@elementar/components/data-view';
-import { VDividerComponent } from '@elementar/components/divider';
+import { VerticalDividerComponent } from '@elementar/components/divider';
 import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import {
@@ -52,7 +52,7 @@ export interface Post {
     FormsModule,
     MatButton,
     MatIcon,
-    VDividerComponent,
+    VerticalDividerComponent,
     MatIconButton,
     SegmentedButtonComponent,
     SegmentedComponent,

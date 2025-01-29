@@ -1,2 +1,2 @@
-export * from './h-divider/h-divider.component';
-export * from './v-divider/v-divider.component';
+export * from './horizontal-divider/horizontal-divider.component';
+export * from './vertical-divider/vertical-divider.component';

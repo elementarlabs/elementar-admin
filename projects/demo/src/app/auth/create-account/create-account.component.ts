@@ -5,7 +5,7 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { PhoneInputComponent, phoneValidator } from '@elementar/components/phone-input';
-import { HDividerComponent } from '@elementar/components/divider';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
 import { PasswordStrengthComponent } from '@elementar/components/password-strength';
 
 @Component({
@@ -18,7 +18,7 @@ import { PasswordStrengthComponent } from '@elementar/components/password-streng
     MatLabel,
     ReactiveFormsModule,
     RouterLink,
-    HDividerComponent,
+    HorizontalDividerComponent,
     PhoneInputComponent,
     PasswordStrengthComponent
   ],

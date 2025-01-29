@@ -31,14 +31,12 @@ import { SafeHtmlPipe } from '@elementar/components/core';
 import {
   MatAccordion,
   MatExpansionPanel,
-  MatExpansionPanelDescription,
   MatExpansionPanelTitle,
   MatExpansionPanelHeader
 } from '@angular/material/expansion';
-import { MatDivider } from '@angular/material/divider';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { ImageViewerDirective, ImageViewerPictureDirective } from '@elementar/components/image-viewer';
-import { HDividerComponent, VDividerComponent } from '@elementar/components/divider';
+import { HorizontalDividerComponent } from '@elementar/components/divider';
 
 interface MessengerMessage {
   id: any;
@@ -120,7 +118,7 @@ interface MessengerMember {
     MatMenuTrigger,
     ImageViewerPictureDirective,
     ImageViewerDirective,
-    HDividerComponent
+    HorizontalDividerComponent
   ],
   templateUrl: './messenger.component.html',
   styleUrl: './messenger.component.scss'

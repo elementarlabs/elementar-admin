@@ -1,0 +1,15 @@
+:host {
+  @apply block;
+
+  &:not([class*="w-"]) {
+    @apply w-px;
+  }
+
+  &:not([class*="bg-"]) {
+    @apply bg-[var(--emr-border)];
+  }
+
+  &:not([class*="h-"]) {
+    @apply h-4;
+  }
+}

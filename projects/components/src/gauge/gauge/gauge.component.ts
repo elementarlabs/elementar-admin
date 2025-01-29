@@ -1,6 +1,5 @@
 import {
   Component, input,
-  Input,
   numberAttribute,
   OnInit
 } from '@angular/core';
