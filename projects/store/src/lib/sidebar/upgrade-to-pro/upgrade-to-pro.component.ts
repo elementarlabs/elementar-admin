@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
     selector: 'emr-sidebar-upgrade-to-pro',

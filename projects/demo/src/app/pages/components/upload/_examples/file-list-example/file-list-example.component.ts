@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { FileComponent, FileControlComponent, FileListComponent } from '@elementar/components/upload';
+import { FileComponent, FileControlComponent, FileListComponent } from '@elementar-ui/components/upload';
 
 export interface File {
   name: string,

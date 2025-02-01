@@ -3,23 +3,23 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { ScreenLoaderComponent } from '@demo/app/screen-loader/screen-loader.component';
 import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
-import { PageLoadingBarComponent } from '@elementar/components/page-loading-bar';
+import { PageLoadingBarComponent } from '../../../components/src/page-loading-bar';
 import {
   AnalyticsService, EnvironmentService,
   InactivityTrackerService,
   ScreenLoaderService, SeoService,
   ThemeManagerService
-} from '@elementar/components/core';
+} from '../../../components/src/core';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        RouterOutlet,
-        ScreenLoaderComponent,
-        PageLoadingBarComponent
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    ScreenLoaderComponent,
+    PageLoadingBarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   private _themeManager = inject(ThemeManagerService);

@@ -1,5 +1,5 @@
 import { Directive, inject } from '@angular/core';
-import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-editor/types';
+import { COMMENT_EDITOR, CommentEditor } from '../types';
 
 @Directive({
   selector: '[emrCommentEditorCommandOrderedList]',

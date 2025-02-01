@@ -4,14 +4,14 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
 import { ToolbarAComponent } from '@elementar/store/sidebar';
-import { OrderByPipe } from '@elementar/components/core';
+import { OrderByPipe } from '@elementar-ui/components/core';
 import {
   NavigationComponent,
   NavigationGroupComponent,
   NavigationGroupMenuComponent,
   NavigationGroupToggleComponent, NavigationHeadingComponent,
   NavigationItem, NavigationItemComponent
-} from '@elementar/components/navigation';
+} from '@elementar-ui/components/navigation';
 
 @Component({
   selector: 'app-sidebar',

@@ -10,7 +10,7 @@ import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
-import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar/components/core';
+import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-file-grid-layout',

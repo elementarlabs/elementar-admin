@@ -3,7 +3,7 @@ import {
   DataViewActionBarComponent, DataViewActionBarDirective,
   DataViewColumnDef,
   DataViewComponent
-} from '@elementar/components/data-view';
+} from '@elementar-ui/components/data-view';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';

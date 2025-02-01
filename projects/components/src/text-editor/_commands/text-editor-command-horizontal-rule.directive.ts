@@ -1,5 +1,5 @@
 import { Directive, inject } from '@angular/core';
-import { TEXT_EDITOR, TextEditor } from '@elementar/components/text-editor';
+import { TEXT_EDITOR, TextEditor } from '../types';
 
 @Directive({
   selector: '[emrTextEditorCommandHorizontalRule]',

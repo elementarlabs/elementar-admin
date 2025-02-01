@@ -5,7 +5,7 @@ import {
   MatDialogRef,
   MatDialogTitle
 } from '@angular/material/dialog';
-import { ConfirmManager } from '@elementar/components/confirm';
+import { ConfirmManager } from '@elementar-ui/components/confirm';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

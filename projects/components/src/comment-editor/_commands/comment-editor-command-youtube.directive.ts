@@ -1,8 +1,8 @@
 import { DestroyRef, Directive, inject } from '@angular/core';
-import { COMMENT_EDITOR, CommentEditor } from '@elementar/components/comment-editor/types';
-import { YoutubeDialog } from '@elementar/components/comment-editor/youtube/youtube.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatDialog } from '@angular/material/dialog';
+import { COMMENT_EDITOR, CommentEditor } from '../types';
+import { YoutubeDialog } from '../youtube/youtube.dialog';
 
 @Directive({
   selector: '[emrCommentEditorCommandYoutube]',

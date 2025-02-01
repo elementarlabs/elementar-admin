@@ -3,8 +3,8 @@ import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateIconComponent
-} from '@elementar/components/block-state';
-import { IconComponent } from '@elementar/components/icon';
+} from '@elementar-ui/components/block-state';
+import { IconComponent } from '@elementar-ui/components/icon';
 
 @Component({
   selector: 'app-block-state-with-custom-icon-example',

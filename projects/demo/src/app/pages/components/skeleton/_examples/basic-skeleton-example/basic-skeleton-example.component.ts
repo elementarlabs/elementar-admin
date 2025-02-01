@@ -4,7 +4,7 @@ import {
   SkeletonCircleComponent,
   SkeletonComponent,
   SkeletonLineComponent
-} from '@elementar/components/skeleton';
+} from '@elementar-ui/components/skeleton';
 
 @Component({
   selector: 'app-basic-skeleton-example',

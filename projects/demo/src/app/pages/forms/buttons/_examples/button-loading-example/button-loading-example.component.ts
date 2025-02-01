@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { ButtonDirective } from '@elementar/components/core';
+import { ButtonDirective } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-button-loading-example',

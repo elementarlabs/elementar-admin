@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { AVATAR_ACCESSOR, AvatarPresenceIndicator } from '../types';
 import { NgOptimizedImage } from '@angular/common';
-import { SafeHtmlPipe } from '@elementar/components/core';
 
 const alreadyLoadedImages: string[] = [];
 

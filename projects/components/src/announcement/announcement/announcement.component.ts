@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { AnnouncementVariant } from '@elementar/components/announcement/types';
+import { AnnouncementVariant } from '../types';
 
 @Component({
   selector: 'emr-announcement',

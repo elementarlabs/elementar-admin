@@ -1,8 +1,8 @@
 import { DestroyRef, Directive, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LinkDialog } from '@elementar/components/comment-editor/link/link.dialog';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TEXT_EDITOR, TextEditor } from '../types';
+import { LinkDialog } from '../link/link.dialog';
 
 @Directive({
   selector: '[emrTextEditorCommandEditLink]',

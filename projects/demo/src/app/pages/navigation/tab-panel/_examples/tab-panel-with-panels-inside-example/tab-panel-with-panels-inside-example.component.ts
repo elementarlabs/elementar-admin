@@ -6,13 +6,13 @@ import {
   TabPanelItemComponent,
   TabPanelItemIconDirective,
   TabPanelItemTextComponent, TabPanelNavComponent
-} from '@elementar/components/tab-panel';
+} from '@elementar-ui/components/tab-panel';
 import {
   PanelBodyComponent,
   PanelComponent,
   PanelFooterComponent,
   PanelHeaderComponent
-} from '@elementar/components/panel';
+} from '@elementar-ui/components/panel';
 
 @Component({
   selector: 'app-tab-panel-with-panels-inside-example',

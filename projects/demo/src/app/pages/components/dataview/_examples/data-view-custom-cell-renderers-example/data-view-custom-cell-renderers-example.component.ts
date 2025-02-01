@@ -1,5 +1,5 @@
 import { Component, inject, model, OnInit } from '@angular/core';
-import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar/components/data-view';
+import { DataViewCellRenderer, DataViewColumnDef, DataViewComponent } from '@elementar-ui/components/data-view';
 import { HttpClient } from '@angular/common/http';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';

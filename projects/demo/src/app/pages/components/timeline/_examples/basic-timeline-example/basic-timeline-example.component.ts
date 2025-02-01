@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 import {
   TimelineAttributesComponent, TimelineComponent,
   TimelineDescriptionComponent, TimelineHeaderComponent, TimelineItemComponent,
   TimelineTitleComponent
-} from '@elementar/components/timeline';
+} from '@elementar-ui/components/timeline';
 
 @Component({
   selector: 'app-basic-timeline-example',

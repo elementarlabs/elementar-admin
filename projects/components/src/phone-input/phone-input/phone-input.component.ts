@@ -38,7 +38,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatDivider } from '@angular/material/divider';
 import { MatInput } from '@angular/material/input';
 import { SearchPipe } from '../search.pipe';
-import { IconComponent } from '@elementar/components/icon';
+import { IconComponent } from '../../icon';
 
 @Component({
   selector: 'emr-phone-input',

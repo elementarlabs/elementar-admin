@@ -1,5 +1,5 @@
 import { afterNextRender, Component, ElementRef, inject, input, viewChild } from '@angular/core';
-import { ThemeManagerService } from '@elementar/components/core';
+import { ThemeManagerService } from '@elementar-ui/components/core';
 import * as echarts from 'echarts/core';
 import {
   DatasetComponent,
@@ -12,7 +12,7 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { LineChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
-import { Dashboard, DASHBOARD, Widget } from '@elementar/components/dashboard';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
     selector: 'emr-visitor-insights-widget',

@@ -5,12 +5,12 @@ import { MatBadge } from '@angular/material/badge';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
-import { SoundEffectDirective, ThemeManagerService } from '@elementar/components/core';
-import { LayoutApiService } from '@elementar/components/layout';
-import { DicebearComponent } from '@elementar/components/avatar';
-import { Notification } from '@elementar/components/notifications';
+import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components/core';
+import { LayoutApiService } from '@elementar-ui/components/layout';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
+import { Notification } from '@elementar-ui/components/notifications';
 import { NotificationsPopoverComponent } from '@elementar/store/header';
-import { PopoverTriggerForDirective } from '@elementar/components/popover';
+import { PopoverTriggerForDirective } from '@elementar-ui/components/popover';
 
 @Component({
   selector: 'app-header',

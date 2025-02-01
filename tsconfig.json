@@ -2,9 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@elementar/components/*": [
-        "./projects/components/src/*"
-      ],
       "@elementar-ui/components/*": [
         "./projects/components/src/*"
       ],

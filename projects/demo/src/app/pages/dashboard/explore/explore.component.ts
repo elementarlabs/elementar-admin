@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/dashboard';
+import { DashboardComponent, Widget, WidgetConfig } from '@elementar-ui/components/dashboard';
 
 @Component({
   selector: 'app-explore',

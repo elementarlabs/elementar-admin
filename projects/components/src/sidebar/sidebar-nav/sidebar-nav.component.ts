@@ -1,22 +1,25 @@
 import { Component, input } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { MatBadge } from '@angular/material/badge';
 import {
   NavigationComponent,
   NavigationDividerComponent,
-  NavigationGroupComponent, NavigationGroupMenuComponent,
-  NavigationGroupToggleComponent, NavigationGroupToggleIconDirective,
-  NavigationHeadingComponent,
-  NavigationItem,
-  NavigationItemBadgeDirective,
-  NavigationItemComponent, NavigationItemIconDirective
-} from '@elementar/components/navigation';
-import { MatIcon } from '@angular/material/icon';
-import { OrderByPipe } from '@elementar/components/core';
-import { RouterLink } from '@angular/router';
-import { MatBadge } from '@angular/material/badge';
+  NavigationGroupComponent,
+  NavigationGroupMenuComponent,
+  NavigationGroupToggleComponent,
+  NavigationGroupToggleIconDirective,
+  NavigationHeadingComponent, NavigationItem, NavigationItemBadgeDirective,
+  NavigationItemComponent,
+  NavigationItemIconDirective
+} from '../../navigation';
+import { OrderByPipe } from '../../core';
 
 @Component({
-  selector: 'emr-sidebar-nav',
   exportAs: 'emrSidebarNav',
+  host: {
+    'class': 'emr-sidebar-nav',
+  },
   imports: [
     NavigationComponent,
     NavigationItemComponent,
@@ -33,11 +36,9 @@ import { MatBadge } from '@angular/material/badge';
     NavigationItemBadgeDirective,
     MatBadge
   ],
-  templateUrl: './sidebar-nav.component.html',
+  selector: 'emr-sidebar-nav',
   styleUrl: './sidebar-nav.component.scss',
-  host: {
-    'class': 'emr-sidebar-nav',
-  }
+  templateUrl: './sidebar-nav.component.html'
 })
 export class SidebarNavComponent<T extends NavigationItem> {
   activeKey = input();

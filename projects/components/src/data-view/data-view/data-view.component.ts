@@ -29,14 +29,15 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortHeader, Sort } from '@angular/material/sort';
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
-import { DataViewActionBarDirective } from '@elementar/components/data-view/data-view-action-bar.directive';
-import { DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective } from '@elementar/components/data-view';
 import {
   SkeletonBlockComponent,
   SkeletonCircleComponent,
   SkeletonComponent,
   SkeletonLineComponent
-} from '@elementar/components/skeleton';
+} from '../../skeleton';
+import { DataViewEmptyDataDirective } from '../data-view-empty-data.directive';
+import { DataViewEmptyFilterResultsDirective } from '../data-view-empty-filter-results.directive';
+import { DataViewActionBarDirective } from '../data-view-action-bar.directive';
 
 @Component({
   selector: 'emr-data-view',

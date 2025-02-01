@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationComponent, NavigationItemComponent } from '@elementar/components/navigation';
+import { NavigationComponent, NavigationItemComponent } from '@elementar-ui/components/navigation';
 
 @Component({
   selector: 'app-basic-navigation-example',

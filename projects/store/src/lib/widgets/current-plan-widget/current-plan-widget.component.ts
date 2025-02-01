@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
-import { DASHBOARD, Widget } from '@elementar/components/dashboard';
+import { DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
     selector: 'emr-current-plan-widget',

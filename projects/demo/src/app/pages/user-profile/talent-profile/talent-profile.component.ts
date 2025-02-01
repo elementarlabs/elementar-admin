@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
-import { IconComponent } from '@elementar/components/icon';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { IconComponent } from '@elementar-ui/components/icon';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 interface Person {
   avatarUrl: string;

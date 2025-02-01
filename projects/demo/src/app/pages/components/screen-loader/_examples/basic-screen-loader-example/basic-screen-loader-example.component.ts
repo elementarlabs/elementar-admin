@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { ScreenLoaderComponent } from '@elementar/components/screen-loader';
+import { ScreenLoaderComponent } from '@elementar-ui/components/screen-loader';
 import { MatButton } from '@angular/material/button';
 
 @Component({

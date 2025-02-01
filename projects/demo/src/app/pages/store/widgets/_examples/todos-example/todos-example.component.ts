@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { TodosWidgetComponent } from '@elementar/store/widgets';
-import { DASHBOARD, Widget } from '@elementar/components/dashboard';
+import { DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
     selector: 'app-todos-example',

@@ -6,7 +6,7 @@ import {
   NavigationGroupToggleComponent,
   NavigationItemBadgeDirective,
   NavigationItemComponent
-} from '@elementar/components/navigation';
+} from '@elementar-ui/components/navigation';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

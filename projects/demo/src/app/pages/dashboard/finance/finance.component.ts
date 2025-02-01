@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { IconComponent } from '@elementar/components/icon';
+import { IconComponent } from '@elementar-ui/components/icon';
 import { MatRipple } from '@angular/material/core';
 import {
   Transaction,

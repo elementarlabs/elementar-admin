@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { UploadFileState } from '../types';
-import { GaugeComponent, GaugeValueComponent } from '@elementar/components/gauge';
+import { GaugeComponent, GaugeValueComponent } from '../../gauge';
 
 @Component({
   selector: 'emr-grid-file',

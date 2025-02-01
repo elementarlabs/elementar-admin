@@ -6,13 +6,10 @@ import {
   input,
   TemplateRef
 } from '@angular/core';
-
 import { NgTemplateOutlet } from '@angular/common';
-import {
-  Notification,
-  NotificationControlsDefDirective,
-  NotificationDefDirective
-} from '@elementar/components/notifications';
+import { NotificationDefDirective } from '../notification-def.directive';
+import { NotificationControlsDefDirective } from '../notification-controls-def.directive';
+import { Notification } from '../types';
 
 @Component({
   selector: 'emr-notification-list',

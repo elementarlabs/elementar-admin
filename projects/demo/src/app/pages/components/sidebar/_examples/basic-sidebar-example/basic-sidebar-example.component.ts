@@ -5,8 +5,8 @@ import {
   SidebarFooterComponent,
   SidebarHeaderComponent,
   SidebarNavComponent
-} from '@elementar/components/sidebar';
-import { NavigationItem } from '@elementar/components/navigation';
+} from '@elementar-ui/components/sidebar';
+import { NavigationItem } from '@elementar-ui/components/navigation';
 import { v7 as uuid } from 'uuid';
 
 @Component({

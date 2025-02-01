@@ -1,5 +1,5 @@
 import { booleanAttribute, Component, input } from '@angular/core';
-import { DataViewActionBarAPI } from '@elementar/components/data-view';
+import { DataViewActionBarAPI } from '../types';
 
 @Component({
   selector: 'emr-data-view-action-bar',

@@ -3,7 +3,7 @@ import {
   ColorPickerComponent,
   ColorPickerThumbnailComponent,
   ColorPickerTriggerForDirective
-} from '@elementar/components/color-picker';
+} from '@elementar-ui/components/color-picker';
 
 @Component({
   selector: 'app-color-picker-with-popover-example',

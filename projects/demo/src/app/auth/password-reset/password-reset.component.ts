@@ -3,7 +3,7 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { MatButton } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
-import { PinInputComponent } from '@elementar/components/pin-input';
+import { PinInputComponent } from '@elementar-ui/components/pin-input';
 
 @Component({
   selector: 'app-password-reset',

@@ -21,17 +21,12 @@ import {
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatRipple } from '@angular/material/core';
-import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
-import {
-  KanbanColumn,
-  KanbanItem,
-  KanbanItemSortedEvent,
-  KanbanItemTransferredEvent
-} from '@elementar/components/kanban-board';
-import { KanbanItemDefDirective } from '@elementar/components/kanban-board/kanban-item-def.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '../../panel';
+import { KanbanColumn, KanbanItem, KanbanItemSortedEvent, KanbanItemTransferredEvent } from '../types';
+import { KanbanItemDefDirective } from '../kanban-item-def.directive';
 
 @Component({
   selector: 'emr-kanban-board',
@@ -55,7 +50,7 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
   templateUrl: './kanban-board.component.html',
   styleUrl: './kanban-board.component.scss',
   host: {
-    class: 'emr-kanban-board',
+    'class': 'emr-kanban-board',
     '[class.is-dragging-active]': 'isDraggingActive'
   }
 })

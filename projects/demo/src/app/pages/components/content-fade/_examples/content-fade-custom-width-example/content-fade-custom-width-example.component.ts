@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentFadeComponent, ContentFadePosition } from '@elementar/components/content-fade';
+import { ContentFadeComponent, ContentFadePosition } from '@elementar-ui/components/content-fade';
 
 @Component({
   selector: 'app-content-fade-custom-width-example',

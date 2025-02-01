@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { File } from '../file-list-example/file-list-example.component';
-import { FilesGridComponent, GridFileComponent } from '@elementar/components/upload';
+import { FilesGridComponent, GridFileComponent } from '@elementar-ui/components/upload';
 
 @Component({
   selector: 'app-file-grid-example',

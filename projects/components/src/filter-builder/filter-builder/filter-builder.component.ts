@@ -26,7 +26,7 @@ import { MatOption } from '@angular/material/autocomplete';
 import { MatFormField, MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { FilterBuilderOperationNameDirective } from '../filter-builder-operation-name.directive';
-import { AutoFocusDirective, FocusElementDirective, MenuOptionGroupDirective } from '@elementar/components/core';
+import { AutoFocusDirective, FocusElementDirective, MenuOptionGroupDirective } from '../../core';
 
 @Component({
   selector: 'emr-filter-builder',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnnouncementComponent } from '@elementar/components/announcement';
+import { AnnouncementComponent } from '@elementar-ui/components/announcement';
 
 @Component({
   selector: 'app-basic-announcement-example',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MentionedInCommentNotification } from '@elementar/store/notifications';
-import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
+import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar-ui/components/notifications';
 
 @Component({
   selector: 'app-mentioned-in-comment-notification-example',

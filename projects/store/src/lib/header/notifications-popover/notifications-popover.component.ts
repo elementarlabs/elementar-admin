@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar/components/notifications';
+import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar-ui/components/notifications';
 
 import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
 import { RouterLink } from '@angular/router';
 import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
-import { PopoverComponent } from '@elementar/components/popover';
+import { PopoverComponent } from '@elementar-ui/components/popover';
 
 @Component({
   selector: 'emr-notifications-popover',

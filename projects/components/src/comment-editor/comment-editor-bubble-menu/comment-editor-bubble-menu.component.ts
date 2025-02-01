@@ -1,5 +1,5 @@
 import { Component, forwardRef, inject } from '@angular/core';
-import { COMMENT_EDITOR, COMMENT_EDITOR_BUBBLE_MENU, CommentEditor } from '@elementar/components/comment-editor';
+import { COMMENT_EDITOR, COMMENT_EDITOR_BUBBLE_MENU, CommentEditor } from '../types';
 
 @Component({
   selector: 'emr-comment-editor-bubble-menu',

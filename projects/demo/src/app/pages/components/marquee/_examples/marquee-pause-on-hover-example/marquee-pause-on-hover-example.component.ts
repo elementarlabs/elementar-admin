@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MarqueeComponent } from '@elementar/components/marquee';
+import { MarqueeComponent } from '@elementar-ui/components/marquee';
 
 @Component({
   selector: 'app-marquee-pause-on-hover-example',

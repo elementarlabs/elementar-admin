@@ -5,7 +5,7 @@ import {
   LayoutComponent,
   LayoutHeaderComponent,
   LayoutSidebarComponent
-} from '@elementar/components/layout';
+} from '@elementar-ui/components/layout';
 import { SidebarComponent } from '../@app/sidebar/sidebar.component';
 import { HeaderComponent } from '../@app/header/header.component';
 

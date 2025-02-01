@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { HorizontalDividerComponent } from '@elementar/components/divider';
-import { IconComponent } from '@elementar/components/icon';
+import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
+import { IconComponent } from '@elementar-ui/components/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { AvatarComponent, DicebearComponent } from '@elementar/components/avatar';
+import { AvatarComponent, DicebearComponent } from '@elementar-ui/components/avatar';
 import {
   TabPanelAsideComponent,
   TabPanelAsideContentDirective,
@@ -12,8 +12,8 @@ import {
   TabPanelCustomItemComponent, TabPanelFooterComponent, TabPanelHeaderComponent,
   TabPanelItemComponent,
   TabPanelNavComponent
-} from '@elementar/components/tab-panel';
-import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar/components/panel';
+} from '@elementar-ui/components/tab-panel';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar-ui/components/panel';
 
 @Component({
   selector: 'app-sidebar',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PinInputComponent } from '@elementar/components/pin-input';
+import { PinInputComponent } from '@elementar-ui/components/pin-input';
 
 @Component({
   selector: 'app-pin-input-accept-custom-symbols-example',

@@ -1,6 +1,6 @@
 import { Directive, inject } from '@angular/core';
-import { UploadFileSelectedEvent, UploadTriggerDirective } from '@elementar/components/upload';
 import { COMMENT_EDITOR, CommentEditor } from '../types';
+import { UploadFileSelectedEvent, UploadTriggerDirective } from '../../upload';
 
 @Directive({
   selector: '[emrCommentEditorCommandImage]',

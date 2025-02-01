@@ -180,7 +180,7 @@ $m3-dark-theme: mat.define-theme((
 }
 
 body {
-  @apply min-h-screen font-sans;
+  @apply block min-h-screen font-sans;
 
   *:not(.emr-native-scroll) {
     &::-webkit-scrollbar {
@@ -201,6 +201,10 @@ body {
       @apply w-[11px] h-[11px];
     }
   }
+}
+
+app-root {
+  @apply contents;
 }
 
 .mdc-icon-button {

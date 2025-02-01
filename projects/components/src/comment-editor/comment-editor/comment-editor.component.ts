@@ -30,10 +30,8 @@ import Dropcursor from '@tiptap/extension-dropcursor';
 import Image from '@tiptap/extension-image';
 import { MatButton } from '@angular/material/button';
 import { DOCUMENT, isPlatformServer } from '@angular/common';
-
-import ImageUploadingPlaceholderExtension
-  from '@elementar/components/comment-editor/extensions/image-uploading-placeholder';
-import { COMMENT_EDITOR, CommentEditorAPI } from '@elementar/components/comment-editor/types';
+import { COMMENT_EDITOR, CommentEditorAPI } from '../types';
+import ImageUploadingPlaceholderExtension from '../extensions/image-uploading-placeholder';
 
 @Component({
   selector: 'emr-comment-editor',

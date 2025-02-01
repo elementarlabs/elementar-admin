@@ -1,5 +1,5 @@
 import { Component, forwardRef, input, OnInit } from '@angular/core';
-import { RAIL_NAV, RailNavAPI } from '@elementar/components/rail-nav/types';
+import { RAIL_NAV, RailNavAPI } from '../types';
 
 @Component({
   selector: 'emr-rail-nav',

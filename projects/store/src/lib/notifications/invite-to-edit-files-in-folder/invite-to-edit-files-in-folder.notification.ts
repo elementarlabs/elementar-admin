@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { DicebearComponent } from '@elementar/components/avatar';
-import { Notification } from '@elementar/components/notifications';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
+import { Notification } from '@elementar-ui/components/notifications';
 
 @Component({
   selector: 'emr-invite-to-edit-files-in-folder',

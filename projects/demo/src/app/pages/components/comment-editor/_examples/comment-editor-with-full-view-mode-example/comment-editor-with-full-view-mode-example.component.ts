@@ -18,12 +18,12 @@ import {
   CommentEditorCommandEditLinkDirective,
   CommentEditorCommandLinkDirective,
   CommentEditorCommandUnsetLinkDirective, CommentEditorCommandToggleToolbarDirective, CommentEditorFooterBarComponent
-} from '@elementar/components/comment-editor';
-import { SafeHtmlPipe } from '@elementar/components/core';
+} from '@elementar-ui/components/comment-editor';
+import { SafeHtmlPipe } from '@elementar-ui/components/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { IconComponent } from '@elementar/components/icon';
+import { IconComponent } from '@elementar-ui/components/icon';
 
 @Component({
   selector: 'app-comment-editor-with-full-view-mode-example',

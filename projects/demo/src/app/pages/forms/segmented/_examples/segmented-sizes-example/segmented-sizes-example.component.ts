@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SegmentedButtonComponent, SegmentedComponent } from '@elementar/components/segmented';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components/segmented';
 
 @Component({
     selector: 'app-segmented-sizes-example',

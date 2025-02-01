@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { AlertComponent, AlertIconDirective } from '@elementar/components/alert';
+import { AlertComponent, AlertIconDirective } from '@elementar-ui/components/alert';
 
 @Component({
   selector: 'app-alert-with-icon-example',

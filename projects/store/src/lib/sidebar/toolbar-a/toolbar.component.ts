@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
-import { DicebearComponent } from '@elementar/components/avatar';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'emr-sidebar-toolbar-a',

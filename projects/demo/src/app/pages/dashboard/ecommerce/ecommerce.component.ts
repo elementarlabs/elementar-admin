@@ -12,7 +12,7 @@ import {
   DashboardChartWidgetSkeletonComponent,
   DashboardStatsWidgetSkeletonComponent
 } from '@elementar/store/skeleton';
-import { DashboardComponent, Widget, WidgetConfig } from '@elementar/components/dashboard';
+import { DashboardComponent, Widget, WidgetConfig } from '@elementar-ui/components/dashboard';
 
 @Component({
   selector: 'app-ecommerce',

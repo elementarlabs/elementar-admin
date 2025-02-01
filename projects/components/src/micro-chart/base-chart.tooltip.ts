@@ -8,7 +8,7 @@ import {
   OverlayRef
 } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
-import { OverlayPosition, PositionManager } from '@elementar/components/overlay';
+import { OverlayPosition, PositionManager } from '../overlay';
 
 export abstract class BaseChartTooltip {
   protected _tooltipOrigin: HTMLElement;

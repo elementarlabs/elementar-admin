@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { InitialsPipe } from '@elementar/components/core';
-import { AvatarComponent } from '@elementar/components/avatar';
+import { InitialsPipe } from '@elementar-ui/components/core';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
     selector: 'app-dv-author-renderer',

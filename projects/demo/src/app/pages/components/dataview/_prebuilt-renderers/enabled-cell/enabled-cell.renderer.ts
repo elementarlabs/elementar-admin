@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { DataViewCellRendererComponent } from '@elementar/components/data-view';
-import { IconComponent } from '@elementar/components/icon';
+import { DataViewCellRendererComponent } from '@elementar-ui/components/data-view';
+import { IconComponent } from '@elementar-ui/components/icon';
 
 @Component({
     selector: 'app-enabled-cell',
