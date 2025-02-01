@@ -11,17 +11,19 @@ import {
 import {
   CardOverlayWithBlurExampleComponent
 } from '../_examples/card-overlay-with-blur-example/card-overlay-with-blur-example.component';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
     selector: 'app-overview',
-    imports: [
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        BasicCardOverlayExampleComponent,
-        CardOverlayWithTranslateExampleComponent,
-        CardOverlayWithBlurExampleComponent
-    ],
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    BasicCardOverlayExampleComponent,
+    CardOverlayWithTranslateExampleComponent,
+    CardOverlayWithBlurExampleComponent,
+    MatDivider
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })
