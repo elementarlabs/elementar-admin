@@ -18,7 +18,7 @@
           </div>
           <mat-menu #nestedGroupOperationsMenu>
             <div emrMenuOptionGroup [(ngModel)]="item['logicalOperator']">
-              @for (groupOperation of groupOperations; track groupOperation.id) {
+              @for (groupOperation of groupOperations(); track groupOperation.id) {
                 <mat-option [value]="groupOperation.id">{{ groupOperation.name }}</mat-option>
               }
             </div>
@@ -159,17 +159,17 @@
         </div>
         <mat-menu #fieldsMenu>
           <div emrMenuOptionGroup [(ngModel)]="item['value'][0]">
-            @for (fieldDef of fieldDefs; track fieldDef) {
+            @for (fieldDef of fieldDefs(); track fieldDef) {
               <mat-option [value]="fieldDef.dataField"
                           (click)="selectConditionField(item, fieldDef)">{{ fieldDef.name }}</mat-option>
             }
           </div>
         </mat-menu>
         <mat-menu #operationsMenu>
-          <div emrMenuOptionGroup [ngModel]="item['value'][1]" (ngModelChange)="operationChanged(item, $event)">
-            @for (operation of _operationDefs; track operation.id) {
-              <div [hidden]="!isOperationAllowedForCondition(item['value'][0], operation.id)">
-                <mat-option [value]="operation.id">
+          <div emrMenuOptionGroup [ngModel]="item['value'][1]">
+            @for (operation of _operationDefs; track operation.id()) {
+              <div [hidden]="!isOperationAllowedForCondition(item['value'][0], operation.id())">
+                <mat-option [value]="operation.id()" (click)="operationChanged(item, operation.id())">
                   <div class="flex items-center gap-3">
                     @if (operation.operationIcon()) {
                       <ng-template [ngTemplateOutlet]="operationIconTemplateRef(operation)"></ng-template>
@@ -202,7 +202,7 @@
 
 <mat-menu #groupOperationsMenu>
   <div emrMenuOptionGroup [(ngModel)]="_logicalOperator" (ngModelChange)="_emitChangeEvent()">
-    @for (groupOperation of groupOperations; track groupOperation.id) {
+    @for (groupOperation of groupOperations(); track groupOperation.id) {
       <mat-option [value]="groupOperation.id">{{ groupOperation.name }}</mat-option>
     }
   </div>
