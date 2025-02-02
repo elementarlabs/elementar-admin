@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, Input } from '@angular/core';
+import { booleanAttribute, Component, input, Input } from '@angular/core';
 import { LAYOUT } from '../types';
 
 @Component({
@@ -15,13 +15,12 @@ import { LAYOUT } from '../types';
   ],
   host: {
     'class': 'emr-layout',
-    '[class.is-window-mode]': 'windowMode'
+    '[class.is-window-mode]': 'windowMode()'
   }
 })
 export class LayoutComponent {
-  @Input()
-  layoutId: string;
-
-  @Input({ transform: booleanAttribute })
-  windowMode = false;
+  layoutId = input<string>();
+  windowMode = input(false, {
+    transform: booleanAttribute
+  });
 }
