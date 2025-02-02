@@ -1,7 +1,7 @@
 :host {
   --emr-panel-footer-height: theme('height.14');
 
-  @apply flex-none;
+  flex: none;
 
   &:not([class*="h-"]) {
     height: var(--emr-panel-footer-height);

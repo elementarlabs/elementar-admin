@@ -1,10 +1,10 @@
-import { Component, ElementRef, inject, Input } from '@angular/core';
+import { Component, effect, ElementRef, inject, input } from '@angular/core';
 
 @Component({
   selector: 'emr-panel-footer',
   exportAs: 'emrPanelFooter',
   templateUrl: './panel-footer.component.html',
-  styleUrls: ['./panel-footer.component.scss'],
+  styleUrl: './panel-footer.component.scss',
   host: {
     'class': 'emr-panel-footer'
   }
@@ -12,12 +12,19 @@ import { Component, ElementRef, inject, Input } from '@angular/core';
 export class PanelFooterComponent {
   private _elementRef = inject(ElementRef);
 
-  @Input()
-  set height(height: string | number) {
-    this._elementRef.nativeElement.style.setProperty('--emr-panel-footer-height', height + 'px');
-  }
+  height = input<number>();
 
   ngOnDestroy() {
     this._elementRef.nativeElement.style.removeProperty('--emr-panel-footer-height');
+  }
+
+  constructor() {
+    effect(() => {
+      if (this.height()) {
+        this._elementRef.nativeElement.style.setProperty('--emr-panel-footer-height', this.height() + 'px');
+      } else {
+        this._elementRef.nativeElement.style.removeProperty('--emr-panel-footer-height');
+      }
+    });
   }
 }

@@ -1,10 +1,10 @@
-import { Component, ElementRef, inject, Input, OnDestroy } from '@angular/core';
+import { Component, effect, ElementRef, inject, input, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'emr-panel-header',
   exportAs: 'emrPanelHeader',
   templateUrl: './panel-header.component.html',
-  styleUrls: ['./panel-header.component.scss'],
+  styleUrl: './panel-header.component.scss',
   host: {
     'class': 'emr-panel-header'
   }
@@ -12,12 +12,19 @@ import { Component, ElementRef, inject, Input, OnDestroy } from '@angular/core';
 export class PanelHeaderComponent implements OnDestroy {
   private _elementRef = inject(ElementRef);
 
-  @Input()
-  set height(height: string | number) {
-    this._elementRef.nativeElement.style.setProperty('--emr-panel-header-height', height + 'px');
-  }
+  height = input<number>();
 
   ngOnDestroy() {
     this._elementRef.nativeElement.style.removeProperty('--emr-panel-header-height');
+  }
+
+  constructor() {
+    effect(() => {
+      if (this.height()) {
+        this._elementRef.nativeElement.style.setProperty('--emr-panel-header-height', this.height() + 'px');
+      } else {
+        this._elementRef.nativeElement.style.removeProperty('--emr-panel-header-height');
+      }
+    });
   }
 }
