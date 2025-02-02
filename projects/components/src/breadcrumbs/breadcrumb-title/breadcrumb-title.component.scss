@@ -2,5 +2,5 @@
   display: block;
   font-size: var(--emr-breadcrumbs-title-font-size);
   color: var(--emr-breadcrumbs-title-color);
-  line-height: theme('lineHeight.relaxed');
+  line-height: var(--leading-relaxed);
 }

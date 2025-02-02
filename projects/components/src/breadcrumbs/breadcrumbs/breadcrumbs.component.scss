@@ -1,21 +1,23 @@
 :host {
-  --emr-breadcrumbs-gap: theme('gap[2.5]');
-  --emr-breadcrumbs-item-font-size: theme('fontSize.sm');
-  --emr-breadcrumbs-item-color: theme('colors.neutral.500');
-  --emr-breadcrumbs-item-hover-color: theme('colors.primary.DEFAULT');
-  --emr-breadcrumbs-active-item-color: theme('colors.primary.DEFAULT');
-  --emr-breadcrumbs-item-font-weight: theme('fontWeight.normal');
-  --emr-breadcrumbs-separator-color: theme('colors.neutral.400');
-  --emr-breadcrumbs-separator-font-size: theme('fontSize.xs');
+  --emr-breadcrumbs-gap: var(--gap-2_5);
+  --emr-breadcrumbs-item-font-size: var(--text-sm);
+  --emr-breadcrumbs-item-color: var(--color-neutral-500);
+  --emr-breadcrumbs-item-hover-color: var(--color-primary);
+  --emr-breadcrumbs-active-item-color: var(--color-primary);
+  --emr-breadcrumbs-item-font-weight: var(--font-normal);
+  --emr-breadcrumbs-separator-color: var(--color-neutral-400);
+  --emr-breadcrumbs-separator-font-size: var(--text-xs);
   --emr-breadcrumbs-separator-position-top: 1px;
-  --emr-breadcrumbs-title-color: theme('colors.neutral.800');
-  --emr-breadcrumbs-title-font-size: theme('fontSize.xs');
+  --emr-breadcrumbs-title-color: var(--color-neutral-800);
+  --emr-breadcrumbs-title-font-size: var(--text-xs);
 
-  @apply flex items-center gap-[var(--emr-breadcrumbs-gap)];
+  display: flex;
+  align-items: center;
+  gap: var(--emr-breadcrumbs-gap);
 }
 
 :host-context(html.dark) {
-  --emr-breadcrumbs-item-color: theme('colors.neutral.400');
-  --emr-breadcrumbs-separator-color: theme('colors.neutral.400');
-  --emr-breadcrumbs-title-color: theme('colors.neutral.100');
+  --emr-breadcrumbs-item-color: var(--color-neutral-400);
+  --emr-breadcrumbs-separator-color: var(--color-neutral-400);
+  --emr-breadcrumbs-title-color: var(--color-neutral-100);
 }
