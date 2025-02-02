@@ -1,4 +1,12 @@
-import { booleanAttribute, Component, ElementRef, inject, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  booleanAttribute,
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  Renderer2
+} from '@angular/core';
 import { CommandBarPosition } from '../types';
 
 @Component({
@@ -9,24 +17,21 @@ import { CommandBarPosition } from '../types';
   styleUrl: './command-bar.component.scss',
   host: {
     'class': 'emr-command-bar',
-    '[class.is-open]': 'open',
+    '[class.is-open]': 'open()',
   }
 })
-export class CommandBarComponent implements OnInit {
+export class CommandBarComponent {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
 
-  @Input({ transform: booleanAttribute })
-  open = false;
+  open = input(false, {
+    transform: booleanAttribute
+  });
+  position = input<CommandBarPosition>('bottom');
 
-  @Input()
-  set position(position: CommandBarPosition) {
-    this._position = position;
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-command-bar-position', this._position);
-  }
-  private _position: CommandBarPosition = 'bottom';
-
-  ngOnInit() {
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-command-bar-position', this._position);
+  constructor() {
+    effect(() => {
+      this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-command-bar-position', this.position());
+    });
   }
 }
