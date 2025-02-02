@@ -5,7 +5,7 @@ import { TAB_PANEL_NAV } from '../types';
   selector: 'emr-tab-panel-nav',
   exportAs: 'emrTabPanelNav',
   templateUrl: './tab-panel-nav.component.html',
-  styleUrls: ['./tab-panel-nav.component.scss'],
+  styleUrl: './tab-panel-nav.component.scss',
   providers: [
     {
       provide: TAB_PANEL_NAV,

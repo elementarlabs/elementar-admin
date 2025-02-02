@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { TabPanelApiService } from '../tab-panel-api.service';
 
 @Component({
@@ -7,7 +7,8 @@ import { TabPanelApiService } from '../tab-panel-api.service';
   templateUrl: './tab-panel-custom-item.component.html',
   styleUrl: './tab-panel-custom-item.component.scss',
   host: {
-    'class': 'emr-tab-panel-custom-item'
+    'class': 'emr-tab-panel-custom-item',
+    '(click)': '_handleClick()'
   }
 })
 export class TabPanelCustomItemComponent {
@@ -15,8 +16,7 @@ export class TabPanelCustomItemComponent {
 
   for = input<any>();
 
-  @HostListener('click')
-  private _handleClick() {
+  protected _handleClick() {
     if (!this.for()) {
       return;
     }

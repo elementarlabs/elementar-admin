@@ -36,7 +36,7 @@ export class TabPanelAsideContentDirective implements OnInit {
       this._hide();
     }
 
-    this._api.itemIdChange
+    this._api.itemIdChanged
       .pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe(id => {
         if (this._id === id) {
@@ -46,7 +46,6 @@ export class TabPanelAsideContentDirective implements OnInit {
         }
       })
     ;
-
   }
 
   private _show() {

@@ -4,13 +4,13 @@ import { SelectionModel } from '@angular/cdk/collections';
 @Injectable()
 export class TabPanelApiService {
   private _selectionModel = new SelectionModel(false);
-  readonly itemIdChange = new EventEmitter<any>();
+  readonly itemIdChanged = new EventEmitter<any>();
 
   activate(id: any, emitEvent = true) {
     this._selectionModel.select(id);
 
     if (emitEvent) {
-      this.itemIdChange.emit(id);
+      this.itemIdChanged.emit(id);
     }
   }
 
