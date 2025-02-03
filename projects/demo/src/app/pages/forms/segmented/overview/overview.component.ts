@@ -13,19 +13,22 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   SegmentedIconsOnlyExampleComponent
 } from '../_examples/segmented-icons-only-example/segmented-icons-only-example.component';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
     selector: 'app-overview',
-    imports: [
-        PlaygroundComponent,
-        BasicSegmentedExampleComponent,
-        SegmentedSizesExampleComponent,
-        SegmentedDisabledExampleComponent,
-        SegmentedWithIconsExampleComponent,
-        PageComponent,
-        PageContentDirective,
-        SegmentedIconsOnlyExampleComponent
-    ],
+  imports: [
+    PlaygroundComponent,
+    BasicSegmentedExampleComponent,
+    SegmentedSizesExampleComponent,
+    SegmentedDisabledExampleComponent,
+    SegmentedWithIconsExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    SegmentedIconsOnlyExampleComponent,
+    MatTab,
+    MatTabGroup
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })

@@ -1,6 +1,5 @@
 import {
   booleanAttribute,
-  ChangeDetectionStrategy,
   Component,
   inject,
   input
@@ -12,10 +11,8 @@ import { MatRipple } from '@angular/material/core';
 @Component({
   selector: 'emr-segmented-button,[emr-segmented-button]',
   exportAs: 'emrSegmentedButton',
-  standalone: true,
   templateUrl: './segmented-button.component.html',
   styleUrl: './segmented-button.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     MatRipple
   ],

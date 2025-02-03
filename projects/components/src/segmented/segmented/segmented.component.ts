@@ -5,9 +5,9 @@ import {
   ElementRef,
   forwardRef,
   inject, input,
-  Input,
+  OnChanges,
   OnInit, output,
-  Renderer2
+  Renderer2, SimpleChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SegmentedTriggerSize, EMR_SEGMENTED } from '../types';
@@ -17,7 +17,6 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 @Component({
   selector: 'emr-segmented',
   exportAs: 'emrSegmented',
-  standalone: true,
   templateUrl: './segmented.component.html',
   styleUrl: './segmented.component.scss',
   providers: [
@@ -36,30 +35,21 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     '[class.is-disabled]': 'disabled() || _disabled || null',
   },
 })
-export class SegmentedComponent implements OnInit, ControlValueAccessor {
+export class SegmentedComponent implements OnInit, OnChanges, ControlValueAccessor {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
   private _cdr = inject(ChangeDetectorRef);
   protected _disabled = false;
 
-  @Input()
-  set selectedValue(value: any) {
-    this._selectedValue.select(value);
-  }
-  private _selectedValue = new SelectionModel<any>(false, []);
-
+  selectedValue = input();
   disabled = input(false, {
     transform: booleanAttribute
   });
-
-  @Input()
-  set size(size: SegmentedTriggerSize) {
-    this._size = size;
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-segmented-size', this._size);
-  }
-  private _size: SegmentedTriggerSize = 'default';
+  size = input<SegmentedTriggerSize>('default');
 
   readonly selectedValueChanged = output<any>();
+
+  private _selectedValue = new SelectionModel<any>(false, []);
 
   _onChange: any = () => {};
   _onTouched: any = () => {};
@@ -72,7 +62,17 @@ export class SegmentedComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-segmented-size', this._size);
+    this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-segmented-size', this.size());
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['size']) {
+      this._renderer.setAttribute(this._elementRef.nativeElement, 'emr-segmented-size', this.size());
+    }
+
+    if (changes['selectedValue']) {
+      this._selectedValue.select(changes['selectedValue'].currentValue);
+    }
   }
 
   writeValue(value: any): void {
