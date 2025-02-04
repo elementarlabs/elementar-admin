@@ -1,10 +1,8 @@
 import {
+  DestroyRef,
   Directive, ElementRef,
-  EventEmitter,
-  HostListener,
-  inject, Injector,
-  Input, OnDestroy,
-  Output,
+  inject, Injector, input,
+  numberAttribute, OnDestroy, output,
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
@@ -15,12 +13,13 @@ import {
   OverlayConfig,
   OverlayRef
 } from '@angular/cdk/overlay';
-import { fromEvent, merge, Subject, takeUntil } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { Directionality } from '@angular/cdk/bidi';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { _getEventTarget } from '@angular/cdk/platform';
 import { PopoverTrigger, PopoverPosition } from './types';
 import { PositionManager } from '../overlay';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector: '[emrPopoverTriggerFor]',
@@ -28,6 +27,9 @@ import { PositionManager } from '../overlay';
   host: {
     'class': 'emr-popover-trigger-for',
     '[class.emr-popover-trigger-for--is-open]': 'api.isOpen()',
+    '(click)': '_handleClick()',
+    '(mouseenter)': '_handleMouseover()',
+    '(mouseleave)': '_handleMouseout()'
   }
 })
 export class PopoverTriggerForDirective implements  OnDestroy {
@@ -38,56 +40,45 @@ export class PopoverTriggerForDirective implements  OnDestroy {
   private _injector = inject(Injector);
   private _popoverPortal!: TemplatePortal;
   private _overlayRef: OverlayRef | null = null;
-  private _destroy$: Subject<void> = new Subject();
+  private _destroyRef = inject(DestroyRef);
   private _openTimeout: any = null;
   private _closeTimeout: any = null;
   private _closeDelay = 500;
 
-  @Input('emrPopoverTriggerFor')
-  popoverTemplateRef!: TemplateRef<unknown>;
+  popoverTemplateRef = input.required<TemplateRef<unknown>>({
+    alias: 'emrPopoverTriggerFor'
+  });
+  trigger = input<PopoverTrigger>('click');
+  position = input<PopoverPosition>('below-center');
+  delay = input(500, {
+    transform: numberAttribute
+  });
+  origin = input<FlexibleConnectedPositionStrategyOrigin>();
 
-  @Input()
-  trigger: PopoverTrigger = 'click';
-
-  @Input()
-  position: PopoverPosition = 'below-center';
-
-  @Input()
-  delay = 500;
-
-  @Input()
-  origin: FlexibleConnectedPositionStrategyOrigin;
-
-  @Output()
-  readonly opened = new EventEmitter<void>();
-
-  @Output()
-  readonly closed = new EventEmitter<void>();
+  readonly opened = output<void>();
+  readonly closed = output<void>();
 
   constructor() {
     this._setType();
   }
 
-  @HostListener('click', ['$event'])
-  _handleClick() {
-    if (this.trigger !== 'click') {
+  protected _handleClick() {
+    if (this.trigger() !== 'click') {
       return;
     }
 
     !this._isOpen() ? this._open() : this._close();
   }
 
-  @HostListener('mouseenter', ['$event'])
-  _handleMouseover() {
-    if (!this._isOpen() && this.trigger === 'hover') {
+  protected _handleMouseover() {
+    if (!this._isOpen() && this.trigger() === 'hover') {
       this._openTimeout = setTimeout(() => {
         this._open();
-      }, this.delay);
+      }, this.delay());
     }
   }
 
-  @HostListener('mouseleave', ['$event'])
-  _handleMouseout() {
+  protected _handleMouseout() {
     if (!this._isOpen()) {
       clearTimeout(this._openTimeout);
     }
@@ -122,7 +113,7 @@ export class PopoverTriggerForDirective implements  OnDestroy {
 
   private _close() {
     clearTimeout(this._closeTimeout);
-    this.closed.next();
+    this.closed.emit();
     this._overlayRef!?.detach();
   }
 
@@ -137,9 +128,7 @@ export class PopoverTriggerForDirective implements  OnDestroy {
     if (this._overlayRef) {
       this._overlayRef
         .outsidePointerEvents()
-        .pipe(
-          takeUntil(this._destroy$)
-        )
+        .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe(event => {
           const target = _getEventTarget(event) as Element;
           const element = this._elementRef.nativeElement;
@@ -154,7 +143,7 @@ export class PopoverTriggerForDirective implements  OnDestroy {
 
   private _getPopoverContentPortal() {
     this._popoverPortal = new TemplatePortal(
-      this.popoverTemplateRef,
+      this.popoverTemplateRef(),
       this._viewContainerRef,
       null,
       this._injector
@@ -172,21 +161,22 @@ export class PopoverTriggerForDirective implements  OnDestroy {
   }
 
   private _getOverlayPositionStrategy(): FlexibleConnectedPositionStrategy {
+    const origin = (this.origin() ? this.origin() : this._elementRef) as FlexibleConnectedPositionStrategyOrigin;
     return this._overlay
       .position()
-      .flexibleConnectedTo(this.origin ? this.origin : this._elementRef)
-      .setOrigin(this.origin ? this.origin : this._elementRef)
+      .flexibleConnectedTo(origin)
+      .setOrigin(origin)
       .withGrowAfterOpen()
       .withPositions(this._getOverlayPositions())
     ;
   }
 
   private _getOverlayPositions(): ConnectedPosition[] {
-    return (new PositionManager()).build(this.position);
+    return (new PositionManager()).build(this.position());
   }
 
   private _setType() {
-    if (this.trigger === 'hover') {
+    if (this.trigger() === 'hover') {
       return;
     }
 
@@ -199,9 +189,9 @@ export class PopoverTriggerForDirective implements  OnDestroy {
   }
 
   private _subscribeToHostMouseleave() {
-    if (this.trigger === 'hover' && this._overlayRef) {
+    if (this.trigger() === 'hover' && this._overlayRef) {
       fromEvent(this._elementRef.nativeElement, 'mouseleave')
-        .pipe(takeUntil(merge(this.closed, this._destroy$)))
+        .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe(event => {
           this._closeTimeout = setTimeout(() => {
             this._close();
@@ -210,14 +200,16 @@ export class PopoverTriggerForDirective implements  OnDestroy {
       ;
       const popoverElement = this._overlayRef.overlayElement;
       fromEvent(popoverElement, 'mouseenter')
-        .pipe(takeUntil(merge(this.closed, this._destroy$)))
+        .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe(event => {
           clearTimeout(this._closeTimeout);
           this._closeTimeout = null;
         })
       ;
       fromEvent(popoverElement, 'mouseleave')
-        .pipe(takeUntil(merge(this.closed, this._destroy$)))
+        .pipe(
+          takeUntilDestroyed(this._destroyRef)
+        )
         .subscribe(event => {
           this._closeTimeout = setTimeout(() => {
             this._close();

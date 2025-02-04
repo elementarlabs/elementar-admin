@@ -7,17 +7,20 @@ import {
 } from '../_examples/popover-with-custom-position-example/popover-with-custom-position-example.component';
 import { PageComponent } from '@demo/meta/page/page.component';
 import { PageContentDirective } from '@demo/meta/page/page-content.directive';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
     selector: 'app-overview',
-    imports: [
-        PlaygroundComponent,
-        BasicPopoverExampleComponent,
-        PopoverHoverExampleComponent,
-        PopoverWithCustomPositionExampleComponent,
-        PageComponent,
-        PageContentDirective
-    ],
+  imports: [
+    PlaygroundComponent,
+    BasicPopoverExampleComponent,
+    PopoverHoverExampleComponent,
+    PopoverWithCustomPositionExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    MatTab,
+    MatTabGroup
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })

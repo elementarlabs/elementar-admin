@@ -9,6 +9,18 @@
   border: var(--emr-popover-border);
   box-shadow: var(--emr-popover-shadow);
   animation: .15s emr-popover-animation;
+
+  @keyframes emr-popover-animation {
+    0% {
+      transform: scale(.9);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 
 :host-context(.emr-overlay-above) {
@@ -34,16 +46,4 @@
 :host-context(html.dark) {
   --emr-popover-border: none;
   --emr-popover-bg: theme('colors.neutral.500');
-}
-
-@keyframes emr-popover-animation {
-  0% {
-    transform: scale(.9);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
 }
