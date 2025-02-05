@@ -1,11 +1,8 @@
 import {
   Directive,
   ElementRef,
-  EventEmitter,
-  HostListener,
-  inject,
-  Input,
-  OnInit, Output,
+  inject, input,
+  OnInit, output,
   Renderer2
 } from '@angular/core';
 
@@ -14,6 +11,8 @@ import {
   exportAs: 'emrPinInput',
   host: {
     'class': 'emr-pin-input',
+    '(focus)': '_handleFocus()',
+    '(blur)': '_handleBlur()'
   }
 })
 export class PinInputDirective implements OnInit {
@@ -21,13 +20,10 @@ export class PinInputDirective implements OnInit {
   private _renderer = inject(Renderer2);
   private _placeholder: string;
 
-  @Input()
-  index: number;
+  index = input<number>();
+  acceptOnly = input<RegExp>();
 
-  @Input()
-  acceptOnly: RegExp;
-
-  @Output() valuePaste = new EventEmitter<string>();
+  readonly valuePaste = output<string>();
 
   get api() {
     return {
@@ -42,13 +38,11 @@ export class PinInputDirective implements OnInit {
     this._placeholder = (this._elementRef.nativeElement as HTMLInputElement).getAttribute('placeholder') || '';
   }
 
-  @HostListener('focus', ['$event'])
-  private _handleFocus() {
+  protected _handleFocus() {
     this._renderer.removeAttribute(this._elementRef.nativeElement, 'placeholder');
   }
 
-  @HostListener('blur', ['$event'])
-  private _handleBlur() {
+  protected _handleBlur() {
     this._renderer.setAttribute(this._elementRef.nativeElement, 'placeholder', this._placeholder);
   }
 }

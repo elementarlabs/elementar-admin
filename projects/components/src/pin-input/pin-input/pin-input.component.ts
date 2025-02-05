@@ -1,14 +1,21 @@
 import {
   booleanAttribute,
-  Component,
-  forwardRef, HostListener,
-  inject,
-  Input,
+  Component, computed,
+  forwardRef,
+  inject, input,
   numberAttribute,
   OnInit,
   viewChildren
 } from '@angular/core';
-import { ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  NG_VALUE_ACCESSOR,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { PinInputDirective } from '../pin-input.directive';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatFormField } from '@angular/material/form-field';
@@ -34,30 +41,33 @@ import { MatInput } from '@angular/material/input';
   ],
   host: {
     'class': 'emr-pin-input',
-    '[class.is-disabled]': 'disabled',
+    '[class.is-disabled]': 'isDisabled()',
+    '(paste)': '_valuePaste($event)',
+    '(keydown)': '_handleKeyDown($event)',
+    '(keyup)': '_handleKeyUp($event)',
   }
 })
 export class PinInputComponent implements ControlValueAccessor, OnInit {
   private _fb = inject(FormBuilder);
-
   readonly inputs = viewChildren(PinInputDirective);
 
-  @Input({ transform: numberAttribute })
-  length = 4;
+  length = input(4, {
+    transform: numberAttribute
+  });
+  placeholder = input('');
+  acceptOnly = input(/^[0-9]+$/);
+  disabled = input(false, {
+    transform: booleanAttribute
+  });
+  invalid = input(false, {
+    transform: booleanAttribute
+  });
 
-  @Input()
-  placeholder = '';
-
-  @Input()
-  acceptOnly = /^[0-9]+$/;
-
-  @Input({ transform: booleanAttribute })
-  disabled = false;
-
-  @Input({ transform: booleanAttribute })
-  invalid = false;
-
-  form: FormGroup;
+  protected form: FormGroup;
+  private _disabled = false;
+  protected isDisabled = computed(() => {
+    return this._disabled || this.disabled();
+  })
 
   onChange: any = () => {};
   onTouched: any = () => {};
@@ -69,9 +79,9 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
   ngOnInit() {
     const inputs = [];
 
-    for (let i = 0; i < this.length; i++) {
+    for (let i = 0; i < this.length(); i++) {
       inputs.push(
-        this._fb.control({ value: '', disabled: this.disabled }, [Validators.required])
+        this._fb.control({ value: '', disabled: this.disabled() }, [Validators.required])
       );
     }
 
@@ -89,7 +99,7 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.disabled = coerceBooleanProperty(isDisabled);
+    this._disabled = coerceBooleanProperty(isDisabled);
   }
 
   writeValue(value: any): void {
@@ -112,15 +122,17 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  @HostListener('paste', ['$event'])
-  _valuePaste(event: ClipboardEvent) {
+  protected _valuePaste(event: ClipboardEvent) {
       event.preventDefault();
       event.stopPropagation();
       // const value = event.clipboardData?.getData('text/plain');
   }
 
-  @HostListener('keydown', ['$event'])
-  private _handleKeyDown(event: KeyboardEvent) {
+  protected _handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      return;
+    }
+
     if (event.key === 'Delete' || event.key === 'Backspace' || event.key === 'Tab') {
       const element = event.target as HTMLInputElement;
 
@@ -145,8 +157,11 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
     event.stopPropagation();
   }
 
-  @HostListener('keyup', ['$event'])
-  private _handleKeyUp(event: KeyboardEvent) {
+  protected _handleKeyUp(event: KeyboardEvent) {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      return;
+    }
+
     if (event.key === 'Shift' || (event.keyCode >= 112 && event.keyCode <= 123)) {
       event.preventDefault();
       event.stopPropagation();
@@ -158,7 +173,7 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
       return;
     }
 
-    if (!event.key.match(this.acceptOnly)) {
+    if (!event.key.match(this.acceptOnly())) {
       event.preventDefault();
       event.stopPropagation();
       return;

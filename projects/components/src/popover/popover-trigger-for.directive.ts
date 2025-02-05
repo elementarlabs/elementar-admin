@@ -85,7 +85,7 @@ export class PopoverTriggerForDirective implements OnInit, OnDestroy {
       clearTimeout(this._openTimeout);
     }
   }
-  
+
   ngOnInit() {
     this.closed
       .subscribe(() => {
