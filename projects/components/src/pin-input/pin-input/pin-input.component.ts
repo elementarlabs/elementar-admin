@@ -59,9 +59,6 @@ export class PinInputComponent implements ControlValueAccessor, OnInit {
   disabled = input(false, {
     transform: booleanAttribute
   });
-  invalid = input(false, {
-    transform: booleanAttribute
-  });
 
   protected form: FormGroup;
   private _disabled = false;
