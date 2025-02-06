@@ -1,6 +1,5 @@
 import {
   AfterContentInit,
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   DestroyRef,
@@ -20,7 +19,6 @@ import { ScrollSpyOnComponent } from '../scroll-spy-on/scroll-spy-on.component';
   exportAs: 'emrScrollSpyNav',
   templateUrl: './scroll-spy-nav.component.html',
   styleUrl: './scroll-spy-nav.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: SCROLL_SPY_NAV,
@@ -41,8 +39,7 @@ export class ScrollSpyNavComponent implements AfterContentInit {
 
   readonly _items = contentChildren(ScrollSpyOnComponent);
 
-  activeId: string;
-
+  protected _activeId: string;
   private _elementToScroll: HTMLElement;
 
   ngAfterContentInit() {
@@ -71,12 +68,16 @@ export class ScrollSpyNavComponent implements AfterContentInit {
     }
   }
 
+  get activeId(): string {
+    return this._activeId;
+  }
+
   scrollTo(targetId: string) {
     if (!this._elementToScroll) {
       return;
     }
 
-    this.activeId = targetId;
+    this._activeId = targetId;
     const targetElement = this._document.querySelector('#' + targetId) as HTMLElement;
     const offsetTopFix = parseInt(getComputedStyle(targetElement).marginTop) +
       parseInt(getComputedStyle(targetElement).height) + this._threshold
@@ -91,16 +92,16 @@ export class ScrollSpyNavComponent implements AfterContentInit {
 
   private _findActiveItem() {
     for (let item of this._items()) {
-      const targetElement = this._document.querySelector('#' + item.targetId) as HTMLElement;
+      const targetElement = this._document.querySelector('#' + item.targetId()) as HTMLElement;
 
       if (targetElement) {
         if (this._elementIsVisibleInViewport(this._elementToScroll, targetElement)) {
-          if (this.activeId === item.targetId) {
+          if (this._activeId === item.targetId()) {
             return;
           }
 
           this._zone.run(() => {
-            this.activeId = item.targetId;
+            this._activeId = item.targetId();
             this._cdr.detectChanges();
           });
           break;
