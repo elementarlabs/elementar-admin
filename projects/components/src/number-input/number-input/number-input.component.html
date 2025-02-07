@@ -1,18 +1,21 @@
 <input #input type="number" class="input"
        (focusin)="onFocusIn($event)"
        (focusout)="onFocusOut($event)"
-       [attr.min]="min" [attr.max]="max" [step]="step" (input)="inputChange($event)">
+       [attr.min]="min()"
+       [attr.max]="max()"
+       [step]="step()"
+       (input)="inputChange($event)">
 <div class="controls">
   <button class="control control-decrease" matRipple [disabled]="isDecreaseDisabled()" (click)="decrease($event, input)">
-    @if (_decreaseControlRef) {
-      <ng-template [ngTemplateOutlet]="_decreaseControlRef.templateRef"></ng-template>
+    @if (_decreaseControlRef()) {
+      <ng-template [ngTemplateOutlet]="_decreaseControlTemplateRef"/>
     } @else {
       <span>&minus;</span>
     }
   </button>
   <button class="control control-increase" matRipple [disabled]="isIncreaseDisabled()" (click)="increase($event, input)">
-    @if (_increaseControlRef) {
-      <ng-template [ngTemplateOutlet]="_increaseControlRef.templateRef"></ng-template>
+    @if (_increaseControlRef()) {
+      <ng-template [ngTemplateOutlet]="_increaseControlTemplateRef"/>
     } @else {
       <span>&plus;</span>
     }

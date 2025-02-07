@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NumberInputComponent } from '@elementar-ui/components/number-input';
 
 @Component({
@@ -16,8 +16,8 @@ import { NumberInputComponent } from '@elementar-ui/components/number-input';
   styleUrl: './number-input-min-max-example.component.scss'
 })
 export class NumberInputMinMaxExampleComponent {
-  value = 3;
-  control = new FormControl(3, {
-    validators: [Validators.min(2), Validators.max(5)]
+  private _formBuilder = inject(FormBuilder);
+  form = this._formBuilder.group({
+    control: [3, [Validators.min(2), Validators.max(5)]]
   });
 }
