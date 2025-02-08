@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, numberAttribute } from '@angular/core';
 import { UploadFileState } from '../types';
 
 @Component({
@@ -11,24 +11,13 @@ import { UploadFileState } from '../types';
   }
 })
 export class FileComponent {
-  @Input()
-  name!: string | number;
-
-  @Input()
-  size!: string | unknown;
-
-  @Input()
-  progress!: number | unknown;
-
-  @Input()
-  progressingMessage!: string | unknown;
-
-  @Input()
-  errorMessage!: string | unknown;
-
-  @Input()
-  remainingTime!: string | unknown;
-
-  @Input()
-  state: UploadFileState = 'uploading';
+  name = input.required();
+  size = input();
+  progress = input(0, {
+    transform: numberAttribute
+  });
+  progressingMessage = input();
+  errorMessage = input();
+  remainingTime = input();
+  state = input<UploadFileState>('uploading');
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, numberAttribute, output, Output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { UploadFileState } from '../types';
@@ -20,29 +20,17 @@ import { GaugeComponent, GaugeValueComponent } from '../../gauge';
   }
 })
 export class GridFileComponent {
-  @Input()
-  name!: string | number;
+  name = input.required();
+  size = input();
+  progress = input(0, {
+    transform: numberAttribute
+  });
+  progressingMessage = input();
+  errorMessage = input();
+  remainingTime = input();
+  state = input<UploadFileState>('uploading');
 
-  @Input()
-  size!: string | unknown;
-
-  @Input()
-  progress!: number | unknown;
-
-  @Input()
-  progressingMessage!: string | unknown;
-
-  @Input()
-  errorMessage!: string | unknown;
-
-  @Input()
-  remainingTime!: string | unknown;
-
-  @Input()
-  state: UploadFileState = 'uploading';
-
-  @Output()
-  readonly deleted = new EventEmitter();
+  readonly deleted = output<void>();
 
   delete(): void {
     this.deleted.emit();
