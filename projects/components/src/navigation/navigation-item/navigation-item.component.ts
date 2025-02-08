@@ -1,10 +1,8 @@
 import {
   booleanAttribute,
   Component, ElementRef,
-  HostListener,
   inject,
-  Input,
-  contentChild, TemplateRef
+  contentChild, TemplateRef, input
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
@@ -22,7 +20,8 @@ import { NgTemplateOutlet } from '@angular/common';
   styleUrl: './navigation-item.component.scss',
   host: {
     'class': 'emr-navigation-item',
-    '[class.is-active]': 'forceActive || active'
+    '[class.is-active]': 'forceActive() || active',
+    '(click)': 'click($event)'
   }
 })
 export class NavigationItemComponent {
@@ -37,23 +36,21 @@ export class NavigationItemComponent {
     }
   }
 
-  @Input()
-  key: any = Math.random();
+  key = input<any>(Math.random());
+  forceActive = input(false, {
+    transform: booleanAttribute
+  });
 
-  @Input({ transform: booleanAttribute })
-  forceActive = false;
-
-  @HostListener('click', ['$event'])
   click(event: MouseEvent) {
-    if (!this.key) {
+    if (!this.key()) {
       return;
     }
 
-    this._api.activateItem(this.key);
+    this._api.activateItem(this.key());
   }
 
   get active(): boolean {
-    return this._api.isItemActive(this.key);
+    return this._api.isItemActive(this.key());
   }
 
   get _hostElement(): ElementRef {

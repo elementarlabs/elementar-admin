@@ -2,7 +2,10 @@ import {
   afterNextRender,
   Component, ElementRef,
   inject, Input, Renderer2,
-  contentChildren
+  contentChildren,
+  SimpleChanges,
+  input,
+  OnChanges
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
@@ -12,22 +15,22 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
   exportAs: 'emrNavigation',
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-  providers: [NavigationApiService],
+  providers: [
+    NavigationApiService
+  ],
   host: {
     'class': 'emr-navigation'
   }
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnChanges {
   readonly api = inject(NavigationApiService);
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
 
   readonly _items = contentChildren(NavigationItemComponent, { descendants: true });
 
-  @Input()
-  set theme(theme: string) {
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'data-theme', theme);
-  }
+  activeKey = input<any>();
+  theme = input();
 
   constructor() {
     // scroll to the active item if it is not visible in the viewport
@@ -55,9 +58,14 @@ export class NavigationComponent {
     });
   }
 
-  @Input()
-  set activeKey(key: any) {
-    this.api.activateItem(key);
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['activeKey']) {
+      this.api.activateItem(changes['activeKey'].currentValue);
+    }
+
+    if (changes['theme']) {
+      this._renderer.setAttribute(this._elementRef.nativeElement, 'data-theme', changes['theme'].currentValue);
+    }
   }
 
   private _hasScroll(element: HTMLElement): boolean {
@@ -71,7 +79,6 @@ export class NavigationComponent {
   private _isScrolledIntoView(element: HTMLElement, parent: HTMLElement) {
     const elementRect = element.getBoundingClientRect();
     const parentRect = parent.getBoundingClientRect();
-
     return (elementRect.top >= 0) && (elementRect.bottom <= parentRect.height);
   }
 }

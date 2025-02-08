@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, Input, contentChild, TemplateRef } from '@angular/core';
+import { Component, inject, contentChild, TemplateRef, input } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationGroupToggleIconDirective } from '../navigation-group-toggle-icon.directive';
 import { MatRipple } from '@angular/material/core';
@@ -7,7 +7,9 @@ import { NgTemplateOutlet } from '@angular/common';
 @Component({
   selector: 'emr-navigation-group-toggle',
   exportAs: 'emrNavigationGroupToggle',
-  imports: [NgTemplateOutlet],
+  imports: [
+    NgTemplateOutlet
+  ],
   templateUrl: './navigation-group-toggle.component.html',
   styleUrl: './navigation-group-toggle.component.scss',
   hostDirectives: [
@@ -15,7 +17,8 @@ import { NgTemplateOutlet } from '@angular/common';
   ],
   host: {
     'class': 'emr-navigation-group-toggle',
-    '[class.is-active]': 'active'
+    '[class.is-active]': 'active',
+    '(click)': 'toggle($event)'
   }
 })
 export class NavigationGroupToggleComponent {
@@ -23,18 +26,16 @@ export class NavigationGroupToggleComponent {
 
   readonly iconRef = contentChild(NavigationGroupToggleIconDirective);
 
-  @Input()
-  for!: any;
+  for = input<any>();
 
   get active(): boolean {
-    return this.api.isGroupActive(this.for);
+    return this.api.isGroupActive(this.for());
   }
 
-  @HostListener('click', ['$event'])
   toggle(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.api.toggleGroup(this.for);
+    this.api.toggleGroup(this.for());
   }
 
   protected get iconRefTemplate(): TemplateRef<any> {
