@@ -1,28 +1,18 @@
-<div class="emr-phone-input-container">
+<div class="phone-input-container">
   <button
     type="button"
     matRipple
     [matMenuTriggerFor]="menu"
     class="country-selector"
-    [disabled]="disabled"
+    [disabled]="isDisabled()"
     (menuOpened)="menuSearchInput()?.nativeElement?.focus()">
     <emr-icon [name]="'circle-flags:' + selectedCountry.flagClass.toLowerCase()" class="flag-icon" />
     @if (selectedCountry && selectedCountry.dialCode) {
       <span class="country-selector-code">+{{ selectedCountry.dialCode }}</span>
     }
-    <mat-icon class="font-icon text-lg text-neutral-500 relative -top-px">expand_more</mat-icon>
+    <mat-icon class="text-lg text-neutral-500 relative -top-px">expand_more</mat-icon>
   </button>
   <mat-menu #menu="matMenu" class="w-[320px]">
-    @if (enableSearch) {
-      <input
-        #menuSearchInput
-        class="country-search"
-        [(ngModel)]="searchCriteria"
-        type="text"
-        [placeholder]="searchPlaceholder"
-        (click)="$event.stopPropagation()">
-    }
-
     @for (country of preferredCountriesInDropDown; track country) {
       <button
         type="button"
@@ -46,7 +36,7 @@
     }
 
     @if (preferredCountriesInDropDown.length) {
-      <mat-divider></mat-divider>
+      <mat-divider/>
     }
 
     @for (country of allCountries | search : searchCriteria; track country) {
@@ -75,14 +65,14 @@
     matInput
     type="tel"
     inputmode="tel"
-    [autocomplete]="autocomplete"
-    [ngClass]="cssClass"
+    [autocomplete]="autocomplete()"
     (blur)="onTouched()"
     (keypress)="onInputKeyPress($event)"
     [(ngModel)]="phoneNumber"
     (ngModelChange)="onPhoneNumberChange()"
-    [errorStateMatcher]="errorStateMatcher"
-    [placeholder]="inputPlaceholder"
-    [disabled]="disabled"
+    [errorStateMatcher]="errorStateMatcher()"
+    [placeholder]="placeholder"
+    [disabled]="isDisabled()"
+    class="grow"
     #focusable>
 </div>

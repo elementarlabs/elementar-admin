@@ -24,7 +24,7 @@
     opacity: 1;
   }
 
-  .emr-phone-input-container {
+  .phone-input-container {
     display: flex;
     height: var(--emr-phone-input-height, 24px);
   }
@@ -48,6 +48,13 @@
 
   .mdc-button__label {
     margin-right: auto;
+  }
+
+  .country-search {
+    height: 50px;
+    padding: 0 10px;
+    margin: 0 10px;
+    border-radius: 8px;
   }
 
   .country-selector {

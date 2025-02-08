@@ -6,16 +6,13 @@ import {
   Component,
   DoCheck,
   ElementRef,
-  EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   OnInit,
   Optional,
-  Output,
   Self,
   booleanAttribute, inject,
-  viewChild
+  viewChild, input, effect, output, DestroyRef, computed
 } from '@angular/core';
 import { FormGroupDirective, NG_VALIDATORS, NgControl, NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ErrorStateMatcher, MatRipple } from '@angular/material/core';
@@ -39,6 +36,7 @@ import { MatDivider } from '@angular/material/divider';
 import { MatInput } from '@angular/material/input';
 import { SearchPipe } from '../search.pipe';
 import { IconComponent } from '../../icon';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'emr-phone-input',
@@ -73,10 +71,16 @@ import { IconComponent } from '../../icon';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-phone-input'
+    'class': 'emr-phone-input',
+    '[class.is-floating]': 'shouldLabelFloat',
   }
 })
 export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
+  private _destroyRef = inject(DestroyRef);
+  private _changeDetectorRef = inject(ChangeDetectorRef);
+  private countryCodeData = inject(CountryCode);
+  private _focusMonitor = inject(FocusMonitor);
+  private _elementRef = inject(ElementRef<HTMLElement>)
   private ngControl = inject(NgControl, { optional: true });
   private _errorStateMatcher = inject(ErrorStateMatcher);
   private _parentForm = inject(NgForm, { optional: true });
@@ -84,43 +88,22 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   static nextId = 0;
 
   readonly matMenu = viewChild.required(MatMenu);
-
   readonly menuSearchInput = viewChild<ElementRef<HTMLInputElement>>('menuSearchInput');
-
   readonly focusable = viewChild.required<ElementRef>('focusable');
 
-  @HostBinding()
-  id = `emr-phone-input-${PhoneInputComponent.nextId++}`;
+  get id(): string {
+    return `emr-phone-input-${PhoneInputComponent.nextId++}`;
+  }
 
-  @HostBinding('class.is-floating')
   get shouldLabelFloat(): boolean {
     return this.focused || !this.empty;
   }
 
-  @Input()
-  autocomplete: 'off' | 'tel' = 'off';
-
-  @Input()
-  cssClass?: string;
-
-  @Input() enablePlaceholder = true;
-  @Input() enableSearch = false;
-  @Input() errorStateMatcher: ErrorStateMatcher = this._errorStateMatcher;
-  @Input() inputPlaceholder: string = '';
-  @Input() name?: string;
-  @Input() onlyCountries: string[] = [];
-  @Input() preferredCountries: string[] = [];
-  @Input() resetOnChange = false;
-  @Input() searchPlaceholder = 'Search ...';
-  @Input()
-  set format(value: PhoneNumberFormat) {
-    this._format = value;
-    this.phoneNumber = this.formattedPhoneNumber;
-    this.stateChanges.next();
-  }
-  get format(): PhoneNumberFormat {
-    return this._format;
-  }
+  autocomplete = input<AutoFill>('on');
+  errorStateMatcher = input<ErrorStateMatcher>(this._errorStateMatcher);
+  onlyCountries = input<string[]>([]);
+  preferredCountries = input<string[]>([]);
+  format = input<PhoneNumberFormat>('default');
 
   @Input()
   set placeholder(value: string) {
@@ -140,21 +123,29 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
     return this._required;
   }
 
-  @Input({ alias: 'disabled', transform: booleanAttribute })
-  set disabled(value: boolean) {
-    this._disabled = coerceBooleanProperty(value);
-    this.stateChanges.next(undefined);
-  }
-  get disabled(): boolean {
-    return this._disabled;
-  }
+  // @Input({ alias: 'disabled', transform: booleanAttribute })
+  // set disabled(value: boolean) {
+  //   this._disabled = coerceBooleanProperty(value);
+  //   this.stateChanges.next(undefined);
+  // }
+  // get disabled(): boolean {
+  //   return this._disabled;
+  // }
+
+  phoneDisabled = input(false, {
+    alias: 'disabled',
+    transform: booleanAttribute
+  });
+
+  isDisabled = computed(() => {
+    return this._disabled || this.phoneDisabled();
+  });
 
   get empty(): boolean {
     return !this.phoneNumber;
   }
 
-  @Output()
-  countryChanged: EventEmitter<Country> = new EventEmitter<Country>();
+  readonly countryChanged = output<Country>();
 
   private _placeholder?: string;
   private _required = false;
@@ -171,7 +162,6 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   searchCriteria?: string;
 
   private _previousFormattedNumber?: string;
-  private _format: PhoneNumberFormat = 'default';
 
   static getPhoneNumberPlaceHolder(countryISOCode: any): string | undefined {
     try {
@@ -187,34 +177,44 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   private errorState?: boolean;
 
   constructor(
-    private _changeDetectorRef: ChangeDetectorRef,
-    private countryCodeData: CountryCode,
-    private _focusMonitor: FocusMonitor,
-    private _elementRef: ElementRef<HTMLElement>,
     @Optional() @Self() _ngControl: NgControl,
     @Optional() _parentForm: NgForm,
     @Optional() _parentFormGroup: FormGroupDirective,
     _defaultErrorStateMatcher: ErrorStateMatcher,
   ) {
-    this._focusMonitor.monitor(_elementRef, true).subscribe((origin) => {
-      if (this.focused && !origin) {
-        this.onTouched();
-      }
+    this._focusMonitor
+      .monitor(this._elementRef, true)
+      .pipe(
+        takeUntilDestroyed(this._destroyRef)
+      )
+      .subscribe((origin) => {
+        if (this.focused && !origin) {
+          this.onTouched();
+        }
 
-      this.focused = !!origin
-      this.stateChanges.next();
-    })
+        this.focused = !!origin
+        this.stateChanges.next();
+      });
 
     this.fetchCountryData();
 
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
+
+    effect(() => {
+      this.phoneNumber = this.formattedPhoneNumber;
+      this.stateChanges.next();
+    });
   }
 
   ngOnInit() {
-    if (this.preferredCountries.length) {
-      this.preferredCountries.forEach((iso2) => {
+    if (this.onlyCountries().length) {
+      this.allCountries = this.allCountries.filter((c) => this.onlyCountries().includes(c.iso2));
+    }
+
+    if (this.preferredCountries().length) {
+      this.preferredCountries().forEach((iso2) => {
         const preferredCountry = this.allCountries
           .filter((c) => {
             return c.iso2 === iso2
@@ -228,19 +228,15 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
       });
     }
 
-    if (this.onlyCountries.length) {
-      this.allCountries = this.allCountries.filter((c) => this.onlyCountries.includes(c.iso2));
-    }
-
     if (this.numberInstance && this.numberInstance.country) {
       // If an existing number is present, we use it to determine selectedCountry
       this.selectedCountry = this.getCountry(this.numberInstance.country);
     } else {
-      if (this.preferredCountriesInDropDown.length) {
-        this.selectedCountry = this.preferredCountriesInDropDown[0];
-      } else {
-        this.selectedCountry = this.allCountries[0];
-      }
+      // if (this.preferredCountriesInDropDown.length) {
+      //   this.selectedCountry = this.preferredCountriesInDropDown[0];
+      // } else {
+      //   this.selectedCountry = this.allCountries[0];
+      // }
     }
 
     this.countryChanged.emit(this.selectedCountry);
@@ -250,7 +246,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
 
   ngDoCheck(): void {
     if (this.ngControl) {
-      const isInvalid = this.errorStateMatcher.isErrorState(
+      const isInvalid = this.errorStateMatcher().isErrorState(
         this.ngControl.control,
         this._parentForm
       );
@@ -260,7 +256,6 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   updateErrorState() {
-
   }
 
   ngOnDestroy() {
@@ -270,6 +265,9 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
 
   public onPhoneNumberChange(): void {
     if (!this.phoneNumber) {
+      this.value = '';
+      this.propagateChange(this.value);
+      this._changeDetectorRef.markForCheck();
       return;
     }
 
@@ -308,11 +306,12 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
       this.phoneNumber = this.numberInstance?.nationalNumber;
     }
 
-    if (this.resetOnChange && this.selectedCountry !== country) {
+    if (this.selectedCountry !== country) {
       this.reset();
     }
 
     this.selectedCountry = country;
+    this._placeholder = this.selectedCountry.placeHolder;
     this.countryChanged.emit(this.selectedCountry);
     this.onPhoneNumberChange();
     el.focus();
@@ -349,15 +348,8 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
         flagClass: c[1].toString().toUpperCase(),
         placeHolder: ''
       };
-
-      if (this.enablePlaceholder) {
-        country.placeHolder = PhoneInputComponent.getPhoneNumberPlaceHolder(
-          country.iso2.toUpperCase()
-        );
-      }
-
       this.allCountries.push(country);
-    })
+    });
   }
 
   registerOnChange(fn: any): void {
@@ -369,7 +361,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    this._disabled = isDisabled;
     this._changeDetectorRef.markForCheck();
     this.stateChanges.next(undefined);
   }
@@ -388,14 +380,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
 
         setTimeout(() => {
           this.selectedCountry = this.getCountry(countryCode);
-          if (
-            this.selectedCountry.dialCode &&
-            !this.preferredCountries.includes(this.selectedCountry.iso2)
-          ) {
-            this.preferredCountriesInDropDown.push(this.selectedCountry);
-          }
           this.countryChanged.emit(this.selectedCountry);
-
           // Initial value is set
           this._changeDetectorRef.markForCheck();
           this.stateChanges.next();
@@ -431,7 +416,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
     if (!this.numberInstance) {
       return this.phoneNumber?.toString() || '';
     }
-    switch (this.format) {
+    switch (this.format()) {
       case 'national':
         return this.numberInstance.formatNational();
       case 'international':
@@ -442,7 +427,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   private formatAsYouTypeIfEnabled(): void {
-    if (this.format === 'default') {
+    if (this.format() === 'default') {
       return
     }
 
