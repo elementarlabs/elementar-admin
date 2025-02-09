@@ -2,10 +2,9 @@ import {
   booleanAttribute,
   Component,
   ElementRef,
-  EventEmitter, inject,
-  Input,
-  OnChanges,
-  Output, Renderer2, SimpleChanges,
+  inject, input,
+  OnChanges, output,
+  Renderer2, SimpleChanges,
   viewChild
 } from '@angular/core';
 import { BaseComponent } from '../base.component';
@@ -23,22 +22,19 @@ import { NgStyle } from '@angular/common';
   }
 })
 export class AlphaComponent extends BaseComponent implements OnChanges {
-  @Input()
-  color: Color;
-
-  @Output()
-  readonly colorChange = new EventEmitter<Color>();
-
+  private _renderer = inject(Renderer2);
   readonly pointer = viewChild.required<ElementRef>('pointer');
 
-  @Input({ transform: booleanAttribute })
-  isVertical = false;
+  color = input.required<Color>();
+  isVertical = input(false, {
+    transform: booleanAttribute
+  });
 
-  private _renderer = inject(Renderer2);
+  readonly colorChange = output<Color>();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['color'] && changes['color'].previousValue !== changes['color'].currentValue) {
-      const hsva = this.color.getHsva();
+      const hsva = this.color().getHsva();
       this.changePointerPosition(hsva.alpha);
       this._setPointerBgColor();
     }
@@ -46,17 +42,17 @@ export class AlphaComponent extends BaseComponent implements OnChanges {
 
   // @ts-ignore
   movePointer({ x, y, height, width }): void {
-    const alpha = this.isVertical ? y / height : x / width;
+    const alpha = this.isVertical() ? y / height : x / width;
     this.changePointerPosition(alpha);
-    const hsva = this.color.getHsva();
+    const hsva = this.color().getHsva();
     const newColor = new Color().setHsva(hsva.hue, hsva.saturation, hsva.value, alpha);
     this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', newColor.toRgbaString());
     this.colorChange.emit(newColor);
   }
 
   get gradient(): string {
-    const rgba = this.color.getRgba();
-    const orientation = this.isVertical ? 'bottom' : 'right';
+    const rgba = this.color().getRgba();
+    const orientation = this.isVertical() ? 'bottom' : 'right';
     return `linear-gradient(to ${orientation}, rgba(${rgba.red}, ${rgba.green}, ${rgba.blue}, 0) 0%, rgb(${rgba.red}, ${rgba.green}, ${rgba.blue}) 100%)`;
   }
 
@@ -65,12 +61,12 @@ export class AlphaComponent extends BaseComponent implements OnChanges {
    */
   private changePointerPosition(alpha: number): void {
     const x = alpha * 100;
-    const orientation = this.isVertical ? 'top' : 'left';
+    const orientation = this.isVertical() ? 'top' : 'left';
     this._renderer.setStyle(this.pointer().nativeElement, orientation, `${x}%`);
   }
 
   private _setPointerBgColor() {
-    const hsva = this.color.getHsva();
+    const hsva = this.color().getHsva();
     const newColor = new Color().setHsva(hsva.hue, hsva.saturation, hsva.value, hsva.alpha);
     this._renderer.setStyle(
       this.pointer().nativeElement.querySelector('.pointer-bg'), 'backgroundColor', newColor.toRgbaString()

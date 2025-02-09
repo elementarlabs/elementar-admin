@@ -1,37 +1,54 @@
-import { booleanAttribute, Component, EventEmitter, inject, input, Input, Output } from '@angular/core';
+import {
+  booleanAttribute,
+  Component, DestroyRef,
+  inject,
+  input,
+  OnChanges, OnInit, output,
+  SimpleChanges
+} from '@angular/core';
 import { TabPanelApiService } from '../tab-panel-api.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'emr-tab-panel',
   exportAs: 'emrTabPanel',
   templateUrl: './tab-panel.component.html',
-  styleUrls: ['tab-panel.component.scss'],
+  styleUrl: './tab-panel.component.scss',
   providers: [
     TabPanelApiService
   ],
   host: {
     'class': 'emr-tab-panel',
-    '[class.is-hide-content-if-tab-not-selected]': 'hideContentIfTabNotSelected',
+    '[class.is-hide-content-if-tab-not-selected]': 'hideContentIfTabNotSelected()',
     '[class.is-compact]': 'compact()',
   }
 })
-export class TabPanelComponent {
+export class TabPanelComponent implements OnInit, OnChanges {
+  private _destroyRef = inject(DestroyRef);
   readonly api = inject(TabPanelApiService);
 
-  @Input({ transform: booleanAttribute })
-  hideContentIfTabNotSelected = false;
-
-  @Input()
-  set activeItemId(id: any) {
-    this.api.activate(id, false);
-  }
-
+  hideContentIfTabNotSelected = input(false, {
+    transform: booleanAttribute
+  });
+  activeItemId = input<any>();
   compact = input(false, {
     transform: booleanAttribute
   });
 
-  @Output()
-  get itemIdChange(): EventEmitter<any> {
-    return this.api.itemIdChange;
+  readonly itemIdChanged = output();
+
+  ngOnInit() {
+    this.api
+      .itemIdChanged
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe(() => {
+        this.itemIdChanged.emit();
+      });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['activeItemId']) {
+      this.api.activate(changes['activeItemId'].currentValue, false);
+    }
   }
 }

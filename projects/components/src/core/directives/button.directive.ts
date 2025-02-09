@@ -2,8 +2,10 @@ import {
   booleanAttribute,
   ComponentRef,
   Directive,
-  inject,
-  Input, OnChanges, PLATFORM_ID, Renderer2,
+  inject, input,
+  OnChanges,
+  PLATFORM_ID,
+  Renderer2,
   SimpleChanges,
   ViewContainerRef
 } from '@angular/core';
@@ -14,8 +16,7 @@ import { isPlatformServer } from '@angular/common';
 
 @Directive({
   selector: '[emrButtonLoading]',
-  exportAs: 'emrButtonLoading',
-  standalone: true
+  exportAs: 'emrButtonLoading'
 })
 export class ButtonDirective implements OnChanges {
   private _matButton = inject(MatButton);
@@ -24,17 +25,14 @@ export class ButtonDirective implements OnChanges {
   private _spinner!: ComponentRef<MatProgressSpinner> | null;
   private _platformId = inject(PLATFORM_ID);
 
-  @Input({
+  loading = input(false, {
     alias: 'emrButtonLoading',
     transform: booleanAttribute
-  })
-  loading = false;
-
-  @Input({ transform: booleanAttribute })
-  disabled = false;
-
-  @Input()
-  color: ThemePalette;
+  });
+  disabled = input(false, {
+    transform: booleanAttribute
+  });
+  color = input<ThemePalette>();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['loading']) {
@@ -51,7 +49,7 @@ export class ButtonDirective implements OnChanges {
       this.createSpinner();
     } else if (!changes['loading'].firstChange) {
       this._matButton._elementRef.nativeElement.classList.remove('emr-button-loading');
-      this._matButton.disabled = this.disabled;
+      this._matButton.disabled = this.disabled();
       this.destroySpinner();
     }
   }
@@ -59,7 +57,7 @@ export class ButtonDirective implements OnChanges {
   private createSpinner(): void {
     if (!this._spinner) {
       this._spinner = this._viewContainerRef.createComponent(MatProgressSpinner);
-      this._spinner.instance.color = this.color;
+      this._spinner.instance.color = this.color();
       this._spinner.instance.diameter = 20;
       this._spinner.instance.mode = 'indeterminate';
       this._renderer.appendChild(

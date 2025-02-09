@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('./customization/customization.module').then(m => m.CustomizationModule)
       },
       {
+        path: 'forms/password-strength',
+        loadChildren: () => import('./forms/password-strength/password-strength.module').then(m => m.PasswordStrengthModule)
+      },
+      {
         path: 'forms/autocomplete',
         loadChildren: () => import('./forms/autocomplete/autocomplete.module').then(m => m.AutocompleteModule)
       },
@@ -246,10 +250,6 @@ const routes: Routes = [
       {
         path: 'components/panel',
         loadChildren: () => import('./components/panel/panel.module').then(m => m.PanelModule)
-      },
-      {
-        path: 'components/password-strength',
-        loadChildren: () => import('./components/password-strength/password-strength.module').then(m => m.PasswordStrengthModule)
       },
       {
         path: 'components/incidents',

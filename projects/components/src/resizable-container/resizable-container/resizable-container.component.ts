@@ -4,8 +4,7 @@ import {
   Component,
   DestroyRef,
   ElementRef,
-  inject,
-  Input,
+  inject, input,
   NgZone,
   numberAttribute,
   OnInit,
@@ -39,7 +38,9 @@ export class ResizableContainerComponent implements OnInit {
 
   readonly handlerRef = viewChild.required<ElementRef>('handler');
 
-  @Input({ transform: numberAttribute }) minWidth = 0;
+  minWidth = input(0, {
+    transform: numberAttribute
+  });
 
   ngOnInit() {
     this._ngZone.runOutsideAngular(() => {
@@ -65,8 +66,8 @@ export class ResizableContainerComponent implements OnInit {
           if (this._resizing) {
             let width = this._maxWidth - (this._clientX - event.clientX);
 
-            if (width <= this.minWidth) {
-              width = this.minWidth;
+            if (width <= this.minWidth()) {
+              width = this.minWidth();
             } else if (width >= this._maxWidth) {
               width = this._maxWidth;
             }

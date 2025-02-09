@@ -1,8 +1,7 @@
 import {
   DestroyRef,
   Directive,
-  inject,
-  Input,
+  inject, input,
   OnInit,
   TemplateRef,
   ViewContainerRef
@@ -22,31 +21,28 @@ export class TabPanelAsideContentDirective implements OnInit {
   private _templateRef = inject(TemplateRef);
   private _viewContainer = inject(ViewContainerRef);
   private _destroyRef = inject(DestroyRef);
-  private _id: any = this._aside ? this._aside.nextId++ : null;
 
-  @Input('emrTabPanelAsideContent')
-  set id(id: any) {
-    this._id = id;
-  }
+  id = input<any>(this._aside ? this._aside.nextId++ : null, {
+    alias: 'emrTabPanelAsideContent'
+  });
 
   ngOnInit() {
-    if (this._api.isActive(this._id)) {
+    if (this._api.isActive(this.id())) {
       this._show();
     } else {
       this._hide();
     }
 
-    this._api.itemIdChange
+    this._api.itemIdChanged
       .pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe(id => {
-        if (this._id === id) {
+        if (this.id() === id) {
           this._show();
         } else {
           this._hide();
         }
       })
     ;
-
   }
 
   private _show() {

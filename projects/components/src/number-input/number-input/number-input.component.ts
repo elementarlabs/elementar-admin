@@ -1,26 +1,23 @@
 import {
   booleanAttribute,
+  ChangeDetectionStrategy,
   Component,
-  ContentChild,
+  contentChild,
   DoCheck,
   ElementRef,
-  EventEmitter,
-  HostBinding,
-  inject,
-  Input,
+  inject, Input, input,
   numberAttribute,
-  OnDestroy,
-  Optional,
-  Output,
-  Self,
-  ViewChild
+  OnDestroy, Optional,
+  output, Self,
+  TemplateRef,
+  viewChild,
 } from '@angular/core';
-import { FormGroupDirective, NgControl, NgForm } from '@angular/forms';
+import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { DecreaseControlDirective } from '../decrease-control.directive';
 import { IncreaseControlDirective } from '../increase-control.directive';
-import { NumberInputPrefixDirective } from '../number-input-prefix.directive';
-import { NumberInputSuffixDirective } from '../number-input-suffix.directive';
+// import { NumberInputPrefixDirective } from '../number-input-prefix.directive';
+// import { NumberInputSuffixDirective } from '../number-input-suffix.directive';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 import { MatRipple } from '@angular/material/core';
@@ -35,6 +32,7 @@ import { NgTemplateOutlet } from '@angular/common';
   ],
   templateUrl: './number-input.component.html',
   styleUrl: './number-input.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: MatFormFieldControl,
@@ -42,54 +40,50 @@ import { NgTemplateOutlet } from '@angular/common';
     }
   ],
   host: {
-    'class': 'emr-number-input'
+    'class': 'emr-number-input',
+    '[class.floating]': 'shouldLabelFloat',
+    'id': 'id'
   }
 })
-export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy, DoCheck {
+export class NumberInputComponent implements MatFormFieldControl<any>, ControlValueAccessor, OnDestroy, DoCheck {
+  private _parentForm = inject(NgForm, {
+    optional: true,
+  });
+  private _parentFormGroup = inject(FormGroupDirective, {
+    optional: true,
+  });
   private _elementRef = inject(ElementRef);
   readonly disableAutomaticLabeling: boolean;
   readonly placeholder: string;
 
-  @ViewChild('input', { static: true, read: ElementRef })
-  private _input: ElementRef<HTMLInputElement>;
+  private _input = viewChild.required<ElementRef>('input');
+  readonly _decreaseControlRef = contentChild<DecreaseControlDirective>(DecreaseControlDirective);
+  readonly _increaseControlRef = contentChild<IncreaseControlDirective>(IncreaseControlDirective);
+  // readonly _prefixRef = contentChild<NumberInputPrefixDirective>(NumberInputPrefixDirective);
+  // readonly _suffixRef = contentChild<NumberInputSuffixDirective>(NumberInputSuffixDirective);
 
-  @ContentChild(DecreaseControlDirective)
-  readonly _decreaseControlRef: DecreaseControlDirective;
+  min = input(undefined, {
+    transform: numberAttribute
+  });
+  max = input(undefined, {
+    transform: numberAttribute
+  });
+  step = input(1, {
+    transform: numberAttribute
+  });
+  readonly = input(false, {
+    transform: booleanAttribute
+  });
 
-  @ContentChild(IncreaseControlDirective)
-  readonly _increaseControlRef: IncreaseControlDirective;
-
-  @ContentChild(NumberInputPrefixDirective)
-  readonly _prefixRef: NumberInputPrefixDirective;
-
-  @ContentChild(NumberInputSuffixDirective)
-  readonly _suffixRef: NumberInputSuffixDirective;
-
-  @Input({ transform: numberAttribute })
-  min: number | undefined;
-
-  @Input({ transform: numberAttribute })
-  max: number | undefined;
-
-  @Input({ transform: numberAttribute })
-  step = 1;
-
-  @Input({ transform: numberAttribute })
-  disabled: boolean;
-
-  @Input({ transform: booleanAttribute })
-  readonly: boolean;
-
-  @Input({ transform: booleanAttribute })
-  invalid: boolean;
-
-  @Input({ transform: booleanAttribute })
-  roundedFull = false;
-
-  @HostBinding('class.floating')
-  get shouldLabelFloat() {
-    return this.focused || !this.empty;
+  @Input()
+  set disabled(disabled: any) {
+    this._disabled = coerceBooleanProperty(disabled);
+    this.stateChanges.next();
   }
+  get disabled() {
+    return this._disabled;
+  }
+  private _disabled = false;
 
   @Input()
   get required(): boolean {
@@ -101,14 +95,10 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
   }
   private _required = false;
 
-  get empty(): boolean {
-    if (this._value === 0) {
-      return false;
-    }
+  readonly valueChange = output<number|undefined>();
 
-    return typeof this._value !== 'number';
-  }
-
+  static nextId = 0;
+  private _value: number | undefined;
   controlType?: string | undefined;
   autofilled?: boolean | undefined;
   userAriaDescribedBy?: string | undefined;
@@ -117,10 +107,24 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
   touched = false;
   errorState: boolean = false;
 
+  get id(): string {
+    return `emr-number-input${NumberInputComponent.nextId++}`;
+  }
+
+  get shouldLabelFloat() {
+    return this.focused || !this.empty;
+  }
+
+  get empty(): boolean {
+    if (this._value === 0) {
+      return false;
+    }
+
+    return typeof this._value !== 'number';
+  }
+
   constructor(
     @Optional() @Self() public ngControl: NgControl,
-    @Optional() private _parentForm: NgForm,
-    @Optional() private _parentFormGroup: FormGroupDirective
   ) {
     // Replace the provider from above with this.
     if (this.ngControl != null) {
@@ -134,9 +138,6 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
     const controlElement = this._elementRef.nativeElement;
     controlElement.setAttribute('aria-describedby', ids.join(' '));
   }
-
-  @Output()
-  readonly valueChange = new EventEmitter<number>();
 
   onFocusIn(event: FocusEvent) {
     if (!this.focused) {
@@ -154,12 +155,6 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
     }
   }
 
-  static nextId = 0;
-  private _value: number | undefined;
-
-  @HostBinding()
-  id = `emr-number-input${NumberInputComponent.nextId++}`;
-
   set value(value: number | undefined) {
     this._value = value;
     this.stateChanges.next();
@@ -170,6 +165,14 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
 
   ngOnDestroy() {
     this.stateChanges.complete();
+  }
+
+  protected get _decreaseControlTemplateRef() {
+    return this._decreaseControlRef()?.templateRef as TemplateRef<any>;
+  }
+
+  protected get _increaseControlTemplateRef() {
+    return this._increaseControlRef()?.templateRef as TemplateRef<any>;
   }
 
   onChange: any = () => {};
@@ -188,7 +191,7 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
   }
 
   writeValue(value: any): void {
-    this._input.nativeElement.value = value;
+    this._input().nativeElement.value = value;
     this.value = value;
   }
 
@@ -196,7 +199,7 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
     event.preventDefault();
     event.stopPropagation();
     let value = +input.value;
-    value -= this.step;
+    value -= this.step();
     input.value = value.toString();
     this._emitEvent();
   }
@@ -205,37 +208,44 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
     event.preventDefault();
     event.stopPropagation();
     let value = +input.value;
-    value += this.step;
+    value += this.step();
     input.value = value.toString();
     this._emitEvent();
   }
 
   isDecreaseDisabled() {
-    const value = this._input.nativeElement.value;
+    const value = this._input().nativeElement.value;
 
-    return ((typeof this.min === 'number' && value) && +value <= this.min) || this.readonly || this.disabled;
-  }
-
-  isIncreaseDisabled() {
-    const value = this._input.nativeElement.value;
-
-    if (typeof this.max === 'undefined') {
+    if (typeof this.min() === 'undefined') {
       return false;
     }
 
-    return ((typeof this.min === 'number' && value) && +value >= this.max) || this.readonly || this.disabled;
+    // @ts-ignore
+    return (typeof this.min() === 'number' && +value <= this.min()) || this.readonly() || this.disabled;
+  }
+
+  isIncreaseDisabled() {
+    const value = this._input().nativeElement.value;
+
+    if (typeof this.max() === 'undefined') {
+      return false;
+    }
+
+    // @ts-ignore
+    return ((typeof this.min() === 'number' && value) && +value >= this.max()) || this.readonly() || this.disabled;
   }
 
   inputChange(event: any) {
-    this._value = this._input.nativeElement.value ? +this._input.nativeElement.value : undefined;
+    this._value = this._input().nativeElement.value ? +this._input().nativeElement.value : undefined;
     this._emitEvent();
   }
 
   private _emitEvent() {
-    const value = this._input.nativeElement.value ? +this._input.nativeElement.value : undefined;
+    const value = this._input().nativeElement.value ? +this._input().nativeElement.value : undefined;
     this.value = value;
     this.onChange(value);
     this.valueChange.emit(value);
+    this.updateErrorState();
   }
 
   ngDoCheck() {
@@ -253,10 +263,10 @@ export class NumberInputComponent implements MatFormFieldControl<any>, OnDestroy
   private updateErrorState() {
     const parent = this._parentFormGroup || this._parentForm;
     let oldState = this.errorState;
-    let newState = (this.ngControl?.invalid || !this.value) && this.touched;
+    let newState = !!(this.ngControl?.invalid) && this.touched;
 
     if (parent) {
-     newState = (this.ngControl?.invalid || !this.value) && (this.touched || parent.submitted);
+      newState = !!(this.ngControl?.invalid) && (this.touched || parent.submitted);
     }
 
     if (oldState !== newState) {

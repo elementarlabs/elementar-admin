@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatRipple } from '@angular/material/core';
 import { MatIcon } from '@angular/material/icon';
@@ -18,13 +18,14 @@ import { MatIcon } from '@angular/material/icon';
   }
 })
 export class PassToggleVisibilityComponent {
-  @Input()
-  isVisible: boolean;
+  visible = input(false, {
+    transform: booleanAttribute
+  });
+  tabindex = input('');
 
-  @Input()
-  tabindex?: string;
+  protected _visible = this.visible();
 
   get type() {
-    return this.isVisible ? 'text' : 'password';
+    return this._visible ? 'text' : 'password';
   }
 }

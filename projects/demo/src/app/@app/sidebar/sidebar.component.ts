@@ -169,6 +169,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Password Strength',
+          link: '/pages/forms/password-strength'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Slide Toggle',
           link: '/pages/forms/slide-toggle'
         },
@@ -492,12 +498,6 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'Tree',
           link: '/pages/components/tree'
-        },
-        {
-          key: uuid(),
-          type: 'link',
-          name: 'Password Strength',
-          link: '/pages/components/password-strength'
         },
         {
           key: uuid(),

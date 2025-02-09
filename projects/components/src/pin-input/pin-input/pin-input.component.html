@@ -3,9 +3,11 @@
     @for (control of controls; track control; let index = $index) {
       <div class="input">
         <mat-form-field>
-          <input type="text" matInput [formControl]="control"
-                 [acceptOnly]="acceptOnly" emrPinInput [placeholder]="placeholder"
-                 maxlength="1" [attr.disabled]="disabled || null">
+          <input type="text" matInput emrPinInput
+                 [formControl]="control"
+                 [acceptOnly]="acceptOnly()"
+                 [placeholder]="placeholder()"
+                 [attr.disabled]="isDisabled() || null" maxlength="1" >
         </mat-form-field>
       </div>
     }

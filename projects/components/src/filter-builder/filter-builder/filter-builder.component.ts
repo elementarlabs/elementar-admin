@@ -8,7 +8,7 @@ import {
   output,
   PLATFORM_ID,
   viewChildren,
-  contentChildren, TemplateRef
+  contentChildren, TemplateRef, input
 } from '@angular/core';
 import { isPlatformServer, NgTemplateOutlet } from '@angular/common';
 import { FilterBuilderOperationDefDirective } from '../filter-builder-operation-def.directive';
@@ -66,17 +66,10 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     '_resetNumberValue': this._resetNumberValue,
   };
 
-  @Input()
-  value: FilterBuilderGroup[] = [];
-
-  @Input()
-  fieldDefs: FilterBuilderFieldDef[] = [];
-
-  @Input()
-  categories = [];
-
-  @Input()
-  groupOperations = [
+  value = input<FilterBuilderGroup[]>([]);
+  fieldDefs = input<FilterBuilderFieldDef[]>([]);
+  categories = input([]);
+  groupOperations = input([
     {
       id: 'and',
       name: 'And'
@@ -85,17 +78,13 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
       id: 'or',
       name: 'Or'
     }
-  ];
-  protected _logicalOperator = this.groupOperations[0].id;
+  ]);
+  customOperations = input([]);
 
+  protected _logicalOperator = this.groupOperations()[0].id;
   readonly _prebuiltOperationDefs = viewChildren(FilterBuilderOperationDefDirective);
-
   readonly _customOperationDefs = contentChildren(FilterBuilderOperationDefDirective);
-
   protected _operationDefs: FilterBuilderOperationDefDirective[] = [];
-
-  @Input()
-  customOperations = [];
 
   readonly valueChanged = output<FilterBuilderGroup[]>();
 
@@ -104,13 +93,13 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   protected editItem: FilterBuilderCondition | undefined;
 
   ngOnInit() {
-    if (this.value.length) {
-      if (!this._isGroup(this.value[0])) {
+    if (this.value().length) {
+      if (!this._isGroup(this.value()[0])) {
         throw new Error('Invalid filter value, first element should be a filter group');
       }
 
-      this._logicalOperator = this.value[0]['logicalOperator'] as string;
-      this._value = JSON.parse(JSON.stringify(this.value[0]['value']));
+      this._logicalOperator = this.value()[0]['logicalOperator'] as string;
+      this._value = JSON.parse(JSON.stringify(this.value()[0]['value']));
     }
   }
 
@@ -118,16 +107,16 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     this._operationDefs = [...this._prebuiltOperationDefs(), ...this._customOperationDefs()];
     this._operationDefs.forEach(operationDef => {
       this._operations.push({
-        id: operationDef.id,
+        id: operationDef.id(),
         name: operationDef.operationName()?.templateRef
       });
-      operationDef.allowedDataTypes.forEach((allowedType: string) => {
+      operationDef.allowedDataTypes().forEach((allowedType: string) => {
         if (!this._operationAllowedTypesMap.has(allowedType)) {
           this._operationAllowedTypesMap.set(allowedType, []);
         }
 
         const allowedTypeValue = this._operationAllowedTypesMap.get(allowedType) as string[];
-        allowedTypeValue.push(operationDef.id);
+        allowedTypeValue.push(operationDef.id());
         this._operationAllowedTypesMap.set(allowedType, allowedTypeValue);
       });
     });
@@ -138,7 +127,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     const value = !targetGroup ? this._value : targetGroup.value;
     value.push(
       {
-        value: [this.fieldDefs[0].dataField, this._operations[0].id, '']
+        value: [this.fieldDefs()[0].dataField, this._operations[0].id, '']
       }
     );
   }
@@ -147,14 +136,14 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
     const value = !targetGroup ? this._value : targetGroup.value;
     value.push(
       {
-        logicalOperator: this.groupOperations[0].id,
+        logicalOperator: this.groupOperations()[0].id,
         value: []
       }
     );
   }
 
   getConditionField(dataField: string): FilterBuilderFieldDef | undefined {
-    return this.fieldDefs.find(field => field.dataField === dataField);
+    return this.fieldDefs().find(field => field.dataField === dataField);
   }
 
   getConditionOperation(id: string) {
@@ -163,7 +152,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
 
   getSelectedGroupOperationName(targetGroup?: FilterBuilderGroup): string {
     const groupLogicalOperatorId = targetGroup ? targetGroup.logicalOperator : this._logicalOperator
-    return this.groupOperations.find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
+    return this.groupOperations().find(groupOperator => groupOperator.id === groupLogicalOperatorId)?.name || '';
   }
 
   selectConditionField(item: FilterBuilderCondition, field: FilterBuilderFieldDef): void {
@@ -204,7 +193,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   isOperationAllowedForCondition(dataField: string, operationId: string): boolean {
-    const fieldDef = this.fieldDefs.find(f =>
+    const fieldDef = this.fieldDefs().find(f =>
       f.dataField === dataField
     ) as FilterBuilderFieldDef;
 
@@ -222,7 +211,7 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   getFieldType(item: FilterBuilderCondition): string {
-    return (this.fieldDefs.find(f =>
+    return (this.fieldDefs().find(f =>
       f.dataField === item['value'][0]
     ) as FilterBuilderFieldDef).dataType;
   }
@@ -315,13 +304,13 @@ export class FilterBuilderComponent implements OnInit, AfterViewInit {
   }
 
   private _getFieldDef(condition: FilterBuilderCondition): FilterBuilderFieldDef {
-    return  this.fieldDefs.find(f =>
+    return  this.fieldDefs().find(f =>
       f.dataField === condition['value'][0]
     ) as FilterBuilderFieldDef;
   }
 
   private _resetValue(field: FilterBuilderFieldDef, condition: FilterBuilderCondition): void {
-    const fieldDef = this.fieldDefs.find(f =>
+    const fieldDef = this.fieldDefs().find(f =>
       f.dataField === field.dataField
     ) as FilterBuilderFieldDef;
     const resetMethod = '_reset' + this._capitalizeFirstLetter(fieldDef.dataType) + 'Value';

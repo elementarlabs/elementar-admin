@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, ElementRef, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import { booleanAttribute, Component, ElementRef, inject, input, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { isPlatformServer } from '@angular/common';
@@ -21,8 +21,9 @@ export class LayoutBodyComponent implements OnInit {
   private _elementRef = inject(ElementRef);
   private _platformId = inject(PLATFORM_ID);
 
-  @Input({ transform: booleanAttribute })
-  autoscrollToTop = true;
+  autoscrollToTop = input(true, {
+    transform: booleanAttribute
+  });
 
   ngOnInit() {
     // Scroll a page to top if url changed
@@ -31,7 +32,7 @@ export class LayoutBodyComponent implements OnInit {
         filter(event=> event instanceof NavigationStart)
       )
       .subscribe(() => {
-        if (!this.autoscrollToTop) {
+        if (!this.autoscrollToTop()) {
           return;
         }
 

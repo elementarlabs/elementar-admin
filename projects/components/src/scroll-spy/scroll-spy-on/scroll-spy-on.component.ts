@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollSpyNavComponent } from '../scroll-spy-nav/scroll-spy-nav.component';
 import { SCROLL_SPY_NAV } from '../types';
@@ -10,7 +10,8 @@ import { SCROLL_SPY_NAV } from '../types';
   styleUrl: './scroll-spy-on.component.scss',
   host: {
     'class': 'emr-scroll-spy-on',
-    '[class.is-active]': 'isActive'
+    '[class.is-active]': 'isActive',
+    '(click)': '_handleClick($event)'
   }
 })
 export class ScrollSpyOnComponent implements OnInit {
@@ -19,22 +20,20 @@ export class ScrollSpyOnComponent implements OnInit {
   private _renderer = inject(Renderer2);
   private _document = inject(DOCUMENT);
 
-  @Input()
-  targetId: string;
-
-  get isActive() {
-    return this.targetId === this._parent.activeId;
-  }
+  targetId = input.required<string>();
 
   ngOnInit() {
     const fullUrl = this._document.location.origin + this._document.location.pathname;
-    this._renderer.setAttribute(this._elementRef.nativeElement, 'href', fullUrl + '#' + this.targetId);
+    this._renderer.setAttribute(this._elementRef.nativeElement, 'href', fullUrl + '#' + this.targetId());
   }
 
-  @HostListener('click', ['$event'])
-  onClick(event: MouseEvent) {
+  protected get isActive() {
+    return this.targetId() === this._parent.activeId;
+  }
+
+  protected _handleClick(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this._parent.scrollTo(this.targetId);
+    this._parent.scrollTo(this.targetId());
   }
 }
