@@ -1,7 +1,9 @@
 :host {
-  @apply block text-sm text-neutral-600;
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-neutral-600);
 }
 
 :host-context(html.dark) {
-  @apply text-neutral-500;
+  color: var(--text-neutral-500);
 }

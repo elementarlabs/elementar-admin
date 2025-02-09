@@ -1,3 +1,5 @@
 :host {
-  @apply block text-2xl font-bold;
+  display: block;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
 }

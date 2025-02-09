@@ -1,10 +1,17 @@
 :host {
-  @apply size-40 flex items-center justify-center p-8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--p-8);
+  width: var(--w-40);
+  height: var(--h-40);
 
   ::ng-deep {
     img,
     svg {
-      @apply max-w-full max-h-full;
+      // @apply max-w-full max-h-full;
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 }

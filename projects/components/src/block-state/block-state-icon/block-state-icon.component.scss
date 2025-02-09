@@ -1,5 +1,13 @@
 :host {
-  @apply size-40 flex items-center justify-center p-8 bg-surface-container rounded-full mb-6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--p-8);
+  width: var(--w-40);
+  height: var(--h-40);
+  background-color: var(--color-surface-container);
+  border-radius: var(--rounded-full);
+  margin-bottom: var(--m-6);
 
   ::ng-deep {
     emr-icon {
@@ -7,7 +15,10 @@
     }
 
     mat-icon {
-      @apply text-8xl size-auto;
+      // @apply text-8xl size-auto;
+      font-size: var(--text-8xl);
+      width: auto;
+      height: auto;
     }
   }
 }

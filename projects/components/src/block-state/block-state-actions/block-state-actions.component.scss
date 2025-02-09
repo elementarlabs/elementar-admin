@@ -1,3 +1,6 @@
 :host {
-  @apply flex items-center gap-6 mt-4;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-6);
+  margin-top: var(--m-4);
 }
