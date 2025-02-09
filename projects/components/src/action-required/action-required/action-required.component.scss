@@ -1,24 +1,37 @@
 :host {
-  --emr-action-required-bg: theme('colors.error-container');
-  --emr-action-action-text-bg: theme('colors.error.200');
-  --emr-action-text-color: theme('colors.on-error-container');
+  --emr-action-required-bg: var(--color-error-container);
+  --emr-action-action-text-bg: var(--color-error-200);
+  --emr-action-text-color: var(--color-on-error-container);
 
-  @apply flex w-full rounded-3xl p-7 gap-8 items-center;
-  @apply bg-[var(--emr-action-required-bg)] text-[var(--emr-action-text-color)];
+  display: flex;
+  width: 100%;
+  border-radius: var(--rounded-3xl);
+  padding: var(--p-7);
+  gap: var(--gap-8);
+  align-items: center;
+  background-color: var(--emr-action-required-bg);
+  color: var(--emr-action-text-color);
 
   .action-text {
-    @apply flex bg-[var(--emr-action-action-text-bg)] p-3.5 rounded-2xl gap-1.5 items-center flex-none text-md;
+    display: flex;
+    background: var(--emr-action-action-text-bg);
+    padding: var(--p-3_5);
+    border-radius: var(--rounded-2xl);
+    align-content: center;
+    flex: none;
+    font-size: var(--text-md);
+    gap: var(--gap-1_5);
   }
 
   .description {
-    @apply grow;
+    flex-grow: 1;
   }
 
   .button {
-    @apply flex-none;
+    flex: none;
   }
 }
 
 :host-context(html.dark) {
-  --emr-action-action-text-bg: theme('colors.error.600');
+  --emr-action-action-text-bg: var(--color-error-600);
 }
