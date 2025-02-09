@@ -2,12 +2,10 @@ import {
   booleanAttribute,
   ChangeDetectionStrategy,
   Component, DestroyRef,
-  EventEmitter,
   forwardRef,
-  HostListener, inject,
-  Input,
-  OnInit,
-  Output
+  inject, input,
+  model,
+  OnInit, output, signal
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -39,28 +37,28 @@ import { AlphaComponent } from '../alpha/alpha.component';
   ],
   host: {
     'class': 'emr-color-picker',
-    '[class.is-disabled]': 'disabled',
+    '[class.is-disabled]': 'disabled()',
+    '(contextmenu)': '_handleContextMenu($event)'
   }
 })
 export class ColorPickerComponent implements OnInit, ControlValueAccessor {
-  @Input()
-  color: string;
-
-  @Input()
-  changeFormat: UltColorPickerChangeFormat = 'hex-alpha';
-
-  @Input({ transform: booleanAttribute })
-  disabled!: boolean;
-
-  @Output()
-  readonly colorChange = new EventEmitter<string>();
-
-  @Output()
-  readonly rawColorChange = new EventEmitter<Color>();
-
-  readonly control = new ColorPickerControl();
   private _destroyRef = inject(DestroyRef);
 
+  controlColor = model<string>('', {
+    alias: 'color',
+  });
+  controlDisabled = input(false, {
+    alias: 'disabled',
+    transform: booleanAttribute
+  });
+  changeFormat = input<UltColorPickerChangeFormat>('hex-alpha');
+
+  readonly colorChange = output<string>();
+  readonly rawColorChange = output<Color>();
+
+  protected color = signal(this.controlColor());
+  protected disabled = signal(this.controlDisabled());
+  readonly control = new ColorPickerControl();
   private _formatMap: Record<UltColorPickerChangeFormat, string> = {
     'hex': '_hex',
     'hex-alpha': '_hexAlpha',
@@ -72,8 +70,7 @@ export class ColorPickerComponent implements OnInit, ControlValueAccessor {
     'hsv-alpha': '_hsvAlpha',
   };
 
-  @HostListener('contextmenu', ['$event'])
-  _contentMenuHandler(event: PointerEvent) {
+  protected _handleContextMenu(event: PointerEvent) {
     event.preventDefault();
     event.stopPropagation();
   }
@@ -82,7 +79,7 @@ export class ColorPickerComponent implements OnInit, ControlValueAccessor {
   onTouched: any = () => {};
 
   writeValue(value: string) {
-    this.color = value;
+    this.color.set(value);
   }
 
   registerOnChange(fn: any) {
@@ -94,12 +91,12 @@ export class ColorPickerComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: BooleanInput) {
-    this.disabled = coerceBooleanProperty(isDisabled);
+    this.disabled.set(coerceBooleanProperty(isDisabled));
   }
 
   ngOnInit() {
-    if (this.color) {
-      this.control.setValueFrom(this.color);
+    if (this.color()) {
+      this.control.setValueFrom(this.color());
     }
 
     const self: any = this;
@@ -109,7 +106,7 @@ export class ColorPickerComponent implements OnInit, ControlValueAccessor {
         takeUntilDestroyed(this._destroyRef)
       )
       .subscribe(color => {
-        const method = this._formatMap[this.changeFormat];
+        const method = this._formatMap[this.changeFormat()];
         const result = self[method](color);
         this.onChange(result);
         this.onTouched(result);

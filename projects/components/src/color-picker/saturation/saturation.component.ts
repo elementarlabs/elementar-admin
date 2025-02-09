@@ -2,11 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
-  HostBinding,
-  inject,
-  Input,
-  Output,
+  inject, input,
+  output,
   Renderer2,
   SimpleChanges,
   viewChild
@@ -21,31 +18,34 @@ import { BaseComponent } from '../base.component';
   styleUrl: './saturation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-saturation'
+    'class': 'emr-saturation',
+    '[style.backgroundColor]': 'backgroundColor'
   }
 })
 export class SaturationComponent extends BaseComponent {
-  @Input()
-  hue: Color;
-
-  @Input()
-  color: Color;
-
-  @Output()
-  readonly colorChange = new EventEmitter<Color>(false);
-
+  private _renderer = inject(Renderer2);
   readonly pointer = viewChild.required<ElementRef>('pointer');
 
-  private _renderer = inject(Renderer2);
+  hue = input.required<Color>();
+  color = input.required<Color>();
 
-  @HostBinding('style.backgroundColor')
+  readonly colorChange = output<Color>();
+
+  protected _hue: Color;
+
   get backgroundColor(): string {
-    return this.hue ? this.hue.toRgbString() : '';
+    return this._hue ? this._hue.toRgbString() : '';
+  }
+
+  constructor() {
+    super();
   }
 
   ngOnInit(): void {
-    if (!this.hue) {
-      this.hue = Color.from(this.color.getHsva());
+    if (!this.hue()) {
+      this._hue = Color.from(this.color().getHsva());
+    } else {
+      this._hue = this.hue() as Color;
     }
 
     this._renderer.setStyle(this.elementRef.nativeElement, 'backgroundColor', this.backgroundColor);
@@ -57,7 +57,11 @@ export class SaturationComponent extends BaseComponent {
    */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['color'] && changes['color'].previousValue !== changes['color'].currentValue) {
-      const hsva = this.color.getHsva();
+      if (!this._hue) {
+        this._hue = Color.from(this.color().getHsva());
+      }
+
+      const hsva = this.color().getHsva();
       this.changePointerPosition(hsva.saturation, hsva.value);
       this._setPointerBgColor()
     }
@@ -68,8 +72,8 @@ export class SaturationComponent extends BaseComponent {
     const saturation = (x * 100) / width;
     const bright = -((y * 100) / height) + 100;
     this.changePointerPosition(saturation, bright);
-    const hsva = this.hue.getHsva();
-    const color = this.color.getHsva();
+    const hsva = this._hue.getHsva();
+    const color = this.color().getHsva();
     const newColor = new Color().setHsva(hsva.hue, saturation, bright, color.alpha);
     const pointerColor = new Color().setHsva(hsva.hue, saturation, bright, color.alpha);
     this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', pointerColor.toRgbString());
@@ -83,8 +87,8 @@ export class SaturationComponent extends BaseComponent {
   }
 
   private _setPointerBgColor() {
-    const hsva = this.hue.getHsva();
-    const color = this.color.getHsva();
+    const hsva = this._hue.getHsva();
+    const color = this.color().getHsva();
     const newColor = new Color().setHsva(hsva.hue, color.saturation, color.value);
     this._renderer.setStyle(this.pointer().nativeElement, 'backgroundColor', newColor.toRgbString());
   }

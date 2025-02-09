@@ -1,10 +1,9 @@
 import {
+  DestroyRef,
   Directive,
   ElementRef,
-  EventEmitter, HostListener,
-  inject, Injector,
-  Input,
-  Output,
+  inject, Injector, input, OnDestroy,
+  output,
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
@@ -26,38 +25,32 @@ import { ColorPickerPosition } from './properties';
   selector: '[emrColorPickerTriggerFor]',
   exportAs: 'emrColorPickerTriggerFor',
   host: {
-    'class': 'emr-color-picker-trigger-for'
+    'class': 'emr-color-picker-trigger-for',
+    '(click)': '_handleClick($event)'
   }
 })
-export class ColorPickerTriggerForDirective {
-  @Input('emrColorPickerTriggerFor')
-  colorPickerTemplateRef!: TemplateRef<unknown>;
-
-  @Input()
-  position: ColorPickerPosition = 'below-center';
-
-  @Output()
-  readonly opened = new EventEmitter<void>();
-
-  @Output()
-  readonly closed = new EventEmitter<void>();
-
+export class ColorPickerTriggerForDirective implements OnDestroy{
   private _overlay = inject(Overlay);
   private _elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private _directionality = inject(Directionality, { optional: true });
   private _viewContainerRef = inject(ViewContainerRef);
   private _injector = inject(Injector);
+  private _destroyRef = inject(DestroyRef);
+
+  colorPickerTemplateRef = input.required<TemplateRef<any>>({
+    alias: 'emrColorPickerTriggerFor'
+  });
+  position = input<ColorPickerPosition>('below-center');
+
+  readonly opened = output<void>();
+  readonly closed = output<void>();
+
   private _portal!: TemplatePortal;
   private _overlayRef: OverlayRef | null = null;
   private _destroy$: Subject<void> = new Subject();
 
   constructor() {
     this._setType();
-  }
-
-  @HostListener('click', ['$event'])
-  _handleClick() {
-    !this._isOpen() ? this._open() : this._close();
   }
 
   ngOnDestroy() {
@@ -73,12 +66,18 @@ export class ColorPickerTriggerForDirective {
     };
   }
 
+  protected _handleClick(event: MouseEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+    !this._isOpen() ? this._open() : this._close();
+  }
+
   private _isOpen() {
     return !!this._overlayRef?.hasAttached();
   }
 
   private _open() {
-    if (!this._isOpen() && this.colorPickerTemplateRef != null) {
+    if (!this._isOpen() && this.colorPickerTemplateRef() != null) {
       this.opened.emit();
       this._overlayRef = this._overlay.create(this._getOverlayConfig());
       this._overlayRef.attach(this._getPopoverContentPortal());
@@ -87,7 +86,7 @@ export class ColorPickerTriggerForDirective {
   }
 
   private _close() {
-    this.closed.next();
+    this.closed.emit();
     this._overlayRef!?.detach();
   }
 
@@ -117,7 +116,7 @@ export class ColorPickerTriggerForDirective {
 
   private _getPopoverContentPortal() {
     this._portal = new TemplatePortal(
-      this.colorPickerTemplateRef,
+      this.colorPickerTemplateRef(),
       this._viewContainerRef,
       null,
       this._injector
@@ -145,7 +144,7 @@ export class ColorPickerTriggerForDirective {
   }
 
   private _getOverlayPositions(): ConnectedPosition[] {
-    return (new PositionManager()).build(this.position);
+    return (new PositionManager()).build(this.position());
   }
 
   private _setType() {

@@ -3,7 +3,10 @@
   <input type="text" [(ngModel)]="color" matInput placeholder="Select color">
   <button emr-color-picker-thumbnail [color]="color"
           [emrColorPickerTriggerFor]="colorPicker" matSuffix class="mr-2"></button>
+  <ng-template #colorPicker>
+    <emr-color-picker [(color)]="color"/>
+  </ng-template>
 </mat-form-field>
-<ng-template #colorPicker>
-  <emr-color-picker [(color)]="color"></emr-color-picker>
-</ng-template>
+<p>
+  Selected color: <strong>{{ color }}</strong>
+</p>
