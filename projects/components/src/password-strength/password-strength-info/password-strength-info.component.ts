@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 import { animate, keyframes, style, transition, trigger, useAnimation} from '@angular/animations';
 import { shake } from '../animations';
 import { PasswordStrengthComponent } from '../password-strength/password-strength.component';
@@ -7,7 +7,9 @@ import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'emr-password-strength-info',
   exportAs: 'emrPasswordStrengthInfo',
-  imports: [MatIcon],
+  imports: [
+    MatIcon
+  ],
   templateUrl: './password-strength-info.component.html',
   styleUrl: './password-strength-info.component.scss',
   animations: [
@@ -48,40 +50,17 @@ import { MatIcon } from '@angular/material/icon';
     'class': 'emr-password-strength-info',
   }
 })
-export class PasswordStrengthInfoComponent implements OnInit {
-  @Input()
-  passwordComponent: PasswordStrengthComponent;
-
-  @Input()
-  enableScoreInfo = false;
-
-  @Input()
-  lowerCaseCriteriaMessage = 'contains at least one lower character';
-
-  @Input()
-  upperCaseCriteriaMessage = 'contains at least one upper character';
-
-  @Input()
-  digitsCriteriaMessage = 'contains at least one digit character';
-
-  @Input()
-  specialCharsCriteriaMessage = 'contains at least one special character';
-
-  @Input()
-  customCharsCriteriaMessage = 'contains at least one custom character';
-
-  @Input()
-  minCharsCriteriaMessage: string;
-
-  @Input()
-  matIconDone = 'done';
-
-  @Input()
-  matIconError = 'error';
-
-  ngOnInit(): void {
-    if (!this.minCharsCriteriaMessage) {
-      this.minCharsCriteriaMessage = `contains at least ${this.passwordComponent.min} characters`
-    }
-  }
+export class PasswordStrengthInfoComponent {
+  passwordComponent = input.required<PasswordStrengthComponent>();
+  enableScoreInfo = input(false, {
+    transform: booleanAttribute
+  });
+  lowerCaseCriteriaMessage = input('contains at least one lower character');
+  upperCaseCriteriaMessage = input('contains at least one upper character');
+  digitsCriteriaMessage = input('contains at least one digit character');
+  specialCharsCriteriaMessage = input('contains at least one special character');
+  customCharsCriteriaMessage = input('contains at least one custom character');
+  minCharsCriteriaMessage = input(`contains at least minimum characters`);
+  matIconDone = input('done');
+  matIconError = input('error');
 }

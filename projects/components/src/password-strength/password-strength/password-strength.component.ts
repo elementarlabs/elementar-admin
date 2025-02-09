@@ -3,13 +3,10 @@ import {
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  forwardRef,
-  Input,
+  forwardRef, input,
   numberAttribute,
   OnChanges,
-  OnInit,
-  Output,
+  OnInit, output,
   SimpleChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, UntypedFormControl, ValidatorFn, Validators } from '@angular/forms';
@@ -21,7 +18,9 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 @Component({
   selector: 'emr-password-strength',
   exportAs: 'emrPasswordStrength',
-  imports: [MatProgressBar],
+  imports: [
+    MatProgressBar
+  ],
   templateUrl: './password-strength.component.html',
   styleUrl: './password-strength.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,44 +41,40 @@ import { MatProgressBar } from '@angular/material/progress-bar';
   }
 })
 export class PasswordStrengthComponent implements OnInit, OnChanges, AfterContentChecked, ControlValueAccessor {
-  @Input()
-  password: string;
+  password = input.required<any>();
+  externalError = input(false, {
+    transform: booleanAttribute
+  });
+  enableLengthRule = input(true, {
+    transform: booleanAttribute
+  });
+  enableLowerCaseLetterRule = input(true, {
+    transform: booleanAttribute
+  });
+  enableUpperCaseLetterRule = input(true, {
+    transform: booleanAttribute
+  });
+  enableDigitRule = input(true, {
+    transform: booleanAttribute
+  });
+  enableSpecialCharRule = input(true, {
+    transform: booleanAttribute
+  });
+  min = input(8, {
+    transform: numberAttribute
+  });
+  max = input(30, {
+    transform: numberAttribute
+  });
+  customValidator = input<any>();
+  warnThreshold = input(21, {
+    transform: numberAttribute
+  });
+  accentThreshold = input(81, {
+    transform: numberAttribute
+  });
 
-  @Input({ transform: booleanAttribute })
-  externalError: boolean;
-
-  @Input({ transform: booleanAttribute })
-  enableLengthRule = true;
-
-  @Input({ transform: booleanAttribute })
-  enableLowerCaseLetterRule = true;
-
-  @Input({ transform: booleanAttribute })
-  enableUpperCaseLetterRule = true;
-
-  @Input({ transform: booleanAttribute })
-  enableDigitRule = true;
-
-  @Input({ transform: booleanAttribute })
-  enableSpecialCharRule = true;
-
-  @Input({ transform: numberAttribute })
-  min = 8;
-
-  @Input({ transform: numberAttribute })
-  max = 30;
-
-  @Input()
-  customValidator: RegExp;
-
-  @Input({ transform: numberAttribute })
-  warnThreshold = 21;
-
-  @Input({ transform: numberAttribute })
-  accentThreshold = 81;
-
-  @Output()
-  onStrengthChanged: EventEmitter<number> = new EventEmitter();
+  readonly strengthChanged = output<number>();
 
   criteriaMap: Map<Criteria, RegExp> = new Map<Criteria, RegExp>();
   containAtLeastMinChars: boolean;
@@ -144,49 +139,39 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     }
   }
 
-  parseCustomValidatorsRegex(value: string | RegExp = this.customValidator) {
-    if (value instanceof RegExp) {
-      return this.customValidator;
-    } else if (value === 'string') {
-      return RegExp(this.customValidator);
-    }
-
-    throw new Error('');
-  }
-
   setRulesAndValidators(): void {
     this.validatorsArray = [];
     this.criteriaMap = new Map<Criteria, RegExp>();
     this.passwordConfirmationFormControl
       // @ts-ignore
       .setValidators(Validators.compose([
-        Validators.required, this.passwordStrengthValidator.confirm(this.password)
+        Validators.required, this.passwordStrengthValidator.confirm(this.password())
       ]));
     this.validatorsArray.push(Validators.required);
-    if (this.enableLengthRule) {
-      this.criteriaMap.set(Criteria.at_least_eight_chars, RegExp(`^.{${this.min},${this.max}}$`));
-      this.validatorsArray.push(Validators.minLength(this.min));
-      this.validatorsArray.push(Validators.maxLength(this.max));
+    if (this.enableLengthRule()) {
+      this.criteriaMap.set(Criteria.at_least_eight_chars, RegExp(`^.{${this.min()},${this.max()}}$`));
+      this.validatorsArray.push(Validators.minLength(this.min()));
+      this.validatorsArray.push(Validators.maxLength(this.max()));
     }
-    if (this.enableLowerCaseLetterRule) {
+    if (this.enableLowerCaseLetterRule()) {
       this.criteriaMap.set(Criteria.at_least_one_lower_case_char, RegExpValidator.lowerCase);
       this.validatorsArray.push(Validators.pattern(RegExpValidator.lowerCase));
     }
-    if (this.enableUpperCaseLetterRule) {
+    if (this.enableUpperCaseLetterRule()) {
       this.criteriaMap.set(Criteria.at_least_one_upper_case_char, RegExpValidator.upperCase);
       this.validatorsArray.push(Validators.pattern(RegExpValidator.upperCase));
     }
-    if (this.enableDigitRule) {
+    if (this.enableDigitRule()) {
       this.criteriaMap.set(Criteria.at_least_one_digit_char, RegExpValidator.digit);
       this.validatorsArray.push(Validators.pattern(RegExpValidator.digit));
     }
-    if (this.enableSpecialCharRule) {
+    if (this.enableSpecialCharRule()) {
       this.criteriaMap.set(Criteria.at_least_one_special_char, RegExpValidator.specialChar);
       this.validatorsArray.push(Validators.pattern(RegExpValidator.specialChar));
     }
-    if (this.customValidator) {
-      this.criteriaMap.set(Criteria.at_custom_chars, this.parseCustomValidatorsRegex());
-      this.validatorsArray.push(Validators.pattern(this.parseCustomValidatorsRegex()));
+    if (this.customValidator()) {
+      this.criteriaMap.set(Criteria.at_custom_chars, this.customValidator());
+      this.validatorsArray.push(Validators.pattern(this.customValidator()));
     }
 
     this.criteriaMap.forEach((value: any, key: string) => {
@@ -202,16 +187,16 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     const requirements: Array<boolean> = [];
     const unit = 100 / this.criteriaMap.size;
     requirements.push(
-      this.enableLengthRule ? this._containAtLeastMinChars() : false,
-      this.enableLowerCaseLetterRule ? this._containAtLeastOneLowerCaseLetter() : false,
-      this.enableUpperCaseLetterRule ? this._containAtLeastOneUpperCaseLetter() : false,
-      this.enableDigitRule ? this._containAtLeastOneDigit() : false,
-      this.enableSpecialCharRule ? this._containAtLeastOneSpecialChar() : false,
-      this.customValidator ? this._containCustomChars() : false
+      this.enableLengthRule() ? this._containAtLeastMinChars() : false,
+      this.enableLowerCaseLetterRule() ? this._containAtLeastOneLowerCaseLetter() : false,
+      this.enableUpperCaseLetterRule() ? this._containAtLeastOneUpperCaseLetter() : false,
+      this.enableDigitRule() ? this._containAtLeastOneDigit() : false,
+      this.enableSpecialCharRule() ? this._containAtLeastOneSpecialChar() : false,
+      this.customValidator() ? this._containCustomChars() : false
     );
     this._strength = requirements.filter(v => v).length * unit;
     this.propagateChange(this.strength);
-    this.onStrengthChanged.emit(this.strength);
+    this.strengthChanged.emit(this.strength);
     this.setRulesAndValidators();
   }
 
@@ -244,7 +229,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
   }
 
   private _containAtLeastMinChars(): boolean {
-    this.containAtLeastMinChars = this.password.length >= this.min;
+    this.containAtLeastMinChars = this.password().length >= this.min();
     return this.containAtLeastMinChars;
   }
 
@@ -252,7 +237,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     // @ts-ignore
     this.containAtLeastOneLowerCaseLetter = this.criteriaMap
       .get(Criteria.at_least_one_lower_case_char)
-      .test(this.password)
+      .test(this.password())
     ;
     return this.containAtLeastOneLowerCaseLetter;
   }
@@ -261,7 +246,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     // @ts-ignore
     this.containAtLeastOneUpperCaseLetter = this.criteriaMap
       .get(Criteria.at_least_one_upper_case_char)
-      .test(this.password)
+      .test(this.password())
     ;
     return this.containAtLeastOneUpperCaseLetter;
   }
@@ -270,7 +255,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     // @ts-ignore
     this.containAtLeastOneDigit = this.criteriaMap
       .get(Criteria.at_least_one_digit_char)
-      .test(this.password)
+      .test(this.password())
     ;
     return this.containAtLeastOneDigit;
   }
@@ -279,7 +264,7 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     // @ts-ignore
     this.containAtLeastOneSpecialChar = this.criteriaMap
       .get(Criteria.at_least_one_special_char)
-      .test(this.password)
+      .test(this.password())
     ;
     return this.containAtLeastOneSpecialChar;
   }
@@ -288,13 +273,13 @@ export class PasswordStrengthComponent implements OnInit, OnChanges, AfterConten
     // @ts-ignore
     this.containAtCustomChars = this.criteriaMap
       .get(Criteria.at_custom_chars)
-      .test(this.password)
+      .test(this.password())
     ;
     return this.containAtCustomChars;
   }
 
   ngAfterContentChecked(): void {
-    if (this.password) {
+    if (this.password()) {
       this.calculatePasswordStrength();
     }
   }
