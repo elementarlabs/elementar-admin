@@ -1,63 +1,86 @@
 :host {
-  @apply ps-5 pe-3 h-11 cursor-pointer flex text-sm items-center justify-between;
+  padding-inline-start: var(--p-5);
+  padding-inline-end: var(--p-3);
+  height: var(--h-11);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
 
   &:has(.icon) {
-    @apply ps-3.5;
+    padding-inline-start: var(--p-3_5);
   }
 
   .content {
-    @apply flex items-center gap-2.5;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2_5);
   }
 
   .icon {
-    @apply inline-flex justify-center items-center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .close {
-    @apply inline-flex justify-center items-center opacity-70 hover:opacity-100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: var(--opacity-70);
+
+    &:hover {
+      opacity: var(--opacity-100);
+    }
   }
 
   &:has(.close) {
-    @apply pe-1.5;
+    padding-inline-end: var(--p-1_5);
   }
 
   &[data-variant="neutral"] {
-    @apply bg-neutral-300 text-neutral-900;
+    background: var(--color-neutral-300);
+    color: var(--color-neutral-900);
 
     .icon {
-      @apply text-neutral-700;
+      color: var(--color-neutral-700);
     }
   }
 
   &[data-variant="informative"] {
-    @apply bg-primary-200 text-primary-900;
+    background: var(--color-primary-200);
+    color: var(--color-primary-900);
 
     .icon {
-      @apply text-primary-700;
+      color: var(--color-primary-700);
     }
   }
 
   &[data-variant="negative"] {
-    @apply bg-error-200 text-error-900;
+    background: var(--color-error-200);
+    color: var(--color-error-900);
 
     .icon {
-      @apply text-error-700;
+      color: var(--color-error-700);
     }
   }
 
   &[data-variant="positive"] {
-    @apply bg-lime-200 text-lime-900;
+    background: var(--color-lime-200);
+    color: var(--color-lime-900);
 
     .icon {
-      @apply text-lime-700;
+      color: var(--color-lime-700);
     }
   }
 
   &[data-variant="warning"] {
-    @apply bg-amber-200 text-amber-900;
+    background: var(--color-amber-200);
+    color: var(--color-amber-900);
 
     .icon {
-      @apply text-amber-700;
+      color: var(--color-amber-700);
     }
   }
 }
