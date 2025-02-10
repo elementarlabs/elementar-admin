@@ -1,18 +1,40 @@
 :host {
-  @apply inline-flex flex-wrap gap-3.5 min-h-8;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--gap-3_5);
+  min-height: var(--h-8);
 
   .color {
     --emr-brand-colors-item-color: transparent;
-    @apply size-6 rounded-full transition-all relative bg-[var(--emr-brand-colors-item-color)] leading-none;
-    @apply hover:scale-105 cursor-pointer text-white flex items-center justify-center font-bold;
+    width: var(--w-6);
+    height: var(--h-6);
+    border-radius: var(--rounded-full);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    position: relative;
+    background: var(--emr-brand-colors-item-color);
+    line-height: 1;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-bold);
+
+    &:hover {
+      scale: 1.05;
+    }
 
     &.is-selected {
-      @apply outline-offset-2 outline-[var(--emr-brand-colors-item-color)];
-      @apply outline;
+      outline-offset: 2px;
+      outline-color: var(--emr-brand-colors-item-color);
+      outline-style: solid;
     }
   }
 
   &.is-disabled {
-    @apply pointer-events-none opacity-60;
+    pointer-events: none;
+    opacity: var(--opacity-60);
   }
 }
