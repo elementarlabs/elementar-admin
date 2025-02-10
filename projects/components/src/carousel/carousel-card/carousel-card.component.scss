@@ -1,5 +1,5 @@
 :host {
-  @apply block;
+  display: block;
   scroll-padding-inline: 100px;
 }
 
@@ -8,13 +8,13 @@
   animation-fill-mode: both;
   animation-timing-function: linear;
   animation-timeline: view(inline);
-}
 
-@keyframes emr-carousel-fade {
-  from, to {
-    opacity: .3;
-  }
-  50% {
-    opacity: 1
+  @keyframes emr-carousel-fade {
+    from, to {
+      opacity: .3;
+    }
+    50% {
+      opacity: 1
+    }
   }
 }

@@ -1,15 +1,24 @@
 :host {
-  @apply block relative snap-x snap-mandatory;
+  // @apply block relative snap-x snap-mandatory;
+
+  display: block;
+  position: relative;
+  scroll-snap-type: x mandatory;
 
   .content {
-    @apply overflow-hidden flex gap-8;
+    // @apply overflow-hidden flex gap-8;
+    display: flex;
+    overflow: hidden;
+    gap: var(--gap-8);
   }
 
   .controls {
-    @apply mt-4 flex gap-3;
+    // @apply mt-4 flex gap-3;
+    margin-top: var(--m-4);
+    gap: var(--gap-3);
 
     &:empty {
-      @apply hidden;
+      display: none;
     }
   }
 }
