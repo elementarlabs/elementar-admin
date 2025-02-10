@@ -25,7 +25,8 @@ import { AvatarComponent } from '@elementar-ui/components/avatar';
     MatCardHeader,
     MatCardImage,
     MatCardSubtitle,
-    MatCardTitle
+    MatCardTitle,
+    CardOverlayContainerDirective
   ],
   templateUrl: './basic-card-overlay-example.component.html',
   styleUrl: './basic-card-overlay-example.component.scss'

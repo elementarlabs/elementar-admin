@@ -1,29 +1,60 @@
 :host {
-  @apply flex items-center justify-center absolute inset-0 z-[1];
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 
   .background {
-    @apply bg-black/30 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-all;
+    background-color: rgb(0 0 0 / 0.3);
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
   }
 
   .content {
-    @apply z-[1] opacity-0 group-hover:opacity-100;
+    z-index: 1;
+    opacity: 0;
   }
 
   &.with-translate {
     .background {
       @apply translate-y-full group-hover:translate-y-0;
+
+      --tw-translate-y: 100%;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     }
   }
 
   &.with-blur {
     .background {
-      @apply backdrop-blur-sm;
+      --tw-backdrop-blur: blur(4px);
+      -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    }
+  }
+}
+
+:host-context(.emr-card-overlay-container:hover) {
+  .background,
+  .content {
+    opacity: var(--opacity-100);
+  }
+
+  &.with-translate {
+    .background {
+      --tw-translate-y: 0px;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     }
   }
 }
 
 :host-context(html.dark) {
   .background {
-    @apply bg-white/20;
+    background-color: rgb(255 255 255 / 0.2);
   }
 }

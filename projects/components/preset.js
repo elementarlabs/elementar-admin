@@ -219,7 +219,7 @@ module.exports = {
         opacity: 'opacity',
         gap: 'gap',
         underline: 'underline',
-        textUnderlineOffset: 'underline-offset',
+        textUnderlineOffset: 'underline-offset'
       },
       {
         // options
