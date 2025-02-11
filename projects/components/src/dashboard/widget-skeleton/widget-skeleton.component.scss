@@ -1,3 +1,6 @@
 :host {
-  @apply flex flex-col h-full gap-4;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--gap-4);
 }

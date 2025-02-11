@@ -1,3 +1,9 @@
 :host {
-  @apply h-full px-4 flex items-center gap-3 relative;
+  height: 100%;
+  padding-inline-start: var(--p-4);
+  padding-inline-end: var(--p-4);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-3);
+  position: relative;
 }

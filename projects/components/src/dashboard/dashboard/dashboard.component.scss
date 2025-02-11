@@ -1,18 +1,24 @@
 :host {
   --emr-dashboard-gap: theme('gap.7');
 
-  @apply block;
+  display: block;
 
   .dashgrid {
-    @apply grid grid-cols-12 gap-[var(--emr-dashboard-gap)];
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--emr-dashboard-gap);
   }
 
   .widget:not(.plain) {
-    @apply border rounded-2xl h-full overflow-hidden;
+    border: var(--border-default) solid var(--emr-border);
+    border-radius: var(--rounded-2xl);
+    height: 100%;
+    overflow: hidden;
   }
 
   .skeleton {
     --emr-dashboard-widget-skeleton-min-height: 100px;
-    @apply p-5 min-h-[var(--emr-dashboard-widget-skeleton-min-height)];
+    padding: var(--p-5);
+    min-height: var(--emr-dashboard-widget-skeleton-min-height);
   }
 }
