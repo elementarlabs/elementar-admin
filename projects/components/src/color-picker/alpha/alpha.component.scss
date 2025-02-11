@@ -8,49 +8,49 @@
   background-position: 0 0, 6px 6px;
   background-size: 12px 12px;
   background-image: repeating-linear-gradient(45deg,#dbdbdb 25%,transparent 25%,transparent 75%,#dbdbdb 75%,#dbdbdb),repeating-linear-gradient(45deg,#dbdbdb 25%,#fff 25%,#fff 75%,#dbdbdb 75%,#dbdbdb);
-}
 
-:host .gradient {
-  display: block;
-  content: '';
-  border-radius: inherit;
-  z-index: 0;
-  inset: 0;
-  position: absolute;
-}
+  .gradient {
+    display: block;
+    content: '';
+    border-radius: inherit;
+    z-index: 0;
+    inset: 0;
+    position: absolute;
+  }
 
-:host([vertical]) {
-  width: var(--emr-color-picker-alpha-height);
-  height: var(--emr-color-picker-alpha-width);
-}
+  &[vertical] {
+    width: var(--emr-color-picker-alpha-height);
+    height: var(--emr-color-picker-alpha-width);
+  }
 
-:host .pointer {
-  z-index: 1;
-  flex: none;
-  position: absolute;
-  cursor: pointer;
-  left: 0;
-  border-radius: 50%;
-  width: var(--emr-color-picker-alpha-pointer-size);
-  height: var(--emr-color-picker-alpha-pointer-size);
-  box-shadow: var(--emr-color-picker-alpha-pointer-shadow);
-  border: var(--emr-color-picker-alpha-pointer-border);
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+  .pointer {
+    z-index: 1;
+    flex: none;
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    border-radius: 50%;
+    width: var(--emr-color-picker-alpha-pointer-size);
+    height: var(--emr-color-picker-alpha-pointer-size);
+    box-shadow: var(--emr-color-picker-alpha-pointer-shadow);
+    border: var(--emr-color-picker-alpha-pointer-border);
+    top: 50%;
+    transform: translate(-50%, -50%);
 
-:host .pointer-bg {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-}
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-position: 0 0, 6px 6px;
+      background-size: 12px 12px;
+      background-image: repeating-linear-gradient(45deg,#dbdbdb 25%,transparent 25%,transparent 75%,#dbdbdb 75%,#dbdbdb),repeating-linear-gradient(45deg,#dbdbdb 25%,#fff 25%,#fff 75%,#dbdbdb 75%,#dbdbdb);
+    }
+  }
 
-:host .pointer:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background-position: 0 0, 6px 6px;
-  background-size: 12px 12px;
-  background-image: repeating-linear-gradient(45deg,#dbdbdb 25%,transparent 25%,transparent 75%,#dbdbdb 75%,#dbdbdb),repeating-linear-gradient(45deg,#dbdbdb 25%,#fff 25%,#fff 75%,#dbdbdb 75%,#dbdbdb);
+  .pointer-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
 }

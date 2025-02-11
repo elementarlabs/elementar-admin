@@ -1,13 +1,16 @@
 :host {
-  @apply block px-2;
+  display: block;
+  padding: 0 var(--p-2);
 
   .divider {
-    @apply h-6 w-px bg-neutral-300;
+    height: var(--h-6);
+    background: var(--color-neutral-300);
+    width: 1px;
   }
 }
 
 :host-context(html.dark) {
   .divider {
-    @apply bg-neutral-500;
+    background: var(--color-neutral-500);
   }
 }

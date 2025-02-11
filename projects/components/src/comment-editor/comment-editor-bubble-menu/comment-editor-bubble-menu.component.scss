@@ -1,33 +1,62 @@
 :host {
-  @apply block shadow bg-neutral-950 text-neutral-200 min-h-12 px-2 rounded-2xl relative top-px;
+  display: block;
+  box-shadow: var(--shadow-default);
+  background: var(--color-neutral-950);
+  color: var(--color-neutral-200);
+  min-height: var(--h-12);
+  border-radius: var(--rounded-2xl);
+  top: 1px;
 
   .button,
   ::ng-deep .button {
-    --emr-icon-size: theme('fontSize.xl');
-    @apply hover:text-tertiary-300 hover:bg-neutral-700 rounded-full p-1.5 leading-[0];
+    --emr-icon-size: var(--text-xl);
+
+    &:hover {
+      color: var(--color-tertiary-300);
+      background-color: var(--color-neutral-700);
+      border-radius: var(--rounded-full);
+      padding: var(--p-1_5);
+      line-height: 0;
+    }
 
     &.active {
-      @apply bg-neutral-700 text-tertiary-300;
+      color: var(--color-tertiary-300);
+      background-color: var(--color-neutral-700);
     }
 
     mat-icon {
-      @apply size-6 text-xl leading-[1.25];
+      width: var(--w-6);
+      height: var(--w-6);
+      font-size: var(--text-xl);
+      line-height: 1.25;
     }
 
     &:disabled {
-      @apply opacity-70 pointer-events-none;
+      pointer-events: none;
+      opacity: var(--opacity-70);
     }
   }
 
   .link {
-    @apply text-tertiary-300 hover:text-tertiary-100 relative top-px;
+    color: var(--color-tertiary-300);
+    position: relative;
+    top: 1px;
+
+    &:hover {
+      color: var(--color-tertiary-100);
+    }
   }
 }
 
 :host-context(html.dark) {
-  @apply bg-tertiary-200 text-neutral-900;
+  background: var(--color-tertiary-200);
+  color: var(--color-neutral-900);
 
   .link {
-    @apply text-tertiary-700 hover:text-tertiary-800;
+    color: var(--color-tertiary-700);
+
+    &:hover {
+      color: var(--color-tertiary-800);
+    }
   }
 }

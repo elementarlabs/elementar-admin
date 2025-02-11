@@ -214,7 +214,7 @@ module.exports = {
         maxHeight: 'max-h',
         padding: 'p',
         margin: 'm',
-        boxShadow: 'shadows',
+        boxShadow: 'shadow',
         zIndex: 'z',
         opacity: 'opacity',
         gap: 'gap',
