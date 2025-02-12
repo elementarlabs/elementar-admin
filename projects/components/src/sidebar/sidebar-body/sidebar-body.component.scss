@@ -1,11 +1,17 @@
 :host {
-  @apply block w-full grow overflow-y-auto overflow-x-hidden p-[var(--emr-sidebar-body-padding)];
+  display: block;
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--emr-sidebar-body-padding);
+  overflow-x: hidden;
 }
 
 :host-context(.emr-sidebar.compact) {
-  @apply overflow-y-hidden p-[var(--emr-sidebar-body-compact-padding)];
+  overflow-y: hidden;
+  padding: var(--emr-sidebar-body-compact-padding);
 }
 
 :host-context(.emr-sidebar.compact:hover) {
-  @apply overflow-y-auto;
+  overflow-y: auto;
 }

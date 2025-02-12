@@ -5,7 +5,10 @@
   --emr-popover-bg: theme('colors.white');
   --emr-popover-margin: theme('spacing[2.5]');
 
-  @apply block relative rounded-[var(--emr-popover-border-radius)] bg-[var(--emr-popover-bg)];
+  display: block;
+  position: relative;
+  border-radius: var(--emr-popover-border-radius);
+  background-color: var(--emr-popover-bg);
   border: var(--emr-popover-border);
   box-shadow: var(--emr-popover-shadow);
   animation: .15s emr-popover-animation;

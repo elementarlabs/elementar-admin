@@ -4,7 +4,8 @@
   --emr-marquee-reverse: ;
   --emr-marquee-pause: running;
 
-  @apply block w-full;
+  display: block;
+  width: 100%;
 
   .content {
     width: 100%;
@@ -40,7 +41,10 @@
   }
 
   .invisible {
-    @apply w-0 h-0 hidden pointer-events-none;
+    width: 0;
+    height: 0;
+    display: none;
+    pointer-events: none;
   }
 
   @keyframes emr-marquee-animation {

@@ -4,10 +4,12 @@
   --emr-mchart-bar-bar-gradient-end-color: theme('colors.primary.DEFAULT');
   --emr-mchart-bar-highlight-bg: theme('colors.neutral.200');
 
-  @apply block overflow-hidden;
+  display: block;
+  overflow: hidden;
 
   svg {
-    @apply w-full h-full;
+    width: 100%;
+    height: 100%;
   }
 
   ::ng-deep {

@@ -2,7 +2,10 @@
   --emr-skeleton-circle-size: theme('spacing.14');
 
   animation: emr-skeleton-loading 1s linear infinite alternate;
-  @apply inline-flex rounded-full flex-none;
+
+  display: inline-flex;
+  border-radius: var(--rounded-full);
+  flex: none;
 
   &:not([class*="w-"]):not([class*="size-"]) {
     width: var(--emr-skeleton-circle-size);

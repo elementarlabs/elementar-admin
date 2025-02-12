@@ -1,46 +1,59 @@
 :host {
-  @apply flex flex-none items-center justify-center gap-0.5 flex-col cursor-pointer;
-  @apply text-[var(--emr-rail-nav-bg-item-color)];
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  gap: var(--gap-0_5);
+  color: var(--emr-rail-nav-bg-item-color);
 
   .icon {
-    @apply px-4 rounded-full flex items-center justify-center py-1.5;
-    @apply text-[var(--emr-rail-nav-bg-item-icon-color)];
+    padding: var(--p-1_5) var(--p-4);
+    border-radius: var(--rounded-full);
+    color: var(--emr-rail-nav-bg-item-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:empty {
-      @apply hidden;
+      display: none;
     }
   }
 
   &:hover {
     .icon {
-      @apply bg-[var(--emr-rail-nav-bg-item-icon-hover-bg)];
+      background: var(--emr-rail-nav-bg-item-icon-hover-bg);
 
       ::ng-deep * {
-        @apply scale-110 transition-all;
+        scale: 1.1;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
       }
     }
   }
 
   &:active {
     .icon {
-      @apply bg-[var(--emr-rail-nav-bg-item-icon-active-bg)];
+      background: var(--emr-rail-nav-bg-item-icon-active-bg);
     }
   }
 
   &.is-active {
     .icon {
-      @apply bg-[var(--emr-rail-nav-bg-item-icon-is-active-bg)];
-      @apply text-[var(--emr-rail-nav-bg-item-icon-is-active-color)];
+      background: var(--emr-rail-nav-bg-item-icon-is-active-bg);
+      color: var(--emr-rail-nav-bg-item-icon-is-active-color);
     }
   }
 
   &.is-active:active {
     .icon {
-      @apply bg-[var(--emr-rail-nav-bg-item-icon-is-active-active-bg)];
+      background: var(--emr-rail-nav-bg-item-icon-is-active-active-bg);
     }
   }
 
   .label {
-    @apply text-tiny;
+    font-size: var(--text-tiny);
   }
 }

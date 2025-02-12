@@ -9,7 +9,10 @@
   --emr-rail-nav-width: theme('width.24');
   --emr-rail-nav-gap: theme('gap.3');
 
-  @apply flex flex-col gap-[var(--emr-rail-nav-gap)] w-[var(--emr-rail-nav-width)];
+  display: flex;
+  flex-direction: column;
+  gap: var(--emr-rail-nav-gap);
+  width: var(--emr-rail-nav-width);
 }
 
 :host-context(html.dark) {

@@ -1,17 +1,28 @@
 :host {
   --emr-screen-loader-bg: var(--emr-background);
 
-  @apply opacity-0 fixed inset-0 -z-[9999] flex items-center justify-center flex-col bg-[var(--emr-screen-loader-bg)];
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--emr-screen-loader-bg);
 
   &.is-opened {
-    @apply z-[9999] opacity-100;
+    z-index: 9999;
   }
 
   .message {
-    @apply max-w-[600px] leading-snug text-center;
+    max-width: 600px;
+    line-height: var(--leading-snug);
+    text-align: center;
   }
 
   .progress-bar {
-    @apply w-64 mt-4;
+    width: var(--w-64);
+    margin-top: var(--m-4);
   }
 }

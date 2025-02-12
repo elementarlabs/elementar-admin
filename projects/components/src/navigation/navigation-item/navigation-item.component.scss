@@ -1,5 +1,7 @@
 :host {
-  @apply block no-underline relative;
+  display: block;
+  text-decoration: none;
+  position: relative;
 
   .inner {
     display: flex;
@@ -23,7 +25,7 @@
   }
 
   &:hover {
-    @apply no-underline;
+    text-decoration: none;
 
     .inner {
       transition: background-color .2s;
@@ -31,15 +33,26 @@
   }
 
   .text {
-    @apply overflow-hidden overflow-ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .badge {
     &:empty {
-      @apply hidden;
+      display: none;
     }
 
-    @apply inline-flex flex-none rounded-full h-5 min-w-5 items-center justify-center text-2xs px-1.5 bg-surface-tint text-on-primary;
+    display: inline-flex;
+    flex: none;
+    border-radius: var(--rounded-full);
+    height: var(--h-5);
+    min-width: var(--w-5);
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xs);
+    padding: 0 var(--p-1_5);
+    background: var(--color-surface-tint);
+    color: var(--color-on-primary);
   }
 }
 
@@ -123,7 +136,7 @@
 }
 
 :host:not(.is-active):hover {
-  @apply no-underline;
+  text-decoration: none;
 
   .icon {
     color: var(--emr-navigation-item-hover-icon-color);

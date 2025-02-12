@@ -1,7 +1,11 @@
 :host {
-  @apply block bg-neutral-200 py-1.5 px-2 font-medium;
+  display: block;
+  background: var(--color-neutral-200);
+  padding: var(--p-1_5) var(--p-2);
+  font-weight: var(--font-medium);
 }
 
 :host-context(html.dark) {
-  @apply bg-neutral-300 text-neutral-900;
+  background: var(--color-neutral-300);
+  color: var(--color-neutral-900);
 }

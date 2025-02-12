@@ -1,19 +1,28 @@
 :host {
-  @apply block w-max rounded-full py-2 px-4 text-neutral-800 text-sm mt-0.5 border border-transparent;
+  display: block;
+  width: max-content;
+  border-radius: var(--rounded-full);
+  padding: var(--p-2) var(--p-4);
+  color: var(--color-neutral-800);
+  font-size: var(--text-sm);
+  margin-top: var(--m-1_5);
+  border: 1px solid transparent;
+
 
   &:hover {
-    @apply bg-neutral-200 text-neutral-900;
+    background: var(var(--color-neutral-200));
+    color: var(--color-neutral-900);
   }
 
   &.is-active {
-    @apply border-outline;
+    border-color: var(--sys-outline);
   }
 }
 
 :host-context(html.dark) {
-  @apply text-neutral-300;
+  color: var(--color-neutral-300);
 
   &:hover {
-    @apply bg-neutral-600;
+    background: var(var(--color-neutral-600));
   }
 }

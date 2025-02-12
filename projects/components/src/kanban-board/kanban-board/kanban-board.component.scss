@@ -3,15 +3,17 @@
   --emr-kanban-board-padding-x: theme('padding.10');
   --emr-kanban-board-column-gap: theme('gap.5');
 
-  @apply h-full;
+  height: 100%;
 
   .cdk-drag-placeholder {
-    @apply opacity-60;
+    opacity: var(--opacity-60);
   }
 
   &.is-dragging-active {
     .scroll-container {
-      @apply transition-all;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
     }
   }
 }

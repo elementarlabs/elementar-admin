@@ -1,23 +1,29 @@
 :host {
-  @apply block flex-none w-full p-[var(--emr-sidebar-header-padding)];
+  display: block;
+  flex: none;
+  width: 100%;
+  padding: var(--emr-sidebar-header-padding);
 
   ::ng-deep {
     .emr-sidebar-compact-view-mode {
-      @apply hidden;
+      display: none;
     }
   }
 }
 
 :host-context(.emr-sidebar.compact:not(:hover)) {
-  @apply p-[var(--emr-sidebar-header-compact-padding)] transition-all;
+  padding: var(--emr-sidebar-header-compact-padding);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 
   ::ng-deep {
     .emr-sidebar-full-view-mode {
-      @apply hidden;
+      display: none;
     }
 
     .emr-sidebar-compact-view-mode {
-      @apply block;
+      display: block;
     }
   }
 }
@@ -25,11 +31,11 @@
 :host-context(.emr-sidebar.compact:hover) {
   ::ng-deep {
     .emr-sidebar-compact-view-mode {
-      @apply hidden;
+      display: none;
     }
 
     .emr-sidebar-full-view-mode {
-      @apply block;
+      display: block;
     }
   }
 }

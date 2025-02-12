@@ -1,15 +1,41 @@
 :host {
-  @apply relative flex items-stretch overflow-hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
 
   .content {
-    @apply grow h-full me-4;
+    flex-grow: 1;
+    height: 100%;
+    margin-inline-end: var(--m-4);
   }
 
   .handler {
-    @apply absolute select-none border-s inset-y-0 bg-slate-50 end-0 hidden cursor-ew-resize items-center px-1 sm:flex;
+    position: absolute;
+    user-select: none;
+    border-inline-start: 1px solid var(--emr-border);
+    top: 0;
+    bottom: 0;
+    inset-inline-end: 0;
+    cursor: ew-resize;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: var(--w-5);
 
-    > div {
-      @apply flex-none h-8 w-1.5 rounded-full bg-slate-400/80 hover:bg-slate-500/80;
+    .handler-indicator {
+      background: var(--color-surface-container-high);
+      display: flex;
+      height: var(--h-8);
+      width: var(--w-1_5);
+      border-radius: var(--rounded-full);
+    }
+
+    &:hover,
+    &:active {
+      .handler-indicator {
+        background: var(--color-secondary);
+      }
     }
   }
 }

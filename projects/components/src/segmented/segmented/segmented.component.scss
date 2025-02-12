@@ -31,9 +31,14 @@
     --emr-segmented-button-gap: theme('gap[1.5]');
   }
 
-  @apply flex items-center w-max select-none;
-  @apply bg-[var(--emr-segmented-bg)] p-[var(--emr-segmented-padding)];
-  @apply rounded-[var(--emr-segmented-border-radius)] gap-[var(--emr-segmented-gap)];
+  display: flex;
+  align-items: center;
+  user-select: none;
+  width: max-content;
+  background: var(--emr-segmented-bg);
+  padding: var(--emr-segmented-padding);
+  border-radius: var(--emr-segmented-border-radius);
+  gap: var(--emr-segmented-gap);
 }
 
 :host-context(html.dark) {

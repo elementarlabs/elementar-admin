@@ -1,3 +1,5 @@
 :host {
-  @apply w-[200px] border-s ps-6;
+  width: 200px;
+  border-inline-start: 1px solid var(--emr-border);
+  padding-inline-start: var(--p-6);
 }

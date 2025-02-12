@@ -1,50 +1,68 @@
 :host {
-  @apply h-[var(--emr-segmented-button-height)] p-[var(--emr-segmented-button-padding)] flex-none;
-  @apply rounded-[var(--emr-segmented-button-border-radius)] gap-[var(--emr-segmented-button-gap)];
-  @apply flex items-center cursor-pointer justify-center text-[var(--emr-segmented-button-color)];
-  @apply min-w-[var(--emr-segmented-button-min-width)];
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  color: var(--emr-segmented-button-color);
   font-size: var(--emr-segmented-button-font-size);
+  min-width: var(--emr-segmented-button-min-width);
+  border-radius: var(--emr-segmented-button-border-radius);
+  gap: var(--emr-segmented-button-gap);
+  flex: none;
+  padding: var(--emr-segmented-button-padding);
+  height: var(--emr-segmented-button-height);
 
   &.icon-only {
     --emr-segmented-button-min-width: 0;
     --emr-segmented-button-icon-offset-margin: 0;
-    @apply w-[var(--emr-segmented-button-height)] gap-0 p-0;
+
+    width: var(--emr-segmented-button-height);
+    gap: 0;
+    padding: 0;
 
     .content {
-      @apply hidden;
+      display: none;
     }
   }
 
   .icon {
     line-height: 0;
-    @apply flex items-center justify-center;
-    @apply ms-[var(--emr-segmented-button-icon-offset-margin)];
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: var(--emr-segmented-button-icon-offset-margin);
 
     ::ng-deep {
       .mat-icon {
         display: inline-flex !important;
-        @apply items-center justify-center;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
 
-  .icon:empty {
-    @apply hidden;
+  .icon {
+    &:empty {
+      display: none;
+    }
   }
 
   &:hover {
-    @apply bg-[var(--emr-segmented-button-hover-bg)] text-[var(--emr-segmented-button-hover-color)] no-underline;
+    background-color: var(--emr-segmented-button-hover-bg);
+    color: var(--emr-segmented-button-hover-color);
+    text-decoration-line: none;
   }
 
   &.is-selected {
-    @apply pointer-events-none;
-    @apply bg-[var(--emr-segmented-button-selected-bg)];
-    @apply text-[var(--emr-segmented-button-selected-color)];
+    pointer-events: none;
+    background-color: var(--emr-segmented-button-selected-bg);
+    color: var(--emr-segmented-button-selected-color);
     box-shadow: var(--emr-segmented-button-selected-shadow);
   }
 
   &:disabled,
   &.is-disabled {
-    @apply pointer-events-none opacity-65;
+    pointer-events: none;
+    opacity: var(--opacity-65);
   }
 }

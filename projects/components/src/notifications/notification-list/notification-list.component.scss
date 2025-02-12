@@ -3,23 +3,28 @@
   --emr-notification-padding: theme('padding.5');
   --emr-notification-gap: theme('gap.4');
 
-  @apply flex flex-col;
+  display: flex;
+  flex-direction: column;
 
   .notification {
-    @apply relative bg-surface-container-low rounded-xl;
+    position: relative;
+    background: var(--color-surface-container-low);
+    border-radius: var(--rounded-xl);
 
     &:has(.is-new) {
-      @apply bg-[var(--emr-notification-is-new-bg)];
+      background: var(--emr-notification-is-new-bg);
     }
   }
 
   .controls {
-    @apply absolute end-2 top-2;
+    position: absolute;
+    inset-inline-end: var(--w-2);
+    top: var(--h-2);
   }
 
   &:has(.controls:not(:empty)) {
     .notification {
-      @apply pe-7;
+      padding-inline-end: var(--p-7);
     }
   }
 }

@@ -1,3 +1,4 @@
 :host {
-  @apply block py-1.5 px-2;
+  display: block;
+  padding: var(--p-1_5) var(--p-2);
 }

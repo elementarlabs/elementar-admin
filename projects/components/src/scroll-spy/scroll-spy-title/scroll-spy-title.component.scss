@@ -1,3 +1,6 @@
 :host {
-  @apply block font-medium text-xl mb-4;
+  display: block;
+  font-weight: var(--font-medium);
+  font-size: var(--text-xl);
+  margin-bottom: var(--m-4);
 }

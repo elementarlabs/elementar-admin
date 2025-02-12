@@ -1,3 +1,7 @@
 :host {
-  @apply block w-full grow overflow-x-hidden overflow-y-auto;
+  display: block;
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

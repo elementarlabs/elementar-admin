@@ -1,5 +1,11 @@
 :host {
-  @apply block w-max shadow rounded-lg bg-white text-xs overflow-hidden;
+  display: block;
+  width: max-content;
+  box-shadow: var(--shadow-default);
+  border-radius: var(--rounded-lg);
+  background: white;
+  font-size: var(--text-xs);
+  overflow: hidden;
 
   .title {
     &:empty {
@@ -15,5 +21,6 @@
 }
 
 :host-context(html.dark) {
-  @apply bg-tertiary-200 text-neutral-800;
+  background: var(--color-tertiary-200);
+  color: var(--color-neutral-800);
 }

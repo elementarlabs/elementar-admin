@@ -17,11 +17,13 @@
   }
 
   .flag-icon {
-    @apply me-2;
+    margin-inline-end: var(--m-2);
   }
 
-  &.is-floating .country-selector {
-    opacity: 1;
+  &.is-floating {
+    .country-selector {
+      opacity: 1;
+    }
   }
 
   .phone-input-container {

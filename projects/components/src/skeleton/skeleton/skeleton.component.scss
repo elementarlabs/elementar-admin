@@ -4,14 +4,17 @@
   --emr-skeleton-from-bg: theme('colors.neutral.200/80');
   --emr-skeleton-from-to: theme('colors.neutral.300/70');
 
-  @apply flex flex-wrap w-full gap-[var(--emr-skeleton-gap)];
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--emr-skeleton-gap);
 
   &.is-direction-col {
-    @apply flex-col;
+    flex-direction: column;
   }
 
   &.is-direction-row {
-    @apply flex-row;
+    flex-direction: row;
   }
 }
 
