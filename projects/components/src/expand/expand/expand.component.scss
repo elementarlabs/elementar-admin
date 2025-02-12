@@ -9,12 +9,22 @@
   --emr-expand-button-hover-opacity: theme('opacity.90');
   --emr-expand-expanded-height: 300px;
 
-  @apply block relative max-h-[var(--emr-expand-expanded-height)] overflow-hidden;
+  display: block;
+  position: relative;
+  max-height: var(--emr-expand-expanded-height);
+  overflow: hidden;
 
   .button {
-    @apply absolute start-[50%] bottom-12;
-    @apply bg-[var(--emr-expand-button-bg)] rounded-[var(--emr-expand-button-border-radius)] p-[var(--emr-expand-button-padding)];
-    @apply flex items-center justify-center z-[2];
+    position: absolute;
+    inset-inline-start: 50%;
+    bottom: var(--h-12);
+    padding: var(--emr-expand-button-padding);
+    border-radius: var(--emr-expand-button-border-radius);
+    background: var(--emr-expand-button-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
     transform: translate(-50%, 50%);
     color: var(--emr-expand-button-color);
     font-size: var(--emr-expand-button-font-size);
@@ -43,19 +53,20 @@
   }
 
   &.is-expanded {
-    @apply max-h-max overflow-auto;
+    max-height: max-content;
+    overflow: auto;
 
     &:after {
       @apply hidden;
     }
 
     .button {
-      @apply invisible;
+      visibility: hidden;
     }
 
     &:hover {
       .button {
-        @apply visible;
+        visibility: visible;
       }
     }
   }

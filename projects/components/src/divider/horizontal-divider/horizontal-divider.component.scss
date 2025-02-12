@@ -1,17 +1,18 @@
 :host {
-  @apply relative block;
+  display: block;
+  position: relative;
 
   .content {
     &:empty {
-      @apply hidden;
+      display: none;
     }
   }
 
   &:not([class*="h-"]) {
-    @apply h-px;
+    height: 1px;
   }
 
   &:not([class*="bg-"]) {
-    @apply bg-[var(--emr-border)];
+    background: var(--emr-border);
   }
 }

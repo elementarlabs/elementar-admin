@@ -1,34 +1,56 @@
 :host {
-  @apply w-screen h-screen flex flex-col;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   .header {
-    @apply absolute top-0 start-0 right-0 h-20 flex-none px-4 z-[3] flex items-center justify-between
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    height: var(--h-20);
+    flex: none;
+    padding-left: var(--p-4);
+    padding-right: var(--p-4);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .content {
-    @apply shadow z-[2] flex items-center justify-center gap-8 h-screen w-screen;
+    box-shadow: var(--shadow-default);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-8);
+    width: 100vw;
+    height: 100vh;
   }
 
   &.scaled {
     img {
-      @apply cursor-grab;
+      // @apply cursor-grab;
+      cursor: grab;
     }
   }
 
   &.dragging {
     img {
-      @apply cursor-grabbing;
+      cursor: grabbing;
     }
   }
 
   &:has(.aside) {
     .content {
-      @apply pe-[420px];
+      padding-inline-end: 420px;
     }
   }
 
   .img {
-    @apply select-none;
+    user-select: none;
     scale: var(--emr-image-viewer-picture-scale, 1);
     transition: scale .15s linear;
   }
@@ -40,72 +62,148 @@
   }
 
   .title {
-    @apply font-medium h-10 rounded-full px-4 text-tiny flex items-center;
-    @apply bg-neutral-700 text-neutral-300;
+    background-color: var(--color-neutral-700);
+    font-weight: var(--font-medium);
+    height: var(--h-10);
+    border-radius: var(--rounded-full);
+    padding-left: var(--p-4);
+    padding-right: var(--p-4);
+    font-size: var(--text-tiny);
+    display: flex;
+    align-items: center;
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-300);
   }
 
   .close,
   .zoom {
-    @apply size-10 rounded-full flex items-center justify-center;
-    @apply bg-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:text-neutral-200;
-    @apply active:text-neutral-100 active:bg-neutral-950;
+    width: var(--w-10);
+    height: var(--h-10);
+    border-radius: var(--rounded-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-neutral-700);
+    color: var(--color-neutral-300);
+
+    &:hover {
+      background: var(--color-neutral-800);
+      color: var(--color-neutral-200);
+    }
+
+    &:active {
+      background: var(--color-neutral-950);
+      color: var(--color-neutral-100);
+    }
   }
 
   .aside {
-    @apply w-[420px] absolute end-0 top-0 bottom-0 flex-none bg-neutral-50 flex flex-col gap-5 h-full pe-10;
+    width: 420px;
+    position: absolute;
+    inset-inline-end: 0;
+    top: 0;
+    bottom: 0;
+    flex: none;
+    background: var(--color-neutral-50);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-5);
+    height: 100%;
+    padding-inline-end: var(--p-10);
 
     &-header {
-      @apply font-bold px-8 pt-8;
+      font-weight: var(--font-bold);
+      padding-left: var(--p-8);
+      padding-right: var(--p-8);
+      padding-top: var(--p-8);
     }
 
     &-body {
-      @apply relative grow text-sm text-neutral-600 leading-relaxed;
+      position: relative;
+      flex-grow: 1;
+      font-size: var(--text-sm);
+      color: var(--color-neutral-600);
+      line-height: var(--leading-relaxed);
 
       &-scroll {
-        @apply absolute inset-0 overflow-y-auto px-8 pb-8;
+        // @apply absolute inset-0 overflow-y-auto px-8 pb-8;
+        position: absolute;
+        inset: 0;
+        overflow-y: auto;
+        padding-left: var(--p-8);
+        padding-right: var(--p-8);
+        padding-bottom: var(--p-8);
       }
     }
   }
 
   .image {
-    @apply relative flex items-center justify-end h-full max-w-[90%] max-h-[90%];
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    max-width: 90%;
+    max-height: 90%;
 
     img {
-      @apply max-h-full max-w-full;
+      max-height: 100%;
+      max-width: 100%;
     }
   }
 
   .spinner {
-    @apply invisible w-max absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-[1];
+    visibility: hidden;
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    --tw-translate-y: -50%;
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   &.loading {
     .spinner {
-      @apply visible z-[1];
+      visibility: visible;
+      z-index: 1;
     }
 
     img {
-      @apply invisible relative -z-50;
+      visibility: hidden;
+      position: relative;
+      z-index: -50;
     }
   }
 }
 
 :host-context(html.dark) {
   .title {
-    @apply bg-neutral-100 text-neutral-600;
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-600);
   }
 
   .close {
-    @apply bg-neutral-100 text-neutral-600;
-    @apply hover:bg-neutral-200 hover:text-neutral-700;
-    @apply active:bg-neutral-300 active:text-neutral-900;
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-600);
+
+    &:hover {
+      background: var(--color-neutral-200);
+      color: var(--color-neutral-700);
+    }
+
+    &:active {
+      background: var(--color-neutral-300);
+      color: var(--color-neutral-900);
+    }
   }
 
   .aside {
-    @apply bg-neutral-900;
+    background: var(--color-neutral-900);
 
     &-body {
-      @apply text-neutral-400;
+      color: var(--color-neutral-400);
     }
   }
 }

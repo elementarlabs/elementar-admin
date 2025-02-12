@@ -1,15 +1,15 @@
 :host {
-  @apply block;
+  display: block;
 
   &:not([class*="w-"]) {
-    @apply w-px;
+    width: 1px;
   }
 
   &:not([class*="bg-"]) {
-    @apply bg-[var(--emr-border)];
+    background: var(--emr-border);
   }
 
   &:not([class*="h-"]) {
-    @apply h-4;
+    height: var(--h-4);
   }
 }
