@@ -1,7 +1,7 @@
 :host {
-  @apply block;
+  display: block;
 
   &.selected {
-    @apply outline outline-4 outline-tertiary;
+    outline: var(--sys-tertiary) solid 4px;
   }
 }

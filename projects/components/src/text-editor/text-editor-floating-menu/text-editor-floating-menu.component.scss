@@ -1,3 +1,13 @@
 :host {
-  @apply shadow mx-3 bg-surface-container-lowest py-1.5 px-2 flex items-center flex-wrap gap-0.5 border rounded-2xl;
+  box-shadow: var(--shadow-default);
+  margin-left: var(--m-3);
+  margin-right: var(--m-3);
+  background-color: var(--sys-surface-container-lowest);
+  padding: var(--p-1_5) var(--p-2);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap-0_5);
+  border: 1px solid var(--emr-border);
+  border-radius: var(--rounded-2xl);
 }

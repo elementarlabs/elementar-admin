@@ -1,5 +1,12 @@
 :host {
-  @apply gap-0.5 border-b h-14 px-3 flex items-center z-[1];
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  gap: var(--gap-0_5);
+  border-bottom: 1px solid var(--emr-border);
+  height: var(--h-14);
+  padding-left: var(--p-3);
+  padding-right: var(--p-3);
+  display: flex;
+  align-items: center;
+  z-index: 1;
 }

@@ -38,15 +38,24 @@
   z-index: -1;
   font-size: var(--emr-command-bar-font-size);
   color: var(--emr-command-bar-color);
-  @apply p-[var(--emr-command-bar-padding)] overflow-hidden opacity-0 flex items-center w-min fixed;
-  @apply bg-[var(--emr-command-bar-bg)] m-[var(--emr-command-bar-margin)] gap-1;
+  padding: var(--emr-command-bar-padding);
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  width: min-content;
+  position: fixed;
+  background-color: var(--emr-command-bar-bg);
+  margin: var(--emr-command-bar-margin);
+  gap: var(--gap-1);
 
   .content {
     &:empty {
-      @apply hidden;
+      display: none;
     }
 
-    @apply whitespace-nowrap p-[var(--emr-command-bar-content-padding)];
+    white-space: nowrap;
+    padding: var(--emr-command-bar-content-padding);
   }
 
   &.is-open {

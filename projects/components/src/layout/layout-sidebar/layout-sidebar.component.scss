@@ -2,13 +2,14 @@
   --emr-layout-sidebar-width: 300px;
   --emr-layout-sidebar-compact-width: 84px;
 
-  @apply block z-[101];
+  display: block;
+  z-index: 101;
 
   &:has(.emr-sidebar.compact) {
-    @apply z-[102];
+    z-index: 102;
   }
 
   &.is-hidden {
-    @apply hidden;
+    display: none;
   }
 }

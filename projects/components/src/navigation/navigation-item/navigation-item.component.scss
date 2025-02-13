@@ -106,7 +106,7 @@
 }
 
 :host(:hover) {
-  @apply no-underline;
+  text-decoration: none;
 
   .inner {
     background-color: var(--emr-navigation-item-hover-bg);

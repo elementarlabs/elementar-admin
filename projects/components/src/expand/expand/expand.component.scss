@@ -57,7 +57,7 @@
     overflow: auto;
 
     &:after {
-      @apply hidden;
+      display: none;
     }
 
     .button {

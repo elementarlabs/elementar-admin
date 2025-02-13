@@ -8,13 +8,19 @@
   --emr-upload-area-drop-active-border: theme('width.px') dashed theme('colors.primary.DEFAULT');
   --emr-upload-area-drop-active-color: theme('colors.primary.DEFAULT');
 
-  @apply flex w-full items-center justify-center bg-[var(--emr-upload-area-bg)] p-[var(--emr-upload-area-padding)];
-  @apply rounded-[var(--emr-upload-area-border-radius)] text-[var(--emr-upload-area-color)];
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  color: var(--emr-upload-area-color);
+  border-radius: var(--emr-upload-area-border-radius);
   border: var(--emr-upload-area-border);
   font-size: var(--emr-upload-area-font-size);
+  background-color: var(--emr-upload-area-bg);
+  padding: var(--emr-upload-area-padding);
 
   &.is-drop-active {
     border: var(--emr-upload-area-drop-active-border);
-    @apply text-[var(--emr-upload-area-drop-active-color)];
+    color: var(--emr-upload-area-drop-active-color);
   }
 }

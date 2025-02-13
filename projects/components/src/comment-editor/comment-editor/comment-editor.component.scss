@@ -164,8 +164,6 @@
 
   .button,
   ::ng-deep .button {
-    line-height: 1;
-
     &.active {
       background: var(--color-neutral-200);
     }

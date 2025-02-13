@@ -1,5 +1,7 @@
 :host {
   --emr-file-list-gap: theme('gap.3');
 
-  @apply flex flex-col gap-[var(--emr-file-list-gap)];
+  display: flex;
+  flex-direction: column;
+  gap: var(--emr-file-list-gap);
 }

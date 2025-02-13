@@ -15,7 +15,12 @@
   --emr-file-error-font-size: theme('fontSize.xs');
   --emr-file-error-color: theme('colors.red.500');
 
-  @apply flex items-center w-full overflow-hidden overflow-ellipsis p-[var(--emr-file-padding)];
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: var(--emr-file-padding);
 
   .name {
     font-size: var(--emr-file-name-font-size);
@@ -23,15 +28,18 @@
 
   .info {
     font-size: var(--emr-file-info-font-size);
-    @apply text-[var(--emr-file-info-color)];
+    color: var(--emr-file-info-color);
   }
 
   .content {
-    @apply min-w-0 grow;
+    min-width: 0;
+    flex-grow: 1;
   }
 
   .controls {
-    @apply flex items-center gap-[var(--emr-file-controls-gap)];
+    display: flex;
+    align-items: center;
+    gap: var(--emr-file-controls-gap)
   }
 
   .progress {
@@ -50,7 +58,7 @@
 
   .error {
     font-size: var(--emr-file-error-font-size);
-    @apply text-[var(--emr-file-error-color)];
+    color: var(--emr-file-error-color);
   }
 }
 

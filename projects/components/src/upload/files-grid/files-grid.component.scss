@@ -1,3 +1,5 @@
 :host {
-  @apply flex flex-wrap gap-5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--h-5);
 }

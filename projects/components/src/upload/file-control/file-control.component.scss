@@ -1,8 +1,10 @@
 :host {
-  @apply inline-flex text-[var(--emr-file-control-color)] cursor-pointer;
   font-size: var(--emr-file-control-font-size);
+  cursor: pointer;
+  display: inline-flex;
+  color: var(--emr-file-control-color);
 
   &:hover {
-    @apply text-[var(--emr-file-control-hover-color)];
+    color: var(--emr-file-control-hover-color);
   }
 }

@@ -3,15 +3,15 @@
   --emr-text-editor-content-max-height: 9999px;
   --emr-text-editor-content-padding: theme('padding.6');
 
-  @apply block;
+  display: block;
 
   &:not([class*="bg-"]) {
-    @apply bg-[var(--emr-text-editor-bg)];
+    background-color: var(--emr-text-editor-bg);
   }
 
   .floating-menu {
     &:empty {
-      @apply hidden;
+      display: none;
     }
   }
 
@@ -24,31 +24,60 @@
   .content {
     ::ng-deep {
       .tiptap {
-        @apply p-[var(--emr-text-editor-content-padding)] min-h-full focus:outline-none;
+        padding: var(--emr-text-editor-content-padding);
+        min-height: 100%;
+
+        &:focus {
+          outline: none;
+        }
 
         div[data-youtube-video] {
-          @apply cursor-move bg-neutral-100 p-6 flex items-center justify-center;
+          cursor: move;
+          background-color: var(--color-neutral-100);
+          padding: var(--p-6);
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           iframe {
-            @apply w-full aspect-video border-none block min-h-[200px] min-w-[200px] outline-none;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            display: block;
+            min-height: 200px;
+            min-width: 200px;
+            outline: none;
           }
 
           &.ProseMirror-selectednode iframe {
-            @apply outline outline-4 outline-tertiary transition-all;
+            outline: var(--sys-tertiary) solid 4px;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
           }
         }
 
         img {
-          @apply block h-auto my-6 mx-0 max-w-full;
+          display: block;
+          height: auto;
+          margin: var(--m-6) 0;
+          max-width: 100%;
 
           &.ProseMirror-selectednode {
-            @apply outline outline-4 outline-tertiary transition-all;
+            outline: var(--sys-tertiary) solid 4px;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
           }
         }
 
         p.is-editor-empty:first-child::before {
-          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
           content: attr(data-placeholder);
+          color: var(--color-neutral-100);
+          float: left;
+          height: 0;
+          pointer-events: none;
+          font-size: 14px;
         }
 
         &.ProseMirror-focused {
@@ -59,18 +88,22 @@
 
         p.is-empty::before {
           content: attr(data-placeholder);
-          @apply text-neutral-500 float-left h-0 pointer-events-none text-[14px];
+          color: var(--color-neutral-100);
+          float: left;
+          height: 0;
+          pointer-events: none;
+          font-size: 14px;
         }
       }
 
       p,
       pre {
         &:first-child {
-          @apply mt-0;
+          margin-top: 0;
         }
 
         &:last-child {
-          @apply mb-0;
+          margin-bottom: 0;
         }
       }
     }
@@ -78,10 +111,18 @@
 
   .button,
   ::ng-deep .button {
-    @apply leading-[0];
-
     &.active {
-      @apply bg-neutral-200 dark:bg-neutral-650 dark:text-neutral-200;
+      background-color: var(--color-neutral-100);
+    }
+  }
+}
+
+:host-context(html.dark) {
+  .button,
+  ::ng-deep .button {
+    &.active {
+      background-color: var(--color-neutral-650);
+      color: var(--color-neutral-200);
     }
   }
 }

@@ -6,9 +6,18 @@
   min-height: var(--h-12);
   border-radius: var(--rounded-2xl);
   top: 1px;
+  padding-inline-start: var(--p-2);
+  padding-inline-end: var(--p-2);
 
   .button,
   ::ng-deep .button {
+    width: var(--w-10);
+    height: var(--h-10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--rounded-full);
+
     --emr-icon-size: var(--text-xl);
 
     &:hover {
@@ -16,7 +25,6 @@
       background-color: var(--color-neutral-700);
       border-radius: var(--rounded-full);
       padding: var(--p-1_5);
-      line-height: 0;
     }
 
     &.active {

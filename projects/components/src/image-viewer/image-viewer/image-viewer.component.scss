@@ -32,7 +32,6 @@
 
   &.scaled {
     img {
-      // @apply cursor-grab;
       cursor: grab;
     }
   }
@@ -126,7 +125,6 @@
       line-height: var(--leading-relaxed);
 
       &-scroll {
-        // @apply absolute inset-0 overflow-y-auto px-8 pb-8;
         position: absolute;
         inset: 0;
         overflow-y: auto;

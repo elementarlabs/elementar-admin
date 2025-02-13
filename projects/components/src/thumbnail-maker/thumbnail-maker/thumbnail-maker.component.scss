@@ -2,30 +2,62 @@
   --emr-thumbnail-width: 720px;
   --emr-thumbnail-height: 460px;
 
-  @apply block w-max overflow-hidden relative;
+  display: block;
+  width: max-content;
+  overflow: hidden;
+  position: relative;
 
   .content {
-    @apply flex w-full items-center justify-center overflow-hidden leading-none relative select-none;
-    @apply w-[var(--emr-thumbnail-width)] h-[var(--emr-thumbnail-height)];
+    display: flex;
+    width: var(--emr-thumbnail-width);
+    height: var(--emr-thumbnail-height);
     mask-image: radial-gradient(circle, black 150px, rgba(0, 0, 0, 0.5) 150px);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    line-height: 1;
+    position: relative;
+    user-select: none;
   }
 
   .image {
-    @apply object-fill max-w-none max-h-none leading-none select-none cursor-move;
+    object-fit: fill;
+    max-width: none;
+    max-height: none;
+    line-height: 1;
+    user-select: none;
+    cursor: move;
   }
 
   .helper-text {
-    @apply absolute z-[1] top-5 start-1/2 -translate-x-1/2 w-max flex items-center gap-2;
-    @apply  bg-neutral-950 text-white rounded-lg px-3 py-2 text-sm opacity-90;
+    position: absolute;
+    z-index: 1;
+    top: var(-h-5);
+    inset-inline-start: 50%;
+    background-color: var(--color-neutral-950);
+    color: white;
+    border-radius: var(--rounded-lg);
+    padding: var(--p-2) var(--p-3);
+    font-size: var(--text-sm);
+    opacity: var(--opacity-90);
+    --tw-translate-x: -50%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2);
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .controls {
-    @apply my-3;
+    margin-top: var(--m-3);
+    margin-bottom: var(--m-3);
   }
 
   &.loading {
     .image {
-      @apply invisible relative -z-[1];
+      visibility: hidden;
+      position: relative;
+      z-index: -1;
     }
   }
 }

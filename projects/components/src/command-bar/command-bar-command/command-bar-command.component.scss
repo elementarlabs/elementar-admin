@@ -1,5 +1,4 @@
 :host {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,7 +8,9 @@
   cursor: pointer;
   gap: var(--emr-command-bar-command-gap);
   color: var(--emr-command-bar-command-color);
-  @apply select-none rounded-full h-[var(--emr-command-bar-command-height)];
+  user-select: none;
+  border-radius: var(--rounded-full);
+  height: var(--emr-command-bar-command-height);
 
   &:hover {
     color: var(--emr-command-bar-command-hover-color);
@@ -27,6 +28,8 @@
     color: var(--emr-command-bar-command-shortcut-color);
     padding: var(--emr-command-bar-command-shortcut-padding);
     border: var(--emr-command-bar-command-shortcut-border);
-    @apply flex-none w-[var(--emr-command-bar-command-shortcut-size)] h-[var(--emr-command-bar-command-shortcut-size)];
+    flex: none;
+    width: var(--emr-command-bar-command-shortcut-size);
+    height: var(--emr-command-bar-command-shortcut-size);
   }
 }

@@ -1,5 +1,11 @@
 :host {
-  @apply flex flex-col cursor-pointer items-center justify-center flex-none select-none;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  user-select: none;
   width: var(--emr-tab-panel-item-width);
   height: var(--emr-tab-panel-item-height);
   padding: var(--emr-tab-panel-item-padding);
@@ -19,15 +25,17 @@
 
   .icon {
     line-height: 0;
-    @apply inline-block;
+    display: inline-block;
 
     &:empty {
-      @apply hidden;
+      display: none;
     }
   }
 
   .text {
-    @apply whitespace-nowrap relative -top-px;
+    top: -1px;
+    white-space: nowrap;
+    position: relative;
     line-height: 1;
   }
 }
@@ -37,6 +45,6 @@
   height: var(--emr-tab-panel-compact-item-height);
 
   .text {
-    @apply hidden;
+    display: none;
   }
 }

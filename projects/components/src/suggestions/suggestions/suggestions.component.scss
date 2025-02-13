@@ -9,7 +9,9 @@
   --emr-suggestion-hover-bg: theme('colors.surface-container-low');
   --emr-suggestion-border-radius: theme('borderRadius.full');
 
-  @apply block overflow-y-auto bg-[var(--emr-suggestions-bg)];
+  display: block;
+  overflow-y: auto;
+  background-color: var(--emr-suggestions-bg);
 }
 
 :host-context(html.dark) {
