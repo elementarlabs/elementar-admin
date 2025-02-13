@@ -1,13 +1,13 @@
 :host {
-  --emr-suggestions-bg: theme('colors.surface-container-lowest');
-  --emr-suggestion-block-heading-color: theme('colors.on-surface');
-  --emr-suggestion-block-font-size: theme('fontSize.xs');
-  --emr-suggestion-block-font-weight: theme('fontWeight.semibold');
-  --emr-suggestion-block-content-padding: theme('padding.2') 0;
-  --emr-suggestion-height: theme('height.11');
-  --emr-suggestion-padding: 0 theme('padding.2');
-  --emr-suggestion-hover-bg: theme('colors.surface-container-low');
-  --emr-suggestion-border-radius: theme('borderRadius.full');
+  --emr-suggestions-bg: var(--color-surface-container-lowest);
+  --emr-suggestion-block-heading-color: var(--color-on-surface);
+  --emr-suggestion-block-font-size: var(--text-xs);
+  --emr-suggestion-block-font-weight: var(--font-semibold);
+  --emr-suggestion-block-content-padding: var(--p-2) 0;
+  --emr-suggestion-height: var(--h-11);
+  --emr-suggestion-padding: 0 var(--p-2);
+  --emr-suggestion-hover-bg: var(--color-surface-container-low);
+  --emr-suggestion-border-radius: var(--rounded-full);
 
   display: block;
   overflow-y: auto;
@@ -15,6 +15,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-suggestions-bg: theme('colors.surface-container-high');
-  --emr-suggestion-hover-bg: theme('colors.surface-bright');
+  --emr-suggestions-bg: var(--color-surface-container-high);
+  --emr-suggestion-hover-bg: var(--color-surface-bright);
 }

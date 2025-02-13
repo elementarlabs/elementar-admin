@@ -1,7 +1,7 @@
 :host {
-  --emr-kanban-board-col-width: theme('width.72');
-  --emr-kanban-board-padding-x: theme('padding.10');
-  --emr-kanban-board-column-gap: theme('gap.5');
+  --emr-kanban-board-col-width: var(--w-72);
+  --emr-kanban-board-padding-x: var(--p-10);
+  --emr-kanban-board-column-gap: var(--gap-5);
 
   height: 100%;
 

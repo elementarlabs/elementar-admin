@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  gap: theme('gap[2.5]');
+  gap: var(--gap-2_5);
   height: var(--emr-suggestion-height);
   padding: var(--emr-suggestion-padding);
   border-radius: var(--emr-suggestion-border-radius);
@@ -22,8 +22,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    --emr-avatar-size: theme('size.8');
-    border-radius: theme('borderRadius.full');
+    --emr-avatar-size: var(--w-8);
+    border-radius: var(--rounded-full);
   }
 
   .icon:empty,
@@ -34,7 +34,7 @@
   .content {
     display: flex;
     align-items: center;
-    gap: theme('gap[2.5]');
-    font-size: theme('fontSize.sm');
+    gap: var(--gap-2_5);
+    font-size: var(--text-sm);
   }
 }

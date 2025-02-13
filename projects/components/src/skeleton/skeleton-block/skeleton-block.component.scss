@@ -1,6 +1,6 @@
 :host {
-  --emr-skeleton-block-width: theme('width.full');
-  --emr-skeleton-block-height: theme('height.20');
+  --emr-skeleton-block-width: 100%;
+  --emr-skeleton-block-height: var(--h-20);
 
   animation: emr-skeleton-loading 1s linear infinite alternate;
 

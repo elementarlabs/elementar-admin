@@ -1,28 +1,28 @@
 :host {
-  --emr-color-picker-bg: theme('colors.white');
-  --emr-color-picker-border-radius: theme('borderRadius.md');
-  --emr-color-picker-margin-offset: theme('margin.2');
-  --emr-color-picker-border: 0 solid theme('colors.neutral.200');
-  --emr-color-picker-padding: theme('padding.0');
-  --emr-color-picker-gap: theme('gap.0');
+  --emr-color-picker-bg: white;
+  --emr-color-picker-border-radius: var(--rounded-md);
+  --emr-color-picker-margin-offset: var(--m-2);
+  --emr-color-picker-border: 0 solid var(--color-neutral-200);
+  --emr-color-picker-padding: 0;
+  --emr-color-picker-gap: 0;
 
   --emr-color-picker-saturation-width: 15rem;
   --emr-color-picker-saturation-height: 8.75rem;
-  --emr-color-picker-saturation-pointer-size: theme('width.7');
-  --emr-color-picker-saturation-pointer-shadow: theme('boxShadow.md');
-  --emr-color-picker-saturation-pointer-border: 2px solid theme('colors.white');
+  --emr-color-picker-saturation-pointer-size: var(--w-7);
+  --emr-color-picker-saturation-pointer-shadow: var(--shadow-md);
+  --emr-color-picker-saturation-pointer-border: 2px solid white;
 
   --emr-color-picker-hue-width: var(--emr-color-picker-saturation-width);
-  --emr-color-picker-hue-height: theme('height.7');
-  --emr-color-picker-hue-pointer-size: theme('width.7');
-  --emr-color-picker-hue-pointer-shadow: theme('boxShadow.md');
-  --emr-color-picker-hue-pointer-border: 2px solid theme('colors.white');
+  --emr-color-picker-hue-height: var(--h-7);
+  --emr-color-picker-hue-pointer-size: var(--w-7);
+  --emr-color-picker-hue-pointer-shadow: var(--shadow-md);
+  --emr-color-picker-hue-pointer-border: 2px solid white;
 
   --emr-color-picker-alpha-width: var(--emr-color-picker-saturation-width);
-  --emr-color-picker-alpha-height: theme('height.7');
-  --emr-color-picker-alpha-pointer-size: theme('width.7');
-  --emr-color-picker-alpha-pointer-shadow: theme('boxShadow.md');
-  --emr-color-picker-alpha-pointer-border: 2px solid theme('colors.white');
+  --emr-color-picker-alpha-height: var(--h-7);
+  --emr-color-picker-alpha-pointer-size: var(--w-7);
+  --emr-color-picker-alpha-pointer-shadow: var(--shadow-md);
+  --emr-color-picker-alpha-pointer-border: 2px solid white;
 
   display: inline-grid;
   user-select: none;

@@ -1,12 +1,12 @@
 :host {
-  --emr-expand-fade-color: theme('colors.background');
-  --emr-expand-button-bg: theme('colors.surface-container');
-  --emr-expand-button-color: theme('colors.on-surface');
-  --emr-expand-button-font-size: theme('fontSize.tiny');
-  --emr-expand-button-box-shadow: theme('boxShadow.md');
-  --emr-expand-button-border-radius: theme('borderRadius.full');
-  --emr-expand-button-padding: theme('padding[2]') theme('padding.4');
-  --emr-expand-button-hover-opacity: theme('opacity.90');
+  --emr-expand-fade-color: var(--color-background);
+  --emr-expand-button-bg: var(--color-surface-container);
+  --emr-expand-button-color: var(--color-on-surface);
+  --emr-expand-button-font-size: var(--text-tiny);
+  --emr-expand-button-box-shadow: var(--shadow-md);
+  --emr-expand-button-border-radius: var(--rounded-full);
+  --emr-expand-button-padding: var(--p-2) var(--p-4);
+  --emr-expand-button-hover-opacity: var(--opacity-90);
   --emr-expand-expanded-height: 300px;
 
   display: block;

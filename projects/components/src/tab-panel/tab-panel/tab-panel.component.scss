@@ -2,25 +2,25 @@
   --emr-tab-panel-width: 5rem;
   --emr-tab-panel-item-width: 3.75rem;
   --emr-tab-panel-item-height: 3.75rem;
-  --emr-tab-panel-item-padding: theme('padding.2');
-  --emr-tab-panel-item-color: theme('colors.neutral.500');
-  --emr-tab-panel-item-gap: theme('gap.1');
-  --emr-tab-panel-item-hover-bg: theme('colors.neutral.200');
-  --emr-tab-panel-item-hover-color: theme('colors.neutral.700');
-  --emr-tab-panel-item-active-bg: theme('colors.primary.300');
-  --emr-tab-panel-item-active-color: theme('colors.neutral.950');
-  --emr-tab-panel-item-border-radius: theme('borderRadius.xl');
+  --emr-tab-panel-item-padding: var(--p-2);
+  --emr-tab-panel-item-color: var(--color-neutral-500);
+  --emr-tab-panel-item-gap: var(--gap-1);
+  --emr-tab-panel-item-hover-bg: var(--color-neutral-200);
+  --emr-tab-panel-item-hover-color: var(--color-neutral-700);
+  --emr-tab-panel-item-active-bg: var(--color-primary-300);
+  --emr-tab-panel-item-active-color: var(--color-neutral-950);
+  --emr-tab-panel-item-border-radius: var(--rounded-xl);
   --emr-tab-panel-aside-width: 18.75rem;
-  --emr-tab-panel-border-end: 1px solid theme('borderColor.DEFAULT');
-  --emr-tab-panel-nav-padding: theme('padding[2.5]');
-  --emr-tab-panel-nav-gap: theme('gap.3');
-  --emr-tab-panel-item-text-font-size: theme('fontSize.xs');
-  --emr-tab-panel-item-icon-font-size: theme('fontSize.2xl');
+  --emr-tab-panel-border-end: 1px solid var(--emr-border);
+  --emr-tab-panel-nav-padding: var(--p-2_5);
+  --emr-tab-panel-nav-gap: var(--gap-3);
+  --emr-tab-panel-item-text-font-size: var(--text-xs);
+  --emr-tab-panel-item-icon-font-size: var(--text-2xl);
 
   // compact state
-  --emr-tab-panel-compact-width: theme('width.14');
-  --emr-tab-panel-compact-item-width: theme('width.10');
-  --emr-tab-panel-compact-item-height: theme('height.10');
+  --emr-tab-panel-compact-width: var(--w-14);
+  --emr-tab-panel-compact-item-width: var(--w-10);
+  --emr-tab-panel-compact-item-height: var(--h-10);
 
   display: flex;
   width: min-content;
@@ -42,7 +42,7 @@
 }
 
 :host-context(html.dark) {
-  --emr-tab-panel-item-hover-bg: theme('colors.neutral.700');
-  --emr-tab-panel-item-hover-color: theme('colors.primary.200');
-  --emr-tab-panel-item-active-bg: theme('colors.primary.300');
+  --emr-tab-panel-item-hover-bg: var(--color-neutral-700);
+  --emr-tab-panel-item-hover-color: var(--color-primary-200);
+  --emr-tab-panel-item-active-bg: var(--color-primary-300);
 }

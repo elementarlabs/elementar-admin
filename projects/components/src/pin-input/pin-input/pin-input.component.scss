@@ -1,6 +1,6 @@
 :host {
-  --emr-pin-input-width: theme('width.14');
-  --emr-pin-gap: theme('gap.4');
+  --emr-pin-input-width: var(--w-14);
+  --emr-pin-gap: var(--gap-4);
 
   display: block;
   width: max-content;

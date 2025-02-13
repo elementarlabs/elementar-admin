@@ -1,8 +1,8 @@
 :host {
-  --emr-gauge-value-color: theme('colors.neutral.700');
-  --emr-gauge-bg: theme('colors.neutral.300');
-  --emr-gauge-fill: theme('colors.primary.DEFAULT');
-  --emr-gauge-size: theme('width.20');
+  --emr-gauge-value-color: var(--color-neutral-700);
+  --emr-gauge-bg: var(--color-neutral-300);
+  --emr-gauge-fill: var(--color-primary);
+  --emr-gauge-size: var(--w-20);
 
   display: flex;
   flex-direction: column;
@@ -38,6 +38,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-gauge-value-color: theme('colors.neutral.300');
-  --emr-gauge-bg: theme('colors.neutral.600');
+  --emr-gauge-value-color: var(--color-neutral-300);
+  --emr-gauge-bg: var(--color-neutral-600);
 }

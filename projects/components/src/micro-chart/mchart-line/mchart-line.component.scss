@@ -1,10 +1,10 @@
 :host {
-  --emr-mchart-line-line-bg: theme('colors.primary.DEFAULT');
-  --emr-mchart-line-area-bg: theme('colors.primary.200');
-  --emr-mchart-line-marker-line-bg: theme('colors.neutral.DEFAULT');
-  --emr-mchart-line-marker-dot-bg: theme('colors.primary.DEFAULT');
-  --emr-mchart-line-area-gradient-start-color: theme('colors.primary.400/80');
-  --emr-mchart-line-area-gradient-end-color: theme('colors.background');
+  --emr-mchart-line-line-bg: var(--color-primary);
+  --emr-mchart-line-area-bg: var(--color-primary-200);
+  --emr-mchart-line-marker-line-bg: var(--color-neutral);
+  --emr-mchart-line-marker-dot-bg: var(--color-primary);
+  --emr-mchart-line-area-gradient-start-color: var(--color-primary);
+  --emr-mchart-line-area-gradient-end-color: var(--color-background);
 
   display: block;
   overflow: hidden;
@@ -57,6 +57,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-mchart-line-area-bg: theme('colors.neutral.700');
-  --emr-mchart-line-area-gradient-start-color: theme('colors.neutral.700');
+  --emr-mchart-line-area-bg: var(--color-neutral-700);
+  --emr-mchart-line-area-gradient-start-color: var(--color-neutral-700);
 }

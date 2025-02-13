@@ -1,6 +1,6 @@
 :host {
-  --emr-avatar-group-item-offset: theme('spacing[2.5]');
-  --emr-avatar-group-item-border: 0.125rem solid theme('colors.white');
+  --emr-avatar-group-item-offset: var(--w-2_5);
+  --emr-avatar-group-item-border: 0.125rem solid white;
 
   display: flex;
   flex: none;

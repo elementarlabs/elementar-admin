@@ -1,8 +1,8 @@
 :host {
-  --emr-mchart-bar-bar-bg: theme('colors.primary.DEFAULT');
-  --emr-mchart-bar-bar-gradient-start-color: theme('colors.primary.500');
-  --emr-mchart-bar-bar-gradient-end-color: theme('colors.primary.DEFAULT');
-  --emr-mchart-bar-highlight-bg: theme('colors.neutral.200');
+  --emr-mchart-bar-bar-bg: var(--color-primary);
+  --emr-mchart-bar-bar-gradient-start-color: var(--color-primary-500);
+  --emr-mchart-bar-bar-gradient-end-color: var(--color-primary);
+  --emr-mchart-bar-highlight-bg: var(--color-neutral-200);
 
   display: block;
   overflow: hidden;
@@ -48,5 +48,5 @@
 }
 
 :host-context(html.dark) {
-  --emr-mchart-bar-highlight-bg: theme('colors.neutral.700');
+  --emr-mchart-bar-highlight-bg: var(--color-neutral-700);
 }

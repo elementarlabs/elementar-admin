@@ -1,5 +1,5 @@
 :host {
-  --emr-panel-header-height: theme('height.14');
+  --emr-panel-header-height: var(--h-14);
 
   flex: none;
 

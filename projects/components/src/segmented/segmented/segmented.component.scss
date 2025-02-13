@@ -1,34 +1,34 @@
 :host {
-  --emr-segmented-button-height: calc(theme('height.9'));
-  --emr-segmented-bg: theme('colors.surface-container');
-  --emr-segmented-button-hover-bg: theme('colors.surface-container-highest');
-  --emr-segmented-button-color: theme('colors.neutral.700');
-  --emr-segmented-button-hover-color: theme('colors.on-surface');
-  --emr-segmented-button-selected-color: theme('colors.primary.650');
-  --emr-segmented-button-selected-bg: theme('colors.white');
-  --emr-segmented-button-selected-shadow: theme('boxShadow.sm');
-  --emr-segmented-padding: theme('padding.1');
-  --emr-segmented-border-radius: theme('borderRadius.full');
-  --emr-segmented-button-border-radius: theme('borderRadius.full');
-  --emr-segmented-button-padding: 0 theme('padding.3');
-  --emr-segmented-button-min-width: theme('width.12');
-  --emr-segmented-button-font-size: theme('fontSize.tiny');
-  --emr-segmented-gap: theme('gap.1');
-  --emr-segmented-button-gap: theme('gap.1');
+  --emr-segmented-button-height: var(--h-9);
+  --emr-segmented-bg: var(--color-surface-container);
+  --emr-segmented-button-hover-bg: var(--color-surface-container-highest);
+  --emr-segmented-button-color: var(--color-neutral-700);
+  --emr-segmented-button-hover-color: var(--color-on-surface);
+  --emr-segmented-button-selected-color: var(--color-primary-650);
+  --emr-segmented-button-selected-bg: white;
+  --emr-segmented-button-selected-shadow: var(--shadow-sm);
+  --emr-segmented-padding: var(--p-1);
+  --emr-segmented-border-radius: var(--rounded-full);
+  --emr-segmented-button-border-radius: var(--rounded-full);
+  --emr-segmented-button-padding: 0 var(--p-3);
+  --emr-segmented-button-min-width: var(--w-12);
+  --emr-segmented-button-font-size: var(--text-tiny);
+  --emr-segmented-gap: var(--gap-1);
+  --emr-segmented-button-gap: var(--gap-1);
   --emr-segmented-button-icon-offset-margin: -6px;
 
   &[emr-segmented-size="sm"] {
-    --emr-segmented-button-height: calc(theme('height.10') - theme('padding.2'));
-    --emr-segmented-button-font-size: theme('fontSize.xs');
-    --emr-segmented-button-padding: 0 theme('padding.2');
-    --emr-segmented-button-gap: theme('gap[0.5]');
+    --emr-segmented-button-height: calc(var(--h-10) - var(--p-2));
+    --emr-segmented-button-font-size: var(--text-xs);
+    --emr-segmented-button-padding: 0 var(--p-2);
+    --emr-segmented-button-gap: var(--gap-0_5);
   }
 
   &[emr-segmented-size="lg"] {
-    --emr-segmented-button-height: calc(theme('height.14') - theme('padding.2'));
-    --emr-segmented-button-font-size: theme('fontSize.sm');
-    --emr-segmented-button-padding: 0 theme('padding.4');
-    --emr-segmented-button-gap: theme('gap[1.5]');
+    --emr-segmented-button-height: calc(var(--h-14) - var(--p-2));
+    --emr-segmented-button-font-size: var(--text-sm);
+    --emr-segmented-button-padding: 0 var(--p-4);
+    --emr-segmented-button-gap: var(--gap-1_5);
   }
 
   display: flex;
@@ -42,6 +42,6 @@
 }
 
 :host-context(html.dark) {
-  --emr-segmented-button-color: theme('colors.neutral.300');
-  --emr-segmented-button-selected-bg: theme('colors.neutral.300');
+  --emr-segmented-button-color: var(--color-neutral-300);
+  --emr-segmented-button-selected-bg: var(--color-neutral-300);
 }

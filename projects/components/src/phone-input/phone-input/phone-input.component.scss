@@ -1,5 +1,5 @@
 :host {
-  --emr-phone-input-color: theme('colors.neutral.600');
+  --emr-phone-input-color: var(--color-neutral-600);
   --emr-phone-input-opacity: 0;
 
   @media print {
@@ -10,7 +10,7 @@
     width: 100%;
     height: 34px;
     border: none;
-    border-bottom: 1px solid theme('borderColor.DEFAULT');
+    border-bottom: 1px solid var(--emr-border);
     font-size: 14px;
     padding: 20px 20px 24px;
     box-sizing: border-box;
@@ -89,5 +89,5 @@
 }
 
 :host-context(html.dark) {
-  --emr-phone-input-color: theme('colors.neutral.500');
+  --emr-phone-input-color: var(--color-neutral-500);
 }

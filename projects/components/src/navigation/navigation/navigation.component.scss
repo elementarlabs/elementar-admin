@@ -1,63 +1,63 @@
 :host {
   --emr-navigation-bg: inherit;
-  --emr-navigation-items-gap: theme('gap[0.5]');
+  --emr-navigation-items-gap: var(--gap-0_5);
   --emr-navigation-item-width: 100%;
-  --emr-navigation-item-bg: theme('colors.transparent');
-  --emr-navigation-item-height: theme('height.12');
-  --emr-navigation-item-padding: 0 theme('padding.4');
-  --emr-navigation-item-font-size: theme('fontSize.sm');
-  --emr-navigation-item-border-radius: theme('borderRadius.full');
+  --emr-navigation-item-bg: transparent;
+  --emr-navigation-item-height: var(--h-12);
+  --emr-navigation-item-padding: 0 var(--p-4);
+  --emr-navigation-item-font-size: var(--text-sm);
+  --emr-navigation-item-border-radius: var(--rounded-full);
   --emr-navigation-item-border-width: 1px;
-  --emr-navigation-item-border-color: theme('colors.transparent');
-  --emr-navigation-item-font-weight: theme('fontWeight.medium');
-  --emr-navigation-item-color: theme('textColor.secondary.DEFAULT');
-  --emr-navigation-item-hover-bg: theme('colors.neutral.200');
-  --emr-navigation-item-active-bg: theme('colors.secondary-fixed');
-  --emr-navigation-item-hover-color: theme('colors.secondary.800');
-  --emr-navigation-item-active-color: theme('colors.secondary.950');
-  --emr-navigation-item-icon-font-size: theme('fontSize.2xl');
-  --emr-navigation-item-icon-color: theme('colors.secondary.700');
+  --emr-navigation-item-border-color: transparent;
+  --emr-navigation-item-font-weight: var(--font-medium);
+  --emr-navigation-item-color: var(--color-secondary);
+  --emr-navigation-item-hover-bg: var(--color-neutral-200);
+  --emr-navigation-item-active-bg: var(--color-secondary-fixed);
+  --emr-navigation-item-hover-color: var(--color-secondary-800);
+  --emr-navigation-item-active-color: var(--color-secondary-950);
+  --emr-navigation-item-icon-font-size: var(--text-2xl);
+  --emr-navigation-item-icon-color: var(--color-secondary-700);
   --emr-navigation-item-icon-width: 27px;
-  --emr-navigation-item-hover-icon-color: theme('colors.secondary.800');
-  --emr-navigation-item-active-icon-color: theme('colors.secondary.950');
-  --emr-navigation-item-icon-size: theme('width.6');
-  --emr-navigation-item-gap: theme('gap[2.5]');
-  --emr-navigation-item-has-icon-padding-start: theme('padding[2.5]');
-  --emr-navigation-heading-color: theme('colors.neutral.900');
-  --emr-navigation-heading-font-size: theme('fontSize.2xs');
-  --emr-navigation-heading-font-weight: theme('fontWeight.bold');
-  --emr-navigation-heading-padding: 0 theme('padding.4');
-  --emr-navigation-heading-margin-bottom: theme('margin.2');
-  --emr-navigation-heading-after-margin: theme('margin.8');
+  --emr-navigation-item-hover-icon-color: var(--color-secondary-800);
+  --emr-navigation-item-active-icon-color: var(--color-secondary-950);
+  --emr-navigation-item-icon-size: var(--w-6);
+  --emr-navigation-item-gap: var(--gap-2_5);
+  --emr-navigation-item-has-icon-padding-start: var(--p-2_5);
+  --emr-navigation-heading-color: var(--color-neutral-900);
+  --emr-navigation-heading-font-size: var(--text-2xs);
+  --emr-navigation-heading-font-weight: var(--font-bold);
+  --emr-navigation-heading-padding: 0 var(--p-4);
+  --emr-navigation-heading-margin-bottom: var(--m-2);
+  --emr-navigation-heading-after-margin: var(--m-8);
   --emr-navigation-heading-text-transform: uppercase;
-  --emr-navigation-divider-height: theme('height.px');
-  --emr-navigation-divider-bg: theme('borderColor.DEFAULT');
-  --emr-navigation-divider-margin: theme('margin.6') 0;
-  --emr-navigation-group-toggle-has-icon-padding-end: theme('padding.2');
-  --emr-navigation-group-toggle-icon-color: theme('colors.neutral.400');
-  --emr-navigation-group-toggle-icon-position-end: theme('spacing.3');
-  --emr-navigation-group-toggle-icon-size: theme('width.4');
+  --emr-navigation-divider-height: 1px;
+  --emr-navigation-divider-bg: var(--emr-border);
+  --emr-navigation-divider-margin: var(--m-6) 0;
+  --emr-navigation-group-toggle-has-icon-padding-end: var(--p-2);
+  --emr-navigation-group-toggle-icon-color: var(--color-neutral-400);
+  --emr-navigation-group-toggle-icon-position-end: var(--w-3);
+  --emr-navigation-group-toggle-icon-size: var(--w-4);
   --emr-navigation-group-menu-padding-start: 0;
-  --emr-navigation-group-toggle-bg: theme('colors.transparent');
-  --emr-navigation-group-toggle-active-bg: theme('colors.neutral.200');
+  --emr-navigation-group-toggle-bg: transparent;
+  --emr-navigation-group-toggle-active-bg: var(--color-neutral-200);
   --emr-navigation-group-toggle-active-color: var(--emr-navigation-item-active-color);
-  --emr-navigation-nested-item-bg: theme('colors.transparent');
-  --emr-navigation-nested-item-height: theme('height.10');
-  --emr-navigation-nested-item-padding: 0 theme('padding.4');
+  --emr-navigation-nested-item-bg: transparent;
+  --emr-navigation-nested-item-height: var(--h-10);
+  --emr-navigation-nested-item-padding: 0 var(--p-4);
   --emr-navigation-nested-item-margin: 0 0 0 52px;
   --emr-navigation-nested-item-border-radius: 0;
-  --emr-navigation-nested-item-color: theme('textColor.secondary.600');
-  --emr-navigation-nested-item-hover-bg: theme('colors.neutral.200');
-  --emr-navigation-nested-item-active-bg: theme('colors.secondary-fixed');
-  --emr-navigation-nested-item-hover-color: theme('textColor.secondary.800');
-  --emr-navigation-nested-item-active-color: theme('colors.secondary.950');
-  --emr-navigation-nested-item-indicator-width: theme('width[3.5]');
-  --emr-navigation-nested-item-indicator-height: theme('height[0.5]');
-  --emr-navigation-nested-item-indicator-bg: theme('colors.neutral.500');
-  --emr-navigation-nested-item-indicator-position-start: calc(theme('spacing[2.5]') * -1);
+  --emr-navigation-nested-item-color: var(--color-secondary-600);
+  --emr-navigation-nested-item-hover-bg: var(--color-neutral-200);
+  --emr-navigation-nested-item-active-bg: var(--color-secondary-fixed);
+  --emr-navigation-nested-item-hover-color: var(--color-secondary-800);
+  --emr-navigation-nested-item-active-color: var(--color-secondary-950);
+  --emr-navigation-nested-item-indicator-width: var(--w-3_5);
+  --emr-navigation-nested-item-indicator-height: var(--h-0_5);
+  --emr-navigation-nested-item-indicator-bg: var(--color-neutral-500);
+  --emr-navigation-nested-item-indicator-position-start: calc(var(--w-2_5) * -1);
   --emr-navigation-group-active-bg: transparent;
   --emr-navigation-group-border-radius: 0;
-  --emr-navigation-group-tree-lines-color: theme('borderColor.DEFAULT');
+  --emr-navigation-group-tree-lines-color: var(--emr-border);
   --emr-navigation-heading-text-align: start;
 
   display: flex;
@@ -80,12 +80,12 @@
   &[data-theme="secondary"] {
     ::ng-deep {
       .emr-navigation-item {
-        --emr-navigation-item-border-radius: theme('borderRadius.full');
-        --emr-navigation-item-height: theme('height.11');
-        --emr-navigation-item-active-bg: theme('colors.background');
+        --emr-navigation-item-border-radius: var(--rounded-full);
+        --emr-navigation-item-height: var(--h-11);
+        --emr-navigation-item-active-bg: var(--color-background);
 
         &.is-active {
-          --emr-navigation-item-border-color: theme('colors.neutral.900');
+          --emr-navigation-item-border-color: var(--color-neutral-900);
         }
       }
     }
@@ -93,28 +93,28 @@
 }
 
 :host-context(html.dark) {
-  --emr-navigation-item-color: theme('colors.neutral.300');
-  --emr-navigation-item-icon-color: theme('colors.neutral.400');
-  --emr-navigation-item-hover-bg: theme('colors.neutral.700');
-  --emr-navigation-item-active-bg: theme('colors.primary.300');
-  --emr-navigation-item-hover-color: theme('colors.neutral.100');
-  --emr-navigation-item-hover-icon-color: theme('colors.neutral.100');
-  --emr-navigation-item-active-color: theme('colors.neutral.950');
-  --emr-navigation-item-active-icon-color: theme('colors.neutral.950');
-  --emr-navigation-heading-color: theme('colors.neutral.200');
-  --emr-navigation-nested-item-color: theme('textColor.neutral.300');
-  --emr-navigation-nested-item-hover-bg: theme('colors.neutral.700');
-  --emr-navigation-nested-item-hover-color: theme('colors.neutral.100');
-  --emr-navigation-group-toggle-active-bg: theme('colors.neutral.800');
-  --emr-navigation-group-toggle-active-color: theme('colors.neutral.100');
-  --emr-navigation-group-toggle-hover-bg: theme('colors.neutral.800');
+  --emr-navigation-item-color: var(--color-neutral-300);
+  --emr-navigation-item-icon-color: var(--color-neutral-400);
+  --emr-navigation-item-hover-bg: var(--color-neutral-700);
+  --emr-navigation-item-active-bg: var(--color-primary-300);
+  --emr-navigation-item-hover-color: var(--color-neutral-100);
+  --emr-navigation-item-hover-icon-color: var(--color-neutral-100);
+  --emr-navigation-item-active-color: var(--color-neutral-950);
+  --emr-navigation-item-active-icon-color: var(--color-neutral-950);
+  --emr-navigation-heading-color: var(--color-neutral-200);
+  --emr-navigation-nested-item-color: var(--color-neutral-300);
+  --emr-navigation-nested-item-hover-bg: var(--color-neutral-700);
+  --emr-navigation-nested-item-hover-color: var(--color-neutral-100);
+  --emr-navigation-group-toggle-active-bg: var(--color-neutral-800);
+  --emr-navigation-group-toggle-active-color: var(--color-neutral-100);
+  --emr-navigation-group-toggle-hover-bg: var(--color-neutral-800);
 
   &[data-theme="secondary"] {
     ::ng-deep {
       .emr-navigation-item {
         &.is-active {
-          --emr-navigation-item-border-color: theme('colors.neutral.400');
-          --emr-navigation-item-active-color: theme('colors.neutral.300');
+          --emr-navigation-item-border-color: var(--color-neutral-400);
+          --emr-navigation-item-active-color: var(--color-neutral-300);
         }
       }
     }

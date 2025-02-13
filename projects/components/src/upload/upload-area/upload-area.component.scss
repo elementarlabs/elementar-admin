@@ -1,12 +1,12 @@
 :host {
-  --emr-upload-area-bg: theme('colors.transparent');
-  --emr-upload-area-padding: theme('padding.10');
-  --emr-upload-area-border: theme('width.px') solid theme('borderColor.DEFAULT');
-  --emr-upload-area-border-radius: theme('borderRadius.2xl');
-  --emr-upload-area-font-size: theme('fontSize.sm');
-  --emr-upload-area-color: theme('colors.neutral.600');
-  --emr-upload-area-drop-active-border: theme('width.px') dashed theme('colors.primary.DEFAULT');
-  --emr-upload-area-drop-active-color: theme('colors.primary.DEFAULT');
+  --emr-upload-area-bg: transparent;
+  --emr-upload-area-padding: var(--p-10);
+  --emr-upload-area-border: 1px solid var(--emr-border);
+  --emr-upload-area-border-radius: var(--rounded-2xl);
+  --emr-upload-area-font-size: var(--text-sm);
+  --emr-upload-area-color: var(--color-neutral-600);
+  --emr-upload-area-drop-active-border: 1px dashed var(--color-primary);
+  --emr-upload-area-drop-active-color: var(--color-primary);
 
   justify-content: center;
   align-items: center;

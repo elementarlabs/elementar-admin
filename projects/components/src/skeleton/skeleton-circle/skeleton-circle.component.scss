@@ -1,5 +1,5 @@
 :host {
-  --emr-skeleton-circle-size: theme('spacing.14');
+  --emr-skeleton-circle-size: var(--w-14);
 
   animation: emr-skeleton-loading 1s linear infinite alternate;
 

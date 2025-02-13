@@ -1,33 +1,33 @@
 :host {
-  --emr-command-bar-height: theme('height.12');
-  --emr-command-bar-padding: 0 theme('padding.1');
-  --emr-command-bar-margin: theme('margin.8') 0;
-  --emr-command-bar-zindex: theme('zIndex.50');
-  --emr-command-bar-bg: theme('colors.neutral.950');
-  --emr-command-bar-color: theme('colors.neutral.200');
-  --emr-command-bar-border: 1px solid theme('colors.neutral.700');
-  --emr-command-bar-shadow: theme('boxShadow.lg');
-  --emr-command-bar-border-radius: theme('borderRadius.full');
-  --emr-command-bar-command-height: theme('height.10');
-  --emr-command-bar-command-padding: 0 theme('padding[3.5]');
-  --emr-command-bar-command-font-size: theme('fontSize.sm');
-  --emr-command-bar-command-color: theme('colors.neutral.200');
-  --emr-command-bar-command-hover-color: theme('colors.neutral.100');
-  --emr-command-bar-command-hover-bg: theme('colors.neutral.800');
-  --emr-command-bar-value-color: theme('colors.neutral.200');
-  --emr-command-bar-command-gap: theme('gap.3');
-  --emr-command-bar-content-padding: 0 theme('padding.4');
-  --emr-command-bar-font-size: theme('fontSize.sm');
+  --emr-command-bar-height: var(--h-12);
+  --emr-command-bar-padding: 0 var(--p-1);
+  --emr-command-bar-margin: var(--m-8) 0;
+  --emr-command-bar-zindex: 50;
+  --emr-command-bar-bg: var(--color-neutral-950);
+  --emr-command-bar-color: var(--color-neutral-200);
+  --emr-command-bar-border: 1px solid var(--color-neutral-700);
+  --emr-command-bar-shadow: var(--shadow-lg);
+  --emr-command-bar-border-radius: var(--rounded-full);
+  --emr-command-bar-command-height: var(--h-10);
+  --emr-command-bar-command-padding: 0 var(--p-3_5);
+  --emr-command-bar-command-font-size: var(--text-sm);
+  --emr-command-bar-command-color: var(--color-neutral-200);
+  --emr-command-bar-command-hover-color: var(--color-neutral-100);
+  --emr-command-bar-command-hover-bg: var(--color-neutral-800);
+  --emr-command-bar-value-color: var(--color-neutral-200);
+  --emr-command-bar-command-gap: var(--gap-3);
+  --emr-command-bar-content-padding: 0 var(--p-4);
+  --emr-command-bar-font-size: var(--text-sm);
   --emr-command-bar-divider-width: 1px;
-  --emr-command-bar-divider-height: theme('height.6');
-  --emr-command-bar-divider-bg: theme('colors.neutral.600');
-  --emr-command-bar-command-shortcut-bg: theme('colors.neutral.700');
-  --emr-command-bar-command-shortcut-border-radius: theme('borderRadius.DEFAULT');
-  --emr-command-bar-command-shortcut-font-size: theme('fontSize.xs');
-  --emr-command-bar-command-shortcut-color: theme('colors.neutral.300');
+  --emr-command-bar-divider-height: var(--h-6);
+  --emr-command-bar-divider-bg: var(--color-neutral-600);
+  --emr-command-bar-command-shortcut-bg: var(--color-neutral-700);
+  --emr-command-bar-command-shortcut-border-radius: var(--rounded-default);
+  --emr-command-bar-command-shortcut-font-size: var(--text-xs);
+  --emr-command-bar-command-shortcut-color: var(--color-neutral-300);
   --emr-command-bar-command-shortcut-padding: 0 5px;
-  --emr-command-bar-command-shortcut-border: 1px solid theme('colors.neutral.600');
-  --emr-command-bar-command-shortcut-size: theme('spacing.5');
+  --emr-command-bar-command-shortcut-border: 1px solid var(--color-neutral-600);
+  --emr-command-bar-command-shortcut-size: var(--w-5);
 
   left: 50%;
   translate: -50% 0;
@@ -105,7 +105,7 @@
 }
 
 :host-context(html.dark) {
-  --emr-command-bar-bg: theme('colors.primary.200');
-  --emr-command-bar-color: theme('colors.neutral.950');
-  --emr-command-bar-command-color: theme('colors.neutral.950');
+  --emr-command-bar-bg: var(--color-primary-200);
+  --emr-command-bar-color: var(--color-neutral-950);
+  --emr-command-bar-command-color: var(--color-neutral-950);
 }

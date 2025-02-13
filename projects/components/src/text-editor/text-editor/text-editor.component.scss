@@ -1,7 +1,7 @@
 :host {
   --emr-text-editor-bg: transparent;
   --emr-text-editor-content-max-height: 9999px;
-  --emr-text-editor-content-padding: theme('padding.6');
+  --emr-text-editor-content-padding: var(--p-6);
 
   display: block;
 

@@ -1,6 +1,6 @@
 :host {
   --emr-marquee-animation-duration: 20s;
-  --emr-marquee-gap: theme('gap.6');
+  --emr-marquee-gap: var(--gap-6);
   --emr-marquee-reverse: ;
   --emr-marquee-pause: running;
 

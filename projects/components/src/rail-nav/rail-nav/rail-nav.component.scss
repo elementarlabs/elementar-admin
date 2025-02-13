@@ -1,13 +1,13 @@
 :host {
-  --emr-rail-nav-bg-item-icon-is-active-bg: theme('colors.primary.300');
-  --emr-rail-nav-bg-item-icon-is-active-active-bg: theme('colors.primary.200');
-  --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.200');
-  --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.300');
-  --emr-rail-nav-bg-item-icon-color: theme('colors.neutral.950');
-  --emr-rail-nav-bg-item-icon-is-active-color: theme('colors.neutral.950');
-  --emr-rail-nav-bg-item-color: theme('colors.neutral.950');
-  --emr-rail-nav-width: theme('width.24');
-  --emr-rail-nav-gap: theme('gap.3');
+  --emr-rail-nav-bg-item-icon-is-active-bg: var(--color-primary-300);
+  --emr-rail-nav-bg-item-icon-is-active-active-bg: var(--color-primary-200);
+  --emr-rail-nav-bg-item-icon-hover-bg: var(--color-neutral-200);
+  --emr-rail-nav-bg-item-icon-active-bg: var(--color-neutral-300);
+  --emr-rail-nav-bg-item-icon-color: var(--color-neutral-950);
+  --emr-rail-nav-bg-item-icon-is-active-color: var(--color-neutral-950);
+  --emr-rail-nav-bg-item-color: var(--color-neutral-950);
+  --emr-rail-nav-width: var(--w-24);
+  --emr-rail-nav-gap: var(--gap-3);
 
   display: flex;
   flex-direction: column;
@@ -16,10 +16,10 @@
 }
 
 :host-context(html.dark) {
-  --emr-rail-nav-bg-item-icon-is-active-bg: theme('colors.primary.300');
-  --emr-rail-nav-bg-item-icon-is-active-active-bg: theme('colors.primary.400');
-  --emr-rail-nav-bg-item-icon-hover-bg: theme('colors.neutral.700');
-  --emr-rail-nav-bg-item-icon-active-bg: theme('colors.neutral.800');
-  --emr-rail-nav-bg-item-icon-color: theme('colors.neutral.200');
-  --emr-rail-nav-bg-item-color: theme('colors.neutral.200');
+  --emr-rail-nav-bg-item-icon-is-active-bg: var(--color-primary-300);
+  --emr-rail-nav-bg-item-icon-is-active-active-bg: var(--color-primary-400);
+  --emr-rail-nav-bg-item-icon-hover-bg: var(--color-neutral-700);
+  --emr-rail-nav-bg-item-icon-active-bg: var(--color-neutral-800);
+  --emr-rail-nav-bg-item-icon-color: var(--color-neutral-200);
+  --emr-rail-nav-bg-item-color: var(--color-neutral-200);
 }

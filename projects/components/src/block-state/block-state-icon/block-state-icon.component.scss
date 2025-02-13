@@ -11,7 +11,7 @@
 
   ::ng-deep {
     emr-icon {
-      --emr-icon-size: theme('size.28');
+      --emr-icon-size: var(--w-28);
     }
 
     mat-icon {

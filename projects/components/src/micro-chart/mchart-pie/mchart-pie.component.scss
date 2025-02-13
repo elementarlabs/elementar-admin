@@ -1,8 +1,8 @@
 :host {
-  --emr-mchart-pie-stroke-color: theme('colors.background');
-  --emr-mchart-pie-legend-item-color: theme('colors.neutral.900');
-  --emr-mchart-pie-legend-item-hover-color: theme('colors.primary.DEFAULT');
-  --emr-mchart-pie-value-color: theme('colors.neutral.950');
+  --emr-mchart-pie-stroke-color: var(--color-background);
+  --emr-mchart-pie-legend-item-color: var(--color-neutral-900);
+  --emr-mchart-pie-legend-item-hover-color: var(--color-primary);
+  --emr-mchart-pie-value-color: var(--color-neutral-950);
 
   display: block;
   overflow: hidden;
@@ -50,5 +50,5 @@
 }
 
 :host-context(html.dark) {
-  --emr-mchart-pie-legend-item-color: theme('colors.neutral.200');
+  --emr-mchart-pie-legend-item-color: var(--color-neutral-200);
 }

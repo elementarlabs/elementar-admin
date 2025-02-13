@@ -13,7 +13,7 @@
 
     &.is-inline {
       display: flex;
-      gap: theme('gap.3');
+      gap: var(--gap-3);
     }
   }
 }

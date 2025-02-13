@@ -1,11 +1,11 @@
 :host {
   --emr-data-view-row-bg: var(--emr-background);
-  --emr-data-view-hl-header-row-bg: theme('colors.surface-container');
-  --emr-data-view-hl-header-margin: theme('margin.1') 0;
+  --emr-data-view-hl-header-row-bg: var(--color-surface-container);
+  --emr-data-view-hl-header-margin: var(--m-1) 0;
   --emr-data-view-sticky-header-top: 0;
-  --emr-data-view-selected-border-color: theme('colors.primary.DEFAULT');
-  --emr-data-view-row-hover-bg: theme('colors.surface-bright');
-  --emr-data-view-bg: theme('colors.transparent');
+  --emr-data-view-selected-border-color: var(--color-primary);
+  --emr-data-view-row-hover-bg: var(--color-surface-bright);
+  --emr-data-view-bg: transparent;
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: var(--emr-data-view-bg);
   --emr-content-fade-color: var(--emr-data-view-row-bg);
@@ -141,15 +141,15 @@
           left: 0;
           right: 0;
           background: var(--emr-data-view-hl-header-row-bg);
-          height: theme('height.10');
-          border-radius: theme('borderRadius.lg');
+          height: var(--h-10);
+          border-radius: var(--rounded-lg);
           z-index: 0;
         }
       }
 
       .mdc-data-table__header-cell {
-        --emr-skeleton-from-bg: theme('colors.neutral.300/60');
-        --emr-skeleton-from-to: theme('colors.neutral.400/50');
+        --emr-skeleton-from-bg: var(--emr-neutral-300); // theme('colors.neutral.300/60');
+        --emr-skeleton-from-to: var(--emr-neutral-400); // theme('colors.neutral.400/50');
       }
 
       .mat-mdc-table .mat-mdc-header-cell {
@@ -211,12 +211,12 @@
 }
 
 :host-context(html.dark) {
-  --emr-data-view-row-hover-bg: theme('colors.surface-container-low');
+  --emr-data-view-row-hover-bg: var(--color-surface-container-low);
 
   ::ng-deep {
     .mdc-data-table__header-cell {
-      --emr-skeleton-from-bg: theme('colors.neutral.700/60');
-      --emr-skeleton-from-to: theme('colors.neutral.800/50');
+      --emr-skeleton-from-bg: var(--emr-neutral-700); // theme('colors.neutral.700/60');
+      --emr-skeleton-from-to: var(--emr-neutral-800); // theme('colors.neutral.800/50');
     }
 
     .mat-mdc-table {
