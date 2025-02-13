@@ -1,18 +1,30 @@
 :host {
-  @apply block h-full relative;
+  display: block;
+  height: 100%;
+  position: relative;
 
   .sidebar {
-    @apply bg-surface-container-low border-e;
+    background-color: var(--sys-surface-container-low);
+    border-inline-end: 1px solid var(--emr-border);
   }
 
   .header {
-    @apply h-20 flex items-center;
+    height: var(--h-20);
+    display: flex;
+    align-items: center;
+
     --emr-sidebar-header-padding: 0 var(--p-7);
     --emr-sidebar-header-compact-padding: 0 var(--p-7);
   }
 
   .logo {
-    @apply text-lg text-primary font-extrabold hover:text-tertiary;
+    font-size: var(--text-lg);
+    color: var(--sys-primary);
+    font-weight: var(--font-extrabold);
+
+    &:hover {
+      color: var(--sys-tertiary);
+    }
   }
 
   .body {
@@ -21,7 +33,9 @@
   }
 
   .footer {
-    @apply flex items-center justify-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     --emr-sidebar-footer-padding: var(--p-6) var(--p-7);
     --emr-sidebar-footer-compact-padding: var(--p-3) var(--p-7);
   }

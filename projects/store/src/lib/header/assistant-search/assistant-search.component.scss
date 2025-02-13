@@ -1,33 +1,53 @@
 :host {
-  @apply flex items-center gap-4 ps-3 h-11 relative w-[600px];
+  display: flex;
+  align-items: center;
+  gap: var(--gap-4);
+  padding-inline-start: var(--p-3);
+  height: var(--h-11);
+  position: relative;
+  width: 600px;
 
   input {
-    @apply text-md placeholder-neutral-500 outline-none bg-surface-container ps-12 rounded-full absolute inset-0 z-[0];
+    z-index: 0;
+    font-size: var(--text-md);
+    outline: none;
+    background-color: var(--sys-surface-container);
+    padding-inline-start: var(--p-12);
+    border-radius: var(--rounded-full);
+    position: absolute;
+    inset: 0;
+
+    &::placeholder {
+      color: var(--color-neutral-500);
+    }
   }
 
   .search-icon {
-    @apply relative z-[1] text-on-surface-variant;
+    position: relative;
+    z-index: 1;
+    color: var(--sys-on-surface-variant);
   }
 
   &.has-dropdown {
     z-index: 1001;
 
     input {
-      border-top-left-radius: var(--rounded-3xl);
-      border-top-right-radius: var(--rounded-3xl);
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      @apply bg-surface-container-lowest;
+      border-radius: var(--rounded-3xl) var(--rounded-3xl) 0 0;
+      background-color: var(--sys-surface-container-lowest);
     }
   }
 }
 
 :host-context(html.dark) {
   .search-icon {
-    @apply text-neutral-400;
+    color: var(--color-neutral-400);
   }
 
   input {
-    @apply bg-surface-container-high placeholder-neutral-400;
+    background-color: var(--sys-surface-container-high);
+
+    &::placeholder {
+      color: var(--color-neutral-400);
+    }
   }
 }

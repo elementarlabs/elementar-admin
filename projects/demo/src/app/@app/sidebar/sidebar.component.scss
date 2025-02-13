@@ -1,5 +1,8 @@
 :host {
-  @apply block h-full relative min-w-[var(--emr-layout-sidebar-compact-width)];
+  display: block;
+  height: 100%;
+  position: relative;
+  min-width: var(--emr-layout-sidebar-compact-width);
 
   ::ng-deep {
     emr-navigation {
@@ -11,25 +14,26 @@
   }
 
   .sidebar {
-    @apply bg-surface-container-low border-e border-e-surface-container-highest;
+    background-color: var(--sys-surface-container-low);
+    border-inline-end: 1px solid var(--sys-surface-container-highest);
 
     &.compact:hover {
-      @apply shadow-lg;
+      box-shadow: var(--shadow-lg);
     }
   }
 
   .sidebar-toggle {
-    @apply -me-2;
+    margin-inline-end: calc(var(--m-2) * -1);
   }
 
   &.compact {
     .sidebar-toggle {
-      @apply opacity-0;
+      opacity: 0;
     }
 
     &:hover {
       .sidebar-toggle {
-        @apply opacity-100;
+        opacity: 1;
       }
     }
   }
@@ -40,7 +44,13 @@
   }
 
   .logo {
-    @apply text-lg text-primary font-extrabold hover:text-tertiary;
+    font-size: var(--text-lg);
+    color: var(--sys-primary);
+    font-weight: var(--font-extrabold);
+
+    &:hover {
+      color: var(--sys-tertiary);
+    }
   }
 
   .body {
@@ -49,7 +59,10 @@
   }
 
   .footer {
-    @apply flex items-center justify-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     --emr-sidebar-footer-padding: var(--p-6) var(--p-7);
     --emr-sidebar-footer-compact-padding: var(--p-3) var(--p-7);
   }

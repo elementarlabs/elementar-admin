@@ -1,5 +1,6 @@
 :host {
-  @apply block h-full;
+  display: block;
+  height: 100%;
 
   emr-mchart-line {
     --emr-mchart-line-line-bg: var(--color-amber-500);

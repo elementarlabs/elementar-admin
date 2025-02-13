@@ -5,22 +5,43 @@
   --emr-navigation-item-active-icon-color: var(--color-primary-800);
   --emr-navigation-items-gap: var(--gap-2);
 
-  @apply h-full flex flex-col w-[300px] bg-white overflow-y-auto overflow-x-hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   .logo {
-    @apply font-extrabold text-xl text-neutral-950 mx-12 hover:text-tertiary;
+    font-weight: var(--font-extrabold);
+    font-size: var(--text-xl);
+    color: var(--color-neutral-950);
+    margin-left: var(--m-12);
+    margin-right: var(--m-12);
+
+    &:hover {
+      color: var(--sys-tertiary);
+    }
   }
 
   .header {
-    @apply flex-none flex items-center;
+    flex: none;
+    display: flex;
+    align-items: center;
   }
 
   .body {
-    @apply grow relative overflow-y-auto overflow-x-hidden px-6;
+    flex-grow: 1;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: var(--p-6);
+    padding-right: var(--p-6);
   }
 
   .footer {
-    @apply flex-none;
+    flex: none;
   }
 }
 
@@ -28,8 +49,12 @@
   --emr-navigation-item-hover-bg: var(--color-neutral-700);
 
   .logo {
-    @apply text-neutral-200 hover:text-tertiary;
+    color: var(--color-neutral-200);
+
+    &:hover {
+      color: var(--sys-tertiary);
+    }
   }
 
-  @apply bg-surface-container;
+  background-color: var(--sys-surface-container);
 }

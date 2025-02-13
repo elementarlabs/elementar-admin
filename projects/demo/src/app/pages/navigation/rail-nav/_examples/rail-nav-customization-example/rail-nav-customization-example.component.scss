@@ -1,5 +1,9 @@
 :host {
-  @apply block w-max py-4 bg-primary-100;
+  display: block;
+  width: max-content;
+  background-color: var(--color-primary-100);
+  padding-top: var(--p-4);
+  padding-bottom: var(--p-4);
 
   emr-rail-nav {
     --emr-rail-nav-bg-item-icon-hover-bg: var(--color-neutral-300);
@@ -10,7 +14,7 @@
 }
 
 :host-context(html.dark) {
-  @apply bg-neutral-700;
+  background-color: var(--color-neutral-700);
 
   emr-rail-nav {
     --emr-rail-nav-bg-item-icon-is-active-bg: var(--color-tertiary-300);

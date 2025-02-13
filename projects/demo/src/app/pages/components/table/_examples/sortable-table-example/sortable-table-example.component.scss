@@ -1,5 +1,6 @@
 .cdk-drag-preview {
-  @apply shadow bg-white;
+  box-shadow: var(--shadow-default);
+  background: white;
 }
 
 .cdk-drag-placeholder {

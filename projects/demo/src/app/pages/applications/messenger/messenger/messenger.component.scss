@@ -1,8 +1,12 @@
 :host {
-  @apply grid h-full py-5 px-10 gap-2 grid-cols-[312px_1fr];
+  display: grid;
+  height: 100%;
+  padding: var(--p-5) var(--p-10);
+  gap: var(--gap-2);
+  grid-template-columns: 312px 1fr;
 
   &:has(.sidebar) {
-    @apply grid-cols-[312px_1fr_312px];
+    grid-template-columns: 312px 1fr 312px;
   }
 
   emr-comment-editor {

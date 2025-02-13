@@ -1,3 +1,5 @@
 :host {
-  @apply flex p-[var(--emr-notification-padding)] gap-[var(--emr-notification-gap)];
+  display: flex;
+  padding: var(--emr-notification-padding);
+  gap: var(--emr-notification-gap);
 }

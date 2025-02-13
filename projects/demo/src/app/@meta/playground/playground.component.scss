@@ -1,5 +1,6 @@
 :host {
-  @apply block mb-20;
+  display: block;
+  margin-bottom: var(--m-20);
 }
 
 .playground-markdown {

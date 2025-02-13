@@ -1,3 +1,8 @@
 :host {
-  @apply flex w-full items-center justify-between mt-7 mb-2;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--m-7);
+  margin-bottom: var(--m-2);
 }
