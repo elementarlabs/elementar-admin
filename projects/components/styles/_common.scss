@@ -160,7 +160,11 @@ $m3-dark-theme: mat.define-theme((
 }
 
 .link {
-  @apply text-primary hover:text-tertiary;
+  color: var(--sys-primary);
+
+  &:hover {
+    color: var(--sys-tertiary);
+  }
 }
 
 .mat-icon {
@@ -180,31 +184,42 @@ $m3-dark-theme: mat.define-theme((
 }
 
 body {
-  @apply block min-h-screen font-sans;
+  display: block;
+  min-height: 100vh;
+  font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   *:not(.emr-native-scroll) {
     &::-webkit-scrollbar {
-      @apply bg-none w-[8px] h-[8px];
+      background: none;
+      width: 8px;
+      height: 8px;
     }
 
     &::-webkit-scrollbar-track {
-      @apply bg-neutral-200 rounded-sm;
+      background-color: var(--color-neutral-200);
+      border-radius: var(--rounded-sm);
     }
 
     &::-webkit-scrollbar-thumb {
-      @apply rounded-sm bg-neutral-300 hover:bg-neutral-400;
+      border-radius: var(--rounded-sm);
+      background-color: var(--color-neutral-300);
+
+      &:hover {
+        background-color: var(--color-neutral-400);
+      }
     }
   }
 
   .emr-scroll-lg {
     &::-webkit-scrollbar {
-      @apply w-[11px] h-[11px];
+      width: 11px;
+      height: 11px;
     }
   }
 }
 
 app-root {
-  @apply contents;
+  display: contents;
 }
 
 .mdc-icon-button {
@@ -252,11 +267,16 @@ input[type=number].emr-number-input-no-spinners {
 }
 
 .emr-table {
-  @apply my-0 text-sm w-full;
+  font-size: var(--text-sm);
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 
   th,
   td {
-    @apply px-4 py-3 align-middle text-left;
+    padding: var(--p-3) var(--p-4);
+    vertical-align: middle;
+    text-align: left;
   }
 
   th {
@@ -279,27 +299,43 @@ input[type=number].emr-number-input-no-spinners {
 
 .mat-mdc-row {
   &.cdk-drag-preview {
-    @apply bg-primary-50 w-full border-b-transparent;
+    background-color: var(--emr-primary-50);
+    border-bottom-color: transparent;
+    width: 100%;
 
     td {
       vertical-align: middle;
       height: inherit;
-      @apply border-b-transparent;
+      border-bottom-color: transparent;
     }
   }
 }
 
 .table-row-drag-placeholder {
-  @apply bg-primary-200 h-[var(--mat-table-row-item-container-height)];
+  background-color: var(--emr-primary-200);
+  height: var(--mat-table-row-item-container-height);
 }
 
 code,
 .code {
-  @apply text-xs inline-block px-1.5 py-0.5 border rounded-lg text-tertiary-600 border-tertiary-400 mx-0.5;
+  font-size: var(--text-xs);
+  display: inline-block;
+  padding: var(--p-0_5) var(--p-1_5);
+  border: 1px solid var(--emr-border);
+  border-radius: var(--rounded-lg);
+  color: var(--emr-tertiary-600);
+  border-color: var(--emr-tertiary-400);
+  margin-left: var(--m-0_5);
+  margin-right: var(--m-0_5);
 }
 
 html {
-  @apply font-sans antialiased min-h-screen bg-[var(--emr-background)] text-[var(--emr-on-background)];
+  color: var(--emr-on-background);
+  background-color: var(--emr-background);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   &.dark {
     --emr-neutral-0: #{mat.get-theme-color($m3-dark-theme, neutral, 100)};
@@ -420,27 +456,33 @@ html {
 
     .mat-mdc-row {
       &.cdk-drag-preview {
-        @apply bg-neutral-700;
+        background-color: var(--color-neutral-700);
       }
     }
 
     .table-row-drag-placeholder {
-      @apply bg-neutral-600;
+      background-color: var(--color-neutral-600);
     }
 
     code,
     .code {
-      @apply text-tertiary-400 border-tertiary-300;
+      color: var(--emr-tertiary-400);
+      border: 1px solid var(--emr-tertiary-300);
     }
 
     body {
       *:not(.emr-native-scroll) {
         &::-webkit-scrollbar-track {
-          @apply bg-neutral-700;
+          background-color: var(--color-neutral-700);
         }
 
         &::-webkit-scrollbar-thumb {
-          @apply rounded-sm bg-neutral-600 hover:bg-neutral-500;
+          background-color: var(--color-neutral-600);
+          border-radius: var(--rounded-sm);
+
+          &:hover {
+            background-color: var(--color-neutral-500);
+          }
         }
       }
     }
