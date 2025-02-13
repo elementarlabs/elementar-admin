@@ -13,8 +13,8 @@
     z-index: 1001;
 
     input {
-      border-top-left-radius: theme('borderRadius.3xl');
-      border-top-right-radius: theme('borderRadius.3xl');
+      border-top-left-radius: var(--rounded-3xl);
+      border-top-right-radius: var(--rounded-3xl);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       @apply bg-surface-container-lowest;

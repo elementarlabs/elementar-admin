@@ -1,9 +1,9 @@
 :host {
-  --emr-navigation-item-hover-bg: theme('colors.primary.200');
-  --emr-navigation-item-active-bg: theme('colors.primary.300');
-  --emr-navigation-item-active-color: theme('colors.primary.800');
-  --emr-navigation-item-active-icon-color: theme('colors.primary.800');
-  --emr-navigation-items-gap: theme('gap.2');
+  --emr-navigation-item-hover-bg: var(--color-primary-200);
+  --emr-navigation-item-active-bg: var(--color-primary-300);
+  --emr-navigation-item-active-color: var(--color-primary-800);
+  --emr-navigation-item-active-icon-color: var(--color-primary-800);
+  --emr-navigation-items-gap: var(--gap-2);
 
   @apply h-full flex flex-col w-[300px] bg-white overflow-y-auto overflow-x-hidden;
 
@@ -25,7 +25,7 @@
 }
 
 :host-context(html.dark) {
-  --emr-navigation-item-hover-bg: theme('colors.neutral.700');
+  --emr-navigation-item-hover-bg: var(--color-neutral-700);
 
   .logo {
     @apply text-neutral-200 hover:text-tertiary;

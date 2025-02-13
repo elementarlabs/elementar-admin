@@ -3,10 +3,10 @@
 
   ::ng-deep {
     emr-navigation {
-      --emr-navigation-item-hover-bg: theme('colors.neutral.300');
-      --emr-navigation-group-toggle-active-bg: theme('colors.neutral.300');
-      --emr-navigation-nested-item-hover-bg: theme('colors.neutral.300');
-      --emr-navigation-group-tree-lines-color: theme('colors.neutral.300');
+      --emr-navigation-item-hover-bg: var(--color-neutral-300);
+      --emr-navigation-group-toggle-active-bg: var(--color-neutral-300);
+      --emr-navigation-nested-item-hover-bg: var(--color-neutral-300);
+      --emr-navigation-group-tree-lines-color: var(--color-neutral-300);
     }
   }
 
@@ -35,8 +35,8 @@
   }
 
   .header {
-    --emr-sidebar-header-padding: 0 theme('padding.7');
-    --emr-sidebar-header-compact-padding: 0 theme('padding.7');
+    --emr-sidebar-header-padding: 0 var(--p-7);
+    --emr-sidebar-header-compact-padding: 0 var(--p-7);
   }
 
   .logo {
@@ -44,14 +44,14 @@
   }
 
   .body {
-    --emr-sidebar-body-padding: theme('padding.4') theme('padding.3');
-    --emr-sidebar-body-compact-padding: theme('padding.4') theme('padding.3');
+    --emr-sidebar-body-padding: var(--p-4) var(--p-3);
+    --emr-sidebar-body-compact-padding: var(--p-4) var(--p-3);
   }
 
   .footer {
     @apply flex items-center justify-center;
-    --emr-sidebar-footer-padding: theme('padding.6') theme('padding.7');
-    --emr-sidebar-footer-compact-padding: theme('padding.3') theme('padding.7');
+    --emr-sidebar-footer-padding: var(--p-6) var(--p-7);
+    --emr-sidebar-footer-compact-padding: var(--p-3) var(--p-7);
   }
 }
 
@@ -59,10 +59,10 @@
   .sidebar {
     ::ng-deep {
       emr-navigation {
-        --emr-navigation-item-hover-bg: theme('colors.neutral.800');
-        --emr-navigation-group-toggle-active-bg: theme('colors.neutral.800');
-        --emr-navigation-nested-item-hover-bg: theme('colors.neutral.800');
-        --emr-navigation-group-tree-lines-color: theme('colors.neutral.700');
+        --emr-navigation-item-hover-bg: var(--color-neutral-800);
+        --emr-navigation-group-toggle-active-bg: var(--color-neutral-800);
+        --emr-navigation-nested-item-hover-bg: var(--color-neutral-800);
+        --emr-navigation-group-tree-lines-color: var(--color-neutral-700);
       }
     }
   }

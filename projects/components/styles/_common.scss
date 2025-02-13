@@ -144,11 +144,11 @@ $m3-dark-theme: mat.define-theme((
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
   --emr-border: var(--sys-surface-dim);
 
-  --mat-table-row-item-outline-color: theme('borderColor.DEFAULT');
+  --mat-table-row-item-outline-color: var(--emr-border);
   --emr-transition-transform: transform .15s linear;
   --mdc-protected-button-container-height: 2.375rem;
-  --mat-menu-item-label-text-size: theme('fontSize.tiny');
-  --mat-option-label-text-size: theme('fontSize.tiny');
+  --mat-menu-item-label-text-size: var(--text-tiny);
+  --mat-option-label-text-size: var(--text-tiny);
 
   --emr-background: var(--mat-app-background-color);
   --emr-on-background: var(--mat-app-text-color);
@@ -285,7 +285,7 @@ input[type=number].emr-number-input-no-spinners {
 
   td {
     height: var(--mat-table-row-item-container-height);
-    border-top: 1px solid theme('borderColor.DEFAULT');
+    border-top: 1px solid var(--emr-border);
   }
 
   tr {
@@ -294,7 +294,7 @@ input[type=number].emr-number-input-no-spinners {
 }
 
 .mat-mdc-table {
-  --mat-table-row-item-outline-color: theme('colors.neutral.300');
+  --mat-table-row-item-outline-color: var(--color-neutral-300);
 }
 
 .mat-mdc-row {
@@ -436,8 +436,8 @@ html {
     --emr-error-950: #{mat.get-theme-color($m3-dark-theme, error, 20)};
     --emr-error-1000: #{mat.get-theme-color($m3-dark-theme, error, 10)};
 
-    --mat-table-row-item-outline-color: theme('colors.neutral.300');
-    --emr-warn: theme('colors.red.500');
+    --mat-table-row-item-outline-color: var(--color-neutral-300);
+    --emr-warn: var(--color-red-500);
     --emr-border: var(--sys-surface-variant);
 
     @include mat.all-component-colors($m3-dark-theme);
@@ -451,7 +451,7 @@ html {
     }
 
     .mat-mdc-table {
-      --mat-table-row-item-outline-color: theme('colors.neutral.600');
+      --mat-table-row-item-outline-color: var(--color-neutral-600);
     }
 
     .mat-mdc-row {

@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: theme('padding.6') theme('padding.8');
-  border-radius: theme('borderRadius.xl');
+  padding: var(--p-6) var(--p-8);
+  border-radius: var(--rounded-xl);
   overflow: hidden;
   background: linear-gradient(to right, rgb(241, 142, 156), rgb(253, 186, 116));
   text-align: center;
@@ -16,8 +16,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-color: theme('colors.amber.500');
+  background-color: var(--color-amber-500);
   opacity: 0.2;
-  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, theme('colors.amber.200') 10px),
-                    repeating-linear-gradient(theme('colors.amber.400'), theme('colors.amber.500'));
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, var(--color-amber-200) 10px),
+                    repeating-linear-gradient(var(--color-amber-400), var(--color-amber-500));
 }

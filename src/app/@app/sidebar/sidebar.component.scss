@@ -7,8 +7,8 @@
 
   .header {
     @apply h-20 flex items-center;
-    --emr-sidebar-header-padding: 0 theme('padding.7');
-    --emr-sidebar-header-compact-padding: 0 theme('padding.7');
+    --emr-sidebar-header-padding: 0 var(--p-7);
+    --emr-sidebar-header-compact-padding: 0 var(--p-7);
   }
 
   .logo {
@@ -16,13 +16,13 @@
   }
 
   .body {
-    --emr-sidebar-body-padding: 0 theme('padding.3');
-    --emr-sidebar-body-compact-padding: 0 theme('padding.3');
+    --emr-sidebar-body-padding: 0 var(--p-3);
+    --emr-sidebar-body-compact-padding: 0 var(--p-3);
   }
 
   .footer {
     @apply flex items-center justify-center;
-    --emr-sidebar-footer-padding: theme('padding.6') theme('padding.7');
-    --emr-sidebar-footer-compact-padding: theme('padding.3') theme('padding.7');
+    --emr-sidebar-footer-padding: var(--p-6) var(--p-7);
+    --emr-sidebar-footer-compact-padding: var(--p-3) var(--p-7);
   }
 }

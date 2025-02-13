@@ -2,7 +2,7 @@
   display: block;
 
   .export {
-    --mdc-outlined-button-outline-color: theme('borderColor.DEFAULT');
-    --mdc-outlined-button-container-height: theme('height.9');
+    --mdc-outlined-button-outline-color: var(--emr-border);
+    --mdc-outlined-button-container-height: var(--h-9);
   }
 }
