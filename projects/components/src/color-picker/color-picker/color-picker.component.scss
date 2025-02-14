@@ -1,7 +1,7 @@
 :host {
   --emr-color-picker-bg: white;
   --emr-color-picker-border-radius: var(--radius-md);
-  --emr-color-picker-margin-offset: var(--m-2);
+  --emr-color-picker-margin-offset: calc(var(--spacing) * 2);
   --emr-color-picker-border: 0 solid var(--color-neutral-200);
   --emr-color-picker-padding: 0;
   --emr-color-picker-gap: 0;

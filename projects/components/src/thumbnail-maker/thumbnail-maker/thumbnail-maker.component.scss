@@ -49,8 +49,8 @@
   }
 
   .controls {
-    margin-top: var(--m-3);
-    margin-bottom: var(--m-3);
+    margin-top: calc(var(--spacing) * 3);
+    margin-bottom: calc(var(--spacing) * 3);
   }
 
   &.loading {

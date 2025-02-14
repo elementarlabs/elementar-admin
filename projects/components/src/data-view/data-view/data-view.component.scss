@@ -1,7 +1,7 @@
 :host {
   --emr-data-view-row-bg: var(--emr-background);
   --emr-data-view-hl-header-row-bg: var(--color-surface-container);
-  --emr-data-view-hl-header-margin: var(--m-1) 0;
+  --emr-data-view-hl-header-margin: calc(var(--spacing) * 1) 0;
   --emr-data-view-sticky-header-top: 0;
   --emr-data-view-selected-border-color: var(--color-primary);
   --emr-data-view-row-hover-bg: var(--color-surface-bright);
@@ -57,7 +57,7 @@
     height: calc(var(--spacing) * 16);
 
     & + .mdc-data-table__row {
-      margin-top: var(--m-4);
+      margin-top: calc(var(--spacing) * 4);
     }
   }
 

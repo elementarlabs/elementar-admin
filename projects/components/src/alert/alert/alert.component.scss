@@ -11,7 +11,7 @@
   --emr-alert-thumbnail-bg: white;
   --emr-alert-thumbnail-border-radius: var(--radius-lg);
   --emr-alert-thumbnail-size: calc(var(--spacing) * 10);
-  --emr-alert-title-font-weight: var(--600);
+  --emr-alert-title-font-weight: 600;
   --emr-alert-title-font-size: var(--text-xs);
   --emr-alert-actions-gap: calc(var(--spacing) * 1);
   --emr-alert-action-height: calc(var(--spacing) * 10);
@@ -19,7 +19,7 @@
   --emr-alert-action-with-icon-padding: 0 calc(var(--spacing) * 2);
   --emr-alert-action-hover-bg: white;
   --emr-alert-action-border-radius: calc(infinity * 1px);
-  --emr-alert-action-font-weight: var(--500);
+  --emr-alert-action-font-weight: 500;
   --emr-alert-action-hover-color: inherit;
 
   position: relative;
@@ -61,7 +61,7 @@
   .title {
     font-size: var(--emr-alert-title-font-size);
     font-weight: var(--emr-alert-title-font-weight);
-    margin-bottom: var(--m-1);
+    margin-bottom: calc(var(--spacing) * 1);
     text-transform: uppercase;
     display: block;
 

@@ -17,8 +17,8 @@
     font-weight: 800;
     font-size: var(--text-xl);
     color: var(--color-neutral-950);
-    margin-left: var(--m-12);
-    margin-right: var(--m-12);
+    margin-left: calc(var(--spacing) * 12);
+    margin-right: calc(var(--spacing) * 12);
 
     &:hover {
       color: var(--sys-tertiary);

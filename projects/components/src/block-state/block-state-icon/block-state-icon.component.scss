@@ -7,7 +7,7 @@
   height: calc(var(--spacing) * 40);
   background-color: var(--color-surface-container);
   border-radius: calc(infinity * 1px);
-  margin-bottom: var(--m-6);
+  margin-bottom: calc(var(--spacing) * 6);
 
   ::ng-deep {
     emr-icon {

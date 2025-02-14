@@ -3,6 +3,6 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--m-7);
-  margin-bottom: var(--m-2);
+  margin-top: calc(var(--spacing) * 7);
+  margin-bottom: calc(var(--spacing) * 2);
 }

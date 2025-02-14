@@ -9,7 +9,7 @@
   --emr-navigation-item-border-radius: calc(infinity * 1px);
   --emr-navigation-item-border-width: 1px;
   --emr-navigation-item-border-color: transparent;
-  --emr-navigation-item-font-weight: var(--500);
+  --emr-navigation-item-font-weight: 500;
   --emr-navigation-item-color: var(--color-secondary);
   --emr-navigation-item-hover-bg: var(--color-neutral-200);
   --emr-navigation-item-active-bg: var(--color-secondary-fixed);
@@ -25,14 +25,14 @@
   --emr-navigation-item-has-icon-padding-start: calc(var(--spacing) * 2.5);
   --emr-navigation-heading-color: var(--color-neutral-900);
   --emr-navigation-heading-font-size: var(--text-2xs);
-  --emr-navigation-heading-font-weight: var(--700);
+  --emr-navigation-heading-font-weight: 700;
   --emr-navigation-heading-padding: 0 calc(var(--spacing) * 4);
-  --emr-navigation-heading-margin-bottom: var(--m-2);
-  --emr-navigation-heading-after-margin: var(--m-8);
+  --emr-navigation-heading-margin-bottom: calc(var(--spacing) * 2);
+  --emr-navigation-heading-after-margin: calc(var(--spacing) * 8);
   --emr-navigation-heading-text-transform: uppercase;
   --emr-navigation-divider-height: 1px;
   --emr-navigation-divider-bg: var(--color-border);
-  --emr-navigation-divider-margin: var(--m-6) 0;
+  --emr-navigation-divider-margin: calc(var(--spacing) * 6) 0;
   --emr-navigation-group-toggle-has-icon-padding-end: calc(var(--spacing) * 2);
   --emr-navigation-group-toggle-icon-color: var(--color-neutral-400);
   --emr-navigation-group-toggle-icon-position-end: calc(var(--spacing) * 3);

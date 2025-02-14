@@ -1,7 +1,7 @@
 :host {
   box-shadow: var(--shadow-default);
-  margin-left: var(--m-3);
-  margin-right: var(--m-3);
+  margin-left: calc(var(--spacing) * 3);
+  margin-right: calc(var(--spacing) * 3);
   background-color: var(--sys-surface-container-lowest);
   padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   display: flex;

@@ -17,7 +17,7 @@
   }
 
   .flag-icon {
-    margin-inline-end: var(--m-2);
+    margin-inline-end: calc(var(--spacing) * 2);
   }
 
   &.is-floating {

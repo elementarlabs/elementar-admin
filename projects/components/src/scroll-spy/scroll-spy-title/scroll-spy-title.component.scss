@@ -1,6 +1,6 @@
 :host {
   display: block;
-  font-weight: var(--500);
+  font-weight: 500;
   font-size: var(--text-xl);
-  margin-bottom: var(--m-4);
+  margin-bottom: calc(var(--spacing) * 4);
 }

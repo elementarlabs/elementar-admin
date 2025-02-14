@@ -1,7 +1,7 @@
 :host {
   --emr-file-padding: calc(var(--spacing) * 4) 0;
   --emr-file-controls-gap: calc(var(--spacing) * 1.5);
-  --emr-file-progress-margin: var(--m-2) 0 0 0;
+  --emr-file-progress-margin: calc(var(--spacing) * 2) 0 0 0;
   --emr-file-progress-bg: var(--color-surface-container-high);
   --emr-file-progress-height: calc(var(--spacing) * 1);
   --emr-file-progress-border-radius: var(--radius-lg);

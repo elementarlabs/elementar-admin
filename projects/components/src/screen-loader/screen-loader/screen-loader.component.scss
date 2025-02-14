@@ -23,6 +23,6 @@
 
   .progress-bar {
     width: calc(var(--spacing) * 64);
-    margin-top: var(--m-4);
+    margin-top: calc(var(--spacing) * 4);
   }
 }

@@ -39,7 +39,7 @@
               <div class="text-sm text-neutral-500 dark:text-neutral-400">Languages</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
                 @for (language of languages; track language) {
-                  <div class="w-max rounded-lg text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
+                  <div class="w-max rounded-xl text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
                     <span class="text-neutral-variant-600 dark:text-neutral-500">{{ language.name }}:</span>
                     <span class="text-on-surface">{{ language.level }}</span>
                   </div>
@@ -50,7 +50,7 @@
               <div class="text-sm text-neutral-500 dark:text-neutral-400">Skills (13)</div>
               <div class="flex gap-2 mt-1.5 flex-wrap">
                 @for (skill of skills; track skill) {
-                  <div class="w-max rounded-lg text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
+                  <div class="w-max rounded-xl text-xs bg-surface-container-high px-2 h-6 flex items-center gap-1">
                     <span class="text-neutral-variant-600 dark:text-neutral-500">{{ skill.name }}:</span>
                     <span class="text-on-surface">{{ skill.level }}</span>
                   </div>

@@ -2,7 +2,7 @@
   display: block;
   background: var(--color-neutral-200);
   padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
-  font-weight: var(--500);
+  font-weight: 500;
 }
 
 :host-context(html.dark) {

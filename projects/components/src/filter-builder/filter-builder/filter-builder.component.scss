@@ -3,8 +3,8 @@
   --emr-filter-builder-group-operation-font-size: var(--text-tiny);
   --emr-filter-builder-group-operation-color: var(--color-neutral-800);
   --emr-filter-builder-group-operation-bg: transparent;
-  --emr-filter-builder-group-operation-font-weight: var(--400);
-  --emr-filter-builder-group-operation-border-radius: var(--radius-default);
+  --emr-filter-builder-group-operation-font-weight: 400;
+  --emr-filter-builder-group-operation-border-radius: var(--radius-lg);
   --emr-filter-builder-group-operation-bpadding: 0 calc(var(--spacing) * 2);
   --emr-filter-builder-group-operation-height: calc(var(--spacing) * 7);
   --emr-filter-builder-group-operation-hover-color: var(--color-neutral-800);
@@ -22,8 +22,8 @@
   --emr-filter-builder-condition-field-font-size: var(--text-tiny);
   --emr-filter-builder-condition-field-color: var(--color-gray-800);
   --emr-filter-builder-condition-field-bg: var(--color-primary-300);
-  --emr-filter-builder-condition-field-font-weight: var(--400);
-  --emr-filter-builder-condition-field-border-radius: var(--radius-default);
+  --emr-filter-builder-condition-field-font-weight: 400;
+  --emr-filter-builder-condition-field-border-radius: var(--radius-lg);
   --emr-filter-builder-condition-field-bpadding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
   --emr-filter-builder-condition-field-hover-color: var(--color-gray-800);
   --emr-filter-builder-condition-field-hover-bg: var(--color-primary-400);
@@ -33,8 +33,8 @@
   --emr-filter-builder-condition-operation-font-size: var(--text-tiny);
   --emr-filter-builder-condition-operation-color: var(--color-gray-800);
   --emr-filter-builder-condition-operation-bg: var(--color-tertiary-300);
-  --emr-filter-builder-condition-operation-font-weight: var(--400);
-  --emr-filter-builder-condition-operation-border-radius: var(--radius-default);
+  --emr-filter-builder-condition-operation-font-weight: 400;
+  --emr-filter-builder-condition-operation-border-radius: var(--radius-lg);
   --emr-filter-builder-condition-operation-bpadding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
   --emr-filter-builder-condition-operation-hover-color: var(--color-gray-800);
   --emr-filter-builder-condition-operation-hover-bg: var(--color-tertiary-400);
@@ -44,8 +44,8 @@
   --emr-filter-builder-condition-value-font-size: var(--text-tiny);
   --emr-filter-builder-condition-value-color: var(--color-gray-800);
   --emr-filter-builder-condition-value-bg: var(--color-gray-200);
-  --emr-filter-builder-condition-value-font-weight: var(--400);
-  --emr-filter-builder-condition-value-border-radius: var(--radius-default);
+  --emr-filter-builder-condition-value-font-weight: 400;
+  --emr-filter-builder-condition-value-border-radius: var(--radius-lg);
   --emr-filter-builder-condition-value-bpadding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 2);
   --emr-filter-builder-condition-value-hover-color: var(--color-gray-800);
   --emr-filter-builder-condition-value-hover-bg: var(--color-gray-300);
@@ -86,7 +86,7 @@
   }
 
   .group .group {
-    margin-left: var(--m-4);
+    margin-left: calc(var(--spacing) * 4);
   }
 
   .icon:empty {

@@ -1,7 +1,7 @@
 :host {
   --emr-command-bar-height: calc(var(--spacing) * 12);
   --emr-command-bar-padding: 0 calc(var(--spacing) * 1);
-  --emr-command-bar-margin: var(--m-8) 0;
+  --emr-command-bar-margin: calc(var(--spacing) * 8) 0;
   --emr-command-bar-zindex: 50;
   --emr-command-bar-bg: var(--color-neutral-950);
   --emr-command-bar-color: var(--color-neutral-200);
@@ -22,7 +22,7 @@
   --emr-command-bar-divider-height: calc(var(--spacing) * 6);
   --emr-command-bar-divider-bg: var(--color-neutral-600);
   --emr-command-bar-command-shortcut-bg: var(--color-neutral-700);
-  --emr-command-bar-command-shortcut-border-radius: var(--radius-default);
+  --emr-command-bar-command-shortcut-border-radius: var(--radius-lg);
   --emr-command-bar-command-shortcut-font-size: var(--text-xs);
   --emr-command-bar-command-shortcut-color: var(--color-neutral-300);
   --emr-command-bar-command-shortcut-padding: 0 5px;

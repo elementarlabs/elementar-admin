@@ -7,7 +7,7 @@
   .content {
     flex-grow: 1;
     height: 100%;
-    margin-inline-end: var(--m-4);
+    margin-inline-end: calc(var(--spacing) * 4);
   }
 
   .handler {

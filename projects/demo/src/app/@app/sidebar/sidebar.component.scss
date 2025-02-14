@@ -23,7 +23,7 @@
   }
 
   .sidebar-toggle {
-    margin-inline-end: calc(var(--m-2) * -1);
+    margin-inline-end: calc(calc(var(--spacing) * 2) * -1);
   }
 
   &.compact {

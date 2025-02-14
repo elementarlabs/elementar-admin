@@ -1,6 +1,6 @@
 :host {
   display: block;
-  margin-bottom: var(--m-20);
+  margin-bottom: calc(var(--spacing) * 20);
 }
 
 .playground-markdown {

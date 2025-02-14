@@ -1,4 +1,4 @@
-<div class="border border-default  rounded-lg overflow-hidden">
+<div class="border border-default  rounded-xl overflow-hidden">
   <table mat-table [dataSource]="dataSource" class="not-mat-typography">
     <!-- Position Column -->
     <ng-container matColumnDef="position">
@@ -29,6 +29,6 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons
-                 aria-label="Select page of periodic elements" class="pt-3 border-t">
+                 aria-label="Select page of periodic elements" class="pt-3 border-t border-t-default">
   </mat-paginator>
 </div>

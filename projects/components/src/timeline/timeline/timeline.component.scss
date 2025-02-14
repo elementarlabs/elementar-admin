@@ -5,7 +5,7 @@
   --emr-timeline-header-bg: transparent;
   --emr-timeline-header-color: var(--color-neutral-500);
   --emr-timeline-header-text-transform: uppercase;
-  --emr-timeline-header-font-weight: var(--500);
+  --emr-timeline-header-font-weight: 500;
   --emr-timeline-item-gap: calc(var(--spacing) * 2.5);
   --emr-timeline-item-no-timestamp-offset-start: -0.5rem;
   --emr-timeline-timestamp-font-size: var(--text-xs);
@@ -15,7 +15,7 @@
   --emr-timeline-item-content-padding: 0 0 calc(var(--spacing) * 6) 0;
   --emr-timeline-title-font-size: var(--text-sm);
   --emr-timeline-title-color: var(--color-neutral-800);
-  --emr-timeline-title-font-weight: var(--500);
+  --emr-timeline-title-font-weight: 500;
   --emr-timeline-item-attributes-padding: calc(var(--spacing) * 1) 0 0 0;
   --emr-timeline-item-description-font-size: var(--text-sm);
   --emr-timeline-item-description-color: var(--color-gray-500);

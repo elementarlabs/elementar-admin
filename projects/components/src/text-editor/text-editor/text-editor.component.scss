@@ -60,7 +60,7 @@
         img {
           display: block;
           height: auto;
-          margin: var(--m-6) 0;
+          margin: calc(var(--spacing) * 6) 0;
           max-width: 100%;
 
           &.ProseMirror-selectednode {
