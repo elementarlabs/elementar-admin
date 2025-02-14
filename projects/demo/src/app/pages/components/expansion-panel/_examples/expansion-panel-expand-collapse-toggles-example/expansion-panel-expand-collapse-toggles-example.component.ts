@@ -30,7 +30,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   templateUrl: './expansion-panel-expand-collapse-toggles-example.component.html',
   styleUrl: './expansion-panel-expand-collapse-toggles-example.component.scss',
   providers: [
-      provideNativeDateAdapter()
+    provideNativeDateAdapter()
   ]
 })
 export class ExpansionPanelExpandCollapseTogglesExampleComponent {

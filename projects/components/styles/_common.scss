@@ -302,7 +302,7 @@ input[type=number].emr-number-input-no-spinners {
 
 .mat-mdc-row {
   &.cdk-drag-preview {
-    background-color: var(--emr-primary-50);
+    background-color: var(--color-primary-50);
     border-bottom-color: transparent;
     width: 100%;
 
@@ -315,7 +315,7 @@ input[type=number].emr-number-input-no-spinners {
 }
 
 .table-row-drag-placeholder {
-  background-color: var(--emr-primary-200);
+  background-color: var(--color-primary-200);
   height: var(--mat-table-row-item-container-height);
 }
 
@@ -325,7 +325,7 @@ code,
   display: inline-block;
   padding: calc(var(--spacing) * 1.3) calc(var(--spacing) * 1.75);
   border-radius: var(--radius-lg);
-  color: var(--emr-tertiary-800);
+  color: var(--color-tertiary-800);
   border-color: var(--emr-tertiary-400);
   margin-left: calc(var(--spacing) * 0.5);
   margin-right: calc(var(--spacing) * 0.5);
@@ -335,8 +335,8 @@ code,
 }
 
 html {
-  color: var(--emr-on-background);
-  background-color: var(--emr-background);
+  color: var(--color-on-background);
+  background-color: var(--color-background);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
