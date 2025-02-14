@@ -1,5 +1,5 @@
 :host {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--h-5);
+  gap: calc(var(--spacing) * 5);
 }

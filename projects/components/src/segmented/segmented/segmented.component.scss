@@ -1,5 +1,5 @@
 :host {
-  --emr-segmented-button-height: var(--h-9);
+  --emr-segmented-button-height: calc(var(--spacing) * 8);
   --emr-segmented-bg: var(--color-surface-container);
   --emr-segmented-button-hover-bg: var(--color-surface-container-highest);
   --emr-segmented-button-color: var(--color-neutral-700);
@@ -7,28 +7,28 @@
   --emr-segmented-button-selected-color: var(--color-primary-650);
   --emr-segmented-button-selected-bg: white;
   --emr-segmented-button-selected-shadow: var(--shadow-sm);
-  --emr-segmented-padding: var(--p-1);
-  --emr-segmented-border-radius: var(--rounded-full);
-  --emr-segmented-button-border-radius: var(--rounded-full);
-  --emr-segmented-button-padding: 0 var(--p-3);
-  --emr-segmented-button-min-width: var(--w-12);
+  --emr-segmented-padding: calc(var(--spacing) * 1);
+  --emr-segmented-border-radius: calc(infinity * 1px);
+  --emr-segmented-button-border-radius: calc(infinity * 1px);
+  --emr-segmented-button-padding: 0 calc(var(--spacing) * 3);
+  --emr-segmented-button-min-width: calc(var(--spacing) * 12);
   --emr-segmented-button-font-size: var(--text-tiny);
-  --emr-segmented-gap: var(--gap-1);
-  --emr-segmented-button-gap: var(--gap-1);
+  --emr-segmented-gap: calc(var(--spacing) * 1);
+  --emr-segmented-button-gap: calc(var(--spacing) * 1);
   --emr-segmented-button-icon-offset-margin: -6px;
 
   &[emr-segmented-size="sm"] {
-    --emr-segmented-button-height: calc(var(--h-10) - var(--p-2));
+    --emr-segmented-button-height: calc(calc(var(--spacing) * 10) - calc(var(--spacing) * 2));
     --emr-segmented-button-font-size: var(--text-xs);
-    --emr-segmented-button-padding: 0 var(--p-2);
-    --emr-segmented-button-gap: var(--gap-0_5);
+    --emr-segmented-button-padding: 0 calc(var(--spacing) * 2);
+    --emr-segmented-button-gap: calc(var(--spacing) * 0.5);
   }
 
   &[emr-segmented-size="lg"] {
-    --emr-segmented-button-height: calc(var(--h-14) - var(--p-2));
+    --emr-segmented-button-height: calc(calc(var(--spacing) * 14) - calc(var(--spacing) * 2));
     --emr-segmented-button-font-size: var(--text-sm);
-    --emr-segmented-button-padding: 0 var(--p-4);
-    --emr-segmented-button-gap: var(--gap-1_5);
+    --emr-segmented-button-padding: 0 calc(var(--spacing) * 4);
+    --emr-segmented-button-gap: calc(var(--spacing) * 1.5);
   }
 
   display: flex;

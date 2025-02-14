@@ -1,9 +1,9 @@
 :host {
   height: 100%;
-  padding-inline-start: var(--p-4);
-  padding-inline-end: var(--p-4);
+  padding-inline-start: calc(var(--spacing) * 4);
+  padding-inline-end: calc(var(--spacing) * 4);
   display: flex;
   align-items: center;
-  gap: var(--gap-3);
+  gap: calc(var(--spacing) * 3);
   position: relative;
 }

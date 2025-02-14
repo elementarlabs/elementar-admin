@@ -5,12 +5,12 @@
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
-  gap: var(--gap-0_5);
+  gap: calc(var(--spacing) * 0.5);
   color: var(--emr-rail-nav-bg-item-color);
 
   .icon {
-    padding: var(--p-1_5) var(--p-4);
-    border-radius: var(--rounded-full);
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 4);
+    border-radius: calc(infinity * 1px);
     color: var(--emr-rail-nav-bg-item-icon-color);
     display: flex;
     align-items: center;

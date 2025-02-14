@@ -6,8 +6,8 @@
   --emr-rail-nav-bg-item-icon-color: var(--color-neutral-950);
   --emr-rail-nav-bg-item-icon-is-active-color: var(--color-neutral-950);
   --emr-rail-nav-bg-item-color: var(--color-neutral-950);
-  --emr-rail-nav-width: var(--w-24);
-  --emr-rail-nav-gap: var(--gap-3);
+  --emr-rail-nav-width: calc(var(--spacing) * 24);
+  --emr-rail-nav-gap: calc(var(--spacing) * 3);
 
   display: flex;
   flex-direction: column;

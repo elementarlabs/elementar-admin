@@ -5,9 +5,9 @@
 
   display: flex;
   width: 100%;
-  border-radius: var(--rounded-3xl);
-  padding: var(--p-7);
-  gap: var(--gap-8);
+  border-radius: var(--radius-3xl);
+  padding: calc(var(--spacing) * 7);
+  gap: calc(var(--spacing) * 8);
   align-items: center;
   background-color: var(--emr-action-required-bg);
   color: var(--emr-action-text-color);
@@ -15,12 +15,12 @@
   .action-text {
     display: flex;
     background: var(--emr-action-action-text-bg);
-    padding: var(--p-3_5);
-    border-radius: var(--rounded-2xl);
+    padding: calc(var(--spacing) * 3.5);
+    border-radius: var(--radius-2xl);
     align-content: center;
     flex: none;
     font-size: var(--text-md);
-    gap: var(--gap-1_5);
+    gap: calc(var(--spacing) * 1.5);
   }
 
   .description {

@@ -3,11 +3,11 @@
   margin-left: var(--m-3);
   margin-right: var(--m-3);
   background-color: var(--sys-surface-container-lowest);
-  padding: var(--p-1_5) var(--p-2);
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--gap-0_5);
-  border: 1px solid var(--emr-border);
-  border-radius: var(--rounded-2xl);
+  gap: calc(var(--spacing) * 0.5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
 }

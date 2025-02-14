@@ -1,7 +1,7 @@
 <emr-comment-editor #editor buttonCancelLabel="Close" buttonSendLabel="Reply"
                     cancelButtonAlwaysVisible
                     [imageUploadFn]="uploadFn" (sent)="onSent($event)"
-                    class="rounded-2xl border ">
+                    class="rounded-2xl border border-default ">
   <emr-comment-editor-toolbar>
     <button mat-icon-button matTooltip="Bold"
             emrCommentEditorCommand emrCommentEditorCommandBold>
@@ -78,7 +78,7 @@
 @if (comments.length > 0) {
   <div class="mt-10 space-y-7">
     @for (comment of comments; track comment) {
-      <div class="border  rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
+      <div class="border border-default  rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
     }
   </div>
 }

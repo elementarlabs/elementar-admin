@@ -3,7 +3,7 @@
   --emr-navigation-item-active-bg: var(--color-primary-300);
   --emr-navigation-item-active-color: var(--color-primary-800);
   --emr-navigation-item-active-icon-color: var(--color-primary-800);
-  --emr-navigation-items-gap: var(--gap-2);
+  --emr-navigation-items-gap: calc(var(--spacing) * 2);
 
   height: 100%;
   display: flex;
@@ -14,7 +14,7 @@
   overflow-x: hidden;
 
   .logo {
-    font-weight: var(--font-extrabold);
+    font-weight: 800;
     font-size: var(--text-xl);
     color: var(--color-neutral-950);
     margin-left: var(--m-12);
@@ -36,8 +36,8 @@
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-left: var(--p-6);
-    padding-right: var(--p-6);
+    padding-left: calc(var(--spacing) * 6);
+    padding-right: calc(var(--spacing) * 6);
   }
 
   .footer {

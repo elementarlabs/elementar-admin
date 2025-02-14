@@ -6,10 +6,10 @@
   }
 
   &:not([class*="bg-"]) {
-    background: var(--emr-border);
+    background: var(--color-border);
   }
 
   &:not([class*="h-"]) {
-    height: var(--h-4);
+    height: calc(var(--spacing) * 4);
   }
 }

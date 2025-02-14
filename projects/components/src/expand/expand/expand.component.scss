@@ -4,8 +4,8 @@
   --emr-expand-button-color: var(--color-on-surface);
   --emr-expand-button-font-size: var(--text-tiny);
   --emr-expand-button-box-shadow: var(--shadow-md);
-  --emr-expand-button-border-radius: var(--rounded-full);
-  --emr-expand-button-padding: var(--p-2) var(--p-4);
+  --emr-expand-button-border-radius: calc(infinity * 1px);
+  --emr-expand-button-padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   --emr-expand-button-hover-opacity: var(--opacity-90);
   --emr-expand-expanded-height: 300px;
 
@@ -17,7 +17,7 @@
   .button {
     position: absolute;
     inset-inline-start: 50%;
-    bottom: var(--h-12);
+    bottom: calc(var(--spacing) * 12);
     padding: var(--emr-expand-button-padding);
     border-radius: var(--emr-expand-button-border-radius);
     background: var(--emr-expand-button-bg);

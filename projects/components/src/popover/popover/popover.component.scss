@@ -1,9 +1,9 @@
 :host {
   --emr-popover-border: none;
   --emr-popover-shadow: var(--shadow-lg);
-  --emr-popover-border-radius: var(--rounded-xl);
+  --emr-popover-border-radius: var(--radius-xl);
   --emr-popover-bg: white;
-  --emr-popover-margin: var(--w-2_5);
+  --emr-popover-margin: calc(var(--spacing) * 2.5);
 
   display: block;
   position: relative;

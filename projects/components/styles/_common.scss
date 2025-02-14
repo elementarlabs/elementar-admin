@@ -1,6 +1,7 @@
 @use "@angular/cdk/overlay-prebuilt";
 @use '@angular/material' as mat;
 @use 'material-symbols/outlined';
+@use "tailwindcss";
 
 $m3-light-theme: mat.define-theme((
   color: (
@@ -142,9 +143,9 @@ $m3-dark-theme: mat.define-theme((
   --emr-error-1000: #{mat.get-theme-color($m3-light-theme, error, 10)};
 
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
-  --emr-border: var(--sys-surface-dim);
+  --color-border: var(--sys-surface-dim);
 
-  --mat-table-row-item-outline-color: var(--emr-border);
+  --mat-table-row-item-outline-color: var(--color-border);
   --emr-transition-transform: transform .15s linear;
   --mdc-protected-button-container-height: 2.375rem;
   --mat-menu-item-label-text-size: var(--text-tiny);
@@ -197,11 +198,11 @@ body {
 
     &::-webkit-scrollbar-track {
       background-color: var(--color-neutral-200);
-      border-radius: var(--rounded-sm);
+      border-radius: var(--radius-sm);
     }
 
     &::-webkit-scrollbar-thumb {
-      border-radius: var(--rounded-sm);
+      border-radius: var(--radius-sm);
       background-color: var(--color-neutral-300);
 
       &:hover {
@@ -274,7 +275,7 @@ input[type=number].emr-number-input-no-spinners {
 
   th,
   td {
-    padding: var(--p-3) var(--p-4);
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
     vertical-align: middle;
     text-align: left;
   }
@@ -285,7 +286,7 @@ input[type=number].emr-number-input-no-spinners {
 
   td {
     height: var(--mat-table-row-item-container-height);
-    border-top: 1px solid var(--emr-border);
+    border-top: 1px solid var(--color-border);
   }
 
   tr {
@@ -320,9 +321,9 @@ code,
 .code {
   font-size: var(--text-xs);
   display: inline-block;
-  padding: var(--p-0_5) var(--p-1_5);
-  border: 1px solid var(--emr-border);
-  border-radius: var(--rounded-lg);
+  padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   color: var(--emr-tertiary-600);
   border-color: var(--emr-tertiary-400);
   margin-left: var(--m-0_5);
@@ -438,7 +439,6 @@ html {
 
     --mat-table-row-item-outline-color: var(--color-neutral-300);
     --emr-warn: var(--color-red-500);
-    --emr-border: var(--sys-surface-variant);
 
     @include mat.all-component-colors($m3-dark-theme);
     @include mat.system-level-colors($m3-dark-theme);
@@ -478,7 +478,7 @@ html {
 
         &::-webkit-scrollbar-thumb {
           background-color: var(--color-neutral-600);
-          border-radius: var(--rounded-sm);
+          border-radius: var(--radius-sm);
 
           &:hover {
             background-color: var(--color-neutral-500);
@@ -487,4 +487,113 @@ html {
       }
     }
   }
+}
+
+@theme {
+  // primary
+  --color-on-primary: var(--sys-on-primary);
+  --color-primary-container: var(--sys-primary-container);
+  --color-on-primary-container: var(--sys-on-primary-container);
+  --color-primary-fixed: var(--sys-primary-fixed);
+  --color-primary-fixed-dim: var(--sys-primary-fixed-dim);
+  --color-on-primary-fixed: var(--sys-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--sys-on-primary-fixed-variant);
+
+    // secondary
+  --color-on-secondary: var(--sys-on-secondary);
+  --color-secondary-container: var(--sys-secondary-container);
+  --color-on-secondary-container: var(--sys-on-secondary-container);
+  --color-secondary-fixed: var(--sys-secondary-fixed);
+  --color-secondary-fixed-dim: var(--sys-secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--sys-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--sys-on-secondary-fixed-variant);
+
+    // tertiary
+  --color-on-tertiary: var(--sys-on-tertiary);
+  --color-tertiary-container: var(--sys-tertiary-container);
+  --color-on-tertiary-container: var(--sys-on-tertiary-container);
+  --color-tertiary-fixed: var(--sys-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--sys-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--sys-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--sys-on-tertiary-fixed-variant);
+
+  --color-on-error: var(--sys-on-error);
+  --color-error-container: var(--sys-error-container);
+  --color-on-error-container: var(--sys-on-error-container);
+
+  --color-surface: var(--sys-surface);
+  --color-surface-dim: var(--sys-surface-dim);
+  --color-surface-tint: var(--sys-surface-tint);
+  --color-surface-variant: var(--sys-surface-variant);
+  --color-surface-bright: var(--sys-surface-bright);
+  --color-surface-container-lowest: var(--sys-surface-container-lowest);
+  --color-surface-container-low: var(--sys-surface-container-low);
+  --color-surface-container: var(--sys-surface-container);
+  --color-surface-container-high: var(--sys-surface-container-high);
+  --color-surface-container-highest: var(--sys-surface-container-highest);
+  --color-on-surface: var(--sys-on-surface);
+  --color-on-surface-variant: var(--sys-on-surface-variant);
+
+  --color-outline: var(--sys-outline);
+  --color-outline-variant: var(--sys-outline-variant);
+
+  --color-inverse-surface: var(--sys-inverse-surface);
+  --color-inverse-on-surface: var(--sys-inverse-on-surface);
+  --color-inverse-primary: var(--sys-inverse-primary);
+
+  --color-scrim: var(--sys-scrim);
+  --color-shadow: var(--sys-shadow);
+
+  --color-accent: var(--emr-accent);
+  --color-warn: var(--emr-warn);
+  --color-dark: #303030;
+
+  --color-default: var(--sys-surface-variant);
+  --border: 1px;
+
+  --text-5xs: 8px;
+  --text-4xs: 9px;
+  --text-3xs: 10px;
+  --text-2xs: 11px;
+  --text-tiny: 13px;
+  --text-md: 15px;
+
+  --color-background: var(--mat-app-background-color);
+  --color-on-background: var(--mat-app-text-color);
+
+  --color-neutral: var(--emr-neutral);
+  --color-neutral-0: var(--emr-neutral-0);
+  --color-neutral-50: var(--emr-neutral-50);
+  --color-neutral-100: var(--emr-neutral-100);
+  --color-neutral-200: var(--emr-neutral-200);
+  --color-neutral-300: var(--emr-neutral-300);
+  --color-neutral-400: var(--emr-neutral-400);
+  --color-neutral-450: var(--emr-neutral-450);
+  --color-neutral-500: var(--emr-neutral-500);
+  --color-neutral-600: var(--emr-neutral-600);
+  --color-neutral-650: var(--emr-neutral-650);
+  --color-neutral-700: var(--emr-neutral-700);
+  --color-neutral-800: var(--emr-neutral-800);
+  --color-neutral-900: var(--emr-neutral-900);
+  --color-neutral-950: var(--emr-neutral-950);
+  --color-neutral-1000: var(--emr-neutral-1000);
+
+  --color-neutral-variant: var(--emr-neutral-variant);
+  --color-neutral-variant-0: var(--emr-neutral-variant-0);
+  --color-neutral-variant-50: var(--emr-neutral-variant-50);
+  --color-neutral-variant-100: var(--emr-neutral-variant-100);
+  --color-neutral-variant-200: var(--emr-neutral-variant-200);
+  --color-neutral-variant-300: var(--emr-neutral-variant-300);
+  --color-neutral-variant-400: var(--emr-neutral-variant-400);
+  --color-neutral-variant-450: var(--emr-neutral-variant-450);
+  --color-neutral-variant-500: var(--emr-neutral-variant-500);
+  --color-neutral-variant-600: var(--emr-neutral-variant-600);
+  --color-neutral-variant-650: var(--emr-neutral-variant-650);
+  --color-neutral-variant-700: var(--emr-neutral-variant-700);
+  --color-neutral-variant-800: var(--emr-neutral-variant-800);
+  --color-neutral-variant-900: var(--emr-neutral-variant-900);
+  --color-neutral-variant-950: var(--emr-neutral-variant-950);
+  --color-neutral-variant-1000: var(--emr-neutral-variant-1000);
+
+  
 }

@@ -9,10 +9,10 @@
     top: 0;
     inset-inline-start: 0;
     inset-inline-end: 0;
-    height: var(--h-20);
+    height: calc(var(--spacing) * 20);
     flex: none;
-    padding-left: var(--p-4);
-    padding-right: var(--p-4);
+    padding-left: calc(var(--spacing) * 4);
+    padding-right: calc(var(--spacing) * 4);
     z-index: 3;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--gap-8);
+    gap: calc(var(--spacing) * 8);
     width: 100vw;
     height: 100vh;
   }
@@ -62,11 +62,11 @@
 
   .title {
     background-color: var(--color-neutral-700);
-    font-weight: var(--font-medium);
-    height: var(--h-10);
-    border-radius: var(--rounded-full);
-    padding-left: var(--p-4);
-    padding-right: var(--p-4);
+    font-weight: var(--500);
+    height: calc(var(--spacing) * 10);
+    border-radius: calc(infinity * 1px);
+    padding-left: calc(var(--spacing) * 4);
+    padding-right: calc(var(--spacing) * 4);
     font-size: var(--text-tiny);
     display: flex;
     align-items: center;
@@ -76,9 +76,9 @@
 
   .close,
   .zoom {
-    width: var(--w-10);
-    height: var(--h-10);
-    border-radius: var(--rounded-full);
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    border-radius: calc(infinity * 1px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,15 +106,15 @@
     background: var(--color-neutral-50);
     display: flex;
     flex-direction: column;
-    gap: var(--gap-5);
+    gap: calc(var(--spacing) * 5);
     height: 100%;
-    padding-inline-end: var(--p-10);
+    padding-inline-end: calc(var(--spacing) * 10);
 
     &-header {
-      font-weight: var(--font-bold);
-      padding-left: var(--p-8);
-      padding-right: var(--p-8);
-      padding-top: var(--p-8);
+      font-weight: var(--700);
+      padding-left: calc(var(--spacing) * 8);
+      padding-right: calc(var(--spacing) * 8);
+      padding-top: calc(var(--spacing) * 8);
     }
 
     &-body {
@@ -128,9 +128,9 @@
         position: absolute;
         inset: 0;
         overflow-y: auto;
-        padding-left: var(--p-8);
-        padding-right: var(--p-8);
-        padding-bottom: var(--p-8);
+        padding-left: calc(var(--spacing) * 8);
+        padding-right: calc(var(--spacing) * 8);
+        padding-bottom: calc(var(--spacing) * 8);
       }
     }
   }

@@ -1,5 +1,5 @@
 :host {
   width: 200px;
-  border-inline-start: 1px solid var(--emr-border);
-  padding-inline-start: var(--p-6);
+  border-inline-start: 1px solid var(--color-border);
+  padding-inline-start: calc(var(--spacing) * 6);
 }

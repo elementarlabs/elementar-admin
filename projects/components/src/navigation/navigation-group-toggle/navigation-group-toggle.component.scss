@@ -29,13 +29,13 @@
 
     display: inline-flex;
     flex: none;
-    border-radius: var(--rounded-full);
-    height: var(--h-5);
+    border-radius: calc(infinity * 1px);
+    height: calc(var(--spacing) * 5);
     align-items: center;
     justify-content: center;
-    min-width: var(--w-5);
+    min-width: calc(var(--spacing) * 5);
     font-size: var(--text-2xs);
-    padding: 0 var(--p-1_5);
+    padding: 0 calc(var(--spacing) * 1.5);
     background: var(--color-surface-tint);
     color: var(--color-on-primary);
   }

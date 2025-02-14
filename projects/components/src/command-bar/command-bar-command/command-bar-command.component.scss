@@ -9,7 +9,7 @@
   gap: var(--emr-command-bar-command-gap);
   color: var(--emr-command-bar-command-color);
   user-select: none;
-  border-radius: var(--rounded-full);
+  border-radius: calc(infinity * 1px);
   height: var(--emr-command-bar-command-height);
 
   &:hover {

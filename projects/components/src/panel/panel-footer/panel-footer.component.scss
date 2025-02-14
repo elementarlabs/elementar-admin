@@ -1,5 +1,5 @@
 :host {
-  --emr-panel-footer-height: var(--h-14);
+  --emr-panel-footer-height: calc(var(--spacing) * 14);
 
   flex: none;
 

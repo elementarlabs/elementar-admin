@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: var(--p-6) var(--p-8);
-  border-radius: var(--rounded-xl);
+  padding: calc(var(--spacing) * 6) calc(var(--spacing) * 8);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   background: linear-gradient(to right, rgb(241, 142, 156), rgb(253, 186, 116));
   text-align: center;

@@ -1,6 +1,6 @@
 :host {
-  --emr-pin-input-width: var(--w-14);
-  --emr-pin-gap: var(--gap-4);
+  --emr-pin-input-width: calc(var(--spacing) * 14);
+  --emr-pin-gap: calc(var(--spacing) * 4);
 
   display: block;
   width: max-content;

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  gap: var(--gap-2_5);
+  gap: calc(var(--spacing) * 2.5);
   height: var(--emr-suggestion-height);
   padding: var(--emr-suggestion-padding);
   border-radius: var(--emr-suggestion-border-radius);
@@ -22,8 +22,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    --emr-avatar-size: var(--w-8);
-    border-radius: var(--rounded-full);
+    --emr-avatar-size: calc(var(--spacing) * 8);
+    border-radius: calc(infinity * 1px);
   }
 
   .icon:empty,
@@ -34,7 +34,7 @@
   .content {
     display: flex;
     align-items: center;
-    gap: var(--gap-2_5);
+    gap: calc(var(--spacing) * 2.5);
     font-size: var(--text-sm);
   }
 }

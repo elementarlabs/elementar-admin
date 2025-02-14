@@ -1,7 +1,7 @@
 :host {
-  padding-inline-start: var(--p-5);
-  padding-inline-end: var(--p-3);
-  height: var(--h-11);
+  padding-inline-start: calc(var(--spacing) * 5);
+  padding-inline-end: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 11);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -9,13 +9,13 @@
   font-size: var(--text-sm);
 
   &:has(.icon) {
-    padding-inline-start: var(--p-3_5);
+    padding-inline-start: calc(var(--spacing) * 3.5);
   }
 
   .content {
     display: flex;
     align-items: center;
-    gap: var(--gap-2_5);
+    gap: calc(var(--spacing) * 2.5);
   }
 
   .icon {
@@ -36,7 +36,7 @@
   }
 
   &:has(.close) {
-    padding-inline-end: var(--p-1_5);
+    padding-inline-end: calc(var(--spacing) * 1.5);
   }
 
   &[data-variant="neutral"] {

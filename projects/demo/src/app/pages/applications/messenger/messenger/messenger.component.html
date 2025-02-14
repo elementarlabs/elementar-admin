@@ -1,7 +1,7 @@
 <section class="flex flex-col gap-4">
   <div class="flex justify-between">
     <h2 class="text-3xl">Messages</h2>
-    <div class="border rounded-full w-max">
+    <div class="border border-default rounded-full w-max">
       <button mat-icon-button [matMenuTriggerFor]="messengerMenu">
         <mat-icon>more_horiz</mat-icon>
       </button>
@@ -26,7 +26,7 @@
       <div class="relative grow">
         <mat-icon class="absolute start-2.5 top-1/2 -translate-y-1/2">search</mat-icon>
         <input type="text" matInput placeholder="Search"
-               class="bg-surface-container-low w-full border outline-none ps-10 h-10 pe-3 focus-visible:border-primary rounded-full">
+               class="bg-surface-container-low w-full border border-default outline-none ps-10 h-10 pe-3 focus-visible:border-primary rounded-full">
       </div>
       <button mat-icon-button>
         <mat-icon>tune</mat-icon>
@@ -35,7 +35,7 @@
     <div class="grow relative">
       <div class="py-4 absolute inset-0 space-y-3">
         @for (thread of threads; track thread) {
-          <div class="border relative rounded-2xl p-2 cursor-pointer hover:bg-surface-bright [&.selected]:bg-surface-bright group"
+          <div class="border border-default relative rounded-2xl p-2 cursor-pointer hover:bg-surface-bright [&.selected]:bg-surface-bright group"
                [class.selected]="isThreadSelected(thread)" (click)="selectThread(thread)">
             @if (thread.unreadMessagesCount > 0) {
               <div class="size-5 text-xs bg-red-500 text-white font-medium inline-flex items-center
@@ -80,17 +80,17 @@
         </div>
       </div>
       <div class="flex gap-3 flex-start">
-        <div class="border rounded-full w-max h-max">
+        <div class="border border-default rounded-full w-max h-max">
           <button mat-icon-button matTooltip="Create a call">
             <mat-icon>videocam</mat-icon>
           </button>
         </div>
-        <div class="border rounded-full w-max h-max">
+        <div class="border border-default rounded-full w-max h-max">
           <button mat-icon-button matTooltip="Schedule a meeting">
             <mat-icon>calendar_clock</mat-icon>
           </button>
         </div>
-        <div class="border rounded-full w-max h-max [&.sidebar-active]:border-on-surface"
+        <div class="border border-default rounded-full w-max h-max [&.sidebar-active]:border-on-surface"
              [class.sidebar-active]="sidebarActive" (click)="toggleSidebar()"
              [matTooltip]="sidebarActive ? 'Hide conversation info' : 'Show conversation info'">
           <button mat-icon-button>
@@ -177,7 +177,7 @@
     </div>
   </div>
   <div class="px-10">
-    <emr-comment-editor fullViewMode #editor class="border shadow-sm rounded-2xl">
+    <emr-comment-editor fullViewMode #editor class="border border-default shadow-sm rounded-2xl">
       <emr-comment-editor-toolbar>
         <button mat-icon-button matTooltip="Bold"
                 emrCommentEditorCommand emrCommentEditorCommandBold>

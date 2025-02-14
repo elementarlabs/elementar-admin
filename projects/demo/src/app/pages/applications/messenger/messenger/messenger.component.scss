@@ -1,8 +1,8 @@
 :host {
   display: grid;
   height: 100%;
-  padding: var(--p-5) var(--p-10);
-  gap: var(--gap-2);
+  padding: calc(var(--spacing) * 5) calc(var(--spacing) * 10);
+  gap: calc(var(--spacing) * 2);
   grid-template-columns: 312px 1fr;
 
   &:has(.sidebar) {

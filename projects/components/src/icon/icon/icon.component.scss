@@ -1,5 +1,5 @@
 :host {
-  --emr-icon-size: var(--w-6);
+  --emr-icon-size: calc(var(--spacing) * 6);
 
   display: inline-flex;
   flex: none;

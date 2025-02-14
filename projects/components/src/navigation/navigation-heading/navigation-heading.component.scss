@@ -11,6 +11,6 @@
   padding: var(--emr-navigation-heading-padding);
   margin-bottom: var(--emr-navigation-heading-margin-bottom);
   text-align: var(--emr-navigation-heading-text-align);
-  height: var(--h-6);
+  height: calc(var(--spacing) * 6);
   align-items: center;
 }

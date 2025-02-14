@@ -1,6 +1,6 @@
 :host {
   display: flex;
   align-items: center;
-  gap: var(--gap-3);
+  gap: calc(var(--spacing) * 3);
   white-space: nowrap;
 }

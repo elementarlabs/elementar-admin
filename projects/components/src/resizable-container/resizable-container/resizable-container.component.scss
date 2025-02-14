@@ -13,7 +13,7 @@
   .handler {
     position: absolute;
     user-select: none;
-    border-inline-start: 1px solid var(--emr-border);
+    border-inline-start: 1px solid var(--color-border);
     top: 0;
     bottom: 0;
     inset-inline-end: 0;
@@ -21,14 +21,14 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    width: var(--w-5);
+    width: calc(var(--spacing) * 5);
 
     .handler-indicator {
       background: var(--color-surface-container-high);
       display: flex;
-      height: var(--h-8);
-      width: var(--w-1_5);
-      border-radius: var(--rounded-full);
+      height: calc(var(--spacing) * 8);
+      width: calc(var(--spacing) * 1.5);
+      border-radius: calc(infinity * 1px);
     }
 
     &:hover,

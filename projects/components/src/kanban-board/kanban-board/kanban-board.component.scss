@@ -1,7 +1,7 @@
 :host {
-  --emr-kanban-board-col-width: var(--w-72);
-  --emr-kanban-board-padding-x: var(--p-10);
-  --emr-kanban-board-column-gap: var(--gap-5);
+  --emr-kanban-board-col-width: calc(var(--spacing) * 72);
+  --emr-kanban-board-padding-x: calc(var(--spacing) * 10);
+  --emr-kanban-board-column-gap: calc(var(--spacing) * 5);
 
   height: 100%;
 

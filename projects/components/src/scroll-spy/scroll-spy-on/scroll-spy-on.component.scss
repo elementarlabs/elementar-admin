@@ -1,8 +1,8 @@
 :host {
   display: block;
   width: max-content;
-  border-radius: var(--rounded-full);
-  padding: var(--p-2) var(--p-4);
+  border-radius: calc(infinity * 1px);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   color: var(--color-neutral-800);
   font-size: var(--text-sm);
   margin-top: var(--m-1_5);

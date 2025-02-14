@@ -2,25 +2,25 @@
   --emr-tab-panel-width: 5rem;
   --emr-tab-panel-item-width: 3.75rem;
   --emr-tab-panel-item-height: 3.75rem;
-  --emr-tab-panel-item-padding: var(--p-2);
+  --emr-tab-panel-item-padding: calc(var(--spacing) * 2);
   --emr-tab-panel-item-color: var(--color-neutral-500);
-  --emr-tab-panel-item-gap: var(--gap-1);
+  --emr-tab-panel-item-gap: calc(var(--spacing) * 1);
   --emr-tab-panel-item-hover-bg: var(--color-neutral-200);
   --emr-tab-panel-item-hover-color: var(--color-neutral-700);
   --emr-tab-panel-item-active-bg: var(--color-primary-300);
   --emr-tab-panel-item-active-color: var(--color-neutral-950);
-  --emr-tab-panel-item-border-radius: var(--rounded-xl);
+  --emr-tab-panel-item-border-radius: var(--radius-xl);
   --emr-tab-panel-aside-width: 18.75rem;
-  --emr-tab-panel-border-end: 1px solid var(--emr-border);
-  --emr-tab-panel-nav-padding: var(--p-2_5);
-  --emr-tab-panel-nav-gap: var(--gap-3);
+  --emr-tab-panel-border-end: 1px solid var(--color-border);
+  --emr-tab-panel-nav-padding: calc(var(--spacing) * 2.5);
+  --emr-tab-panel-nav-gap: calc(var(--spacing) * 3);
   --emr-tab-panel-item-text-font-size: var(--text-xs);
   --emr-tab-panel-item-icon-font-size: var(--text-2xl);
 
   // compact state
-  --emr-tab-panel-compact-width: var(--w-14);
-  --emr-tab-panel-compact-item-width: var(--w-10);
-  --emr-tab-panel-compact-item-height: var(--h-10);
+  --emr-tab-panel-compact-width: calc(var(--spacing) * 14);
+  --emr-tab-panel-compact-item-width: calc(var(--spacing) * 10);
+  --emr-tab-panel-compact-item-height: calc(var(--spacing) * 10);
 
   display: flex;
   width: min-content;

@@ -1,7 +1,7 @@
 :host {
-  --emr-skeleton-line-height: var(--h-5);
+  --emr-skeleton-line-height: calc(var(--spacing) * 5);
   --emr-skeleton-line-width: 100%;
-  --emr-skeleton-line-border-radius: var(--rounded-full);
+  --emr-skeleton-line-border-radius: calc(infinity * 1px);
 
   animation: emr-skeleton-loading 1s linear infinite alternate;
 

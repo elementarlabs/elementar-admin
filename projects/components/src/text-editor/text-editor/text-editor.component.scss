@@ -1,7 +1,7 @@
 :host {
   --emr-text-editor-bg: transparent;
   --emr-text-editor-content-max-height: 9999px;
-  --emr-text-editor-content-padding: var(--p-6);
+  --emr-text-editor-content-padding: calc(var(--spacing) * 6);
 
   display: block;
 
@@ -34,7 +34,7 @@
         div[data-youtube-video] {
           cursor: move;
           background-color: var(--color-neutral-100);
-          padding: var(--p-6);
+          padding: calc(var(--spacing) * 6);
           display: flex;
           align-items: center;
           justify-content: center;

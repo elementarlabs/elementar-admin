@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--p-8);
-  width: var(--w-40);
-  height: var(--h-40);
+  padding: calc(var(--spacing) * 8);
+  width: calc(var(--spacing) * 40);
+  height: calc(var(--spacing) * 40);
 
   ::ng-deep {
     img,

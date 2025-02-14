@@ -1,7 +1,7 @@
 :host {
   --emr-notification-is-new-bg: var(--color-primary-200);
-  --emr-notification-padding: var(--p-5);
-  --emr-notification-gap: var(--gap-4);
+  --emr-notification-padding: calc(var(--spacing) * 5);
+  --emr-notification-gap: calc(var(--spacing) * 4);
 
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   .notification {
     position: relative;
     background: var(--color-surface-container-low);
-    border-radius: var(--rounded-xl);
+    border-radius: var(--radius-xl);
 
     &:has(.is-new) {
       background: var(--emr-notification-is-new-bg);
@@ -18,13 +18,13 @@
 
   .controls {
     position: absolute;
-    inset-inline-end: var(--w-2);
-    top: var(--h-2);
+    inset-inline-end: calc(var(--spacing) * 2);
+    top: calc(var(--spacing) * 2);
   }
 
   &:has(.controls:not(:empty)) {
     .notification {
-      padding-inline-end: var(--p-7);
+      padding-inline-end: calc(var(--spacing) * 7);
     }
   }
 }

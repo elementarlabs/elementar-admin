@@ -3,16 +3,16 @@
           accept="image/png,image/jpeg" (fileSelected)="onImageSelected($event)">Select a local image</button>
 } @else {
   <emr-thumbnail-maker #thumbnailMaker="emrThumbnailMaker" [src]="src"
-                       class="border  rounded-xl"></emr-thumbnail-maker>
+                       class="border border-default  rounded-xl"></emr-thumbnail-maker>
   <div class="mt-10">
     <button mat-flat-button (click)="makeThumbnail(thumbnailMaker)">Make thumbnail</button>
   </div>
 
   @if (thumbnail) {
     <div class="mt-2 flex items-start gap-10 flex-wrap">
-      <img [src]="thumbnail" alt="" class="border ">
-      <img [src]="thumbnail" alt="" class="border  rounded-xl size-40">
-      <img [src]="thumbnail" alt="" class="border  rounded-full size-40">
+      <img [src]="thumbnail" alt="" class="border border-default ">
+      <img [src]="thumbnail" alt="" class="border border-default  rounded-xl size-40">
+      <img [src]="thumbnail" alt="" class="border border-default  rounded-full size-40">
     </div>
   }
 }

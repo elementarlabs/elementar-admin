@@ -1,5 +1,5 @@
 :host {
-  --emr-number-input-gap: var(--gap-2);
+  --emr-number-input-gap: calc(var(--spacing) * 2);
   --emr-number-input-control-bg: none;
   --emr-number-input-control-color: var(--color-neutral-500);
   --emr-number-input-control-hover-color: var(--color-neutral-600);
@@ -7,9 +7,9 @@
   --emr-number-input-control-hover-bg: var(--color-surface-container);
   --emr-number-input-control-active-bg: var(--color-surface-container-high);
   --emr-number-input-control-font-size: var(--text-2xl);
-  --emr-number-input-control-border-radius: var(--rounded-md);
-  --emr-number-input-suffix-gap: var(--gap-3);
-  --emr-number-input-control-size: var(--w-7);
+  --emr-number-input-control-border-radius: var(--radius-md);
+  --emr-number-input-suffix-gap: calc(var(--spacing) * 3);
+  --emr-number-input-control-size: calc(var(--spacing) * 7);
   --emr-number-input-control-border: none;
 
   display: flex;

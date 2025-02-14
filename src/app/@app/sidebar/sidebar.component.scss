@@ -9,7 +9,7 @@
   }
 
   .header {
-    height: var(--h-20);
+    height: calc(var(--spacing) * 20);
     display: flex;
     align-items: center;
 
@@ -20,7 +20,7 @@
   .logo {
     font-size: var(--text-lg);
     color: var(--sys-primary);
-    font-weight: var(--font-extrabold);
+    font-weight: 800;
 
     &:hover {
       color: var(--sys-tertiary);

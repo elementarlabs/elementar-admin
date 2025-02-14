@@ -3,8 +3,8 @@
   --emr-sidebar-compact-width: var(--emr-layout-sidebar-compact-width, 84px);
   --emr-sidebar-header-padding: 0;
   --emr-sidebar-header-compact-padding: 0;
-  --emr-sidebar-body-padding: var(--p-3);
-  --emr-sidebar-body-compact-padding: var(--p-3);
+  --emr-sidebar-body-padding: calc(var(--spacing) * 3);
+  --emr-sidebar-body-compact-padding: calc(var(--spacing) * 3);
   --emr-sidebar-footer-padding: 0;
   --emr-sidebar-footer-compact-padding: 0;
 

@@ -17,7 +17,7 @@ module.exports = {
         'sans': ['Open Sans', ...defaultTheme.fontFamily.sans]
       },
       borderColor: {
-        DEFAULT: 'var(--emr-border)'
+        DEFAULT: 'var(--color-border)'
       },
       colors: {
         background: 'var(--emr-background)',

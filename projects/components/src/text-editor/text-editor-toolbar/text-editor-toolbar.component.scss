@@ -1,11 +1,11 @@
 :host {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  gap: var(--gap-0_5);
-  border-bottom: 1px solid var(--emr-border);
-  height: var(--h-14);
-  padding-left: var(--p-3);
-  padding-right: var(--p-3);
+  gap: calc(var(--spacing) * 0.5);
+  border-bottom: 1px solid var(--color-border);
+  height: calc(var(--spacing) * 14);
+  padding-left: calc(var(--spacing) * 3);
+  padding-right: calc(var(--spacing) * 3);
   display: flex;
   align-items: center;
   z-index: 1;

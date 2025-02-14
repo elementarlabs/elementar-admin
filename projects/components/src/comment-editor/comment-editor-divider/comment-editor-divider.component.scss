@@ -1,9 +1,9 @@
 :host {
   display: block;
-  padding: 0 var(--p-2);
+  padding: 0 calc(var(--spacing) * 2);
 
   .divider {
-    height: var(--h-6);
+    height: calc(var(--spacing) * 6);
     background: var(--color-neutral-300);
     width: 1px;
   }

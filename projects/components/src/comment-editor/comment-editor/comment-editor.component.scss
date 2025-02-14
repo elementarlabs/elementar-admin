@@ -10,22 +10,22 @@
   .floating-menu {
     box-shadow: var(--shadow-default);
     background: white;
-    padding-top: var(--p-1_5);
-    padding-bottom: var(--p-1_5);
-    padding-inline-start: var(--p-2);
-    padding-inline-end: var(--p-2);
-    border: var(--border-default) solid var(--emr-border);
-    border-radius: var(--rounded-full);
+    padding-top: calc(var(--spacing) * 1.5);
+    padding-bottom: calc(var(--spacing) * 1.5);
+    padding-inline-start: calc(var(--spacing) * 2);
+    padding-inline-end: calc(var(--spacing) * 2);
+    border: var(--border) solid var(--color-border);
+    border-radius: calc(infinity * 1px);
 
     .button {
       &:hover {
         color: var(--color-primary);
-        border-radius: var(--rounded-full);
+        border-radius: calc(infinity * 1px);
       }
 
       mat-icon {
-        width: var(--w-6);
-        height: var(--h-6);
+        width: calc(var(--spacing) * 6);
+        height: calc(var(--spacing) * 6);
         font-size: var(--text-xl);
         line-height: 1.25;
       }
@@ -40,12 +40,12 @@
   .content {
     position: absolute;
     inset: 0;
-    height: var(--h-14);
+    height: calc(var(--spacing) * 14);
 
     ::ng-deep {
       .tiptap {
-        padding: var(--p-4);
-        min-height: var(--h-10);
+        padding: calc(var(--spacing) * 4);
+        min-height: calc(var(--spacing) * 10);
 
         &:focus {
           outline: none;
@@ -54,7 +54,7 @@
         div[data-youtube-video] {
           cursor: move;
           background: var(--color-neutral-100);
-          padding: var(--p-6);
+          padding: calc(var(--spacing) * 6);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -139,24 +139,24 @@
     .content {
       position: static;
       height: auto;
-      min-height: var(--h-12);
+      min-height: calc(var(--spacing) * 12);
       max-height: var(--emr-comment-editor-content-max-height);
       overflow-y: auto;
     }
   }
 
   .footer {
-    height: var(--h-14);
-    padding: 0 var(--p-2_5);
+    height: calc(var(--spacing) * 14);
+    padding: 0 calc(var(--spacing) * 2.5);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   .toolbar {
-    border-bottom: var(--border-default) solid var(--emr-border);
-    height: var(--h-14);
-    padding: 0 var(--p-3);
+    border-bottom: var(--border) solid var(--color-border);
+    height: calc(var(--spacing) * 14);
+    padding: 0 calc(var(--spacing) * 3);
     display: flex;
     align-items: center;
     justify-content: space-between;

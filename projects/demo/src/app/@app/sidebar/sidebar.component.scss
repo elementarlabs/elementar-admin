@@ -39,14 +39,14 @@
   }
 
   .header {
-    --emr-sidebar-header-padding: 0 var(--p-7);
-    --emr-sidebar-header-compact-padding: 0 var(--p-7);
+    --emr-sidebar-header-padding: 0 calc(var(--spacing) * 7);
+    --emr-sidebar-header-compact-padding: 0 calc(var(--spacing) * 7);
   }
 
   .logo {
     font-size: var(--text-lg);
     color: var(--sys-primary);
-    font-weight: var(--font-extrabold);
+    font-weight: 800;
 
     &:hover {
       color: var(--sys-tertiary);
@@ -54,8 +54,8 @@
   }
 
   .body {
-    --emr-sidebar-body-padding: var(--p-4) var(--p-3);
-    --emr-sidebar-body-compact-padding: var(--p-4) var(--p-3);
+    --emr-sidebar-body-padding: calc(var(--spacing) * 4) calc(var(--spacing) * 3);
+    --emr-sidebar-body-compact-padding: calc(var(--spacing) * 4) calc(var(--spacing) * 3);
   }
 
   .footer {
@@ -63,8 +63,8 @@
     align-items: center;
     justify-content: center;
 
-    --emr-sidebar-footer-padding: var(--p-6) var(--p-7);
-    --emr-sidebar-footer-compact-padding: var(--p-3) var(--p-7);
+    --emr-sidebar-footer-padding: calc(var(--spacing) * 6) calc(var(--spacing) * 7);
+    --emr-sidebar-footer-compact-padding: calc(var(--spacing) * 3) calc(var(--spacing) * 7);
   }
 }
 

@@ -8,7 +8,7 @@
 
   pre {
     margin: 0;
-    padding: var(--p-5);
+    padding: calc(var(--spacing) * 5);
     border-radius: 0;
     border: none;
     max-height: 500px !important;
@@ -52,7 +52,7 @@
 
   /* Code blocks */
   pre[class*="language-"] {
-    padding: var(--p-5);
+    padding: calc(var(--spacing) * 5);
     margin: 0;
     overflow: auto;
     border: none;
@@ -215,14 +215,14 @@ html.dark {
   }
 
   pre[class*="language-"] {
-    padding: var(--p-5);
+    padding: calc(var(--spacing) * 5);
     margin: 0;
     overflow: auto;
     background: none;
   }
 
   :not(pre) > code[class*="language-"] {
-    padding: var(--p-5);
+    padding: calc(var(--spacing) * 5);
     margin: 0;
     border-radius: 0;
     color: #db4c69;

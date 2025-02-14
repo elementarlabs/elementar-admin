@@ -1,4 +1,4 @@
-<div class="border  rounded-lg relative mb-14 mt-4">
+<div class="border border-default  rounded-lg relative mb-14 mt-4">
   <div class="p-7">
     @defer {
       <ng-content></ng-content>
@@ -22,7 +22,7 @@
     @if (showSource) {
       <div class="flex items-center gap-2 absolute start-3 top-1/2 -translate-y-1/2">
         @if (htmlSrc) {
-          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+          <div class="rounded-full hover:bg-neutral-300 border border-default border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
                       dark:hover:bg-primary-500 dark:hover:border-primary-500
                       dark:border-neutral-500 dark:text-white
                       [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"
@@ -30,7 +30,7 @@
         }
 
         @if (tsSrc) {
-          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+          <div class="rounded-full hover:bg-neutral-300 border border-default border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
                       dark:hover:bg-primary-500 dark:hover:border-primary-500
                       dark:border-neutral-500 dark:text-white
                       [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"
@@ -38,7 +38,7 @@
         }
 
         @if (cssSrc) {
-          <div class="rounded-full hover:bg-neutral-300 border border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
+          <div class="rounded-full hover:bg-neutral-300 border border-default border-neutral-950 px-2.5 py-1 text-sm cursor-pointer
                       dark:hover:bg-primary-500 dark:hover:border-primary-500
                       dark:border-neutral-500 dark:text-white
                       [&.active]:text-white [&.active]:bg-primary-600 [&.active]:border-primary-600"

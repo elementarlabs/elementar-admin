@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--p-8);
-  width: var(--w-40);
-  height: var(--h-40);
+  padding: calc(var(--spacing) * 8);
+  width: calc(var(--spacing) * 40);
+  height: calc(var(--spacing) * 40);
   background-color: var(--color-surface-container);
-  border-radius: var(--rounded-full);
+  border-radius: calc(infinity * 1px);
   margin-bottom: var(--m-6);
 
   ::ng-deep {
     emr-icon {
-      --emr-icon-size: var(--w-28);
+      --emr-icon-size: calc(var(--spacing) * 28);
     }
 
     mat-icon {

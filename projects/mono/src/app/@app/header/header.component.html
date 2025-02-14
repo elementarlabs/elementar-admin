@@ -8,13 +8,13 @@
     </div>
     <div class="ms-auto flex items-center gap-6">
       <div class="flex items-center gap-4">
-        <div class="w-max border border-neutral-300  rounded-full">
+        <div class="w-max border border-default border-neutral-300  rounded-full">
           <button mat-icon-button matTooltip="Notifications"
                   [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
             <mat-icon matBadge="4">notifications</mat-icon>
           </button>
         </div>
-        <div class="w-max border border-neutral-300  rounded-full">
+        <div class="w-max border border-default border-neutral-300  rounded-full">
           <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
                   emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
             @if (_themeManager.getColorScheme() === 'light') {
@@ -48,7 +48,7 @@
     <div class="-mt-0.5">
       <div class="flex items-center gap-2">
         Pavel Salauyou
-        <div class="border flex items-center border-neutral-900 dark:border-neutral-200 h-5 leading-3 px-2
+        <div class="border border-default flex items-center border-neutral-900 dark:border-neutral-200 h-5 leading-3 px-2
                     rounded-full font-bold text-4xs uppercase text-neutral-500 dark:text-neutral-200">Free</div>
       </div>
       <div class="text-xs text-gray-500 mt-0.5 dark:text-gray-400">louis.vincent&#64;mail.com</div>

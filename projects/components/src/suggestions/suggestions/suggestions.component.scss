@@ -2,12 +2,12 @@
   --emr-suggestions-bg: var(--color-surface-container-lowest);
   --emr-suggestion-block-heading-color: var(--color-on-surface);
   --emr-suggestion-block-font-size: var(--text-xs);
-  --emr-suggestion-block-font-weight: var(--font-semibold);
-  --emr-suggestion-block-content-padding: var(--p-2) 0;
-  --emr-suggestion-height: var(--h-11);
-  --emr-suggestion-padding: 0 var(--p-2);
+  --emr-suggestion-block-font-weight: var(--600);
+  --emr-suggestion-block-content-padding: calc(var(--spacing) * 2) 0;
+  --emr-suggestion-height: calc(var(--spacing) * 11);
+  --emr-suggestion-padding: 0 calc(var(--spacing) * 2);
   --emr-suggestion-hover-bg: var(--color-surface-container-low);
-  --emr-suggestion-border-radius: var(--rounded-full);
+  --emr-suggestion-border-radius: calc(infinity * 1px);
 
   display: block;
   overflow-y: auto;

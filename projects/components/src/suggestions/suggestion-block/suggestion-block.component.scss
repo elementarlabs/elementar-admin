@@ -13,7 +13,7 @@
 
     &.is-inline {
       display: flex;
-      gap: var(--gap-3);
+      gap: calc(var(--spacing) * 3);
     }
   }
 }

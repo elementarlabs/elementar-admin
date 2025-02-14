@@ -1,15 +1,15 @@
 :host {
   --emr-navigation-bg: inherit;
-  --emr-navigation-items-gap: var(--gap-0_5);
+  --emr-navigation-items-gap: calc(var(--spacing) * 0.5);
   --emr-navigation-item-width: 100%;
   --emr-navigation-item-bg: transparent;
-  --emr-navigation-item-height: var(--h-12);
-  --emr-navigation-item-padding: 0 var(--p-4);
+  --emr-navigation-item-height: calc(var(--spacing) * 12);
+  --emr-navigation-item-padding: 0 calc(var(--spacing) * 4);
   --emr-navigation-item-font-size: var(--text-sm);
-  --emr-navigation-item-border-radius: var(--rounded-full);
+  --emr-navigation-item-border-radius: calc(infinity * 1px);
   --emr-navigation-item-border-width: 1px;
   --emr-navigation-item-border-color: transparent;
-  --emr-navigation-item-font-weight: var(--font-medium);
+  --emr-navigation-item-font-weight: var(--500);
   --emr-navigation-item-color: var(--color-secondary);
   --emr-navigation-item-hover-bg: var(--color-neutral-200);
   --emr-navigation-item-active-bg: var(--color-secondary-fixed);
@@ -20,30 +20,30 @@
   --emr-navigation-item-icon-width: 27px;
   --emr-navigation-item-hover-icon-color: var(--color-secondary-800);
   --emr-navigation-item-active-icon-color: var(--color-secondary-950);
-  --emr-navigation-item-icon-size: var(--w-6);
-  --emr-navigation-item-gap: var(--gap-2_5);
-  --emr-navigation-item-has-icon-padding-start: var(--p-2_5);
+  --emr-navigation-item-icon-size: calc(var(--spacing) * 6);
+  --emr-navigation-item-gap: calc(var(--spacing) * 2.5);
+  --emr-navigation-item-has-icon-padding-start: calc(var(--spacing) * 2.5);
   --emr-navigation-heading-color: var(--color-neutral-900);
   --emr-navigation-heading-font-size: var(--text-2xs);
-  --emr-navigation-heading-font-weight: var(--font-bold);
-  --emr-navigation-heading-padding: 0 var(--p-4);
+  --emr-navigation-heading-font-weight: var(--700);
+  --emr-navigation-heading-padding: 0 calc(var(--spacing) * 4);
   --emr-navigation-heading-margin-bottom: var(--m-2);
   --emr-navigation-heading-after-margin: var(--m-8);
   --emr-navigation-heading-text-transform: uppercase;
   --emr-navigation-divider-height: 1px;
-  --emr-navigation-divider-bg: var(--emr-border);
+  --emr-navigation-divider-bg: var(--color-border);
   --emr-navigation-divider-margin: var(--m-6) 0;
-  --emr-navigation-group-toggle-has-icon-padding-end: var(--p-2);
+  --emr-navigation-group-toggle-has-icon-padding-end: calc(var(--spacing) * 2);
   --emr-navigation-group-toggle-icon-color: var(--color-neutral-400);
-  --emr-navigation-group-toggle-icon-position-end: var(--w-3);
-  --emr-navigation-group-toggle-icon-size: var(--w-4);
+  --emr-navigation-group-toggle-icon-position-end: calc(var(--spacing) * 3);
+  --emr-navigation-group-toggle-icon-size: calc(var(--spacing) * 4);
   --emr-navigation-group-menu-padding-start: 0;
   --emr-navigation-group-toggle-bg: transparent;
   --emr-navigation-group-toggle-active-bg: var(--color-neutral-200);
   --emr-navigation-group-toggle-active-color: var(--emr-navigation-item-active-color);
   --emr-navigation-nested-item-bg: transparent;
-  --emr-navigation-nested-item-height: var(--h-10);
-  --emr-navigation-nested-item-padding: 0 var(--p-4);
+  --emr-navigation-nested-item-height: calc(var(--spacing) * 10);
+  --emr-navigation-nested-item-padding: 0 calc(var(--spacing) * 4);
   --emr-navigation-nested-item-margin: 0 0 0 52px;
   --emr-navigation-nested-item-border-radius: 0;
   --emr-navigation-nested-item-color: var(--color-secondary-600);
@@ -51,13 +51,13 @@
   --emr-navigation-nested-item-active-bg: var(--color-secondary-fixed);
   --emr-navigation-nested-item-hover-color: var(--color-secondary-800);
   --emr-navigation-nested-item-active-color: var(--color-secondary-950);
-  --emr-navigation-nested-item-indicator-width: var(--w-3_5);
-  --emr-navigation-nested-item-indicator-height: var(--h-0_5);
+  --emr-navigation-nested-item-indicator-width: calc(var(--spacing) * 3.5);
+  --emr-navigation-nested-item-indicator-height: calc(var(--spacing) * 0.5);
   --emr-navigation-nested-item-indicator-bg: var(--color-neutral-500);
-  --emr-navigation-nested-item-indicator-position-start: calc(var(--w-2_5) * -1);
+  --emr-navigation-nested-item-indicator-position-start: calc(calc(var(--spacing) * 2.5) * -1);
   --emr-navigation-group-active-bg: transparent;
   --emr-navigation-group-border-radius: 0;
-  --emr-navigation-group-tree-lines-color: var(--emr-border);
+  --emr-navigation-group-tree-lines-color: var(--color-border);
   --emr-navigation-heading-text-align: start;
 
   display: flex;
@@ -80,8 +80,8 @@
   &[data-theme="secondary"] {
     ::ng-deep {
       .emr-navigation-item {
-        --emr-navigation-item-border-radius: var(--rounded-full);
-        --emr-navigation-item-height: var(--h-11);
+        --emr-navigation-item-border-radius: calc(infinity * 1px);
+        --emr-navigation-item-height: calc(var(--spacing) * 11);
         --emr-navigation-item-active-bg: var(--color-background);
 
         &.is-active {

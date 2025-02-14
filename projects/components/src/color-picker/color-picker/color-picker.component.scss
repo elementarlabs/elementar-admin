@@ -1,6 +1,6 @@
 :host {
   --emr-color-picker-bg: white;
-  --emr-color-picker-border-radius: var(--rounded-md);
+  --emr-color-picker-border-radius: var(--radius-md);
   --emr-color-picker-margin-offset: var(--m-2);
   --emr-color-picker-border: 0 solid var(--color-neutral-200);
   --emr-color-picker-padding: 0;
@@ -8,19 +8,19 @@
 
   --emr-color-picker-saturation-width: 15rem;
   --emr-color-picker-saturation-height: 8.75rem;
-  --emr-color-picker-saturation-pointer-size: var(--w-7);
+  --emr-color-picker-saturation-pointer-size: calc(var(--spacing) * 7);
   --emr-color-picker-saturation-pointer-shadow: var(--shadow-md);
   --emr-color-picker-saturation-pointer-border: 2px solid white;
 
   --emr-color-picker-hue-width: var(--emr-color-picker-saturation-width);
-  --emr-color-picker-hue-height: var(--h-7);
-  --emr-color-picker-hue-pointer-size: var(--w-7);
+  --emr-color-picker-hue-height: calc(var(--spacing) * 7);
+  --emr-color-picker-hue-pointer-size: calc(var(--spacing) * 7);
   --emr-color-picker-hue-pointer-shadow: var(--shadow-md);
   --emr-color-picker-hue-pointer-border: 2px solid white;
 
   --emr-color-picker-alpha-width: var(--emr-color-picker-saturation-width);
-  --emr-color-picker-alpha-height: var(--h-7);
-  --emr-color-picker-alpha-pointer-size: var(--w-7);
+  --emr-color-picker-alpha-height: calc(var(--spacing) * 7);
+  --emr-color-picker-alpha-pointer-size: calc(var(--spacing) * 7);
   --emr-color-picker-alpha-pointer-shadow: var(--shadow-md);
   --emr-color-picker-alpha-pointer-border: 2px solid white;
 

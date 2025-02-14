@@ -3,7 +3,7 @@
   font-weight: var(--emr-breadcrumbs-item-font-weight);
   color: var(--emr-breadcrumbs-item-color);
   display: flex;
-  gap: var(--gap-1_5);
+  gap: calc(var(--spacing) * 1.5);
   cursor: pointer;
   text-decoration: none;
 

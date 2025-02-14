@@ -3,7 +3,7 @@
     <emr-dicebear [key]="notification().actor.id"
                   [src]="notification().actor.avatarUrl" class="size-10"/>
     <div class="flex absolute justify-center z-10 text-white items-center -right-0
-                  -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-white ">
+                  -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-default border-white ">
       <mat-icon class="filled text-xs !h-[16px] !w-[11px]">folder</mat-icon>
     </div>
   </div>
@@ -17,7 +17,7 @@
     </span>
   </div>
   <div class="mt-3">
-    <div class="border border-primary rounded-lg px-3 py-2 flex items-center gap-2 w-max">
+    <div class="border border-default border-primary rounded-lg px-3 py-2 flex items-center gap-2 w-max">
       <mat-icon class="filled text-primary">folder</mat-icon>
       <span class="text-xs">{{ notification().payload['folderName'] }}</span>
     </div>

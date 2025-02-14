@@ -1,7 +1,7 @@
 :host {
-  --emr-avatar-font-weight: var(--font-medium);
-  --emr-avatar-size: var(--w-10);
-  --emr-avatar-border-radius: var(--rounded-full);
+  --emr-avatar-font-weight: var(--500);
+  --emr-avatar-size: calc(var(--spacing) * 10);
+  --emr-avatar-border-radius: calc(infinity * 1px);
   --emr-avatar-bg: var(--color-emerald-500);
   --emr-avatar-color: white;
   --emr-avatar-presence-indicator-size: 20%;
@@ -11,7 +11,7 @@
   --emr-avatar-presence-indicator-offline-bg: var(--color-neutral-300);
   --emr-avatar-presence-indicator-away-bg: var(--colors-yellow-400);
   --emr-avatar-presence-indicator-outline: white solid 2px;
-  --emr-avatar-inner-border: inset 0 0 2px var(--emr-border);
+  --emr-avatar-inner-border: inset 0 0 2px var(--color-border);
 
   display: inline-flex;
   align-items: center;

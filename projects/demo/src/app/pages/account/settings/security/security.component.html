@@ -12,9 +12,9 @@
             <div class="flex flex-col items-end">
               <div>{{ securityProfile.email }}</div>
               @if (securityProfile.isEmailVerified) {
-                <div class="mt-2 border border-lime-500 text-2xs text-lime-600 h-5 inline-flex items-center px-1.5 rounded-lg justify-center">Verified</div>
+                <div class="mt-2 border border-default border-lime-500 text-2xs text-lime-600 h-5 inline-flex items-center px-1.5 rounded-lg justify-center">Verified</div>
               } @else {
-                <div class="mt-2 border w-max border-error-500 text-2xs text-error-500 h-5 inline-flex items-center justify-center px-1.5 rounded-lg">Unverified</div>
+                <div class="mt-2 border border-default w-max border-error-500 text-2xs text-error-500 h-5 inline-flex items-center justify-center px-1.5 rounded-lg">Unverified</div>
               }
             </div>
           </div>

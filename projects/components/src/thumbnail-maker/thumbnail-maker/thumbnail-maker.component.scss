@@ -36,15 +36,15 @@
     inset-inline-start: 50%;
     background-color: var(--color-neutral-950);
     color: white;
-    border-radius: var(--rounded-lg);
-    padding: var(--p-2) var(--p-3);
+    border-radius: var(--radius-lg);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
     font-size: var(--text-sm);
     opacity: var(--opacity-90);
     --tw-translate-x: -50%;
     width: max-content;
     display: flex;
     align-items: center;
-    gap: var(--gap-2);
+    gap: calc(var(--spacing) * 2);
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 

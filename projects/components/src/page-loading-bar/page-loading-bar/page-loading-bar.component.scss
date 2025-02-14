@@ -1,6 +1,6 @@
 :host {
   --emr-loading-bar-bg: none;
-  --emr-loading-bar-height: var(--h-2);
+  --emr-loading-bar-height: calc(var(--spacing) * 2);
 
   position: absolute;
   top: 0;

@@ -1,5 +1,5 @@
 :host {
-  --emr-dashboard-gap: var(--gap-7);
+  --emr-dashboard-gap: calc(var(--spacing) * 7);
 
   display: block;
 
@@ -10,15 +10,15 @@
   }
 
   .widget:not(.plain) {
-    border: var(--border-default) solid var(--emr-border);
-    border-radius: var(--rounded-2xl);
+    border: var(--border) solid var(--color-border);
+    border-radius: var(--radius-2xl);
     height: 100%;
     overflow: hidden;
   }
 
   .skeleton {
     --emr-dashboard-widget-skeleton-min-height: 100px;
-    padding: var(--p-5);
+    padding: calc(var(--spacing) * 5);
     min-height: var(--emr-dashboard-widget-skeleton-min-height);
   }
 }

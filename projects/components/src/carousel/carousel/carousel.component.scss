@@ -6,12 +6,12 @@
   .content {
     display: flex;
     overflow: hidden;
-    gap: var(--gap-8);
+    gap: calc(var(--spacing) * 8);
   }
 
   .controls {
     margin-top: var(--m-4);
-    gap: var(--gap-3);
+    gap: calc(var(--spacing) * 3);
 
     &:empty {
       display: none;
