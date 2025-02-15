@@ -73,11 +73,11 @@
 
         p.is-editor-empty:first-child::before {
           content: attr(data-placeholder);
-          color: var(--color-neutral-100);
+          color: var(--color-neutral-500);
           float: left;
           height: 0;
           pointer-events: none;
-          font-size: 14px;
+          font-size: var(--text-sm);
         }
 
         &.ProseMirror-focused {
@@ -88,11 +88,11 @@
 
         p.is-empty::before {
           content: attr(data-placeholder);
-          color: var(--color-neutral-100);
+          color: var(--color-neutral-500);
           float: left;
           height: 0;
           pointer-events: none;
-          font-size: 14px;
+          font-size: var(--text-sm);
         }
       }
 

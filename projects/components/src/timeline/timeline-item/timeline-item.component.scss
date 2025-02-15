@@ -1,49 +1,51 @@
 :host {
   display: contents;
-}
 
-:host:has(.emr-timeline-timestamp) {
-  margin-left: 0;
-}
+  &:has(.emr-timeline-timestamp) {
+    margin-left: 0;
+  }
 
-:host .indicator {
-  z-index: 1;
-  top: 0.3125rem;
-}
+  .indicator {
+    z-index: 1;
+    top: 0.3125rem;
+  }
 
-:host .line {
-  padding: 0;
-}
+  .line {
+    padding: 0;
 
-:host .line:after {
-  background: var(--emr-timeline-item-line-bg);
-  top: 0.3125rem;
-  bottom: -0.3125rem;
-}
+    &:after {
+      background: var(--emr-timeline-item-line-bg);
+      top: 0.3125rem;
+      bottom: -0.3125rem;
+    }
+  }
 
-:host .indicator-shape {
-  flex: none;
-  width: var(--emr-timeline-indicator-shape-size);
-  height: var(--emr-timeline-indicator-shape-size);
-  background: var(--emr-timeline-indicator-bg);
-  border: var(--emr-timeline-indicator-border);
-}
+  .indicator-shape {
+    flex: none;
+    width: var(--emr-timeline-indicator-shape-size);
+    height: var(--emr-timeline-indicator-shape-size);
+    background: var(--emr-timeline-indicator-bg);
+    border: var(--emr-timeline-indicator-border);
+  }
 
-:host:last-child .line:after {
-  display: none;
-}
+  &:last-child {
+    .line:after {
+      display: none;
+    }
+  }
 
-:host .line:has(.custom-indicator):after {
-  top: 0;
-  bottom: 0;
-}
+  .line:has(.custom-indicator):after {
+    top: 0;
+    bottom: 0;
+  }
 
-:host .content {
-  padding: var(--emr-timeline-item-content-padding);
-}
+  .content {
+    padding: var(--emr-timeline-item-content-padding);
+  }
 
-:host .content-inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--emr-timeline-item-content-gap);
+  .content-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--emr-timeline-item-content-gap);
+  }
 }

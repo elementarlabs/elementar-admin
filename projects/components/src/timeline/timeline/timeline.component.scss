@@ -19,11 +19,11 @@
   --emr-timeline-item-attributes-padding: calc(var(--spacing) * 1) 0 0 0;
   --emr-timeline-item-description-font-size: var(--text-sm);
   --emr-timeline-item-description-color: var(--color-gray-500);
-  --emr-timeline-item-line-bg: var(--color-neutral-300);
+  --emr-timeline-item-line-bg: var(--color-neutral-400);
   --emr-timeline-item-content-gap: calc(var(--spacing) * 1);
   --emr-timeline-indicator-shape-size: calc(var(--spacing) * 3);
   --emr-timeline-indicator-bg: white;
-  --emr-timeline-indicator-border: 2px solid var(--color-neutral-300);
+  --emr-timeline-indicator-border: 2px solid var(--color-neutral-400);
 
   display: grid;
   grid-template-columns: auto 1fr;
