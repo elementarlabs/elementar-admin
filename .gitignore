@@ -45,3 +45,4 @@ Thumbs.db
 src/environments/environment.prod.ts
 
 create-npm-local-library.sh
+create-schematics.sh

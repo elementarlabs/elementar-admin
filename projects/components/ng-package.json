@@ -4,5 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "assets": ["styles", "preset.js"]
+  "assets": [
+    "styles"
+  ]
 }

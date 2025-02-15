@@ -20,6 +20,14 @@
     "angular material components",
     "angular admin template"
   ],
+  "scripts": {
+    "build": "tsc -p tsconfig.schematics.json",
+    "postbuild": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/components/"
+  },
+  "ng-add": {
+    "save": "dependencies"
+  },
+  "schematics": "./schematics/collection.json",
   "devDependencies": {
     "tailwindcss": "^4.0.6",
     "postcss": "^8.5.2",
