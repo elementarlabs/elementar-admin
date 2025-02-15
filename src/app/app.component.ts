@@ -12,14 +12,14 @@ import {
 } from '@elementar-ui/components/core';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        RouterOutlet,
-        ScreenLoaderComponent,
-        PageLoadingBarComponent
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    ScreenLoaderComponent,
+    PageLoadingBarComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   private _themeManager = inject(ThemeManagerService);
