@@ -1,9 +1,6 @@
 @use "@angular/cdk/overlay-prebuilt";
 @use '@angular/material' as mat;
 @use 'material-symbols/outlined';
-@use "tailwindcss";
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 $m3-light-theme: mat.define-theme((
   color: (
@@ -42,6 +39,9 @@ $m3-dark-theme: mat.define-theme((
     scale: 0,
   ),
 )) !default;
+
+@use "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --emr-neutral: #{mat.get-theme-color($m3-light-theme, neutral, 60)};
