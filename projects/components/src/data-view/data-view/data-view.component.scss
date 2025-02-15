@@ -82,7 +82,7 @@
   .data-view-row {
     &:hover {
       .cell-action-bar {
-        opacity: var(--opacity-100);
+        opacity: 100%;
         z-index: 1;
       }
     }

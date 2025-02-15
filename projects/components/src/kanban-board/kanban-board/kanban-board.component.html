@@ -37,9 +37,11 @@
     </div>
   </emr-panel-header>
   <emr-panel-body class="relative overflow-hidden">
-    <div #scrollContainer class="scroll-container h-full absolute overflow-auto inset-0 flex gap-[var(--emr-kanban-board-column-gap)] px-[var(--emr-kanban-board-padding-x)] items-baseline"
+    <div #scrollContainer
+         class="scroll-container h-full absolute overflow-auto inset-0 flex gap-[var(--emr-kanban-board-column-gap)] px-[var(--emr-kanban-board-padding-x)] items-baseline"
          (scroll)="onScroll($event)">
-      <div #scrollContainerContent class="flex gap-[var(--emr-kanban-board-column-gap)] min-h-full flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
+      <div #scrollContainerContent
+           class="flex gap-[var(--emr-kanban-board-column-gap)] min-h-full flex-nowrap pb-[var(--emr-kanban-board-column-gap)]" cdkDropListGroup>
         @for (column of columns(); track column) {
           <div class="w-[var(--emr-kanban-board-col-width)] bg-surface-container-low flex-none rounded-2xl p-3 min-h-full flex flex-col gap-3"
                cdkDropList
@@ -47,7 +49,8 @@
                (cdkDropListDropped)="onDropped($event)">
             @for (item of column.items; track item) {
               <div #element
-                   class="kanban-item bg-surface-container-lowest flex-none rounded-2xl p-3 shadow-sm cursor-pointer hover:bg-surface-container-lowest"
+                   class="kanban-item bg-surface-container-lowest flex-none rounded-2xl
+                          p-3 shadow-sm cursor-pointer hover:outline-2 hover:outline-primary"
                    cdkDrag [cdkDragData]="item" matRipple
                    (mousedown)="itemMousedown($event)"
                    (click)="itemClick.emit(item)"

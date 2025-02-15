@@ -40,7 +40,7 @@
 :host-context(.emr-card-overlay-container:hover) {
   .background,
   .content {
-    opacity: var(--opacity-100);
+    opacity: 100%;
   }
 
   &.with-translate {

@@ -6,7 +6,7 @@
   height: 100%;
 
   .cdk-drag-placeholder {
-    opacity: var(--opacity-60);
+    opacity: 60%;
   }
 
   &.is-dragging-active {
@@ -15,5 +15,22 @@
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition-duration: 150ms;
     }
+
+    .kanban-item {
+      &:hover {
+        outline: none;
+      }
+    }
+  }
+}
+
+.kanban-item {
+  &.cdk-drag-preview {
+    background: var(--color-surface-container-lowest);
+    padding: calc(var(--spacing) * 3);
+    cursor: pointer;
+    flex: none;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-2xl);
   }
 }

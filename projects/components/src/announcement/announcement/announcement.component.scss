@@ -28,10 +28,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: var(--opacity-70);
+    opacity: 70%;
 
     &:hover {
-      opacity: var(--opacity-100);
+      opacity: 100%;
     }
   }
 

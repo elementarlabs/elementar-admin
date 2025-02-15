@@ -63,6 +63,6 @@
   &:disabled,
   &.is-disabled {
     pointer-events: none;
-    opacity: var(--opacity-65);
+    opacity: 65%;
   }
 }

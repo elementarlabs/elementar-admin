@@ -6,7 +6,7 @@
   --emr-expand-button-box-shadow: var(--shadow-md);
   --emr-expand-button-border-radius: calc(infinity * 1px);
   --emr-expand-button-padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
-  --emr-expand-button-hover-opacity: var(--opacity-90);
+  --emr-expand-button-hover-opacity: 90%;
   --emr-expand-expanded-height: 300px;
 
   display: block;
