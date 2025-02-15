@@ -9,8 +9,8 @@
       system-variables-prefix: sys,
     ),
     typography: (
-      brand-family: '"Open Sans", sans-serif',
-      plain-family: '"Open Sans", sans-serif',
+      brand-family: 'var(--font-sans)',
+      plain-family: 'var(--font-sans)',
       use-system-variables: true,
       system-variables-prefix: sys,
     ),
@@ -27,8 +27,8 @@
       system-variables-prefix: sys,
     ),
     typography: (
-      brand-family: '"Open Sans", sans-serif',
-      plain-family: '"Open Sans", sans-serif',
+      brand-family: 'var(--font-sans)',
+      plain-family: 'var(--font-sans)',
       use-system-variables: true,
       system-variables-prefix: sys,
     ),
@@ -40,7 +40,3 @@
 
 @include mat.elevation-classes();
 @include mat.app-background();
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
