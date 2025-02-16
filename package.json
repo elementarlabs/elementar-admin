@@ -36,7 +36,9 @@
     "start:dual-tier": "ng serve dual-tier",
     "build:dual-tier": "ng build dual-tier",
     "build:dual-tier:prod": "ng build dual-tier --configuration production",
-    "serve:ssr:dual-tier": "node dist/dual-tier/server/server.mjs"
+    "serve:ssr:dual-tier": "node dist/dual-tier/server/server.mjs",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -76,6 +78,7 @@
     "@tiptap/extension-youtube": "2.10.2",
     "@tiptap/pm": "2.10.2",
     "@tiptap/starter-kit": "2.10.2",
+    "auto-changelog": "^2.5.0",
     "autoprefixer": "^10.4.17",
     "awesome-phonenumber": "^6.12.0",
     "copyfiles": "^2.4.1",
@@ -107,6 +110,7 @@
     "@types/node": "^18.18.0",
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.17",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -117,5 +121,8 @@
     "postcss": "^8.5.2",
     "tailwindcss": "^4.0.0",
     "typescript": "~5.6.2"
+  },
+  "husky": {
+    "pre-push": "npm run version"
   }
 }
