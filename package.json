@@ -37,7 +37,7 @@
     "build:dual-tier": "ng build dual-tier",
     "build:dual-tier:prod": "ng build dual-tier --configuration production",
     "serve:ssr:dual-tier": "node dist/dual-tier/server/server.mjs",
-    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "prepare": "husky"
   },
   "private": true,
@@ -123,6 +123,6 @@
     "typescript": "~5.6.2"
   },
   "husky": {
-    "pre-push": "npm run version"
+    "pre-push": "npm run changelog"
   }
 }
