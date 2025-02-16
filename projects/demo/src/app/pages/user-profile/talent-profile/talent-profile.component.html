@@ -146,7 +146,7 @@
       <section class="col-span-4">
         <div>
           <div class="font-bold">Contact Details</div>
-          <div class="space-y-5 mt-5">
+          <div class="flex flex-col gap-5 mt-5">
             <div>
               <div class="text-tiny text-neutral-500">Email address</div>
               <div class="text-md mt-0.5">pavel.salauyou&#64;example.com</div>
@@ -173,7 +173,7 @@
         </div>
         <div class="mt-12">
           <div class="font-bold">People also viewed</div>
-          <div class="mt-5 space-y-5">
+          <div class="mt-5 flex flex-col gap-5">
             @for (person of peopleAlsoViewed; track person) {
               <div class="flex items-center gap-3">
                 <emr-avatar [src]="person.avatarUrl" class="size-10"></emr-avatar>
@@ -190,7 +190,7 @@
         </div>
         <div class="mt-12">
           <div class="font-bold">People you may know</div>
-          <div class="mt-5 space-y-5">
+          <div class="mt-5 flex flex-col gap-5">
             @for (person of peopleAlsoViewed; track person) {
               <div class="flex items-center gap-3">
                 <emr-avatar [src]="person.avatarUrl" class="size-10"></emr-avatar>
