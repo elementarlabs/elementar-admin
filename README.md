@@ -44,12 +44,12 @@ The components will be installed and configured, then copy what you need from th
 [https://github.com/elementarlabs/elementar-admin-mono](https://github.com/elementarlabs/elementar-admin-mono)
 
 <a target="_blank" href="https://mono.elementarui.com/">
-  <img src="https://demo.elementarui.com/assets/preview-mono-layout.png">
+  <img src="https://demo.elementarui.com/assets/preview-mono-layout-new.png">
 </a>
 
 ### Minimal Layout
 [https://github.com/elementarlabs/elementar-admin-minimal](https://github.com/elementarlabs/elementar-admin-minimal)
 
 <a target="_blank" href="https://minimal.elementarui.com/">
-  <img src="https://demo.elementarui.com/assets/preview-minimal-layout.png">
+  <img src="https://demo.elementarui.com/assets/preview-minimal-layout-new.png">
 </a>
