@@ -38,5 +38,14 @@ Go to directory `elementar-project-name` (or your project folder name) and run t
 ng add @elementar-ui/components
 ```
 
-The components will be installed and configured, then copy what you need from the demo projects.
-[https://github.com/elementarlabs/elementar-admin/tree/main/projects](https://github.com/elementarlabs/elementar-admin/tree/main/projects)
+The components will be installed and configured, then copy what you need from the demo layouts projects.
+
+### Mono Layout
+[https://github.com/elementarlabs/elementar-admin-mono](https://github.com/elementarlabs/elementar-admin-mono)
+
+<a target="_blank" href="https://github.com/elementarlabs/elementar-admin-mono">
+  <img src="https://demo.elementarui.com/assets/preview-mono-layout.webp">
+</a>
+
+### Minimal Layout
+[https://github.com/elementarlabs/elementar-admin-mono](https://github.com/elementarlabs/elementar-admin-minimal)
