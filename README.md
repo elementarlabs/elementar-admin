@@ -18,7 +18,7 @@
 ## What's included:
 
 - Angular 19+ & Typescript
-- Tailwind 3+ & SCSS
+- Tailwind 4+ & SCSS
 - High resolution
 - Flexibly configurable themes (3 themes included)
 - Light & dark color schemes in each theme
@@ -26,63 +26,17 @@
 
 ## Install
 
-Install full project (with demo pages and examples):
+If you don't have a project yet, just create a new project:
 
 ```bash
-npx @elementarui/elementar-cli@latest new your-project-name
+ng new elementar-project-name
 ```
 
-Install minimal project (without demo pages and examples):
+Go to directory `elementar-project-name` (or your project folder name) and run the command:
 
 ```bash
-npx @elementarui/elementar-cli@latest new your-project-name --minimal
+ng add @elementar-ui/components
 ```
 
-#### Start demo application
-```bash
-cd your-project-name
-npm run start:demo
-```
-
-[Live Preview (Demo)](https://demo.elementarui.com)
-
-### Start mono application
-```bash
-cd your-project-name
-npm run start:mono
-```
-
-[Live Preview (Mono)](https://mono.elementarui.com)
-
-### Start dual tier application
-```bash
-cd your-project-name
-npm run start:dual-tier
-```
-
-[Live Preview (Dual Tier)](https://dual-tier.elementarui.com)
-
-### Start minimal application
-```bash
-cd your-project-name
-npm run start
-```
-
-[Live Preview (Minimal)](https://minimal.elementarui.com)
-
-## Update
-
-To update your project, run next command:
-
-```bash
-cd your-project-name
-npx @elementarui/elementar-cli@latest update
-```
-
-By default, update command will update only `projects/components` folder and root `package.json`, but if you
-want to update all projects like demo, dual-tier, mono layout, you can do this with command:
-
-```bash
-cd your-project-name
-npx @elementarui/elementar-cli@latest update all
-```
+The components will be installed and configured, then copy what you need from the demo projects.
+[https://github.com/elementarlabs/elementar-admin/tree/main/projects](https://github.com/elementarlabs/elementar-admin/tree/main/projects)
