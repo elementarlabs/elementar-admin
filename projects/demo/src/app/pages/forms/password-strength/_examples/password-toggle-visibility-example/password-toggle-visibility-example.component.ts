@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { PassToggleVisibilityComponent, PasswordStrengthComponent } from '@elementar-ui/components/password-strength';
+import { PassToggleVisibilityComponent, PasswordStrengthComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-password-toggle-visibility-example',

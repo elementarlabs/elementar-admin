@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertComponent, AlertTitleDirective } from '@elementar-ui/components/alert';
+import { AlertComponent, AlertTitleDirective } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-alert-with-title-example',

@@ -1,5 +1,5 @@
 import { Component, model } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent } from '@elementar-ui/components/data-view';
+import { DataViewColumnDef, DataViewComponent } from '@elementar-ui/components';
 import { MatPaginator } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';

@@ -5,7 +5,7 @@ import {
   DecreaseControlDirective,
   IncreaseControlDirective,
   NumberInputComponent
-} from '@elementar-ui/components/number-input';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-number-input-custom-controls-example',

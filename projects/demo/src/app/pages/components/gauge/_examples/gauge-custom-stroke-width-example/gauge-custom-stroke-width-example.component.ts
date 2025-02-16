@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GaugeComponent } from '@elementar-ui/components/gauge';
+import { GaugeComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-gauge-custom-stroke-width-example',

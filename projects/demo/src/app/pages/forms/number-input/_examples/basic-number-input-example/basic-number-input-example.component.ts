@@ -1,6 +1,6 @@
 import { Component, model } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { NumberInputComponent } from '@elementar-ui/components/number-input';
+import { NumberInputComponent } from '@elementar-ui/components';
 import { FormsModule } from '@angular/forms';
 
 @Component({

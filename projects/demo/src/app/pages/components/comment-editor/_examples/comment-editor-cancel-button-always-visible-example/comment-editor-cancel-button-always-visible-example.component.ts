@@ -19,11 +19,11 @@ import {
   CommentEditorComponent,
   CommentEditorDividerComponent, CommentEditorFooterBarComponent,
   CommentEditorToolbarComponent
-} from '@elementar-ui/components/comment-editor';
+} from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { SafeHtmlPipe } from '@elementar-ui/components/core';
+import { SafeHtmlPipe } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-comment-editor-cancel-button-always-visible-example',

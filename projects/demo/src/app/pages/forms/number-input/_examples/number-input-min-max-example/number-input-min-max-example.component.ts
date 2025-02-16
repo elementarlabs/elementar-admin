@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NumberInputComponent } from '@elementar-ui/components/number-input';
+import { NumberInputComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-number-input-min-max-example',

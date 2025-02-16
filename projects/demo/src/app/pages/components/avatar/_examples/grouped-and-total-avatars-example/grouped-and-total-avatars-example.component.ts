@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AvatarComponent, AvatarGroupComponent, AvatarTotalComponent } from '@elementar-ui/components/avatar';
+import { AvatarComponent, AvatarGroupComponent, AvatarTotalComponent } from '@elementar-ui/components';
 
 @Component({
     selector: 'app-grouped-and-total-avatars-example',

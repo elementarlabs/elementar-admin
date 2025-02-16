@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
   ImageViewerDirective, ImageViewerPictureDirective
-} from '@elementar-ui/components/image-viewer';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-image-viewer-example',

@@ -4,16 +4,16 @@ import {
   AvatarComponent,
   AvatarGroupComponent,
   AvatarTotalComponent, DicebearComponent
-} from '@elementar-ui/components/avatar';
+} from '@elementar-ui/components';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar-ui/components/panel';
-import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components/segmented';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar-ui/components';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components';
 import {
   KanbanBoardComponent as KanbanBoard,
   KanbanColumn,
   KanbanItem,
   KanbanItemDefDirective
-} from '@elementar-ui/components/kanban-board';
+} from '@elementar-ui/components';
 
 interface TaskPriority {
   id: any;

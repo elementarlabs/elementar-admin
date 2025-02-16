@@ -5,7 +5,7 @@ import {
   BreadcrumbItemComponent,
   BreadcrumbItemDefDirective, BreadcrumbsComponent,
   BreadcrumbSeparatorComponent, BreadcrumbSeparatorDefDirective
-} from '@elementar-ui/components/breadcrumbs';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-breadcrumbs-with-datasource-example',

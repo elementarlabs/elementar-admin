@@ -4,7 +4,7 @@ import {
   MchartTooltipBodyComponent,
   MchartTooltipComponent,
   MchartTooltipTitleComponent
-} from '@elementar-ui/components/micro-chart';
+} from '@elementar-ui/components';
 import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 
 @Component({

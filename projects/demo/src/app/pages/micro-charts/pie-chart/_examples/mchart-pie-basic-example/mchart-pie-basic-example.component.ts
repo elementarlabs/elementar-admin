@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MchartPieComponent } from '@elementar-ui/components/micro-chart';
+import { MchartPieComponent } from '@elementar-ui/components';
 import { ShuffleArrayPipe } from '@demo/meta/shuffle-array.pipe';
 import { MatButton } from '@angular/material/button';
 import { MatSlideToggle } from '@angular/material/slide-toggle';

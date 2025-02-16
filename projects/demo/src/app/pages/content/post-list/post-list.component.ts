@@ -11,22 +11,22 @@ import {
   DataViewColumnDef,
   DataViewComponent, DataViewEmptyDataDirective, DataViewEmptyFilterResultsDirective,
   DataViewRowSelectionEvent
-} from '@elementar-ui/components/data-view';
-import { VerticalDividerComponent } from '@elementar-ui/components/divider';
-import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components/segmented';
+} from '@elementar-ui/components';
+import { VerticalDividerComponent } from '@elementar-ui/components';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import {
   BlockStateActionsComponent,
   BlockStateComponent,
   BlockStateContentComponent, BlockStateIconComponent,
   BlockStateImageComponent
-} from '@elementar-ui/components/block-state';
+} from '@elementar-ui/components';
 import {
   PanelBodyComponent,
   PanelComponent,
   PanelFooterComponent,
   PanelHeaderComponent
-} from '@elementar-ui/components/panel';
+} from '@elementar-ui/components';
 
 export interface User {
   id: string;

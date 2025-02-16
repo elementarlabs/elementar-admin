@@ -4,7 +4,7 @@ import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateIconComponent
-} from '@elementar-ui/components/block-state';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-block-state-with-icon-example',

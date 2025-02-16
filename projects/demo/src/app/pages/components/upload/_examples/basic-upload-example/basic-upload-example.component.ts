@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { UploadFileSelectedEvent, UploadTriggerDirective } from '@elementar-ui/components/upload';
+import { UploadFileSelectedEvent, UploadTriggerDirective } from '@elementar-ui/components';
 import { JsonPipe } from '@angular/common';
 
 @Component({

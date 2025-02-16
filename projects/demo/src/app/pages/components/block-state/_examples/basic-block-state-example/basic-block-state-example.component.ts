@@ -3,7 +3,7 @@ import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateTitleComponent
-} from '@elementar-ui/components/block-state';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-block-state-example',

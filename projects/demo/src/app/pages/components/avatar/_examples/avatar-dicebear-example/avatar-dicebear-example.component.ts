@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AvatarGroupComponent, DicebearComponent } from '@elementar-ui/components/avatar';
+import { AvatarGroupComponent, DicebearComponent } from '@elementar-ui/components';
 
 @Component({
     selector: 'app-avatar-dicebear-example',

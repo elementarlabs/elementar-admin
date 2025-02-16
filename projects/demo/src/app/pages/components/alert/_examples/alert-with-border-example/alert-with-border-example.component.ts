@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertComponent } from '@elementar-ui/components/alert';
+import { AlertComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-alert-with-border-example',

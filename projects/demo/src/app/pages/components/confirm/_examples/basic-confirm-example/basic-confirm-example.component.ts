@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { ConfirmManager } from '@elementar-ui/components/confirm';
+import { ConfirmManager } from '@elementar-ui/components';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

@@ -4,7 +4,7 @@ import { PageContentDirective } from '@demo/meta/page/page-content.directive';
 import {
   Notification, NotificationControlsDefDirective, NotificationDefDirective,
   NotificationListComponent, NotificationPropsDirective,
-} from '@elementar-ui/components/notifications';
+} from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';

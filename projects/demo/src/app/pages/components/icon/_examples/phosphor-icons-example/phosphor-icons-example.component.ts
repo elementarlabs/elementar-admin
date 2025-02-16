@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IconComponent } from '@elementar-ui/components/icon';
+import { IconComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-phosphor-icons-example',

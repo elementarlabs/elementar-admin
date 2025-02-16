@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BrandColorsComponent } from '@elementar-ui/components/brand-colors';
+import { BrandColorsComponent } from '@elementar-ui/components';
 import { FormsModule } from '@angular/forms';
 
 @Component({

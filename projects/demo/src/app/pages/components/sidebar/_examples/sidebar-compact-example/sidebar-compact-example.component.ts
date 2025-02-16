@@ -5,9 +5,9 @@ import {
   SidebarFooterComponent, SidebarFullViewModeDirective,
   SidebarHeaderComponent,
   SidebarNavComponent
-} from '@elementar-ui/components/sidebar';
+} from '@elementar-ui/components';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { NavigationItem } from '@elementar-ui/components/navigation';
+import { NavigationItem } from '@elementar-ui/components';
 import { FormsModule } from '@angular/forms';
 import { v7 as uuid } from 'uuid';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentFadeComponent } from '@elementar-ui/components/content-fade';
+import { ContentFadeComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-content-fade-example',

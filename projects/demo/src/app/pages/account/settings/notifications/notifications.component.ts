@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
+import { HorizontalDividerComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-notifications',

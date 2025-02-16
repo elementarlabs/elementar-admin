@@ -3,7 +3,7 @@ import {
   BreadcrumbItemComponent,
   BreadcrumbsComponent,
   BreadcrumbSeparatorComponent
-} from '@elementar-ui/components/breadcrumbs';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-breadcrumbs-example',

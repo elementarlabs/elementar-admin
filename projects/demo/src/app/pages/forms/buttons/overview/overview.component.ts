@@ -20,12 +20,12 @@ import {
 import {
   ButtonsExtendedFabExampleComponent
 } from '../_examples/buttons-extended-fab-example/buttons-extended-fab-example.component';
-import { ScrollSpyNavComponent, ScrollSpyOnComponent, ScrollSpyTitleComponent } from '@elementar-ui/components/scroll-spy';
+import { ScrollSpyNavComponent, ScrollSpyOnComponent, ScrollSpyTitleComponent } from '@elementar-ui/components';
 import {
   BreadcrumbItemComponent,
   BreadcrumbsComponent,
   BreadcrumbSeparatorComponent
-} from '@elementar-ui/components/breadcrumbs';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-overview',

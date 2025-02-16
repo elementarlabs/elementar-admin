@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExpandComponent } from '@elementar-ui/components/expand';
+import { ExpandComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-expand-custom-button-labels-example',

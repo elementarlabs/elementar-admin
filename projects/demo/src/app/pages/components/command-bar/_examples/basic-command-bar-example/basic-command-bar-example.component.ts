@@ -10,7 +10,7 @@ import {
   CommandBarComponent,
   CommandBarDividerComponent,
   CommandBarPosition
-} from '@elementar-ui/components/command-bar';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-command-bar-example',

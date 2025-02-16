@@ -3,8 +3,8 @@ import {
   MchartLineComponent,
   MchartTooltipBodyComponent,
   MchartTooltipComponent, MchartTooltipTitleComponent
-} from '@elementar-ui/components/micro-chart';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
+} from '@elementar-ui/components';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
 
 @Component({
   selector: 'emr-total-tasks-widget',

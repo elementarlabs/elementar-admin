@@ -19,8 +19,8 @@ import {
   CommentEditorCommandUnsetLinkDirective,
   CommentEditorCommandEditLinkDirective,
   CommentEditorCommandToggleToolbarDirective, CommentEditorFooterBarComponent
-} from '@elementar-ui/components/comment-editor';
-import { SafeHtmlPipe } from '@elementar-ui/components/core';
+} from '@elementar-ui/components';
+import { SafeHtmlPipe } from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';

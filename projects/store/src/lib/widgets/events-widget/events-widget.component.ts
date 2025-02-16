@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { AvatarComponent, AvatarGroupComponent, AvatarTotalComponent } from '@elementar-ui/components/avatar';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
+import { AvatarComponent, AvatarGroupComponent, AvatarTotalComponent } from '@elementar-ui/components';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
 
 @Component({
     selector: 'emr-events-widget',

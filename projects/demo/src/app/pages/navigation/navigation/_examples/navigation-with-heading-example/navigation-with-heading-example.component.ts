@@ -3,7 +3,7 @@ import {
   NavigationComponent,
   NavigationHeadingComponent,
   NavigationItemComponent
-} from '@elementar-ui/components/navigation';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-navigation-with-heading-example',

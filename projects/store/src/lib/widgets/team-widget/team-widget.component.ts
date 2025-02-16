@@ -1,8 +1,8 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { AvatarComponent } from '@elementar-ui/components/avatar';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
+import { AvatarComponent } from '@elementar-ui/components';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
 
 @Component({
     selector: 'emr-team-widget',

@@ -6,11 +6,11 @@ import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components/core';
-import { LayoutApiService } from '@elementar-ui/components/layout';
-import { DicebearComponent } from '@elementar-ui/components/avatar';
+import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components';
+import { LayoutApiService } from '@elementar-ui/components';
+import { DicebearComponent } from '@elementar-ui/components';
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elementar/store/header';
-import { PopoverTriggerForDirective } from '@elementar-ui/components/popover';
+import { PopoverTriggerForDirective } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-header',

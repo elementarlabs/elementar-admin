@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AvatarComponent } from '@elementar-ui/components/avatar';
+import { AvatarComponent } from '@elementar-ui/components';
 
 @Component({
     selector: 'app-avatar-sizes-example',

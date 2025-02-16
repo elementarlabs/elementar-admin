@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MarqueeComponent } from '@elementar-ui/components/marquee';
+import { MarqueeComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-marquee-reverse-example',

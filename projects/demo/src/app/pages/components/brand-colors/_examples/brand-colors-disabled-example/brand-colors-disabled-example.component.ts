@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BrandColorsComponent } from '@elementar-ui/components/brand-colors';
+import { BrandColorsComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-brand-colors-disabled-example',

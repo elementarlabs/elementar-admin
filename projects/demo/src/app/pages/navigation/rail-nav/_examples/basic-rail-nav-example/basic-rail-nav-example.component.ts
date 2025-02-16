@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RailNavComponent, RailNavItemComponent } from '@elementar-ui/components/rail-nav';
+import { RailNavComponent, RailNavItemComponent } from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({

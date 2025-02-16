@@ -2,12 +2,12 @@ import { Component, inject, OnInit, viewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { NavigationItem } from '@elementar-ui/components/navigation';
+import { NavigationItem } from '@elementar-ui/components';
 import {
   SidebarBodyComponent,
   SidebarComponent as EmrSidebarComponent,
   SidebarFooterComponent, SidebarHeaderComponent, SidebarNavComponent
-} from '@elementar-ui/components/sidebar';
+} from '@elementar-ui/components';
 import { ToolbarComponent } from '@elementar/store/sidebar';
 
 @Component({

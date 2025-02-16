@@ -3,15 +3,15 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { NavigationItem } from '@elementar-ui/components/navigation';
+import { NavigationItem } from '@elementar-ui/components';
 import { v7 as uuid } from 'uuid';
 import {
   SidebarBodyComponent,
   SidebarCompactViewModeDirective,
   SidebarComponent as EmrSidebarComponent,
   SidebarFooterComponent, SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent
-} from '@elementar-ui/components/sidebar';
-import { DicebearComponent } from '@elementar-ui/components/avatar';
+} from '@elementar-ui/components';
+import { DicebearComponent } from '@elementar-ui/components';
 import { MatIconButton } from '@angular/material/button';
 import { ToolbarComponent } from '@elementar/store/sidebar';
 

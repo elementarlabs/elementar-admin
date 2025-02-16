@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { AvatarPresenceIndicator, DicebearComponent } from '@elementar-ui/components/avatar';
+import { AvatarPresenceIndicator, DicebearComponent } from '@elementar-ui/components';
 import { DatePipe } from '@angular/common';
 import { MatTooltip } from '@angular/material/tooltip';
 import {
@@ -26,8 +26,8 @@ import {
   CommentEditorDividerComponent,
   CommentEditorFooterBarComponent,
   CommentEditorToolbarComponent
-} from '@elementar-ui/components/comment-editor';
-import { SafeHtmlPipe } from '@elementar-ui/components/core';
+} from '@elementar-ui/components';
+import { SafeHtmlPipe } from '@elementar-ui/components';
 import {
   MatAccordion,
   MatExpansionPanel,
@@ -35,8 +35,8 @@ import {
   MatExpansionPanelHeader
 } from '@angular/material/expansion';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
-import { ImageViewerDirective, ImageViewerPictureDirective } from '@elementar-ui/components/image-viewer';
-import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
+import { ImageViewerDirective, ImageViewerPictureDirective } from '@elementar-ui/components';
+import { HorizontalDividerComponent } from '@elementar-ui/components';
 
 interface MessengerMessage {
   id: any;

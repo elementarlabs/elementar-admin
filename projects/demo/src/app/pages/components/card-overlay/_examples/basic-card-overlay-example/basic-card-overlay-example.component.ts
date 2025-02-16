@@ -7,9 +7,9 @@ import {
   MatCardHeader,
   MatCardImage, MatCardSubtitle, MatCardTitle
 } from '@angular/material/card';
-import { CardOverlayComponent, CardOverlayContainerDirective } from '@elementar-ui/components/card-overlay';
+import { CardOverlayComponent, CardOverlayContainerDirective } from '@elementar-ui/components';
 import { MatButton } from '@angular/material/button';
-import { AvatarComponent } from '@elementar-ui/components/avatar';
+import { AvatarComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-basic-card-overlay-example',

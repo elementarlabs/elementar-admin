@@ -3,7 +3,7 @@ import {
   ImageViewerDirective,
   ImageViewerPictureCaptionDirective,
   ImageViewerPictureDescriptionDirective, ImageViewerPictureDirective, ImageViewerPictureTitleDirective
-} from '@elementar-ui/components/image-viewer';
+} from '@elementar-ui/components';
 
 @Component({
   selector: 'app-image-viewer-with-title-example',

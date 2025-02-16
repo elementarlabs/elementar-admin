@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MchartPieComponent } from '@elementar-ui/components/micro-chart';
+import { MchartPieComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-mchart-pie-with-legend-example',

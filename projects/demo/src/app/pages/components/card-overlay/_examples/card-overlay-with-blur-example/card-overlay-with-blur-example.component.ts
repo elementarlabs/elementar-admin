@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AvatarComponent } from '@elementar-ui/components/avatar';
-import { CardOverlayComponent, CardOverlayContainerDirective } from '@elementar-ui/components/card-overlay';
+import { AvatarComponent } from '@elementar-ui/components';
+import { CardOverlayComponent, CardOverlayContainerDirective } from '@elementar-ui/components';
 import { MatButton } from '@angular/material/button';
 import {
   MatCard,
