@@ -6,7 +6,7 @@
 <div class="mt-10">
   <p>Slide Toggle inside of a Template-driven form</p>
   <form class="w-full">
-    <div class="space-y-3">
+    <div class="flex flex-col gap-3">
       <div>
         <mat-slide-toggle ngModel name="enableWifi">Enable Wifi</mat-slide-toggle>
       </div>
@@ -22,8 +22,8 @@
 
 <div class="mt-10">
   <p>Slide Toggle inside of a Reactive form</p>
-  <form class="w-full space-y-3" [formGroup]="formGroup">
-    <div class="space-y-3">
+  <form class="w-full flex flex-col gap-3" [formGroup]="formGroup">
+    <div class="flex flex-col gap-3">
       <div>
         <mat-slide-toggle formControlName="enableWifi">Enable Wifi</mat-slide-toggle>
       </div>

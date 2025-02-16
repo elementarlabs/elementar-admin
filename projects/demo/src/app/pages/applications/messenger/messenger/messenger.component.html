@@ -33,7 +33,7 @@
       </button>
     </div>
     <div class="grow relative">
-      <div class="py-4 absolute inset-0 space-y-3">
+      <div class="py-4 absolute inset-0 flex flex-col gap-3">
         @for (thread of threads; track thread) {
           <div class="border border-default relative rounded-2xl p-2 cursor-pointer hover:bg-surface-bright [&.selected]:bg-surface-bright group"
                [class.selected]="isThreadSelected(thread)" (click)="selectThread(thread)">
@@ -122,7 +122,7 @@
           <div class="flex flex-col w-full leading-1.5">
             @if (!isInner) {
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                <div class="flex items-center gap-2 rtl:space-x-reverse">
                   <span class="text-sm font-semibold">{{ message.sender.name }}</span>
                   <span class="text-sm text-neutral">{{ message.createdAt | date }}</span>
                 </div>
@@ -281,7 +281,7 @@
                 <mat-icon>group</mat-icon> Members ({{ selectedThread.membersCount }})
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="space-y-3">
+            <div class="flex flex-col gap-3">
               @for (member of selectedThread.members; track member) {
                 <div class="flex items-center gap-3">
                   <emr-dicebear class="size-9" [key]="member.id"

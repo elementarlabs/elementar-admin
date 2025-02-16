@@ -10,7 +10,7 @@
 }
 
 <ng-template #suggestionDropdown>
-  <emr-suggestions class="rounded-b-3xl border-t border-t-default w-[600px] p-4 space-y-4 dropdown">
+  <emr-suggestions class="rounded-b-3xl border-t border-t-default w-[600px] p-4 flex flex-col gap-4 dropdown">
     <emr-suggestion-block heading="Recently Viewed">
       <emr-suggestion (click)="close()">
         <mat-icon emrSuggestionIcon>tune</mat-icon>

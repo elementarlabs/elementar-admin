@@ -74,7 +74,7 @@
 </emr-comment-editor>
 
 @if (comments.length > 0) {
-  <div class="mt-10 space-y-7">
+  <div class="mt-10 flex flex-col gap-7">
     @for (comment of comments; track comment) {
       <div class="border border-default  rounded-xl p-5" [innerHTML]="comment | safeHtml"></div>
     }
