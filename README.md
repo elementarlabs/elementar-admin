@@ -5,7 +5,7 @@
 # Modern Angular UI Components & Admin Panel, based on [Angular Material 3](https://material.angular.io) components and [Tailwind](https://tailwindcss.com/) css framework
 
 <a target="_blank" href="https://elementarui.com">
-  <img src="https://demo.elementarui.com/assets/preview-demo.png">
+  <img src="https://demo.elementarui.com/assets/preview-demo.png" style="display: inline-block; border: 1px solid #ddd; border-radius: 10px;">
 </a>
 
 ## Key features
@@ -44,7 +44,7 @@ The components will be installed and configured, then copy what you need from th
 [https://github.com/elementarlabs/elementar-admin-mono](https://github.com/elementarlabs/elementar-admin-mono)
 
 <a target="_blank" href="https://github.com/elementarlabs/elementar-admin-mono">
-  <img src="https://demo.elementarui.com/assets/preview-mono-layout.webp">
+  <img src="https://demo.elementarui.com/assets/preview-mono-layout.webp" style="display: inline-block; border: 1px solid #ddd; border-radius: 10px;">
 </a>
 
 ### Minimal Layout
