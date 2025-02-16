@@ -145,9 +145,8 @@ $m3-dark-theme: mat.define-theme((
   --emr-error-1000: #{mat.get-theme-color($m3-light-theme, error, 10)};
 
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
-  --color-border: var(--sys-surface-dim);
+  --emr-color-default: #{mat.get-theme-color($m3-light-theme, neutral, 80)};
 
-  --mat-table-row-item-outline-color: var(--color-border);
   --emr-transition-transform: transform .15s linear;
   --mdc-protected-button-container-height: 2.375rem;
   --mat-menu-item-label-text-size: var(--text-tiny);
@@ -155,6 +154,7 @@ $m3-dark-theme: mat.define-theme((
 
   --emr-background: var(--mat-app-background-color);
   --emr-on-background: var(--mat-app-text-color);
+  --mat-table-row-item-outline-color: var(--emr-color-default);
 
   @include mat.all-component-themes($m3-light-theme);
   @include mat.typography-hierarchy($m3-light-theme);
@@ -443,6 +443,7 @@ html {
 
     --mat-table-row-item-outline-color: var(--color-neutral-300);
     --emr-warn: var(--color-red-500);
+    --emr-color-default: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
 
     @include mat.all-component-colors($m3-dark-theme);
     @include mat.system-level-colors($m3-dark-theme);
@@ -554,7 +555,8 @@ html {
   --color-warn: var(--emr-warn);
   --color-dark: #303030;
 
-  --color-default: var(--sys-outline-variant);
+  --color-default: var(--emr-color-default);
+  --color-border: var(--emr-color-default);
   --border: 1px;
 
   --text-5xs: 8px;
