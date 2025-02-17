@@ -53,3 +53,10 @@ The components will be installed and configured, then copy what you need from th
 <a target="_blank" href="https://minimal.elementarui.com/">
   <img src="https://demo.elementarui.com/assets/preview-minimal-layout-new.png">
 </a>
+
+### Dual tier Layout
+[https://github.com/elementarlabs/elementar-admin-dual-tier](https://github.com/elementarlabs/elementar-admin-dual-tier)
+
+<a target="_blank" href="https://dual-tier.elementarui.com/">
+  <img src="https://demo.elementarui.com/assets/preview-dual-tier-layout.png">
+</a>
