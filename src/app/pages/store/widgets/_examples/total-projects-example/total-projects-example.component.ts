@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TotalProjectsWidgetComponent } from '@elementar/store/widgets';
+import { TotalProjectsWidgetComponent } from '@store/widgets';
 
 @Component({
   selector: 'app-total-projects-example',

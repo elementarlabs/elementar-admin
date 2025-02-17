@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurrentPlanWidgetComponent } from '@elementar/store/widgets';
+import { CurrentPlanWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-current-plan-example',

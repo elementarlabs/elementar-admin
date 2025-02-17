@@ -15,27 +15,27 @@ export class ExploreComponent {
       type: 'explore-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/explore-widget/explore-widget.component').then(c => c.ExploreWidgetComponent)
+        import('@store/widgets/explore-widget/explore-widget.component').then(c => c.ExploreWidgetComponent)
     },
     {
       type: 'heading-widget',
       skeleton: null,
       plain: true,
       component: () =>
-        import('@elementar/store/widgets/heading-widget/heading-widget.component').then(c => c.HeadingWidgetComponent)
+        import('@store/widgets/heading-widget/heading-widget.component').then(c => c.HeadingWidgetComponent)
     },
     {
       type: 'action-required-widget',
       skeleton: null,
       plain: true,
       component: () =>
-        import('@elementar/store/widgets/action-required-widget/action-required-widget.component').then(c => c.ActionRequiredWidgetComponent)
+        import('@store/widgets/action-required-widget/action-required-widget.component').then(c => c.ActionRequiredWidgetComponent)
     },
     {
       type: 'article-snippet-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/article-snippet-widget/article-snippet-widget.component').then(c => c.ArticleSnippetWidgetComponent)
+        import('@store/widgets/article-snippet-widget/article-snippet-widget.component').then(c => c.ArticleSnippetWidgetComponent)
     },
   ];
   widgets: Widget[] = [

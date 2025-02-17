@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardStatsWidgetSkeletonComponent } from '@elementar/store/skeleton';
+import { DashboardStatsWidgetSkeletonComponent } from '@store/skeleton';
 
 @Component({
     selector: 'app-dashboard-example',

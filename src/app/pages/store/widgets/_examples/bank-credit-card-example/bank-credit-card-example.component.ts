@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BankCreditCardComponent } from '@elementar/store/widgets';
+import { BankCreditCardComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-bank-credit-card-example',

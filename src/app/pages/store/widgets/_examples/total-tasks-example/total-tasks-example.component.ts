@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TotalTasksWidgetComponent } from '@elementar/store/widgets';
+import { TotalTasksWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-total-tasks-example',

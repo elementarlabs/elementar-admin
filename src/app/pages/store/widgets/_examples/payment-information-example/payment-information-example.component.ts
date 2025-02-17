@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PaymentInformationWidgetComponent } from '@elementar/store/widgets';
+import { PaymentInformationWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-payment-information-example',

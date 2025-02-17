@@ -13,7 +13,7 @@ import {
 } from '@elementar-ui/components';
 import { DicebearComponent } from '@elementar-ui/components';
 import { MatIconButton } from '@angular/material/button';
-import { ToolbarComponent } from '@elementar/store/sidebar';
+import { ToolbarComponent } from '@store/sidebar';
 
 @Component({
   selector: 'app-sidebar',

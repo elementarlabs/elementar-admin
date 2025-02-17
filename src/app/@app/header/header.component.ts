@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components';
 import { LayoutApiService } from '@elementar-ui/components';
 import { DicebearComponent } from '@elementar-ui/components';
-import { AssistantSearchComponent, NotificationsPopoverComponent } from '@elementar/store/header';
+import { AssistantSearchComponent, NotificationsPopoverComponent } from '@store/header';
 import { PopoverTriggerForDirective } from '@elementar-ui/components';
 
 @Component({

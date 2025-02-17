@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UpgradeNowComponent } from '@elementar/store/sidebar';
+import { UpgradeNowComponent } from '@store/sidebar';
 
 @Component({
     selector: 'app-upgrade-now-widget-example',

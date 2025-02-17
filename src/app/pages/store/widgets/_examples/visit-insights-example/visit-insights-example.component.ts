@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VisitorInsightsWidgetComponent } from '@elementar/store/widgets';
+import { VisitorInsightsWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-visit-insights-example',

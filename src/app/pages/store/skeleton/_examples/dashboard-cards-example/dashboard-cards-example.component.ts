@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DashboardCardsSkeletonComponent } from '@elementar/store/skeleton';
+import { DashboardCardsSkeletonComponent } from '@store/skeleton';
 
 @Component({
     selector: 'app-dashboard-cards-example',

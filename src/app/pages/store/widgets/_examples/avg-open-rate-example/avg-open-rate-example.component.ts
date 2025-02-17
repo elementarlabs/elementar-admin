@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AvgOpenRateWidgetComponent } from '@elementar/store/widgets';
+import { AvgOpenRateWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-avg-open-rate-example',

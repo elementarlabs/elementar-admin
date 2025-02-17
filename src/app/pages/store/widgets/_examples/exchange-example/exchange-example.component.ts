@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExchangeWidgetComponent } from '@elementar/store/widgets';
+import { ExchangeWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-exchange-example',

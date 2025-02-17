@@ -10,16 +10,15 @@ import {
 } from '../_examples/mentioned-in-comment-notification-example/mentioned-in-comment-notification-example.component';
 
 @Component({
-    selector: 'app-overview',
-    imports: [
-        PageComponent,
-        PageContentDirective,
-        PlaygroundComponent,
-        InviteToEditorFilesInFolderNotificationExampleComponent,
-        MentionedInCommentNotificationExampleComponent
-    ],
-    templateUrl: './overview.component.html',
-    styleUrl: './overview.component.scss'
+  imports: [
+    PageComponent,
+    PageContentDirective,
+    PlaygroundComponent,
+    InviteToEditorFilesInFolderNotificationExampleComponent,
+    MentionedInCommentNotificationExampleComponent
+  ],
+  templateUrl: './overview.component.html',
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

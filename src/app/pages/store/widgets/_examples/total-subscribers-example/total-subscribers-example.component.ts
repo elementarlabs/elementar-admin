@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TotalSubscribersWidgetComponent } from '@elementar/store/widgets';
+import { TotalSubscribersWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-total-subscribers-example',

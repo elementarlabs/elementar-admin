@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MentionedInCommentNotification } from '@elementar/store/notifications';
+import { MentionedInCommentNotification } from '@store/notifications';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar-ui/components';
 
 @Component({

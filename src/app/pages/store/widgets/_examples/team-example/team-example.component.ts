@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TeamWidgetComponent } from '@elementar/store/widgets';
+import { TeamWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-team-example',

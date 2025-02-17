@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomerSatisfactionWidgetComponent } from '@elementar/store/widgets';
+import { CustomerSatisfactionWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-customer-satisfaction-example',

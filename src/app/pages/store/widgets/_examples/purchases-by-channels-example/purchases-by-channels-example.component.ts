@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PurchasesByChannelsWidgetComponent } from '@elementar/store/widgets';
+import { PurchasesByChannelsWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-purchases-by-channels-example',

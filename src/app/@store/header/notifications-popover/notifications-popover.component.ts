@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Notification, NotificationDefDirective, NotificationListComponent } from '@elementar-ui/components';
 
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@elementar/store/notifications';
+import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@store/notifications';
 import { RouterLink } from '@angular/router';
 import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';

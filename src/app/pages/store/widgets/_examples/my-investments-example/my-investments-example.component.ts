@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MyInvestmentsComponent } from '@elementar/store/widgets';
+import { MyInvestmentsComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-my-investments-example',

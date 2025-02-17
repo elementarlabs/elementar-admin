@@ -11,7 +11,7 @@ import {
   DashboardCardsSkeletonComponent,
   DashboardChartWidgetSkeletonComponent,
   DashboardStatsWidgetSkeletonComponent
-} from '@elementar/store/skeleton';
+} from '@store/skeleton';
 import { DashboardComponent, Widget, WidgetConfig } from '@elementar-ui/components';
 
 @Component({
@@ -35,51 +35,51 @@ export class EcommerceComponent {
       type: 'total-revenue-widget',
       skeleton: DashboardStatsWidgetSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/total-revenue-widget/total-revenue-widget.component').then(c => c.TotalRevenueWidgetComponent)
+        import('@store/widgets/total-revenue-widget/total-revenue-widget.component').then(c => c.TotalRevenueWidgetComponent)
     },
     {
       type: 'site-visitors-widget',
       skeleton: DashboardStatsWidgetSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/site-visitors-widget/site-visitors-widget.component').then(c => c.SiteVisitorsWidgetComponent)
+        import('@store/widgets/site-visitors-widget/site-visitors-widget.component').then(c => c.SiteVisitorsWidgetComponent)
     },
     {
       type: 'visit-duration-widget',
       skeleton: DashboardStatsWidgetSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/visit-duration-widget/visit-duration-widget.component').then(c => c.VisitDurationWidgetComponent)
+        import('@store/widgets/visit-duration-widget/visit-duration-widget.component').then(c => c.VisitDurationWidgetComponent)
     },
     {
       type: 'purchases-by-channels-widget',
       skeleton: DashboardChartWidgetSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/purchases-by-channels-widget/purchases-by-channels-widget.component')
+        import('@store/widgets/purchases-by-channels-widget/purchases-by-channels-widget.component')
           .then(c => c.PurchasesByChannelsWidgetComponent)
     },
     {
       type: 'visitor-insights-widget',
       skeleton: DashboardChartWidgetSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/visitor-insights-widget/visitor-insights-widget.component')
+        import('@store/widgets/visitor-insights-widget/visitor-insights-widget.component')
           .then(c => c.VisitorInsightsWidgetComponent)
     },
     {
       type: 'today-sales-widget',
       skeleton: DashboardCardsSkeletonComponent,
       component: () =>
-        import('@elementar/store/widgets/today-sales-widget/today-sales-widget.component')
+        import('@store/widgets/today-sales-widget/today-sales-widget.component')
           .then(c => c.TodaySalesWidgetComponent)
     },
     {
       type: 'exchange-widget',
       component: () =>
-        import('@elementar/store/widgets/exchange-widget/exchange-widget.component')
+        import('@store/widgets/exchange-widget/exchange-widget.component')
           .then(c => c.ExchangeWidgetComponent)
     },
     {
       type: 'customer-satisfaction-widget',
       component: () =>
-        import('@elementar/store/widgets/customer-satisfaction-widget/customer-satisfaction-widget.component')
+        import('@store/widgets/customer-satisfaction-widget/customer-satisfaction-widget.component')
           .then(c => c.CustomerSatisfactionWidgetComponent)
     },
   ];

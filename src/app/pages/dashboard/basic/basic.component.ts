@@ -14,60 +14,60 @@ export class BasicComponent {
       type: 'total-subscribers-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/total-subscribers-widget/total-subscribers-widget.component').then(c => c.TotalSubscribersWidgetComponent)
+        import('@store/widgets/total-subscribers-widget/total-subscribers-widget.component').then(c => c.TotalSubscribersWidgetComponent)
     },
     {
       type: 'avg-open-rate-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/avg-open-rate-widget/avg-open-rate-widget.component').then(c => c.AvgOpenRateWidgetComponent)
+        import('@store/widgets/avg-open-rate-widget/avg-open-rate-widget.component').then(c => c.AvgOpenRateWidgetComponent)
     },
     {
       type: 'avg-click-rate-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/avg-click-rate-widget/avg-click-rate-widget.component').then(c => c.AvgClickRateWidgetComponent)
+        import('@store/widgets/avg-click-rate-widget/avg-click-rate-widget.component').then(c => c.AvgClickRateWidgetComponent)
     },
     {
       type: 'unique-visitors-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/unique-visitors-widget/unique-visitors-widget.component').then(c => c.UniqueVisitorsWidgetComponent)
+        import('@store/widgets/unique-visitors-widget/unique-visitors-widget.component').then(c => c.UniqueVisitorsWidgetComponent)
     },
     {
       type: 'total-tasks-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/total-tasks-widget/total-tasks-widget.component').then(c => c.TotalTasksWidgetComponent)
+        import('@store/widgets/total-tasks-widget/total-tasks-widget.component').then(c => c.TotalTasksWidgetComponent)
     },
     {
       type: 'total-projects-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/total-projects-widget/total-projects-widget.component').then(c => c.TotalProjectsWidgetComponent)
+        import('@store/widgets/total-projects-widget/total-projects-widget.component').then(c => c.TotalProjectsWidgetComponent)
     },
     {
       type: 'events-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/events-widget/events-widget.component').then(c => c.EventsWidgetComponent)
+        import('@store/widgets/events-widget/events-widget.component').then(c => c.EventsWidgetComponent)
     },
     {
       type: 'team-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/team-widget/team-widget.component').then(c => c.TeamWidgetComponent)
+        import('@store/widgets/team-widget/team-widget.component').then(c => c.TeamWidgetComponent)
     },
     {
       type: 'tasks-in-progress-widget',
       component: () =>
-        import('@elementar/store/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component').then(c => c.TasksInProgressWidgetComponent)
+        import('@store/widgets/tasks-in-progress-widget/tasks-in-progress-widget.component').then(c => c.TasksInProgressWidgetComponent)
     },
     {
       type: 'todos-widget',
       skeleton: null,
       component: () =>
-        import('@elementar/store/widgets/todos-widget/todos-widget.component').then(c => c.TodosWidgetComponent)
+        import('@store/widgets/todos-widget/todos-widget.component').then(c => c.TodosWidgetComponent)
     }
   ];
   widgets: Widget[] = [

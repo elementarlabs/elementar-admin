@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsedSpaceComponent } from '@elementar/store/sidebar';
+import { UsedSpaceComponent } from '@store/sidebar';
 
 @Component({
     selector: 'app-used-space-widget-example',

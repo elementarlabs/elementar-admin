@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Transaction, TransactionsWidgetComponent } from '@elementar/store/widgets';
+import { Transaction, TransactionsWidgetComponent } from '@store/widgets';
 
 @Component({
     selector: 'app-transactions-example',
