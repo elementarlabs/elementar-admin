@@ -7,7 +7,6 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HorizontalDividerComponent } from '@elementar-ui/components';
 
 @Component({
-  selector: 'app-signup',
   imports: [
     MatButton,
     MatFormField,

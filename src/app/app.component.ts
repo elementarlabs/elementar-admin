@@ -3,10 +3,9 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
 import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
-import { PageLoadingBarComponent } from '@elementar-ui/components';
 import {
-  AnalyticsService, EnvironmentService,
-  InactivityTrackerService,
+  AnalyticsService, EnvironmentService, InactivityTrackerService,
+  PageLoadingBarComponent,
   ScreenLoaderService, SeoService,
   ThemeManagerService
 } from '@elementar-ui/components';

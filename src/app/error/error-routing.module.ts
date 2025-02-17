@@ -8,9 +8,14 @@ const routes: Routes = [
     loadComponent: () => import('./internal-server-error/internal-server-error.component').then(c => c.InternalServerErrorComponent)
   },
   {
-    path: 'access-denied',
-    title: 'Access Denied',
-    loadComponent: () => import('./access-denied/access-denied.component').then(c => c.AccessDeniedComponent)
+    path: 'forbidden',
+    title: 'Forbidden',
+    loadComponent: () => import('./forbidden/forbidden.component').then(c => c.ForbiddenComponent)
+  },
+  {
+    path: 'not-found',
+    title: 'Not Found',
+    loadComponent: () => import('./not-found/not-found.component').then(c => c.NotFoundComponent)
   },
 ];
 

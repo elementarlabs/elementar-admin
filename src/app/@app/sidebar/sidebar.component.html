@@ -1,11 +1,26 @@
-<emr-sidebar class="sidebar">
+<emr-sidebar [compact]="compact" class="sidebar">
   <emr-sidebar-header class="header">
-    <a routerLink="/" class="logo">ELEMENTAR</a>
+    <div class="h-20 flex items-center w-full justify-between border-b border-b-default">
+      <a routerLink="/" emrSidebarCompactViewMode class="logo justify-center">EL</a>
+      <a routerLink="/" emrSidebarFullViewMode class="logo">ELEMENTAR</a>
+      <button mat-icon-button (click)="compact = !compact" class="sidebar-toggle">
+        @if (compact) {
+          <mat-icon>keyboard_double_arrow_right</mat-icon>
+        } @else {
+          <mat-icon>keyboard_double_arrow_left</mat-icon>
+        }
+      </button>
+    </div>
   </emr-sidebar-header>
   <emr-sidebar-body class="body">
     <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems"/>
   </emr-sidebar-body>
   <emr-sidebar-footer class="footer">
-    <emr-sidebar-toolbar></emr-sidebar-toolbar>
+    <div emrSidebarCompactViewMode>
+      <emr-dicebear src="assets/avatars/1.svg"/>
+    </div>
+    <div emrSidebarFullViewMode>
+      <emr-sidebar-toolbar/>
+    </div>
   </emr-sidebar-footer>
 </emr-sidebar>

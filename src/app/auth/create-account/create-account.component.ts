@@ -4,7 +4,6 @@ import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-
 import { PhoneInputComponent, phoneValidator } from '@elementar-ui/components';
 import { HorizontalDividerComponent } from '@elementar-ui/components';
 import { PasswordStrengthComponent } from '@elementar-ui/components';
@@ -19,10 +18,10 @@ import { PasswordStrengthComponent } from '@elementar-ui/components';
     MatLabel,
     ReactiveFormsModule,
     RouterLink,
-    PasswordStrengthComponent,
+    HorizontalDividerComponent,
     PhoneInputComponent,
-    HorizontalDividerComponent
-],
+    PasswordStrengthComponent
+  ],
   templateUrl: './create-account.component.html',
   styleUrl: './create-account.component.scss'
 })

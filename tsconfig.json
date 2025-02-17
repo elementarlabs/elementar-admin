@@ -8,11 +8,8 @@
       "@elementar/store/*": [
         "./projects/store/src/lib/*"
       ],
-      "@demo/meta/*": [
-        "./projects/demo/src/app/@meta/*"
-      ],
-      "@demo/app/*": [
-        "./projects/demo/src/app/@app/*"
+      "@meta/*": [
+        "./src/app/@meta/*"
       ],
       "@app/*": [
         "./src/app/@app/*"
