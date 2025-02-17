@@ -145,7 +145,9 @@ $m3-dark-theme: mat.define-theme((
   --emr-error-1000: #{mat.get-theme-color($m3-light-theme, error, 10)};
 
   --emr-inverse: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
+  --emr-color-default-low: #{mat.get-theme-color($m3-light-theme, neutral, 90)};
   --emr-color-default: #{mat.get-theme-color($m3-light-theme, neutral, 80)};
+  --emr-color-default-high: #{mat.get-theme-color($m3-light-theme, neutral, 70)};
 
   --emr-transition-transform: transform .15s linear;
   --mdc-protected-button-container-height: 2.375rem;
@@ -443,7 +445,9 @@ html {
 
     --mat-table-row-item-outline-color: var(--color-neutral-300);
     --emr-warn: var(--color-red-500);
-    --emr-color-default: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
+    --emr-color-default-low: #{mat.get-theme-color($m3-light-theme, neutral, 50)};
+    --emr-color-default: #{mat.get-theme-color($m3-light-theme, neutral, 40)};
+    --emr-color-default-high: #{mat.get-theme-color($m3-light-theme, neutral, 30)};
 
     @include mat.all-component-colors($m3-dark-theme);
     @include mat.system-level-colors($m3-dark-theme);
@@ -556,6 +560,8 @@ html {
   --color-dark: #303030;
 
   --color-default: var(--emr-color-default);
+  --color-default-low: var(--emr-color-default-low);
+  --color-default-high: var(--emr-color-default-low);
   --color-border: var(--emr-color-default);
   --border: 1px;
 
