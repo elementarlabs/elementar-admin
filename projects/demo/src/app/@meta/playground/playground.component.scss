@@ -38,6 +38,7 @@
     font-size: var(--text-tiny);
     border: none;
     line-height: 1.75;
+    background: none;
   }
 
   pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
@@ -60,9 +61,7 @@
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-    padding: .2em;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 1px .2em;
     background: #f8f8f8;
     border: 1px solid #dddddd;
   }
