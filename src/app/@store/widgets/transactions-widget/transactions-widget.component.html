@@ -4,7 +4,7 @@
     <a routerLink="/all-transactions" class="text-sm underline underline-offset-2 hover:text-primary">See all</a>
   </div>
   <div class="mt-4">
-    <div class="divide-y dark:divide-neutral-600 flex flex-col gap-px">
+    <div class="divide-y divide-default dark:divide-neutral-600 flex flex-col gap-px">
       @for (transaction of transactions(); track transaction) {
         <div>
           <div class="flex cursor-pointer items-center justify-between p-4 -mx-4

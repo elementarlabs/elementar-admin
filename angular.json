@@ -30,12 +30,21 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/_examples/**",
+                "input": "src/app/pages",
+                "output": "_docs"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js"
+            ],
             "server": "src/main.server.ts",
             "ssr": {
               "entry": "src/server.ts"
