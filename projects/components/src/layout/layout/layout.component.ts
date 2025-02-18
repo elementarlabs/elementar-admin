@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, input, Input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
 import { LAYOUT } from '../types';
 
 @Component({
@@ -19,7 +19,7 @@ import { LAYOUT } from '../types';
   }
 })
 export class LayoutComponent {
-  layoutId = input<string>();
+  layoutId = input<string>('');
   windowMode = input(false, {
     transform: booleanAttribute
   });

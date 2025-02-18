@@ -14,7 +14,13 @@ import { provideStore } from '@ngrx/store';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { environment } from '../environments/environment';
-import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar-ui/components';
+import {
+  ENVIRONMENT,
+  EnvironmentService,
+  GlobalStore,
+  LayoutSidebarStore,
+  PageTitleStrategyService
+} from '@elementar-ui/components';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,7 +34,9 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => {
       const envService = inject(EnvironmentService);
       const globalStore = inject(GlobalStore);
+      const layoutSidebarStore = inject(LayoutSidebarStore);
       return new Promise((resolve, reject) => {
+        layoutSidebarStore.showSidebarVisibility('root', true); // show or hide main sidebar on initial state
         globalStore.setPageTitle(envService.getValue('pageTitle'));
         resolve(true);
       });

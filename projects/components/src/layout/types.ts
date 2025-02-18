@@ -4,5 +4,5 @@ export const LAYOUT = new InjectionToken('LAYOUT');
 
 export interface LayoutSidebarVisibilityChange {
   layoutId: string;
-  hidden: boolean;
+  shown: boolean;
 }

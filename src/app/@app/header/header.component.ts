@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
@@ -42,16 +42,15 @@ export class HeaderComponent {
   protected _themeManager = inject(ThemeManagerService);
   private _layoutApi = inject(LayoutApiService);
 
-  @Input()
-  sidebarHidden = false;
+  sidebarShown= computed(() => {
+    return this._layoutApi.isSidebarShown('root')
+  });
 
   toggleSidebar(): void {
-    if (!this.sidebarHidden) {
+    if (this.sidebarShown()) {
       this._layoutApi.hideSidebar('root');
     } else {
       this._layoutApi.showSidebar('root');
     }
-
-    this.sidebarHidden = !this.sidebarHidden;
   }
 }

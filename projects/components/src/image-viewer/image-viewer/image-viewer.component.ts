@@ -121,9 +121,6 @@ export class ImageViewerComponent {
             const xPositionDiff = widthDiff / this.scale / 2;
             const yPositionDiff = heightDiff / this.scale / 2;
 
-            console.log(widthDiff, heightDiff);
-            console.log(xPositionDiff, yPositionDiff);
-
             if (imageRect.x > 0 && imageRect.y > 0) {
               this._tmpOffsetY = yPositionDiff * -1 + this.padding;
               this._tmpOffsetX = xPositionDiff * -1 + this.padding;
