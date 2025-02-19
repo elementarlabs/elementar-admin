@@ -38,7 +38,7 @@ const DEPENDENCIES = {
 };
 
 const DEV_DEPENDENCIES = {
-  'tailwindcss': '^4.0.0',
+  'tailwindcss': '^4.0.7',
   '@tailwindcss/postcss': '^4.0.0',
   'autoprefixer': '^10.4.17',
   'postcss': '^8.5.2'

@@ -11,7 +11,13 @@
         <emr-navigation-group>
           <emr-navigation-group-toggle [for]="navItem.key">
             @if (navItem.icon) {
-              <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
+              <ng-container emrNavigationItemIcon>
+                @if (_itemIconRef()) {
+                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                } @else {
+                  <mat-icon>{{ navItem.icon }}</mat-icon>
+                }
+              </ng-container>
             }
             {{ navItem.name }}
             @if (navItem.badge) {
@@ -46,7 +52,13 @@
         @if (navItem.type === 'link') {
           <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.key">
             @if (navItem.icon) {
-              <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
+              <ng-container emrNavigationItemIcon>
+                @if (_itemIconRef()) {
+                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                } @else {
+                  <mat-icon>{{ navItem.icon }}</mat-icon>
+                }
+              </ng-container>
             }
             {{ navItem.name }}
             @if (navItem.badge) {
@@ -56,7 +68,13 @@
         } @else {
           <emr-navigation-item [key]="navItem.key">
             @if (navItem.icon) {
-              <mat-icon emrNavigationItemIcon>{{ navItem.icon }}</mat-icon>
+              <ng-container emrNavigationItemIcon>
+                @if (_itemIconRef()) {
+                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                } @else {
+                  <mat-icon>{{ navItem.icon }}</mat-icon>
+                }
+              </ng-container>
             }
             {{ navItem.name }}
             @if (navItem.badge) {

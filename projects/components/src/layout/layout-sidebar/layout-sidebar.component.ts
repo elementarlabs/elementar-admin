@@ -18,6 +18,10 @@ export class LayoutSidebarComponent {
   private _layoutSidebarStore = inject<any>(LayoutSidebarStore);
 
   protected _isShown = computed<boolean>(() => {
-    return this._layoutSidebarStore[this._parent.layoutId()]();
+    if (this._parent.layoutId() in this._layoutSidebarStore) {
+      return this._layoutSidebarStore[this._parent.layoutId()]();
+    }
+
+    return true;
   });
 }

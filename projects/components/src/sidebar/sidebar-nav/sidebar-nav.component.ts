@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, contentChild, input, TemplateRef } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatBadge } from '@angular/material/badge';
@@ -14,12 +14,12 @@ import {
   NavigationItemIconDirective
 } from '../../navigation';
 import { OrderByPipe } from '../../core';
+import { SidebarNavItemIconDirective } from '../sidebar-nav-item-icon.directive';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
+  selector: 'emr-sidebar-nav',
   exportAs: 'emrSidebarNav',
-  host: {
-    'class': 'emr-sidebar-nav',
-  },
   imports: [
     NavigationComponent,
     NavigationItemComponent,
@@ -34,13 +34,22 @@ import { OrderByPipe } from '../../core';
     OrderByPipe,
     RouterLink,
     NavigationItemBadgeDirective,
-    MatBadge
+    MatBadge,
+    NgTemplateOutlet
   ],
-  selector: 'emr-sidebar-nav',
   styleUrl: './sidebar-nav.component.scss',
-  templateUrl: './sidebar-nav.component.html'
+  templateUrl: './sidebar-nav.component.html',
+  host: {
+    'class': 'emr-sidebar-nav',
+  },
 })
 export class SidebarNavComponent<T extends NavigationItem> {
+  protected _itemIconRef = contentChild(SidebarNavItemIconDirective);
+
   activeKey = input();
   navItems = input<T[]>([]);
+
+  get iconTemplateRef(): TemplateRef<any> {
+    return this._itemIconRef()?.templateRef as TemplateRef<any>;
+  }
 }

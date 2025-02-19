@@ -12,20 +12,20 @@ import { FormsModule } from '@angular/forms';
 import { v7 as uuid } from 'uuid';
 
 @Component({
-    selector: 'app-sidebar-compact-example',
-    imports: [
-        SidebarComponent,
-        SidebarFooterComponent,
-        SidebarHeaderComponent,
-        SidebarNavComponent,
-        MatSlideToggle,
-        FormsModule,
-        SidebarBodyComponent,
-        SidebarCompactViewModeDirective,
-        SidebarFullViewModeDirective
-    ],
-    templateUrl: './sidebar-compact-example.component.html',
-    styleUrl: './sidebar-compact-example.component.scss'
+  selector: 'app-sidebar-compact-example',
+  imports: [
+    SidebarComponent,
+    SidebarFooterComponent,
+    SidebarHeaderComponent,
+    SidebarNavComponent,
+    MatSlideToggle,
+    FormsModule,
+    SidebarBodyComponent,
+    SidebarCompactViewModeDirective,
+    SidebarFullViewModeDirective
+  ],
+  templateUrl: './sidebar-compact-example.component.html',
+  styleUrl: './sidebar-compact-example.component.scss'
 })
 export class SidebarCompactExampleComponent {
   compact = true;
