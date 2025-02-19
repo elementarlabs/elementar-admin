@@ -1,5 +1,8 @@
 <div class="mb-6">
-  <button emr-color-picker-thumbnail [color]="color" [emrColorPickerTriggerFor]="colorPicker"></button>
+  <button emr-color-picker-thumbnail
+          [color]="color"
+          [emrColorPickerTriggerFor]="colorPicker"
+          class="cursor-pointer"></button>
   <ng-template #colorPicker>
     <emr-color-picker [(color)]="color"/>
   </ng-template>

@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LayoutComponent, LayoutTopbarComponent } from '@elementar-ui/components';
+import { IncidentsContainerComponent, LayoutComponent, LayoutTopbarComponent } from '@elementar-ui/components';
 import { LayoutBodyComponent } from '@elementar-ui/components';
 import { LayoutSidebarComponent } from '@elementar-ui/components';
 import { LayoutHeaderComponent } from '@elementar-ui/components';
@@ -20,6 +20,7 @@ import { AppStore } from '../../store/app.store';
     LayoutHeaderComponent,
     AnnouncementComponent,
     LayoutTopbarComponent,
+    IncidentsContainerComponent,
   ],
   templateUrl: './common.component.html'
 })

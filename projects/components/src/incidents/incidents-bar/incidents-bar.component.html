@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-0.5">
-  <ng-content select="emr-incidents-title"></ng-content>
-  <ng-content select="emr-incidents-description"></ng-content>
+  <ng-content select="emr-incidents-title"/>
+  <ng-content select="emr-incidents-description"/>
 </div>
-<div class="ms-auto toggle-icon">
-  <ng-content select="[emrIncidentsToggleIcon]"></ng-content>
-</div>
+<button mat-icon-button class="ms-auto toggle-icon">
+  <ng-content select="[emrIncidentsToggleIcon]"/>
+</button>

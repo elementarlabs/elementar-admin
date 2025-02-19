@@ -1,4 +1,7 @@
 :host {
+  --emr-layout-sidebar-width: 300px;
+  --emr-layout-sidebar-compact-width: 84px;
+
   display: flex;
   flex-direction: column;
   width: 100%;

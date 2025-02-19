@@ -2,7 +2,7 @@
   <mat-label>Color</mat-label>
   <input type="text" [(ngModel)]="color" matInput placeholder="Select color">
   <button emr-color-picker-thumbnail [color]="color"
-          [emrColorPickerTriggerFor]="colorPicker" matSuffix class="mr-2"></button>
+          [emrColorPickerTriggerFor]="colorPicker" matSuffix class="mr-2 cursor-pointer"></button>
   <ng-template #colorPicker>
     <emr-color-picker [(color)]="color"/>
   </ng-template>

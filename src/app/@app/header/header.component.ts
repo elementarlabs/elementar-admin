@@ -35,7 +35,7 @@ import { PopoverTriggerForDirective } from '@elementar-ui/components';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   host: {
-    'class': 'block w-full h-full'
+    'class': 'block w-full'
   }
 })
 export class HeaderComponent {

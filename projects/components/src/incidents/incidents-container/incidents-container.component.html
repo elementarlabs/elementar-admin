@@ -1,0 +1,23 @@
+@if (hasIncidents()) {
+  <emr-incidents>
+    <emr-incidents-bar>
+      <emr-incidents-title>{{ title() }}</emr-incidents-title>
+      @if (description()) {
+        <emr-incidents-description>{{ description() }}</emr-incidents-description>
+      }
+      <mat-icon emrIncidentsToggleIcon>expand_more</mat-icon>
+    </emr-incidents-bar>
+    <emr-incidents-list fixed>
+      @for (incident of incidents(); track incident) {
+        <emr-incident>
+          <mat-icon emrIncidentIcon>info</mat-icon>
+          <mat-icon emrIncidentClose>close</mat-icon>
+          <emr-incident-title>{{ incident.title }}</emr-incident-title>
+          @if (incident.details) {
+            <emr-incident-details>{{ incident.details }}</emr-incident-details>
+          }
+        </emr-incident>
+      }
+    </emr-incidents-list>
+  </emr-incidents>
+}

@@ -1,6 +1,5 @@
 :host {
   background: var(--emr-incidents-list-bg);
-  top: calc(var(--emr-layout-top-header-top) + var(--emr-layout-top-header-height));
   transition: transform .15s, opacity .15s;
   display: grid;
   height: 0;
@@ -9,16 +8,29 @@
   grid-template-columns: auto minmax(1px, 1440px) auto;
   grid-template-areas: ". content .";
   transform-origin: top;
-  padding: var(--emr-incidents-list-padding);
   overflow: hidden;
   transform: scaleY(0);
+
+  &:not(:empty) {
+    padding: var(--emr-incidents-list-padding);
+  }
+
+  .container {
+    display: grid;
+    height: min-content;
+    grid-area: content;
+    grid-row-gap: var(--emr-incidents-list-gap);
+    grid-auto-flow: row;
+  }
 }
 
 :host(.is-fixed) {
   position: fixed;
-  z-index: 9;
+  z-index: 102;
   left: 0;
   right: 0;
+  top: calc(var(--emr-incidents-bar-height));
+  bottom: 0;
 }
 
 :host-context(.emr-incidents.is-visible) {
@@ -26,12 +38,4 @@
   transform: scaleY(1);
   opacity: 1;
   overflow-y: auto;
-}
-
-:host .container {
-  display: grid;
-  height: min-content;
-  grid-area: content;
-  grid-row-gap: var(--emr-incidents-list-gap);
-  grid-auto-flow: row;
 }
