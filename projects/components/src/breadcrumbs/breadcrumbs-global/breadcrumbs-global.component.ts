@@ -1,11 +1,11 @@
 import { booleanAttribute, Component, computed, inject, input } from '@angular/core';
-import {
-  BreadcrumbItemComponent, BreadcrumbsComponent,
-  BreadcrumbSeparatorComponent, BreadcrumbsStore,
-  BreadcrumbTitleComponent
-} from '@elementar-ui/components';
 import { Breadcrumb } from '../types';
 import { RouterLink } from '@angular/router';
+import { BreadcrumbItemComponent } from '../breadcrumb-item/breadcrumb-item.component';
+import { BreadcrumbSeparatorComponent } from '../breadcrumb-separator/breadcrumb-separator.component';
+import { BreadcrumbTitleComponent } from '../breadcrumb-title/breadcrumb-title.component';
+import { BreadcrumbsComponent } from '../breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsStore } from '../breadcrumbs.store';
 
 @Component({
   selector: 'emr-breadcrumbs-global',
