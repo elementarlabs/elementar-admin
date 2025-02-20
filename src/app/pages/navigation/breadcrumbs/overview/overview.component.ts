@@ -17,18 +17,22 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
 import {
   BreadcrumbsWithLastItemAsLinkExampleComponent
 } from '../_examples/breadcrumbs-with-last-item-as-link-example/breadcrumbs-with-last-item-as-link-example.component';
+import {
+  BreadcrumbsGlobalExampleComponent
+} from '../_examples/breadcrumbs-global-example/breadcrumbs-global-example.component';
 
 @Component({
-    imports: [
-        PlaygroundComponent,
-        BasicBreadcrumbsExampleComponent,
-        BreadcrumbsWithDatasourceExampleComponent,
-        BreadcrumbsWithIconsExampleComponent,
-        BreadcrumbsWithTitlesExampleComponent,
-        PageComponent,
-        PageContentDirective,
-        BreadcrumbsWithLastItemAsLinkExampleComponent
-    ],
+  imports: [
+    PlaygroundComponent,
+    BasicBreadcrumbsExampleComponent,
+    BreadcrumbsWithDatasourceExampleComponent,
+    BreadcrumbsWithIconsExampleComponent,
+    BreadcrumbsWithTitlesExampleComponent,
+    PageComponent,
+    PageContentDirective,
+    BreadcrumbsWithLastItemAsLinkExampleComponent,
+    BreadcrumbsGlobalExampleComponent
+  ],
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss'
 })

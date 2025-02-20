@@ -5,18 +5,18 @@ import { MarkdownComponent, provideMarkdown } from 'ngx-markdown';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'emr-playground',
-    imports: [
-        MatIconButton,
-        MatIcon,
-        MarkdownComponent
-    ],
-    providers: [
-        provideMarkdown()
-    ],
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: './playground.component.html',
-    styleUrl: 'playground.component.scss'
+  selector: 'emr-playground',
+  imports: [
+    MatIconButton,
+    MatIcon,
+    MarkdownComponent
+  ],
+  providers: [
+    provideMarkdown()
+  ],
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './playground.component.html',
+  styleUrl: 'playground.component.scss'
 })
 export class PlaygroundComponent {
   private _snackBar = inject(MatSnackBar);

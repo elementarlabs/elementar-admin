@@ -1,0 +1,25 @@
+<emr-breadcrumbs [lastItemAsLink]="lastItemAsLink()">
+  @for (breadcrumb of breadcrumbs(); track $index; let last = $last) {
+    @switch (breadcrumb.type) {
+      @case ('link') {
+        <a emr-breadcrumb-item [routerLink]="breadcrumb.route">
+          @if (breadcrumb.title) {
+            <emr-breadcrumb-title>{{ breadcrumb.title }}</emr-breadcrumb-title>
+          }
+          {{ breadcrumb.name }}
+        </a>
+      }
+      @default {
+        <emr-breadcrumb-item>
+          @if (breadcrumb.title) {
+            <emr-breadcrumb-title>{{ breadcrumb.title }}</emr-breadcrumb-title>
+          }
+          {{ breadcrumb.name }}
+        </emr-breadcrumb-item>
+      }
+    }
+    @if (!last) {
+      <emr-breadcrumb-separator>{{ separator() }}</emr-breadcrumb-separator>
+    }
+  }
+</emr-breadcrumbs>

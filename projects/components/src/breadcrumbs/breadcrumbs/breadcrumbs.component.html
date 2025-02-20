@@ -1,9 +1,9 @@
-@for ($implicit of dataSource(); track $implicit; let last = $last) {
+@for (breadcrumb of dataSource(); track $index; let last = $last) {
   @if (!last) {
-    <ng-container *ngTemplateOutlet="itemRef(); context: { $implicit }"/>
+    <ng-container *ngTemplateOutlet="itemRef(); context: { $implicit: breadcrumb }"/>
     <ng-container *ngTemplateOutlet="separatorRef()"/>
   } @else {
-    <ng-container *ngTemplateOutlet="activeItemRef(); context: { $implicit }"/>
+    <ng-container *ngTemplateOutlet="activeItemRef(); context: { $implicit: breadcrumb }"/>
   }
 }
 

@@ -15,7 +15,7 @@ import { NgTemplateOutlet } from '@angular/common';
   },
   imports: [NgTemplateOutlet]
 })
-export class BreadcrumbsComponent {
+export class BreadcrumbsComponent<T> {
   itemRef = contentChild.required(BreadcrumbItemDefDirective, {
     read: TemplateRef
   });
@@ -25,7 +25,7 @@ export class BreadcrumbsComponent {
   separatorRef = contentChild.required(BreadcrumbSeparatorDefDirective, {
     read: TemplateRef
   });
-  dataSource = input<any[]>([]);
+  dataSource = input<T[]>([]);
   lastItemAsLink = input(false, {
     transform: booleanAttribute
   });
