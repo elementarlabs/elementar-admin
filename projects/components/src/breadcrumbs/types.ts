@@ -1,6 +1,6 @@
 export interface Breadcrumb {
   id: any;
-  name: string;
+  name?: string;
   title?: string;
   type: 'link' | 'separator' | null | string;
   icon?: string;
