@@ -1,10 +1,10 @@
-<ng-content select="emr-layout-topbar"></ng-content>
-<ng-content select="emr-layout-header"></ng-content>
-<div class="flex grow overflow-hidden">
-  <ng-content select="emr-layout-sidebar"></ng-content>
-  <div class="grow flex flex-col relative overflow-hidden">
-    <ng-content></ng-content>
+<ng-content select="emr-layout-topbar"/>
+<ng-content select="emr-layout-header"/>
+<div class="body">
+  <ng-content select="emr-layout-sidebar"/>
+  <div class="content">
+    <ng-content/>
   </div>
-  <ng-content select="emr-layout-aside"></ng-content>
+  <ng-content select="emr-layout-aside"/>
 </div>
-<ng-content select="emr-layout-footer"></ng-content>
+<ng-content select="emr-layout-footer"/>
