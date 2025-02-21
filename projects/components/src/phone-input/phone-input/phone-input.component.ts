@@ -104,6 +104,7 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   onlyCountries = input<string[]>([]);
   preferredCountries = input<string[]>([]);
   format = input<PhoneNumberFormat>('default');
+  defaultSelectedCountryCode = input<string>('us');
 
   @Input()
   set placeholder(value: string) {
@@ -122,15 +123,6 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
   get required(): boolean {
     return this._required;
   }
-
-  // @Input({ alias: 'disabled', transform: booleanAttribute })
-  // set disabled(value: boolean) {
-  //   this._disabled = coerceBooleanProperty(value);
-  //   this.stateChanges.next(undefined);
-  // }
-  // get disabled(): boolean {
-  //   return this._disabled;
-  // }
 
   phoneDisabled = input(false, {
     alias: 'disabled',
@@ -231,12 +223,10 @@ export class PhoneInputComponent implements OnInit, DoCheck, OnDestroy {
     if (this.numberInstance && this.numberInstance.country) {
       // If an existing number is present, we use it to determine selectedCountry
       this.selectedCountry = this.getCountry(this.numberInstance.country);
-    } else {
-      // if (this.preferredCountriesInDropDown.length) {
-      //   this.selectedCountry = this.preferredCountriesInDropDown[0];
-      // } else {
-      //   this.selectedCountry = this.allCountries[0];
-      // }
+    }
+
+    if (!this.selectedCountry) {
+      this.selectedCountry = this.allCountries.find((country) => country.iso2 === this.defaultSelectedCountryCode()) as Country;
     }
 
     this.countryChanged.emit(this.selectedCountry);

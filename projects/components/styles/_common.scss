@@ -153,9 +153,6 @@ $m3-dark-theme: mat.define-theme((
   --mdc-protected-button-container-height: 2.375rem;
   --mat-menu-item-label-text-size: var(--text-tiny);
   --mat-option-label-text-size: var(--text-tiny);
-
-  --emr-background: var(--mat-app-background-color);
-  --emr-on-background: var(--mat-app-text-color);
   --mat-table-row-item-outline-color: var(--emr-color-default);
 
   @include mat.all-component-themes($m3-light-theme);

@@ -1,5 +1,5 @@
 :host {
-  --emr-data-view-row-bg: var(--emr-background);
+  --emr-data-view-row-bg: var(--mat-app-background-color);
   --emr-data-view-hl-header-row-bg: var(--color-surface-container);
   --emr-data-view-hl-header-margin: calc(var(--spacing) * 1) 0;
   --emr-data-view-sticky-header-top: 0;
@@ -9,7 +9,7 @@
   --mat-table-row-item-outline-width: 0;
   --mat-table-background-color: var(--emr-data-view-bg);
   --emr-content-fade-color: var(--emr-data-view-row-bg);
-  --emr-data-view-header-bg: var(--emr-background);
+  --emr-data-view-header-bg: var(--mat-app-background-color);
 
   display: block;
   height: 100%;
