@@ -34,14 +34,14 @@ const DEPENDENCIES = {
   "iconify-icon": "^2.3.0",
   "libphonenumber-js": "^1.11.15",
   "material-symbols": "^0.27.1",
-  "uuid": "^11.0.3",
-  'tailwindcss': '^4.0.8'
+  "uuid": "^11.0.3"
 };
 
 const DEV_DEPENDENCIES = {
-  '@tailwindcss/postcss': '^4.0.8',
+  '@tailwindcss/postcss': '4.0.7',
   'autoprefixer': '^10.4.17',
-  'postcss': '^8.5.2'
+  'postcss': '^8.5.2',
+  'tailwindcss': '4.0.7'
 };
 
 export function ngAdd(options: Schema): Rule {
