@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { HorizontalDividerComponent } from '@elementar-ui/components';
+import { HorizontalDividerComponent, LogoComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +14,8 @@ import { HorizontalDividerComponent } from '@elementar-ui/components';
     MatLabel,
     MatInput,
     MatSuffix,
-    HorizontalDividerComponent
+    HorizontalDividerComponent,
+    LogoComponent
   ],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'

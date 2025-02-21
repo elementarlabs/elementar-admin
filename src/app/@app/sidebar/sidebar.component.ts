@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 import { Location } from '@angular/common';
-import { NavigationItem } from '@elementar-ui/components';
+import { LogoComponent, NavigationItem } from '@elementar-ui/components';
 import { v7 as uuid } from 'uuid';
 import {
   SidebarBodyComponent,
@@ -29,7 +29,8 @@ import { ToolbarComponent } from '@store/sidebar';
     SidebarHeaderComponent,
     SidebarNavComponent,
     DicebearComponent,
-    MatIconButton
+    MatIconButton,
+    LogoComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

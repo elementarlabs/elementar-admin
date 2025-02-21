@@ -1,0 +1,21 @@
+:host {
+  --emr-logo-text-font-size: var(--text-xl);
+  --emr-logo-text-font-weight: 800;
+  --emr-logo-text-color: var(--color-primary);
+  --emr-logo-text-hover-color: var(--color-tertiary);
+
+  display: inline-block;
+  width: max-content;
+  height: max-content;
+
+  &.is-text {
+    color: var(--emr-logo-text-color);
+    font-size: var(--emr-logo-text-font-size);
+    font-weight: var(--emr-logo-text-font-weight);
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--emr-logo-text-hover-color);
+    }
+  }
+}

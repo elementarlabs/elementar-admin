@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { LogoComponent } from '@elementar-ui/components';
 
 @Component({
   selector: 'app-done',
@@ -11,7 +12,8 @@ import { RouterLink } from '@angular/router';
     MatButton,
     MatIcon,
     RouterLink,
-    MatAnchor
+    MatAnchor,
+    LogoComponent
   ],
   templateUrl: './done.component.html',
   styleUrl: './done.component.scss'

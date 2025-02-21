@@ -49,3 +49,4 @@ export * from './thumbnail-maker';
 export * from './timeline';
 export * from './upload';
 export * from './screen-loader';
+export * from './logo';
