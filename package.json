@@ -49,7 +49,7 @@
     "@iconify-json/ph": "^1.2.2",
     "@ngrx/signals": "^19.0.0",
     "@ngrx/store": "^19.0.0",
-    "@tailwindcss/postcss": "^4.0.6",
+    "@tailwindcss/postcss": "^4.0.8",
     "@tiptap/core": "2.10.2",
     "@tiptap/extension-bubble-menu": "2.10.2",
     "@tiptap/extension-code-block": "2.10.2",
@@ -81,10 +81,10 @@
     "postcss": "^8.5.2",
     "prismjs": "^1.29.0",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^4.0.6",
     "tslib": "^2.3.0",
     "uuid": "^11.0.3",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "tailwindcss": "^4.0.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.1.4",
@@ -106,7 +106,6 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.1",
     "postcss": "^8.5.2",
-    "tailwindcss": "^4.0.7",
     "typescript": "~5.6.2"
   },
   "husky": {

@@ -5,7 +5,7 @@ import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schema
 import { Schema } from './schema';
 
 const DEPENDENCIES = {
-  '@elementar-ui/components': '^0.1.0',
+  '@elementar-ui/components': '^0.1.14',
   "@dicebear/collection": "^9.2.2",
   "@dicebear/core": "^9.2.2",
   "@iconify-json/circle-flags": "^1.2.4",
@@ -35,11 +35,11 @@ const DEPENDENCIES = {
   "libphonenumber-js": "^1.11.15",
   "material-symbols": "^0.27.1",
   "uuid": "^11.0.3",
+  'tailwindcss': '^4.0.8'
 };
 
 const DEV_DEPENDENCIES = {
-  'tailwindcss': '^4.0.7',
-  '@tailwindcss/postcss': '^4.0.0',
+  '@tailwindcss/postcss': '^4.0.8',
   'autoprefixer': '^10.4.17',
   'postcss': '^8.5.2'
 };
