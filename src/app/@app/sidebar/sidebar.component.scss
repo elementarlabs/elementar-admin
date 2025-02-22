@@ -14,7 +14,7 @@
   }
 
   .sidebar {
-    background-color: var(--sys-surface-container-low);
+    --emr-sidebar-bg: var(--sys-surface-container-low);
     border-inline-end: 1px solid var(--sys-surface-container-highest);
 
     &.compact:hover {

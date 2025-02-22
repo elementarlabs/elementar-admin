@@ -5,6 +5,7 @@
   overflow-y: auto;
   padding: var(--emr-sidebar-body-padding);
   overflow-x: hidden;
+  position: relative;
 }
 
 :host-context(.emr-sidebar.compact) {

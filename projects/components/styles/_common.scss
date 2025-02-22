@@ -189,6 +189,10 @@ body {
   display: block;
   min-height: 100vh;
   font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  background: var(--color-background);
+  color: var(--color-on-background);
 
   *:not(.emr-native-scroll) {
     &::-webkit-scrollbar {
@@ -334,12 +338,9 @@ code,
 }
 
 html {
-  color: var(--color-on-background);
-  background-color: var(--color-background);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--font-sans), serif;
 
   &.dark {
     --emr-neutral-0: #{mat.get-theme-color($m3-dark-theme, neutral, 100)};
@@ -490,6 +491,10 @@ html {
       }
     }
   }
+}
+
+:root {
+  --sys-body-large: 400 var(--text-md) / var(--leading-loose) var(--font-sans);
 }
 
 @theme {
