@@ -21,7 +21,10 @@
   text-transform: uppercase;
   position: relative;
   font-weight: var(--emr-avatar-font-weight);
-  box-shadow: var(--emr-avatar-inner-border);
+
+  &:not([class*="shadow-"]) {
+    box-shadow: var(--emr-avatar-inner-border);
+  }
 
   .svg {
     overflow: hidden;

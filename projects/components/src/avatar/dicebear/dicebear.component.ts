@@ -41,7 +41,7 @@ const presets: {[prop: string]: Preset} = {
   selector: 'emr-dicebear,[emr-dicebear]',
   exportAs: 'emrDicebear',
   templateUrl: './dicebear.component.html',
-  styleUrls: ['./dicebear.component.scss'],
+  styleUrl: './dicebear.component.scss',
   providers: [
     {
       provide: AVATAR_ACCESSOR,

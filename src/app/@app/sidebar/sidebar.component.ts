@@ -9,7 +9,10 @@ import {
   SidebarBodyComponent,
   SidebarCompactViewModeDirective,
   SidebarComponent as EmrSidebarComponent,
-  SidebarFooterComponent, SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent
+  SidebarFooterComponent,
+  SidebarFullViewModeDirective,
+  SidebarHeaderComponent,
+  SidebarNavComponent
 } from '@elementar-ui/components';
 import { DicebearComponent } from '@elementar-ui/components';
 import { MatIconButton } from '@angular/material/button';
@@ -600,6 +603,12 @@ export class SidebarComponent implements OnInit {
       icon: 'hard_drive',
       name: 'Store',
       children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Selects',
+          link: '/pages/store/selects'
+        },
         {
           key: uuid(),
           type: 'link',
