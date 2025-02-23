@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 :host {
   display: grid;
   align-items: center;
@@ -29,6 +31,9 @@
   }
 
   .close {
-    cursor: pointer;
+    @include mat.icon-button-overrides((
+      icon-color: var(--emr-incident-close-color),
+      state-layer-color: var(--emr-incident-close-color)
+    ));
   }
 }

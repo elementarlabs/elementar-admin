@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 :host {
   width: 100%;
   height: var(--emr-incidents-bar-height);
@@ -26,6 +28,11 @@
 }
 
 :host .toggle-icon {
+  @include mat.icon-button-overrides((
+    icon-color: var(--emr-incidents-bar-color),
+    state-layer-color: var(--emr-incidents-bar-color)
+  ));
+
   line-height: 0;
   transition: transform .2s ease;
 }

@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 :host {
   padding-inline-start: calc(var(--spacing) * 5);
   padding-inline-end: calc(var(--spacing) * 3);
@@ -25,10 +27,14 @@
   }
 
   .close {
+    @include mat.icon-button-overrides((
+      icon-color: var(--color-neutral-800),
+      state-layer-color: var(--color-neutral-800)
+    ));
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: 70%;
 
     &:hover {
       opacity: 100%;
