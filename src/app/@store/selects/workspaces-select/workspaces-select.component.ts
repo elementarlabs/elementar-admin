@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, effect, input, signal } from '@angular/core';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
 import { DicebearComponent, HorizontalDividerComponent } from '@elementar-ui/components';
@@ -19,10 +19,20 @@ import { MatButton } from '@angular/material/button';
 })
 export class WorkspacesSelectComponent {
   workspaces = input<any[]>([]);
+  selectedWorkspace = input();
+  protected _selectedWorkspace = signal<any>(null);
 
-  selectedWorkspace = signal<any>(null);
+  constructor() {
+    effect(() => {
+      this._selectedWorkspace.set(this.selectedWorkspace());
+    });
+  }
 
   selectWorkspace(workspace: any) {
-    this.selectedWorkspace.set(workspace);
+    if (this._selectedWorkspace()?.id === workspace.id) {
+      return;
+    }
+
+    this._selectedWorkspace.set(workspace);
   }
 }
