@@ -30,4 +30,8 @@ export class WorkspaceSelectExampleComponent {
       membersCount: 12
     }
   ]);
+
+  onWorkspaceSelected(workspace: any) {
+    this.selectedWorkspace.set(workspace);
+  }
 }

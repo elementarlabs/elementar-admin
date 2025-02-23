@@ -21,7 +21,7 @@
           <div class="flex items-center gap-2 rounded-xl px-2 hover:bg-surface-container-highest
                       cursor-pointer h-13 [&.is-active]:bg-surface-container-highest"
                [class.is-active]="workspace.id === _selectedWorkspace()?.id"
-               (click)="selectWorkspace(workspace)">
+               (click)="selectWorkspace(workspace)" matRipple>
             <div class="flex items-center gap-3 grow">
               <emr-dicebear [key]="workspace.id" [src]="workspace.logoUrl" class="rounded-lg size-9 shadow-xs"/>
               <div>
