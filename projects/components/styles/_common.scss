@@ -493,7 +493,8 @@ html {
   }
 }
 
-:root {
+:root,
+html.dark {
   --sys-body-large: 400 var(--text-md) / var(--leading-loose) var(--font-sans);
 }
 
