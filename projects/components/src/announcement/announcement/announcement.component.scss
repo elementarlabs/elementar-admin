@@ -1,4 +1,8 @@
+@use '@angular/material' as mat;
+
 :host {
+  --emr-announcement-close-icon-color: var(--color-neutral-800);
+
   padding-inline-start: calc(var(--spacing) * 5);
   padding-inline-end: calc(var(--spacing) * 3);
   height: calc(var(--spacing) * 11);
@@ -28,7 +32,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: 70%;
+
+    @include mat.icon-button-overrides((
+      icon-color: var(--emr-announcement-close-icon-color),
+      state-layer-color: var(--emr-announcement-close-icon-color)
+    ));
 
     &:hover {
       opacity: 100%;

@@ -5,7 +5,7 @@
   height: 0;
   opacity: 0;
   grid-gap: 25px;
-  grid-template-columns: auto minmax(1px, 1440px) auto;
+  grid-template-columns: auto minmax(1px, max-content) auto;
   grid-template-areas: ". content .";
   transform-origin: top;
   overflow: hidden;
@@ -25,7 +25,7 @@
 }
 
 :host(.is-fixed) {
-  position: fixed;
+  position: absolute;
   z-index: 102;
   left: 0;
   right: 0;
@@ -34,8 +34,12 @@
 }
 
 :host-context(.emr-incidents.is-visible) {
-  height: 100%;
+  height: calc(100% - var(--emr-incidents-bar-height));
   transform: scaleY(1);
   opacity: 1;
   overflow-y: auto;
+
+  &.is-fixed {
+    height: calc(100vh - var(--emr-incidents-bar-height));
+  }
 }
