@@ -8,6 +8,8 @@ import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemIconDirective } from '../navigation-item-icon.directive';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
+import { NAVIGATION } from '../types';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'emr-navigation-item,[emr-navigation-item]',
@@ -25,6 +27,7 @@ import { NgTemplateOutlet } from '@angular/common';
   }
 })
 export class NavigationItemComponent {
+  private _navigation = inject<NavigationComponent>(NAVIGATION);
   private _api = inject(NavigationApiService);
   private _elementRef = inject(ElementRef);
 
@@ -46,6 +49,7 @@ export class NavigationItemComponent {
       return;
     }
 
+    this._navigation.itemClicked.emit(this.key());
     this._api.activateItem(this.key());
   }
 

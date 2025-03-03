@@ -1,14 +1,15 @@
 import {
   afterNextRender,
   Component, ElementRef,
-  inject, Input, Renderer2,
+  inject, Renderer2,
   contentChildren,
   SimpleChanges,
   input,
-  OnChanges
+  OnChanges, output, forwardRef
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
+import { NAVIGATION, NavigationItem } from '../types';
 
 @Component({
   selector: 'emr-navigation',
@@ -16,7 +17,11 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   providers: [
-    NavigationApiService
+    NavigationApiService,
+    {
+      provide: NAVIGATION,
+      useExisting: forwardRef(() => NavigationComponent),
+    }
   ],
   host: {
     'class': 'emr-navigation'
@@ -31,6 +36,8 @@ export class NavigationComponent implements OnChanges {
 
   activeKey = input<any>();
   theme = input();
+
+  readonly itemClicked = output<NavigationItem>();
 
   constructor() {
     // scroll to the active item if it is not visible in the viewport

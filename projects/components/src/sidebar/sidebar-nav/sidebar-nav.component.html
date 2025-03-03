@@ -1,4 +1,4 @@
-<emr-navigation #navigation [activeKey]="activeKey()" class="h-full">
+<emr-navigation #navigation [activeKey]="activeKey()" class="h-full" (itemClicked)="itemClicked.emit($event)">
   @for (navItem of navItems(); track navItem) {
     @switch (navItem.type) {
       @case ('heading') {

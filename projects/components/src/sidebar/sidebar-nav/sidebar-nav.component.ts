@@ -1,4 +1,4 @@
-import { Component, contentChild, input, TemplateRef } from '@angular/core';
+import { Component, contentChild, input, output, TemplateRef } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatBadge } from '@angular/material/badge';
@@ -48,6 +48,8 @@ export class SidebarNavComponent<T extends NavigationItem> {
 
   activeKey = input();
   navItems = input<T[]>([]);
+
+  readonly itemClicked = output<any>();
 
   get iconTemplateRef(): TemplateRef<any> {
     return this._itemIconRef()?.templateRef as TemplateRef<any>;

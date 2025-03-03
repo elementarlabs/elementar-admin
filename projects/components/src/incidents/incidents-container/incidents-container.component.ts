@@ -13,8 +13,8 @@ import { IncidentComponent } from '../incident/incident.component';
 import { IncidentsListComponent } from '../incidents-list/incidents-list.component';
 
 @Component({
-  selector: 'emr-incidents-container',
-  exportAs: 'emrIncidentsContainer',
+  selector: 'emr-incidents-container,emr-incidents-global',
+  exportAs: 'emrIncidentsGlobal',
   imports: [
     IncidentsComponent,
     MatIcon,
@@ -31,7 +31,7 @@ import { IncidentsListComponent } from '../incidents-list/incidents-list.compone
   templateUrl: './incidents-container.component.html',
   styleUrl: './incidents-container.component.scss',
   host: {
-    'class': 'emr-incidents-container',
+    'class': 'emr-incidents-global',
     '[class.is-active]': 'hasIncidents()'
   }
 })

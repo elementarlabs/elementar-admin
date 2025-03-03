@@ -1,3 +1,5 @@
+import { InjectionToken } from '@angular/core';
+
 export interface NavigationItem {
   key: any;
   type: 'heading' | 'group' | 'link' | 'item' | 'divider' | string;
@@ -8,3 +10,5 @@ export interface NavigationItem {
   [prop: string]: any;
   badge?: string | number;
 }
+
+export const NAVIGATION = new InjectionToken('NAVIGATION')
