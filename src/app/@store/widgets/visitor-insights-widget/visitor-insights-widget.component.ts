@@ -1,5 +1,4 @@
 import { afterNextRender, Component, ElementRef, inject, input, viewChild } from '@angular/core';
-import { ThemeManagerService } from '@elementar-ui/components';
 import * as echarts from 'echarts/core';
 import {
   DatasetComponent,
@@ -12,13 +11,14 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features';
 import { LineChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
+import { ThemeManagerService } from '@elementar-ui/components/core';
 
 @Component({
-    selector: 'emr-visitor-insights-widget',
-    imports: [],
-    templateUrl: './visitor-insights-widget.component.html',
-    styleUrl: './visitor-insights-widget.component.scss'
+  selector: 'emr-visitor-insights-widget',
+  imports: [],
+  templateUrl: './visitor-insights-widget.component.html',
+  styleUrl: './visitor-insights-widget.component.scss'
 })
 export class VisitorInsightsWidgetComponent {
   private _elementRef = inject(ElementRef);

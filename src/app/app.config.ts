@@ -14,13 +14,8 @@ import { provideStore } from '@ngrx/store';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { environment } from '../environments/environment';
-import {
-  ENVIRONMENT,
-  EnvironmentService,
-  GlobalStore,
-  LayoutSidebarStore,
-  PageTitleStrategyService
-} from '@elementar-ui/components';
+import { ENVIRONMENT, EnvironmentService, GlobalStore, PageTitleStrategyService } from '@elementar-ui/components/core';
+import { LayoutSidebarStore } from '@elementar-ui/components/layout';
 
 export const appConfig: ApplicationConfig = {
   providers: [

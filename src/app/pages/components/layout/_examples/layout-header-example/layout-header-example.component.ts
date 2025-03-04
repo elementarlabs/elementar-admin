@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@elementar-ui/components';
-import { LayoutComponent } from '@elementar-ui/components';
-import { LayoutHeaderComponent } from '@elementar-ui/components';
+import { LayoutBodyComponent, LayoutComponent, LayoutHeaderComponent } from '@elementar-ui/components/layout';
 
 @Component({
   selector: 'app-layout-header-example',

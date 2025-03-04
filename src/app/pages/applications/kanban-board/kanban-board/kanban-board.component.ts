@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { KanbanColumn, KanbanItem, KanbanItemDefDirective, KanbanBoardComponent as EmrKanbanBoardComponent } from '@elementar-ui/components/kanban-board';
+import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar-ui/components/panel';
 import {
   AvatarComponent,
   AvatarGroupComponent,
-  AvatarTotalComponent, DicebearComponent
-} from '@elementar-ui/components';
-import { MatButton, MatIconButton } from '@angular/material/button';
-import { PanelBodyComponent, PanelComponent, PanelHeaderComponent } from '@elementar-ui/components';
-import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components';
-import {
-  KanbanBoardComponent as KanbanBoard,
-  KanbanColumn,
-  KanbanItem,
-  KanbanItemDefDirective
-} from '@elementar-ui/components';
+  AvatarTotalComponent,
+  DicebearComponent
+} from '@elementar-ui/components/avatar';
+import { SegmentedButtonComponent, SegmentedComponent } from '@elementar-ui/components/segmented';
 
 interface TaskPriority {
   id: any;
@@ -48,9 +44,9 @@ interface TaskItem extends KanbanItem {
     MatButton,
     SegmentedButtonComponent,
     SegmentedComponent,
-    KanbanBoard,
     KanbanItemDefDirective,
-    DicebearComponent
+    DicebearComponent,
+    EmrKanbanBoardComponent
   ],
   templateUrl: './kanban-board.component.html',
   styleUrl: './kanban-board.component.scss'

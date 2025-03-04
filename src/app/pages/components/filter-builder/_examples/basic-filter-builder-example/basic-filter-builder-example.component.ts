@@ -4,7 +4,7 @@ import {
   FilterBuilderComponent,
   FilterBuilderFieldDef,
   FilterBuilderGroup
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/filter-builder';
 
 @Component({
   selector: 'app-basic-filter-builder-example',

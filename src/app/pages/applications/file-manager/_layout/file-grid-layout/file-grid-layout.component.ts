@@ -1,4 +1,4 @@
-import { Component, inject, Input, input, InputSignal, OnInit, output } from '@angular/core';
+import { Component, inject, input, InputSignal, OnInit, output } from '@angular/core';
 import { File, FileSelectedEvent } from '../../types';
 import { MatOption } from '@angular/material/autocomplete';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRipple } from '@angular/material/core';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SelectionModel } from '@angular/cdk/collections';
-import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar-ui/components';
+import { FormatFileSizePipe, MenuOptionGroupDirective } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-file-grid-layout',

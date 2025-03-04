@@ -4,7 +4,7 @@ import {
   NavigationComponent,
   NavigationItemComponent,
   NavigationItemIconDirective
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/navigation';
 
 @Component({
   selector: 'app-navigation-with-icons-example',

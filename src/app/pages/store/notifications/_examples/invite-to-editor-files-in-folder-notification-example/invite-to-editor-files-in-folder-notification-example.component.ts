@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { InviteToEditFilesInFolderNotification } from '@store/notifications';
-import { NotificationDefDirective, NotificationListComponent } from '@elementar-ui/components';
+import { NotificationDefDirective, NotificationListComponent, Notification } from '@elementar-ui/components/notifications';
 
 @Component({
   selector: 'app-invite-to-editor-files-in-folder-notification-example',
@@ -13,7 +13,7 @@ import { NotificationDefDirective, NotificationListComponent } from '@elementar-
   styleUrl: './invite-to-editor-files-in-folder-notification-example.component.scss'
 })
 export class InviteToEditorFilesInFolderNotificationExampleComponent {
-  notifications = [
+  notifications: Notification[] = [
     {
       actor: {
         id: 3,

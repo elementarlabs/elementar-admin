@@ -13,12 +13,10 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {
   SuggestionBlockComponent,
-  SuggestionComponent,
-  SuggestionIconDirective,
-  SuggestionsComponent,
-  SuggestionThumbDirective
-} from '@elementar-ui/components';
-import { AvatarComponent } from '@elementar-ui/components';
+  SuggestionComponent, SuggestionIconDirective,
+  SuggestionsComponent, SuggestionThumbDirective
+} from '@elementar-ui/components/suggestions';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'emr-assistant-search',

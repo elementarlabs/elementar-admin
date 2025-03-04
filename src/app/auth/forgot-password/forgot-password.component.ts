@@ -5,7 +5,7 @@ import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { LogoComponent } from '@elementar-ui/components';
+import { LogoComponent } from '@elementar-ui/components/logo';
 
 @Component({
   selector: 'app-forgot-password',

@@ -5,19 +5,19 @@ import { MatRipple } from '@angular/material/core';
 import { MatButton } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
+import { DASHBOARD, Dashboard, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
-    selector: 'emr-exchange-widget',
-    imports: [
-        MatIcon,
-        MatDivider,
-        MatRipple,
-        MatButton,
-        ReactiveFormsModule
-    ],
-    templateUrl: './exchange-widget.component.html',
-    styleUrl: './exchange-widget.component.scss'
+  selector: 'emr-exchange-widget',
+  imports: [
+    MatIcon,
+    MatDivider,
+    MatRipple,
+    MatButton,
+    ReactiveFormsModule
+  ],
+  templateUrl: './exchange-widget.component.html',
+  styleUrl: './exchange-widget.component.scss'
 })
 export class ExchangeWidgetComponent implements OnInit {
   private _fb = inject(FormBuilder);

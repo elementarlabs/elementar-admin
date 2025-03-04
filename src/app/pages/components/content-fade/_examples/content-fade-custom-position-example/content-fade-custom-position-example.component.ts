@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentFadeComponent, ContentFadePosition } from '@elementar-ui/components';
+import { ContentFadeComponent, ContentFadePosition } from '@elementar-ui/components/content-fade';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 

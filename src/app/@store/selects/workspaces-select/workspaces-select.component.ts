@@ -1,9 +1,10 @@
 import { Component, effect, input, output, signal } from '@angular/core';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
-import { DicebearComponent, HorizontalDividerComponent } from '@elementar-ui/components';
 import { MatButton } from '@angular/material/button';
 import { MatRipple } from '@angular/material/core';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
+import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
 
 @Component({
   selector: 'app-workspaces-select',

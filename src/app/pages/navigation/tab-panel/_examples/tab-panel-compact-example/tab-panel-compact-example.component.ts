@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
-import { IconComponent } from '@elementar-ui/components';
-import { HorizontalDividerComponent } from '@elementar-ui/components';
-import { AvatarComponent } from '@elementar-ui/components';
 import {
   TabPanelAsideComponent,
   TabPanelAsideContentDirective, TabPanelBodyComponent, TabPanelComponent,
   TabPanelCustomItemComponent, TabPanelFooterComponent, TabPanelHeaderComponent,
   TabPanelItemComponent,
   TabPanelItemIconDirective, TabPanelNavComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/tab-panel';
+import { IconComponent } from '@elementar-ui/components/icon';
+import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'app-tab-panel-compact-example',

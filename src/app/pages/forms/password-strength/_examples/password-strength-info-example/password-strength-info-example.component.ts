@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { PasswordStrengthComponent, PasswordStrengthInfoComponent } from '@elementar-ui/components';
+import { PasswordStrengthComponent, PasswordStrengthInfoComponent } from '@elementar-ui/components/password-strength';
 
 @Component({
   selector: 'app-password-strength-info-example',

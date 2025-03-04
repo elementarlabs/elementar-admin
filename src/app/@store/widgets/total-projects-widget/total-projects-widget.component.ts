@@ -3,8 +3,8 @@ import {
   MchartLineComponent, MchartTooltipBodyComponent,
   MchartTooltipComponent,
   MchartTooltipTitleComponent
-} from '@elementar-ui/components';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
+} from '@elementar-ui/components/micro-chart';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
   selector: 'emr-total-projects-widget',

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@elementar-ui/components';
-import { LayoutComponent } from '@elementar-ui/components';
-import { LayoutHeaderComponent } from '@elementar-ui/components';
-import { LayoutSidebarComponent } from '@elementar-ui/components';
-import { LayoutFooterComponent } from '@elementar-ui/components';
-import { LayoutTopbarComponent } from '@elementar-ui/components';
-import { AnnouncementComponent } from '@elementar-ui/components';
+import {
+  LayoutBodyComponent,
+  LayoutComponent, LayoutFooterComponent,
+  LayoutHeaderComponent,
+  LayoutSidebarComponent, LayoutTopbarComponent
+} from '@elementar-ui/components/layout';
+import { AnnouncementComponent } from '@elementar-ui/components/announcement';
 
 @Component({
   selector: 'app-layout-with-nested-layouts-example',

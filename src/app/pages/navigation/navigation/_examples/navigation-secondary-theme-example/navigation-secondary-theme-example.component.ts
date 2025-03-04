@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationComponent, NavigationItemComponent } from '@elementar-ui/components';
+import { NavigationComponent, NavigationItemComponent } from '@elementar-ui/components/navigation';
 
 @Component({
   selector: 'app-navigation-secondary-theme-example',

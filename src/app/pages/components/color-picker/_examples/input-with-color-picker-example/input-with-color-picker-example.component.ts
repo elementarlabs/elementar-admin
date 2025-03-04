@@ -6,7 +6,7 @@ import {
   ColorPickerComponent,
   ColorPickerThumbnailComponent,
   ColorPickerTriggerForDirective
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/color-picker';
 
 @Component({
   selector: 'app-input-with-color-picker-example',

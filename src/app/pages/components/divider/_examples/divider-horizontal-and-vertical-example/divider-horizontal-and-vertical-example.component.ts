@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HorizontalDividerComponent, VerticalDividerComponent } from '@elementar-ui/components';
+import { HorizontalDividerComponent, VerticalDividerComponent } from '@elementar-ui/components/divider';
 
 @Component({
   selector: 'app-divider-horizontal-and-vertical-example',

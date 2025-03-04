@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@elementar-ui/components';
-import { LayoutComponent } from '@elementar-ui/components';
-import { LayoutFooterComponent } from '@elementar-ui/components';
+import { LayoutBodyComponent, LayoutComponent, LayoutFooterComponent } from '@elementar-ui/components/layout';
 
 @Component({
   selector: 'app-layout-footer-example',

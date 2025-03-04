@@ -2,9 +2,10 @@ import { Component, inject, input, OnInit } from '@angular/core';
 import {
   MchartLineComponent,
   MchartTooltipBodyComponent,
-  MchartTooltipComponent, MchartTooltipTitleComponent
-} from '@elementar-ui/components';
-import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components';
+  MchartTooltipComponent,
+  MchartTooltipTitleComponent
+} from '@elementar-ui/components/micro-chart';
+import { Dashboard, DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
   selector: 'emr-total-tasks-widget',

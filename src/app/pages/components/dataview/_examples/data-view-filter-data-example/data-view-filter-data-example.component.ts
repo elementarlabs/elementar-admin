@@ -3,12 +3,12 @@ import {
   DataViewColumnDef,
   DataViewComponent,
   DataViewEmptyFilterResultsDirective
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/data-view';
 import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateIconComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/block-state';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';

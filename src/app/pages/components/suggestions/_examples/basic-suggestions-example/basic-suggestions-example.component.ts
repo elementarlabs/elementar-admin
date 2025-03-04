@@ -5,23 +5,23 @@ import {
   SuggestionBlockComponent,
   SuggestionComponent,
   SuggestionIconDirective, SuggestionsComponent, SuggestionThumbDirective
-} from '@elementar-ui/components';
-import { AvatarComponent } from '@elementar-ui/components';
+} from '@elementar-ui/components/suggestions';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 @Component({
-    selector: 'app-basic-suggestions-example',
-    imports: [
-        MatButton,
-        MatIcon,
-        SuggestionBlockComponent,
-        SuggestionComponent,
-        SuggestionIconDirective,
-        SuggestionThumbDirective,
-        SuggestionsComponent,
-        AvatarComponent
-    ],
-    templateUrl: './basic-suggestions-example.component.html',
-    styleUrl: './basic-suggestions-example.component.scss'
+  selector: 'app-basic-suggestions-example',
+  imports: [
+    MatButton,
+    MatIcon,
+    SuggestionBlockComponent,
+    SuggestionComponent,
+    SuggestionIconDirective,
+    SuggestionThumbDirective,
+    SuggestionsComponent,
+    AvatarComponent
+  ],
+  templateUrl: './basic-suggestions-example.component.html',
+  styleUrl: './basic-suggestions-example.component.scss'
 })
 export class BasicSuggestionsExampleComponent {
 }

@@ -3,9 +3,9 @@ import {
   BreadcrumbItemIconDefDirective,
   BreadcrumbsGlobalComponent,
   BreadcrumbsStore,
-  IconComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/breadcrumbs';
 import { MatButton } from '@angular/material/button';
+import { IconComponent } from '@elementar-ui/components/icon';
 
 @Component({
   selector: 'app-breadcrumbs-global-example',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActionRequiredComponent } from '@elementar-ui/components';
+import { ActionRequiredComponent } from '@elementar-ui/components/action-required';
 
 @Component({
   selector: 'app-basic-action-required-example',

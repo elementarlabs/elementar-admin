@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import {
   ImageViewerDirective,
   ImageViewerPictureCaptionDirective,
-  ImageViewerPictureDescriptionDirective, ImageViewerPictureDirective, ImageViewerPictureTitleDirective
-} from '@elementar-ui/components';
+  ImageViewerPictureDescriptionDirective,
+  ImageViewerPictureDirective,
+  ImageViewerPictureTitleDirective
+} from '@elementar-ui/components/image-viewer';
 
 @Component({
   selector: 'app-image-viewer-with-title-example',

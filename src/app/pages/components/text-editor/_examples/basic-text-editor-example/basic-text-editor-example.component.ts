@@ -18,7 +18,7 @@ import {
   TextEditorComponent,
   TextEditorDividerComponent,
   TextEditorToolbarComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/text-editor';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';

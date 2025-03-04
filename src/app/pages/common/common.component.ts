@@ -1,13 +1,16 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { IncidentsContainerComponent, LayoutComponent, LayoutTopbarComponent } from '@elementar-ui/components';
-import { LayoutBodyComponent } from '@elementar-ui/components';
-import { LayoutSidebarComponent } from '@elementar-ui/components';
-import { LayoutHeaderComponent } from '@elementar-ui/components';
 import { HeaderComponent } from '@app/header/header.component';
 import { SidebarComponent } from '@app/sidebar/sidebar.component';
-import { AnnouncementComponent } from '@elementar-ui/components';
 import { AppStore } from '../../store/app.store';
+import {
+  LayoutBodyComponent,
+  LayoutComponent,
+  LayoutHeaderComponent,
+  LayoutSidebarComponent, LayoutTopbarComponent
+} from '@elementar-ui/components/layout';
+import { AnnouncementComponent } from '@elementar-ui/components/announcement';
+import { IncidentsContainerComponent } from '@elementar-ui/components/incidents';
 
 @Component({
   imports: [

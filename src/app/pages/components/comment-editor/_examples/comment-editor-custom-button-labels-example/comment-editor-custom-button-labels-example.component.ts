@@ -20,11 +20,11 @@ import {
   CommentEditorDividerComponent,
   CommentEditorFooterBarComponent,
   CommentEditorToolbarComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/comment-editor';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { SafeHtmlPipe } from '@elementar-ui/components';
+import { SafeHtmlPipe } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-comment-editor-custom-button-labels-example',

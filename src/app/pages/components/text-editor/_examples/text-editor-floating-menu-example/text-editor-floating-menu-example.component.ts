@@ -22,7 +22,7 @@ import {
   TextEditorCommandYoutubeDirective,
   TextEditorComponent, TextEditorDividerComponent,
   TextEditorFloatingMenuComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/text-editor';
 
 @Component({
   selector: 'app-text-editor-floating-menu-example',

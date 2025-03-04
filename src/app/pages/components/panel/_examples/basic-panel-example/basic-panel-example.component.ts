@@ -4,7 +4,7 @@ import {
   PanelComponent,
   PanelFooterComponent,
   PanelHeaderComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/panel';
 
 @Component({
   selector: 'app-basic-panel-example',

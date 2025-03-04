@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { PageComponent } from '@meta/page/page.component';
 import { PageContentDirective } from '@meta/page/page-content.directive';
-import {
-  Notification, NotificationControlsDefDirective, NotificationDefDirective,
-  NotificationListComponent, NotificationPropsDirective,
-} from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconButton } from '@angular/material/button';
 import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '@store/notifications';
+import {
+  NotificationControlsDefDirective,
+  NotificationDefDirective,
+  NotificationListComponent,
+  NotificationPropsDirective,
+  Notification
+} from '@elementar-ui/components/notifications';
 
 @Component({
   imports: [

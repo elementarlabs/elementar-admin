@@ -6,7 +6,7 @@ import {
   TabPanelItemComponent,
   TabPanelItemIconDirective,
   TabPanelItemTextComponent, TabPanelNavComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/tab-panel';
 
 @Component({
   selector: 'app-basic-tab-panel-example',

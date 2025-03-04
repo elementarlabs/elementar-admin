@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { GaugeComponent } from '@elementar-ui/components';
+import { GaugeComponent } from '@elementar-ui/components/gauge';
 
 @Component({
   selector: 'emr-used-space',

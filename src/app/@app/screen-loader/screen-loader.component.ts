@@ -7,7 +7,8 @@ import {
   viewChild
 } from '@angular/core';
 import { getState } from '@ngrx/signals';
-import { GlobalState, GlobalStore, LogoComponent } from '@elementar-ui/components';
+import { LogoComponent } from '@elementar-ui/components/logo';
+import { GlobalState, GlobalStore } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-screen-loader',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MchartBarComponent } from '@elementar-ui/components';
 import { ShuffleArrayPipe } from '@meta/shuffle-array.pipe';
-import { ResizableContainerComponent } from '@elementar-ui/components';
+import { ResizableContainerComponent } from '@elementar-ui/components/resizable-container';
+import { MchartBarComponent } from '@elementar-ui/components/micro-chart';
 
 @Component({
   selector: 'app-mchart-bar-responsive-example',

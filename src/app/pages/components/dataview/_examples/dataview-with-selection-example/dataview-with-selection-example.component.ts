@@ -1,5 +1,5 @@
 import { Component, model } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar-ui/components';
+import { DataViewColumnDef, DataViewComponent, DataViewRowSelectionEvent } from '@elementar-ui/components/data-view';
 import { JsonPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';

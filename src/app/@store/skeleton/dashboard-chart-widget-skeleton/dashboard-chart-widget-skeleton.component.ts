@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SkeletonBlockComponent, SkeletonComponent, SkeletonLineComponent } from '@elementar-ui/components';
+import { SkeletonBlockComponent, SkeletonComponent, SkeletonLineComponent } from '@elementar-ui/components/skeleton';
 
 @Component({
   selector: 'emr-dashboard-chart-widget-skeleton',

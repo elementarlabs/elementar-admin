@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { CarouselCardComponent } from '@elementar-ui/components';
-import { CarouselComponent } from '@elementar-ui/components';
-import { CarouselNextDirective } from '@elementar-ui/components';
-import { CarouselPreviousDirective } from '@elementar-ui/components';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
+import {
+  CarouselCardComponent,
+  CarouselComponent,
+  CarouselNextDirective,
+  CarouselPreviousDirective
+} from '@elementar-ui/components/carousel';
 
 @Component({
   selector: 'app-carousel-controls-custom-position-example',

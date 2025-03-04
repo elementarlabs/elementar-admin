@@ -1,11 +1,11 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { DASHBOARD, Widget } from '@elementar-ui/components';
+import { DASHBOARD, Widget } from '@elementar-ui/components/dashboard';
 
 @Component({
-    selector: 'emr-recent-activity-widget',
-    imports: [],
-    templateUrl: './recent-activity-widget.component.html',
-    styleUrl: './recent-activity-widget.component.scss'
+  selector: 'emr-recent-activity-widget',
+  imports: [],
+  templateUrl: './recent-activity-widget.component.html',
+  styleUrl: './recent-activity-widget.component.scss'
 })
 export class RecentActivityWidgetComponent implements OnInit {
   private _dashboard = inject<any>(DASHBOARD, { optional: true });

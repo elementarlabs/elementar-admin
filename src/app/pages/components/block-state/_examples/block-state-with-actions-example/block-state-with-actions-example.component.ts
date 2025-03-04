@@ -5,7 +5,7 @@ import {
   BlockStateComponent,
   BlockStateContentComponent,
   BlockStateTitleComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/block-state';
 
 @Component({
   selector: 'app-block-state-with-actions-example',

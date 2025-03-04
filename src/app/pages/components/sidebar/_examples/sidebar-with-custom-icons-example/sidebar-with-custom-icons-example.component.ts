@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { v7 as uuid } from 'uuid';
 import {
-  IconComponent,
-  NavigationItem, SidebarBodyComponent,
-  SidebarComponent, SidebarFooterComponent,
+  SidebarBodyComponent,
+  SidebarComponent,
+  SidebarFooterComponent,
   SidebarHeaderComponent,
   SidebarNavComponent, SidebarNavItemIconDirective
-} from '@elementar-ui/components';
-import { v7 as uuid } from 'uuid';
+} from '@elementar-ui/components/sidebar';
+import { IconComponent } from '@elementar-ui/components/icon';
+import { NavigationItem } from '@elementar-ui/components/navigation';
 
 @Component({
   selector: 'app-sidebar-with-custom-icons-example',

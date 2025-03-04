@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { LayoutBodyComponent } from '@elementar-ui/components';
-import { LayoutComponent } from '@elementar-ui/components';
-import { LayoutHeaderComponent } from '@elementar-ui/components';
-import { LayoutTopbarComponent } from '@elementar-ui/components';
-import { AnnouncementComponent } from '@elementar-ui/components';
+import {
+  LayoutBodyComponent,
+  LayoutComponent,
+  LayoutHeaderComponent,
+  LayoutTopbarComponent
+} from '@elementar-ui/components/layout';
+import { AnnouncementComponent } from '@elementar-ui/components/announcement';
 
 @Component({
   selector: 'app-layout-header-with-topbar-example',

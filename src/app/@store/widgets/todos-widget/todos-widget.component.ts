@@ -18,7 +18,7 @@ import {
   CdkDropList,
   moveItemInArray
 } from '@angular/cdk/drag-drop';
-import { Dashboard, DASHBOARD, Widget, WidgetComponent } from '@elementar-ui/components';
+import { DASHBOARD, Dashboard, Widget, WidgetComponent } from '@elementar-ui/components/dashboard';
 
 export interface TodoTask {
   name: string;

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
-import { IconComponent } from '@elementar-ui/components';
-import { AvatarComponent } from '@elementar-ui/components';
+import { IconComponent } from '@elementar-ui/components/icon';
+import { AvatarComponent } from '@elementar-ui/components/avatar';
 
 interface Person {
   avatarUrl: string;
@@ -12,17 +12,17 @@ interface Person {
 }
 
 @Component({
-    imports: [
-        MatButton,
-        MatIcon,
-        MatIconButton,
-        MatTooltip,
-        IconComponent,
-        MatAnchor,
-        AvatarComponent
-    ],
-    templateUrl: './talent-profile.component.html',
-    styleUrl: './talent-profile.component.scss'
+  imports: [
+    MatButton,
+    MatIcon,
+    MatIconButton,
+    MatTooltip,
+    IconComponent,
+    MatAnchor,
+    AvatarComponent
+  ],
+  templateUrl: './talent-profile.component.html',
+  styleUrl: './talent-profile.component.scss'
 })
 export class TalentProfileComponent {
   followed = false;

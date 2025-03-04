@@ -6,7 +6,7 @@ import {
   IncidentsDescriptionComponent, IncidentsListComponent,
   IncidentsTitleComponent,
   IncidentsToggleIconDirective, IncidentTitleComponent
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/incidents';
 
 @Component({
   selector: 'app-basic-incidents-example',

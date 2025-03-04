@@ -3,12 +3,13 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
 import { isPlatformBrowser } from '@angular/common';
 import { filter } from 'rxjs';
+import { PageLoadingBarComponent } from '@elementar-ui/components/page-loading-bar';
 import {
-  AnalyticsService, EnvironmentService, InactivityTrackerService,
-  PageLoadingBarComponent,
+  AnalyticsService, EnvironmentService,
+  InactivityTrackerService,
   ScreenLoaderService, SeoService,
   ThemeManagerService
-} from '@elementar-ui/components';
+} from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-root',

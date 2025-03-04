@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ResizableContainerComponent } from '@elementar-ui/components';
+import { ResizableContainerComponent } from '@elementar-ui/components/resizable-container';
 
 @Component({
   selector: 'app-basic-resizable-container-example',

@@ -3,8 +3,8 @@ import { MatBadge } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
-import { DicebearComponent } from '@elementar-ui/components';
-import { HorizontalDividerComponent } from '@elementar-ui/components';
+import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'emr-sidebar-toolbar',

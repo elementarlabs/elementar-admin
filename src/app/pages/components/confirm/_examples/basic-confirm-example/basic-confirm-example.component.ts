@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { ConfirmManager } from '@elementar-ui/components';
+import { ConfirmManager } from '@elementar-ui/components/confirm';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-basic-confirm-example',
-    imports: [
-        MatButton
-    ],
-    templateUrl: './basic-confirm-example.component.html',
-    styleUrl: './basic-confirm-example.component.scss'
+  selector: 'app-basic-confirm-example',
+  imports: [
+    MatButton
+  ],
+  templateUrl: './basic-confirm-example.component.html',
+  styleUrl: './basic-confirm-example.component.scss'
 })
 export class BasicConfirmExampleComponent {
   private _snackBar = inject(MatSnackBar);

@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { DASHBOARD, Dashboard, Widget } from '@elementar-ui/components';
 import { RouterLink } from '@angular/router';
+import { DASHBOARD, Dashboard, Widget } from '@elementar-ui/components/dashboard';
 
 export interface HeadingWidget extends Widget {
   title: string;

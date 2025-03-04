@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatAnchor, MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { LogoComponent } from '@elementar-ui/components';
+import { LogoComponent } from '@elementar-ui/components/logo';
 
 @Component({
   selector: 'app-done',
