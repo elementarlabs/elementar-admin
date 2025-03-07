@@ -1,7 +1,7 @@
 {
   "name": "@elementar-ui/components",
   "description": "Elementar UI Components - Free and open source Angular UI components based on Material 3 and Tailwind",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/elementarlabs/elementar-admin.git"
@@ -29,21 +29,21 @@
   },
   "schematics": "./schematics/collection.json",
   "devDependencies": {
-    "tailwindcss": "^4.0.7",
+    "tailwindcss": "^4.0.12",
     "postcss": "^8.5.2",
     "autoprefixer": "^10.4.17"
   },
   "peerDependencies": {
-    "@angular/animations": "^19.0.0",
-    "@angular/cdk": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/compiler": "^19.0.0",
-    "@angular/core": "^19.0.0",
-    "@angular/forms": "^19.0.0",
-    "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
-    "@angular/platform-server": "^19.0.0",
-    "@angular/router": "^19.0.0"
+    "@angular/animations": "^19.2.0",
+    "@angular/cdk": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@angular/platform-browser-dynamic": "^19.2.0",
+    "@angular/platform-server": "^19.2.0",
+    "@angular/router": "^19.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

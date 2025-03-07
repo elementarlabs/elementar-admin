@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-navigation-bg: inherit;
   --emr-navigation-items-gap: calc(var(--spacing) * 0.5);

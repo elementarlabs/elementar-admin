@@ -1,26 +1,29 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-action-required-bg: var(--color-error-container);
   --emr-action-action-text-bg: var(--color-error-200);
   --emr-action-text-color: var(--color-on-error-container);
 
-  display: flex;
+  @apply flex;
+
   width: 100%;
   border-radius: var(--radius-3xl);
-  padding: calc(var(--spacing) * 7);
-  gap: calc(var(--spacing) * 8);
+  padding: --spacing(7);
+  gap: --spacing(8);
   align-items: center;
   background-color: var(--emr-action-required-bg);
   color: var(--emr-action-text-color);
 
   .action-text {
-    display: flex;
+    @apply flex rounded-2xl;
     background: var(--emr-action-action-text-bg);
-    padding: calc(var(--spacing) * 3.5);
-    border-radius: var(--radius-2xl);
-    align-content: center;
+    padding: --spacing(3.5);
+    // border-radius: var(--radius-2xl);
+    align-items: center;
     flex: none;
     font-size: var(--text-md);
-    gap: calc(var(--spacing) * 1.5);
+    gap: --spacing(1.5);
   }
 
   .description {
