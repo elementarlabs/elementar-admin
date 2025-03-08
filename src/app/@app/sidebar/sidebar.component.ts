@@ -797,6 +797,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Not Found 1 (404)',
+          link: '/error/not-found-1'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Server Error (500)',
           link: '/error/internal-server-error'
         },

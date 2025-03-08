@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   display: block;
   height: 100%;
@@ -61,10 +63,10 @@
   .footer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    //justify-content: center;
 
-    --emr-sidebar-footer-padding: calc(var(--spacing) * 6) calc(var(--spacing) * 7);
-    --emr-sidebar-footer-compact-padding: calc(var(--spacing) * 3) calc(var(--spacing) * 7);
+    --emr-sidebar-footer-padding: --spacing(3) --spacing(7);
+    --emr-sidebar-footer-compact-padding: --spacing(3) --spacing(5.5);
   }
 }
 

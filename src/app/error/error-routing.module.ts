@@ -17,6 +17,11 @@ const routes: Routes = [
     title: 'Not Found',
     loadComponent: () => import('./not-found/not-found.component').then(c => c.NotFoundComponent)
   },
+  {
+    path: 'not-found-1',
+    title: 'Not Found',
+    loadComponent: () => import('./not-found-1/not-found-1.component').then(c => c.NotFound1Component)
+  },
 ];
 
 @NgModule({
