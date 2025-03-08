@@ -5,7 +5,7 @@ import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schema
 import { Schema } from './schema';
 
 const DEPENDENCIES = {
-  '@elementar-ui/components': '^0.2.2',
+  '@elementar-ui/components': '^0.2.3',
   "@dicebear/collection": "^9.2.2",
   "@dicebear/core": "^9.2.2",
   "@iconify-json/circle-flags": "^1.2.4",
@@ -38,10 +38,11 @@ const DEPENDENCIES = {
 };
 
 const DEV_DEPENDENCIES = {
-  '@tailwindcss/postcss': '^4.0.7',
+  '@tailwindcss/postcss': '^4.0.12',
   'autoprefixer': '^10.4.17',
   'postcss': '^8.5.2',
-  'tailwindcss': '^4.0.12'
+  'tailwindcss': '^4.0.12',
+  '@tailwindcss/typography': '^0.5.16',
 };
 
 export function ngAdd(options: Schema): Rule {
