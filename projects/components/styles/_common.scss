@@ -156,6 +156,8 @@ $m3-dark-theme: mat.define-theme((
   --mat-table-row-item-outline-color: var(--color-default);
 
   @include mat.all-component-themes($m3-light-theme);
+  // https://material.angular.io/guide/material-2-theming#optional-add-backwards-compatibility-styles-for-color-variants
+  @include mat.color-variants-backwards-compatibility($m3-light-theme);
   @include mat.typography-hierarchy($m3-light-theme);
   @include mat.system-level-colors($m3-light-theme);
   @include mat.system-level-typography($m3-light-theme);
