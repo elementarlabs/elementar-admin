@@ -1,6 +1,5 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { DASHBOARD, Dashboard } from '@elementar-ui/components/dashboard';
-import { ActionRequiredWidget } from '@store/widgets';
 
 @Component({
   selector: 'app-analytics-active-users-widget',
