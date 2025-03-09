@@ -26,7 +26,12 @@ const routes: Routes = [
     path: 'explore',
     title: 'Explore Dashboard',
     loadComponent: () => import('./explore/explore.component').then(c => c.ExploreComponent)
-  }
+  },
+  {
+    path: 'analytics',
+    title: 'Analytics',
+    loadComponent: () => import('./analytics/analytics.component').then(c => c.AnalyticsComponent)
+  },
 ];
 
 @NgModule({
