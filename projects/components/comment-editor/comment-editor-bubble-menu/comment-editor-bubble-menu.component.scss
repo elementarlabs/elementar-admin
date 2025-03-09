@@ -4,7 +4,7 @@
   background: var(--color-neutral-950);
   color: var(--color-neutral-200);
   min-height: calc(var(--spacing) * 12);
-  border-radius: var(--radius-2xl);
+  border-radius: theme(--radius-2xl);
   top: 1px;
   padding-inline-start: calc(var(--spacing) * 2);
   padding-inline-end: calc(var(--spacing) * 2);

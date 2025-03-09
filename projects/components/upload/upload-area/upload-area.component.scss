@@ -2,7 +2,7 @@
   --emr-upload-area-bg: transparent;
   --emr-upload-area-padding: calc(var(--spacing) * 10);
   --emr-upload-area-border: 1px solid var(--color-border);
-  --emr-upload-area-border-radius: var(--radius-2xl);
+  --emr-upload-area-border-radius: theme(--radius-2xl);
   --emr-upload-area-font-size: var(--text-sm);
   --emr-upload-area-color: var(--color-neutral-600);
   --emr-upload-area-drop-active-border: 1px dashed var(--color-primary);

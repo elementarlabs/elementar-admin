@@ -7,7 +7,7 @@
   --emr-number-input-control-hover-bg: var(--color-surface-container);
   --emr-number-input-control-active-bg: var(--color-surface-container-high);
   --emr-number-input-control-font-size: var(--text-2xl);
-  --emr-number-input-control-border-radius: var(--radius-md);
+  --emr-number-input-control-border-radius: theme(--radius-md);
   --emr-number-input-suffix-gap: calc(var(--spacing) * 3);
   --emr-number-input-control-size: calc(var(--spacing) * 7);
   --emr-number-input-control-border: none;

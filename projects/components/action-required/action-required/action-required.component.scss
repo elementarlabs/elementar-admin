@@ -8,7 +8,7 @@
   @apply flex;
 
   width: 100%;
-  border-radius: var(--radius-3xl);
+  border-radius: theme(--radius-3xl);
   padding: --spacing(7);
   gap: --spacing(8);
   align-items: center;
@@ -19,7 +19,7 @@
     @apply flex rounded-2xl;
     background: var(--emr-action-action-text-bg);
     padding: --spacing(3.5);
-    // border-radius: var(--radius-2xl);
+    // border-radius: theme(--radius-2xl);
     align-items: center;
     flex: none;
     font-size: var(--text-md);

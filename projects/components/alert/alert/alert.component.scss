@@ -5,13 +5,13 @@
   --emr-alert-color: transparent;
   --emr-alert-icon-color: white;
   --emr-alert-border-color: transparent;
-  --emr-alert-border-radius: var(--radius-2xl);
+  --emr-alert-border-radius: theme(--radius-2xl);
   --emr-alert-padding: calc(var(--spacing) * 4);
   --emr-alert-gap: calc(var(--spacing) * 3.5);
   --emr-alert-border-width: 1px;
   --emr-alert-font-size: var(--text-sm);
   --emr-alert-thumbnail-bg: white;
-  --emr-alert-thumbnail-border-radius: var(--radius-lg);
+  --emr-alert-thumbnail-border-radius: theme(--radius-lg);
   --emr-alert-thumbnail-size: calc(var(--spacing) * 10);
   --emr-alert-title-font-weight: 600;
   --emr-alert-title-font-size: var(--text-xs);
