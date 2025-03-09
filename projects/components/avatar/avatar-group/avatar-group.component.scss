@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-avatar-group-item-offset: calc(var(--spacing) * 2.5);
   --emr-avatar-group-item-border: 0.125rem solid white;

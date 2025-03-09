@@ -1,5 +1,7 @@
+@reference 'tailwindcss';
+
 :host {
-  --emr-dashboard-gap: calc(var(--spacing) * 7);
+  --emr-dashboard-gap: --spacing(7);
 
   display: block;
 
@@ -7,6 +9,11 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: var(--emr-dashboard-gap);
+  }
+
+  .dashgrid-item {
+    --emr-dashgrid-item-colspan: 12;
+    grid-column: span var(--emr-dashgrid-item-colspan) / span var(--emr-dashgrid-item-colspan);
   }
 
   .widget:not(.plain) {
@@ -18,7 +25,7 @@
 
   .skeleton {
     --emr-dashboard-widget-skeleton-min-height: 100px;
-    padding: calc(var(--spacing) * 5);
+    padding: --spacing(5);
     min-height: var(--emr-dashboard-widget-skeleton-min-height);
   }
 }

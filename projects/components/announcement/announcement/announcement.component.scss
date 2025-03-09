@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@reference 'tailwindcss';
 
 :host {
   --emr-announcement-close-icon-color: var(--color-neutral-800);
