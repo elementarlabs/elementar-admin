@@ -9,7 +9,7 @@
   --emr-tab-panel-item-hover-color: var(--color-neutral-700);
   --emr-tab-panel-item-active-bg: var(--color-primary-300);
   --emr-tab-panel-item-active-color: var(--color-neutral-950);
-  --emr-tab-panel-item-border-radius: var(--radius-xl);
+  --emr-tab-panel-item-border-radius: theme(--radius-xl);
   --emr-tab-panel-aside-width: 18.75rem;
   --emr-tab-panel-border-end: 1px solid var(--color-border);
   --emr-tab-panel-nav-padding: calc(var(--spacing) * 2.5);

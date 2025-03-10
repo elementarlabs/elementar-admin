@@ -22,7 +22,7 @@
   --emr-command-bar-divider-height: calc(var(--spacing) * 6);
   --emr-command-bar-divider-bg: var(--color-neutral-600);
   --emr-command-bar-command-shortcut-bg: var(--color-neutral-700);
-  --emr-command-bar-command-shortcut-border-radius: var(--radius-lg);
+  --emr-command-bar-command-shortcut-border-radius: theme(--radius-lg);
   --emr-command-bar-command-shortcut-font-size: var(--text-xs);
   --emr-command-bar-command-shortcut-color: var(--color-neutral-300);
   --emr-command-bar-command-shortcut-padding: 0 5px;

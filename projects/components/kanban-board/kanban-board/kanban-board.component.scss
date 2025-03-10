@@ -31,6 +31,6 @@
     cursor: pointer;
     flex: none;
     box-shadow: var(--shadow-sm);
-    border-radius: var(--radius-2xl);
+    border-radius: theme(--radius-2xl);
   }
 }

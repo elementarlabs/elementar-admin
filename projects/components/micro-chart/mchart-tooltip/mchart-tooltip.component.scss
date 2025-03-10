@@ -2,7 +2,7 @@
   display: block;
   width: max-content;
   box-shadow: var(--shadow-default);
-  border-radius: var(--radius-lg);
+  border-radius: theme(--radius-lg);
   background: white;
   font-size: var(--text-xs);
   overflow: hidden;

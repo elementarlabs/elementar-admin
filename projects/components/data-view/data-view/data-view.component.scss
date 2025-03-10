@@ -52,7 +52,7 @@
 
   .mat-mdc-row.mdc-data-table__row {
     border: 1px solid var(--color-border) !important;
-    border-radius: var(--radius-xl);
+    border-radius: theme(--radius-xl);
     overflow: hidden;
     height: calc(var(--spacing) * 16);
 
@@ -142,7 +142,7 @@
           right: 0;
           background: var(--emr-data-view-hl-header-row-bg);
           height: calc(var(--spacing) * 10);
-          border-radius: var(--radius-lg);
+          border-radius: theme(--radius-lg);
           z-index: 0;
         }
       }

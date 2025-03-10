@@ -10,7 +10,7 @@
   --emr-incidents-list-padding: calc(var(--spacing) * 7) 0;
   --emr-incident-bg: white;
   --emr-incident-color: var(--color-neutral-700);
-  --emr-incident-border-radius: var(--radius-md);
+  --emr-incident-border-radius: theme(--radius-md);
   --emr-incident-padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);
   --emr-incident-gap: calc(var(--spacing) * 6);
   --emr-incident-border-start: calc(var(--spacing) * 1) solid var(--color-neutral-900);

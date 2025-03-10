@@ -36,7 +36,7 @@
     inset-inline-start: 50%;
     background-color: var(--color-neutral-950);
     color: white;
-    border-radius: var(--radius-lg);
+    border-radius: theme(--radius-lg);
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
     font-size: var(--text-sm);
     opacity: 90%;

@@ -1,6 +1,6 @@
 :host {
   --emr-skeleton-gap: calc(var(--spacing) * 4);
-  --emr-skeleton-item-border-radius: var(--radius-2xl);
+  --emr-skeleton-item-border-radius: theme(--radius-2xl);
   --emr-skeleton-from-bg: var(--emr-neutral-200); // theme('colors.neutral.200/80');
   --emr-skeleton-from-to: var(--emr-neutral-300); // theme('colors.neutral.300/70');
 

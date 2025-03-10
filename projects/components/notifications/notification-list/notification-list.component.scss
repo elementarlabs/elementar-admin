@@ -9,7 +9,7 @@
   .notification {
     position: relative;
     background: var(--color-surface-container-low);
-    border-radius: var(--radius-xl);
+    border-radius: theme(--radius-xl);
 
     &:has(.is-new) {
       background: var(--emr-notification-is-new-bg);

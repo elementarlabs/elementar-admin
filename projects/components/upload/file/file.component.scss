@@ -4,7 +4,7 @@
   --emr-file-progress-margin: calc(var(--spacing) * 2) 0 0 0;
   --emr-file-progress-bg: var(--color-surface-container-high);
   --emr-file-progress-height: calc(var(--spacing) * 1);
-  --emr-file-progress-border-radius: var(--radius-lg);
+  --emr-file-progress-border-radius: theme(--radius-lg);
   --emr-file-progress-bar-bg: var(--color-primary);
   --emr-file-control-color: var(--color-neutral-500);
   --emr-file-control-hover-color: var(--color-primary);
