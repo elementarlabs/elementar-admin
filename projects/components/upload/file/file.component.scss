@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-file-padding: calc(var(--spacing) * 4) 0;
   --emr-file-controls-gap: calc(var(--spacing) * 1.5);

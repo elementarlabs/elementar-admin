@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-upload-area-bg: transparent;
   --emr-upload-area-padding: calc(var(--spacing) * 10);

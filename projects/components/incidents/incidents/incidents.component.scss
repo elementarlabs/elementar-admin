@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-incidents-bar-height: calc(var(--spacing) * 24);
   --emr-incidents-bar-bg: var(--color-amber-200);

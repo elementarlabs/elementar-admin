@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-data-view-row-bg: var(--mat-app-background-color);
   --emr-data-view-hl-header-row-bg: var(--color-surface-container);

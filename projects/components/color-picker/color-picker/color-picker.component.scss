@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-color-picker-bg: white;
   --emr-color-picker-border-radius: theme(--radius-md);

@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-filter-builder-group-operations-gap: calc(var(--spacing) * 2);
   --emr-filter-builder-group-operation-font-size: var(--text-tiny);

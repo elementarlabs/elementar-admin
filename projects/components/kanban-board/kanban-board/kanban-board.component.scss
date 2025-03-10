@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-kanban-board-col-width: calc(var(--spacing) * 72);
   --emr-kanban-board-padding-x: calc(var(--spacing) * 10);

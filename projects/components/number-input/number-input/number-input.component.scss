@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-number-input-gap: calc(var(--spacing) * 2);
   --emr-number-input-control-bg: none;

@@ -66,6 +66,27 @@ export class AnalyticsComponent {
         import('@store/widgets/analytics-pending-projects-widget/analytics-pending-projects-widget.component')
           .then(c => c.AnalyticsPendingProjectsWidgetComponent)
     },
+    {
+      type: 'analytics-followers-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-followers-widget/analytics-followers-widget.component')
+          .then(c => c.AnalyticsFollowersWidgetComponent)
+    },
+    {
+      type: 'analytics-likes-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-likes-widget/analytics-likes-widget.component')
+          .then(c => c.AnalyticsLikesWidgetComponent)
+    },
+    {
+      type: 'analytics-comments-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-comments-widget/analytics-comments-widget.component')
+          .then(c => c.AnalyticsCommentsWidgetComponent)
+    },
   ];
   widgets: Widget[] = [
     {
@@ -107,6 +128,21 @@ export class AnalyticsComponent {
       id: 8,
       type: 'analytics-pending-projects-widget',
       columns: 3,
+    },
+    {
+      id: 9,
+      type: 'analytics-followers-widget',
+      columns: 4,
+    },
+    {
+      id: 10,
+      type: 'analytics-likes-widget',
+      columns: 4,
+    },
+    {
+      id: 11,
+      type: 'analytics-comments-widget',
+      columns: 4,
     },
   ];
 }

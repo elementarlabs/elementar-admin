@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-command-bar-height: calc(var(--spacing) * 12);
   --emr-command-bar-padding: 0 calc(var(--spacing) * 1);
