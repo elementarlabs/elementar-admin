@@ -87,8 +87,59 @@ export class AnalyticsComponent {
         import('@store/widgets/analytics-comments-widget/analytics-comments-widget.component')
           .then(c => c.AnalyticsCommentsWidgetComponent)
     },
+    {
+      type: 'analytics-avg-order-value-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-avg-order-value-widget/analytics-avg-order-value-widget.component')
+          .then(c => c.AnalyticsAvgOrderValueWidgetComponent)
+    },
+    {
+      type: 'analytics-total-orders-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-total-orders-widget/analytics-total-orders-widget.component')
+          .then(c => c.AnalyticsTotalOrdersWidgetComponent)
+    },
+    {
+      type: 'analytics-gross-revenue-widget',
+      skeleton: null,
+      component: () =>
+        import('@store/widgets/analytics-gross-revenue-widget/analytics-gross-revenue-widget.component')
+          .then(c => c.AnalyticsGrossRevenueWidgetComponent)
+    },
   ];
   widgets: Widget[] = [
+    {
+      id: 12,
+      type: 'analytics-gross-revenue-widget',
+      columns: 4,
+    },
+    {
+      id: 13,
+      type: 'analytics-avg-order-value-widget',
+      columns: 4,
+    },
+    {
+      id: 14,
+      type: 'analytics-total-orders-widget',
+      columns: 4,
+    },
+    {
+      id: 9,
+      type: 'analytics-followers-widget',
+      columns: 4,
+    },
+    {
+      id: 10,
+      type: 'analytics-likes-widget',
+      columns: 4,
+    },
+    {
+      id: 11,
+      type: 'analytics-comments-widget',
+      columns: 4,
+    },
     {
       id: 1,
       type: 'analytics-total-users-widget',
@@ -128,21 +179,6 @@ export class AnalyticsComponent {
       id: 8,
       type: 'analytics-pending-projects-widget',
       columns: 3,
-    },
-    {
-      id: 9,
-      type: 'analytics-followers-widget',
-      columns: 4,
-    },
-    {
-      id: 10,
-      type: 'analytics-likes-widget',
-      columns: 4,
-    },
-    {
-      id: 11,
-      type: 'analytics-comments-widget',
-      columns: 4,
     },
   ];
 }
