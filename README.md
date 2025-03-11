@@ -40,6 +40,14 @@ ng add @elementar-ui/components
 
 The components will be installed and configured, then copy what you need from the demo layouts projects.
 
+### SAAS Layout
+[https://github.com/elementarlabs/elementar-admin-saas](https://github.com/elementarlabs/elementar-admin-saas)
+
+<a target="_blank" href="https://saas.elementarui.com/">
+  <img src="https://demo.elementarui.com/assets/preview-saas-layout.png">
+</a>
+
+
 ### Mono Layout
 [https://github.com/elementarlabs/elementar-admin-mono](https://github.com/elementarlabs/elementar-admin-mono)
 
