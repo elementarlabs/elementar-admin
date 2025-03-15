@@ -13,7 +13,8 @@
   --emr-content-fade-color: var(--emr-data-view-row-bg);
   --emr-data-view-header-bg: var(--mat-app-background-color);
 
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 
   mat-table {
@@ -22,6 +23,10 @@
   }
 
   ::ng-deep {
+    emr-block-state {
+      --emr-block-state-padding: 0;
+    }
+
     .mat-mdc-header-row {
       background: var(--emr-data-view-header-bg);
     }

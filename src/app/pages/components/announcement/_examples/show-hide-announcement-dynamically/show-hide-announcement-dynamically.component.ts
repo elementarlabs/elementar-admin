@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { AppStore } from '../../../../../store/app.store';
+import { AnnouncementStore } from '@elementar-ui/components/announcement';
 
 @Component({
   selector: 'app-show-hide-announcement-dynamically',
@@ -11,13 +11,13 @@ import { AppStore } from '../../../../../store/app.store';
   styleUrl: './show-hide-announcement-dynamically.component.scss'
 })
 export class ShowHideAnnouncementDynamicallyComponent {
-  private _appStore = inject(AppStore);
+  private _announcementStore = inject(AnnouncementStore);
   visible = computed(() => {
-    return !!this._appStore.announcement();
+    return !!this._announcementStore.announcement();
   });
 
   showAnnouncement() {
-    this._appStore.setAnnouncement({
+    this._announcementStore.show({
       message: 'You still have not uploaded your Mart invoice due on 22 April 2025',
       variant: 'warning',
       iconName: 'warning'
@@ -25,6 +25,6 @@ export class ShowHideAnnouncementDynamicallyComponent {
   }
 
   hideAnnouncement() {
-    this._appStore.setAnnouncement(null);
+    this._announcementStore.hide();
   }
 }

@@ -1,0 +1,8 @@
+@if (announcement()) {
+  <emr-announcement closable
+                    [iconName]="announcement()?.iconName || ''"
+                    [variant]="announcement()?.variant || ''"
+                    (closed)="onClose()">
+    {{ announcement()?.message }}
+  </emr-announcement>
+}

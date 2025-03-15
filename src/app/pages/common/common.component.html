@@ -1,14 +1,7 @@
 <emr-layout layoutId="root" windowMode>
   <emr-layout-topbar>
-    @if (announcement()) {
-      <emr-announcement [iconName]="announcement()?.iconName || ''"
-                        [variant]="announcement()?.variant || ''"
-                        closable
-                        (closed)="onClose()">
-        {{ announcement()?.message }}
-      </emr-announcement>
-    }
-    <emr-incidents-container/>
+    <emr-announcement-global/>
+    <emr-incidents-global/>
   </emr-layout-topbar>
   <emr-layout-sidebar>
     <app-sidebar/>

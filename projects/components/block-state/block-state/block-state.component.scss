@@ -1,12 +1,14 @@
 @reference 'tailwindcss';
 
 :host {
+  --emr-block-state-padding: 0;
+
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: calc(var(--spacing) * 6);
-  padding: calc(var(--spacing) * 12);
+  gap: --spacing(6);
+  padding: var(--emr-block-state-padding);
 }
