@@ -1,6 +1,8 @@
+@reference 'tailwindcss';
+
 :host {
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: calc(var(--spacing) * 4);
+  gap: --spacing(4);
 }

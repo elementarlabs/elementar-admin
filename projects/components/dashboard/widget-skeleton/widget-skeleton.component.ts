@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { SkeletonBlockComponent, SkeletonLineComponent } from '@elementar-ui/components/skeleton';
+import { SkeletonBlockComponent, SkeletonComponent, SkeletonLineComponent } from '@elementar-ui/components/skeleton';
 
 @Component({
   selector: 'emr-widget-skeleton',
   exportAs: 'emrWidgetSkeleton',
   imports: [
     SkeletonLineComponent,
-    SkeletonBlockComponent
+    SkeletonBlockComponent,
+    SkeletonComponent
   ],
   templateUrl: './widget-skeleton.component.html',
   styleUrl: './widget-skeleton.component.scss',
