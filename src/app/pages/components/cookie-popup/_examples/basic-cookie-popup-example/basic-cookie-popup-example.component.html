@@ -1,0 +1,18 @@
+<emr-cookie-popup [visible]="visible()"
+                  (cookieAccepted)="onCookieAccepted($event)">
+  <ng-container emrCookiePopupTitle>Cookie Settings</ng-container>
+
+  We use cookies to provide and improve services and ensure security. Click to view our
+  <a href="https://elementarui.com/cookie-policy" class="link">cookie policy</a>.
+  You can choose to accept all or only necessary cookies, which may affect some functionalities.
+
+  <ng-container emrCookiePopupAcceptNecessaryOnlyButton>Necessary cookies only</ng-container>
+  <ng-container emrCookiePopupAcceptAllButton>Accept all cookies</ng-container>
+</emr-cookie-popup>
+<button mat-flat-button (click)="visible.set(false)">Hide cookie popup</button>
+
+@if (acceptType()) {
+  <div class="mt-4">
+    You are selected: <span class="font-bold">{{ acceptType() }}</span> cookies type.
+  </div>
+}

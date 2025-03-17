@@ -1,0 +1,18 @@
+<ng-template #contentRef>
+  <div class="emr-cookie-popup">
+    <h4 class="title">
+      <ng-content select="[emrCookiePopupTitle]"/>
+    </h4>
+    <div class="message">
+      <ng-content/>
+    </div>
+    <div class="controls">
+      <button mat-stroked-button class="control" (click)="acceptNecessaryCookiesOnly()">
+        <ng-content select="[emrCookiePopupAcceptNecessaryOnlyButton]"/>
+      </button>
+      <button mat-flat-button class="control" (click)="acceptAllCookies()">
+        <ng-content select="[emrCookiePopupAcceptAllButton]"/>
+      </button>
+    </div>
+  </div>
+</ng-template>

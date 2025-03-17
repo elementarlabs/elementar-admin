@@ -282,6 +282,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Cookie Popup',
+          link: '/pages/components/cookie-popup'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Incidents',
           link: '/pages/components/incidents'
         },

@@ -1,0 +1,35 @@
+@reference 'tailwindcss';
+
+:host {
+  display: none;
+  z-index: -99999;
+  opacity: 0;
+}
+
+.emr-cookie-popup {
+  width: 400px;
+  border-radius: theme(--radius-2xl);
+  box-shadow: theme(--shadow-lg);
+  background: var(--color-surface-container-lowest);
+  padding: --spacing(4);
+
+  .title {
+    margin-bottom: --spacing(3);
+    font-weight: bold;
+  }
+
+  .message {
+    font-size: theme(--text-sm);
+    margin-bottom: --spacing(4);
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(2);
+  }
+
+  .control {
+    width: 100%;
+  }
+}

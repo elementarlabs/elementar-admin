@@ -112,6 +112,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/chips/chips.module').then(m => m.ChipsModule)
       },
       {
+        path: 'components/cookie-popup',
+        loadChildren: () => import('./components/cookie-popup/cookie-popup.module').then(m => m.CookiePopupModule)
+      },
+      {
         path: 'components/datepicker',
         loadChildren: () => import('./components/datepicker/datepicker.module').then(m => m.DatepickerModule)
       },
