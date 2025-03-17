@@ -1,5 +1,7 @@
+@reference 'tailwindcss';
+
 :host {
-  --emr-screen-loader-bg: var(--mat-app-background-color);
+  --emr-screen-loader-bg: var(--color-background);
 
   opacity: 0;
   position: fixed;
@@ -13,6 +15,7 @@
 
   &.is-opened {
     z-index: 9999;
+    opacity: 1;
   }
 
   .message {
@@ -23,6 +26,6 @@
 
   .progress-bar {
     width: calc(var(--spacing) * 64);
-    margin-top: calc(var(--spacing) * 4);
+    margin-top: --spacing(4);
   }
 }
