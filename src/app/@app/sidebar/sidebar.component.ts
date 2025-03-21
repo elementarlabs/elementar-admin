@@ -312,6 +312,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Emoji Picker',
+          link: '/pages/components/emoji-picker'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Badge',
           link: '/pages/components/badge'
         },

@@ -1,0 +1,22 @@
+<ng-template #contentRef>
+  <div class="emoji-picker">
+    asfasfasfasf
+  </div>
+</ng-template>
+
+<div class="emoji-picker">
+  <dl>
+    @for (group of groups(); track group) {
+      <dt class="px-2">{{ group.name }}</dt>
+      <dd>
+        <div class="emoji-container">
+          @for (emoji of group.emoji; track emoji) {
+            <button class="button">
+              {{ emoji.emoji }}
+            </button>
+          }
+        </div>
+      </dd>
+    }
+  </dl>
+</div>

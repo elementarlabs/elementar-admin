@@ -112,8 +112,12 @@ const routes: Routes = [
         loadChildren: () => import('./components/chips/chips.module').then(m => m.ChipsModule)
       },
       {
-        path: 'components/cookie-popup',
-        loadChildren: () => import('./components/cookie-popup/cookie-popup.module').then(m => m.CookiePopupModule)
+        path: 'components/chips',
+        loadChildren: () => import('./components/chips/chips.module').then(m => m.ChipsModule)
+      },
+      {
+        path: 'components/emoji-picker',
+        loadChildren: () => import('./components/emoji-picker/emoji-picker.module').then(m => m.EmojiPickerModule)
       },
       {
         path: 'components/datepicker',

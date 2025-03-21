@@ -1,0 +1,39 @@
+@reference 'tailwindcss';
+
+:host {
+  display: contents;
+
+  .emoji-picker {
+    width: 312px;
+    padding: --spacing(0) --spacing(2) --spacing(2) --spacing(2);
+    background: var(--color-surface-container-lowest);
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    dt {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: --spacing(10);
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: theme(--text-sm);
+      background: var(--color-surface-container-lowest);
+    }
+
+    .emoji-container {
+      @apply flex flex-wrap;
+    }
+
+    .button {
+      @apply size-9 flex-none rounded-lg cursor-pointer flex items-center justify-center text-xl;
+
+      &:hover {
+        background: var(--color-surface-container);
+      }
+    }
+  }
+}
