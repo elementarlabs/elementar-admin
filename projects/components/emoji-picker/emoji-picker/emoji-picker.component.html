@@ -1,24 +1,42 @@
-<dl class="list" (mouseleave)="onMouseLeave()">
-  @for (group of groups(); track group) {
-    <dt class="px-2">{{ group.name }}</dt>
-    <dd>
-      <div class="emoji-container">
-        @for (emoji of group.emoji; track emoji) {
-          <button class="button"
-                  (click)="select(emoji)"
-                  (mouseover)="hoverEmoji(emoji)">
-            {{ emoji.emoji }}
-          </button>
+@if (loaded()) {
+  <dl class="list" (mouseleave)="onMouseLeave()">
+    @for (group of groups(); track group) {
+      <dt class="px-2">{{ group.name }}</dt>
+      <dd>
+        <div class="emoji-container">
+          @for (emoji of group.emoji; track emoji) {
+            <button class="button"
+                    (click)="select(emoji)"
+                    (mouseover)="hoverEmoji(emoji)">
+              {{ emoji.emoji }}
+            </button>
+          }
+        </div>
+      </dd>
+    }
+  </dl>
+  <div class="hovered-emoji">
+    @if (_hoveredEmoji()) {
+      <span class="emoji-preview">{{ _hoveredEmoji().emoji }}</span>
+      <span class="emoji-label">{{ _hoveredEmoji().label }}</span>
+    } @else {
+      <span class="select-message">{{ selectEmojiLabel() }}</span>
+    }
+  </div>
+} @else {
+  <div class="list">
+    <emr-skeleton>
+      <emr-skeleton-line class="skeleton-heading"/>
+      <div class="skeleton-list">
+        @for (block of _skeletonEmoji(); track block) {
+          <emr-skeleton-block class="size-8 rounded-sm"/>
         }
       </div>
-    </dd>
-  }
-</dl>
-<div class="hovered-emoji">
-  @if (_hoveredEmoji()) {
-    <span class="emoji-preview">{{ _hoveredEmoji().emoji }}</span>
-    <span class="emoji-label">{{ _hoveredEmoji().label }}</span>
-  } @else {
-    <span class="select-message">{{ selectEmojiLabel() }}</span>
-  }
-</div>
+    </emr-skeleton>
+  </div>
+  <div class="hovered-emoji">
+    <emr-skeleton>
+      <emr-skeleton-line class="h-4"/>
+    </emr-skeleton>
+  </div>
+}

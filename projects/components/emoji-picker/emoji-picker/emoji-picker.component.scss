@@ -16,6 +16,11 @@
   animation: .15s emr-emoji-picker-animation;
   margin: var(--emr-emoji-picker-margin) 0;
 
+  emr-skeleton {
+    --emr-skeleton-from-bg: var(--color-surface-container-high);
+    --emr-skeleton-to-bg: var(--color-surface-container-highest);
+  }
+
   .list {
     padding: --spacing(0) --spacing(2) --spacing(2) --spacing(2);
     height: 300px;
@@ -58,8 +63,13 @@
     background: var(--color-surface-container);
   }
 
+  .skeleton-list,
   .emoji-container {
     @apply flex flex-wrap;
+  }
+
+  .skeleton-list {
+    @apply gap-2 items-center justify-center;
   }
 
   .button {
@@ -68,6 +78,14 @@
     &:hover {
       background: var(--color-surface-container-highest);
     }
+  }
+
+  .skeleton-heading {
+    margin-top: --spacing(3);
+  }
+
+  .skeleton-button {
+    flex: none;
   }
 
   @keyframes emr-emoji-picker-animation {
@@ -80,5 +98,12 @@
       transform: scale(1);
       opacity: 1;
     }
+  }
+}
+
+:host-context(html.dark) {
+  emr-skeleton {
+    --emr-skeleton-from-bg: var(--color-surface-container-low);
+    --emr-skeleton-to-bg: var(--color-surface-container-lowest);
   }
 }

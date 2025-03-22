@@ -4,7 +4,7 @@
   --emr-skeleton-gap: calc(var(--spacing) * 4);
   --emr-skeleton-item-border-radius: theme(--radius-2xl);
   --emr-skeleton-from-bg: var(--color-neutral-200); // theme('colors.neutral.200/80');
-  --emr-skeleton-from-to: var(--color-neutral-300); // theme('colors.neutral.300/70');
+  --emr-skeleton-to-bg: var(--color-neutral-300); // theme('colors.neutral.300/70');
 
   display: flex;
   flex-wrap: wrap;
@@ -22,5 +22,5 @@
 
 :host-context(html.dark) {
   --emr-skeleton-from-bg: var(--color-neutral-500); // theme('colors.neutral.500/80');
-  --emr-skeleton-from-to: var(--color-neutral-600); // theme('colors.neutral.600/70');
+  --emr-skeleton-to-bg: var(--color-neutral-600); // theme('colors.neutral.600/70');
 }

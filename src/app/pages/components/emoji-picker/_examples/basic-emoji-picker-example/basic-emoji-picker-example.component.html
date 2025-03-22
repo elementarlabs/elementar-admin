@@ -1,6 +1,6 @@
 <button mat-flat-button [emrEmojiPickerTriggerFor]="emojiPicker">Pick an emoji</button>
 <ng-template #emojiPicker>
-  <emr-emoji-picker (emojiSelected)="onEmojiSelected($event)"/>
+  <emr-emoji-picker language="en" (emojiSelected)="onEmojiSelected($event)"/>
 </ng-template>
 
 @if (selectedEmoji()) {

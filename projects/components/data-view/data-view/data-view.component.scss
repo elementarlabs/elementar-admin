@@ -156,7 +156,7 @@
 
       .mdc-data-table__header-cell {
         --emr-skeleton-from-bg: var(--color-neutral-300); // theme('colors.neutral.300/60');
-        --emr-skeleton-from-to: var(--color-neutral-400); // theme('colors.neutral.400/50');
+        --emr-skeleton-to-bg: var(--color-neutral-400); // theme('colors.neutral.400/50');
       }
 
       .mat-mdc-table .mat-mdc-header-cell {
@@ -223,7 +223,7 @@
   ::ng-deep {
     .mdc-data-table__header-cell {
       --emr-skeleton-from-bg: var(--color-neutral-700); // theme('colors.neutral.700/60');
-      --emr-skeleton-from-to: var(--color-neutral-800); // theme('colors.neutral.800/50');
+      --emr-skeleton-to-bg: var(--color-neutral-800); // theme('colors.neutral.800/50');
     }
 
     .mat-mdc-table {
