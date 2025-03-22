@@ -570,6 +570,12 @@ export class SidebarComponent implements OnInit {
         {
           key: uuid(),
           type: 'link',
+          name: 'Image Resizer',
+          link: '/pages/components/image-resizer'
+        },
+        {
+          key: uuid(),
+          type: 'link',
           name: 'Comment Editor',
           link: '/pages/components/comment-editor'
         },

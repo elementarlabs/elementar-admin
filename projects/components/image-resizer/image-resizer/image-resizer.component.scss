@@ -1,0 +1,27 @@
+@reference 'tailwindcss';
+
+:host {
+  @apply block overflow-hidden select-none;
+
+  .resize-container {
+    @apply relative w-max max-w-full;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .handler {
+    @apply w-3 border-2 border-white rounded-full h-12 shadow-sm cursor-ew-resize;
+    @apply absolute top-1/2 -translate-y-1/2;
+    background: var(--color-primary);
+
+    &-start {
+      @apply start-2;
+    }
+
+    &-end {
+      @apply end-2;
+    }
+  }
+}

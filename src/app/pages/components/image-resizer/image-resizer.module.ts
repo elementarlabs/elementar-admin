@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CookiePopupRoutingModule } from './cookie-popup-routing.module';
+import { ImageResizerRoutingModule } from './image-resizer-routing.module';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    CookiePopupRoutingModule
+    ImageResizerRoutingModule
   ]
 })
-export class CookiePopupModule { }
+export class ImageResizerModule { }

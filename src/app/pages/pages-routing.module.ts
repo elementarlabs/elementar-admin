@@ -72,6 +72,10 @@ const routes: Routes = [
         loadChildren: () => import('./forms/number-input/number-input.module').then(m => m.NumberInputModule)
       },
       {
+        path: 'components/cookie-popup',
+        loadChildren: () => import('./components/cookie-popup/cookie-popup.module').then(m => m.CookiePopupModule)
+      },
+      {
         path: 'components/action-required',
         loadChildren: () => import('./components/action-required/action-required.module').then(m => m.ActionRequiredModule)
       },
@@ -286,6 +290,10 @@ const routes: Routes = [
       {
         path: 'components/image-viewer',
         loadChildren: () => import('./components/image-viewer/image-viewer.module').then(m => m.ImageViewerModule)
+      },
+      {
+        path: 'components/image-resizer',
+        loadChildren: () => import('./components/image-resizer/image-resizer.module').then(m => m.ImageResizerModule)
       },
       {
         path: 'components/marquee',
