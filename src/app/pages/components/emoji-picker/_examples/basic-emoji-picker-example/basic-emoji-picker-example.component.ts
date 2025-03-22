@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { EmojiPickerComponent, EmojiPickerTriggerForDirective } from '@elementar-ui/components/emoji-picker';
 
@@ -13,5 +13,9 @@ import { EmojiPickerComponent, EmojiPickerTriggerForDirective } from '@elementar
   styleUrl: './basic-emoji-picker-example.component.scss'
 })
 export class BasicEmojiPickerExampleComponent {
+  selectedEmoji = signal<string | null>(null);
 
+  onEmojiSelected(emoji: string) {
+    this.selectedEmoji.set(emoji);
+  }
 }

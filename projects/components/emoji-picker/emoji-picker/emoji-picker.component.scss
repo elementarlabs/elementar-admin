@@ -1,39 +1,84 @@
 @reference 'tailwindcss';
 
 :host {
-  display: contents;
+  --emr-emoji-picker-border: none;
+  --emr-emoji-picker-shadow: var(--shadow-lg);
+  --emr-emoji-picker-border-radius: theme(--radius-xl);
+  --emr-emoji-picker-bg: white;
+  --emr-emoji-picker-margin: --spacing(2.5);
 
-  .emoji-picker {
-    width: 312px;
+  display: block;
+  width: 312px;
+  background: var(--color-surface-container);
+  border-radius: var(--emr-emoji-picker-border-radius);
+  border: var(--emr-emoji-picker-border);
+  box-shadow: var(--emr-emoji-picker-shadow);
+  animation: .15s emr-emoji-picker-animation;
+  margin: var(--emr-emoji-picker-margin) 0;
+
+  .list {
     padding: --spacing(0) --spacing(2) --spacing(2) --spacing(2);
-    background: var(--color-surface-container-lowest);
     height: 300px;
     overflow-x: hidden;
     overflow-y: auto;
+  }
 
-    dt {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: --spacing(10);
-      display: flex;
-      align-items: center;
-      font-weight: 600;
-      font-size: theme(--text-sm);
-      background: var(--color-surface-container-lowest);
+  .hovered-emoji {
+    height: --spacing(11);
+    display: flex;
+    padding: 0 --spacing(4);
+    align-items: center;
+    gap: --spacing(3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .emoji-preview {
+    font-size: theme(--text-xl);
+  }
+
+  .emoji-label,
+  .select-message {
+    font-size: theme(--text-xs);
+  }
+
+  .select-message {
+    color: var(--color-neutral-500);
+  }
+
+  dt {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: --spacing(10);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: theme(--text-sm);
+    background: var(--color-surface-container);
+  }
+
+  .emoji-container {
+    @apply flex flex-wrap;
+  }
+
+  .button {
+    @apply size-9 flex-none rounded-lg cursor-pointer flex items-center justify-center text-xl;
+
+    &:hover {
+      background: var(--color-surface-container-highest);
+    }
+  }
+
+  @keyframes emr-emoji-picker-animation {
+    0% {
+      transform: scale(.9);
+      opacity: 0;
     }
 
-    .emoji-container {
-      @apply flex flex-wrap;
-    }
-
-    .button {
-      @apply size-9 flex-none rounded-lg cursor-pointer flex items-center justify-center text-xl;
-
-      &:hover {
-        background: var(--color-surface-container);
-      }
+    100% {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }

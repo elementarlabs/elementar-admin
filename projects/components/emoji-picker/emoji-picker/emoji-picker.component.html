@@ -1,22 +1,24 @@
-<ng-template #contentRef>
-  <div class="emoji-picker">
-    asfasfasfasf
-  </div>
-</ng-template>
-
-<div class="emoji-picker">
-  <dl>
-    @for (group of groups(); track group) {
-      <dt class="px-2">{{ group.name }}</dt>
-      <dd>
-        <div class="emoji-container">
-          @for (emoji of group.emoji; track emoji) {
-            <button class="button">
-              {{ emoji.emoji }}
-            </button>
-          }
-        </div>
-      </dd>
-    }
-  </dl>
+<dl class="list" (mouseleave)="onMouseLeave()">
+  @for (group of groups(); track group) {
+    <dt class="px-2">{{ group.name }}</dt>
+    <dd>
+      <div class="emoji-container">
+        @for (emoji of group.emoji; track emoji) {
+          <button class="button"
+                  (click)="select(emoji)"
+                  (mouseover)="hoverEmoji(emoji)">
+            {{ emoji.emoji }}
+          </button>
+        }
+      </div>
+    </dd>
+  }
+</dl>
+<div class="hovered-emoji">
+  @if (_hoveredEmoji()) {
+    <span class="emoji-preview">{{ _hoveredEmoji().emoji }}</span>
+    <span class="emoji-label">{{ _hoveredEmoji().label }}</span>
+  } @else {
+    <span class="select-message">{{ selectEmojiLabel() }}</span>
+  }
 </div>

@@ -34,7 +34,8 @@ const DEPENDENCIES = {
   "iconify-icon": "^2.3.0",
   "libphonenumber-js": "^1.11.15",
   "material-symbols": "^0.27.1",
-  "uuid": "^11.0.3"
+  "uuid": "^11.0.3",
+  "emojibase-data": "^16.0.2"
 };
 
 const DEV_DEPENDENCIES = {
