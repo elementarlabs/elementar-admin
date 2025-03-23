@@ -5,7 +5,7 @@ import {
   inject,
   input,
   output,
-  PLATFORM_ID, 
+  PLATFORM_ID,
   Renderer2,
   signal,
   viewChild
