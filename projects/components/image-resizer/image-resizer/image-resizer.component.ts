@@ -1,14 +1,18 @@
 import {
-  afterNextRender, AfterViewChecked, AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   inject,
-  input, numberAttribute, OnInit, output, PLATFORM_ID, Renderer2, signal, viewChild
+  input,
+  output,
+  PLATFORM_ID, 
+  Renderer2,
+  signal,
+  viewChild
 } from '@angular/core';
 import { ImageResizeHandlerDirective } from '../image-resize-handler.directive';
 import { isPlatformServer } from '@angular/common';
-import { ImageAlign, ImageResizedEvent } from '@elementar-ui/components/image-resizer/types';
+import { ImageAlign, ImageResizedEvent } from '../types';
 
 @Component({
   selector: 'emr-image-resizer',
