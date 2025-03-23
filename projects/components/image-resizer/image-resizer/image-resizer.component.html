@@ -1,13 +1,15 @@
 <div class="resize-container">
   <div emrImageResizeHandler direction="right"
-       [imageWidth]="imageWidth()"
-       [targetElement]="imageElement" class="handler handler-start"></div>
+       [imageWidth]="_imageWidth()"
+       [targetElement]="imageElement" class="handler handler-start"
+       (dimensionsChanged)="onDimensionsChanged()"></div>
   <img #imageElement
        alt=""
        [src]="imageSrc()"
        (load)="onLoad(imageElement)"
        (dragstart)="onDragStart($event)">
   <div emrImageResizeHandler direction="left"
-       [imageWidth]="imageWidth()"
-       [targetElement]="imageElement" class="handler handler-end"></div>
+       [imageWidth]="_imageWidth()"
+       [targetElement]="imageElement" class="handler handler-end"
+       (dimensionsChanged)="onDimensionsChanged()"></div>
 </div>

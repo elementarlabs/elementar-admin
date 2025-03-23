@@ -4,7 +4,7 @@ import {
   ElementRef,
   inject,
   input,
-  NgZone, numberAttribute,
+  NgZone, numberAttribute, output,
   PLATFORM_ID,
   Renderer2
 } from '@angular/core';
@@ -34,6 +34,8 @@ export class ImageResizeHandlerDirective {
   });
   targetElement = input.required<HTMLElement>();
   direction = input.required<'left' | 'right'>();
+
+  readonly dimensionsChanged = output();
 
   ngOnInit() {
     if (isPlatformServer(this._platformId)) {
@@ -79,6 +81,7 @@ export class ImageResizeHandlerDirective {
             }
 
             this._renderer.setStyle(targetElement, 'width', width + 'px');
+            this.dimensionsChanged.emit();
           }
         })
       ;

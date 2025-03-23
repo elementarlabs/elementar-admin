@@ -1,7 +1,19 @@
 @reference 'tailwindcss';
 
 :host {
-  @apply block overflow-hidden select-none;
+  @apply flex overflow-hidden select-none items-center;
+
+  &.align-start {
+    @apply justify-start;
+  }
+
+  &.align-center {
+    @apply justify-center;
+  }
+
+  &.align-end {
+    @apply justify-end;
+  }
 
   .resize-container {
     @apply relative w-max max-w-full;
@@ -14,14 +26,22 @@
   .handler {
     @apply w-3 border-2 border-white rounded-full h-12 shadow-sm cursor-ew-resize;
     @apply absolute top-1/2 -translate-y-1/2;
-    background: var(--color-primary);
+    background: var(--color-on-secondary-fixed);
+
+    &:hover {
+      background: var(--color-on-secondary-fixed-variant);
+    }
 
     &-start {
-      @apply start-2;
+      @apply start-3;
     }
 
     &-end {
-      @apply end-2;
+      @apply end-3;
+    }
+
+    &:active {
+      @apply scale-95;
     }
   }
 }

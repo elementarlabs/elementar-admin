@@ -4,10 +4,11 @@ import {
   Component,
   ElementRef,
   inject,
-  input, numberAttribute, OnInit, PLATFORM_ID, Renderer2, signal
+  input, numberAttribute, OnInit, output, PLATFORM_ID, Renderer2, signal, viewChild
 } from '@angular/core';
 import { ImageResizeHandlerDirective } from '../image-resize-handler.directive';
 import { isPlatformServer } from '@angular/common';
+import { ImageAlign, ImageResizedEvent } from '@elementar-ui/components/image-resizer/types';
 
 @Component({
   selector: 'emr-image-resizer',
@@ -20,6 +21,9 @@ import { isPlatformServer } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'class': 'emr-image-resizer',
+    '[class.align-start]': "imageAlign() === 'start'",
+    '[class.align-center]': "imageAlign() === 'center'",
+    '[class.align-end]': "imageAlign() === 'end'",
   }
 })
 export class ImageResizerComponent {
@@ -27,10 +31,15 @@ export class ImageResizerComponent {
   protected _elementRef = inject(ElementRef);
   protected _renderer = inject(Renderer2);
 
+  private _imageElement = viewChild.required<ElementRef<HTMLImageElement>>('imageElement');
+
   resizerWidth = input.required();
   imageSrc = input.required<string>();
+  imageAlign = input<ImageAlign>('center');
 
-  imageWidth = signal(0);
+  readonly imageResized = output<ImageResizedEvent>();
+
+  protected _imageWidth = signal(0);
 
   ngOnInit() {
     this._renderer.setStyle(this._elementRef.nativeElement, 'width', `${this.resizerWidth()}px`);
@@ -42,12 +51,23 @@ export class ImageResizerComponent {
     }
 
     setTimeout(() => {
-      this.imageWidth.set(imageElement.clientWidth);
+      this._imageWidth.set(imageElement.clientWidth);
     }, 100);
   }
 
   onDragStart(event: Event) {
     event.stopPropagation();
     event.preventDefault();
+  }
+
+  onDimensionsChanged() {
+    const { width, height } = this._imageElement().nativeElement.getBoundingClientRect();
+    const { naturalWidth, naturalHeight } = this._imageElement().nativeElement;
+    this.imageResized.emit({
+      width,
+      height,
+      naturalWidth,
+      naturalHeight
+    });
   }
 }
