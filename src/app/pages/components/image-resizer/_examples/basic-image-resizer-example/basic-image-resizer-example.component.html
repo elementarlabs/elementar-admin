@@ -1,6 +1,8 @@
-<emr-image-resizer imageSrc="assets/image/image.jpg"
-                   resizerWidth="818"
-                   (imageResized)="onImageResized($event)"/>
+<div class="w-[818px] min-h-[545px] flex items-center justify-center">
+  <emr-image-resizer (imageResized)="onImageResized($event)">
+    <img src="assets/image/image.jpg" alt="" emrImageResizerImage>
+  </emr-image-resizer>
+</div>
 
 @if (imageDimensionsInfo()) {
   <div class="mt-5">{{ imageDimensionsInfo() | json }}</div>

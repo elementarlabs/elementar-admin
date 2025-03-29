@@ -25,11 +25,12 @@ export class ImageResizeHandlerDirective {
   private _document = inject(DOCUMENT);
   private _resizing = false;
   private _width: number;
-  private _maxWidth: number;
   private _clientX: number;
-  private _minWidth = 100;
 
-  imageWidth = input(0, {
+  maxWidth = input.required({
+    transform: numberAttribute
+  });
+  minWidth = input.required({
     transform: numberAttribute
   });
   targetElement = input.required<HTMLElement>();
@@ -43,16 +44,11 @@ export class ImageResizeHandlerDirective {
     }
 
     const targetElement = this.targetElement();
-    this._maxWidth = targetElement.getBoundingClientRect().width;
 
     this._ngZone.runOutsideAngular(() => {
       fromEvent<MouseEvent>(this._elementRef.nativeElement, 'mousedown')
         .pipe(takeUntilDestroyed(this._destroyRef))
         .subscribe((event: MouseEvent) => {
-          if (this.imageWidth() === 0) {
-            return;
-          }
-
           this._resizing = true;
           this._width = targetElement.getBoundingClientRect().width;
           this._clientX = event.clientX;
@@ -74,10 +70,10 @@ export class ImageResizeHandlerDirective {
               width = (this._width - (event.clientX - this._clientX));
             }
 
-            if (width <= this._minWidth) {
-              width = this._minWidth;
-            } else if (width >= this.imageWidth()) {
-              width = this.imageWidth();
+            if (width <= this.minWidth()) {
+              width = this.minWidth();
+            } else if (width >= this.maxWidth()) {
+              width = this.maxWidth();
             }
 
             this._renderer.setStyle(targetElement, 'width', width + 'px');

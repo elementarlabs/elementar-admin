@@ -4,5 +4,3 @@ export interface ImageResizedEvent {
   naturalWidth: number;
   naturalHeight: number;
 }
-
-export type ImageAlign = 'start' | 'center' | 'end';

@@ -2,6 +2,7 @@
 
 :host {
   @apply flex overflow-hidden select-none items-center;
+  @apply relative w-max max-w-full;
 
   &.align-start {
     @apply justify-start;
@@ -15,22 +16,14 @@
     @apply justify-end;
   }
 
-  .resize-container {
-    @apply relative w-max max-w-full;
-  }
-
   img {
     max-width: 100%;
   }
 
   .handler {
     @apply w-3 border-2 border-white rounded-full h-12 shadow-sm cursor-ew-resize;
-    @apply absolute top-1/2 -translate-y-1/2;
-    background: var(--color-on-secondary-fixed);
-
-    &:hover {
-      background: var(--color-on-secondary-fixed-variant);
-    }
+    @apply absolute top-1/2 -translate-y-1/2 bg-[var(--color-white)];
+    border: 4px solid var(--color-on-secondary-fixed);
 
     &-start {
       @apply start-3;

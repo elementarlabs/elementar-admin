@@ -1,12 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { ImageResizedEvent, ImageResizerComponent } from '@elementar-ui/components/image-resizer';
+import {
+  ImageResizedEvent,
+  ImageResizerComponent,
+  ImageResizerImageDirective
+} from '@elementar-ui/components/image-resizer';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-basic-image-resizer-example',
   imports: [
     ImageResizerComponent,
-    JsonPipe
+    JsonPipe,
+    ImageResizerImageDirective
   ],
   templateUrl: './basic-image-resizer-example.component.html',
   styleUrl: './basic-image-resizer-example.component.scss'

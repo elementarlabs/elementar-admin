@@ -1,18 +1,18 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
-  Component,
+  Component, contentChild,
   ElementRef,
-  inject,
-  input,
+  inject, input, numberAttribute,
   output,
   PLATFORM_ID,
   Renderer2,
   signal,
-  viewChild
 } from '@angular/core';
 import { ImageResizeHandlerDirective } from '../image-resize-handler.directive';
 import { isPlatformServer } from '@angular/common';
-import { ImageAlign, ImageResizedEvent } from '../types';
+import { ImageResizedEvent } from '../types';
+import { ImageResizerImageDirective } from '../image-resizer-image.directive';
 
 @Component({
   selector: 'emr-image-resizer',
@@ -24,49 +24,39 @@ import { ImageAlign, ImageResizedEvent } from '../types';
   styleUrl: './image-resizer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'class': 'emr-image-resizer',
-    '[class.align-start]': "imageAlign() === 'start'",
-    '[class.align-center]': "imageAlign() === 'center'",
-    '[class.align-end]': "imageAlign() === 'end'",
+    'class': 'emr-image-resizer'
   }
 })
-export class ImageResizerComponent {
+export class ImageResizerComponent implements AfterContentInit {
   protected _platformId = inject(PLATFORM_ID);
   protected _elementRef = inject(ElementRef);
   protected _renderer = inject(Renderer2);
 
-  private _imageElement = viewChild.required<ElementRef<HTMLImageElement>>('imageElement');
+  readonly imageRef = contentChild.required(ImageResizerImageDirective);
 
-  resizerWidth = input.required();
-  imageSrc = input.required<string>();
-  imageAlign = input<ImageAlign>('center');
+  minWidth = input(100, {
+    transform: numberAttribute
+  });
 
   readonly imageResized = output<ImageResizedEvent>();
 
-  protected _imageWidth = signal(0);
+  protected _maxWidth = signal(0);
 
-  ngOnInit() {
-    this._renderer.setStyle(this._elementRef.nativeElement, 'width', `${this.resizerWidth()}px`);
-  }
-
-  onLoad(imageElement: HTMLImageElement) {
+  ngAfterContentInit() {
     if (isPlatformServer(this._platformId)) {
       return;
     }
 
-    setTimeout(() => {
-      this._imageWidth.set(imageElement.clientWidth);
-    }, 100);
-  }
-
-  onDragStart(event: Event) {
-    event.stopPropagation();
-    event.preventDefault();
+    this.imageRef().elementRef.nativeElement
+      .onload = () => {
+        const { width } = this.imageRef().elementRef.nativeElement.getBoundingClientRect();
+        this._maxWidth.set(width);
+      };
   }
 
   onDimensionsChanged() {
-    const { width, height } = this._imageElement().nativeElement.getBoundingClientRect();
-    const { naturalWidth, naturalHeight } = this._imageElement().nativeElement;
+    const { width, height } = this.imageRef().elementRef.nativeElement.getBoundingClientRect();
+    const { naturalWidth, naturalHeight } = this.imageRef().elementRef.nativeElement;
     this.imageResized.emit({
       width,
       height,

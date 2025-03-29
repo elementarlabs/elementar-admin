@@ -1,15 +1,11 @@
-<div class="resize-container">
-  <div emrImageResizeHandler direction="right"
-       [imageWidth]="_imageWidth()"
-       [targetElement]="imageElement" class="handler handler-start"
-       (dimensionsChanged)="onDimensionsChanged()"></div>
-  <img #imageElement
-       alt=""
-       [src]="imageSrc()"
-       (load)="onLoad(imageElement)"
-       (dragstart)="onDragStart($event)">
-  <div emrImageResizeHandler direction="left"
-       [imageWidth]="_imageWidth()"
-       [targetElement]="imageElement" class="handler handler-end"
-       (dimensionsChanged)="onDimensionsChanged()"></div>
-</div>
+<div emrImageResizeHandler direction="right"
+     [maxWidth]="_maxWidth()"
+     [minWidth]="minWidth()"
+     [targetElement]="imageRef().elementRef.nativeElement" class="handler handler-start"
+     (dimensionsChanged)="onDimensionsChanged()"></div>
+<ng-content select="[emrImageResizerImage]"/>
+<div emrImageResizeHandler direction="left"
+     [maxWidth]="_maxWidth()"
+     [minWidth]="minWidth()"
+     [targetElement]="imageRef().elementRef.nativeElement" class="handler handler-end"
+     (dimensionsChanged)="onDimensionsChanged()"></div>
