@@ -5,6 +5,7 @@ import {
 } from '../_examples/basic-emoji-picker-example/basic-emoji-picker-example.component';
 import { PlaygroundComponent } from '@meta/playground/playground.component';
 import { PageComponent } from '@meta/page/page.component';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-overview',
@@ -12,7 +13,9 @@ import { PageComponent } from '@meta/page/page.component';
     PageContentDirective,
     BasicEmojiPickerExampleComponent,
     PlaygroundComponent,
-    PageComponent
+    PageComponent,
+    MatTab,
+    MatTabGroup
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
