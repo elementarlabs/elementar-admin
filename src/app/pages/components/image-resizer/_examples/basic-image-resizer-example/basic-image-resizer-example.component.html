@@ -1,6 +1,6 @@
-<div class="w-[818px] min-h-[545px] flex items-center justify-center">
-  <emr-image-resizer (imageResized)="onImageResized($event)">
-    <img src="assets/image/image.jpg" alt="" emrImageResizerImage>
+<div #container class="w-[818px] min-h-[545px] flex items-center justify-center">
+  <emr-image-resizer (imageResized)="onImageResized($event)" [imageMaxWidth]="818">
+    <img src="assets/image/image.jpg" alt="" emrImageResizerImage width="525">
   </emr-image-resizer>
 </div>
 

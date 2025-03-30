@@ -1,7 +1,7 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
-  Component, contentChild,
+  Component, contentChild, effect,
   ElementRef,
   inject, input, numberAttribute,
   output,
@@ -34,13 +34,22 @@ export class ImageResizerComponent implements AfterContentInit {
 
   readonly imageRef = contentChild.required(ImageResizerImageDirective);
 
-  minWidth = input(100, {
+  imageMaxWidth = input(null, {
+    transform: numberAttribute
+  });
+  imageMinWidth = input(100, {
     transform: numberAttribute
   });
 
   readonly imageResized = output<ImageResizedEvent>();
 
-  protected _maxWidth = signal(0);
+  protected _maxWidth = signal<number | null>(null);
+
+  constructor() {
+    effect(() => {
+      this._maxWidth.set(this.imageMaxWidth());
+    });
+  }
 
   ngAfterContentInit() {
     if (isPlatformServer(this._platformId)) {
@@ -49,8 +58,13 @@ export class ImageResizerComponent implements AfterContentInit {
 
     this.imageRef().elementRef.nativeElement
       .onload = () => {
-        const { width } = this.imageRef().elementRef.nativeElement.getBoundingClientRect();
-        this._maxWidth.set(width);
+        setTimeout(() => {
+          const { width } = this.imageRef().elementRef.nativeElement.getBoundingClientRect();
+
+          if (this.imageMaxWidth() === null) {
+            this._maxWidth.set(width);
+          }
+        }, 100);
       };
   }
 

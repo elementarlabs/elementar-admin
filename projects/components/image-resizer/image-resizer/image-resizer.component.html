@@ -1,11 +1,11 @@
 <div emrImageResizeHandler direction="right"
      [maxWidth]="_maxWidth()"
-     [minWidth]="minWidth()"
+     [minWidth]="imageMinWidth()"
      [targetElement]="imageRef().elementRef.nativeElement" class="handler handler-start"
      (dimensionsChanged)="onDimensionsChanged()"></div>
 <ng-content select="[emrImageResizerImage]"/>
 <div emrImageResizeHandler direction="left"
      [maxWidth]="_maxWidth()"
-     [minWidth]="minWidth()"
+     [minWidth]="imageMinWidth()"
      [targetElement]="imageRef().elementRef.nativeElement" class="handler handler-end"
      (dimensionsChanged)="onDimensionsChanged()"></div>
