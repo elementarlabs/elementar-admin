@@ -8,9 +8,15 @@ import { MatIconButton } from '@angular/material/button';
 import { ToolbarComponent } from '@store/sidebar';
 import {
   SidebarBodyComponent,
-  SidebarCompactViewModeDirective, SidebarFooterComponent,
-  SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent,
-  SidebarComponent as EmrSidebarComponent
+  SidebarCompactViewModeDirective,
+  SidebarFooterComponent,
+  SidebarFullViewModeDirective,
+  SidebarHeaderComponent,
+  SidebarNavComponent,
+  SidebarComponent as EmrSidebarComponent,
+  SidebarNavGroupComponent,
+  SidebarNavItemComponent,
+  SidebarNavGroupDefDirective, SidebarNavItemDefDirective, SidebarNavLinkItemDefDirective
 } from '@elementar-ui/components/sidebar';
 import { LogoComponent } from '@elementar-ui/components/logo';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
@@ -31,7 +37,12 @@ import { NavigationItem } from '@elementar-ui/components/navigation';
     SidebarNavComponent,
     DicebearComponent,
     MatIconButton,
-    LogoComponent
+    LogoComponent,
+    SidebarNavGroupComponent,
+    SidebarNavItemComponent,
+    SidebarNavGroupDefDirective,
+    SidebarNavItemDefDirective,
+    SidebarNavLinkItemDefDirective
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

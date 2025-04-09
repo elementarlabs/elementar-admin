@@ -1,7 +1,14 @@
 import { Component, model } from '@angular/core';
-import { DataViewColumnDef, DataViewComponent } from '@elementar-ui/components/data-view';
+import {
+  DataViewActionBarComponent,
+  DataViewActionBarDirective,
+  DataViewColumnDef,
+  DataViewComponent
+} from '@elementar-ui/components/data-view';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 export interface PeriodicElement {
   name: string;
@@ -24,7 +31,12 @@ const DATA: PeriodicElement[] = [
     DataViewComponent,
     MatRadioButton,
     MatRadioGroup,
-    FormsModule
+    FormsModule,
+    DataViewActionBarComponent,
+    DataViewActionBarDirective,
+    MatIconButton,
+    MatButton,
+    MatIcon
   ],
   templateUrl: './data-view-loading-state-example.component.html',
   styleUrl: './data-view-loading-state-example.component.scss'

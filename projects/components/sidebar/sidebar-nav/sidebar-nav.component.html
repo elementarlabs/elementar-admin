@@ -1,88 +1,91 @@
-<emr-navigation #navigation [activeKey]="activeKey()" class="h-full" (itemClicked)="itemClicked.emit($event)">
-  @for (navItem of navItems(); track navItem) {
-    @switch (navItem.type) {
-      @case ('heading') {
-        <emr-navigation-heading>{{ navItem.name }}</emr-navigation-heading>
-      }
-      @case ('divider') {
-        <emr-navigation-divider/>
-      }
-      @case ('group') {
-        <emr-navigation-group>
-          <emr-navigation-group-toggle [for]="navItem.key">
-            @if (navItem.icon) {
-              <ng-container emrNavigationItemIcon>
-                @if (_itemIconRef()) {
-                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
-                } @else {
-                  <mat-icon>{{ navItem.icon }}</mat-icon>
-                }
-              </ng-container>
-            }
-            {{ navItem.name }}
-            @if (navItem.badge) {
-              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
-            }
-            <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
-          </emr-navigation-group-toggle>
-          <emr-navigation-group-menu [key]="navItem.key">
-            @for (childItem of navItem.children | orderBy:'name'; track childItem) {
-              @if (childItem.type === 'link') {
-                <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.key">
-                  {{ childItem.name }}
-                  @if (childItem.badge) {
-                    <div emrNavigationItemBadge>
-                      <span matBadge>{{ childItem.badge }}</span>
-                    </div>
+@if (false) {
+  <emr-navigation #navigation [activeKey]="activeKey()" class="h-full" (itemClicked)="itemClicked.emit($event)">
+    @for (navItem of navItems(); track navItem) {
+      @switch (navItem.type) {
+        @case ('heading') {
+          <emr-navigation-heading>{{ navItem.name }}</emr-navigation-heading>
+        }
+        @case ('divider') {
+          <emr-navigation-divider/>
+        }
+        @case ('group') {
+          <emr-navigation-group>
+            <emr-navigation-group-toggle [for]="navItem.key">
+              @if (navItem.icon) {
+                <ng-container emrNavigationItemIcon>
+                  @if (_itemIconRef()) {
+                    <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                  } @else {
+                    <mat-icon>{{ navItem.icon }}</mat-icon>
                   }
-                </a>
-              } @else {
-                <emr-navigation-item [key]="childItem.key">
-                  {{ childItem.name }}
-                  @if (childItem.badge) {
-                    <span emrNavigationItemBadge>{{ childItem.badge }}</span>
-                  }
-                </emr-navigation-item>
+                </ng-container>
               }
-            }
-          </emr-navigation-group-menu>
-        </emr-navigation-group>
-      }
-      @default {
-        @if (navItem.type === 'link') {
-          <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.key">
-            @if (navItem.icon) {
-              <ng-container emrNavigationItemIcon>
-                @if (_itemIconRef()) {
-                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+              {{ navItem.name }}
+              @if (navItem.badge) {
+                <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+              }
+              <mat-icon emrNavigationGroupToggleIcon>arrow_drop_down</mat-icon>
+            </emr-navigation-group-toggle>
+            <emr-navigation-group-menu [key]="navItem.key">
+              @for (childItem of navItem.children | orderBy:'name'; track childItem) {
+                @if (childItem.type === 'link') {
+                  <a emr-navigation-item [routerLink]="childItem.link" [key]="childItem.key">
+                    {{ childItem.name }}
+                    @if (childItem.badge) {
+                      <div emrNavigationItemBadge>
+                        <span matBadge>{{ childItem.badge }}</span>
+                      </div>
+                    }
+                  </a>
                 } @else {
-                  <mat-icon>{{ navItem.icon }}</mat-icon>
+                  <emr-navigation-item [key]="childItem.key">
+                    {{ childItem.name }}
+                    @if (childItem.badge) {
+                      <span emrNavigationItemBadge>{{ childItem.badge }}</span>
+                    }
+                  </emr-navigation-item>
                 }
-              </ng-container>
-            }
-            {{ navItem.name }}
-            @if (navItem.badge) {
-              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
-            }
-          </a>
-        } @else {
-          <emr-navigation-item [key]="navItem.key">
-            @if (navItem.icon) {
-              <ng-container emrNavigationItemIcon>
-                @if (_itemIconRef()) {
-                  <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
-                } @else {
-                  <mat-icon>{{ navItem.icon }}</mat-icon>
-                }
-              </ng-container>
-            }
-            {{ navItem.name }}
-            @if (navItem.badge) {
-              <span emrNavigationItemBadge>{{ navItem.badge }}</span>
-            }
-          </emr-navigation-item>
+              }
+            </emr-navigation-group-menu>
+          </emr-navigation-group>
+        }
+        @default {
+          @if (navItem.type === 'link') {
+            <a emr-navigation-item [routerLink]="navItem.link" [key]="navItem.key">
+              @if (navItem.icon) {
+                <ng-container emrNavigationItemIcon>
+                  @if (_itemIconRef()) {
+                    <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                  } @else {
+                    <mat-icon>{{ navItem.icon }}</mat-icon>
+                  }
+                </ng-container>
+              }
+              {{ navItem.name }}
+              @if (navItem.badge) {
+                <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+              }
+            </a>
+          } @else {
+            <emr-navigation-item [key]="navItem.key">
+              @if (navItem.icon) {
+                <ng-container emrNavigationItemIcon>
+                  @if (_itemIconRef()) {
+                    <ng-container *ngTemplateOutlet="iconTemplateRef; context: { $implicit: navItem.icon }"/>
+                  } @else {
+                    <mat-icon>{{ navItem.icon }}</mat-icon>
+                  }
+                </ng-container>
+              }
+              {{ navItem.name }}
+              @if (navItem.badge) {
+                <span emrNavigationItemBadge>{{ navItem.badge }}</span>
+              }
+            </emr-navigation-item>
+          }
         }
       }
     }
-  }
-</emr-navigation>
+  </emr-navigation>
+}
+

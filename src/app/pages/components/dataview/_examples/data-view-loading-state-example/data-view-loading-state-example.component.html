@@ -8,4 +8,11 @@
 <emr-data-view [columnDefs]="columnDefs"
                [data]="data"
                [loading]="true"
-               [variant]="variant()"></emr-data-view>
+               [variant]="variant()">
+  <emr-data-view-action-bar *emrDataViewActionBar="let row">
+    <button mat-stroked-button>Edit</button>
+    <button mat-icon-button>
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </emr-data-view-action-bar>
+</emr-data-view>
