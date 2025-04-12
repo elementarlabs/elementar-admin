@@ -1,1 +1,12 @@
-<p>sidebar-nav-item works!</p>
+<div class="inner" matRipple>
+  <div class="icon">
+    <ng-content select="[emrSidebarNavItemIcon]"/>
+    @if (iconRef()) {
+      <ng-container [ngTemplateOutlet]="iconRefTemplate"/>
+    }
+  </div>
+  <span class="text grow"><ng-content/></span>
+  <div class="badge">
+    <ng-content select="[emrSidebarNavItemBadge]"/>
+  </div>
+</div>

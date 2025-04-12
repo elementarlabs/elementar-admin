@@ -14,9 +14,10 @@
   </emr-sidebar-header>
   <emr-sidebar-body class="body">
     <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems">
-      <emr-sidebar-nav-group *emrSidebarNavGroupDef="let node"></emr-sidebar-nav-group>
       <emr-sidebar-nav-item *emrSidebarNavItemDef="let node">{{ node.name }}</emr-sidebar-nav-item>
-      <a emr-sidebar-nav-item *emrSidebarNavLinkItemDef="let node">{{ node.name }}</a>
+      <a emr-sidebar-nav-item *emrSidebarNavItemDef="let node; is: isLink" [routerLink]="node.link">{{ node.name }}</a>
+      <emr-sidebar-nav-group *emrSidebarNavItemDef="let node; is: isGroup"></emr-sidebar-nav-group>
+      <emr-sidebar-nav-heading *emrSidebarNavItemDef="let node; is: isHeading">{{ node.name }}</emr-sidebar-nav-heading>
     </emr-sidebar-nav>
   </emr-sidebar-body>
   <emr-sidebar-footer class="footer">

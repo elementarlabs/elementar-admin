@@ -1,0 +1,11 @@
+<div class="icon"><ng-content select="[emrSedebarNavItemIcon]"/></div>
+<span class="text grow"><ng-content/></span>
+<div class="badge">
+  <ng-content select="[emrSeidebarNavItemBadge]"/>
+</div>
+<div class="toggle">
+  <ng-content select="[emrSidebarNavGroupToggleIcon]"/>
+  @if (iconRef()) {
+    <ng-container [ngTemplateOutlet]="iconRefTemplate"/>
+  }
+</div>

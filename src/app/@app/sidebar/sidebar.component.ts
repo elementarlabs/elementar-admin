@@ -16,7 +16,8 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarNavGroupComponent,
   SidebarNavItemComponent,
-  SidebarNavGroupDefDirective, SidebarNavItemDefDirective, SidebarNavLinkItemDefDirective
+  SidebarNavGroupDefDirective,
+  SidebarNavItemDefDirective, SidebarNavHeadingComponent
 } from '@elementar-ui/components/sidebar';
 import { LogoComponent } from '@elementar-ui/components/logo';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
@@ -42,7 +43,7 @@ import { NavigationItem } from '@elementar-ui/components/navigation';
     SidebarNavItemComponent,
     SidebarNavGroupDefDirective,
     SidebarNavItemDefDirective,
-    SidebarNavLinkItemDefDirective
+    SidebarNavHeadingComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
@@ -884,6 +885,18 @@ export class SidebarComponent implements OnInit {
         this._activateLink();
       })
     ;
+  }
+
+  isLink(navItem: any) {
+    return navItem.type === 'link';
+  }
+
+  isGroup(navItem: any) {
+    return navItem.children?.length > 0;
+  }
+
+  isHeading(navItem: any) {
+    return navItem.type === 'heading';
   }
 
   private _activateLink() {
