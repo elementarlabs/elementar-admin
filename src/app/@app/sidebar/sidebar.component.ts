@@ -16,12 +16,18 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarNavGroupComponent,
   SidebarNavItemComponent,
-  SidebarNavGroupDefDirective,
-  SidebarNavItemDefDirective, SidebarNavHeadingComponent
+  SidebarNavItemDefDirective,
+  SidebarNavHeadingComponent,
+  SidebarNavItemIconDirective,
+  SidebarNavItemBadgeDirective,
+  SidebarNavGroupToggleComponent, SidebarNavGroupMenuComponent
 } from '@elementar-ui/components/sidebar';
 import { LogoComponent } from '@elementar-ui/components/logo';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
 import { NavigationItem } from '@elementar-ui/components/navigation';
+import {
+  SidebarNavGroupToggleIconDirective
+} from '@elementar-ui/components/sidebar/sidebar-nav-group-toggle-icon.directive';
 
 @Component({
   selector: 'app-sidebar',
@@ -41,9 +47,13 @@ import { NavigationItem } from '@elementar-ui/components/navigation';
     LogoComponent,
     SidebarNavGroupComponent,
     SidebarNavItemComponent,
-    SidebarNavGroupDefDirective,
     SidebarNavItemDefDirective,
-    SidebarNavHeadingComponent
+    SidebarNavHeadingComponent,
+    SidebarNavItemIconDirective,
+    SidebarNavItemBadgeDirective,
+    SidebarNavGroupToggleIconDirective,
+    SidebarNavGroupToggleComponent,
+    SidebarNavGroupMenuComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

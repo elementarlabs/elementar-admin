@@ -16,7 +16,23 @@
     <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems">
       <emr-sidebar-nav-item *emrSidebarNavItemDef="let node">{{ node.name }}</emr-sidebar-nav-item>
       <a emr-sidebar-nav-item *emrSidebarNavItemDef="let node; is: isLink" [routerLink]="node.link">{{ node.name }}</a>
-      <emr-sidebar-nav-group *emrSidebarNavItemDef="let node; is: isGroup"></emr-sidebar-nav-group>
+      <emr-sidebar-nav-group *emrSidebarNavItemDef="let node; is: isGroup">
+        <emr-sidebar-nav-group-toggle [for]="node.key">
+          <ng-container emrSedebarNavItemIcon>
+            @if (node.icon) {
+              <mat-icon>{{ node.icon }}</mat-icon>
+            }
+          </ng-container>
+          {{ node.name }}
+          @if (node.badge) {
+            <span emrSidebarNavItemBadge>{{ node.badge }}</span>
+          }
+          <mat-icon emrSidebarNavGroupToggleIcon>arrow_drop_down</mat-icon>
+        </emr-sidebar-nav-group-toggle>
+        <emr-sidebar-nav-group-menu [key]="node.key" [activeKey]="activeKey" [navItems]="node.children">
+          <a emr-sidebar-nav-item *emrSidebarNavItemDef="let child; is: isLink" [routerLink]="child.link">{{ child.name }}</a>
+        </emr-sidebar-nav-group-menu>
+      </emr-sidebar-nav-group>
       <emr-sidebar-nav-heading *emrSidebarNavItemDef="let node; is: isHeading">{{ node.name }}</emr-sidebar-nav-heading>
     </emr-sidebar-nav>
   </emr-sidebar-body>

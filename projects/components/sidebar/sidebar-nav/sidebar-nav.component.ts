@@ -1,5 +1,6 @@
 import {
-  afterNextRender, ChangeDetectionStrategy,
+  afterNextRender,
+  ChangeDetectionStrategy,
   Component,
   contentChild,
   contentChildren,
@@ -9,23 +10,12 @@ import {
   output, Renderer2, SimpleChanges,
   TemplateRef
 } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { RouterLink } from '@angular/router';
-import { MatBadge } from '@angular/material/badge';
-import { OrderByPipe } from '@elementar-ui/components/core';
 import { SidebarNavItemIconDirective } from '../sidebar-nav-item-icon.directive';
-import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import {
-  SidebarNavGroupComponent,
-  SidebarNavGroupMenuComponent,
-  SidebarNavGroupToggleComponent, SidebarNavHeadingComponent,
-  SidebarNavItemBadgeDirective,
   SidebarNavItemComponent,
   SidebarNavItemDefDirective
 } from '@elementar-ui/components/sidebar';
-import {
-  SidebarNavGroupToggleIconDirective
-} from '@elementar-ui/components/sidebar/sidebar-nav-group-toggle-icon.directive';
 import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
 import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
 
@@ -33,7 +23,6 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
   selector: 'emr-sidebar-nav',
   exportAs: 'emrSidebarNav',
   imports: [
-    NgComponentOutlet,
     NgTemplateOutlet
   ],
   styleUrl: './sidebar-nav.component.scss',
@@ -57,16 +46,10 @@ export class SidebarNavComponent<T extends any> {
 
   private _navItemDefs = contentChildren(SidebarNavItemDefDirective);
 
-  protected _itemIconRef = contentChild(SidebarNavItemIconDirective);
-
   activeKey = input();
   navItems = input<T[]>([]);
 
   readonly itemClicked = output<any>();
-
-  get iconTemplateRef(): TemplateRef<any> {
-    return this._itemIconRef()?.templateRef as TemplateRef<any>;
-  }
 
   readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
