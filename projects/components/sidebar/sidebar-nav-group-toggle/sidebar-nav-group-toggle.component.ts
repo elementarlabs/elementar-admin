@@ -20,7 +20,7 @@ import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-n
 export class SidebarNavGroupToggleComponent {
   readonly api = inject(SidebarNavApiService);
 
-  for = input<any>();
+  for = input<any>(Math.random());
 
   get active(): boolean {
     return this.api.isGroupActive(this.for());

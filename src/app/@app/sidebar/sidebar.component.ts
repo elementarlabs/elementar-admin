@@ -16,11 +16,11 @@ import {
   SidebarComponent as EmrSidebarComponent,
   SidebarNavGroupComponent,
   SidebarNavItemComponent,
-  SidebarNavItemDefDirective,
   SidebarNavHeadingComponent,
-  SidebarNavItemIconDirective,
   SidebarNavItemBadgeDirective,
-  SidebarNavGroupToggleComponent, SidebarNavGroupMenuComponent
+  SidebarNavGroupToggleComponent,
+  SidebarNavGroupMenuComponent,
+  SidebarNavItemIconDirective
 } from '@elementar-ui/components/sidebar';
 import { LogoComponent } from '@elementar-ui/components/logo';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
@@ -47,13 +47,12 @@ import {
     LogoComponent,
     SidebarNavGroupComponent,
     SidebarNavItemComponent,
-    SidebarNavItemDefDirective,
     SidebarNavHeadingComponent,
-    SidebarNavItemIconDirective,
     SidebarNavItemBadgeDirective,
     SidebarNavGroupToggleIconDirective,
     SidebarNavGroupToggleComponent,
-    SidebarNavGroupMenuComponent
+    SidebarNavGroupMenuComponent,
+    SidebarNavItemIconDirective
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
@@ -901,12 +900,12 @@ export class SidebarComponent implements OnInit {
     return navItem.type === 'link';
   }
 
-  isGroup(navItem: any) {
-    return navItem.children?.length > 0;
-  }
-
   isHeading(navItem: any) {
     return navItem.type === 'heading';
+  }
+
+  isGroupToggle(navItem: any) {
+    return navItem.type === 'group';
   }
 
   private _activateLink() {

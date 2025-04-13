@@ -2,7 +2,6 @@ import {
   afterNextRender,
   ChangeDetectionStrategy,
   Component,
-  contentChild,
   contentChildren,
   ElementRef, forwardRef,
   inject,
@@ -10,7 +9,6 @@ import {
   output, Renderer2, SimpleChanges,
   TemplateRef
 } from '@angular/core';
-import { SidebarNavItemIconDirective } from '../sidebar-nav-item-icon.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import {
   SidebarNavItemComponent,
@@ -25,8 +23,8 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
   imports: [
     NgTemplateOutlet
   ],
-  styleUrl: './sidebar-nav.component.scss',
   templateUrl: './sidebar-nav.component.html',
+  styleUrl: './sidebar-nav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -44,7 +42,7 @@ export class SidebarNavComponent<T extends any> {
   private _elementRef = inject(ElementRef);
   private _renderer = inject(Renderer2);
 
-  private _navItemDefs = contentChildren(SidebarNavItemDefDirective);
+  readonly navItemDefs = contentChildren(SidebarNavItemDefDirective);
 
   activeKey = input();
   navItems = input<T[]>([]);
@@ -91,17 +89,17 @@ export class SidebarNavComponent<T extends any> {
     }
   }
 
-  getTemplate(item: any): TemplateRef<any> {
-    for (let navItemDef of this._navItemDefs()) {
-      const isFn = navItemDef.emrSidebarNavItemDefIs();
-
-      if (isFn && isFn(item)) {
-        return navItemDef.templateRef;
-      }
-    }
-
-    return this._navItemDefs()[0].templateRef;
-  }
+  // getTemplate(item: any): TemplateRef<any> {
+  //   for (let navItemDef of this.navItemDefs()) {
+  //     const isFn = navItemDef.emrSidebarNavItemDefIs();
+  //
+  //     if (isFn && isFn(item)) {
+  //       return navItemDef.templateRef;
+  //     }
+  //   }
+  //
+  //   return this.navItemDefs()[0].templateRef;
+  // }
 
   private _hasScroll(element: HTMLElement): boolean {
     if (!element.getBoundingClientRect) {

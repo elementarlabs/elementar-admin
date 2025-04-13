@@ -14,6 +14,8 @@ import { SidebarNavComponent } from '@elementar-ui/components/sidebar';
   styleUrl: './sidebar-nav-item.component.scss',
   host: {
     'class': 'emr-sidebar-nav-item',
+    '[class.is-active]': 'forceActive() || active',
+    '(click)': 'click($event)'
   }
 })
 export class SidebarNavItemComponent {

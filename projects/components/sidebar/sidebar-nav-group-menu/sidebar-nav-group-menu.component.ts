@@ -10,8 +10,9 @@ import {
 import { NavigationItemComponent } from '@elementar-ui/components/navigation';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
-import { SidebarNavItemDefDirective } from '@elementar-ui/components/sidebar';
+import { SidebarNavComponent, SidebarNavItemDefDirective } from '@elementar-ui/components/sidebar';
 import { NgTemplateOutlet } from '@angular/common';
+import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
 
 @Component({
   selector: 'emr-sidebar-nav-group-menu',
@@ -26,6 +27,7 @@ import { NgTemplateOutlet } from '@angular/common';
   }
 })
 export class SidebarNavGroupMenuComponent implements AfterContentInit {
+  readonly navigation = inject<SidebarNavComponent<any>>(NAVIGATION);
   readonly api = inject(SidebarNavApiService);
   private _cdr = inject(ChangeDetectorRef);
   private _destroyRef = inject(DestroyRef);
@@ -54,17 +56,17 @@ export class SidebarNavGroupMenuComponent implements AfterContentInit {
     ;
   }
 
-  getTemplate(item: any): TemplateRef<any> {
-    for (let navItemDef of this._navItemDefs()) {
-      const isFn = navItemDef.emrSidebarNavItemDefIs();
-
-      if (isFn && isFn(item)) {
-        return navItemDef.templateRef;
-      }
-    }
-
-    return this._navItemDefs()[0].templateRef;
-  }
+  // getTemplate(item: any): TemplateRef<any> {
+  //   for (let navItemDef of this.navigation.navItemDefs()) {
+  //     const isFn = navItemDef.emrSidebarNavItemDefIs();
+  //
+  //     if (isFn && isFn(item)) {
+  //       return navItemDef.templateRef;
+  //     }
+  //   }
+  //
+  //   return this._navItemDefs()[0].templateRef;
+  // }
 
   private _detectGroupIsActive() {
     const isGroupActive = this._items().filter(

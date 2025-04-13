@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   display: block;
   text-decoration: none;
@@ -54,9 +56,55 @@
     background: var(--color-surface-tint);
     color: var(--color-on-primary);
   }
+
+  .icon {
+    position: relative;
+    left: -1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: var(--emr-sidebar-nav-item-icon-width);
+    color: var(--emr-sidebar-nav-item-icon-color);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    .inner {
+      background-color: var(--emr-sidebar-nav-item-hover-bg);
+      color: var(--emr-sidebar-nav-item-hover-color);
+    }
+  }
+
+  &.is-active,
+  &.is-active:hover {
+    .inner {
+      background-color: var(--emr-sidebar-nav-item-active-bg);
+      color: var(--emr-sidebar-nav-item-active-color);
+    }
+  }
+
+  &.is-active {
+    .icon {
+      color: var(--emr-sidebar-nav-item-active-icon-color);
+    }
+  }
+
+  &:not(.is-active):hover {
+    text-decoration: none;
+
+    .icon {
+      color: var(--emr-sidebar-nav-item-hover-icon-color);
+    }
+  }
 }
 
-:host-context(.emr-navigation-group-menu) {
+:host-context(.emr-sidebar-nav-group-menu) {
   .inner {
     margin: var(--emr-sidebar-nav-nested-item-margin);
     width: calc(var(--emr-sidebar-nav-item-width) - var(--emr-sidebar-nav-nested-item-margin));
@@ -102,55 +150,5 @@
     border-bottom-left-radius: calc(var(--emr-sidebar-nav-nested-item-height) / 4);
     border-left: 1px solid var(--emr-sidebar-nav-group-tree-lines-color);
     border-bottom: 1px solid var(--emr-sidebar-nav-group-tree-lines-color);
-  }
-}
-
-:host(:hover) {
-  text-decoration: none;
-
-  .inner {
-    background-color: var(--emr-sidebar-nav-item-hover-bg);
-    color: var(--emr-sidebar-nav-item-hover-color);
-  }
-}
-
-:host(.is-active),
-:host(.is-active:hover) {
-  .inner {
-    background-color: var(--emr-sidebar-nav-item-active-bg);
-    color: var(--emr-sidebar-nav-item-active-color);
-  }
-}
-
-:host {
-  .icon {
-    position: relative;
-    left: -1px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: none;
-    width: var(--emr-sidebar-nav-item-icon-width);
-    color: var(--emr-sidebar-nav-item-icon-color);
-  }
-}
-
-:host:not(.is-active):hover {
-  text-decoration: none;
-
-  .icon {
-    color: var(--emr-sidebar-nav-item-hover-icon-color);
-  }
-}
-
-:host(.is-active) {
-  .icon {
-    color: var(--emr-sidebar-nav-item-active-icon-color);
-  }
-}
-
-:host {
-  .icon:empty {
-    display: none;
   }
 }

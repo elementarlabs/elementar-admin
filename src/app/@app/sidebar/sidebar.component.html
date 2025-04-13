@@ -13,27 +13,43 @@
     </div>
   </emr-sidebar-header>
   <emr-sidebar-body class="body">
-    <emr-sidebar-nav [activeKey]="activeKey" [navItems]="navItems">
-      <emr-sidebar-nav-item *emrSidebarNavItemDef="let node">{{ node.name }}</emr-sidebar-nav-item>
-      <a emr-sidebar-nav-item *emrSidebarNavItemDef="let node; is: isLink" [routerLink]="node.link">{{ node.name }}</a>
-      <emr-sidebar-nav-group *emrSidebarNavItemDef="let node; is: isGroup">
-        <emr-sidebar-nav-group-toggle [for]="node.key">
-          <ng-container emrSedebarNavItemIcon>
-            @if (node.icon) {
-              <mat-icon>{{ node.icon }}</mat-icon>
-            }
-          </ng-container>
-          {{ node.name }}
-          @if (node.badge) {
-            <span emrSidebarNavItemBadge>{{ node.badge }}</span>
+    <emr-sidebar-nav [activeKey]="activeKey">
+      @for (navItem of navItems; track navItem) {
+        @switch (navItem.type) {
+          @case ('link') {
+            <a emr-sidebar-nav-item [routerLink]="navItem.link">{{ navItem.name }}</a>
           }
-          <mat-icon emrSidebarNavGroupToggleIcon>arrow_drop_down</mat-icon>
-        </emr-sidebar-nav-group-toggle>
-        <emr-sidebar-nav-group-menu [key]="node.key" [activeKey]="activeKey" [navItems]="node.children">
-          <a emr-sidebar-nav-item *emrSidebarNavItemDef="let child; is: isLink" [routerLink]="child.link">{{ child.name }}</a>
-        </emr-sidebar-nav-group-menu>
-      </emr-sidebar-nav-group>
-      <emr-sidebar-nav-heading *emrSidebarNavItemDef="let node; is: isHeading">{{ node.name }}</emr-sidebar-nav-heading>
+          @case ('heading') {
+            <emr-sidebar-nav-heading>{{ navItem.name }}</emr-sidebar-nav-heading>
+          }
+          @case ('group') {
+            <emr-sidebar-nav-group>
+              <emr-sidebar-nav-group-toggle>
+                <ng-container emrSidebarNavItemIcon>
+                  @if (navItem.icon) {
+                    <mat-icon>{{ navItem.icon }}</mat-icon>
+                  }
+                </ng-container>
+                <ng-container emrSidebarNavItemBadge>
+                  @if (navItem.badge) {
+                    {{ navItem.badge }}
+                  }
+                </ng-container>
+                {{ navItem.name }}
+                <mat-icon emrSidebarNavGroupToggleIcon>arrow_drop_down</mat-icon>
+              </emr-sidebar-nav-group-toggle>
+              <emr-sidebar-nav-group-menu>
+                @for (childNavItem of navItem.children; track childNavItem) {
+                  <a emr-sidebar-nav-item [routerLink]="childNavItem.link">{{ childNavItem.name }}</a>
+                }
+              </emr-sidebar-nav-group-menu>
+            </emr-sidebar-nav-group>
+          }
+          @default {
+            <emr-sidebar-nav-item>{{ navItem.name }}</emr-sidebar-nav-item>
+          }
+        }
+      }
     </emr-sidebar-nav>
   </emr-sidebar-body>
   <emr-sidebar-footer class="footer">

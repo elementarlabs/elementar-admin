@@ -6,5 +6,5 @@ import { Directive, inject, input, TemplateRef } from '@angular/core';
 export class SidebarNavItemDefDirective {
   readonly templateRef = inject(TemplateRef);
 
-  readonly emrSidebarNavItemDefIs = input<(navItem: any) => boolean>();
+  readonly emrSidebarNavItemDef = input<any>();
 }

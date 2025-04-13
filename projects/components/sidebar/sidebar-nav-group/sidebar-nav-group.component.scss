@@ -1,8 +1,16 @@
+@reference 'tailwindcss';
+
 :host {
   display: block;
   border-radius: var(--emr-sidebar-nav-group-border-radius);
-}
 
-:host:has(.emr-sidebar-nav-group-toggle.is-active) {
-  background: var(--emr-sidebar-nav-group-active-bg);
+  &:has(.emr-sidebar-nav-group-toggle.is-active) {
+    background: var(--emr-sidebar-nav-group-active-bg);
+
+    ::ng-deep {
+      emr-sidebar-nav-group-menu {
+        display: flex !important;
+      }
+    }
+  }
 }
