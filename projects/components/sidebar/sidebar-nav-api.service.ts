@@ -35,7 +35,6 @@ export class SidebarNavApiService {
   }
 
   activateItem(key: any) {
-    console.log(key);
     this._activeItem$.next(key);
   }
 }

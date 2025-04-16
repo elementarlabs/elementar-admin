@@ -51,8 +51,6 @@ export class SidebarNavComponent<T extends any> {
 
   readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
-  theme = input();
-
   constructor() {
     // scroll to the active item if it is not visible in the viewport
     afterNextRender(() => {
@@ -83,23 +81,7 @@ export class SidebarNavComponent<T extends any> {
     if (changes['activeKey']) {
       this.api.activateItem(changes['activeKey'].currentValue);
     }
-
-    if (changes['theme']) {
-      this._renderer.setAttribute(this._elementRef.nativeElement, 'data-theme', changes['theme'].currentValue);
-    }
   }
-
-  // getTemplate(item: any): TemplateRef<any> {
-  //   for (let navItemDef of this.navItemDefs()) {
-  //     const isFn = navItemDef.emrSidebarNavItemDefIs();
-  //
-  //     if (isFn && isFn(item)) {
-  //       return navItemDef.templateRef;
-  //     }
-  //   }
-  //
-  //   return this.navItemDefs()[0].templateRef;
-  // }
 
   private _hasScroll(element: HTMLElement): boolean {
     if (!element.getBoundingClientRect) {

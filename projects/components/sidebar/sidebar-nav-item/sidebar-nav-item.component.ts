@@ -1,8 +1,12 @@
-import { booleanAttribute, Component, ElementRef, inject, input, TemplateRef } from '@angular/core';
+import { booleanAttribute, Component, ElementRef, inject, input } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
 import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
 import { SidebarNavComponent } from '@elementar-ui/components/sidebar';
+
+export class SidebarNavItem {
+  active: boolean;
+}
 
 @Component({
   selector: 'emr-sidebar-nav-item,[emr-sidebar-nav-item]',
@@ -18,7 +22,7 @@ import { SidebarNavComponent } from '@elementar-ui/components/sidebar';
     '(click)': 'click($event)'
   }
 })
-export class SidebarNavItemComponent {
+export class SidebarNavItemComponent implements SidebarNavItem {
   private _navigation = inject<SidebarNavComponent<any>>(NAVIGATION);
   private _api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);

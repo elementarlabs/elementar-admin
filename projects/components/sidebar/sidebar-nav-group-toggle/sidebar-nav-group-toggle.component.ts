@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
 import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
 
@@ -20,9 +20,13 @@ import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-n
 export class SidebarNavGroupToggleComponent {
   readonly api = inject(SidebarNavApiService);
 
-  for = input<any>(Math.random());
+  readonly for = signal<any>(null);
 
   get active(): boolean {
+    if (!this.for()) {
+      return false;
+    }
+
     return this.api.isGroupActive(this.for());
   }
 

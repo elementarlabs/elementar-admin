@@ -17,7 +17,7 @@
       @for (navItem of navItems; track navItem) {
         @switch (navItem.type) {
           @case ('link') {
-            <a emr-sidebar-nav-item [routerLink]="navItem.link">{{ navItem.name }}</a>
+            <a emr-sidebar-nav-item [routerLink]="navItem.link" [key]="navItem.key">{{ navItem.name }}</a>
           }
           @case ('heading') {
             <emr-sidebar-nav-heading>{{ navItem.name }}</emr-sidebar-nav-heading>
@@ -40,7 +40,9 @@
               </emr-sidebar-nav-group-toggle>
               <emr-sidebar-nav-group-menu>
                 @for (childNavItem of navItem.children; track childNavItem) {
-                  <a emr-sidebar-nav-item [routerLink]="childNavItem.link">{{ childNavItem.name }}</a>
+                  <a emr-sidebar-nav-item
+                     [routerLink]="childNavItem.link"
+                     [key]="childNavItem.key">{{ childNavItem.name }}</a>
                 }
               </emr-sidebar-nav-group-menu>
             </emr-sidebar-nav-group>
