@@ -8,29 +8,14 @@
 
   emr-sidebar {
     --emr-sidebar-bg: var(--sys-surface-container-low);
+    border-inline-end: 1px solid var(--sys-surface-container-highest);
+  }
+
+  emr-sidebar-nav {
     --emr-sidebar-nav-item-hover-bg: var(--color-neutral-300);
     --emr-sidebar-nav-group-toggle-active-bg: var(--color-neutral-300);
     --emr-sidebar-nav-nested-item-hover-bg: var(--color-neutral-300);
     --emr-sidebar-nav-group-tree-lines-color: var(--color-neutral-300);
-
-    border-inline-end: 1px solid var(--sys-surface-container-highest);
-  }
-
-  emr-sidebar-header {
-    --emr-sidebar-header-padding: 0 --spacing(7);
-    --emr-sidebar-header-compact-padding: 0 --spacing(7);
-  }
-
-  emr-sidebar-body {
-    --emr-sidebar-body-padding: --spacing(4) --spacing(3);
-    --emr-sidebar-body-compact-padding: --spacing(4) --spacing(3);
-  }
-
-  emr-sidebar-footer {
-    display: flex;
-    align-items: center;
-    --emr-sidebar-footer-padding: --spacing(3) --spacing(7);
-    --emr-sidebar-footer-compact-padding: --spacing(3) --spacing(5.5);
   }
 
   .sidebar-toggle {
@@ -39,19 +24,19 @@
 
   &.compact {
     .sidebar-toggle {
-      opacity: 0;
+      display: none;
     }
 
     &:hover {
       .sidebar-toggle {
-        opacity: 1;
+        display: block;
       }
     }
   }
 }
 
 :host-context(html.dark) {
-  emr-sidebar {
+  emr-sidebar-nav {
     --emr-sidebar-nav-item-hover-bg: var(--color-neutral-800);
     --emr-sidebar-nav-group-toggle-active-bg: var(--color-neutral-800);
     --emr-sidebar-nav-nested-item-hover-bg: var(--color-neutral-800);

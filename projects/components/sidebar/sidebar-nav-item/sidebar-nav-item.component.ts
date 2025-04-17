@@ -1,8 +1,8 @@
 import { booleanAttribute, Component, ElementRef, inject, input } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
-import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
-import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
-import { SidebarNavComponent } from '@elementar-ui/components/sidebar';
+import { SidebarNavApiService } from '../sidebar-nav-api.service';
+import { SIDEBAR_NAVIGATION } from '../types';
+import { SidebarNavComponent } from '../sidebar-nav/sidebar-nav.component';
 
 export class SidebarNavItem {
   active: boolean;
@@ -23,7 +23,7 @@ export class SidebarNavItem {
   }
 })
 export class SidebarNavItemComponent implements SidebarNavItem {
-  private _navigation = inject<SidebarNavComponent<any>>(NAVIGATION);
+  private _navigation = inject<SidebarNavComponent>(SIDEBAR_NAVIGATION);
   private _api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);
 

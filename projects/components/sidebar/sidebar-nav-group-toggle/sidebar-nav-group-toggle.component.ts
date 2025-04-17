@@ -1,11 +1,10 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
-import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
+import { SidebarNavApiService } from '../sidebar-nav-api.service';
 
 @Component({
   selector: 'emr-sidebar-nav-group-toggle',
-  imports: [
-  ],
+  exportAs: 'emrSidebarNavGroupToggle',
   templateUrl: './sidebar-nav-group-toggle.component.html',
   styleUrl: './sidebar-nav-group-toggle.component.scss',
   hostDirectives: [

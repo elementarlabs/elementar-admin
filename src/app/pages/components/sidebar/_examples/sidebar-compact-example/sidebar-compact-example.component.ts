@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
 import {
-  SidebarBodyComponent, SidebarCompactViewModeDirective,
+  SidebarBodyComponent,
+  SidebarCompactViewModeDirective,
   SidebarComponent,
-  SidebarFooterComponent, SidebarFullViewModeDirective,
+  SidebarFooterComponent,
+  SidebarFullViewModeDirective,
   SidebarHeaderComponent,
-  SidebarNavComponent
+  SidebarNavComponent, SidebarNavDividerComponent, SidebarNavGroupComponent,
+  SidebarNavGroupMenuComponent, SidebarNavGroupToggleComponent, SidebarNavGroupToggleIconDirective,
+  SidebarNavHeadingComponent,
+  SidebarNavItemComponent,
+  SidebarNavItemIconDirective
 } from '@elementar-ui/components/sidebar';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { NavigationItem } from '@elementar-ui/components/navigation';
 import { FormsModule } from '@angular/forms';
 import { v7 as uuid } from 'uuid';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar-compact-example',
@@ -22,67 +28,73 @@ import { v7 as uuid } from 'uuid';
     FormsModule,
     SidebarBodyComponent,
     SidebarCompactViewModeDirective,
-    SidebarFullViewModeDirective
+    SidebarFullViewModeDirective,
+    MatIcon,
+    SidebarNavItemIconDirective,
+    SidebarNavDividerComponent,
+    SidebarNavHeadingComponent,
+    SidebarNavItemComponent,
+    SidebarNavGroupToggleIconDirective,
+    SidebarNavGroupMenuComponent,
+    SidebarNavGroupToggleComponent,
+    SidebarNavGroupComponent
   ],
   templateUrl: './sidebar-compact-example.component.html',
   styleUrl: './sidebar-compact-example.component.scss'
 })
 export class SidebarCompactExampleComponent {
   compact = true;
-  navItems: NavigationItem[] = [
+  navItems: any[] = [
     {
       key: 'home',
       type: 'item',
-      name: 'Home',
+      label: 'Home',
       icon: 'dashboard',
     },
     {
       key: 'forms',
       type: 'item',
       icon: 'dns',
-      name: 'Forms'
+      label: 'Forms'
     },
     {
       key: 'account',
       type: 'item',
-      name: 'Account'
+      label: 'Account'
     },
     {
-      key: 'separator',
       type: 'divider',
     },
     {
-      key: 'nested-menu',
       type: 'group',
-      name: 'Nested Menu',
+      label: 'Nested Menu',
       icon: 'tune',
       children: [
         {
           key: uuid(),
           type: 'item',
-          name: 'Nested Item 1'
+          label: 'Nested Item 1'
         },
         {
           key: uuid(),
           type: 'item',
-          name: 'Nested Item 2'
+          label: 'Nested Item 2'
         }
       ]
     },
     {
-      key: 'heading',
       type: 'heading',
-      name: 'Overview'
+      label: 'Overview'
     },
     {
       key: 'item1',
       type: 'item',
-      name: 'Item 1'
+      label: 'Item 1'
     },
     {
       key: 'item2',
       type: 'item',
-      name: 'Item 2'
+      label: 'Item 2'
     },
   ];
 }

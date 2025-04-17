@@ -1,6 +1,6 @@
 <div class="h-[600px] relative">
-  <emr-sidebar class="border border-default">
-    <emr-sidebar-header class="h-20 font-bold px-7 flex items-center text-primary border-b border-b-default">
+  <emr-sidebar class="border border-default rounded-2xl">
+    <emr-sidebar-header class="h-20 font-bold text-primary border-b border-b-default">
       Elementar
     </emr-sidebar-header>
     <emr-sidebar-body>
@@ -22,7 +22,7 @@
                   @for (childNavItem of navItem.children; track childNavItem) {
                     <emr-sidebar-nav-item [key]="childNavItem.key">
                       <ng-container emrSidebarNavItemIcon>
-                        @if (navItem.icon) {
+                        @if (childNavItem.icon) {
                           <mat-icon>{{ navItem.icon }}</mat-icon>
                         }
                       </ng-container>

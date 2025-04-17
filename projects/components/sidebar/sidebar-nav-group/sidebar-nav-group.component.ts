@@ -1,14 +1,12 @@
 import {
   AfterContentInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   contentChild,
-  contentChildren, forwardRef, inject, InjectionToken,
+  forwardRef,
 } from '@angular/core';
-import { SidebarNavApiService } from '../sidebar-nav-api.service';
 import { SidebarNavGroupToggleComponent } from '../sidebar-nav-group-toggle/sidebar-nav-group-toggle.component';
-
-export const SIDEBAR_NAVIGATION_GROUP = new InjectionToken('SIDEBAR_NAVIGATION_GROUP');
+import { SIDEBAR_NAVIGATION_GROUP } from '../types';
 
 @Component({
   selector: 'emr-sidebar-nav-group',
@@ -23,9 +21,6 @@ export const SIDEBAR_NAVIGATION_GROUP = new InjectionToken('SIDEBAR_NAVIGATION_G
   ]
 })
 export class SidebarNavGroupComponent implements AfterContentInit {
-  private _cdr = inject(ChangeDetectorRef);
-  private _api = inject(SidebarNavApiService);
-
   private _toggle = contentChild.required(SidebarNavGroupToggleComponent, {
     descendants: false,
   });

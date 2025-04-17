@@ -1,7 +1,9 @@
 <emr-sidebar [compact]="compact">
-  <emr-sidebar-header class="h-20 border-b border-b-default">
-    <a emr-logo routerLink="/" emrSidebarCompactViewMode>EL</a>
-    <a emr-logo routerLink="/" emrSidebarFullViewMode>ELEMENTAR</a>
+  <emr-sidebar-header class="h-18">
+    <a emr-logo routerLink="/">
+      <span emrSidebarCompactViewMode>EL</span>
+      <span emrSidebarFullViewMode>ELEMENTAR</span>
+    </a>
     <button mat-icon-button (click)="compact = !compact" class="sidebar-toggle">
       @if (compact) {
         <mat-icon>keyboard_double_arrow_right</mat-icon>
@@ -37,7 +39,7 @@
                 <mat-icon emrSidebarNavGroupToggleIcon>arrow_drop_down</mat-icon>
               </emr-sidebar-nav-group-toggle>
               <emr-sidebar-nav-group-menu>
-                @for (childNavItem of navItem.children; track childNavItem) {
+                @for (childNavItem of navItem.children | orderBy:'name'; track childNavItem) {
                   <a emr-sidebar-nav-item
                      [routerLink]="childNavItem.link"
                      [key]="childNavItem.key">{{ childNavItem.name }}</a>

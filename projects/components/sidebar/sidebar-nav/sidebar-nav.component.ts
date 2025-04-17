@@ -11,9 +11,9 @@ import {
 } from '@angular/core';
 import {
   SidebarNavItemComponent
-} from '@elementar-ui/components/sidebar';
-import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
-import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
+} from '../sidebar-nav-item/sidebar-nav-item.component';
+import { SidebarNavApiService } from '../sidebar-nav-api.service';
+import { SIDEBAR_NAVIGATION } from '../types';
 
 @Component({
   selector: 'emr-sidebar-nav',
@@ -23,7 +23,7 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
-      provide: NAVIGATION,
+      provide: SIDEBAR_NAVIGATION,
       useExisting: forwardRef(() => SidebarNavComponent),
     },
     SidebarNavApiService
@@ -32,7 +32,7 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
     'class': 'emr-sidebar-nav',
   },
 })
-export class SidebarNavComponent<T extends any> {
+export class SidebarNavComponent {
   readonly api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);
 

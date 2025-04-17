@@ -1,11 +1,4 @@
 import { InjectionToken } from '@angular/core';
 
-export const NAVIGATION = new InjectionToken('Sidebar navigation');
-
-export interface SidebarNavItemInterface {
-  id: any;
-}
-
-export interface SidebarNavGroupInterface {
-  items: SidebarNavItemInterface[];
-}
+export const SIDEBAR_NAVIGATION = new InjectionToken('Sidebar navigation');
+export const SIDEBAR_NAVIGATION_GROUP = new InjectionToken('SIDEBAR_NAVIGATION_GROUP');

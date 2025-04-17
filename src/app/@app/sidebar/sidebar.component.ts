@@ -27,6 +27,7 @@ import { DicebearComponent } from '@elementar-ui/components/avatar';
 import {
   SidebarNavGroupToggleIconDirective
 } from '@elementar-ui/components/sidebar/sidebar-nav-group-toggle-icon.directive';
+import { OrderByPipe } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -51,7 +52,8 @@ import {
     SidebarNavGroupToggleIconDirective,
     SidebarNavGroupToggleComponent,
     SidebarNavGroupMenuComponent,
-    SidebarNavItemIconDirective
+    SidebarNavItemIconDirective,
+    OrderByPipe
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

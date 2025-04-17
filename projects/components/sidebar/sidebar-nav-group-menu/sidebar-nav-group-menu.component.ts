@@ -8,18 +8,15 @@ import {
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
-import {
-  SIDEBAR_NAVIGATION_GROUP,
-  SidebarNavComponent,
-  SidebarNavGroupComponent, SidebarNavItemComponent
-} from '@elementar-ui/components/sidebar';
-import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
+import { SidebarNavApiService } from '../sidebar-nav-api.service';
+import { SIDEBAR_NAVIGATION, SIDEBAR_NAVIGATION_GROUP } from '../types';
+import { SidebarNavComponent } from '../sidebar-nav/sidebar-nav.component';
+import { SidebarNavGroupComponent } from '../sidebar-nav-group/sidebar-nav-group.component';
+import { SidebarNavItemComponent } from '../sidebar-nav-item/sidebar-nav-item.component';
 
 @Component({
   selector: 'emr-sidebar-nav-group-menu',
-  imports: [
-  ],
+  exportAs: 'emrSidebarNavGroupMenu',
   templateUrl: './sidebar-nav-group-menu.component.html',
   styleUrl: './sidebar-nav-group-menu.component.scss',
   host: {
@@ -28,7 +25,7 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
   }
 })
 export class SidebarNavGroupMenuComponent implements AfterContentInit {
-  readonly navigation = inject<SidebarNavComponent<any>>(NAVIGATION);
+  readonly navigation = inject<SidebarNavComponent>(SIDEBAR_NAVIGATION);
   readonly api = inject(SidebarNavApiService);
   private _group = inject<SidebarNavGroupComponent>(SIDEBAR_NAVIGATION_GROUP);
   private _cdr = inject(ChangeDetectorRef);

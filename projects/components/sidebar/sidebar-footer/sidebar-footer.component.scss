@@ -1,6 +1,8 @@
 @reference 'tailwindcss';
 
 :host {
+  --emr-sidebar-footer-padding: --spacing(5) --spacing(6);
+  --emr-sidebar-footer-compact-padding: --spacing(4) 0;
   @apply flex items-center;
   flex: none;
   width: 100%;
@@ -15,6 +17,9 @@
 
 :host-context(.emr-sidebar.compact:not(:hover)) {
   padding: var(--emr-sidebar-footer-compact-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
