@@ -12,8 +12,8 @@ import {
 import {
   SidebarNavItemComponent
 } from '../sidebar-nav-item/sidebar-nav-item.component';
-import { SidebarNavApiService } from '../sidebar-nav-api.service';
 import { SIDEBAR_NAVIGATION } from '../types';
+import { SidebarNavStore } from '../sidebar.store';
 
 @Component({
   selector: 'emr-sidebar-nav',
@@ -26,15 +26,15 @@ import { SIDEBAR_NAVIGATION } from '../types';
       provide: SIDEBAR_NAVIGATION,
       useExisting: forwardRef(() => SidebarNavComponent),
     },
-    SidebarNavApiService
+    SidebarNavStore
   ],
   host: {
     'class': 'emr-sidebar-nav',
   },
 })
 export class SidebarNavComponent {
-  readonly api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);
+  private _navStore = inject(SidebarNavStore);
 
   readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
@@ -70,12 +70,12 @@ export class SidebarNavComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['activeKey']) {
-      this.api.activateItem(changes['activeKey'].currentValue);
+      this._navStore.setItemActiveKey(changes['activeKey'].currentValue);
     }
   }
 
   private _hasScroll(element: HTMLElement): boolean {
-    if (!element.getBoundingClientRect) {
+    if (!element.getBoundingClientRect()) {
       return false;
     }
 

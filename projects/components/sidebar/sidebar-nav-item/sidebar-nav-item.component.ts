@@ -1,8 +1,8 @@
 import { booleanAttribute, Component, ElementRef, inject, input } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
-import { SidebarNavApiService } from '../sidebar-nav-api.service';
 import { SIDEBAR_NAVIGATION } from '../types';
 import { SidebarNavComponent } from '../sidebar-nav/sidebar-nav.component';
+import { SidebarNavStore } from '../sidebar.store';
 
 export class SidebarNavItem {
   active: boolean;
@@ -24,8 +24,8 @@ export class SidebarNavItem {
 })
 export class SidebarNavItemComponent implements SidebarNavItem {
   private _navigation = inject<SidebarNavComponent>(SIDEBAR_NAVIGATION);
-  private _api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);
+  private _navStore = inject(SidebarNavStore);
 
   get api() {
     return {
@@ -44,11 +44,11 @@ export class SidebarNavItemComponent implements SidebarNavItem {
     }
 
     this._navigation.itemClicked.emit(this.key());
-    this._api.activateItem(this.key());
+    this._navStore.setItemActiveKey(this.key());
   }
 
   get active(): boolean {
-    return this._api.isItemActive(this.key());
+    return this._navStore.isItemActive(this.key());
   }
 
   get _hostElement(): ElementRef {

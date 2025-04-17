@@ -1,12 +1,13 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { MatRipple } from '@angular/material/core';
-import { SidebarNavApiService } from '../sidebar-nav-api.service';
+import { SidebarNavStore } from '../sidebar.store';
 
 @Component({
   selector: 'emr-sidebar-nav-group-toggle',
   exportAs: 'emrSidebarNavGroupToggle',
   templateUrl: './sidebar-nav-group-toggle.component.html',
   styleUrl: './sidebar-nav-group-toggle.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [
     MatRipple
   ],
@@ -17,7 +18,7 @@ import { SidebarNavApiService } from '../sidebar-nav-api.service';
   }
 })
 export class SidebarNavGroupToggleComponent {
-  readonly api = inject(SidebarNavApiService);
+  private _navStore = inject(SidebarNavStore);
 
   readonly for = signal<any>(null);
 
@@ -26,12 +27,17 @@ export class SidebarNavGroupToggleComponent {
       return false;
     }
 
-    return this.api.isGroupActive(this.for());
+    return this._navStore.isGroupActive(this.for());
   }
 
   toggle(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.api.toggleGroup(this.for());
+
+    if (this._navStore.isGroupActive(this.for())) {
+      this._navStore.setGroupActiveKey(null);
+    } else {
+      this._navStore.setGroupActiveKey(this.for());
+    }
   }
 }
