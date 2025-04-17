@@ -4,5 +4,5 @@ import { Directive, inject, TemplateRef } from '@angular/core';
   selector: '[emrSidebarNavItemIcon]'
 })
 export class SidebarNavItemIconDirective {
-  readonly templateRef = inject(TemplateRef);
+  // readonly templateRef = inject(TemplateRef);
 }

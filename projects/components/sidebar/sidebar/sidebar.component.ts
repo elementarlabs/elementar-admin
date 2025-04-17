@@ -3,7 +3,6 @@ import { booleanAttribute, Component, input } from '@angular/core';
 @Component({
   selector: 'emr-sidebar',
   exportAs: 'emrSidebar',
-  imports: [],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
   host: {

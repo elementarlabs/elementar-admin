@@ -1,57 +1,90 @@
-import { Component, contentChild, input, output, TemplateRef } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
-import { RouterLink } from '@angular/router';
-import { MatBadge } from '@angular/material/badge';
 import {
-  NavigationComponent,
-  NavigationDividerComponent,
-  NavigationGroupComponent,
-  NavigationGroupMenuComponent,
-  NavigationGroupToggleComponent,
-  NavigationGroupToggleIconDirective,
-  NavigationHeadingComponent, NavigationItem, NavigationItemBadgeDirective,
-  NavigationItemComponent,
-  NavigationItemIconDirective
-} from '@elementar-ui/components/navigation';
-import { OrderByPipe } from '@elementar-ui/components/core';
-import { SidebarNavItemIconDirective } from '../sidebar-nav-item-icon.directive';
-import { NgTemplateOutlet } from '@angular/common';
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  contentChildren,
+  ElementRef, forwardRef,
+  inject,
+  input,
+  output,
+  SimpleChanges,
+} from '@angular/core';
+import {
+  SidebarNavItemComponent
+} from '../sidebar-nav-item/sidebar-nav-item.component';
+import { SIDEBAR_NAVIGATION } from '../types';
+import { SidebarNavStore } from '../sidebar.store';
 
 @Component({
   selector: 'emr-sidebar-nav',
   exportAs: 'emrSidebarNav',
-  imports: [
-    NavigationComponent,
-    NavigationItemComponent,
-    NavigationHeadingComponent,
-    NavigationDividerComponent,
-    NavigationGroupComponent,
-    NavigationGroupToggleComponent,
-    NavigationGroupMenuComponent,
-    NavigationItemIconDirective,
-    NavigationGroupToggleIconDirective,
-    MatIcon,
-    OrderByPipe,
-    RouterLink,
-    NavigationItemBadgeDirective,
-    MatBadge,
-    NgTemplateOutlet
-  ],
-  styleUrl: './sidebar-nav.component.scss',
   templateUrl: './sidebar-nav.component.html',
+  styleUrl: './sidebar-nav.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: SIDEBAR_NAVIGATION,
+      useExisting: forwardRef(() => SidebarNavComponent),
+    },
+    SidebarNavStore
+  ],
   host: {
     'class': 'emr-sidebar-nav',
   },
 })
-export class SidebarNavComponent<T extends NavigationItem> {
-  protected _itemIconRef = contentChild(SidebarNavItemIconDirective);
+export class SidebarNavComponent {
+  private _elementRef = inject(ElementRef);
+  private _navStore = inject(SidebarNavStore);
+
+  readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
   activeKey = input();
-  navItems = input<T[]>([]);
 
   readonly itemClicked = output<any>();
 
-  get iconTemplateRef(): TemplateRef<any> {
-    return this._itemIconRef()?.templateRef as TemplateRef<any>;
+  constructor() {
+    // scroll to the active item if it is not visible in the viewport
+    afterNextRender(() => {
+      this._items().forEach((item: SidebarNavItemComponent) => {
+        if (item.active) {
+          let parentElement = this._elementRef.nativeElement.parentNode || null;
+          const itemElement = item._hostElement.nativeElement as HTMLElement;
+
+          while (parentElement !== null) {
+            if (this._hasScroll(parentElement)) {
+              if (!this._isScrolledIntoView(itemElement, parentElement)) {
+                const parentRect = parentElement.getBoundingClientRect();
+                const elementRect = itemElement.getBoundingClientRect();
+                parentElement.scrollTop = elementRect.top - parentRect.height / 2;
+              }
+
+              parentElement = null;
+            } else {
+              parentElement = parentElement.parentNode || null;
+            }
+          }
+        }
+      });
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['activeKey']) {
+      this._navStore.setItemActiveKey(changes['activeKey'].currentValue);
+    }
+  }
+
+  private _hasScroll(element: HTMLElement): boolean {
+    if (!element.getBoundingClientRect()) {
+      return false;
+    }
+
+    return Math.ceil(element.scrollHeight) > Math.ceil(element.getBoundingClientRect().height);
+  }
+
+  private _isScrolledIntoView(element: HTMLElement, parent: HTMLElement) {
+    const elementRect = element.getBoundingClientRect();
+    const parentRect = parent.getBoundingClientRect();
+    return (elementRect.top >= 0) && (elementRect.bottom <= parentRect.height);
   }
 }

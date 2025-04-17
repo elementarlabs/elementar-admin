@@ -1,0 +1,15 @@
+@reference 'tailwindcss';
+
+:host {
+  padding-inline-start: var(--emr-sidebar-nav-group-menu-padding-start);
+  margin-top: var(--emr-sidebar-nav-item-space-y);
+  display: none;
+  flex-direction: column;
+  position: relative;
+  gap: var(--emr-sidebar-nav-items-gap);
+  padding: calc(var(--emr-sidebar-nav-items-gap) * 2) 0;
+
+  &.is-active {
+    display: flex;
+  }
+}

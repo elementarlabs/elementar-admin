@@ -1,0 +1,19 @@
+@reference 'tailwindcss';
+
+:host {
+  display: block;
+  text-transform: var(--emr-sidebar-nav-heading-text-transform);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+  color: var(--emr-sidebar-nav-heading-color);
+  font-size: var(--emr-sidebar-nav-heading-font-size);
+  font-weight: var(--emr-sidebar-nav-heading-font-weight);
+  padding: var(--emr-sidebar-nav-heading-padding);
+  margin-top: var(--emr-sidebar-nav-heading-margin-top);
+  margin-bottom: var(--emr-sidebar-nav-heading-margin-bottom);
+  text-align: var(--emr-sidebar-nav-heading-text-align);
+  height: calc(var(--spacing) * 6);
+  align-items: center;
+}

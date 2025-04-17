@@ -1,17 +1,56 @@
 <div class="h-[600px] relative">
-  <emr-sidebar class="border border-default ">
-    <emr-sidebar-header class="border-b border-b-default">
-      <div class="h-20 font-bold px-7 flex items-center text-primary">
-        Elementar
-      </div>
+  <emr-sidebar class="border border-default rounded-2xl">
+    <emr-sidebar-header class="h-20 font-bold text-primary border-b border-b-default">
+      Elementar
     </emr-sidebar-header>
     <emr-sidebar-body>
-      <emr-sidebar-nav activeKey="home" [navItems]="navItems"/>
+      <emr-sidebar-nav activeKey="home">
+        @for (navItem of navItems; track navItem) {
+          @switch (navItem.type) {
+            @case ('group') {
+              <emr-sidebar-nav-group>
+                <emr-sidebar-nav-group-toggle>
+                  <ng-container emrSidebarNavItemIcon>
+                    @if (navItem.icon) {
+                      <mat-icon>{{ navItem.icon }}</mat-icon>
+                    }
+                  </ng-container>
+                  {{ navItem.label }}
+                  <mat-icon emrSidebarNavGroupToggleIcon>arrow_drop_down</mat-icon>
+                </emr-sidebar-nav-group-toggle>
+                <emr-sidebar-nav-group-menu>
+                  @for (childNavItem of navItem.children; track childNavItem) {
+                    <emr-sidebar-nav-item [key]="childNavItem.key">
+                      <ng-container emrSidebarNavItemIcon>
+                        @if (childNavItem.icon) {
+                          <mat-icon>{{ navItem.icon }}</mat-icon>
+                        }
+                      </ng-container>
+                      {{ navItem.label }}
+                    </emr-sidebar-nav-item>
+                  }
+                </emr-sidebar-nav-group-menu>
+              </emr-sidebar-nav-group>
+            }
+            @case ('heading') {
+              <emr-sidebar-nav-heading>{{ navItem.label }}</emr-sidebar-nav-heading>
+            }
+            @default {
+              <emr-sidebar-nav-item [key]="navItem.key">
+                <ng-container emrSidebarNavItemIcon>
+                  @if (navItem.icon) {
+                    <mat-icon>{{ navItem.icon }}</mat-icon>
+                  }
+                </ng-container>
+                {{ navItem.label }}
+              </emr-sidebar-nav-item>
+            }
+          }
+        }
+      </emr-sidebar-nav>
     </emr-sidebar-body>
-    <emr-sidebar-footer class="border-t border-t-default">
-      <div class="h-20 px-7 flex items-center text-sm">
-        Copyright &copy; 2024
-      </div>
+    <emr-sidebar-footer class="h-20 px-7 text-sm border-t border-t-default">
+      Copyright &copy; 2024
     </emr-sidebar-footer>
   </emr-sidebar>
 </div>

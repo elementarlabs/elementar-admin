@@ -1,12 +1,8 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-sidebar-width: var(--emr-layout-sidebar-width, 300px);
-  --emr-sidebar-compact-width: var(--emr-layout-sidebar-compact-width, 84px);
-  --emr-sidebar-header-padding: 0;
-  --emr-sidebar-header-compact-padding: 0;
-  --emr-sidebar-body-padding: calc(var(--spacing) * 3);
-  --emr-sidebar-body-compact-padding: calc(var(--spacing) * 3);
-  --emr-sidebar-footer-padding: 0;
-  --emr-sidebar-footer-compact-padding: 0;
+  --emr-sidebar-compact-width: var(--emr-layout-sidebar-compact-width, 76px);
   --emr-sidebar-bg: transparent;
 
   display: flex;
@@ -22,6 +18,10 @@
   &.compact {
     position: absolute;
     inset: 0;
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
   }
 
   &.compact:not(:hover) {
@@ -34,7 +34,7 @@
         display: none;
       }
 
-      emr-navigation-heading {
+      emr-sidebar-nav-heading {
         display: flex;
         align-items: center;
         font-size: var(--text-4xs);
@@ -42,15 +42,15 @@
         justify-content: center;
       }
 
-      emr-navigation-group-menu {
+      emr-sidebar-nav-group-menu {
         &.is-active {
           display: none;
         }
       }
 
-      emr-navigation-group-toggle {
+      emr-sidebar-nav-group-toggle {
         gap: 0;
-        --emr-navigation-group-toggle-has-icon-padding-end: 0;
+        --emr-sidebar-nav-group-toggle-has-icon-padding-end: 0;
 
         .icon {
           transition-property: all;
@@ -70,7 +70,7 @@
         }
       }
 
-      emr-navigation-item {
+      emr-sidebar-nav-item {
         .inner {
           gap: 0;
         }

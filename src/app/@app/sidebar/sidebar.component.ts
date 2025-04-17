@@ -8,13 +8,26 @@ import { MatIconButton } from '@angular/material/button';
 import { ToolbarComponent } from '@store/sidebar';
 import {
   SidebarBodyComponent,
-  SidebarCompactViewModeDirective, SidebarFooterComponent,
-  SidebarFullViewModeDirective, SidebarHeaderComponent, SidebarNavComponent,
-  SidebarComponent as EmrSidebarComponent
+  SidebarCompactViewModeDirective,
+  SidebarFooterComponent,
+  SidebarFullViewModeDirective,
+  SidebarHeaderComponent,
+  SidebarNavComponent,
+  SidebarComponent as EmrSidebarComponent,
+  SidebarNavGroupComponent,
+  SidebarNavItemComponent,
+  SidebarNavHeadingComponent,
+  SidebarNavItemBadgeDirective,
+  SidebarNavGroupToggleComponent,
+  SidebarNavGroupMenuComponent,
+  SidebarNavItemIconDirective
 } from '@elementar-ui/components/sidebar';
 import { LogoComponent } from '@elementar-ui/components/logo';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
-import { NavigationItem } from '@elementar-ui/components/navigation';
+import {
+  SidebarNavGroupToggleIconDirective
+} from '@elementar-ui/components/sidebar/sidebar-nav-group-toggle-icon.directive';
+import { OrderByPipe } from '@elementar-ui/components/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -31,7 +44,16 @@ import { NavigationItem } from '@elementar-ui/components/navigation';
     SidebarNavComponent,
     DicebearComponent,
     MatIconButton,
-    LogoComponent
+    LogoComponent,
+    SidebarNavGroupComponent,
+    SidebarNavItemComponent,
+    SidebarNavHeadingComponent,
+    SidebarNavItemBadgeDirective,
+    SidebarNavGroupToggleIconDirective,
+    SidebarNavGroupToggleComponent,
+    SidebarNavGroupMenuComponent,
+    SidebarNavItemIconDirective,
+    OrderByPipe
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
@@ -48,9 +70,8 @@ export class SidebarComponent implements OnInit {
 
   readonly navigation = viewChild.required<any>('navigation');
 
-  navItems: NavigationItem[] = [
+  navItems: any[] = [
     {
-      key: 'dashboard',
       type: 'group',
       name: 'Dashboard',
       icon: 'dashboard',
@@ -88,7 +109,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'theme',
       type: 'group',
       name: 'Theme',
       icon: 'tune',
@@ -114,7 +134,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'headingFeatures',
       type: 'heading',
       name: 'Features'
     },
@@ -151,7 +170,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'forms',
       type: 'group',
       icon: 'dns',
       name: 'Forms',
@@ -237,7 +255,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'components',
       type: 'group',
       icon: 'grid_view',
       name: 'Components',
@@ -594,7 +611,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'micro-charts',
       type: 'group',
       icon: 'leaderboard',
       name: 'Micro Charts',
@@ -620,7 +636,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'store',
       type: 'group',
       icon: 'hard_drive',
       name: 'Store',
@@ -658,12 +673,10 @@ export class SidebarComponent implements OnInit {
       ],
     },
     {
-      key: 'headingPages',
       type: 'heading',
       name: 'Pages'
     },
     {
-      key: 'applications',
       type: 'group',
       icon: 'apps',
       name: 'Applications',
@@ -689,7 +702,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'auth',
       type: 'group',
       icon: 'lock',
       name: 'Authentication',
@@ -739,7 +751,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'profile',
       type: 'group',
       name: 'User Profile',
       icon: 'person',
@@ -753,7 +764,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'account',
       type: 'group',
       name: 'Account',
       icon: 'badge',
@@ -773,7 +783,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'pricing',
       type: 'group',
       icon: 'attach_money',
       name: 'Pricing',
@@ -793,7 +802,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'content',
       type: 'group',
       icon: 'edit_note',
       name: 'Content',
@@ -807,7 +815,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'error-pages',
       type: 'group',
       icon: 'error',
       name: 'Error Pages',
@@ -839,7 +846,6 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      key: 'service-pages',
       type: 'group',
       icon: 'layers',
       name: 'Service Pages',
@@ -853,7 +859,7 @@ export class SidebarComponent implements OnInit {
       ]
     },
   ];
-  navItemLinks: NavigationItem[] = [];
+  navItemLinks: any[] = [];
   activeKey: null | string = null;
 
   ngOnInit() {
@@ -861,7 +867,7 @@ export class SidebarComponent implements OnInit {
       this.navItemLinks.push(navItem);
 
       if (navItem.children) {
-        this.navItemLinks = this.navItemLinks.concat(navItem.children as NavigationItem[]);
+        this.navItemLinks = this.navItemLinks.concat(navItem.children as any[]);
       }
     });
     this._activateLink();

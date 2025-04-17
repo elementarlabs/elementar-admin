@@ -1,11 +1,15 @@
+@reference 'tailwindcss';
+
 :host {
+  --emr-sidebar-body-padding: --spacing(2);
+  --emr-sidebar-body-compact-padding: var(--emr-sidebar-body-padding);
   display: block;
   width: 100%;
   flex-grow: 1;
   overflow-y: auto;
-  padding: var(--emr-sidebar-body-padding);
   overflow-x: hidden;
   position: relative;
+  padding: var(--emr-sidebar-body-padding);
 }
 
 :host-context(.emr-sidebar.compact) {

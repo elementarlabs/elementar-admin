@@ -4,10 +4,19 @@ import {
   SidebarComponent,
   SidebarFooterComponent,
   SidebarHeaderComponent,
-  SidebarNavComponent
+  SidebarNavComponent,
+  SidebarNavGroupComponent,
+  SidebarNavGroupMenuComponent,
+  SidebarNavGroupToggleComponent,
+  SidebarNavHeadingComponent,
+  SidebarNavItemComponent,
+  SidebarNavItemIconDirective
 } from '@elementar-ui/components/sidebar';
-import { NavigationItem } from '@elementar-ui/components/navigation';
 import { v7 as uuid } from 'uuid';
+import { MatIcon } from '@angular/material/icon';
+import {
+  SidebarNavGroupToggleIconDirective
+} from '@elementar-ui/components/sidebar/sidebar-nav-group-toggle-icon.directive';
 
 @Component({
   selector: 'app-basic-sidebar-example',
@@ -16,55 +25,61 @@ import { v7 as uuid } from 'uuid';
     SidebarHeaderComponent,
     SidebarNavComponent,
     SidebarFooterComponent,
-    SidebarBodyComponent
+    SidebarBodyComponent,
+    SidebarNavItemComponent,
+    SidebarNavItemIconDirective,
+    MatIcon,
+    SidebarNavGroupComponent,
+    SidebarNavGroupMenuComponent,
+    SidebarNavGroupToggleComponent,
+    SidebarNavGroupToggleIconDirective,
+    SidebarNavHeadingComponent,
   ],
   templateUrl: './basic-sidebar-example.component.html',
   styleUrl: './basic-sidebar-example.component.scss'
 })
 export class BasicSidebarExampleComponent {
-  navItems: NavigationItem[] = [
+  navItems: any[] = [
     {
       key: 'home',
       type: 'item',
-      name: 'Home'
+      label: 'Home'
     },
     {
       key: 'account',
       type: 'item',
-      name: 'Account'
+      label: 'Account'
     },
     {
-      key: 'nested-menu',
       type: 'group',
-      name: 'Nested Menu',
+      label: 'Nested Menu',
       icon: 'tune',
       children: [
         {
           key: uuid(),
           type: 'item',
-          name: 'Nested Item 1'
+          label: 'Nested Item 1'
         },
         {
           key: uuid(),
           type: 'item',
-          name: 'Nested Item 2'
+          label: 'Nested Item 2'
         }
       ]
     },
     {
-      key: 'heading',
       type: 'heading',
-      name: 'Overview'
+      label: 'Overview'
     },
     {
       key: 'item1',
       type: 'item',
-      name: 'Item 1'
+      label: 'Item 1'
     },
     {
       key: 'item2',
       type: 'item',
-      name: 'Item 2'
+      label: 'Item 2'
     },
   ];
 }

@@ -1,0 +1,10 @@
+@reference 'tailwindcss';
+
+:host {
+  display: block;
+  border-radius: var(--emr-sidebar-nav-group-border-radius);
+
+  &:has(.emr-sidebar-nav-group-toggle.is-active) {
+    background: var(--emr-sidebar-nav-group-active-bg);
+  }
+}
