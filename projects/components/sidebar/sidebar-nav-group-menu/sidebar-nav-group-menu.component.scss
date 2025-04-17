@@ -8,4 +8,8 @@
   position: relative;
   gap: var(--emr-sidebar-nav-items-gap);
   padding: calc(var(--emr-sidebar-nav-items-gap) * 2) 0;
+
+  &.is-active {
+    display: flex;
+  }
 }

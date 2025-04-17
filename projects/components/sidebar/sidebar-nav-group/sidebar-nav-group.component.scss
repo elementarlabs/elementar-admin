@@ -6,11 +6,5 @@
 
   &:has(.emr-sidebar-nav-group-toggle.is-active) {
     background: var(--emr-sidebar-nav-group-active-bg);
-
-    ::ng-deep {
-      emr-sidebar-nav-group-menu {
-        display: flex !important;
-      }
-    }
   }
 }

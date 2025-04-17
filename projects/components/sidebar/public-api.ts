@@ -11,5 +11,4 @@ export * from './sidebar-nav-group-menu/sidebar-nav-group-menu.component';
 export * from './sidebar-compact-view-mode.directive';
 export * from './sidebar-full-view-mode.directive';
 export * from './sidebar-nav-item-icon.directive';
-export * from './sidebar-nav-item-def.directive';
 export * from './sidebar-nav-item-badge.directive';

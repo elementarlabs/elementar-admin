@@ -6,13 +6,11 @@ import {
   ElementRef, forwardRef,
   inject,
   input,
-  output, Renderer2, SimpleChanges,
-  TemplateRef
+  output,
+  SimpleChanges,
 } from '@angular/core';
-import { NgTemplateOutlet } from '@angular/common';
 import {
-  SidebarNavItemComponent,
-  SidebarNavItemDefDirective
+  SidebarNavItemComponent
 } from '@elementar-ui/components/sidebar';
 import { SidebarNavApiService } from '@elementar-ui/components/sidebar/sidebar-nav-api.service';
 import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
@@ -20,9 +18,6 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
 @Component({
   selector: 'emr-sidebar-nav',
   exportAs: 'emrSidebarNav',
-  imports: [
-    NgTemplateOutlet
-  ],
   templateUrl: './sidebar-nav.component.html',
   styleUrl: './sidebar-nav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,16 +35,13 @@ import { NAVIGATION } from '@elementar-ui/components/sidebar/types';
 export class SidebarNavComponent<T extends any> {
   readonly api = inject(SidebarNavApiService);
   private _elementRef = inject(ElementRef);
-  private _renderer = inject(Renderer2);
 
-  readonly navItemDefs = contentChildren(SidebarNavItemDefDirective);
+  readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
   activeKey = input();
   navItems = input<T[]>([]);
 
   readonly itemClicked = output<any>();
-
-  readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
   constructor() {
     // scroll to the active item if it is not visible in the viewport

@@ -14,10 +14,23 @@
     --emr-sidebar-nav-group-tree-lines-color: var(--color-neutral-300);
 
     border-inline-end: 1px solid var(--sys-surface-container-highest);
+  }
 
-    &.compact:hover {
-      box-shadow: var(--shadow-lg);
-    }
+  emr-sidebar-header {
+    --emr-sidebar-header-padding: 0 --spacing(7);
+    --emr-sidebar-header-compact-padding: 0 --spacing(7);
+  }
+
+  emr-sidebar-body {
+    --emr-sidebar-body-padding: --spacing(4) --spacing(3);
+    --emr-sidebar-body-compact-padding: --spacing(4) --spacing(3);
+  }
+
+  emr-sidebar-footer {
+    display: flex;
+    align-items: center;
+    --emr-sidebar-footer-padding: --spacing(3) --spacing(7);
+    --emr-sidebar-footer-compact-padding: --spacing(3) --spacing(5.5);
   }
 
   .sidebar-toggle {
@@ -34,33 +47,6 @@
         opacity: 1;
       }
     }
-  }
-
-  .header {
-    --emr-sidebar-header-padding: 0 --spacing(7);
-    --emr-sidebar-header-compact-padding: 0 --spacing(7);
-  }
-
-  .logo {
-    font-size: var(--text-lg);
-    color: var(--sys-primary);
-    font-weight: 800;
-
-    &:hover {
-      color: var(--sys-tertiary);
-    }
-  }
-
-  .body {
-    --emr-sidebar-body-padding: --spacing(4) --spacing(3);
-    --emr-sidebar-body-compact-padding: --spacing(4) --spacing(3);
-  }
-
-  .footer {
-    display: flex;
-    align-items: center;
-    --emr-sidebar-footer-padding: --spacing(3) --spacing(7);
-    --emr-sidebar-footer-compact-padding: --spacing(3) --spacing(5.5);
   }
 }
 

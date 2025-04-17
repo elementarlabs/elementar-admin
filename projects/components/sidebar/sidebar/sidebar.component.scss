@@ -85,6 +85,10 @@
   &.compact {
     position: absolute;
     inset: 0;
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
   }
 
   &.compact:not(:hover) {
