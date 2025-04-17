@@ -39,7 +39,6 @@ export class SidebarNavComponent<T extends any> {
   readonly _items = contentChildren(SidebarNavItemComponent, { descendants: true });
 
   activeKey = input();
-  navItems = input<T[]>([]);
 
   readonly itemClicked = output<any>();
 
