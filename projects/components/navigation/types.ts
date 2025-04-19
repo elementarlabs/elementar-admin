@@ -11,4 +11,5 @@ export interface NavigationItem {
   badge?: string | number;
 }
 
-export const NAVIGATION = new InjectionToken('NAVIGATION')
+export const NAVIGATION = new InjectionToken('NAVIGATION');
+export const NAVIGATION_GROUP = new InjectionToken('NAVIGATION_GROUP');

@@ -1,7 +1,9 @@
+@reference 'tailwindcss';
+
 :host {
   --emr-breadcrumbs-gap: calc(var(--spacing) * 2.5);
   --emr-breadcrumbs-item-font-size: var(--text-sm);
-  --emr-breadcrumbs-item-color: var(--color-neutral-500);
+  --emr-breadcrumbs-item-color: var(--color-secondary);
   --emr-breadcrumbs-item-hover-color: var(--color-primary);
   --emr-breadcrumbs-active-item-color: var(--color-primary);
   --emr-breadcrumbs-item-font-weight: 400;

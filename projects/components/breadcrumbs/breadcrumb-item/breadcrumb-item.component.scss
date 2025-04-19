@@ -1,9 +1,11 @@
+@reference 'tailwindcss';
+
 :host {
   font-size: var(--emr-breadcrumbs-item-font-size);
   font-weight: var(--emr-breadcrumbs-item-font-weight);
   color: var(--emr-breadcrumbs-item-color);
   display: flex;
-  gap: calc(var(--spacing) * 1.5);
+  gap: --spacing(1.5);
   cursor: pointer;
   text-decoration: none;
   align-items: center;

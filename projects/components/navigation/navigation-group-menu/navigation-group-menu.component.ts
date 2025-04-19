@@ -4,11 +4,13 @@ import {
   Component,
   DestroyRef,
   inject,
-  contentChildren, input
+  contentChildren
 } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NAVIGATION_GROUP } from '../types';
+import { NavigationGroupComponent } from '../navigation-group/navigation-group.component';
 
 @Component({
   selector: 'emr-navigation-group-menu',
@@ -21,16 +23,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   }
 })
 export class NavigationGroupMenuComponent implements AfterContentInit {
+  private _group = inject<NavigationGroupComponent>(NAVIGATION_GROUP);
   readonly api = inject(NavigationApiService);
   private _cdr = inject(ChangeDetectorRef);
   private _destroyRef = inject(DestroyRef);
 
   readonly _items = contentChildren(NavigationItemComponent, { descendants: true });
 
-  key = input<any>();
-
   get active(): boolean {
-    return this.api.isGroupActive(this.key());
+    return this.api.isGroupActive(this._group.key());
   }
 
   ngAfterContentInit() {
@@ -50,11 +51,11 @@ export class NavigationGroupMenuComponent implements AfterContentInit {
     ).length > 0;
 
     if (isGroupActive) {
-      if (!this.api.isGroupActive(this.key())) {
-        this.api.showGroup(this.key());
+      if (!this.api.isGroupActive(this._group.key())) {
+        this.api.showGroup(this._group.key());
       }
     } else {
-      if (this.api.isGroupActive(this.key())) {
+      if (this.api.isGroupActive(this._group.key())) {
         this.api.hideGroup();
       }
     }

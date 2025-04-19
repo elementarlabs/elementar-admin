@@ -1,8 +1,10 @@
-import { Component, inject, contentChild, TemplateRef, input } from '@angular/core';
+import { Component, inject, contentChild, TemplateRef } from '@angular/core';
 import { NavigationApiService } from '../navigation-api.service';
 import { NavigationGroupToggleIconDirective } from '../navigation-group-toggle-icon.directive';
 import { MatRipple } from '@angular/material/core';
 import { NgTemplateOutlet } from '@angular/common';
+import { NAVIGATION_GROUP } from '../types';
+import { NavigationGroupComponent } from '../navigation-group/navigation-group.component';
 
 @Component({
   selector: 'emr-navigation-group-toggle',
@@ -22,20 +24,19 @@ import { NgTemplateOutlet } from '@angular/common';
   }
 })
 export class NavigationGroupToggleComponent {
+  private _group = inject<NavigationGroupComponent>(NAVIGATION_GROUP);
   readonly api = inject(NavigationApiService);
 
   readonly iconRef = contentChild(NavigationGroupToggleIconDirective);
 
-  for = input<any>();
-
   get active(): boolean {
-    return this.api.isGroupActive(this.for());
+    return this.api.isGroupActive(this._group.key());
   }
 
   toggle(event: MouseEvent) {
     event.preventDefault();
     event.stopPropagation();
-    this.api.toggleGroup(this.for());
+    this.api.toggleGroup(this._group.key());
   }
 
   protected get iconRefTemplate(): TemplateRef<any> {

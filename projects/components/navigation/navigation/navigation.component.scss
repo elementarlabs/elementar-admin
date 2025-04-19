@@ -2,11 +2,11 @@
 
 :host {
   --emr-navigation-bg: inherit;
-  --emr-navigation-items-gap: calc(var(--spacing) * 0.5);
+  --emr-navigation-items-gap: --spacing(0.5);
   --emr-navigation-item-width: 100%;
   --emr-navigation-item-bg: transparent;
-  --emr-navigation-item-height: calc(var(--spacing) * 12);
-  --emr-navigation-item-padding: 0 calc(var(--spacing) * 4);
+  --emr-navigation-item-height: --spacing(12);
+  --emr-navigation-item-padding: 0 --spacing(4);
   --emr-navigation-item-font-size: var(--text-sm);
   --emr-navigation-item-border-radius: calc(infinity * 1px);
   --emr-navigation-item-border-width: 1px;
@@ -14,49 +14,49 @@
   --emr-navigation-item-font-weight: 500;
   --emr-navigation-item-color: var(--color-secondary);
   --emr-navigation-item-hover-bg: var(--color-neutral-200);
-  --emr-navigation-item-active-bg: var(--color-secondary-fixed);
-  --emr-navigation-item-hover-color: var(--color-secondary-800);
-  --emr-navigation-item-active-color: var(--color-secondary-950);
+  --emr-navigation-item-active-bg: var(--color-secondary-container);
+  --emr-navigation-item-hover-color: var(--color-on-secondary-fixed);
+  --emr-navigation-item-active-color: var(--color-on-secondary-fixed);
   --emr-navigation-item-icon-font-size: var(--text-2xl);
   --emr-navigation-item-icon-color: var(--color-secondary-700);
   --emr-navigation-item-icon-width: 27px;
   --emr-navigation-item-hover-icon-color: var(--color-secondary-800);
   --emr-navigation-item-active-icon-color: var(--color-secondary-950);
-  --emr-navigation-item-icon-size: calc(var(--spacing) * 6);
-  --emr-navigation-item-gap: calc(var(--spacing) * 2.5);
-  --emr-navigation-item-has-icon-padding-start: calc(var(--spacing) * 2.5);
+  --emr-navigation-item-icon-size: --spacing(6);
+  --emr-navigation-item-gap: --spacing(2.5);
+  --emr-navigation-item-has-icon-padding-start: --spacing(2.5);
   --emr-navigation-heading-color: var(--color-neutral-900);
   --emr-navigation-heading-font-size: var(--text-2xs);
   --emr-navigation-heading-font-weight: 700;
-  --emr-navigation-heading-padding: 0 calc(var(--spacing) * 4);
-  --emr-navigation-heading-margin-bottom: calc(var(--spacing) * 2);
-  --emr-navigation-heading-after-margin: calc(var(--spacing) * 8);
+  --emr-navigation-heading-padding: 0 --spacing(4);
+  --emr-navigation-heading-margin-bottom: --spacing(2);
+  --emr-navigation-heading-after-margin: --spacing(8);
   --emr-navigation-heading-text-transform: uppercase;
   --emr-navigation-divider-height: 1px;
   --emr-navigation-divider-bg: var(--color-border);
-  --emr-navigation-divider-margin: calc(var(--spacing) * 6) 0;
-  --emr-navigation-group-toggle-has-icon-padding-end: calc(var(--spacing) * 2);
+  --emr-navigation-divider-margin: --spacing(6) 0;
+  --emr-navigation-group-toggle-has-icon-padding-end: --spacing(2);
   --emr-navigation-group-toggle-icon-color: var(--color-neutral-400);
-  --emr-navigation-group-toggle-icon-position-end: calc(var(--spacing) * 3);
-  --emr-navigation-group-toggle-icon-size: calc(var(--spacing) * 4);
+  --emr-navigation-group-toggle-icon-position-end: --spacing(3);
+  --emr-navigation-group-toggle-icon-size: --spacing(4);
   --emr-navigation-group-menu-padding-start: 0;
   --emr-navigation-group-toggle-bg: transparent;
   --emr-navigation-group-toggle-active-bg: var(--color-neutral-200);
   --emr-navigation-group-toggle-active-color: var(--emr-navigation-item-active-color);
   --emr-navigation-nested-item-bg: transparent;
-  --emr-navigation-nested-item-height: calc(var(--spacing) * 10);
-  --emr-navigation-nested-item-padding: 0 calc(var(--spacing) * 4);
+  --emr-navigation-nested-item-height: --spacing(10);
+  --emr-navigation-nested-item-padding: 0 --spacing(4);
   --emr-navigation-nested-item-margin: 0 0 0 52px;
   --emr-navigation-nested-item-border-radius: 0;
   --emr-navigation-nested-item-color: var(--color-secondary-600);
   --emr-navigation-nested-item-hover-bg: var(--color-neutral-200);
   --emr-navigation-nested-item-active-bg: var(--color-secondary-fixed);
-  --emr-navigation-nested-item-hover-color: var(--color-secondary-800);
-  --emr-navigation-nested-item-active-color: var(--color-secondary-950);
-  --emr-navigation-nested-item-indicator-width: calc(var(--spacing) * 3.5);
-  --emr-navigation-nested-item-indicator-height: calc(var(--spacing) * 0.5);
+  --emr-navigation-nested-item-hover-color: var(--color-on-secondary-fixed);
+  --emr-navigation-nested-item-active-color: var(--color-on-secondary-fixed);
+  --emr-navigation-nested-item-indicator-width: --spacing(3.5);
+  --emr-navigation-nested-item-indicator-height: --spacing(0.5);
   --emr-navigation-nested-item-indicator-bg: var(--color-neutral-500);
-  --emr-navigation-nested-item-indicator-position-start: calc(calc(var(--spacing) * 2.5) * -1);
+  --emr-navigation-nested-item-indicator-position-start: calc(--spacing(2.5) * -1);
   --emr-navigation-group-active-bg: transparent;
   --emr-navigation-group-border-radius: 0;
   --emr-navigation-group-tree-lines-color: var(--color-border);
@@ -81,9 +81,9 @@
 
   &[data-theme="secondary"] {
     ::ng-deep {
-      .emr-navigation-item {
+      emr-navigation-item {
         --emr-navigation-item-border-radius: calc(infinity * 1px);
-        --emr-navigation-item-height: calc(var(--spacing) * 11);
+        --emr-navigation-item-height: --spacing(11);
         --emr-navigation-item-active-bg: var(--color-background);
 
         &.is-active {
@@ -113,7 +113,7 @@
 
   &[data-theme="secondary"] {
     ::ng-deep {
-      .emr-navigation-item {
+      emr-navigation-item {
         &.is-active {
           --emr-navigation-item-border-color: var(--color-neutral-400);
           --emr-navigation-item-active-color: var(--color-neutral-300);

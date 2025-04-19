@@ -1,3 +1,5 @@
+@reference 'tailwindcss';
+
 :host {
   display: flex;
   flex: none;
@@ -5,11 +7,11 @@
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
-  gap: calc(var(--spacing) * 0.5);
+  gap: --spacing(0.5);
   color: var(--emr-rail-nav-bg-item-color);
 
   .icon {
-    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 4);
+    padding: --spacing(1.5) --spacing(4);
     border-radius: calc(infinity * 1px);
     color: var(--emr-rail-nav-bg-item-icon-color);
     display: flex;
