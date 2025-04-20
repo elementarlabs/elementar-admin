@@ -1,0 +1,48 @@
+<div class="flex flex-wrap h-screen">
+  <div class="flex w-full flex-col md:w-1/2 h-screen">
+    <div>
+      <a emr-logo routerLink="/" class="mt-7 ms-8">Elementar</a>
+    </div>
+    <div class="flex flex-col grow justify-center p-10 md:p-20">
+      <div>
+        <h1 class="text-left text-3xl font-bold -ms-0.5">How are you planning to use Elementar?</h1>
+        <p class="text-sm mt-3 text-neutral-500">
+          Your choice will help us customize your experience.
+        </p>
+        <form class="mt-14 -ms-2" [formGroup]="form">
+          <mat-radio-group formControlName="usageType" class="flex flex-col gap-3">
+            @for (usageType of usageTypes(); track usageType.type) {
+              <mat-radio-button [value]="usageType.type">{{ usageType.name }}</mat-radio-button>
+              @if (form.value.usageType === 'work' && usageType.type === 'work') {
+                <div class="bg-surface-container ms-11 p-5 rounded-2xl">
+                  <div class="font-bold text-xs">What type of work do you do?</div>
+                  <div class="mt-3 flex gap-3">
+                    @for (workType of workTypes(); track workType.type) {
+                      <button class="border border-default hover:outline-2 hover:outline-primary cursor-pointer
+                                  bg-surface-container-lowest py-2 px-3.5 rounded-full text-sm
+                                  [&.is-active]:outline-2 [&.is-active]:outline-primary"
+                              [class.is-active]="form.value.workType === workType.type" (click)="selectWorkType(workType.type)">
+                        {{ workType.name }}
+                      </button>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </mat-radio-group>
+        </form>
+      </div>
+    </div>
+    <div class="h-22 flex-none flex items-start justify-between px-10 md:px-20">
+      <div class="w-50">
+        <div class=" mb-1.5">Step 1 of 4</div>
+        <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>
+      </div>
+      <button mat-flat-button [disabled]="form.invalid">Continue</button>
+    </div>
+  </div>
+  <div class="pointer-events-none relative hidden h-screen flex items-center
+              justify-center select-none bg-surface-container md:flex md:w-1/2">
+    <img class="z-1 max-w-[80%] w-full" src="assets/onboarding/step1.svg" alt="Onboarding step 1">
+  </div>
+</div>

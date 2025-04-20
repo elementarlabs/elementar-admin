@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadChildren: () => import('./error/error.module').then(m => m.ErrorModule)
   },
   {
+    path: 'onboarding',
+    loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingModule)
+  },
+  {
     path: '**',
     title: 'Page Not Found',
     loadComponent: () => import('./error/not-found/not-found.component').then(c => c.NotFoundComponent)

@@ -858,6 +858,19 @@ export class SidebarComponent implements OnInit {
         }
       ]
     },
+    {
+      type: 'group',
+      icon: 'conversion_path',
+      name: 'Onboarding',
+      children: [
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Onboarding',
+          link: '/onboarding'
+        }
+      ]
+    },
   ];
   navItemLinks: any[] = [];
   activeKey: null | string = null;
