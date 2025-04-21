@@ -3,8 +3,9 @@ import { LogoComponent } from '@elementar-ui/components/logo';
 import { MatButton } from '@angular/material/button';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { StepperComponent, StepComponent } from '@elementar-ui/components/stepper';
 
 @Component({
   selector: 'app-onboarding',
@@ -15,7 +16,9 @@ import { RouterLink } from '@angular/router';
     MatRadioButton,
     MatRadioGroup,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    StepperComponent,
+    StepComponent
   ],
   templateUrl: './onboarding.component.html',
   styleUrl: './onboarding.component.scss'
@@ -23,6 +26,7 @@ import { RouterLink } from '@angular/router';
 export class OnboardingComponent {
   private _formBuilder = inject(FormBuilder);
 
+  selectedIndex = signal(0);
   usageTypes = signal([
     {
       type: 'work',
@@ -59,13 +63,14 @@ export class OnboardingComponent {
       name: 'Support'
     },
   ]);
+  steps = signal<FormGroup[]>([
+    this._formBuilder.group({
+      usageType: ['', [Validators.required]],
+      workType: ['none', [Validators.required]],
+    }),
+  ]);
 
-  form = this._formBuilder.group({
-    usageType: ['', [Validators.required]],
-    workType: ['none', [Validators.required]],
-  });
-
-  selectWorkType(workType: string) {
-    this.form.patchValue({ workType });
+  selectWorkType(form: FormGroup, workType: string) {
+    form.patchValue({ workType });
   }
 }
