@@ -1,15 +1,25 @@
 @reference 'tailwindcss';
 
 :host {
-  padding-inline-start: var(--emr-sidebar-nav-group-menu-padding-start);
-  margin-top: var(--emr-sidebar-nav-item-space-y);
-  display: none;
-  flex-direction: column;
   position: relative;
-  gap: var(--emr-sidebar-nav-items-gap);
-  padding: calc(var(--emr-sidebar-nav-items-gap) * 2) 0;
+  padding-inline-start: var(--emr-sidebar-nav-group-menu-padding-start);
+  transition: grid-template-rows .1s ease-in-out;
+  grid-template-rows: 0fr;
+  display: grid;
+
+  .inner {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--emr-sidebar-nav-items-gap);
+  }
 
   &.is-active {
-    display: flex;
+    grid-template-rows: 1fr;
+    margin-top: var(--emr-sidebar-nav-item-space-y);
+
+    .inner {
+      padding: calc(var(--emr-sidebar-nav-items-gap) * 2) 0 var(--emr-sidebar-nav-items-gap) 0;
+    }
   }
 }

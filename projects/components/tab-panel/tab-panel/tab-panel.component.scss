@@ -9,8 +9,8 @@
   --emr-tab-panel-item-gap: calc(var(--spacing) * 1);
   --emr-tab-panel-item-hover-bg: var(--color-neutral-200);
   --emr-tab-panel-item-hover-color: var(--color-neutral-700);
-  --emr-tab-panel-item-active-bg: var(--color-primary-300);
-  --emr-tab-panel-item-active-color: var(--color-neutral-950);
+  --emr-tab-panel-item-active-bg: var(--color-secondary-fixed);
+  --emr-tab-panel-item-active-color: var(--color-on-secondary-fixed);
   --emr-tab-panel-item-border-radius: theme(--radius-xl);
   --emr-tab-panel-aside-width: 18.75rem;
   --emr-tab-panel-border-end: 1px solid var(--color-border);
@@ -20,9 +20,9 @@
   --emr-tab-panel-item-icon-font-size: var(--text-2xl);
 
   // compact state
-  --emr-tab-panel-compact-width: calc(var(--spacing) * 14);
-  --emr-tab-panel-compact-item-width: calc(var(--spacing) * 10);
-  --emr-tab-panel-compact-item-height: calc(var(--spacing) * 10);
+  --emr-tab-panel-compact-width: --spacing(14);
+  --emr-tab-panel-compact-item-width: --spacing(10);
+  --emr-tab-panel-compact-item-height: --spacing(10);
 
   display: flex;
   width: min-content;
@@ -46,5 +46,4 @@
 :host-context(html.dark) {
   --emr-tab-panel-item-hover-bg: var(--color-neutral-700);
   --emr-tab-panel-item-hover-color: var(--color-primary-200);
-  --emr-tab-panel-item-active-bg: var(--color-primary-300);
 }
