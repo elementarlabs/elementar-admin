@@ -6,6 +6,8 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { StepperComponent, StepComponent } from '@elementar-ui/components/stepper';
+import { MatHint, MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-onboarding',
@@ -18,7 +20,11 @@ import { StepperComponent, StepComponent } from '@elementar-ui/components/steppe
     ReactiveFormsModule,
     RouterLink,
     StepperComponent,
-    StepComponent
+    StepComponent,
+    MatLabel,
+    MatFormField,
+    MatInput,
+    MatHint
   ],
   templateUrl: './onboarding.component.html',
   styleUrl: './onboarding.component.scss'
@@ -67,6 +73,9 @@ export class OnboardingComponent {
     this._formBuilder.group({
       usageType: ['', [Validators.required]],
       workType: ['none', [Validators.required]],
+    }),
+    this._formBuilder.group({
+      workspaceName: ['', [Validators.required]]
     }),
   ]);
 

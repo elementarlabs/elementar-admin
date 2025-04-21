@@ -1,91 +1,100 @@
 import {
   Component,
-  Input,
-  OnDestroy,
-  HostBinding, // Used to control visibility via CSS class
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  input,
+  signal,
+  computed,
+  effect,
+  inject,
+  DestroyRef
 } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Needed for ng-content
 import { AbstractControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'emr-step', // Component selector
-  exportAs: 'emrStep', // Kept for compatibility if used somewhere
-  standalone: true,
-  imports: [CommonModule], // Needed for ng-content
-  template: `
-    <!-- Simply project the content, visibility is controlled by the host -->
-    <ng-content></ng-content>
-  `,
+  selector: 'emr-step',
+  exportAs: 'emrStep',
+  template: `<ng-content/>`,
   styles: [`
     :host {
-      display: block; /* Components are inline by default */
-      /* Step is hidden by default - controlled via [style.display] */
+      display: block;
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    'class': 'emr-step',
+    '[style.display]': 'isActive() ? "block" : "none"',
+  }
 })
-export class StepComponent implements OnDestroy {
+export class StepComponent {
   /** Form control associated with this step */
-  @Input() stepControl?: AbstractControl;
-
+  stepControl = input<AbstractControl | undefined>(undefined);
   /** Whether the step is optional */
-  @Input() optional: boolean = false;
+  optional = input(false);
 
-  // --- Step State ---
-  /** Whether the user has interacted with this step */
-  interacted = false;
+  /** Whether the user has interacted with this step (writable signal) */
+  readonly interacted = signal(false);
+  /** Whether this step is currently active (writable signal, controlled by Stepper) */
+  readonly isActive = signal(false);
+  /** Internal writable signal tracking the validity of the stepControl */
+  private readonly _isValid = signal(true); // Default to true if no control
 
-  // --- Visibility Control ---
-  /** Flag indicating if the step is active (controlled externally by StepperComponent) */
-  private _isActive = false;
+  private _destroyRef = inject(DestroyRef); // Inject DestroyRef for automatic cleanup
 
-  /** Binds the display style to the host for visibility control via CSS */
-  @HostBinding('style.display') get displayStyle(): string {
-    return this._isActive ? 'block' : 'none';
+  constructor() {
+    effect(() => {
+      const control = this.stepControl(); // Read the input signal
+
+      if (control) {
+        // Set initial validity based on the control's current state when the effect runs
+        this._isValid.set(control.valid);
+
+        // Subscribe to statusChanges and update the _isValid signal
+        // Use takeUntilDestroyed for automatic cleanup when the component is destroyed
+        control.statusChanges.pipe(
+          startWith(control.status), // Emit initial status immediately to sync _isValid
+          takeUntilDestroyed(this._destroyRef) // Automatically unsubscribe on component destroy
+        ).subscribe(() => {
+          // Update the internal validity signal whenever the control's status changes
+          this._isValid.set(control.valid);
+        });
+
+      } else {
+        // If no control is provided, consider the step inherently valid for completion
+        this._isValid.set(true);
+      }
+    });
   }
 
-  /** Subject for managing subscriptions cleanup */
-  private readonly _destroyed = new Subject<void>();
+  /** Computed signal indicating if the step is completed */
+  readonly completed = computed(() => {
+    // A step is completed if it doesn't have a stepControl or
+    // if the internal _isValid signal (reflecting the control's validity) is true.
+    return !this.stepControl() || this._isValid();
+  });
 
-  constructor(private _cdr: ChangeDetectorRef) {}
-
-  /** Getter to check if the step is completed */
-  get completed(): boolean {
-    // A step is considered completed if it doesn't have a stepControl
-    // or if the associated stepControl is valid.
-    return !this.stepControl || this.stepControl.valid;
+  /**
+   * Checks if the step is currently valid.
+   * Considers the validity of the associated stepControl if provided.
+   * @returns boolean True if the step is valid, false otherwise.
+   */
+  public isValid(): boolean {
+    return this._isValid(); // Directly return the tracked validity state
   }
 
-  /** Resets the step's state */
+  /** Resets the step's interacted state */
   reset(): void {
-    this.interacted = false;
-    // Do not reset _isActive here, as Stepper controls this
+    this.interacted.set(false);
   }
 
-  /** Public method to set the step's active state (called by StepperComponent) */
-  setActive(isActive: boolean): void {
-    if (this._isActive !== isActive) {
-      this._isActive = isActive;
-      this._cdr.markForCheck(); // Mark for check as the host state ([style.display]) changed
-    }
+  /** Sets the active state of the step */
+  setActive(active: boolean): void {
+    this.isActive.set(active);
   }
 
-  /** Public method to set the interacted flag (called by StepperComponent) */
+  /** Sets the interacted state of the step */
   setInteracted(interacted: boolean): void {
-    // Can add a check to avoid marking for check unnecessarily
-    if (this.interacted !== interacted) {
-      this.interacted = interacted;
-      // If interacted affects the StepComponent template (e.g., a class), markForCheck is needed.
-      // In this case, interacted is only used by StepperComponent.
-    }
-  }
-
-  /** Clean up on component destruction */
-  ngOnDestroy(): void {
-    this._destroyed.next();
-    this._destroyed.complete();
+    this.interacted.set(interacted);
   }
 }

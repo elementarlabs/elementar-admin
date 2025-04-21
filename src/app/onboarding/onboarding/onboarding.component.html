@@ -1,12 +1,12 @@
-<div class="flex flex-wrap h-screen">
+<div class="flex flex-wrap h-screen mat-typography">
   <div class="flex w-full flex-col md:w-1/2 h-screen">
     <div>
       <a emr-logo routerLink="/" class="mt-7 ms-8">Elementar</a>
     </div>
-    <div class="grow px-10 md:px-20 mt-40 overflow-y-auto">
-      <emr-stepper #stepper="emrStepper" [linear]="true" selectedIndex="0">
+    <div class="grow px-10 md:px-20 mt-36 overflow-y-auto">
+      <emr-stepper #stepper="emrStepper" linear>
         <emr-step [stepControl]="steps()[0]">
-          <h1 class="text-left text-3xl font-bold -ms-0.5">How are you planning to use Elementar?</h1>
+          <h1 class="mat-headline-2 -ms-0.5">How are you planning to use Elementar?</h1>
           <p class="text-sm mt-3 text-neutral-500">
             Your choice will help us customize your experience.
           </p>
@@ -34,19 +34,34 @@
             </mat-radio-group>
           </form>
         </emr-step>
-        <emr-step>
-          asfasfas
+        <emr-step [stepControl]="steps()[1]">
+          <h1 class="mat-headline-2 -ms-0.5">What would you like to name your Workspace?</h1>
+          <p class="text-sm mt-3 text-neutral-500">
+            Your Workspace is where you can find all your videos and discover looms from your team.
+          </p>
+          <form class="mt-14 w-full" [formGroup]="steps()[1]">
+            <mat-form-field class="w-full">
+              <mat-label>Workspace name</mat-label>
+              <input type="text" matInput formControlName="workspaceName">
+              <mat-hint>Change the name of your workspace</mat-hint>
+            </mat-form-field>
+          </form>
         </emr-step>
       </emr-stepper>
     </div>
     <div class="h-24 flex-none flex items-start pt-4 justify-between px-10 md:px-20">
       <div class="w-50">
-        <div class=" mb-1.5">Step {{ stepper.selectedIndex + 1 }} of {{ steps().length }}</div>
-        <mat-progress-bar mode="determinate" [value]="25 * (stepper.selectedIndex + 1)"></mat-progress-bar>
+        <div class=" mb-1.5">Step {{ stepper.selectedIndex() + 1 }} of {{ stepper.stepsCount() }}</div>
+        <mat-progress-bar mode="determinate" [value]="stepper.progressPercent()"></mat-progress-bar>
       </div>
-      <button mat-flat-button
-              [disabled]="!stepper.canMoveNext()"
-              (click)="stepper.next()">Continue</button>
+      @if (stepper.isLastStep()) {
+        <button mat-flat-button [disabled]="!stepper.selected()?.isValid()">Finish</button>
+      } @else {
+        <button mat-flat-button
+                [disabled]="!stepper.selected()?.isValid()"
+                (click)="stepper.next()">Continue</button>
+      }
+
     </div>
   </div>
   <div class="pointer-events-none relative hidden h-screen flex items-center
