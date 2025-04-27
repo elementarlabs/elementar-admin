@@ -1,8 +1,17 @@
 import {
-  Directive, ElementRef, HostListener, Renderer2, OnInit, Input, Output, EventEmitter, OnDestroy, NgZone, AfterViewInit
+  Directive,
+  ElementRef,
+  Renderer2,
+  OnInit,
+  OnDestroy,
+  NgZone,
+  AfterViewInit,
+  signal,
+  input,
+  inject,
+  output
 } from '@angular/core';
 
-// Функция плавности
 function easeOutQuad(t: number): number {
   return t * (2 - t);
 }
@@ -10,55 +19,52 @@ function easeOutQuad(t: number): number {
 @Directive({
   selector: '[emrDraggableCarousel]',
   standalone: true,
+  host: {
+    '(mousedown)': 'onMouseDown($event)',
+    '(mouseleave)': 'onMouseLeaveElement($event)',
+    '(document:mousemove)': 'onMouseMove($event)',
+    '(document:mouseup)': 'onMouseUpOrLeave($event)',
+    '(document:mouseleave)': 'onMouseUpOrLeave($event)',
+    '[class.dragging-active]': 'isDragging()'
+  }
 })
 export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDestroy {
+  private el = inject(ElementRef<HTMLElement>);
+  private renderer = inject(Renderer2);
+  private zone = inject(NgZone);
 
-  @Input() cardSelector: string = '.emr-carousel-card';
-  @Input() snapToCenter: boolean = true;
-  @Input() snapDebounceTime: number = 50;
-  @Input() snapDuration: number = 300;
-  @Input() resistanceFactor: number = 0.5;
-  @Input() velocityThreshold: number = 0.5;
+  cardSelector = input<string>('.emr-carousel-card');
+  snapToCenter = input<boolean>(true);
+  snapDebounceTime = input<number>(50);
+  snapDuration = input<number>(300);
+  resistanceFactor = input<number>(0.5);
+  velocityThreshold = input<number>(0.5);
 
-  /**
-   * Вызывается при изменении активного (центрированного) индекса карточки
-   * после завершения анимации.
-   */
-  @Output() activeIndexChange = new EventEmitter<number>();
+  activeIndexChange = output<number>();
 
-  private isDragging = false;
-  private startX = 0;
-  private scrollLeftStart = 0;
-  private currentTranslateX = 0;
-  private hostElement: HTMLElement;
+  isDragging = signal(false); // <<< Убран модификатор private
 
-  // Для отслеживания скорости
-  private lastMoveX: number | null = null;
-  private lastMoveTime: number | null = null;
-  private currentVelocityX: number = 0; // pixels/ms
+  private startX = signal(0);
+  private scrollLeftStart = signal(0);
+  private currentTranslateX = signal(0);
+  private lastMoveX = signal<number | null>(null);
+  private lastMoveTime = signal<number | null>(null);
+  private currentVelocityX = signal(0);
+  private lastEmittedIndex = signal<number | null>(null);
 
   private snapTimeoutId: ReturnType<typeof setTimeout> | null = null;
   private scrollAnimationId: number | null = null;
   private transformAnimationId: number | null = null;
 
-  private lastEmittedIndex: number | null = null; // Отслеживание последнего эмита
-
-  constructor(
-    private el: ElementRef<HTMLElement>,
-    private renderer: Renderer2,
-    private zone: NgZone
-  ) {
-    this.hostElement = this.el.nativeElement;
-  }
+  private hostElement!: HTMLElement;
 
   ngOnInit(): void {
+    this.hostElement = this.el.nativeElement;
     this.renderer.setStyle(this.hostElement, 'cursor', 'grab');
     this.hostElement.style.scrollBehavior = 'auto';
   }
 
   ngAfterViewInit(): void {
-    // Эмитим начальное состояние после рендеринга
-    // Используем setTimeout 0 для гарантии, что все размеры рассчитаны
     setTimeout(() => {
       const initialIndex = this.findCurrentCenterIndex();
       this.emitActiveIndex(initialIndex);
@@ -71,54 +77,52 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     this.cancelTransformAnimation();
   }
 
-  // --- Обработчики событий мыши ---
-  // (onMouseDown, onMouseMove, onMouseUpOrLeave, onMouseLeaveElement остаются без изменений)
-  @HostListener('mousedown', ['$event'])
   onMouseDown(event: MouseEvent): void {
     this.clearSnapTimeout();
     this.cancelScrollAnimation();
     this.cancelTransformAnimation();
-    if (this.currentTranslateX !== 0) {
-      this.currentTranslateX = 0;
+
+    if (this.currentTranslateX() !== 0) {
+      this.currentTranslateX.set(0);
       this.renderer.setStyle(this.hostElement, 'transform', '');
     }
     this.hostElement.style.scrollBehavior = 'auto';
 
     if (event.button !== 0) return;
 
-    this.isDragging = true;
-    this.startX = event.pageX - this.hostElement.offsetLeft;
-    this.scrollLeftStart = this.hostElement.scrollLeft;
+    this.isDragging.set(true);
+    this.startX.set(event.pageX - this.hostElement.offsetLeft);
+    this.scrollLeftStart.set(this.hostElement.scrollLeft);
 
-    this.lastMoveX = event.pageX;
-    this.lastMoveTime = event.timeStamp;
-    this.currentVelocityX = 0;
+    this.lastMoveX.set(event.pageX);
+    this.lastMoveTime.set(event.timeStamp);
+    this.currentVelocityX.set(0);
 
     this.renderer.setStyle(this.hostElement, 'cursor', 'grabbing');
-    this.renderer.addClass(this.hostElement, 'dragging-active');
     event.preventDefault();
   }
 
-  @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
-    if (!this.isDragging) return;
+    if (!this.isDragging()) return;
     event.preventDefault();
 
     const currentX = event.pageX;
     const currentTime = event.timeStamp;
+    const lastMoveTime = this.lastMoveTime();
+    const lastMoveX = this.lastMoveX();
 
-    if (this.lastMoveTime !== null && this.lastMoveX !== null && currentTime > this.lastMoveTime) {
-      const deltaX = currentX - this.lastMoveX;
-      const deltaTime = currentTime - this.lastMoveTime;
+    if (lastMoveTime !== null && lastMoveX !== null && currentTime > lastMoveTime) {
+      const deltaX = currentX - lastMoveX;
+      const deltaTime = currentTime - lastMoveTime;
       if (deltaTime > 0) {
-        this.currentVelocityX = -deltaX / deltaTime;
+        this.currentVelocityX.set(-deltaX / deltaTime);
       }
     }
-    this.lastMoveX = currentX;
-    this.lastMoveTime = currentTime;
+    this.lastMoveX.set(currentX);
+    this.lastMoveTime.set(currentTime);
 
-    const dragDeltaX = currentX - (this.startX + this.hostElement.offsetLeft);
-    const intendedScrollLeft = this.scrollLeftStart - dragDeltaX;
+    const dragDeltaX = currentX - (this.startX() + this.hostElement.offsetLeft);
+    const intendedScrollLeft = this.scrollLeftStart() - dragDeltaX;
     const maxScrollLeft = this.hostElement.scrollWidth - this.hostElement.clientWidth;
     let targetScrollLeft = intendedScrollLeft;
     let translateX = 0;
@@ -126,69 +130,63 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     if (intendedScrollLeft < 0) {
       targetScrollLeft = 0;
       const overpull = -intendedScrollLeft;
-      translateX = Math.min(overpull * this.resistanceFactor, this.hostElement.clientWidth * 0.4);
+      translateX = Math.min(overpull * this.resistanceFactor(), this.hostElement.clientWidth * 0.4);
     } else if (intendedScrollLeft > maxScrollLeft) {
       targetScrollLeft = maxScrollLeft;
       const overpull = intendedScrollLeft - maxScrollLeft;
-      translateX = -Math.min(overpull * this.resistanceFactor, this.hostElement.clientWidth * 0.4);
+      translateX = -Math.min(overpull * this.resistanceFactor(), this.hostElement.clientWidth * 0.4);
     }
 
     if (this.hostElement.scrollLeft !== targetScrollLeft) {
       this.hostElement.scrollLeft = targetScrollLeft;
     }
-    if (this.currentTranslateX !== translateX) {
-      this.currentTranslateX = translateX;
+
+    if (this.currentTranslateX() !== translateX) {
+      this.currentTranslateX.set(translateX);
       if (Math.abs(translateX) > 0.1) {
         this.renderer.setStyle(this.hostElement, 'transform', `translateX(${translateX}px)`);
       } else {
-        this.currentTranslateX = 0;
+        this.currentTranslateX.set(0);
         this.renderer.setStyle(this.hostElement, 'transform', '');
       }
     }
   }
 
-  @HostListener('document:mouseup', ['$event'])
-  @HostListener('document:mouseleave', ['$event'])
   onMouseUpOrLeave(event: MouseEvent): void {
-    if (!this.isDragging) return;
+    if (!this.isDragging()) return;
     this.stopDragging();
   }
 
-  @HostListener('mouseleave', ['$event'])
   onMouseLeaveElement(event: MouseEvent): void {
-    if (!this.isDragging) {
+    if (!this.isDragging()) {
       this.renderer.setStyle(this.hostElement, 'cursor', 'grab');
     }
   }
-  // --- Логика завершения перетаскивания ---
-  // (stopDragging остается без изменений)
-  private stopDragging(): void {
-    if (!this.isDragging) return;
 
-    this.isDragging = false;
+  private stopDragging(): void {
+    if (!this.isDragging()) return;
+
+    this.isDragging.set(false);
     this.renderer.setStyle(this.hostElement, 'cursor', 'grab');
-    this.renderer.removeClass(this.hostElement, 'dragging-active');
     this.clearSnapTimeout();
 
-    const wasPulled = Math.abs(this.currentTranslateX) > 0.1;
+    const wasPulled = Math.abs(this.currentTranslateX()) > 0.1;
 
     if (wasPulled) {
       this.snapTimeoutId = setTimeout(() => {
-        this.animateTransformReset(); // Эта анимация теперь будет эммитить индекс
+        this.animateTransformReset();
         this.snapTimeoutId = null;
-      }, this.snapDebounceTime / 2);
-    } else if (this.snapToCenter) {
+      }, this.snapDebounceTime() / 2);
+    } else if (this.snapToCenter()) {
       this.snapTimeoutId = setTimeout(() => {
-        this.initiateSnap(); // Эта функция запускает animateToCard -> animateScroll, которая эммитит индекс
+        this.initiateSnap();
         this.snapTimeoutId = null;
-      }, this.snapDebounceTime);
+      }, this.snapDebounceTime());
     }
   }
 
-  // --- Логика снаппинга ---
-  // (initiateSnap, findNearestCardIndex, animateToCard остаются без изменений)
   private initiateSnap(): void {
-    const cards = Array.from(this.hostElement.querySelectorAll<HTMLElement>(this.cardSelector));
+    const cards = Array.from(this.hostElement.querySelectorAll<HTMLElement>(this.cardSelector()));
     if (!cards.length) return;
 
     let targetCardIndex = -1;
@@ -196,15 +194,13 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     const containerCenter = currentScroll + this.hostElement.clientWidth / 2;
 
     let currentNearestCardIndex = this.findNearestCardIndex(cards, containerCenter);
-    if (currentNearestCardIndex < 0) {
-      console.warn("[emrDraggableCarousel] Could not find nearest card index.");
-      return;
-    }
+    if (currentNearestCardIndex < 0) return;
 
-    const absVelocity = Math.abs(this.currentVelocityX);
+    const absVelocity = Math.abs(this.currentVelocityX());
+    const threshold = this.velocityThreshold();
 
-    if (absVelocity > this.velocityThreshold) {
-      if (this.currentVelocityX < 0) {
+    if (absVelocity > threshold) {
+      if (this.currentVelocityX() < 0) {
         targetCardIndex = currentNearestCardIndex - 1;
       } else {
         targetCardIndex = currentNearestCardIndex + 1;
@@ -246,30 +242,23 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     let targetScrollLeft = targetCardLeft + targetCardWidth / 2 - containerWidth / 2;
     const maxScrollLeft = container.scrollWidth - containerWidth;
     targetScrollLeft = Math.max(0, Math.min(targetScrollLeft, maxScrollLeft));
-    this.animateScroll(targetScrollLeft); // Вызываем анимацию скролла
+    this.animateScroll(targetScrollLeft);
   }
 
-
-  // --- Анимации (с добавлением эмита индекса) ---
-
-  /**
-   * Анимирует transform: translateX обратно к 0 и эммитит индекс крайней карточки.
-   */
   private animateTransformReset(): void {
     this.cancelTransformAnimation();
-    const startTranslateX = this.currentTranslateX;
+    const startTranslateX = this.currentTranslateX();
     const distance = 0 - startTranslateX;
     if (Math.abs(distance) < 1) {
-      if (this.currentTranslateX !== 0) {
-        this.currentTranslateX = 0;
+      if (startTranslateX !== 0) {
+        this.currentTranslateX.set(0);
         this.renderer.setStyle(this.hostElement, 'transform', '');
-        // Эмит индекса, если трансформация была сброшена без анимации
         const finalIndex = this.findCurrentCenterIndex();
         this.emitActiveIndex(finalIndex);
       }
       return;
     }
-    const duration = this.snapDuration;
+    const duration = this.snapDuration();
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (startTime === null) startTime = timestamp;
@@ -277,20 +266,16 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
       const progress = Math.min(1, elapsed / duration);
       const easedProgress = easeOutQuad(progress);
       const newTranslateX = startTranslateX + distance * easedProgress;
-      this.currentTranslateX = newTranslateX;
+      this.currentTranslateX.set(newTranslateX);
       this.renderer.setStyle(this.hostElement, 'transform', `translateX(${newTranslateX}px)`);
-
       if (progress < 1) {
         this.transformAnimationId = requestAnimationFrame(step);
       } else {
-        // --- АНИМАЦИЯ ЗАВЕРШЕНА ---
-        this.currentTranslateX = 0;
+        this.currentTranslateX.set(0);
         this.renderer.setStyle(this.hostElement, 'transform', '');
         this.transformAnimationId = null;
-        // Определяем и эммитим индекс крайней карточки
-        const finalIndex = this.findCurrentCenterIndex(); // Найдет 0 или последний индекс
+        const finalIndex = this.findCurrentCenterIndex();
         this.emitActiveIndex(finalIndex);
-        // --- КОНЕЦ ЭМИТА ---
       }
     };
     this.zone.runOutsideAngular(() => {
@@ -298,22 +283,17 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     });
   }
 
-  /**
-   * Выполняет плавную анимацию прокрутки до targetScrollLeft и эммитит индекс центрированной карточки.
-   */
   private animateScroll(targetScrollLeft: number): void {
     this.cancelScrollAnimation();
     const container = this.hostElement;
     const startScrollLeft = container.scrollLeft;
     const distance = targetScrollLeft - startScrollLeft;
     if (Math.abs(distance) < 1) {
-      // Если не двигались, все равно проверим и эммитим текущий индекс
       const finalIndex = this.findCurrentCenterIndex();
       this.emitActiveIndex(finalIndex);
       return;
     }
-
-    const duration = this.snapDuration;
+    const duration = this.snapDuration();
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (startTime === null) startTime = timestamp;
@@ -321,17 +301,13 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
       const progress = Math.min(1, elapsed / duration);
       const easedProgress = easeOutQuad(progress);
       container.scrollLeft = startScrollLeft + distance * easedProgress;
-
       if (progress < 1) {
         this.scrollAnimationId = requestAnimationFrame(step);
       } else {
-        // --- АНИМАЦИЯ ЗАВЕРШЕНА ---
-        container.scrollLeft = targetScrollLeft; // Точно устанавливаем конечное значение
+        container.scrollLeft = targetScrollLeft;
         this.scrollAnimationId = null;
-        // Определяем и эммитим индекс финально центрированной карточки
         const finalIndex = this.findCurrentCenterIndex();
         this.emitActiveIndex(finalIndex);
-        // --- КОНЕЦ ЭМИТА ---
       }
     };
     this.zone.runOutsideAngular(() => {
@@ -339,33 +315,23 @@ export class DraggableCarouselDirective implements OnInit, AfterViewInit, OnDest
     });
   }
 
-  // --- Вспомогательные функции ---
-
-  /** Находит индекс карточки, ближайшей к текущему центру контейнера */
   private findCurrentCenterIndex(): number {
-    const cards = Array.from(this.hostElement.querySelectorAll<HTMLElement>(this.cardSelector));
-    if (!cards.length) return -1; // Если карточек нет
-
+    const cards = Array.from(this.hostElement.querySelectorAll<HTMLElement>(this.cardSelector()));
+    if (!cards.length) return -1;
     const currentScroll = this.hostElement.scrollLeft;
     const containerCenter = currentScroll + this.hostElement.clientWidth / 2;
     return this.findNearestCardIndex(cards, containerCenter);
   }
 
-  /** Эмиттит активный индекс, если он изменился */
   private emitActiveIndex(index: number): void {
-    // Эмитим только если индекс валидный и отличается от предыдущего
-    if (index >= 0 && index !== this.lastEmittedIndex) {
-      this.lastEmittedIndex = index;
-      // Запускаем эмит внутри зоны Angular для корректной реакции подписчиков
+    if (index >= 0 && index !== this.lastEmittedIndex()) {
+      this.lastEmittedIndex.set(index);
       this.zone.run(() => {
         this.activeIndexChange.emit(index);
-        console.log('Emitted activeIndexChange:', index); // Для дебага
       });
     }
   }
 
-  // --- Функции отмены и очистки ---
-  // (cancelScrollAnimation, cancelTransformAnimation, clearSnapTimeout остаются без изменений)
   private cancelScrollAnimation(): void {
     if (this.scrollAnimationId !== null) {
       cancelAnimationFrame(this.scrollAnimationId);
