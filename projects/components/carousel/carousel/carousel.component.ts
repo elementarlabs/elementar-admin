@@ -2,7 +2,7 @@ import {
   booleanAttribute,
   Component,
   contentChildren,
-  ElementRef, input,
+  ElementRef, input, signal,
   viewChild
 } from '@angular/core';
 import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } from '../types';
@@ -31,7 +31,7 @@ import { DraggableCarouselDirective } from '../draggable-carousel.directive';
 export class CarouselComponent {
   private _content = viewChild.required<ElementRef>('content');
   private _cards = contentChildren<CarouselCardInterface>(CAROUSEL_CARD);
-  private _index = 0;
+  private _index = signal(0);
 
   fade = input(false, {
     transform: booleanAttribute
@@ -46,11 +46,15 @@ export class CarouselComponent {
     }
   }
 
+  protected onCarouselIndexChanged(index: number): void {
+    this._index.set(index);
+  }
+
   private _previous(): void {
     const contentElement = this._content()?.nativeElement as HTMLElement;
 
     for (let index = this._cards().length - 1;  index >= 0; index--) {
-      if (index >= this._index) {
+      if (index >= this._index()) {
         continue;
       }
 
@@ -67,7 +71,7 @@ export class CarouselComponent {
     const contentElement = this._content().nativeElement as HTMLElement;
     const notVisibleCard = this._cards().find(
       (card: CarouselCardInterface, index: number) =>
-        !this._visibleInParentViewport(contentElement, card.element) && index > this._index
+        !this._visibleInParentViewport(contentElement, card.element) && index > this._index()
     );
 
     if (notVisibleCard) {
@@ -76,7 +80,7 @@ export class CarouselComponent {
   }
 
   private _scrollToCard(notVisibleCard: CarouselCardInterface): void {
-    this._index = this._cards().findIndex(card => card === notVisibleCard);
+    this._index.set(this._cards().findIndex(card => card === notVisibleCard));
     notVisibleCard.element.scrollIntoView({
       block: 'nearest',
       behavior: 'smooth',
@@ -95,10 +99,10 @@ export class CarouselComponent {
   }
 
   private get _isPreviousDisabled(): boolean {
-    return this._index === 0;
+    return this._index() === 0;
   }
 
   private get _isNextDisabled(): boolean {
-    return this._index === this._cards().length - 1;
+    return this._index() === this._cards().length - 1;
   }
 }

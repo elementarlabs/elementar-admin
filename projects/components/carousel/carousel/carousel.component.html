@@ -1,4 +1,5 @@
-<div #content class="content" emrDraggableCarousel>
+<div #content class="content" emrDraggableCarousel
+     (activeIndexChange)="onCarouselIndexChanged($event)">
   <ng-content select="emr-carousel-card,[emr-carousel-card]"></ng-content>
 </div>
 <div class="controls">
