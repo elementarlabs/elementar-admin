@@ -6,6 +6,7 @@ import {
   viewChild
 } from '@angular/core';
 import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } from '../types';
+import { DraggableCarouselDirective } from '../draggable-carousel.directive';
 
 @Component({
   selector: 'emr-carousel',
@@ -18,6 +19,10 @@ import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } 
   ],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
+  hostDirectives: [],
+  imports: [
+    DraggableCarouselDirective
+  ],
   host: {
     'class': 'emr-carousel',
     '[class.fade]': 'fade()',
