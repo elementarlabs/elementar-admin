@@ -15,9 +15,6 @@
             ✅ <strong>Seamless Integration</strong>: Built with Angular Material and Tailwind,
             it blends right in with your app's design.
           </li>
-<!--          <li>-->
-<!--            <strong>Fully Responsive</strong>: Works beautifully on desktops, tablets, and mobile devices.-->
-<!--          </li>-->
           <li>
             ✅ <strong>Easy to Use</strong>: Simple API for developers of any skill level.
           </li>
@@ -36,17 +33,17 @@
 
     <h3 class="mat-title-large">Basic Carousel</h3>
     <emr-playground exampleUrl="_docs/components/carousel/_examples" exampleName="basic-carousel-example">
-      <app-basic-carousel-example></app-basic-carousel-example>
+      <app-basic-carousel-example/>
     </emr-playground>
 
     <h3 class="mat-title-large">Carousel controls with custom position</h3>
     <emr-playground exampleUrl="_docs/components/carousel/_examples" exampleName="carousel-controls-custom-position-example">
-      <app-carousel-controls-custom-position-example></app-carousel-controls-custom-position-example>
+      <app-carousel-controls-custom-position-example/>
     </emr-playground>
 
     <h3 class="mat-title-large">Carousel with fade effect</h3>
     <emr-playground exampleUrl="_docs/components/carousel/_examples" exampleName="carousel-fade-effect-example">
-      <app-carousel-fade-effect-example></app-carousel-fade-effect-example>
+      <app-carousel-fade-effect-example/>
     </emr-playground>
 
     <h2>API Reference</h2>
@@ -54,27 +51,113 @@
       Properties for the <code class="code">emr-carousel</code> component.
     </p>
 
-    <div class="border border-default rounded-xl shadow-sm overflow-hidden my-6">
-      <table class="emr-table not-mat-typography">
-        <thead>
-        <tr class="bg-neutral-200 dark:bg-neutral-700">
-          <th class="w-1/2">Prop</th>
-          <th>Type</th>
-          <th>Default</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>
-            <div>fade</div>
-            <div class="text-xs text-neutral-500 mt-0.5">Adds smooth opacity to left and right</div>
-          </td>
-          <td>boolean</td>
-          <td>false</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+    <mat-tab-group class="my-6">
+      <mat-tab label="Properties">
+        <div class="border border-default rounded-xl shadow-sm overflow-hidden my-6">
+          <table class="emr-table not-mat-typography">
+            <thead>
+            <tr class="bg-neutral-200 dark:bg-neutral-700">
+              <th class="w-1/2">Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                <div>fade</div>
+                <div class="text-xs text-neutral-600 mt-0.5">Adds smooth opacity to left and right</div>
+              </td>
+              <td>boolean</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>
+                <div>snapToCenter</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  Enables or disables the automatic snapping of a card to the center of the viewport after dragging ends (if an inertial flick did not occur).
+                </div>
+              </td>
+              <td>boolean</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>
+                <div>snapDebounceTime</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  The delay in milliseconds after the mouse button is released before starting the snapping animation (to the nearest or next card) or the "rubber band" return animation.
+                </div>
+              </td>
+              <td>number</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>
+                <div>snapDuration</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  The duration in milliseconds for all animations performed by the component: snapping to a card and the "rubber band" return.
+                </div>
+              </td>
+              <td>number</td>
+              <td>300</td>
+            </tr>
+            <tr>
+              <td>
+                <div>resistanceFactor</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  Adjusts the "feel" and amount of visual displacement when attempting to pull content past the edge positions.
+                </div>
+              </td>
+              <td>number</td>
+              <td>0.5</td>
+            </tr>
+            <tr>
+              <td>
+                <div>velocityThreshold</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  The threshold velocity (in pixels per millisecond) of the mouse movement at the moment the button is released.
+                  If the velocity exceeds this threshold, the carousel
+                  will switch to the next card in the direction of movement (inertial flick) instead of the nearest one to the center.
+                </div>
+              </td>
+              <td>number</td>
+              <td>0.5</td>
+            </tr>
+            <tr>
+              <td>
+                <div>visibilityDebounceTime</div>
+                <div class="text-xs text-neutral-600 mt-0.5">
+                  The delay in milliseconds after the last scroll event
+                  (not caused by dragging) before updating the visibility CSS classes (is-in-view, is-spanned) on the cards.
+                </div>
+              </td>
+              <td>number</td>
+              <td>100</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-tab>
+      <mat-tab label="Events">
+        <div class="border border-default rounded-xl shadow-sm overflow-hidden my-6">
+          <table class="emr-table not-mat-typography">
+            <thead>
+            <tr class="bg-neutral-200 dark:bg-neutral-700">
+              <th class="w-1/3">Event</th>
+              <th>Description</th>
+              <th class="w-1/3">Output type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>indexChange</td>
+              <td>An event that fires and emits the 0-based index of the card that has become active (closest to the center).</td>
+              <td>number</td>
+            </tr>
+          </table>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
 
     <p>
       Properties for the <code class="code">emrCarouselNext</code> component.
@@ -93,7 +176,7 @@
         <tr>
           <td>
             <div>carousel</div>
-            <div class="text-xs text-neutral-500 mt-0.5">Сarousel instance if the control is external</div>
+            <div class="text-xs text-neutral-600 mt-0.5">Сarousel instance if the control is external</div>
           </td>
           <td>CarouselComponent</td>
           <td>&ndash;</td>
@@ -119,7 +202,7 @@
         <tr>
           <td>
             <div>carousel</div>
-            <div class="text-xs text-neutral-500 mt-0.5">Сarousel instance if the control is external</div>
+            <div class="text-xs text-neutral-600 mt-0.5">Сarousel instance if the control is external</div>
           </td>
           <td>CarouselComponent</td>
           <td>&ndash;</td>

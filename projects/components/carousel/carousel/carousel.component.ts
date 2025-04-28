@@ -2,7 +2,8 @@ import {
   booleanAttribute,
   Component,
   contentChildren,
-  ElementRef, input, signal,
+  ElementRef, input,
+  output, signal,
   viewChild
 } from '@angular/core';
 import { CAROUSEL, CAROUSEL_CARD, CarouselApiInterface, CarouselCardInterface } from '../types';
@@ -31,23 +32,38 @@ import { DraggableCarouselDirective } from '../draggable-carousel.directive';
 export class CarouselComponent {
   private _content = viewChild.required<ElementRef>('content');
   private _cards = contentChildren<CarouselCardInterface>(CAROUSEL_CARD);
-  private _index = signal(0);
 
   fade = input(false, {
     transform: booleanAttribute
   });
+  snapToCenter = input<boolean>(true);
+  snapDebounceTime = input<number>(50);
+  snapDuration = input<number>(300);
+  resistanceFactor = input<number>(0.5);
+  velocityThreshold = input<number>(0.5);
+  visibilityDebounceTime = input<number>(100);
+
+  readonly indexChange = output<number>();
+
+  protected _index = signal(0);
 
   get api(): CarouselApiInterface {
     return {
       isNextDisabled: () => this._isNextDisabled,
       isPreviousDisabled: () => this._isPreviousDisabled,
       previous: () => this._previous(),
-      next: () => this._next()
+      next: () => this._next(),
+      selectedIndex: () => this._index()
     }
   }
 
-  protected onCarouselIndexChanged(index: number): void {
+  protected onIndexChanged(index: number): void {
+    if (this._index() === index) {
+      return;
+    }
+
     this._index.set(index);
+    this.indexChange.emit(index);
   }
 
   private _previous(): void {
@@ -81,6 +97,7 @@ export class CarouselComponent {
 
   private _scrollToCard(notVisibleCard: CarouselCardInterface): void {
     this._index.set(this._cards().findIndex(card => card === notVisibleCard));
+    this.indexChange.emit(this._index());
     notVisibleCard.element.scrollIntoView({
       block: 'nearest',
       behavior: 'smooth',

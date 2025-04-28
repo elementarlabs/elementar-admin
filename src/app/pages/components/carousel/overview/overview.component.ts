@@ -9,6 +9,7 @@ import { PageContentDirective } from '@meta/page/page-content.directive';
 import {
   CarouselFadeEffectExampleComponent
 } from '../_examples/carousel-fade-effect-example/carousel-fade-effect-example.component';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   imports: [
@@ -17,7 +18,9 @@ import {
     CarouselControlsCustomPositionExampleComponent,
     PageComponent,
     PageContentDirective,
-    CarouselFadeEffectExampleComponent
+    CarouselFadeEffectExampleComponent,
+    MatTab,
+    MatTabGroup
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
