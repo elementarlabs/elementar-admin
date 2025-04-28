@@ -38,22 +38,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              {
-                "input": "src/styles/rose-red.scss",
-                "inject": false,
-                "bundleName": "rose-red"
-              },
-              {
-                "input": "src/styles/magenta-violet.scss",
-                "inject": false,
-                "bundleName": "magenta-violet"
-              },
-              {
-                "input": "src/styles/cyan-orange.scss",
-                "inject": false,
-                "bundleName": "cyan-orange"
-              }
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",

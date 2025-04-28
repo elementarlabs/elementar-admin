@@ -9,11 +9,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard'
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+        redirectTo: 'overview'
       },
       {
         path: 'customization',
@@ -324,40 +320,8 @@ const routes: Routes = [
         loadChildren: () => import('./navigation/rail-nav/rail-nav.module').then(m => m.RailNavModule)
       },
       {
-        path: 'user-profile',
-        loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
-      },
-      {
-        path: 'account/notifications',
-        loadComponent: () => import('./account/notifications/notifications.component').then(m => m.NotificationsComponent)
-      },
-      {
-        path: 'account/settings',
-        loadChildren: () => import('./account/settings/settings.module').then(m => m.SettingsModule)
-      },
-      {
-        path: 'store',
-        loadChildren: () => import('./store/store.module').then(m => m.StoreModule)
-      },
-      {
-        path: 'pricing',
-        loadChildren: () => import('./pricing/pricing.module').then(m => m.PricingModule)
-      },
-      {
-        path: 'applications',
-        loadChildren: () => import('./applications/applications.module').then(m => m.ApplicationsModule)
-      },
-      {
         path: 'micro-charts',
         loadChildren: () => import('./micro-charts/micro-charts.module').then(m => m.MicroChartsModule)
-      },
-      {
-        path: 'content',
-        loadChildren: () => import('./content/content.module').then(m => m.ContentModule)
-      },
-      {
-        path: 'service-pages',
-        loadChildren: () => import('./service-pages/service-pages.module').then(m => m.ServicePagesModule)
       }
     ]
   }

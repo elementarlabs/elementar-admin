@@ -1,38 +1,55 @@
-import { afterNextRender, Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { ScreenLoaderComponent } from '@app/screen-loader/screen-loader.component';
-import { isPlatformBrowser } from '@angular/common';
+import { afterNextRender, Component, inject, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { PageLoadingBarComponent } from '@elementar-ui/components/page-loading-bar';
 import {
   AnalyticsService, EnvironmentService,
-  InactivityTrackerService,
-  ScreenLoaderService, SeoService,
+  SeoService, SoundEffectDirective,
   ThemeManagerService
 } from '@elementar-ui/components/core';
+import { AnnouncementGlobalComponent } from '@elementar-ui/components/announcement';
+import { IncidentsContainerComponent } from '@elementar-ui/components/incidents';
+import {
+  LayoutBodyComponent,
+  LayoutComponent,
+  LayoutSidebarComponent, LayoutTopbarComponent
+} from '@elementar-ui/components/layout';
+import { SidebarComponent } from '@app/sidebar/sidebar.component';
+import { MatAnchor, MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
+import { LogoComponent } from '@elementar-ui/components/logo';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    ScreenLoaderComponent,
-    PageLoadingBarComponent
+    PageLoadingBarComponent,
+    AnnouncementGlobalComponent,
+    IncidentsContainerComponent,
+    LayoutBodyComponent,
+    LayoutComponent,
+    LayoutSidebarComponent,
+    LayoutTopbarComponent,
+    SidebarComponent,
+    MatIcon,
+    MatAnchor,
+    SoundEffectDirective,
+    MatTooltip,
+    RouterLinkActive,
+    RouterLink,
+    MatIconButton,
+    LogoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  private _themeManager = inject(ThemeManagerService);
-  private _screenLoader = inject(ScreenLoaderService);
+  protected _themeManager = inject(ThemeManagerService);
   private _analyticsService = inject(AnalyticsService);
-  private _inactivityTracker = inject(InactivityTrackerService);
   private _seoService = inject(SeoService);
   private _envService = inject(EnvironmentService);
-  private _platformId = inject(PLATFORM_ID);
   private _router = inject(Router);
-
-  loadingText = signal('Application Loading');
-  pageLoaded = signal(false);
 
   constructor() {
     afterNextRender(() => {
@@ -46,32 +63,15 @@ export class AppComponent implements OnInit {
             top: 0,
             left: 0
           });
-          setTimeout(() => {
-            this._screenLoader.hide();
-            this.pageLoaded.set(true);
-          }, 3000);
         })
       ;
 
       this._analyticsService.trackPageViews();
-      this._inactivityTracker.setupInactivityTimer()
-        .subscribe(() => {
-          // console.log('Inactive mode has been activated!');
-          // this._inactivityTracker.reset();
-        })
-      ;
     });
   }
 
   ngOnInit(): void {
     this._themeManager.setColorScheme(this._themeManager.getPreferredColorScheme());
-
-    if (isPlatformBrowser(this._platformId)) {
-      setTimeout(() => {
-        this.loadingText.set('Initializing Modules');
-      }, 1500);
-    }
-
     this._seoService.trackCanonicalChanges(this._envService.getValue('siteUrl'));
   }
 }
