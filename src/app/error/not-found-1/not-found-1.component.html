@@ -1,0 +1,26 @@
+<div class="h-screen flex flex-col">
+  <header class="z-1 absolute top-6 start-7">
+    <a routerLink="/" emr-logo>ELEMENTAR</a>
+  </header>
+  <main class="md:container mx-auto ps-10 lg:ps-36 flex-grow flex items-center grow flex h-full
+               flex-col md:flex-row items-center justify-between w-full">
+    <div class="h-full flex flex-col justify-center w-[400px] flex-none">
+      <p class="text-sm mb-2 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-100">404 Error</p>
+      <h1 class="text-6xl font-extrabold mb-5 -ms-1 text-tertiary-500 whitespace-nowrap">
+        Oh, no!
+      </h1>
+      <p class="text-xl mb-2.5">This page does not exist.</p>
+      <p class="text-neutral-500 mb-8">Sometimes even the most intelligent of us slip up...</p>
+      <button mat-stroked-button routerLink="/" class="w-max">
+        <mat-icon>arrow_back</mat-icon>
+        Go Back
+      </button>
+    </div>
+    <div class="relative w-[75vw] text-right hidden md:block">
+      <img src="assets/error/404/6.svg" alt="" class="h-full relative -end-10">
+    </div>
+  </main>
+  <footer class="px-14 flex items-center justify-center min-h-14 flex-none border-t border-t-default text-neutral-600 text-sm">
+    Copyright ©2025 ElementarLabs, Inc.
+  </footer>
+</div>

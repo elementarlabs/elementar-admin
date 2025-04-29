@@ -1,0 +1,45 @@
+@reference 'tailwindcss';
+
+:host {
+  display: block;
+  height: 100%;
+  position: relative;
+  min-width: var(--emr-layout-sidebar-compact-width);
+
+  emr-sidebar {
+    --emr-sidebar-bg: var(--sys-surface-container-low);
+    border-inline-end: 1px solid var(--sys-surface-container-highest);
+  }
+
+  emr-sidebar-nav {
+    --emr-sidebar-nav-item-hover-bg: var(--color-neutral-300);
+    --emr-sidebar-nav-group-toggle-active-bg: var(--color-neutral-300);
+    --emr-sidebar-nav-nested-item-hover-bg: var(--color-neutral-300);
+    --emr-sidebar-nav-group-tree-lines-color: var(--color-neutral-300);
+  }
+
+  .sidebar-toggle {
+    margin-inline-end: calc(--spacing(2) * -1);
+  }
+
+  &.compact {
+    .sidebar-toggle {
+      display: none;
+    }
+
+    &:hover {
+      .sidebar-toggle {
+        display: block;
+      }
+    }
+  }
+}
+
+:host-context(html.dark) {
+  emr-sidebar-nav {
+    --emr-sidebar-nav-item-hover-bg: var(--color-neutral-800);
+    --emr-sidebar-nav-group-toggle-active-bg: var(--color-neutral-800);
+    --emr-sidebar-nav-nested-item-hover-bg: var(--color-neutral-800);
+    --emr-sidebar-nav-group-tree-lines-color: var(--color-neutral-700);
+  }
+}

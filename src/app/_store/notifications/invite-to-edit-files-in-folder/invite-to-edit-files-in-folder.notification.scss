@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  padding: var(--emr-notification-padding);
+  gap: var(--emr-notification-gap);
+
+  .action-icon {
+    height: 16px !important;
+    width: 11px !important;
+    font-size: var(--text-xs) !important;
+    line-height: 1.25;
+  }
+
+  .icon {
+    --mat-icon-color: var(--color-primary);
+  }
+}
