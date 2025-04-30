@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "elementar-basic": {
+    "elementar-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/elementar-basic",
+            "outputPath": "dist/elementar-admin",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "elementar-basic:build:production"
+              "buildTarget": "elementar-admin:build:production"
             },
             "development": {
-              "buildTarget": "elementar-basic:build:development"
+              "buildTarget": "elementar-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
