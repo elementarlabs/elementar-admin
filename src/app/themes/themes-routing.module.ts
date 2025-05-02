@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'prebuilt-themes',
-    loadComponent: () => import('./overview/overview.component').then(c => c.OverviewComponent)
+    loadComponent: () => import('./overview/overview.component').then(c => c.OverviewComponent),
+    title: 'Prebuilt Themes'
   }
 ];
 

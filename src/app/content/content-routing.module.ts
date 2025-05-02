@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'posts/list',
-    loadComponent: () => import('./post-list/post-list.component').then(c => c.PostListComponent)
+    loadComponent: () => import('./post-list/post-list.component').then(c => c.PostListComponent),
+    title: 'Post List'
   }
 ];
 

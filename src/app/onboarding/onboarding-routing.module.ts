@@ -5,6 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./onboarding/onboarding.component').then(c => c.OnboardingComponent),
+    title: 'Onboarding'
   }
 ];
 
