@@ -9,16 +9,6 @@ import {
   ScreenLoaderService, SeoService,
   ThemeManagerService
 } from '@elementar-ui/components/core';
-import { AnnouncementGlobalComponent } from '@elementar-ui/components/announcement';
-import { IncidentsContainerComponent } from '@elementar-ui/components/incidents';
-import {
-  LayoutBodyComponent,
-  LayoutComponent,
-  LayoutHeaderComponent,
-  LayoutSidebarComponent, LayoutTopbarComponent
-} from '@elementar-ui/components/layout';
-import { HeaderComponent } from './_app/header/header.component';
-import { SidebarComponent } from './_app/sidebar/sidebar.component';
 import { ScreenLoaderComponent } from './_app/screen-loader/screen-loader.component';
 
 @Component({
@@ -27,15 +17,6 @@ import { ScreenLoaderComponent } from './_app/screen-loader/screen-loader.compon
     RouterOutlet,
     ScreenLoaderComponent,
     PageLoadingBarComponent,
-    AnnouncementGlobalComponent,
-    IncidentsContainerComponent,
-    LayoutBodyComponent,
-    LayoutComponent,
-    LayoutHeaderComponent,
-    LayoutSidebarComponent,
-    LayoutTopbarComponent,
-    HeaderComponent,
-    SidebarComponent,
     ScreenLoaderComponent
   ],
   templateUrl: './app.component.html',

@@ -24,8 +24,8 @@
       </div>
     </div>
   </emr-panel-header>
-  <emr-panel-body>
-    <emr-kanban-board [columns]="columns">
+  <emr-panel-body class="relative">
+    <emr-kanban-board [columns]="columns" class="absolute inset-0">
       <ng-template emrKanbanItemDef let-item let-column>
         <div class="font-medium text-sm">{{ item.name }}</div>
         <div class="flex items-center justify-between mt-3.5">

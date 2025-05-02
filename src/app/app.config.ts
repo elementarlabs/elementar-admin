@@ -7,8 +7,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { PageTitleStrategyService } from '@elementar-ui/components/core';
+import { ENVIRONMENT, PageTitleStrategyService } from '@elementar-ui/components/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideNativeDateAdapter(),
+    {
+      provide: ENVIRONMENT,
+      useValue: environment
+    },
     {
       provide: TitleStrategy,
       useClass: PageTitleStrategyService

@@ -2,20 +2,4 @@
   <emr-page-loading-bar fixed/>
 }
 <app-screen-loader [loadingText]="loadingText()"/>
-<emr-layout layoutId="root" windowMode>
-  <emr-layout-topbar>
-    <emr-announcement-global/>
-    <emr-incidents-global/>
-  </emr-layout-topbar>
-  <emr-layout-sidebar>
-    <app-sidebar/>
-  </emr-layout-sidebar>
-  <emr-layout>
-    <emr-layout-header>
-      <app-header/>
-    </emr-layout-header>
-    <emr-layout-body>
-      <router-outlet/>
-    </emr-layout-body>
-  </emr-layout>
-</emr-layout>
+<router-outlet/>
