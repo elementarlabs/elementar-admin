@@ -32,7 +32,22 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/themes/rose-red.scss",
+                "inject": false,
+                "bundleName": "rose-red"
+              },
+              {
+                "input": "src/themes/magenta-violet.scss",
+                "inject": false,
+                "bundleName": "magenta-violet"
+              },
+              {
+                "input": "src/themes/cyan-orange.scss",
+                "inject": false,
+                "bundleName": "cyan-orange"
+              }
             ],
             "scripts": []
           },

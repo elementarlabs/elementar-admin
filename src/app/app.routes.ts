@@ -55,6 +55,10 @@ export const routes: Routes = [
     loadChildren: () => import('./service-pages/service-pages.module').then(m => m.ServicePagesModule)
   },
   {
+    path: 'themes',
+    loadChildren: () => import('./themes/themes.module').then(m => m.ThemesModule)
+  },
+  {
     path: '**',
     title: 'Page Not Found',
     loadComponent: () => import('./error/not-found/not-found.component').then(c => c.NotFoundComponent)

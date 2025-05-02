@@ -114,7 +114,7 @@ export class SidebarComponent implements OnInit {
           key: uuid(),
           type: 'link',
           name: 'Prebuilt Themes',
-          link: '/customization/themes'
+          link: '/themes/prebuilt-themes'
         }
       ]
     },
