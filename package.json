@@ -23,7 +23,7 @@
     "@angular/router": "^19.2.9",
     "@dicebear/collection": "^9.2.2",
     "@dicebear/core": "^9.2.2",
-    "@elementar-ui/components": "^0.2.41",
+    "@elementar-ui/components": "^0.2.43",
     "@iconify-json/circle-flags": "^1.2.4",
     "@iconify-json/ph": "^1.2.2",
     "@ngrx/signals": "^19.0.0",
