@@ -1,0 +1,13 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  overflow: hidden;
+
+  --emr-screen-loader-animation-duration: 0.5s;
+
+  &.hide {
+    opacity: 0;
+    transition: opacity var(--emr-screen-loader-animation-duration) ease-in-out;
+  }
+}
