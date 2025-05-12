@@ -7,8 +7,9 @@
   min-width: var(--emr-layout-sidebar-compact-width);
 
   emr-sidebar {
-    --emr-sidebar-bg: var(--sys-surface-container-low);
-    border-inline-end: 1px solid var(--sys-surface-container-highest);
+    --emr-sidebar-bg: var(--color-surface-container-low);
+    border-radius: 0 theme(--radius-2xl) theme(--radius-2xl) 0;
+    box-shadow: theme(--shadow-sm);
   }
 
   emr-sidebar-nav {
