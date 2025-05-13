@@ -101,7 +101,7 @@ export class ExploreComponent {
       title: 'Blog articles',
       viewMore: {
         name: 'Browse all',
-        link: '/pages/content/posts/list',
+        link: '/content/posts/list',
       }
     },
     {
