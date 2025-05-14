@@ -11,6 +11,9 @@
       <button mat-icon-button [matMenuTriggerFor]="appsMenu" matTooltip="Applications">
         <mat-icon>apps</mat-icon>
       </button>
+      <button mat-icon-button (click)="chatDrawer.open()">
+        <mat-icon>chat</mat-icon>
+      </button>
       <button mat-icon-button matTooltip="Notifications"
               [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
         <mat-icon matBadge="1">notifications</mat-icon>
@@ -164,3 +167,7 @@
     <span>Logout</span>
   </a>
 </mat-menu>
+
+<emr-drawer #chatDrawer="emrDrawer">
+  <app-chat (closed)="chatDrawer.close()"/>
+</emr-drawer>

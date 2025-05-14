@@ -1,0 +1,172 @@
+@reference 'tailwindcss';
+
+:host {
+  min-height: 100%;
+  width: 420px;
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-messages {
+    flex-grow: 1;
+    padding: --spacing(4);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(5);
+  }
+
+  .message-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    &.my-message-row {
+      justify-content: flex-end;
+    }
+  }
+
+  .message-content {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .my-message .message-meta {
+    align-self: flex-end;
+  }
+
+  .other-message .message-meta {
+    align-self: flex-start;
+  }
+
+  .message-bubble {
+    padding: --spacing(2) --spacing(3);
+    border-radius: theme(--radius-xl);
+    word-break: break-word;
+
+    &.my-bubble {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      border-bottom-right-radius: 0;
+    }
+    &.other-bubble {
+      background-color: var(--color-surface-container);
+      color: var(--color-on-surface-container);
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .message-meta {
+    margin-top: 0.25rem;
+    font-size: theme(--text-xs);
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+
+    .status-icon {
+      margin-left: 0.25rem;
+      font-size: theme(--text-xl);
+      display: inline-flex;
+      align-items: center;
+      justify-items: center;
+
+      &.status-read {
+        color: #60a5fa;
+      }
+
+      &.status-sent {
+        color: #9ca3af;
+      }
+    }
+  }
+
+  .join-request-banner {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .details {
+        .user-name {
+          font-weight: 600;
+          color: #1f2937;
+          margin-right: 0.25rem;
+        }
+        color: #4b5563;
+        .sub-details {
+          font-size: 0.75rem;
+          color: #6b7280;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem; // space-x-2
+      button { // Стилизуем непосредственно кнопки внутри actions
+        font-size: 0.875rem; // text-sm
+        font-weight: 500; // font-medium
+      }
+      .accept-button { // Конкретно для кнопки Accept
+        background-color: black;
+        color: white;
+        &:hover {
+          background-color: #1f2937; // hover:bg-gray-800
+        }
+      }
+    }
+  }
+
+  .message-input-field {
+    ::ng-deep .mat-form-field-underline {
+      display: none;
+    }
+
+    ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+
+    ::ng-deep .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    ::ng-deep .mat-form-field-outline {
+      border-radius: 0.5rem !important; // rounded-lg
+    }
+    ::ng-deep .mat-form-field-outline-start,
+    ::ng-deep .mat-form-field-outline-end,
+    ::ng-deep .mat-form-field-outline-gap {
+      border-color: #d1d5db !important; // border-gray-300
+    }
+    &.mat-focused ::ng-deep .mat-form-field-outline-thick { // Стиль для фокуса
+      border-color: #3b82f6 !important; // focus:ring-blue-500
+      border-width: 2px !important;
+    }
+    input.mat-input-element {
+      padding: 0.5rem 0.75rem !important; // p-3 (с учетом внутренних паддингов material)
+    }
+  }
+
+  .attach-button {
+    color: #6b7280; // text-gray-500
+    &:hover {
+      color: #3b82f6; // hover:text-blue-500
+    }
+  }
+
+  // Общие стили для кнопок Material, если они используются внутри хоста
+  button.mat-stroked-button { // Для Decline кнопки в баннере
+    border-color: #d1d5db; // border-gray-300
+    color: #374151; // text-gray-700
+    &:hover {
+      background-color: #f3f4f6; // hover:bg-gray-100
+    }
+  }
+}

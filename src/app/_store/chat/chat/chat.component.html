@@ -1,0 +1,91 @@
+<emr-panel>
+  <emr-panel-header>
+    <div class="h-full flex items-center gap-3 justify-between ps-5 pe-2">
+      <div class="font-bold">Chat</div>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+  </emr-panel-header>
+  <emr-panel-body class="relative">
+    <div #messagesContainerRef class="absolute inset-0 chat-messages overflow-y-auto">
+      @for (message of messages(); track message.id) {
+        <div class="message-row" [ngClass]="{'my-message-row': message.sender === 'me', 'other-message-row': message.sender === 'other'}">
+          @if (message.sender === 'other') {
+            <div class="avatar-container">
+              <emr-dicebear [key]="message.senderName"
+                            [src]="message.avatar"
+                            [presenceIndicator]="message.isOnline ? 'online' : 'offline'"
+                            [alt]="message.senderName + ' Avatar'" class="avatar"/>
+            </div>
+          }
+
+          <div class="message-content" [ngClass]="{'my-message': message.sender === 'me', 'other-message': message.sender === 'other'}">
+            <div class="message-bubble" [ngClass]="{'my-bubble': message.sender === 'me', 'other-bubble': message.sender === 'other'}">
+              {{ message.text }}
+            </div>
+            <div class="message-meta">
+              <span class="time">{{ message.time }}</span>
+              @if (message.sender === 'me' && message.status) {
+                <mat-icon
+                  class="status-icon"
+                  [ngClass]="{'status-read': message.status === 'read', 'status-sent': message.status === 'sent' || message.status === 'delivered'}">
+                  @if (message.status === 'read') {
+                    done_all
+                  } @else {
+                    done
+                  }
+                </mat-icon>
+              }
+            </div>
+          </div>
+
+          @if (message.sender === 'me') {
+            <emr-dicebear [key]="currentUser().name"
+                          [src]="currentUser().avatar"
+                          [alt]="currentUser().name + ' Avatar'" class="avatar"/>
+          }
+        </div>
+      } @empty {
+        <p class="empty-chat">No messages yet. Start the conversation!</p>
+      }
+    </div>
+  </emr-panel-body>
+  <emr-panel-footer class="h-38">
+    <mat-divider></mat-divider>
+    <div class="join-request-banner">
+      <div class="user-info">
+        <emr-dicebear [key]="joinRequestUser().name"
+                      [presenceIndicator]="joinRequestUser().isOnline ? 'online' : 'offline'"
+                      [alt]="joinRequestUser().name + ' Avatar'" class="avatar size-10"/>
+
+        <div class="details">
+          <div>
+            <span class="user-name">{{ joinRequestUser().name }}</span>
+            <span>wants to join chat</span>
+          </div>
+          <div class="sub-details">{{ joinRequestUser().timeAgo }} • {{ joinRequestUser().team }}</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button mat-stroked-button (click)="declineJoinRequest()">Decline</button>
+        <button mat-flat-button class="accept-button" (click)="acceptJoinRequest()">Accept</button>
+      </div>
+    </div>
+    <mat-divider/>
+    <div class="flex items-center gap-3 message-input-area px-5 py-3">
+      <emr-dicebear [key]="currentUser().name"
+                    [src]="currentUser().avatar"
+                    [alt]="currentUser().name + ' Avatar'"
+                    class="avatar size-10"/>
+      <mat-form-field appearance="outline" class="message-input-field flex-grow">
+        <input matInput placeholder="Write a message..." [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <button mat-icon-button aria-label="Attach file" class="attach-button me-1" matSuffix>
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-flat-button (click)="sendMessage()">Send</button>
+    </div>
+  </emr-panel-footer>
+</emr-panel>

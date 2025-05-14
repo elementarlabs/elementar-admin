@@ -11,6 +11,8 @@ import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/compone
 import { PopoverTriggerForDirective } from '@elementar-ui/components/popover';
 import { LayoutApiService } from '@elementar-ui/components/layout';
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '../../_store/header';
+import { DrawerComponent } from '@elementar-ui/components/drawer';
+import { ChatComponent } from '../../_store/chat/chat/chat.component';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +32,9 @@ import { AssistantSearchComponent, NotificationsPopoverComponent } from '../../_
     MatAnchor,
     SoundEffectDirective,
     NotificationsPopoverComponent,
-    PopoverTriggerForDirective
+    PopoverTriggerForDirective,
+    DrawerComponent,
+    ChatComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
