@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   imports: [
@@ -16,7 +17,8 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     RouterLink,
     ReactiveFormsModule,
     HorizontalDividerComponent,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'

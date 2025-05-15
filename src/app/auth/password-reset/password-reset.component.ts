@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { PinInputComponent } from '@elementar-ui/components/pin-input';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-password-reset',
@@ -15,7 +16,8 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     ReactiveFormsModule,
     MatIcon,
     PinInputComponent,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage
   ],
   templateUrl: './password-reset.component.html',
   styleUrl: './password-reset.component.scss'

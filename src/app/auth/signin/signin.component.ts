@@ -5,6 +5,8 @@ import { MatFormField, MatLabel, MatSuffix } from '@angular/material/form-field'
 import { MatInput } from '@angular/material/input';
 import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +18,9 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     MatInput,
     MatSuffix,
     HorizontalDividerComponent,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage,
+    ReactiveFormsModule
   ],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'

@@ -8,6 +8,7 @@ import { HorizontalDividerComponent } from '@elementar-ui/components/divider';
 import { PhoneInputComponent, phoneValidator } from '@elementar-ui/components/phone-input';
 import { PasswordStrengthComponent } from '@elementar-ui/components/password-strength';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-create-account',
@@ -22,7 +23,8 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     HorizontalDividerComponent,
     PhoneInputComponent,
     PasswordStrengthComponent,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage
   ],
   templateUrl: './create-account.component.html',
   styleUrl: './create-account.component.scss'

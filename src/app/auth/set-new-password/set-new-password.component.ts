@@ -7,6 +7,7 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { PasswordStrengthComponent } from '@elementar-ui/components/password-strength';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-set-new-password',
@@ -20,7 +21,8 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     MatLabel,
     ReactiveFormsModule,
     PasswordStrengthComponent,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage
   ],
   templateUrl: './set-new-password.component.html',
   styleUrl: './set-new-password.component.scss'

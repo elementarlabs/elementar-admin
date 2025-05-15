@@ -6,6 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
 import { LogoComponent } from '@elementar-ui/components/logo';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-forgot-password',
@@ -17,7 +18,8 @@ import { LogoComponent } from '@elementar-ui/components/logo';
     RouterLink,
     ReactiveFormsModule,
     MatIcon,
-    LogoComponent
+    LogoComponent,
+    NgOptimizedImage
   ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss'
