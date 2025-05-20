@@ -1,7 +1,7 @@
 <app-page>
   <div appPageContent>
     <h1>Notifications</h1>
-    <div class="w-9/12">
+    <div class="w-9/12 mt-14">
       <emr-notification-list [notifications]="notifications" class="gap-5">
         <ng-template emrNotificationDef="mentionedInComment" let-notification>
           <emr-mentioned-in-comment [notification]="notification"

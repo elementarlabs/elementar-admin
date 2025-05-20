@@ -384,11 +384,7 @@ export class SidebarComponent implements OnInit {
           return true;
         }
 
-        if (navItem.type === 'group') {
-          return (this.location.path() !== '/' && this.location.path().includes(navItem.link as string));
-        }
-
-        return false;
+        return (this.location.path() !== '/' || this.location.path() !== '') && this.location.path().includes(navItem.link as string);
       }
     );
 
