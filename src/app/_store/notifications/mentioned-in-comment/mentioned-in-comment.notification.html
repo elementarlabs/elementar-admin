@@ -13,8 +13,8 @@
     <span class="font-semibold text-on-surface">{{ notification().actor.name }}</span>
     mentioned you in a comment:
     <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
-        &#64;{{ notification().notifier.username }}
+        &#64;{{ notification()['notifier'].username }}
       </span>
-    {{ notification().payload['content'] }}</div>
+    {{ notification()['payload']['content'] }}</div>
   <div class="text-xs font-medium text-on-surface-variant">{{ notification().createdAt }}</div>
 </div>

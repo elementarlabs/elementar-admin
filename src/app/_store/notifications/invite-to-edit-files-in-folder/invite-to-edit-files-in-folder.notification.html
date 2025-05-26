@@ -13,13 +13,13 @@
     <span class="font-semibold text-on-surface">{{ notification().actor.name }}</span>
     invited you to edit files in the folder
     <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
-      {{ notification().payload['folderName'] }}
+      {{ notification()['payload']['folderName'] }}
     </span>
   </div>
   <div class="mt-3">
     <div class="border border-default border-primary rounded-lg px-3 py-2 flex items-center gap-2 w-max">
       <mat-icon class="filled icon">folder</mat-icon>
-      <span class="text-xs">{{ notification().payload['folderName'] }}</span>
+      <span class="text-xs">{{ notification()['payload']['folderName'] }}</span>
     </div>
   </div>
   <div class="text-xs font-medium text-on-surface-variant mt-3">{{ notification().createdAt }}</div>
