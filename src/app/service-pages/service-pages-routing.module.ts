@@ -6,6 +6,11 @@ const routes: Routes = [
     path: 'pending-email-activation',
     loadComponent: () => import('./pending-email-activation/pending-email-activation.component').then(c => c.PendingEmailActivationComponent),
     title: 'Pending Email Activation'
+  },
+  {
+    path: 'integrations',
+    loadComponent: () => import('./integrations/integrations.component').then(c => c.IntegrationsComponent),
+    title: 'Integrations'
   }
 ];
 

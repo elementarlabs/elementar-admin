@@ -1,0 +1,41 @@
+<div class="p-10 mat-typography">
+  <div class="flex items-center justify-between mb-5">
+    <h1>Integrations</h1>
+    <div class="flex gap-4">
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select value="all">
+          <mat-option value="all">All</mat-option>
+          <mat-option value="payment">Payment</mat-option>
+          <mat-option value="payment">Mail</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="w-72">
+        <input matInput placeholder="Search...">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    @for (service of services(); track service.type) {
+      <div class="col-span-1">
+        <mat-card appearance="outlined" class="h-full">
+          <div class="flex px-5 pt-5 items-center justify-between">
+            <img [src]="service.logoUrl" alt="" class="h-7">
+            @if (service.isConfigured) {
+              <button mat-flat-button>Manage</button>
+            } @else {
+              <button mat-stroked-button (click)="service.isConfigured = true">Connect</button>
+            }
+          </div>
+          <mat-card-title class="px-5 pt-4 pb-3">{{ service.name }}</mat-card-title>
+          <mat-card-content class="text-sm">
+            <div class="px-1 text-neutral-600">
+              {{ service.description }}
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    }
+  </div>
+</div>

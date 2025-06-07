@@ -338,6 +338,12 @@ export class SidebarComponent implements OnInit {
           type: 'link',
           name: 'Pending Email Activation',
           link: '/service-pages/pending-email-activation'
+        },
+        {
+          key: uuid(),
+          type: 'link',
+          name: 'Integrations',
+          link: '/service-pages/integrations'
         }
       ]
     },
