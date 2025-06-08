@@ -1,0 +1,14 @@
+@reference 'tailwindcss';
+
+:host {
+  emr-notification-list {
+    --emr-notification-list-gap: --spacing(4);
+  }
+
+  .action-icon {
+    height: 16px !important;
+    width: 11px !important;
+    font-size: var(--text-xs) !important;
+    line-height: 1.25;
+  }
+}

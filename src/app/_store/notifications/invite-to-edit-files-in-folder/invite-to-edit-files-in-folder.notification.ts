@@ -1,13 +1,27 @@
 import { Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
-import { Notification } from '@elementar-ui/components/notifications';
+import {
+  Notification,
+  NotificationActorComponent,
+  NotificationAvatarDirective,
+  NotificationComponent,
+  NotificationContentComponent,
+  NotificationMessageComponent,
+  NotificationTimeComponent
+} from '@elementar-ui/components/notifications';
 
 @Component({
   selector: 'emr-invite-to-edit-files-in-folder',
   imports: [
     MatIcon,
-    DicebearComponent
+    DicebearComponent,
+    NotificationAvatarDirective,
+    NotificationActorComponent,
+    NotificationMessageComponent,
+    NotificationTimeComponent,
+    NotificationContentComponent,
+    NotificationComponent
   ],
   templateUrl: './invite-to-edit-files-in-folder.notification.html',
   styleUrl: './invite-to-edit-files-in-folder.notification.scss'

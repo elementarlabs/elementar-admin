@@ -4,23 +4,37 @@ import { MatAnchor, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatRipple } from '@angular/material/core';
 import { PopoverComponent } from '@elementar-ui/components/popover';
-import { NotificationDefDirective, NotificationListComponent, Notification } from '@elementar-ui/components/notifications';
-import { InviteToEditFilesInFolderNotification, MentionedInCommentNotification } from '../../notifications';
+import {
+  NotificationDefDirective,
+  NotificationListComponent,
+  Notification,
+  NotificationActorComponent,
+  NotificationAvatarDirective,
+  NotificationComponent,
+  NotificationContentComponent,
+  NotificationMessageComponent, NotificationTimeComponent
+} from '@elementar-ui/components/notifications';
+import { DicebearComponent } from '@elementar-ui/components/avatar';
 
 @Component({
   selector: 'emr-notifications-popover',
   imports: [
     PopoverComponent,
-    InviteToEditFilesInFolderNotification,
-    MentionedInCommentNotification,
     NotificationDefDirective,
     NotificationListComponent,
     RouterLink,
     MatAnchor,
     MatIcon,
     MatIconButton,
-    MatRipple
-],
+    MatRipple,
+    DicebearComponent,
+    NotificationActorComponent,
+    NotificationAvatarDirective,
+    NotificationComponent,
+    NotificationContentComponent,
+    NotificationMessageComponent,
+    NotificationTimeComponent
+  ],
   templateUrl: './notifications-popover.component.html',
   styleUrl: './notifications-popover.component.scss'
 })

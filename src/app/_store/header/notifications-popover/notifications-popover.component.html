@@ -8,14 +8,55 @@
     </div>
     <div class="h-[300px] overflow-y-auto">
       @if (notifications.length > 0) {
-        <emr-notification-list [notifications]="notifications" class="p-3 gap-3">
+        <emr-notification-list [notifications]="notifications" class="p-3">
           <ng-template emrNotificationDef="mentionedInComment" let-notification>
-            <emr-mentioned-in-comment [notification]="notification" matRipple
-                                      class="bg-surface-bright cursor-pointer hover:bg-surface-container-lowest rounded-xl shadow-sm p-4"/>
+            <emr-notification matRipple class="!bg-surface-bright !cursor-pointer hover:!bg-surface-container-lowest !rounded-xl shadow-sm">
+              <div class="relative" emrNotificationAvatar>
+                <emr-dicebear [key]="notification.actor.id"
+                              [src]="notification.actor.avatarUrl" class="size-10"/>
+                <div class="flex absolute justify-center z-10 text-white items-center right-0
+                  bottom-1 size-5 bg-green-400 rounded-full border border-default border-white ">
+                  <mat-icon class="filled action-icon">comment</mat-icon>
+                </div>
+              </div>
+              <emr-notification-message>
+                <emr-notification-actor>{{ notification.actor.name }}</emr-notification-actor>
+                mentioned you in a comment:
+                <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
+                  &#64;{{ notification['notifier'].username }}
+                </span>
+              </emr-notification-message>
+              <emr-notification-content>
+                {{ notification['payload']['content'] }}
+              </emr-notification-content>
+              <emr-notification-time>{{ notification.createdAt }}</emr-notification-time>
+            </emr-notification>
           </ng-template>
           <ng-template emrNotificationDef="inviteToEditFilesInFolder" let-notification>
-            <emr-invite-to-edit-files-in-folder [notification]="notification" matRipple
-                                                class="bg-surface-bright cursor-pointer hover:bg-surface-container-lowest rounded-xl shadow-sm p-4"/>
+            <emr-notification matRipple class="!bg-surface-bright !cursor-pointer hover:!bg-surface-container-lowest !rounded-xl shadow-sm">
+              <div class="relative" emrNotificationAvatar>
+                <emr-dicebear [key]="notification.actor.id"
+                              [src]="notification.actor.avatarUrl" class="size-10"/>
+                <div class="flex absolute justify-center z-10 text-white items-center right-0
+                  bottom-1 size-5 bg-blue-400 rounded-full border border-default border-white">
+                  <mat-icon class="filled action-icon">folder</mat-icon>
+                </div>
+              </div>
+              <emr-notification-message>
+                <emr-notification-actor>{{ notification.actor.name }}</emr-notification-actor>
+                invited you to edit files in the folder
+                <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
+                  {{ notification['payload']['folderName'] }}
+                </span>
+              </emr-notification-message>
+              <emr-notification-content>
+                <div class="border border-default border-primary rounded-lg px-3 py-2 mt-2 flex items-center gap-2 w-max">
+                  <mat-icon class="filled icon">folder</mat-icon>
+                  <span class="text-xs">{{ notification['payload']['folderName'] }}</span>
+                </div>
+              </emr-notification-content>
+              <emr-notification-time>{{ notification.createdAt }}</emr-notification-time>
+            </emr-notification>
           </ng-template>
         </emr-notification-list>
         <div class="px-4 mb-3">

@@ -1,26 +1,24 @@
-<div class="flex-shrink-0">
-  <div class="relative">
+<emr-notification>
+  <div class="relative" emrNotificationAvatar>
     <emr-dicebear [key]="notification().actor.id"
                   [src]="notification().actor.avatarUrl" class="size-10"/>
-    <div class="flex absolute justify-center z-10 text-white items-center -right-0
-                  -bottom-0 w-5 h-5 bg-blue-400 rounded-full border border-default border-white ">
+    <div class="flex absolute justify-center z-10 text-white items-center right-0
+                  bottom-2 size-5 bg-blue-400 rounded-full border border-default border-white">
       <mat-icon class="filled action-icon">folder</mat-icon>
     </div>
   </div>
-</div>
-<div class="grow">
-  <div class="text-neutral-600 font-normal text-sm mb-1.5 dark:text-neutral-450">
-    <span class="font-semibold text-on-surface">{{ notification().actor.name }}</span>
+  <emr-notification-message>
+    <emr-notification-actor>{{ notification().actor.name }}</emr-notification-actor>
     invited you to edit files in the folder
     <span class="font-medium text-primary hover:text-tertiary cursor-pointer">
       {{ notification()['payload']['folderName'] }}
     </span>
-  </div>
-  <div class="mt-3">
-    <div class="border border-default border-primary rounded-lg px-3 py-2 flex items-center gap-2 w-max">
+  </emr-notification-message>
+  <emr-notification-content>
+    <div class="border border-default border-primary rounded-lg px-3 py-2 mt-2 flex items-center gap-2 w-max">
       <mat-icon class="filled icon">folder</mat-icon>
       <span class="text-xs">{{ notification()['payload']['folderName'] }}</span>
     </div>
-  </div>
-  <div class="text-xs font-medium text-on-surface-variant mt-3">{{ notification().createdAt }}</div>
-</div>
+  </emr-notification-content>
+  <emr-notification-time>{{ notification().createdAt }}</emr-notification-time>
+</emr-notification>
