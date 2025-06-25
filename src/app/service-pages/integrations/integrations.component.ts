@@ -1,9 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, model, signal } from '@angular/core';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/autocomplete';
+import { FilterByPropertyPipe, SearchByPropertyPipe } from '@elementar-ui/components/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-integrations',
@@ -17,18 +19,26 @@ import { MatOption } from '@angular/material/autocomplete';
     MatFormField,
     MatOption,
     MatSelect,
-    MatLabel
+    MatLabel,
+    SearchByPropertyPipe,
+    FilterByPropertyPipe,
+    FormsModule,
   ],
   templateUrl: './integrations.component.html',
   styleUrl: './integrations.component.scss'
 })
 export class IntegrationsComponent {
+  categoryType = model<any>(null);
+  searchValue = signal('');
   services = signal<any[]>([
     {
       name: 'Stripe',
       logoUrl: 'assets/integrations/stripe.svg',
       description: 'Stripe makes it easy for any business to accept payments online.',
       isConfigured: false,
+      category: {
+        type: 'payment'
+      },
       type: 'stripe'
     },
     {
@@ -36,6 +46,9 @@ export class IntegrationsComponent {
       logoUrl: 'assets/integrations/resend.svg',
       description: 'A modern email API to reliably send transactional and marketing emails from your app.',
       isConfigured: false,
+      category: {
+        type: 'mail'
+      },
       type: 'resend'
     },
     {
@@ -43,6 +56,9 @@ export class IntegrationsComponent {
       logoUrl: 'assets/integrations/discord.svg',
       description: 'The all-in-one voice, video, and text chat for your communities.',
       isConfigured: false,
+      category: {
+        type: 'social'
+      },
       type: 'discord'
     },
     {
@@ -50,6 +66,9 @@ export class IntegrationsComponent {
       logoUrl: 'assets/integrations/chat-gpt.svg',
       description: 'A powerful conversational AI from OpenAI designed to understand and generate human-like text.',
       isConfigured: false,
+      category: {
+        type: 'ai'
+      },
       type: 'chat-gpt'
     },
     {
@@ -57,6 +76,9 @@ export class IntegrationsComponent {
       logoUrl: 'assets/integrations/google-analytics.svg',
       description: 'A web analytics service that tracks and reports website traffic and user engagement.',
       isConfigured: false,
+      category: {
+        type: 'analytics'
+      },
       type: 'google-analytics'
     },
     {
@@ -64,6 +86,9 @@ export class IntegrationsComponent {
       logoUrl: 'assets/integrations/github.svg',
       description: 'The leading platform for code hosting, version control, and collaboration.',
       isConfigured: false,
+      category: {
+        type: 'code'
+      },
       type: 'github'
     },
     {

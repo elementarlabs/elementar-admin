@@ -4,20 +4,21 @@
     <div class="flex gap-4">
       <mat-form-field>
         <mat-label>Category</mat-label>
-        <mat-select value="all">
-          <mat-option value="all">All</mat-option>
+        <mat-select [(ngModel)]="categoryType">
+          <mat-option value="">All</mat-option>
           <mat-option value="payment">Payment</mat-option>
-          <mat-option value="payment">Mail</mat-option>
+          <mat-option value="mail">Mail</mat-option>
+          <mat-option value="ai">AI</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="w-72">
-        <input matInput placeholder="Search...">
+      <mat-form-field class="w-92">
+        <input matInput emrDebounceTime [(ngModel)]="searchValue" placeholder="Search...">
       </mat-form-field>
     </div>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-    @for (service of services(); track service.type) {
+    @for (service of services() | searchByProperty:'name':searchValue() | filterByProperty:'category.type':categoryType(); track service.type) {
       <div class="col-span-1">
         <mat-card appearance="outlined" class="h-full">
           <div class="flex px-5 pt-5 items-center justify-between">
