@@ -13,7 +13,7 @@
             <emr-notification matRipple class="!bg-surface-bright !cursor-pointer hover:!bg-surface-container-lowest !rounded-xl shadow-sm">
               <div class="relative" emrNotificationAvatar>
                 <emr-dicebear [key]="notification.actor.id"
-                              [src]="notification.actor.avatarUrl" class="size-10"/>
+                              [image]="notification.actor.avatarUrl" class="size-10"/>
                 <div class="flex absolute justify-center z-10 text-white items-center right-0
                   bottom-1 size-5 bg-green-400 rounded-full border border-default border-white ">
                   <mat-icon class="filled action-icon">comment</mat-icon>
@@ -36,7 +36,7 @@
             <emr-notification matRipple class="!bg-surface-bright !cursor-pointer hover:!bg-surface-container-lowest !rounded-xl shadow-sm">
               <div class="relative" emrNotificationAvatar>
                 <emr-dicebear [key]="notification.actor.id"
-                              [src]="notification.actor.avatarUrl" class="size-10"/>
+                              [image]="notification.actor.avatarUrl" class="size-10"/>
                 <div class="flex absolute justify-center z-10 text-white items-center right-0
                   bottom-1 size-5 bg-blue-400 rounded-full border border-default border-white">
                   <mat-icon class="filled action-icon">folder</mat-icon>

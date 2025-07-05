@@ -15,7 +15,7 @@
           @if (message.sender === 'other') {
             <div class="avatar-container">
               <emr-dicebear [key]="message.senderName"
-                            [src]="message.avatar"
+                            [image]="message.avatar"
                             [presenceIndicator]="message.isOnline ? 'online' : 'offline'"
                             [alt]="message.senderName + ' Avatar'" class="avatar"/>
             </div>
@@ -43,7 +43,7 @@
 
           @if (message.sender === 'me') {
             <emr-dicebear [key]="currentUser().name"
-                          [src]="currentUser().avatar"
+                          [image]="currentUser().avatar"
                           [alt]="currentUser().name + ' Avatar'" class="avatar"/>
           }
         </div>
@@ -76,7 +76,7 @@
     <mat-divider/>
     <div class="flex items-center gap-3 message-input-area px-5 py-3">
       <emr-dicebear [key]="currentUser().name"
-                    [src]="currentUser().avatar"
+                    [image]="currentUser().avatar"
                     [alt]="currentUser().name + ' Avatar'"
                     class="avatar size-10"/>
       <mat-form-field appearance="outline" class="message-input-field flex-grow">
