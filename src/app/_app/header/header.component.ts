@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatAnchor, MatButton, MatIconButton } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
@@ -7,12 +7,17 @@ import { MatDivider } from '@angular/material/divider';
 import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { DicebearComponent } from '@elementar-ui/components/avatar';
-import { SoundEffectDirective, ThemeManagerService } from '@elementar-ui/components/core';
+import { SoundEffectDirective } from '@elementar-ui/components/core';
 import { PopoverTriggerForDirective } from '@elementar-ui/components/popover';
 import { LayoutApiService } from '@elementar-ui/components/layout';
 import { AssistantSearchComponent, NotificationsPopoverComponent } from '../../_store/header';
 import { DrawerComponent } from '@elementar-ui/components/drawer';
 import { ChatComponent } from '../../_store/chat/chat/chat.component';
+import {
+  ColorSchemeDarkDirective,
+  ColorSchemeLightDirective,
+  ColorSchemeSwitcherComponent
+} from '@elementar-ui/components/color-scheme';
 
 @Component({
   selector: 'app-header',
@@ -34,7 +39,10 @@ import { ChatComponent } from '../../_store/chat/chat/chat.component';
     NotificationsPopoverComponent,
     PopoverTriggerForDirective,
     DrawerComponent,
-    ChatComponent
+    ChatComponent,
+    ColorSchemeDarkDirective,
+    ColorSchemeLightDirective,
+    ColorSchemeSwitcherComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -43,7 +51,6 @@ import { ChatComponent } from '../../_store/chat/chat/chat.component';
   }
 })
 export class HeaderComponent {
-  protected _themeManager = inject(ThemeManagerService);
   private _layoutApi = inject(LayoutApiService);
 
   sidebarShown= computed(() => {

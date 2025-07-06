@@ -18,14 +18,10 @@
               [emrPopoverTriggerFor]="notificationsPopover" position="below-end">
         <mat-icon matBadge="1">notifications</mat-icon>
       </button>
-      <button mat-icon-button (click)="_themeManager.toggleColorScheme()" matTooltip="Color Theme"
-              emrSoundEffect soundSrc="/assets/sound-effects/mouse-click.ogg">
-        @if (_themeManager.getColorScheme() === 'light') {
-          <mat-icon>light_mode</mat-icon>
-        } @else if (_themeManager.getColorScheme() === 'dark') {
-          <mat-icon>dark_mode</mat-icon>
-        }
-      </button>
+      <emr-color-scheme-switcher matTooltip="Color Theme" emrSoundEffect>
+        <mat-icon *emrColorSchemeLight>light_mode</mat-icon>
+        <mat-icon *emrColorSchemeDark>dark_mode</mat-icon>
+      </emr-color-scheme-switcher>
       <emr-dicebear key="PS"
                     [clickable]="true"
                     [matMenuTriggerFor]="accountMenu"
